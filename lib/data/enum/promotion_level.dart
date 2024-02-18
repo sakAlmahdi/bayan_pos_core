@@ -1,0 +1,1 @@
+enum PrmootionLevel { order, product }
