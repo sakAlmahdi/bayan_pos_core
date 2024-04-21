@@ -19,7 +19,7 @@ class PaymentMethod {
   bool? autoOpenCashDrawer;
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   PaymentMethods get getPaymentType => convetStringToPaymentMethod(paymentType);
 
   PaymentMethod({

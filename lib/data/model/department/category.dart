@@ -13,7 +13,7 @@ class Category {
   int? displayOrder;
   String? imageUrl;
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   // List<Products>? products;
   Category({
     this.id,

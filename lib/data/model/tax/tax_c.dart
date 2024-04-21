@@ -2,29 +2,18 @@ import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/export.dart';
 import 'package:objectbox/objectbox.dart';
 
-//  {
-//        "id": "string",
-//        "name": "string",
-//        "fName": "string",
-//        "tax_Code": "string",
-//        "tax_Account": "string",
-//        "tax_Percentage": 0,
-//        "is_TaxExempt": true,
-//        "customer_Taxable": true,
-//        "zero_Tax": true
-//     }
-
 @Entity()
 class TaxC {
   @Id()
   int? idSeq;
   String? taxName;
+  String? name;
+  String? fName;
   @Unique(onConflict: ConflictStrategy.replace)
   String? id;
   double? taxPercentage;
   bool? customerTaxable;
   List<int>? orderTypes;
-
   String? taxCode;
   String? taxAccount;
   bool? isTaxExempt;
@@ -33,8 +22,14 @@ class TaxC {
   /// TODO :: add except Customers api
   List<String>? exceptCustomers;
 
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
+
+  final periods = ToMany<TaxPeriod>();
+
   TaxC({
     this.id,
+    this.name,
+    this.fName,
     this.taxName,
     this.taxPercentage,
     this.orderTypes,
@@ -55,6 +50,8 @@ class TaxC {
     id = json['id'];
     customerTaxable = json['customer_Taxable'];
     taxName = json['taxName'];
+    name = json['name'];
+    fName = json['fName'];
     taxPercentage = double.tryParse(json['tax_Percentage'].toString());
 
     if (json['orderTypes'] != null) {
@@ -69,6 +66,11 @@ class TaxC {
         exceptCustomers!.add(v);
       });
     }
+    if (json['periods'] != null) {
+      json['periods'].forEach((v) {
+        periods.add(TaxPeriod.fromJson(v));
+      });
+    }
     taxCode = json['tax_Code'];
     taxAccount = json['tax_Account'];
     isTaxExempt = json['is_TaxExempt'];
@@ -81,6 +83,8 @@ class TaxC {
     data['taxName'] = taxName;
     data['customer_Taxable'] = customerTaxable;
     data['tax_Percentage'] = taxPercentage;
+    data['name'] = name;
+    data['fName'] = fName;
     if (orderTypes != null) {
       data['orderTypes'] = orderTypes!.map((v) => v).toList();
     }
@@ -91,6 +95,7 @@ class TaxC {
     data['tax_Account'] = taxAccount;
     data['is_TaxExempt'] = isTaxExempt;
     data['zero_Tax'] = zeroTax;
+    data['periods'] = periods.map((element) => element.toJson()).toList();
     return data;
   }
 }
@@ -105,7 +110,7 @@ class TaxGroup {
   String? name;
   String? fName;
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   TaxGroup({this.id, this.idSeq, this.types, this.name, this.fName});
 
   TaxGroup.fromJson(Map<String, dynamic> json) {
@@ -127,6 +132,37 @@ class TaxGroup {
     data['name'] = name;
     data['fName'] = fName;
     data['types'] = types;
+    return data;
+  }
+}
+
+@Entity()
+class TaxPeriod {
+  @Id()
+  int? idSeq;
+  String? id;
+  String? name;
+  String? fName;
+  String? startDate;
+  String? endDate;
+
+  TaxPeriod({this.id, this.name, this.fName, this.startDate, this.endDate});
+
+  TaxPeriod.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    fName = json['fName'];
+    startDate = json['start_Date'];
+    endDate = json['end_Date'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['fName'] = fName;
+    data['start_Date'] = startDate;
+    data['end_Date'] = endDate;
     return data;
   }
 }

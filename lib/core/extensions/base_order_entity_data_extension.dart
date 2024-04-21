@@ -19,5 +19,5 @@ extension OrderCExtension on OrderC {
 
 extension OrderHistoryEntityDataExtension on OrderHistoryEntityData {
   String? get getName =>
-      BaseHelpersMethods.isSecoundaryLang ? userName : userFName;
+      BaseHelpersMethods.isPrimaryLang ? userName : userFName;
 }

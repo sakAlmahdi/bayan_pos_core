@@ -5893,6 +5893,1129 @@ class DrawerOperationEntityCompanion
   }
 }
 
+class $ActivationInfoEntityTable extends ActivationInfoEntity
+    with TableInfo<$ActivationInfoEntityTable, ActivationInfoEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ActivationInfoEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
+  @override
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _emailMeta = const VerificationMeta('email');
+  @override
+  late final GeneratedColumn<String> email = GeneratedColumn<String>(
+      'email', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _phoneMeta = const VerificationMeta('phone');
+  @override
+  late final GeneratedColumn<String> phone = GeneratedColumn<String>(
+      'phone', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _mobileMeta = const VerificationMeta('mobile');
+  @override
+  late final GeneratedColumn<String> mobile = GeneratedColumn<String>(
+      'mobile', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _taxRegNameMeta =
+      const VerificationMeta('taxRegName');
+  @override
+  late final GeneratedColumn<String> taxRegName = GeneratedColumn<String>(
+      'tax_reg_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fTaxRegNameMeta =
+      const VerificationMeta('fTaxRegName');
+  @override
+  late final GeneratedColumn<String> fTaxRegName = GeneratedColumn<String>(
+      'f_tax_reg_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _taxCodeMeta =
+      const VerificationMeta('taxCode');
+  @override
+  late final GeneratedColumn<String> taxCode = GeneratedColumn<String>(
+      'tax_code', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _onlineOrderStartTimeMeta =
+      const VerificationMeta('onlineOrderStartTime');
+  @override
+  late final GeneratedColumn<String> onlineOrderStartTime =
+      GeneratedColumn<String>('online_order_start_time', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _onlineOrderEndTimeMeta =
+      const VerificationMeta('onlineOrderEndTime');
+  @override
+  late final GeneratedColumn<String> onlineOrderEndTime =
+      GeneratedColumn<String>('online_order_end_time', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _branchPrefixMeta =
+      const VerificationMeta('branchPrefix');
+  @override
+  late final GeneratedColumn<String> branchPrefix = GeneratedColumn<String>(
+      'branch_prefix', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _customerServiceMeta =
+      const VerificationMeta('customerService');
+  @override
+  late final GeneratedColumn<String> customerService = GeneratedColumn<String>(
+      'customer_service', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _countryIdMeta =
+      const VerificationMeta('countryId');
+  @override
+  late final GeneratedColumn<String> countryId = GeneratedColumn<String>(
+      'country_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _cityIdMeta = const VerificationMeta('cityId');
+  @override
+  late final GeneratedColumn<String> cityId = GeneratedColumn<String>(
+      'city_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _addressMeta =
+      const VerificationMeta('address');
+  @override
+  late final GeneratedColumn<String> address = GeneratedColumn<String>(
+      'address', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _latitudeMeta =
+      const VerificationMeta('latitude');
+  @override
+  late final GeneratedColumn<String> latitude = GeneratedColumn<String>(
+      'latitude', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _longitudeMeta =
+      const VerificationMeta('longitude');
+  @override
+  late final GeneratedColumn<String> longitude = GeneratedColumn<String>(
+      'longitude', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _headerInvoiceMsgMeta =
+      const VerificationMeta('headerInvoiceMsg');
+  @override
+  late final GeneratedColumn<String> headerInvoiceMsg = GeneratedColumn<String>(
+      'header_invoice_msg', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _footerInvoiceMsgMeta =
+      const VerificationMeta('footerInvoiceMsg');
+  @override
+  late final GeneratedColumn<String> footerInvoiceMsg = GeneratedColumn<String>(
+      'footer_invoice_msg', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _receiveOnlineOrdersMeta =
+      const VerificationMeta('receiveOnlineOrders');
+  @override
+  late final GeneratedColumn<bool> receiveOnlineOrders = GeneratedColumn<bool>(
+      'receive_online_orders', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("receive_online_orders" IN (0, 1))'));
+  static const VerificationMeta _devicesMeta =
+      const VerificationMeta('devices');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> devices =
+      GeneratedColumn<String>('devices', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>($ActivationInfoEntityTable.$converterdevices);
+  static const VerificationMeta _codeMeta = const VerificationMeta('code');
+  @override
+  late final GeneratedColumn<String> code = GeneratedColumn<String>(
+      'code', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _currentDeviceIdMeta =
+      const VerificationMeta('currentDeviceId');
+  @override
+  late final GeneratedColumn<String> currentDeviceId = GeneratedColumn<String>(
+      'current_device_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        idSeq,
+        id,
+        name,
+        fName,
+        email,
+        phone,
+        mobile,
+        taxRegName,
+        fTaxRegName,
+        taxCode,
+        onlineOrderStartTime,
+        onlineOrderEndTime,
+        branchPrefix,
+        customerService,
+        countryId,
+        cityId,
+        address,
+        latitude,
+        longitude,
+        headerInvoiceMsg,
+        footerInvoiceMsg,
+        receiveOnlineOrders,
+        devices,
+        code,
+        currentDeviceId
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'activation_info_entity';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<ActivationInfoEntityData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
+    }
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
+    }
+    if (data.containsKey('email')) {
+      context.handle(
+          _emailMeta, email.isAcceptableOrUnknown(data['email']!, _emailMeta));
+    }
+    if (data.containsKey('phone')) {
+      context.handle(
+          _phoneMeta, phone.isAcceptableOrUnknown(data['phone']!, _phoneMeta));
+    }
+    if (data.containsKey('mobile')) {
+      context.handle(_mobileMeta,
+          mobile.isAcceptableOrUnknown(data['mobile']!, _mobileMeta));
+    }
+    if (data.containsKey('tax_reg_name')) {
+      context.handle(
+          _taxRegNameMeta,
+          taxRegName.isAcceptableOrUnknown(
+              data['tax_reg_name']!, _taxRegNameMeta));
+    }
+    if (data.containsKey('f_tax_reg_name')) {
+      context.handle(
+          _fTaxRegNameMeta,
+          fTaxRegName.isAcceptableOrUnknown(
+              data['f_tax_reg_name']!, _fTaxRegNameMeta));
+    }
+    if (data.containsKey('tax_code')) {
+      context.handle(_taxCodeMeta,
+          taxCode.isAcceptableOrUnknown(data['tax_code']!, _taxCodeMeta));
+    }
+    if (data.containsKey('online_order_start_time')) {
+      context.handle(
+          _onlineOrderStartTimeMeta,
+          onlineOrderStartTime.isAcceptableOrUnknown(
+              data['online_order_start_time']!, _onlineOrderStartTimeMeta));
+    }
+    if (data.containsKey('online_order_end_time')) {
+      context.handle(
+          _onlineOrderEndTimeMeta,
+          onlineOrderEndTime.isAcceptableOrUnknown(
+              data['online_order_end_time']!, _onlineOrderEndTimeMeta));
+    }
+    if (data.containsKey('branch_prefix')) {
+      context.handle(
+          _branchPrefixMeta,
+          branchPrefix.isAcceptableOrUnknown(
+              data['branch_prefix']!, _branchPrefixMeta));
+    }
+    if (data.containsKey('customer_service')) {
+      context.handle(
+          _customerServiceMeta,
+          customerService.isAcceptableOrUnknown(
+              data['customer_service']!, _customerServiceMeta));
+    }
+    if (data.containsKey('country_id')) {
+      context.handle(_countryIdMeta,
+          countryId.isAcceptableOrUnknown(data['country_id']!, _countryIdMeta));
+    }
+    if (data.containsKey('city_id')) {
+      context.handle(_cityIdMeta,
+          cityId.isAcceptableOrUnknown(data['city_id']!, _cityIdMeta));
+    }
+    if (data.containsKey('address')) {
+      context.handle(_addressMeta,
+          address.isAcceptableOrUnknown(data['address']!, _addressMeta));
+    }
+    if (data.containsKey('latitude')) {
+      context.handle(_latitudeMeta,
+          latitude.isAcceptableOrUnknown(data['latitude']!, _latitudeMeta));
+    }
+    if (data.containsKey('longitude')) {
+      context.handle(_longitudeMeta,
+          longitude.isAcceptableOrUnknown(data['longitude']!, _longitudeMeta));
+    }
+    if (data.containsKey('header_invoice_msg')) {
+      context.handle(
+          _headerInvoiceMsgMeta,
+          headerInvoiceMsg.isAcceptableOrUnknown(
+              data['header_invoice_msg']!, _headerInvoiceMsgMeta));
+    }
+    if (data.containsKey('footer_invoice_msg')) {
+      context.handle(
+          _footerInvoiceMsgMeta,
+          footerInvoiceMsg.isAcceptableOrUnknown(
+              data['footer_invoice_msg']!, _footerInvoiceMsgMeta));
+    }
+    if (data.containsKey('receive_online_orders')) {
+      context.handle(
+          _receiveOnlineOrdersMeta,
+          receiveOnlineOrders.isAcceptableOrUnknown(
+              data['receive_online_orders']!, _receiveOnlineOrdersMeta));
+    }
+    context.handle(_devicesMeta, const VerificationResult.success());
+    if (data.containsKey('code')) {
+      context.handle(
+          _codeMeta, code.isAcceptableOrUnknown(data['code']!, _codeMeta));
+    }
+    if (data.containsKey('current_device_id')) {
+      context.handle(
+          _currentDeviceIdMeta,
+          currentDeviceId.isAcceptableOrUnknown(
+              data['current_device_id']!, _currentDeviceIdMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
+  @override
+  ActivationInfoEntityData map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ActivationInfoEntityData(
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
+      email: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}email']),
+      phone: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}phone']),
+      mobile: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}mobile']),
+      taxRegName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_reg_name']),
+      fTaxRegName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_tax_reg_name']),
+      taxCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_code']),
+      onlineOrderStartTime: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}online_order_start_time']),
+      onlineOrderEndTime: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}online_order_end_time']),
+      branchPrefix: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}branch_prefix']),
+      customerService: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}customer_service']),
+      countryId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}country_id']),
+      cityId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}city_id']),
+      address: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}address']),
+      latitude: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}latitude']),
+      longitude: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}longitude']),
+      headerInvoiceMsg: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}header_invoice_msg']),
+      footerInvoiceMsg: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}footer_invoice_msg']),
+      receiveOnlineOrders: attachedDatabase.typeMapping.read(
+          DriftSqlType.bool, data['${effectivePrefix}receive_online_orders']),
+      devices: $ActivationInfoEntityTable.$converterdevices.fromSql(
+          attachedDatabase.typeMapping
+              .read(DriftSqlType.string, data['${effectivePrefix}devices'])),
+      code: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}code']),
+      currentDeviceId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}current_device_id']),
+    );
+  }
+
+  @override
+  $ActivationInfoEntityTable createAlias(String alias) {
+    return $ActivationInfoEntityTable(attachedDatabase, alias);
+  }
+
+  static TypeConverter<dynamic, String?> $converterdevices =
+      const JsonTypeConverter();
+}
+
+class ActivationInfoEntityData extends DataClass
+    implements Insertable<ActivationInfoEntityData> {
+  final int? idSeq;
+  final String? id;
+  final String? name;
+  final String? fName;
+  final String? email;
+  final String? phone;
+  final String? mobile;
+  final String? taxRegName;
+  final String? fTaxRegName;
+  final String? taxCode;
+  final String? onlineOrderStartTime;
+  final String? onlineOrderEndTime;
+  final String? branchPrefix;
+  final String? customerService;
+  final String? countryId;
+  final String? cityId;
+  final String? address;
+  final String? latitude;
+  final String? longitude;
+  final String? headerInvoiceMsg;
+  final String? footerInvoiceMsg;
+  final bool? receiveOnlineOrders;
+  final dynamic devices;
+  final String? code;
+  final String? currentDeviceId;
+  const ActivationInfoEntityData(
+      {this.idSeq,
+      this.id,
+      this.name,
+      this.fName,
+      this.email,
+      this.phone,
+      this.mobile,
+      this.taxRegName,
+      this.fTaxRegName,
+      this.taxCode,
+      this.onlineOrderStartTime,
+      this.onlineOrderEndTime,
+      this.branchPrefix,
+      this.customerService,
+      this.countryId,
+      this.cityId,
+      this.address,
+      this.latitude,
+      this.longitude,
+      this.headerInvoiceMsg,
+      this.footerInvoiceMsg,
+      this.receiveOnlineOrders,
+      this.devices,
+      this.code,
+      this.currentDeviceId});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
+    if (!nullToAbsent || id != null) {
+      map['id'] = Variable<String>(id);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
+    }
+    if (!nullToAbsent || email != null) {
+      map['email'] = Variable<String>(email);
+    }
+    if (!nullToAbsent || phone != null) {
+      map['phone'] = Variable<String>(phone);
+    }
+    if (!nullToAbsent || mobile != null) {
+      map['mobile'] = Variable<String>(mobile);
+    }
+    if (!nullToAbsent || taxRegName != null) {
+      map['tax_reg_name'] = Variable<String>(taxRegName);
+    }
+    if (!nullToAbsent || fTaxRegName != null) {
+      map['f_tax_reg_name'] = Variable<String>(fTaxRegName);
+    }
+    if (!nullToAbsent || taxCode != null) {
+      map['tax_code'] = Variable<String>(taxCode);
+    }
+    if (!nullToAbsent || onlineOrderStartTime != null) {
+      map['online_order_start_time'] = Variable<String>(onlineOrderStartTime);
+    }
+    if (!nullToAbsent || onlineOrderEndTime != null) {
+      map['online_order_end_time'] = Variable<String>(onlineOrderEndTime);
+    }
+    if (!nullToAbsent || branchPrefix != null) {
+      map['branch_prefix'] = Variable<String>(branchPrefix);
+    }
+    if (!nullToAbsent || customerService != null) {
+      map['customer_service'] = Variable<String>(customerService);
+    }
+    if (!nullToAbsent || countryId != null) {
+      map['country_id'] = Variable<String>(countryId);
+    }
+    if (!nullToAbsent || cityId != null) {
+      map['city_id'] = Variable<String>(cityId);
+    }
+    if (!nullToAbsent || address != null) {
+      map['address'] = Variable<String>(address);
+    }
+    if (!nullToAbsent || latitude != null) {
+      map['latitude'] = Variable<String>(latitude);
+    }
+    if (!nullToAbsent || longitude != null) {
+      map['longitude'] = Variable<String>(longitude);
+    }
+    if (!nullToAbsent || headerInvoiceMsg != null) {
+      map['header_invoice_msg'] = Variable<String>(headerInvoiceMsg);
+    }
+    if (!nullToAbsent || footerInvoiceMsg != null) {
+      map['footer_invoice_msg'] = Variable<String>(footerInvoiceMsg);
+    }
+    if (!nullToAbsent || receiveOnlineOrders != null) {
+      map['receive_online_orders'] = Variable<bool>(receiveOnlineOrders);
+    }
+    if (!nullToAbsent || devices != null) {
+      map['devices'] = Variable<String>(
+          $ActivationInfoEntityTable.$converterdevices.toSql(devices));
+    }
+    if (!nullToAbsent || code != null) {
+      map['code'] = Variable<String>(code);
+    }
+    if (!nullToAbsent || currentDeviceId != null) {
+      map['current_device_id'] = Variable<String>(currentDeviceId);
+    }
+    return map;
+  }
+
+  ActivationInfoEntityCompanion toCompanion(bool nullToAbsent) {
+    return ActivationInfoEntityCompanion(
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
+      id: id == null && nullToAbsent ? const Value.absent() : Value(id),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
+      email:
+          email == null && nullToAbsent ? const Value.absent() : Value(email),
+      phone:
+          phone == null && nullToAbsent ? const Value.absent() : Value(phone),
+      mobile:
+          mobile == null && nullToAbsent ? const Value.absent() : Value(mobile),
+      taxRegName: taxRegName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxRegName),
+      fTaxRegName: fTaxRegName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fTaxRegName),
+      taxCode: taxCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxCode),
+      onlineOrderStartTime: onlineOrderStartTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(onlineOrderStartTime),
+      onlineOrderEndTime: onlineOrderEndTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(onlineOrderEndTime),
+      branchPrefix: branchPrefix == null && nullToAbsent
+          ? const Value.absent()
+          : Value(branchPrefix),
+      customerService: customerService == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customerService),
+      countryId: countryId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(countryId),
+      cityId:
+          cityId == null && nullToAbsent ? const Value.absent() : Value(cityId),
+      address: address == null && nullToAbsent
+          ? const Value.absent()
+          : Value(address),
+      latitude: latitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(latitude),
+      longitude: longitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(longitude),
+      headerInvoiceMsg: headerInvoiceMsg == null && nullToAbsent
+          ? const Value.absent()
+          : Value(headerInvoiceMsg),
+      footerInvoiceMsg: footerInvoiceMsg == null && nullToAbsent
+          ? const Value.absent()
+          : Value(footerInvoiceMsg),
+      receiveOnlineOrders: receiveOnlineOrders == null && nullToAbsent
+          ? const Value.absent()
+          : Value(receiveOnlineOrders),
+      devices: devices == null && nullToAbsent
+          ? const Value.absent()
+          : Value(devices),
+      code: code == null && nullToAbsent ? const Value.absent() : Value(code),
+      currentDeviceId: currentDeviceId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currentDeviceId),
+    );
+  }
+
+  factory ActivationInfoEntityData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ActivationInfoEntityData(
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
+      id: serializer.fromJson<String?>(json['id']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
+      email: serializer.fromJson<String?>(json['email']),
+      phone: serializer.fromJson<String?>(json['phone']),
+      mobile: serializer.fromJson<String?>(json['mobile']),
+      taxRegName: serializer.fromJson<String?>(json['taxRegName']),
+      fTaxRegName: serializer.fromJson<String?>(json['fTaxRegName']),
+      taxCode: serializer.fromJson<String?>(json['taxCode']),
+      onlineOrderStartTime:
+          serializer.fromJson<String?>(json['onlineOrderStartTime']),
+      onlineOrderEndTime:
+          serializer.fromJson<String?>(json['onlineOrderEndTime']),
+      branchPrefix: serializer.fromJson<String?>(json['branchPrefix']),
+      customerService: serializer.fromJson<String?>(json['customerService']),
+      countryId: serializer.fromJson<String?>(json['countryId']),
+      cityId: serializer.fromJson<String?>(json['cityId']),
+      address: serializer.fromJson<String?>(json['address']),
+      latitude: serializer.fromJson<String?>(json['latitude']),
+      longitude: serializer.fromJson<String?>(json['longitude']),
+      headerInvoiceMsg: serializer.fromJson<String?>(json['headerInvoiceMsg']),
+      footerInvoiceMsg: serializer.fromJson<String?>(json['footerInvoiceMsg']),
+      receiveOnlineOrders:
+          serializer.fromJson<bool?>(json['receiveOnlineOrders']),
+      devices: serializer.fromJson<dynamic>(json['devices']),
+      code: serializer.fromJson<String?>(json['code']),
+      currentDeviceId: serializer.fromJson<String?>(json['currentDeviceId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'idSeq': serializer.toJson<int?>(idSeq),
+      'id': serializer.toJson<String?>(id),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
+      'email': serializer.toJson<String?>(email),
+      'phone': serializer.toJson<String?>(phone),
+      'mobile': serializer.toJson<String?>(mobile),
+      'taxRegName': serializer.toJson<String?>(taxRegName),
+      'fTaxRegName': serializer.toJson<String?>(fTaxRegName),
+      'taxCode': serializer.toJson<String?>(taxCode),
+      'onlineOrderStartTime': serializer.toJson<String?>(onlineOrderStartTime),
+      'onlineOrderEndTime': serializer.toJson<String?>(onlineOrderEndTime),
+      'branchPrefix': serializer.toJson<String?>(branchPrefix),
+      'customerService': serializer.toJson<String?>(customerService),
+      'countryId': serializer.toJson<String?>(countryId),
+      'cityId': serializer.toJson<String?>(cityId),
+      'address': serializer.toJson<String?>(address),
+      'latitude': serializer.toJson<String?>(latitude),
+      'longitude': serializer.toJson<String?>(longitude),
+      'headerInvoiceMsg': serializer.toJson<String?>(headerInvoiceMsg),
+      'footerInvoiceMsg': serializer.toJson<String?>(footerInvoiceMsg),
+      'receiveOnlineOrders': serializer.toJson<bool?>(receiveOnlineOrders),
+      'devices': serializer.toJson<dynamic>(devices),
+      'code': serializer.toJson<String?>(code),
+      'currentDeviceId': serializer.toJson<String?>(currentDeviceId),
+    };
+  }
+
+  ActivationInfoEntityData copyWith(
+          {Value<int?> idSeq = const Value.absent(),
+          Value<String?> id = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
+          Value<String?> email = const Value.absent(),
+          Value<String?> phone = const Value.absent(),
+          Value<String?> mobile = const Value.absent(),
+          Value<String?> taxRegName = const Value.absent(),
+          Value<String?> fTaxRegName = const Value.absent(),
+          Value<String?> taxCode = const Value.absent(),
+          Value<String?> onlineOrderStartTime = const Value.absent(),
+          Value<String?> onlineOrderEndTime = const Value.absent(),
+          Value<String?> branchPrefix = const Value.absent(),
+          Value<String?> customerService = const Value.absent(),
+          Value<String?> countryId = const Value.absent(),
+          Value<String?> cityId = const Value.absent(),
+          Value<String?> address = const Value.absent(),
+          Value<String?> latitude = const Value.absent(),
+          Value<String?> longitude = const Value.absent(),
+          Value<String?> headerInvoiceMsg = const Value.absent(),
+          Value<String?> footerInvoiceMsg = const Value.absent(),
+          Value<bool?> receiveOnlineOrders = const Value.absent(),
+          Value<dynamic> devices = const Value.absent(),
+          Value<String?> code = const Value.absent(),
+          Value<String?> currentDeviceId = const Value.absent()}) =>
+      ActivationInfoEntityData(
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
+        id: id.present ? id.value : this.id,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
+        email: email.present ? email.value : this.email,
+        phone: phone.present ? phone.value : this.phone,
+        mobile: mobile.present ? mobile.value : this.mobile,
+        taxRegName: taxRegName.present ? taxRegName.value : this.taxRegName,
+        fTaxRegName: fTaxRegName.present ? fTaxRegName.value : this.fTaxRegName,
+        taxCode: taxCode.present ? taxCode.value : this.taxCode,
+        onlineOrderStartTime: onlineOrderStartTime.present
+            ? onlineOrderStartTime.value
+            : this.onlineOrderStartTime,
+        onlineOrderEndTime: onlineOrderEndTime.present
+            ? onlineOrderEndTime.value
+            : this.onlineOrderEndTime,
+        branchPrefix:
+            branchPrefix.present ? branchPrefix.value : this.branchPrefix,
+        customerService: customerService.present
+            ? customerService.value
+            : this.customerService,
+        countryId: countryId.present ? countryId.value : this.countryId,
+        cityId: cityId.present ? cityId.value : this.cityId,
+        address: address.present ? address.value : this.address,
+        latitude: latitude.present ? latitude.value : this.latitude,
+        longitude: longitude.present ? longitude.value : this.longitude,
+        headerInvoiceMsg: headerInvoiceMsg.present
+            ? headerInvoiceMsg.value
+            : this.headerInvoiceMsg,
+        footerInvoiceMsg: footerInvoiceMsg.present
+            ? footerInvoiceMsg.value
+            : this.footerInvoiceMsg,
+        receiveOnlineOrders: receiveOnlineOrders.present
+            ? receiveOnlineOrders.value
+            : this.receiveOnlineOrders,
+        devices: devices.present ? devices.value : this.devices,
+        code: code.present ? code.value : this.code,
+        currentDeviceId: currentDeviceId.present
+            ? currentDeviceId.value
+            : this.currentDeviceId,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('ActivationInfoEntityData(')
+          ..write('idSeq: $idSeq, ')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('email: $email, ')
+          ..write('phone: $phone, ')
+          ..write('mobile: $mobile, ')
+          ..write('taxRegName: $taxRegName, ')
+          ..write('fTaxRegName: $fTaxRegName, ')
+          ..write('taxCode: $taxCode, ')
+          ..write('onlineOrderStartTime: $onlineOrderStartTime, ')
+          ..write('onlineOrderEndTime: $onlineOrderEndTime, ')
+          ..write('branchPrefix: $branchPrefix, ')
+          ..write('customerService: $customerService, ')
+          ..write('countryId: $countryId, ')
+          ..write('cityId: $cityId, ')
+          ..write('address: $address, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('headerInvoiceMsg: $headerInvoiceMsg, ')
+          ..write('footerInvoiceMsg: $footerInvoiceMsg, ')
+          ..write('receiveOnlineOrders: $receiveOnlineOrders, ')
+          ..write('devices: $devices, ')
+          ..write('code: $code, ')
+          ..write('currentDeviceId: $currentDeviceId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        idSeq,
+        id,
+        name,
+        fName,
+        email,
+        phone,
+        mobile,
+        taxRegName,
+        fTaxRegName,
+        taxCode,
+        onlineOrderStartTime,
+        onlineOrderEndTime,
+        branchPrefix,
+        customerService,
+        countryId,
+        cityId,
+        address,
+        latitude,
+        longitude,
+        headerInvoiceMsg,
+        footerInvoiceMsg,
+        receiveOnlineOrders,
+        devices,
+        code,
+        currentDeviceId
+      ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ActivationInfoEntityData &&
+          other.idSeq == this.idSeq &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.fName == this.fName &&
+          other.email == this.email &&
+          other.phone == this.phone &&
+          other.mobile == this.mobile &&
+          other.taxRegName == this.taxRegName &&
+          other.fTaxRegName == this.fTaxRegName &&
+          other.taxCode == this.taxCode &&
+          other.onlineOrderStartTime == this.onlineOrderStartTime &&
+          other.onlineOrderEndTime == this.onlineOrderEndTime &&
+          other.branchPrefix == this.branchPrefix &&
+          other.customerService == this.customerService &&
+          other.countryId == this.countryId &&
+          other.cityId == this.cityId &&
+          other.address == this.address &&
+          other.latitude == this.latitude &&
+          other.longitude == this.longitude &&
+          other.headerInvoiceMsg == this.headerInvoiceMsg &&
+          other.footerInvoiceMsg == this.footerInvoiceMsg &&
+          other.receiveOnlineOrders == this.receiveOnlineOrders &&
+          other.devices == this.devices &&
+          other.code == this.code &&
+          other.currentDeviceId == this.currentDeviceId);
+}
+
+class ActivationInfoEntityCompanion
+    extends UpdateCompanion<ActivationInfoEntityData> {
+  final Value<int?> idSeq;
+  final Value<String?> id;
+  final Value<String?> name;
+  final Value<String?> fName;
+  final Value<String?> email;
+  final Value<String?> phone;
+  final Value<String?> mobile;
+  final Value<String?> taxRegName;
+  final Value<String?> fTaxRegName;
+  final Value<String?> taxCode;
+  final Value<String?> onlineOrderStartTime;
+  final Value<String?> onlineOrderEndTime;
+  final Value<String?> branchPrefix;
+  final Value<String?> customerService;
+  final Value<String?> countryId;
+  final Value<String?> cityId;
+  final Value<String?> address;
+  final Value<String?> latitude;
+  final Value<String?> longitude;
+  final Value<String?> headerInvoiceMsg;
+  final Value<String?> footerInvoiceMsg;
+  final Value<bool?> receiveOnlineOrders;
+  final Value<dynamic> devices;
+  final Value<String?> code;
+  final Value<String?> currentDeviceId;
+  const ActivationInfoEntityCompanion({
+    this.idSeq = const Value.absent(),
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.email = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.mobile = const Value.absent(),
+    this.taxRegName = const Value.absent(),
+    this.fTaxRegName = const Value.absent(),
+    this.taxCode = const Value.absent(),
+    this.onlineOrderStartTime = const Value.absent(),
+    this.onlineOrderEndTime = const Value.absent(),
+    this.branchPrefix = const Value.absent(),
+    this.customerService = const Value.absent(),
+    this.countryId = const Value.absent(),
+    this.cityId = const Value.absent(),
+    this.address = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.headerInvoiceMsg = const Value.absent(),
+    this.footerInvoiceMsg = const Value.absent(),
+    this.receiveOnlineOrders = const Value.absent(),
+    this.devices = const Value.absent(),
+    this.code = const Value.absent(),
+    this.currentDeviceId = const Value.absent(),
+  });
+  ActivationInfoEntityCompanion.insert({
+    this.idSeq = const Value.absent(),
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.email = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.mobile = const Value.absent(),
+    this.taxRegName = const Value.absent(),
+    this.fTaxRegName = const Value.absent(),
+    this.taxCode = const Value.absent(),
+    this.onlineOrderStartTime = const Value.absent(),
+    this.onlineOrderEndTime = const Value.absent(),
+    this.branchPrefix = const Value.absent(),
+    this.customerService = const Value.absent(),
+    this.countryId = const Value.absent(),
+    this.cityId = const Value.absent(),
+    this.address = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.headerInvoiceMsg = const Value.absent(),
+    this.footerInvoiceMsg = const Value.absent(),
+    this.receiveOnlineOrders = const Value.absent(),
+    this.devices = const Value.absent(),
+    this.code = const Value.absent(),
+    this.currentDeviceId = const Value.absent(),
+  });
+  static Insertable<ActivationInfoEntityData> custom({
+    Expression<int>? idSeq,
+    Expression<String>? id,
+    Expression<String>? name,
+    Expression<String>? fName,
+    Expression<String>? email,
+    Expression<String>? phone,
+    Expression<String>? mobile,
+    Expression<String>? taxRegName,
+    Expression<String>? fTaxRegName,
+    Expression<String>? taxCode,
+    Expression<String>? onlineOrderStartTime,
+    Expression<String>? onlineOrderEndTime,
+    Expression<String>? branchPrefix,
+    Expression<String>? customerService,
+    Expression<String>? countryId,
+    Expression<String>? cityId,
+    Expression<String>? address,
+    Expression<String>? latitude,
+    Expression<String>? longitude,
+    Expression<String>? headerInvoiceMsg,
+    Expression<String>? footerInvoiceMsg,
+    Expression<bool>? receiveOnlineOrders,
+    Expression<String>? devices,
+    Expression<String>? code,
+    Expression<String>? currentDeviceId,
+  }) {
+    return RawValuesInsertable({
+      if (idSeq != null) 'id_seq': idSeq,
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
+      if (email != null) 'email': email,
+      if (phone != null) 'phone': phone,
+      if (mobile != null) 'mobile': mobile,
+      if (taxRegName != null) 'tax_reg_name': taxRegName,
+      if (fTaxRegName != null) 'f_tax_reg_name': fTaxRegName,
+      if (taxCode != null) 'tax_code': taxCode,
+      if (onlineOrderStartTime != null)
+        'online_order_start_time': onlineOrderStartTime,
+      if (onlineOrderEndTime != null)
+        'online_order_end_time': onlineOrderEndTime,
+      if (branchPrefix != null) 'branch_prefix': branchPrefix,
+      if (customerService != null) 'customer_service': customerService,
+      if (countryId != null) 'country_id': countryId,
+      if (cityId != null) 'city_id': cityId,
+      if (address != null) 'address': address,
+      if (latitude != null) 'latitude': latitude,
+      if (longitude != null) 'longitude': longitude,
+      if (headerInvoiceMsg != null) 'header_invoice_msg': headerInvoiceMsg,
+      if (footerInvoiceMsg != null) 'footer_invoice_msg': footerInvoiceMsg,
+      if (receiveOnlineOrders != null)
+        'receive_online_orders': receiveOnlineOrders,
+      if (devices != null) 'devices': devices,
+      if (code != null) 'code': code,
+      if (currentDeviceId != null) 'current_device_id': currentDeviceId,
+    });
+  }
+
+  ActivationInfoEntityCompanion copyWith(
+      {Value<int?>? idSeq,
+      Value<String?>? id,
+      Value<String?>? name,
+      Value<String?>? fName,
+      Value<String?>? email,
+      Value<String?>? phone,
+      Value<String?>? mobile,
+      Value<String?>? taxRegName,
+      Value<String?>? fTaxRegName,
+      Value<String?>? taxCode,
+      Value<String?>? onlineOrderStartTime,
+      Value<String?>? onlineOrderEndTime,
+      Value<String?>? branchPrefix,
+      Value<String?>? customerService,
+      Value<String?>? countryId,
+      Value<String?>? cityId,
+      Value<String?>? address,
+      Value<String?>? latitude,
+      Value<String?>? longitude,
+      Value<String?>? headerInvoiceMsg,
+      Value<String?>? footerInvoiceMsg,
+      Value<bool?>? receiveOnlineOrders,
+      Value<dynamic>? devices,
+      Value<String?>? code,
+      Value<String?>? currentDeviceId}) {
+    return ActivationInfoEntityCompanion(
+      idSeq: idSeq ?? this.idSeq,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      mobile: mobile ?? this.mobile,
+      taxRegName: taxRegName ?? this.taxRegName,
+      fTaxRegName: fTaxRegName ?? this.fTaxRegName,
+      taxCode: taxCode ?? this.taxCode,
+      onlineOrderStartTime: onlineOrderStartTime ?? this.onlineOrderStartTime,
+      onlineOrderEndTime: onlineOrderEndTime ?? this.onlineOrderEndTime,
+      branchPrefix: branchPrefix ?? this.branchPrefix,
+      customerService: customerService ?? this.customerService,
+      countryId: countryId ?? this.countryId,
+      cityId: cityId ?? this.cityId,
+      address: address ?? this.address,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      headerInvoiceMsg: headerInvoiceMsg ?? this.headerInvoiceMsg,
+      footerInvoiceMsg: footerInvoiceMsg ?? this.footerInvoiceMsg,
+      receiveOnlineOrders: receiveOnlineOrders ?? this.receiveOnlineOrders,
+      devices: devices ?? this.devices,
+      code: code ?? this.code,
+      currentDeviceId: currentDeviceId ?? this.currentDeviceId,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
+    }
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
+    }
+    if (email.present) {
+      map['email'] = Variable<String>(email.value);
+    }
+    if (phone.present) {
+      map['phone'] = Variable<String>(phone.value);
+    }
+    if (mobile.present) {
+      map['mobile'] = Variable<String>(mobile.value);
+    }
+    if (taxRegName.present) {
+      map['tax_reg_name'] = Variable<String>(taxRegName.value);
+    }
+    if (fTaxRegName.present) {
+      map['f_tax_reg_name'] = Variable<String>(fTaxRegName.value);
+    }
+    if (taxCode.present) {
+      map['tax_code'] = Variable<String>(taxCode.value);
+    }
+    if (onlineOrderStartTime.present) {
+      map['online_order_start_time'] =
+          Variable<String>(onlineOrderStartTime.value);
+    }
+    if (onlineOrderEndTime.present) {
+      map['online_order_end_time'] = Variable<String>(onlineOrderEndTime.value);
+    }
+    if (branchPrefix.present) {
+      map['branch_prefix'] = Variable<String>(branchPrefix.value);
+    }
+    if (customerService.present) {
+      map['customer_service'] = Variable<String>(customerService.value);
+    }
+    if (countryId.present) {
+      map['country_id'] = Variable<String>(countryId.value);
+    }
+    if (cityId.present) {
+      map['city_id'] = Variable<String>(cityId.value);
+    }
+    if (address.present) {
+      map['address'] = Variable<String>(address.value);
+    }
+    if (latitude.present) {
+      map['latitude'] = Variable<String>(latitude.value);
+    }
+    if (longitude.present) {
+      map['longitude'] = Variable<String>(longitude.value);
+    }
+    if (headerInvoiceMsg.present) {
+      map['header_invoice_msg'] = Variable<String>(headerInvoiceMsg.value);
+    }
+    if (footerInvoiceMsg.present) {
+      map['footer_invoice_msg'] = Variable<String>(footerInvoiceMsg.value);
+    }
+    if (receiveOnlineOrders.present) {
+      map['receive_online_orders'] = Variable<bool>(receiveOnlineOrders.value);
+    }
+    if (devices.present) {
+      map['devices'] = Variable<String>(
+          $ActivationInfoEntityTable.$converterdevices.toSql(devices.value));
+    }
+    if (code.present) {
+      map['code'] = Variable<String>(code.value);
+    }
+    if (currentDeviceId.present) {
+      map['current_device_id'] = Variable<String>(currentDeviceId.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ActivationInfoEntityCompanion(')
+          ..write('idSeq: $idSeq, ')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('email: $email, ')
+          ..write('phone: $phone, ')
+          ..write('mobile: $mobile, ')
+          ..write('taxRegName: $taxRegName, ')
+          ..write('fTaxRegName: $fTaxRegName, ')
+          ..write('taxCode: $taxCode, ')
+          ..write('onlineOrderStartTime: $onlineOrderStartTime, ')
+          ..write('onlineOrderEndTime: $onlineOrderEndTime, ')
+          ..write('branchPrefix: $branchPrefix, ')
+          ..write('customerService: $customerService, ')
+          ..write('countryId: $countryId, ')
+          ..write('cityId: $cityId, ')
+          ..write('address: $address, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('headerInvoiceMsg: $headerInvoiceMsg, ')
+          ..write('footerInvoiceMsg: $footerInvoiceMsg, ')
+          ..write('receiveOnlineOrders: $receiveOnlineOrders, ')
+          ..write('devices: $devices, ')
+          ..write('code: $code, ')
+          ..write('currentDeviceId: $currentDeviceId')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   late final $OrderEntityTable orderEntity = $OrderEntityTable(this);
@@ -5909,6 +7032,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
   late final $OrderPaymentsTable orderPayments = $OrderPaymentsTable(this);
   late final $DrawerOperationEntityTable drawerOperationEntity =
       $DrawerOperationEntityTable(this);
+  late final $ActivationInfoEntityTable activationInfoEntity =
+      $ActivationInfoEntityTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5923,6 +7048,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         paymentMethodEntity,
         settingEntity,
         orderPayments,
-        drawerOperationEntity
+        drawerOperationEntity,
+        activationInfoEntity
       ];
 }

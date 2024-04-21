@@ -61,12 +61,13 @@ class ExtractProduct {
   String? fPromotionalName;
   String? tags;
   String? fTags;
+  // bool? showAlertPreparationTime;
 
   final units = ToMany<Unit>();
 
   final groups = ToMany<Group>();
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   @Transient()
   String get idUniq => getId();
@@ -77,57 +78,59 @@ class ExtractProduct {
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(priceType);
 
-  ExtractProduct(
-      {this.idSeq,
-      this.id,
-      this.name,
-      this.fName,
-      this.sku,
-      this.barcode,
-      this.productTypeId,
-      this.costType,
-      this.priceType,
-      this.salesMethod,
-      this.price,
-      this.cost,
-      this.preparationTime,
-      this.activeQRScan,
-      this.qrScanOnSameDate,
-      this.enableSalesDiscount,
-      this.discountPercentageLimit,
-      this.enableFreeQuantity,
-      this.enableDateExpire,
-      this.enableIMEISerial,
-      this.enableWeights,
-      this.scanPriceFromScale,
-      this.scalePriceIncludeTax,
-      this.independentPrinting,
-      this.calculateQuantityFromTotalPrice,
-      this.reservationRequired,
-      this.scaleBarcodeDigits,
-      this.scaleProductCodeDigits,
-      this.scaleIntDigits,
-      this.scaledecimalDigits,
-      this.scaleProductCodeFirstInBracode,
-      this.availableStartDateTime,
-      this.availableEndDateTime,
-      this.description,
-      this.fDescription,
-      this.imageUrl,
-      this.calories,
-      this.minimumLevel,
-      this.maximumLevel,
-      this.categoryId,
-      this.departmentId,
-      this.active,
-      this.productNature,
-      this.taxGroupId,
-      this.subName,
-      this.fSubName,
-      this.promotionalName,
-      this.fPromotionalName,
-      this.tags,
-      this.fTags});
+  ExtractProduct({
+    this.idSeq,
+    this.id,
+    this.name,
+    this.fName,
+    this.sku,
+    this.barcode,
+    this.productTypeId,
+    this.costType,
+    this.priceType,
+    this.salesMethod,
+    this.price,
+    this.cost,
+    this.preparationTime,
+    this.activeQRScan,
+    this.qrScanOnSameDate,
+    this.enableSalesDiscount,
+    this.discountPercentageLimit,
+    this.enableFreeQuantity,
+    this.enableDateExpire,
+    this.enableIMEISerial,
+    this.enableWeights,
+    this.scanPriceFromScale,
+    this.scalePriceIncludeTax,
+    this.independentPrinting,
+    this.calculateQuantityFromTotalPrice,
+    this.reservationRequired,
+    this.scaleBarcodeDigits,
+    this.scaleProductCodeDigits,
+    this.scaleIntDigits,
+    this.scaledecimalDigits,
+    this.scaleProductCodeFirstInBracode,
+    this.availableStartDateTime,
+    this.availableEndDateTime,
+    this.description,
+    this.fDescription,
+    this.imageUrl,
+    this.calories,
+    this.minimumLevel,
+    this.maximumLevel,
+    this.categoryId,
+    this.departmentId,
+    this.active,
+    this.productNature,
+    this.taxGroupId,
+    this.subName,
+    this.fSubName,
+    this.promotionalName,
+    this.fPromotionalName,
+    this.tags,
+    this.fTags,
+    // this.showAlertPreparationTime,
+  });
 
   ExtractProduct.fromJson(Map<String, dynamic> json) {
     idSeq = json['idSeq'];
@@ -142,8 +145,8 @@ class ExtractProduct {
     salesMethod = json['salesMethod'].toString();
     price = double.tryParse(json['price'].toString()) ?? 0.0;
     cost = double.tryParse(json['cost'].toString()) ?? 0.0;
-
     preparationTime = json['preparation_Time'];
+    // showAlertPreparationTime = json['showAlertPreparationTime'];
     activeQRScan = json['activeQRScan'];
     qrScanOnSameDate = json['qrScanOnSameDate'];
     enableSalesDiscount = json['enable_Sales_Discount'];
@@ -211,6 +214,7 @@ class ExtractProduct {
     data['price'] = price;
     data['cost'] = cost;
     data['preparation_Time'] = preparationTime;
+    // data['showAlertPreparationTime'] = showAlertPreparationTime;
     data['activeQRScan'] = activeQRScan;
     data['qrScanOnSameDate'] = qrScanOnSameDate;
     data['enable_Sales_Discount'] = enableSalesDiscount;
@@ -283,60 +287,60 @@ class ExtractProduct {
     return data;
   }
 
-  ExtractProduct copyWith({
-    int? idSeq,
-    String? id,
-    String? name,
-    String? fName,
-    String? sku,
-    String? barcode,
-    String? productTypeId,
-    String? costType,
-    int? priceType,
-    String? salesMethod,
-    double? price,
-    double? cost,
-    String? defaultSalesUnit,
-    int? preparationTime,
-    bool? activeQRScan,
-    bool? qrScanOnSameDate,
-    bool? enableSalesDiscount,
-    double? discountPercentageLimit,
-    bool? enableFreeQuantity,
-    bool? enableDateExpire,
-    bool? enableIMEISerial,
-    bool? enableWeights,
-    bool? scanPriceFromScale,
-    bool? scalePriceIncludeTax,
-    bool? independentPrinting,
-    bool? calculateQuantityFromTotalPrice,
-    bool? reservationRequired,
-    int? scaleBarcodeDigits,
-    int? scaleProductCodeDigits,
-    int? scaleIntDigits,
-    int? scaledecimalDigits,
-    bool? scaleProductCodeFirstInBracode,
-    String? availableStartDateTime,
-    String? availableEndDateTime,
-    String? description,
-    String? fDescription,
-    String? imageUrl,
-    int? calories,
-    int? minimumLevel,
-    int? maximumLevel,
-    String? categoryId,
-    String? departmentId,
-    int? productNature,
-    bool? active = true,
-    String? taxGroupId,
-    bool? separateWhenPrinting,
-    String? subName,
-    String? fSubName,
-    String? promotionalName,
-    String? fPromotionalName,
-    String? tags,
-    String? fTags,
-  }) {
+  ExtractProduct copyWith(
+      {int? idSeq,
+      String? id,
+      String? name,
+      String? fName,
+      String? sku,
+      String? barcode,
+      String? productTypeId,
+      String? costType,
+      int? priceType,
+      String? salesMethod,
+      double? price,
+      double? cost,
+      String? defaultSalesUnit,
+      int? preparationTime,
+      bool? activeQRScan,
+      bool? qrScanOnSameDate,
+      bool? enableSalesDiscount,
+      double? discountPercentageLimit,
+      bool? enableFreeQuantity,
+      bool? enableDateExpire,
+      bool? enableIMEISerial,
+      bool? enableWeights,
+      bool? scanPriceFromScale,
+      bool? scalePriceIncludeTax,
+      bool? independentPrinting,
+      bool? calculateQuantityFromTotalPrice,
+      bool? reservationRequired,
+      int? scaleBarcodeDigits,
+      int? scaleProductCodeDigits,
+      int? scaleIntDigits,
+      int? scaledecimalDigits,
+      bool? scaleProductCodeFirstInBracode,
+      String? availableStartDateTime,
+      String? availableEndDateTime,
+      String? description,
+      String? fDescription,
+      String? imageUrl,
+      int? calories,
+      int? minimumLevel,
+      int? maximumLevel,
+      String? categoryId,
+      String? departmentId,
+      int? productNature,
+      bool? active = true,
+      String? taxGroupId,
+      bool? separateWhenPrinting,
+      String? subName,
+      String? fSubName,
+      String? promotionalName,
+      String? fPromotionalName,
+      String? tags,
+      String? fTags,
+      bool? showAlertPreparationTime}) {
     return ExtractProduct(
       idSeq: idSeq ?? this.idSeq,
       id: id ?? this.id,
@@ -393,6 +397,8 @@ class ExtractProduct {
       fPromotionalName: fPromotionalName ?? this.fPromotionalName,
       tags: tags ?? this.tags,
       fTags: fTags ?? this.fTags,
+      // showAlertPreparationTime:
+      //     showAlertPreparationTime ?? this.showAlertPreparationTime,
     );
   }
 

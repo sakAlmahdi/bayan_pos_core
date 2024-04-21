@@ -50,7 +50,7 @@ class Discount {
       BaseHelpersMethods.compainDateAndTime(date: endDate!, time: endTime!);
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   @Transient()
   DiscountScpoce get getScope => convertCodeToDiscountScope(discountAppliedTo);

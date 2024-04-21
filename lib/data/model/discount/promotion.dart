@@ -67,7 +67,7 @@ class Promotion {
   DiscountType get getDiscountType => convertToDiscontType(discountType);
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   @Transient()
   DateTime? get startCompainDate => BaseHelpersMethods.compainDateAndTime(
       date: startDate ?? '', time: startTime ?? '');
@@ -137,13 +137,13 @@ class Promotion {
     if (json['purchaseProducts'] != null) {
       purchaseProducts = <String>[];
       json['purchaseProducts'].forEach((v) {
-        purchaseProducts!.add(v);
+        purchaseProducts!.add(v!.toString().toLowerCase());
       });
     }
     if (json['discountProducts'] != null) {
       discountProducts = <String>[];
       json['discountProducts'].forEach((v) {
-        discountProducts!.add(v);
+        discountProducts!.add(v!.toString().toLowerCase());
       });
     }
   }

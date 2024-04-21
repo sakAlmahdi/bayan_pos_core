@@ -13,7 +13,7 @@ class ResturantSection {
   // List<Table>? tables;
   final tables = ToMany<Table>();
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   ResturantSection({
     this.id,

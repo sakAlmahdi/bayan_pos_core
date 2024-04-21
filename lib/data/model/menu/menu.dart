@@ -1,3 +1,4 @@
+import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/model/menu/menu_category.dart';
 import 'package:bayan_pos_core/data/model/menu/menu_department.dart';
 import 'package:bayan_pos_core/data/model/menu/menu_gift_card.dart';
@@ -20,6 +21,8 @@ class Menu {
   final categories = ToMany<MenuCategory>();
   final products = ToMany<MenuProduct>();
   final giftCards = ToMany<MenuGiftCard>();
+
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   Menu({
     this.idSeq = 0,

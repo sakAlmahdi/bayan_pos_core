@@ -56,6 +56,12 @@ extension BaseNumExtension on num? {
     return num.toString().replaceAll(regex, '');
   }
 
+  double? get removeTrailingZerosToNumber {
+    double num = this?.toDouble() ?? 0.0;
+    RegExp regex = RegExp(r'([.]*0)(?!.*\d)');
+    return double.parse(num.toString().replaceAll(regex, ''));
+  }
+
   double get getZeroIfNull {
     return this?.toDouble() ?? 0.0;
   }

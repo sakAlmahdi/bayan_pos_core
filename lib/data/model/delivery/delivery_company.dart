@@ -16,7 +16,7 @@ class DeliveryCompany {
   double? commissionRate;
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   DeliveryCompany(
       {this.idSeq = 0,

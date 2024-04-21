@@ -11,7 +11,7 @@ class ReasonsCanceling {
   String? fName;
 
   @Transient()
-  String? get getMsg => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getMsg => BaseHelpersMethods.isPrimaryLang ? name : fName;
   ReasonsCanceling({this.id, this.name, this.fName});
 
   ReasonsCanceling.fromJson(Map<String, dynamic> json) {

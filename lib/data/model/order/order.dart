@@ -65,6 +65,7 @@ class OrderC {
 
   double? totalFee = 0;
   double? taxPrice = 0;
+
   double get discountTotal =>
       priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull;
   double? totalDiscountForOrderAndProduct;
@@ -74,10 +75,18 @@ class OrderC {
   String? tillId;
   KitchenInfo? kitchenInfo;
 
+  double? totalCalories;
+
   double get total =>
       (subTotal - discountTotal) +
       taxPrice.getZeroIfNull +
       totalFee.getZeroIfNull;
+
+  double get totalTaxableAmt => products.isEmpty
+      ? 0
+      : products
+          .map((element) => element.totalTaxableAmt)
+          .reduce((value, element) => value + element);
 
   double get remainPrice => totalPaid.getZeroIfNull > total.getZeroIfNull
       ? totalPaid.getZeroIfNull - total.getZeroIfNull
@@ -88,6 +97,7 @@ class OrderC {
   OrderStatusC get getStatus => convertStringToOrderStatus(status);
   OrderSource get getOrderSource =>
       convertStringToOrderSource(orderSource.toString());
+
   OrderC();
   OrderC copyWith({
     int? idSeq,
@@ -131,6 +141,7 @@ class OrderC {
     String? tableCaption,
     double? totalDiscountForOrderAndProduct,
     KitchenInfo? kitchenInfo,
+    double? totalCalories,
   }) {
     return OrderC()
       ..idSeq = idSeq ?? this.idSeq
@@ -176,7 +187,8 @@ class OrderC {
       ..tableCaption = tableCaption ?? this.tableCaption
       ..totalDiscountForOrderAndProduct = totalDiscountForOrderAndProduct ??
           this.totalDiscountForOrderAndProduct
-      ..kitchenInfo = kitchenInfo ?? this.kitchenInfo;
+      ..kitchenInfo = kitchenInfo ?? this.kitchenInfo
+      ..totalCalories = totalCalories ?? this.totalCalories;
   }
 
   OrderC.fromJson(Map<String, dynamic> json) {
@@ -255,6 +267,7 @@ class OrderC {
     tableCaption = json['tableCaption'];
     totalPaid = json['totalPaid'];
     totalDiscountForOrderAndProduct = json['totalDiscountForOrderAndProduct'];
+    totalCalories = json['totalCalories'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -312,6 +325,7 @@ class OrderC {
     data['totalPaid'] = totalPaid;
     data['totalDiscountForOrderAndProduct'] = totalDiscountForOrderAndProduct;
     data['kitchenInfo'] = kitchenInfo?.toJson();
+    data['totalCalories'] = totalCalories;
     return data;
   }
 
@@ -373,6 +387,7 @@ class OrderC {
     data['tillId'] = tillId;
     data['totalDiscountForOrderAndProduct'] = totalDiscountForOrderAndProduct;
     data['kitchenInfo'] = kitchenInfo?.toJson();
+    data['totalCalories'] = totalCalories;
     return data;
   }
 
@@ -408,9 +423,39 @@ class AppliedProduct {
   double? priceDiscount = 0;
   double? pricePromotion = 0;
   double? taxPrice;
-  double? freeQuntity;
+  double? taxableAmt = 0;
+  double? freeQuantity;
   double get totalDiscount =>
       pricePromotion.getZeroIfNull + priceDiscount.getZeroIfNull;
+  double get getUnitPrice => (price ?? 0) / quantity;
+  double get getUnitPriceWithOptionPrice =>
+      getUnitPrice + (optionPrice ?? 0) / quantity;
+
+  double get totalTaxableAmt => (taxableAmt ?? 0) + taxableAmtForModifier;
+
+  String get getProductName =>
+      "${product.target?.name ?? ''} @ ${unit.target?.name ?? ''} * ${unit.target?.factor.removeTrailingZeros}";
+  String get getProductFName =>
+      "${product.target?.fName ?? ''} @ ${unit.target?.fName ?? ''} * ${unit.target?.factor.removeTrailingZeros}";
+
+  double get taxableAmtForModifier => appliedModifer.isEmpty
+      ? 0
+      : appliedModifer
+          .map((element) => element.totalTaxableAmt)
+          .reduce((value, element) => value + element);
+
+  double get taxPercentage => (taxInfo.target?.values?.isEmpty ?? true)
+      ? 0
+      : taxInfo.target!.values!
+          .where((element) => element.isAppliedTax)
+          .map((e) => e.taxPercentage!)
+          .reduce((value, element) => value + element);
+
+  double get getTotalOptionUnitPrice => appliedModifer.isEmpty
+      ? 0
+      : appliedModifer
+          .map((element) => element.getTotalOptionUnitPrice)
+          .reduce((value, element) => value + element);
 
   String? note;
 
@@ -420,7 +465,9 @@ class AppliedProduct {
       (price.getZeroIfNull + optionPrice.getZeroIfNull) -
       (priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull);
 
-  double get remainQty => quantity - freeQuntity.getZeroIfNull;
+  double get subTotalWithTax => subTotal + taxPrice.getZeroIfNull;
+
+  double get remainQty => quantity - freeQuantity.getZeroIfNull;
 
   PriceLevel get getPriceLevel => convertStringToOPriceLevel(priceLevel);
 
@@ -441,8 +488,9 @@ class AppliedProduct {
     this.priceWithTax,
     this.taxPrice,
     this.giftCardCode,
-    this.freeQuntity,
+    this.freeQuantity,
     this.kitchenInfo,
+    this.taxableAmt,
   });
   AppliedProduct copyWith({
     ExtractProduct? product,
@@ -466,24 +514,27 @@ class AppliedProduct {
     TaxInfo? taxInfo,
     String? note,
     ThrowbackInfo? throwbackInfo,
-    double? freeQuntity,
+    double? freeQuantity,
     KitchenInfo? kitchenInfo,
+    double? taxableAmt,
   }) {
     return AppliedProduct(
-            quantity: quantity ?? this.quantity,
-            prodRef: prodRef ?? this.prodRef,
-            priceWithTax: priceWithTax ?? this.priceWithTax,
-            isCansel: isCansel ?? this.isCansel,
-            msgCansel: msgCansel ?? this.msgCansel,
-            priceLevel: priceLevel ?? this.priceLevel,
-            giftCardCode: giftCardCode ?? this.giftCardCode,
-            price: price ?? this.price,
-            optionPrice: optionPrice ?? this.optionPrice,
-            priceDiscount: priceDiscount ?? this.priceDiscount,
-            pricePromotion: pricePromotion ?? this.pricePromotion,
-            taxPrice: taxPrice ?? this.taxPrice,
-            note: note ?? this.note,
-            freeQuntity: freeQuntity ?? this.freeQuntity)
+      quantity: quantity ?? this.quantity,
+      prodRef: prodRef ?? this.prodRef,
+      priceWithTax: priceWithTax ?? this.priceWithTax,
+      isCansel: isCansel ?? this.isCansel,
+      msgCansel: msgCansel ?? this.msgCansel,
+      priceLevel: priceLevel ?? this.priceLevel,
+      giftCardCode: giftCardCode ?? this.giftCardCode,
+      price: price ?? this.price,
+      optionPrice: optionPrice ?? this.optionPrice,
+      priceDiscount: priceDiscount ?? this.priceDiscount,
+      pricePromotion: pricePromotion ?? this.pricePromotion,
+      taxPrice: taxPrice ?? this.taxPrice,
+      note: note ?? this.note,
+      freeQuantity: freeQuantity ?? this.freeQuantity,
+      taxableAmt: taxableAmt ?? this.taxableAmt,
+    )
           ..product.target = product ?? this.product.target
           ..unit.target = unit ?? this.unit.target
           ..event.target = event ?? this.event.target
@@ -534,11 +585,12 @@ class AppliedProduct {
     priceDiscount = double.tryParse(json['priceDiscount'].toString()) ?? 0.0;
     pricePromotion = double.tryParse(json['pricePromotion'].toString()) ?? 0.0;
     taxPrice = double.tryParse(json['taxPrice'].toString()) ?? 0.0;
-    freeQuntity = double.tryParse(json['freeQuntity'].toString()) ?? 0.0;
+    freeQuantity = double.tryParse(json['freeQuantity'].toString()) ?? 0.0;
     note = json['note'];
     if (json['kitchenInfo'] != null) {
       kitchenInfo = KitchenInfo.fromJson(json['kitchenInfo']);
     }
+    taxableAmt = json['taxableAmt'];
   }
 
   Map<String, dynamic> toJson() {
@@ -578,10 +630,11 @@ class AppliedProduct {
     data['priceDiscount'] = priceDiscount ?? 0.0;
     data['pricePromotion'] = pricePromotion;
     data['taxPrice'] = taxPrice;
-    data['freeQuntity'] = freeQuntity;
+    data['freeQuantity'] = freeQuantity;
     data['note'] = note;
     data['subTotal'] = subTotal;
     data['kitchenInfo'] = kitchenInfo?.toJson();
+    data['taxableAmt'] = taxableAmt;
     return data;
   }
 
@@ -623,10 +676,11 @@ class AppliedProduct {
     data['priceDiscount'] = priceDiscount ?? 0.0;
     data['pricePromotion'] = pricePromotion ?? 0.0;
     data['taxPrice'] = taxPrice ?? 0.0;
-    data['freeQuntity'] = freeQuntity ?? 0.0;
+    data['freeQuantity'] = freeQuantity ?? 0.0;
     data['note'] = note;
     data['subTotal'] = subTotal;
     data['kitchenInfo'] = kitchenInfo?.toJson();
+    data['taxableAmt'] = taxableAmt;
     return data;
   }
 
@@ -639,7 +693,7 @@ class TaxInfo {
   @Id()
   int? idSeq;
   String? taxGroupId;
-  // double? value;
+  double? value;
 
   @Transient()
   List<TaxValue>? values;
@@ -647,15 +701,17 @@ class TaxInfo {
   TaxInfo({
     this.taxGroupId,
     this.values,
+    this.value,
 
     // this.value,
   });
 
   TaxInfo.fromJson(Map<String, dynamic> json) {
     taxGroupId = json['taxGroupId'];
+    value = double.tryParse(json['value'].toString());
     if (json['values'] != null) {
+      values = <TaxValue>[];
       json['values'].forEach((v) {
-        values = <TaxValue>[];
         values!.add(TaxValue.fromJson(v));
       });
     }
@@ -678,15 +734,26 @@ class TaxValue {
   double? taxPercentage;
   bool? isTaxExempt;
   bool? isZeroTax;
-  bool? isApplyForThisCustomer;
+  bool? isNotApplyForThisCustomer;
+  bool? isNotApplyForThisOrderType;
+  bool? isNotApplyForThisPeriod;
 
-  TaxValue(
-      {this.taxId,
-      this.value,
-      this.taxPercentage,
-      this.isTaxExempt,
-      this.isZeroTax,
-      this.isApplyForThisCustomer});
+  bool get isAppliedTax => (isNotApplyForThisCustomer == false &&
+      isTaxExempt == false &&
+      isZeroTax == false &&
+      isNotApplyForThisOrderType == false &&
+      isNotApplyForThisPeriod == false);
+
+  TaxValue({
+    this.taxId,
+    this.value,
+    this.taxPercentage,
+    this.isTaxExempt,
+    this.isZeroTax,
+    this.isNotApplyForThisCustomer,
+    this.isNotApplyForThisOrderType,
+    this.isNotApplyForThisPeriod,
+  });
 
   TaxValue.fromJson(Map<String, dynamic> json) {
     taxId = json['taxId'];
@@ -694,7 +761,9 @@ class TaxValue {
     taxPercentage = json['taxPercentage'];
     isTaxExempt = json['isTaxExempt'];
     isZeroTax = json['isZeroTax'];
-    isApplyForThisCustomer = json['isApplyForThisCustomer'];
+    isNotApplyForThisCustomer = json['isNotApplyForThisCustomer'];
+    isNotApplyForThisOrderType = json['isNotApplyForThisOrderType'];
+    isNotApplyForThisPeriod = json['isNotApplyForThisPeriod'];
   }
 
   Map<String, dynamic> toJson() {
@@ -704,7 +773,9 @@ class TaxValue {
     data['taxPercentage'] = taxPercentage;
     data['isTaxExempt'] = isTaxExempt;
     data['isZeroTax'] = isZeroTax;
-    data['isApplyForThisCustomer'] = isApplyForThisCustomer;
+    data['isNotApplyForThisCustomer'] = isNotApplyForThisCustomer;
+    data['isNotApplyForThisOrderType'] = isNotApplyForThisOrderType;
+    data['isNotApplyForThisPeriod'] = isNotApplyForThisPeriod;
     return data;
   }
 }
@@ -715,27 +786,6 @@ class TaxValue {
 //   double value;
 
 // }
-@Entity()
-class FeeTaxInfo {
-  @Id()
-  int? idSeq;
-  String? taxGroupId;
-  double? value;
-
-  FeeTaxInfo({this.taxGroupId, this.value});
-
-  FeeTaxInfo.fromJson(Map<String, dynamic> json) {
-    taxGroupId = json['taxGroupId'];
-    value = double.tryParse(json['value'].toString()) ?? 0.0;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['taxGroupId'] = taxGroupId;
-    data['value'] = value;
-    return data;
-  }
-}
 
 @Entity()
 class FeeValue {
@@ -745,7 +795,7 @@ class FeeValue {
   double? value;
   bool? applyAuto;
 
-  final taxInfo = ToOne<FeeTaxInfo>();
+  final taxInfo = ToOne<TaxInfo>();
 
   FeeValue({
     this.feeId,
@@ -758,7 +808,7 @@ class FeeValue {
     value = double.tryParse(json['value'].toString()) ?? 0.0;
     applyAuto = json['applyAuto'];
     taxInfo.target =
-        json['taxInfo'] != null ? FeeTaxInfo.fromJson(json['taxInfo']) : null;
+        json['taxInfo'] != null ? TaxInfo.fromJson(json['taxInfo']) : null;
   }
 
   Map<String, dynamic> toJson() {

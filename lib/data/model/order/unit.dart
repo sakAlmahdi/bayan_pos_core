@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/core/extensions/base_map_extension.dart';
+import 'package:bayan_pos_core/data/enum/price_type_enum.dart';
 import 'package:bayan_pos_core/data/model/order/price_list_value.dart';
 import 'package:bayan_pos_core/data/model/order/unit_modifer.dart';
 import 'package:objectbox/objectbox.dart';
@@ -9,7 +10,7 @@ class Unit {
   int? idSeq;
   String? id;
   String? name;
-  String? fname;
+  String? fName;
   String? barcode;
   double? price;
   double? cost;
@@ -17,11 +18,16 @@ class Unit {
   bool? defaultForSales;
   bool? defaultForPurchase;
   bool? defaultForStore;
+  bool? showAlertPreparationTime;
+  int? priceType;
 
   final priceList = ToMany<PriceListValue>();
   final modifiers = ToMany<UnitModifer>();
   @Transient()
   String? get getName => name;
+
+  @Transient()
+  PriceType get getPriceType => convertStringToPriceType(priceType);
 
   Unit({
     this.id,
@@ -33,14 +39,18 @@ class Unit {
     this.defaultForPurchase,
     this.defaultForStore,
     this.name,
-    this.fname,
+    this.fName,
+    this.showAlertPreparationTime,
+    this.priceType,
   });
 
   Unit.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     barcode = json['barcode'];
     name = json['name'];
-    fname = json['fname'];
+    fName = json['fName'];
+    showAlertPreparationTime = json['showAlertPreparationTime'];
+    priceType = json['priceType'];
     price = double.tryParse(json['price'].toString()) ?? 0.0;
     cost = double.tryParse(json['cost'].toString()) ?? 0.0;
     factor = double.tryParse(json['factor'].toString()) ?? 0.0;
@@ -63,7 +73,7 @@ class Unit {
     final Map<String, dynamic> data = {};
     data['id'] = id;
     data['name'] = name;
-    data['fname'] = fname;
+    data['fName'] = fName;
     data['barcode'] = barcode;
     data['price'] = price;
     data['cost'] = cost;
@@ -71,6 +81,8 @@ class Unit {
     data['defaultForSales'] = defaultForSales;
     data['defaultForPurchase'] = defaultForPurchase;
     data['defaultForStore'] = defaultForStore;
+    data['showAlertPreparationTime'] = showAlertPreparationTime;
+    data['priceType'] = priceType;
     data['priceLists'] = priceList.map((v) => v.toJson()).toList();
     data['modifiers'] = modifiers.map((v) => v.toJson()).toList();
     return data;
@@ -80,11 +92,11 @@ class Unit {
     final Map<String, dynamic> data = {};
     data['id'] = id;
     data['name'] = name;
-    data['fName'] = fname;
-    // data['barcode'] = barcode;
+    data['fName'] = fName;
+    data['barcode'] = barcode;
     data['price'] = price;
     data['cost'] = cost;
-    // data['factor'] = factor;
+    data['factor'] = factor;
     // data['defaultForSales'] = defaultForSales;
     // data['defaultForPurchase'] = defaultForPurchase;
     // data['defaultForStore'] = defaultForStore;
@@ -92,5 +104,16 @@ class Unit {
     data['modifiers'] = modifiers.map((v) => v.toJson()).toList();
     // data['modifiers'] = modifiers.map((v) => v.toJsonOrder()).toList();
     return data;
+  }
+
+  convertStringToPriceType(int? key) {
+    switch (key) {
+      case 0:
+        return PriceType.fixed;
+      case 1:
+        return PriceType.open;
+      default:
+        return PriceType.fixed;
+    }
   }
 }

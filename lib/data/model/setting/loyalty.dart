@@ -33,13 +33,13 @@ class LoyaltySetting {
 
   LoyaltySetting.fromJson(Map<String, dynamic> json) {
     enableSystem = json['enableSystem'];
-    loyaltyMethod = json['loyaltyMethod'];
+    loyaltyMethod = json['loyaltyMethod']?.toString();
     lowestOrderPrice =
         double.tryParse(json['lowest_Order_Price'].toString()) ?? 0.0;
     delayInEarningPointsMinutes =
         double.tryParse(json['delay_In_Earning_Points_Minutes'].toString()) ??
             0.0;
-    bonusType = json['bonusType'];
+    bonusType = json['bonusType']?.toString();
     bonusValue = double.tryParse(json['bonusValue'].toString()) ?? 0.0;
     maximumBonusLimit =
         double.tryParse(json['maximum_Bonus_Limit'].toString()) ?? 0.0;

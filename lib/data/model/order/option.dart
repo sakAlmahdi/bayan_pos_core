@@ -20,7 +20,7 @@ class Option {
   String? fname;
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fname;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fname;
 
   ///TODO: taxGroupId add on api
   String? taxGroupId;

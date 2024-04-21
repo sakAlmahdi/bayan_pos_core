@@ -44,7 +44,7 @@ class Fee {
       days?.map((e) => convertStringToDay(e)).toList() ?? [];
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   Fee();
 
   Fee.fromJson(Map<String, dynamic> json) {

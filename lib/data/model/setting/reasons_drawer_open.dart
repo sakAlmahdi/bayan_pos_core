@@ -11,7 +11,7 @@ class ReasonsDrawerOpen {
   String? fName;
 
   @Transient()
-  String? get getMsg => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getMsg => BaseHelpersMethods.isPrimaryLang ? name : fName;
   ReasonsDrawerOpen({this.id, this.name, this.fName});
 
   ReasonsDrawerOpen.fromJson(Map<String, dynamic> json) {

@@ -10,3 +10,8 @@ extension ListDrawerOperationEntityDataExtension
   List<PaymentMethod> get toPaymentMehodeList =>
       map((e) => e.toPaymentMethodModle).toList();
 }
+
+extension BasePaymentMethodExtension on PaymentMethod {
+  PaymentMethodEntityData get toEntityData =>
+      PaymentMethodEntityData.fromJson(toJson());
+}

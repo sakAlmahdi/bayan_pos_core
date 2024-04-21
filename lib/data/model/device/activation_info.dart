@@ -1,9 +1,12 @@
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/data/model/device/device.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
 class ActivationInfo {
-  int? id;
+  @Id()
+  int? idSeq;
+  String? id;
   String? name;
   String? fName;
   String? email;
@@ -23,12 +26,16 @@ class ActivationInfo {
   String? longitude;
   String? headerInvoiceMsg;
   String? footerInvoiceMsg;
+  String? code;
+  String? currentDeviceId;
   bool? receiveOnlineOrders;
 
   // List<Device>? devices;
 
   @Backlink("info")
-  final allDevices = ToMany<Device>();
+  final devices = ToMany<Device>();
+  @Transient()
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   ActivationInfo({
     this.id,
@@ -52,6 +59,8 @@ class ActivationInfo {
     this.headerInvoiceMsg,
     this.footerInvoiceMsg,
     this.receiveOnlineOrders,
+    this.code,
+
     // this.devices
   });
 
@@ -77,10 +86,12 @@ class ActivationInfo {
     headerInvoiceMsg = json['headerInvoiceMsg'];
     footerInvoiceMsg = json['footerInvoiceMsg'];
     receiveOnlineOrders = json['receiveOnlineOrders'];
+    code = json['code'];
+    currentDeviceId = json['currentDeviceId'];
     if (json['devices'] != null) {
       json['devices'].forEach((v) {
         // devices.add(Device.fromJson(v));
-        allDevices.add(Device.fromJson(v));
+        devices.add(Device.fromJson(v));
       });
       // locator<Store>().box<Device>().putMany(devices);
     }
@@ -109,9 +120,11 @@ class ActivationInfo {
     data['headerInvoiceMsg'] = headerInvoiceMsg;
     data['footerInvoiceMsg'] = footerInvoiceMsg;
     data['receiveOnlineOrders'] = receiveOnlineOrders;
-    // if (devices != null) {
-    //   data['devices'] = devices!.map((v) => v.toJson()).toList();
-    // }
+    data['code'] = code;
+    data['currentDeviceId'] = currentDeviceId;
+    if (devices != null) {
+      data['devices'] = devices!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }

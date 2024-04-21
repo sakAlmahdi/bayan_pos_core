@@ -60,6 +60,8 @@ class Product1 {
   String? tags;
   String? fTags;
 
+  bool? showAlertPreparationTime;
+
   final units = ToMany<Unit>();
 
   final modifiers = ToMany<Modifier>();
@@ -67,56 +69,58 @@ class Product1 {
   final ingredients = ToMany<Ingredient>();
   final groups = ToMany<Group>();
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
-  Product1(
-      {this.id,
-      this.name,
-      this.fName,
-      this.sku,
-      this.barcode,
-      this.productTypeId,
-      this.costType,
-      this.priceType,
-      this.salesMethod,
-      this.price,
-      this.cost,
-      this.preparationTime,
-      this.activeQRScan,
-      this.qrScanOnSameDate,
-      this.enableSalesDiscount,
-      this.discountPercentageLimit,
-      this.enableFreeQuantity,
-      this.enableDateExpire,
-      this.enableIMEISerial,
-      this.enableWeights,
-      this.scanPriceFromScale,
-      this.scalePriceIncludeTax,
-      this.independentPrinting,
-      this.calculateQuantityFromTotalPrice,
-      this.reservationRequired,
-      this.scaleBarcodeDigits,
-      this.scaleProductCodeDigits,
-      this.scaleIntDigits,
-      this.scaledecimalDigits,
-      this.scaleProductCodeFirstInBracode,
-      this.availableStartDateTime,
-      this.availableEndDateTime,
-      this.description,
-      this.fDescription,
-      this.imageUrl,
-      this.calories,
-      this.minimumLevel,
-      this.maximumLevel,
-      this.productNature,
-      this.active,
-      this.taxGroupId,
-      this.subName,
-      this.fSubName,
-      this.promotionalName,
-      this.fPromotionalName,
-      this.tags,
-      this.fTags});
+  Product1({
+    this.id,
+    this.name,
+    this.fName,
+    this.sku,
+    this.barcode,
+    this.productTypeId,
+    this.costType,
+    this.priceType,
+    this.salesMethod,
+    this.price,
+    this.cost,
+    this.preparationTime,
+    this.activeQRScan,
+    this.qrScanOnSameDate,
+    this.enableSalesDiscount,
+    this.discountPercentageLimit,
+    this.enableFreeQuantity,
+    this.enableDateExpire,
+    this.enableIMEISerial,
+    this.enableWeights,
+    this.scanPriceFromScale,
+    this.scalePriceIncludeTax,
+    this.independentPrinting,
+    this.calculateQuantityFromTotalPrice,
+    this.reservationRequired,
+    this.scaleBarcodeDigits,
+    this.scaleProductCodeDigits,
+    this.scaleIntDigits,
+    this.scaledecimalDigits,
+    this.scaleProductCodeFirstInBracode,
+    this.availableStartDateTime,
+    this.availableEndDateTime,
+    this.description,
+    this.fDescription,
+    this.imageUrl,
+    this.calories,
+    this.minimumLevel,
+    this.maximumLevel,
+    this.productNature,
+    this.active,
+    this.taxGroupId,
+    this.subName,
+    this.fSubName,
+    this.promotionalName,
+    this.fPromotionalName,
+    this.tags,
+    this.fTags,
+    this.showAlertPreparationTime,
+  });
 
   Product1.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -133,6 +137,7 @@ class Product1 {
     cost = double.tryParse(json['cost'].toString()) ?? 0.0;
 
     preparationTime = json['preparation_Time'];
+    showAlertPreparationTime = json['showAlertPreparationTime'];
     activeQRScan = json['activeQRScan'];
     qrScanOnSameDate = json['qrScanOnSameDate'];
     enableSalesDiscount = json['enable_Sales_Discount'];
@@ -212,6 +217,7 @@ class Product1 {
     data['cost'] = cost;
 
     data['preparation_Time'] = preparationTime;
+    data['showAlertPreparationTime'] = showAlertPreparationTime;
     data['activeQRScan'] = activeQRScan;
     data['qrScanOnSameDate'] = qrScanOnSameDate;
     data['enable_Sales_Discount'] = enableSalesDiscount;

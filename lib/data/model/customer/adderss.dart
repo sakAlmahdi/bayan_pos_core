@@ -22,7 +22,7 @@ class Address {
   String? popularPlace;
   String? zipCode;
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   @Transient()
   String? get getFullDescription =>
       " ${mainStreet} , ${byStreet} , 🏢 ${buildingNo} , 🚪 ${floor} - ${apartmentNo}";

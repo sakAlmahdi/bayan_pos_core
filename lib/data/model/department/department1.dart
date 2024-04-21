@@ -15,7 +15,7 @@ class Department1 {
   int? displayOrder;
   String? imageUrl;
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   final categories = ToMany<Category>();
 

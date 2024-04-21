@@ -13,7 +13,7 @@ class ExtractCategory {
   String? name;
   String? fName;
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   ExtractCategory({
     required this.id,

@@ -15,7 +15,7 @@ class ExtractDepartment {
   String? name;
   String? fName;
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   final categories = ToMany<ExtractCategory>();
 

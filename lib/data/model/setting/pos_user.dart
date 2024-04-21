@@ -1,51 +1,82 @@
+import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/setting/pos_user1.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
 class PosUser {
-  int? id;
-  String? idUser;
-  String? fullName;
+  @Id()
+  int? idSeq;
+  String? id;
+  String? name;
   String? phoneNumber;
-  final tenants = ToMany<Tenants>();
-  final branches = ToMany<Branches>();
+  String? passwordHash;
+  int? pin;
   String? pinMD5;
+  String? imageUrl;
+  List<int>? orderTypes;
+  String? appslanguageCode;
+  String? appsDataLanguageCode;
+  String? dashboardlanguageCode;
+
+  @Transient()
+  List<OrderType?>? get getOrderTypes => [];
+
+  final roles = ToMany<Roles>();
+
   PosUser({
     this.id,
-    this.idUser,
-    this.fullName,
+    this.name,
     this.phoneNumber,
+    this.passwordHash,
+    this.pin,
     this.pinMD5,
-    // this.tenants,
-    // this.branches,
+    this.imageUrl,
+    this.appsDataLanguageCode,
+    this.appslanguageCode,
+    this.dashboardlanguageCode,
+    this.orderTypes,
   });
 
   PosUser.fromJson(Map<String, dynamic> json) {
-    idUser = json['id'];
-    fullName = json['fullName'];
+    id = json['id'];
+    name = json['name'];
     phoneNumber = json['phoneNumber'];
-    if (json['tenants'] != null) {
-      // tenants = <Tenants>[];
-      json['tenants'].forEach((v) {
-        tenants.add(Tenants.fromJson(v));
-      });
-    }
-    if (json['branches'] != null) {
-      // branches = <Branches>[];
-      json['branches'].forEach((v) {
-        branches.add(Branches.fromJson(v));
-      });
-    }
+    passwordHash = json['passwordHash'];
+    pin = json['pin'];
     pinMD5 = json['pinMD5'];
+    imageUrl = json['imageUrl'];
+    appsDataLanguageCode = json['appsDataLanguageCode'];
+    appslanguageCode = json['appslanguageCode'];
+    dashboardlanguageCode = json['dashboardlanguageCode'];
+
+    if (json['orderTypes'] != null) {
+      orderTypes = <int>[];
+      json['orderTypes'].forEach((v) {
+        orderTypes?.add(int.parse(v.toString()));
+      });
+    }
+
+    if (json['roles'] != null) {
+      json['roles'].forEach((v) {
+        roles.add(Roles.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['id'] = idUser;
-    data['fullName'] = fullName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
     data['phoneNumber'] = phoneNumber;
-    data['tenants'] = tenants.map((v) => v.toJson()).toList();
-    data['branches'] = branches.map((v) => v.toJson()).toList();
+    data['passwordHash'] = passwordHash;
+    data['pin'] = pin;
     data['pinMD5'] = pinMD5;
+    data['imageUrl'] = imageUrl;
+    data['orderTypes'] = orderTypes;
+    data['roles'] = roles.map((v) => v.toJson()).toList();
+    data['appsDataLanguageCode'] = appsDataLanguageCode;
+    data['appslanguageCode'] = appslanguageCode;
+    data['dashboardlanguageCode'] = dashboardlanguageCode;
     return data;
   }
 
@@ -54,46 +85,56 @@ class PosUser {
 }
 
 @Entity()
-class Tenants {
-  int? id;
-  String? tenantId;
-  String? tenantName;
+class Roles {
+  @Id()
+  int? idSeq;
+  String? id;
+  String? name;
 
-  Tenants({this.id, this.tenantId, this.tenantName});
+  final claims = ToMany<Claims>();
 
-  Tenants.fromJson(Map<String, dynamic> json) {
-    tenantId = json['tenantId'];
-    tenantName = json['tenantName'];
+  Roles({
+    this.id,
+    this.name,
+  });
+
+  Roles.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    if (json['claims'] != null) {
+      json['claims'].forEach((v) {
+        claims.add(Claims.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['tenantId'] = tenantId;
-    data['tenantName'] = tenantName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['claims'] = claims.map((v) => v.toJson()).toList();
     return data;
   }
 }
 
 @Entity()
-class Branches {
-  int? id;
-  String? tenantId;
-  String? branchId;
-  String? branchName;
+class Claims {
+  @Id()
+  int? idSeq;
+  String? id;
+  String? name;
 
-  Branches({this.id, this.tenantId, this.branchId, this.branchName});
+  Claims({this.id, this.name});
 
-  Branches.fromJson(Map<String, dynamic> json) {
-    tenantId = json['tenantId'];
-    branchId = json['branchId'];
-    branchName = json['branchName'];
+  Claims.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = {};
-    data['tenantId'] = tenantId;
-    data['branchId'] = branchId;
-    data['branchName'] = branchName;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }

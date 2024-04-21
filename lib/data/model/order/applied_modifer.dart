@@ -12,6 +12,18 @@ class AppliedModifer {
   final options = ToMany<AppliedOption>();
   final modifier = ToOne<UnitModifer>();
 
+  double get getTotalOptionUnitPrice => options.isEmpty
+      ? 0
+      : options
+          .map((element) => element.getOptionUnitPrice)
+          .reduce((value, element) => value + element);
+
+  double get totalTaxableAmt => options.isEmpty
+      ? 0
+      : options
+          .map((element) => element.taxableAmt ?? 0)
+          .reduce((value, element) => value + element);
+
   AppliedModifer copyWith({
     List<AppliedOption>? options,
     UnitModifer? modifer,
@@ -57,37 +69,46 @@ class AppliedModifer {
 class AppliedOption {
   @Id()
   int? idSeq;
-  double quntity = 1;
-  double freeQuntity = 0;
+  double quantity = 1;
+  double freeQuantity = 0;
+  double? taxableAmt = 0;
+
   bool priceWithTax = false;
   final option = ToOne<Option>();
 
   final taxInfo = ToOne<TaxInfo>();
 
-  double get subTotal => freeQuntity >= quntity
+  double get subTotal => freeQuantity >= quantity
       ? 0
-      : (quntity - freeQuntity) * (option.target?.price.getZeroIfNull ?? 00);
+      : (quantity - freeQuantity) * (option.target?.price.getZeroIfNull ?? 00);
 
-  double get freeQtyUsed => quntity >= freeQuntity ? freeQuntity : quntity;
+  double get freeQtyUsed => quantity >= freeQuantity ? freeQuantity : quantity;
+
+  double get remainQty => quantity - freeQuantity;
+
+  double get getOptionUnitPrice =>
+      freeQuantity >= quantity ? 0 : (option.target?.price ?? 0) / remainQty;
 
   AppliedOption({
-    this.quntity = 1,
-    this.freeQuntity = 0,
+    this.quantity = 1,
+    this.freeQuantity = 0,
+    this.taxableAmt = 0,
   });
 
   AppliedOption.fromJson(Map<String, dynamic> json) {
-    quntity = double.tryParse(json['quntity'].toString()) ?? 0.0;
-    freeQuntity = double.tryParse(json['freeQuntity'].toString()) ?? 0.0;
+    quantity = double.tryParse(json['quantity'].toString()) ?? 0.0;
+    freeQuantity = double.tryParse(json['freeQuantity'].toString()) ?? 0.0;
     option.target =
         json['option'] != null ? Option.fromJson(json['option']) : null;
     taxInfo.target =
         json['taxInfo'] != null ? TaxInfo.fromJson(json['taxInfo']) : null;
+    taxableAmt = json['taxableAmt'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['quntity'] = quntity;
-    data['freeQuntity'] = freeQuntity;
+    data['quantity'] = quantity;
+    data['freeQuantity'] = freeQuantity;
     if (option.target != null) {
       data['option'] = option.target!.toJson().removeNull();
     }
@@ -96,13 +117,15 @@ class AppliedOption {
     }
     data['subTotal'] = subTotal;
     data['freeQtyUsed'] = freeQtyUsed;
+    data['taxableAmt'] = taxableAmt;
+
     return data;
   }
 
   Map<String, dynamic> toJsonOrder() {
     final Map<String, dynamic> data = {};
-    data['quntity'] = quntity;
-    data['freeQuntity'] = freeQuntity;
+    data['quantity'] = quantity;
+    data['freeQuantity'] = freeQuantity;
     if (option.target != null) {
       data['option'] = option.target!.toJsonOrder().removeNull();
     }
@@ -111,6 +134,8 @@ class AppliedOption {
     }
     data['subTotal'] = subTotal;
     data['freeQtyUsed'] = freeQtyUsed;
+    data['taxableAmt'] = taxableAmt;
+
     return data;
   }
 }

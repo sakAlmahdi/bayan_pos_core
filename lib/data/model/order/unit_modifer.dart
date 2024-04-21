@@ -24,7 +24,7 @@ class UnitModifer {
 
   final options = ToMany<Option>();
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   @Transient()
   List<Option>? get avaliableOptions => options
       .where((element) => !(exceptOptions?.contains(element.id) ?? false))

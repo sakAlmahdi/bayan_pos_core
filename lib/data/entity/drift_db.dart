@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:bayan_pos_core/data/entity/activation_info_entity.dart';
 import 'package:bayan_pos_core/data/entity/drawer_operation_entity.dart';
 import 'package:bayan_pos_core/data/entity/settings_entity.dart';
 import 'package:bayan_pos_core/data/entity/shift_entity.dart';
@@ -23,6 +24,7 @@ part 'drift_db.g.dart';
   SettingEntity,
   OrderPayments,
   DrawerOperationEntity,
+  ActivationInfoEntity,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());

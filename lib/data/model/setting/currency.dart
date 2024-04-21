@@ -19,7 +19,7 @@ class Currencies {
   double? maxExchangeRate;
   List<int>? dens;
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   Currencies({
     this.id,

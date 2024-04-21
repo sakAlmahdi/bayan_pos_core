@@ -1,3 +1,4 @@
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/device/activation_info.dart';
 import 'package:objectbox/objectbox.dart';
@@ -36,6 +37,9 @@ class Device {
   String? get invoiceNumberPrefix => setting.target?.invoiceNumberPerfix;
   String? refrencePrefix;
 
+  bool? get autoIp => connectionType == 'wifi';
+  String? ip;
+
   @Transient()
   List<OrderType?>? get getOrderTypes =>
       orderTypes?.map((e) => convertStringToOrderType(e)).toList();
@@ -44,9 +48,13 @@ class Device {
 
   final setting = ToOne<DeviceSetting>();
 
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
+
   List<String>? products;
   List<String>? categories;
   List<String>? departments;
+  List<String>? users;
+  List<String>? resturnatSections;
 
   Device({
     this.id,
@@ -74,6 +82,8 @@ class Device {
     this.categories,
     this.departments,
     this.products,
+    this.resturnatSections,
+    this.users,
   });
 
   Device.fromJson(Map<String, dynamic> json) {
@@ -96,8 +106,11 @@ class Device {
     connectionIPAddress = json['connectionIPAddress'];
     connectionPort = json['connectionPort'] ?? 4567;
     connectionType = json['connectionType'];
-    // imei = json['imei'];
-    imei = json['id'];
+    // autoIp = json['autoIp'];
+    ip = json['ip'];
+
+    imei = json['imei'];
+    // imei = json['id'];
     if (json['orderTypes'] != null) {
       orderTypes = [];
       json['orderTypes'].forEach((v) {
@@ -127,6 +140,19 @@ class Device {
     if (json['settings'] != null) {
       setting.target = DeviceSetting.fromJson(json['settings']);
     }
+
+    if (json['users'] != null) {
+      users = <String>[];
+      json['users'].forEach((v) {
+        users!.add(v!.toString().toLowerCase());
+      });
+    }
+    if (json['resturnatSections'] != null) {
+      resturnatSections = <String>[];
+      json['resturnatSections'].forEach((v) {
+        resturnatSections!.add(v!.toString().toLowerCase());
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -150,6 +176,8 @@ class Device {
     data['connectionPort'] = connectionPort;
     data['connectionType'] = connectionType;
     data['imei'] = imei;
+    data['autoIp'] = autoIp;
+    data['ip'] = ip;
     if (orderTypes != null) {
       data['orderTypes'] = orderTypes!.map((v) => v).toList();
     }
@@ -168,6 +196,8 @@ class Device {
     data["invoiceNumberPerfixSymoble"] = invoiceNumberPrefixSymbol;
     data["invoiceNumberPerfix"] = invoiceNumberPrefix;
     data["refrencePerfix"] = refrencePrefix;
+    data['users'] = users;
+    data['resturnatSections'] = resturnatSections;
     return data;
   }
 
@@ -202,35 +232,36 @@ class DeviceSetting {
   String? invoiceNumberPerfix;
   bool? refrencePerfix;
 
-  DeviceSetting(
-      {this.idSeq,
-      this.dailyStartCallNumber,
-      this.dailyReCallNumber,
-      this.newOrderDefaultType,
-      this.printLanguage,
-      this.defaultTag,
-      this.emailForDailyReport,
-      this.emailForShiftReport,
-      this.emailForTillReport,
-      this.autoConnectToDevices,
-      this.enableBarcodeScanner,
-      this.acceptOnlineOrders,
-      this.sentOnlineOrdersToKitchen,
-      this.printOnlineOrdersUponReceipt,
-      this.disableAutoPrintInvoice,
-      this.readCallNumberFromMasterCasher,
-      this.printReceiptVoucherTransactions,
-      this.forceSelectPriceList,
-      this.forceSelectChareOnProductSale,
-      this.forceRestCallNumberEveryDay,
-      this.invoiceNumberPerfixSymoble,
-      this.invoiceNumberPerfix,
-      this.refrencePerfix});
+  DeviceSetting({
+    this.idSeq,
+    this.dailyStartCallNumber,
+    this.dailyReCallNumber,
+    this.newOrderDefaultType,
+    this.printLanguage,
+    this.defaultTag,
+    this.emailForDailyReport,
+    this.emailForShiftReport,
+    this.emailForTillReport,
+    this.autoConnectToDevices,
+    this.enableBarcodeScanner,
+    this.acceptOnlineOrders,
+    this.sentOnlineOrdersToKitchen,
+    this.printOnlineOrdersUponReceipt,
+    this.disableAutoPrintInvoice,
+    this.readCallNumberFromMasterCasher,
+    this.printReceiptVoucherTransactions,
+    this.forceSelectPriceList,
+    this.forceSelectChareOnProductSale,
+    this.forceRestCallNumberEveryDay,
+    this.invoiceNumberPerfixSymoble,
+    this.invoiceNumberPerfix,
+    this.refrencePerfix,
+  });
 
   DeviceSetting.fromJson(Map<String, dynamic> json) {
     dailyStartCallNumber = json['daily_Start_Call_Number'];
     dailyReCallNumber = json['daily_Re_Call_Number'];
-    newOrderDefaultType = json['new_Order_Default_Type'];
+    newOrderDefaultType = json['new_Order_Default_Type']?.toString();
     printLanguage = json['print_language'];
     defaultTag = json['default_Tag'];
     emailForDailyReport = json['email_For_Daily_Report'];
@@ -280,6 +311,7 @@ class DeviceSetting {
     data['invoiceNumberPerfixSymoble'] = invoiceNumberPerfixSymoble;
     data['invoiceNumberPerfix'] = invoiceNumberPerfix;
     data['refrencePerfix'] = refrencePerfix;
+
     return data;
   }
 }

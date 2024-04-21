@@ -46,7 +46,7 @@ class TimeEvent {
   DateTime get getEndDateAndTime =>
       BaseHelpersMethods.compainDateAndTime(date: endDate!, time: endTime!);
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   TimeEvent(
       {this.id,

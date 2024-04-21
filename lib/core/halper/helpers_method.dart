@@ -6,7 +6,7 @@ import 'package:intl/intl.dart' as intl;
 import 'package:intl/date_symbol_data_local.dart';
 
 mixin BaseHelpersMethods {
-  static bool get isSecoundaryLang => Get.locale == Locale('ar');
+  static bool isPrimaryLang = false;
   static DateTime compainDateAndTime(
       {required String date, required String time}) {
     DateTime d = DateTime.parse(date);
@@ -30,3 +30,12 @@ mixin BaseHelpersMethods {
         length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
   }
 }
+
+// Busses Model 
+ /// user 
+    // - p :"en",
+    // -s : "ar" 
+
+//printer template 
+
+

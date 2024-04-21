@@ -11,7 +11,7 @@ class PriceList {
   String? fName;
   bool? priceIncludeTax;
 
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   PriceList(
       {this.idSeq = 0, this.id, this.name, this.fName, this.priceIncludeTax});

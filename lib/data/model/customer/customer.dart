@@ -31,7 +31,7 @@ class Customer {
   final houseAccountTranscations = ToMany<Transaction>();
 
   @Transient()
-  String? get getName => BaseHelpersMethods.isSecoundaryLang ? name : fName;
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   Customer({
     this.id,
