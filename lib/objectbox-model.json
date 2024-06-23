@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:5753316018002223132",
-      "lastPropertyId": "24:4544610953277289076",
+      "lastPropertyId": "28:9149901265846442063",
       "name": "ActivationInfo",
       "properties": [
         {
@@ -127,6 +127,26 @@
         {
           "id": "24:4544610953277289076",
           "name": "currentDeviceId",
+          "type": 9
+        },
+        {
+          "id": "25:7639568410244113722",
+          "name": "company",
+          "type": 9
+        },
+        {
+          "id": "26:2325171491536283203",
+          "name": "fCompany",
+          "type": 9
+        },
+        {
+          "id": "27:2745344738895200628",
+          "name": "branch",
+          "type": 9
+        },
+        {
+          "id": "28:9149901265846442063",
+          "name": "fBranch",
           "type": 9
         }
       ],
@@ -306,7 +326,7 @@
     },
     {
       "id": "5:6600000843738374292",
-      "lastPropertyId": "24:3583234907337386259",
+      "lastPropertyId": "27:3585065567033838086",
       "name": "AppliedProduct",
       "properties": [
         {
@@ -444,6 +464,21 @@
         {
           "id": "24:3583234907337386259",
           "name": "taxableAmt",
+          "type": 8
+        },
+        {
+          "id": "25:7964116179825037394",
+          "name": "isFixedPrice",
+          "type": 1
+        },
+        {
+          "id": "26:4624016540054226080",
+          "name": "canEditQty",
+          "type": 1
+        },
+        {
+          "id": "27:3585065567033838086",
+          "name": "barcodePrice",
           "type": 8
         }
       ],
@@ -1242,7 +1277,7 @@
     },
     {
       "id": "15:1709354910588741966",
-      "lastPropertyId": "16:4307301827250704506",
+      "lastPropertyId": "17:707772581729270881",
       "name": "Customer",
       "properties": [
         {
@@ -1326,6 +1361,11 @@
         {
           "id": "16:4307301827250704506",
           "name": "enableHouseAccount",
+          "type": 1
+        },
+        {
+          "id": "17:707772581729270881",
+          "name": "taxable",
           "type": 1
         }
       ],
@@ -1549,7 +1589,7 @@
         {
           "id": "5:8206374997722592336",
           "name": "deviceTypeCode",
-          "type": 9
+          "type": 6
         },
         {
           "id": "6:1911769193153073890",
@@ -1619,7 +1659,7 @@
         {
           "id": "19:5622058200416888116",
           "name": "connectionType",
-          "type": 9
+          "type": 6
         },
         {
           "id": "20:1500724765342486693",
@@ -3016,7 +3056,7 @@
     },
     {
       "id": "41:440055725736552913",
-      "lastPropertyId": "38:8433737418177929448",
+      "lastPropertyId": "40:7643465825531770773",
       "name": "OrderC",
       "properties": [
         {
@@ -3226,6 +3266,11 @@
           "id": "38:8433737418177929448",
           "name": "totalCalories",
           "type": 8
+        },
+        {
+          "id": "39:7886854267189551285",
+          "name": "minimumReservationPrice",
+          "type": 8
         }
       ],
       "relations": [
@@ -3253,7 +3298,7 @@
     },
     {
       "id": "42:6195915471022332426",
-      "lastPropertyId": "9:8816688962022329550",
+      "lastPropertyId": "10:9214158631094744920",
       "name": "PaymentMethod",
       "properties": [
         {
@@ -3303,13 +3348,18 @@
           "id": "9:8816688962022329550",
           "name": "autoOpenCashDrawer",
           "type": 1
+        },
+        {
+          "id": "10:9214158631094744920",
+          "name": "imageUrl",
+          "type": 9
         }
       ],
       "relations": []
     },
     {
       "id": "43:3971644332505711263",
-      "lastPropertyId": "8:6442357828788916647",
+      "lastPropertyId": "9:3713215889888607302",
       "name": "PaymentValue",
       "properties": [
         {
@@ -3354,6 +3404,11 @@
         {
           "id": "8:6442357828788916647",
           "name": "currencyCode",
+          "type": 9
+        },
+        {
+          "id": "9:3713215889888607302",
+          "name": "defaultCurrencyId",
           "type": 9
         }
       ],
@@ -3400,7 +3455,7 @@
     },
     {
       "id": "45:2416376579055331518",
-      "lastPropertyId": "12:6360305472393338813",
+      "lastPropertyId": "13:406180694348473144",
       "name": "PosUser",
       "properties": [
         {
@@ -3463,6 +3518,14 @@
           "id": "12:6360305472393338813",
           "name": "dashboardlanguageCode",
           "type": 9
+        },
+        {
+          "id": "13:406180694348473144",
+          "name": "cashierSettingId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "65:252049419746215059",
+          "relationTarget": "UserCashierSetting"
         }
       ],
       "relations": [
@@ -4389,7 +4452,7 @@
         {
           "id": "6:8847684928990019657",
           "name": "minumumReservationPrice",
-          "type": 6
+          "type": 8
         },
         {
           "id": "7:8420797386734806816",
@@ -4974,7 +5037,7 @@
     },
     {
       "id": "71:1925984399764325802",
-      "lastPropertyId": "46:7510796586211910547",
+      "lastPropertyId": "51:5713016033835135895",
       "name": "SalesInvoiceTemplates",
       "properties": [
         {
@@ -5209,6 +5272,31 @@
           "id": "46:7510796586211910547",
           "name": "secondCode",
           "type": 9
+        },
+        {
+          "id": "47:5397614305225470905",
+          "name": "printedTitle",
+          "type": 9
+        },
+        {
+          "id": "48:4241058430207649166",
+          "name": "fPrintedTitle",
+          "type": 9
+        },
+        {
+          "id": "49:4624498590484831938",
+          "name": "pointsMessage",
+          "type": 9
+        },
+        {
+          "id": "50:6599727214003349599",
+          "name": "fPointsMessage",
+          "type": 9
+        },
+        {
+          "id": "51:5713016033835135895",
+          "name": "printCustomerPoints",
+          "type": 1
         }
       ],
       "relations": []
@@ -5595,15 +5683,192 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "76:6616187084094249572",
+      "lastPropertyId": "17:820680473083265703",
+      "name": "UserCashierSetting",
+      "properties": [
+        {
+          "id": "1:3777479195137330034",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8304021525539083755",
+          "name": "shortName",
+          "type": 9
+        },
+        {
+          "id": "3:8557496258251322548",
+          "name": "fShortName",
+          "type": 9
+        },
+        {
+          "id": "4:3149115020391222031",
+          "name": "salesInvoiceTemplateId",
+          "type": 9
+        },
+        {
+          "id": "5:1272632938594458370",
+          "name": "salesInvoiceTemplateA4Id",
+          "type": 9
+        },
+        {
+          "id": "6:7743754531134830559",
+          "name": "groupId",
+          "type": 9
+        },
+        {
+          "id": "7:6243831614658684920",
+          "name": "priceListId",
+          "type": 9
+        },
+        {
+          "id": "8:3727463538628448539",
+          "name": "warehouseId",
+          "type": 9
+        },
+        {
+          "id": "9:2035408722847137495",
+          "name": "discountPercentageLimit",
+          "type": 6
+        },
+        {
+          "id": "10:3108883343224360633",
+          "name": "orderTypes",
+          "type": 27
+        },
+        {
+          "id": "11:5643371905850221404",
+          "name": "paymentMethods",
+          "type": 30
+        },
+        {
+          "id": "12:4866255397252802830",
+          "name": "restaurantSections",
+          "type": 30
+        },
+        {
+          "id": "13:6968202578691800974",
+          "name": "devices",
+          "type": 30
+        },
+        {
+          "id": "14:2234483785184262092",
+          "name": "groups",
+          "type": 30
+        },
+        {
+          "id": "15:349791599911857368",
+          "name": "priceLists",
+          "type": 30
+        },
+        {
+          "id": "16:4550699847262728183",
+          "name": "salesInvoiceTemplates",
+          "type": 30
+        },
+        {
+          "id": "17:820680473083265703",
+          "name": "salesInvoiceTemplatesA4",
+          "type": 30
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "78:8367548960609222594",
+      "lastPropertyId": "15:3040734359635577666",
+      "name": "BarcodeScale",
+      "properties": [
+        {
+          "id": "1:5207791344527844967",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1286580070772740767",
+          "name": "id",
+          "type": 9,
+          "flags": 34848,
+          "indexId": "67:3735846757600100268"
+        },
+        {
+          "id": "3:973367886313172914",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:7233858581128158153",
+          "name": "fName",
+          "type": 9
+        },
+        {
+          "id": "5:1475696328733608898",
+          "name": "scanPriceFromScale",
+          "type": 1
+        },
+        {
+          "id": "6:9010313136779557910",
+          "name": "scalePriceIncludeTax",
+          "type": 1
+        },
+        {
+          "id": "7:7668204935257570072",
+          "name": "scaleBarcodeDigits",
+          "type": 6
+        },
+        {
+          "id": "8:8953443731432486103",
+          "name": "scaleProductCodeDigits",
+          "type": 6
+        },
+        {
+          "id": "9:234152594563864269",
+          "name": "scaleIntDigits",
+          "type": 6
+        },
+        {
+          "id": "10:7425237318867831425",
+          "name": "scaleDecimalDigits",
+          "type": 6
+        },
+        {
+          "id": "12:3355206056164552982",
+          "name": "departments",
+          "type": 30
+        },
+        {
+          "id": "13:2843767497890078777",
+          "name": "categories",
+          "type": 30
+        },
+        {
+          "id": "14:4300864943654878833",
+          "name": "products",
+          "type": 30
+        },
+        {
+          "id": "15:3040734359635577666",
+          "name": "scaleProductCodeFirstInBarcode",
+          "type": 1
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "75:2271541013230993056",
-  "lastIndexId": "64:7169902607711834136",
+  "lastEntityId": "78:8367548960609222594",
+  "lastIndexId": "67:3735846757600100268",
   "lastRelationId": "32:2657844446207983663",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    4481046626857652659
+  ],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
     1875832421897830843,
@@ -5612,7 +5877,23 @@
     4874781372007549423,
     4219402363920495111,
     4266436893371589106,
-    2707724798938672112
+    2707724798938672112,
+    7643465825531770773,
+    1610264126596635876,
+    2906363155981282972,
+    257423837226474316,
+    5753686362863251833,
+    5700115538431701412,
+    3789531479542178183,
+    8079671959738355093,
+    6832653930366687715,
+    6344098663838880279,
+    4751644974899568360,
+    2371430737299234413,
+    5980240438905013524,
+    6171825477919522910,
+    669569068201303509,
+    4125500750030956845
   ],
   "retiredRelationUids": [],
   "version": 1

@@ -47,7 +47,7 @@ class Currencies {
     if (json['dens'] != null) {
       dens = <int>[];
       json['dens'].forEach((v) {
-        dens!.add(int.parse(v));
+        dens!.add(int.parse(v.toString()));
       });
     }
     exchangeRate = double.tryParse(json['exchangeRate'].toString()) ?? 0.0;
@@ -72,6 +72,16 @@ class Currencies {
     if (dens != null) {
       data['dens'] = dens!.map((v) => v).toList();
     }
+    return data;
+  }
+
+  Map<String, dynamic> toJsonOrder() {
+    final Map<String, dynamic> data = {};
+    data['id'] = id;
+    data['currencyCode'] = currencyCode;
+    data['is_Default'] = isDefault;
+    data['customFormatting'] = customFormatting;
+    data['exchangeRate'] = exchangeRate;
     return data;
   }
 }

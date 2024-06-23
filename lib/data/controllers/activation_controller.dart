@@ -20,7 +20,7 @@ class ActivationController extends GetxController {
   late Dio dio;
   late String pathActiveDevice;
   late MyDatabase database;
-  String? deviceCode;
+  int? deviceCode;
 
   ActivationController({
     required this.dio,
@@ -67,7 +67,7 @@ class ActivationController extends GetxController {
     print("${activationInfoData?.devices}");
   }
 
-  getCurentDevice({String? deviceCode}) async {
+  getCurentDevice({int? deviceCode}) async {
     deviceCode = deviceCode ?? this.deviceCode;
     String? imei = await getDeviecId();
     currentDevice = activationInfoData?.devices.firstWhereOrNull((element) =>

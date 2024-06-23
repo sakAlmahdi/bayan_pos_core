@@ -65,4 +65,7 @@ extension BaseNumExtension on num? {
   double get getZeroIfNull {
     return this?.toDouble() ?? 0.0;
   }
+
+  String get getZeroPrefixOnIsSmall9 =>
+      this! <= 9 ? '0${toString()}' : toString();
 }

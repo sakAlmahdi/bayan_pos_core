@@ -30,12 +30,22 @@ class ActivationInfo {
   String? currentDeviceId;
   bool? receiveOnlineOrders;
 
+  String? company;
+  String? fCompany;
+  String? branch;
+  String? fBranch;
+
   // List<Device>? devices;
 
   @Backlink("info")
   final devices = ToMany<Device>();
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
+  @Transient()
+  String? get getCompanyName =>
+      BaseHelpersMethods.isPrimaryLang ? company : fCompany;
+  String? get getBranchName =>
+      BaseHelpersMethods.isPrimaryLang ? branch : fBranch;
 
   ActivationInfo({
     this.id,
@@ -60,6 +70,11 @@ class ActivationInfo {
     this.footerInvoiceMsg,
     this.receiveOnlineOrders,
     this.code,
+    this.currentDeviceId,
+    this.company,
+    this.fCompany,
+    this.branch,
+    this.fBranch,
 
     // this.devices
   });
@@ -95,6 +110,11 @@ class ActivationInfo {
       });
       // locator<Store>().box<Device>().putMany(devices);
     }
+
+    company = json['company'];
+    fCompany = json['fCompany'];
+    branch = json['branch'];
+    fBranch = json['fBranch'];
   }
 
   Map<String, dynamic> toJson() {
@@ -122,9 +142,12 @@ class ActivationInfo {
     data['receiveOnlineOrders'] = receiveOnlineOrders;
     data['code'] = code;
     data['currentDeviceId'] = currentDeviceId;
-    if (devices != null) {
-      data['devices'] = devices!.map((v) => v.toJson()).toList();
-    }
+    data['devices'] = devices!.map((v) => v.toJson()).toList();
+    data['company'] = company;
+    data['fCompany'] = fCompany;
+    data['branch'] = branch;
+    data['fBranch'] = fBranch;
+
     return data;
   }
 }

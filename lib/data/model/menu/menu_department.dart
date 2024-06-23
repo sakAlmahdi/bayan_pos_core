@@ -21,4 +21,10 @@ class MenuDepartment {
     data['order'] = order;
     return data;
   }
+
+  // equals operator override
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MenuDepartment && id == other.id;
 }

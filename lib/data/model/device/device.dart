@@ -10,7 +10,7 @@ class Device {
   String? deviceId;
   String? deviceTypeId;
   String? deviceModelId;
-  String? deviceTypeCode;
+  int? deviceTypeCode;
   int? masterDeviceNo;
   String? reference;
   String? name;
@@ -24,11 +24,11 @@ class Device {
   String? longitude;
   String? connectionIPAddress;
   int? connectionPort;
-  String? connectionType;
+  int? connectionType;
   String? imei;
   List<int>? orderTypes;
   int? get callNumberStart => setting.target?.dailyStartCallNumber ?? 1;
-  int? get callNumberReset => setting.target?.dailyReCallNumber ?? 1;
+  int? get callNumberReset => setting.target?.dailyReCallNumber ?? 1000;
   bool? get forceRestCallNumberEveryDay =>
       setting.target?.forceRestCallNumberEveryDay;
 
@@ -37,7 +37,8 @@ class Device {
   String? get invoiceNumberPrefix => setting.target?.invoiceNumberPerfix;
   String? refrencePrefix;
 
-  bool? get autoIp => connectionType == 'wifi';
+  // bool? get autoIp => connectionType == 'wifi';
+  bool? get autoIp => connectionType == 1;
   String? ip;
 
   @Transient()

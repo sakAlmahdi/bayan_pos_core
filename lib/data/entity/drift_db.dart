@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:bayan_pos_core/data/entity/activation_info_entity.dart';
 import 'package:bayan_pos_core/data/entity/drawer_operation_entity.dart';
+import 'package:bayan_pos_core/data/entity/product_qty_entity.dart';
 import 'package:bayan_pos_core/data/entity/settings_entity.dart';
 import 'package:bayan_pos_core/data/entity/shift_entity.dart';
 import 'package:bayan_pos_core/data/entity/till_entity.dart';
@@ -9,7 +10,6 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
-
 import 'order_entity.dart';
 part 'drift_db.g.dart';
 
@@ -25,6 +25,7 @@ part 'drift_db.g.dart';
   OrderPayments,
   DrawerOperationEntity,
   ActivationInfoEntity,
+  ProductQtyEntity,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -194,11 +195,24 @@ class MyDatabase extends _$MyDatabase {
           if (from < 20) {
             await m.addColumn(orderEntity, orderEntity.kitchenInfo);
           }
+          if (from < 21) {
+            await m.addColumn(orderEntity, orderEntity.currency);
+          }
+          if (from <= 22) {
+            await m.addColumn(orderEntity, orderEntity.paymentCurrency);
+          }
+          if (from < 24) {
+            await m.addColumn(orderEntity, orderEntity.minimumReservationPrice);
+          }
+          if (from < 25) {
+            await m.addColumn(
+                paymentMethodEntity, paymentMethodEntity.imageUrl);
+          }
         },
       );
 
   @override
-  int get schemaVersion => 20;
+  int get schemaVersion => 25;
 }
 
 LazyDatabase _openConnection() {

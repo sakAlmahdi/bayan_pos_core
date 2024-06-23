@@ -44,6 +44,8 @@ class PaymentMethodEntity extends Table {
   BoolColumn get autoOpenCashDrawer => boolean().nullable()();
   BoolColumn get isActive => boolean().nullable()();
   BoolColumn get isDeleted => boolean().nullable()();
+  // imageUrl
+  TextColumn get imageUrl => text().nullable()();
 
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [

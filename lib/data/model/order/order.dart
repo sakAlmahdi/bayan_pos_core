@@ -17,6 +17,7 @@ import 'package:bayan_pos_core/data/model/order/kitchen_info.dart';
 import 'package:bayan_pos_core/data/model/order/order_source.dart';
 import 'package:bayan_pos_core/data/model/order/payment_method.dart';
 import 'package:bayan_pos_core/data/model/order/unit.dart';
+import 'package:bayan_pos_core/data/model/setting/currency.dart';
 import 'package:objectbox/objectbox.dart';
 import '../delivery/delivery_company.dart';
 
@@ -44,6 +45,7 @@ class OrderC {
   String? tableId;
   String? tableCaption;
   int? numberVistor;
+  double? minimumReservationPrice;
   // Customer? customer;
   final customer = ToOne<Customer>();
   final address = ToOne<Address>();
@@ -62,42 +64,36 @@ class OrderC {
   String? checksum;
   String? masterChecksum;
   String? serverChecksum;
-
   double? totalFee = 0;
   double? taxPrice = 0;
-
-  double get discountTotal =>
-      priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull;
-  double? totalDiscountForOrderAndProduct;
-
   double? totalPaid;
   String? shiftId;
   String? tillId;
   KitchenInfo? kitchenInfo;
-
   double? totalCalories;
+  Currencies? currency;
+  Currencies? paymentCurrency;
 
   double get total =>
       (subTotal - discountTotal) +
       taxPrice.getZeroIfNull +
       totalFee.getZeroIfNull;
-
+  double get discountTotal =>
+      priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull;
+  double? totalDiscountForOrderAndProduct;
   double get totalTaxableAmt => products.isEmpty
       ? 0
       : products
           .map((element) => element.totalTaxableAmt)
           .reduce((value, element) => value + element);
-
   double get remainPrice => totalPaid.getZeroIfNull > total.getZeroIfNull
       ? totalPaid.getZeroIfNull - total.getZeroIfNull
       : 0;
-
   OrderType get getOrderType =>
       convertStringToOrderType(orderType) ?? OrderType.dineIn;
   OrderStatusC get getStatus => convertStringToOrderStatus(status);
   OrderSource get getOrderSource =>
       convertStringToOrderSource(orderSource.toString());
-
   OrderC();
   OrderC copyWith({
     int? idSeq,
@@ -142,6 +138,8 @@ class OrderC {
     double? totalDiscountForOrderAndProduct,
     KitchenInfo? kitchenInfo,
     double? totalCalories,
+    double? minimumReservationPrice,
+    Currencies? currency,
   }) {
     return OrderC()
       ..idSeq = idSeq ?? this.idSeq
@@ -188,7 +186,10 @@ class OrderC {
       ..totalDiscountForOrderAndProduct = totalDiscountForOrderAndProduct ??
           this.totalDiscountForOrderAndProduct
       ..kitchenInfo = kitchenInfo ?? this.kitchenInfo
-      ..totalCalories = totalCalories ?? this.totalCalories;
+      ..totalCalories = totalCalories ?? this.totalCalories
+      ..minimumReservationPrice =
+          minimumReservationPrice ?? this.minimumReservationPrice
+      ..currency = currency ?? this.currency;
   }
 
   OrderC.fromJson(Map<String, dynamic> json) {
@@ -268,6 +269,10 @@ class OrderC {
     totalPaid = json['totalPaid'];
     totalDiscountForOrderAndProduct = json['totalDiscountForOrderAndProduct'];
     totalCalories = json['totalCalories'];
+    minimumReservationPrice = json['minimumReservationPrice'];
+    if (json['currency'] != null) {
+      currency = Currencies.fromJson(json['currency']);
+    }
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -326,6 +331,12 @@ class OrderC {
     data['totalDiscountForOrderAndProduct'] = totalDiscountForOrderAndProduct;
     data['kitchenInfo'] = kitchenInfo?.toJson();
     data['totalCalories'] = totalCalories;
+    data['minimumReservationPrice'] = minimumReservationPrice;
+    data['currency'] = currency;
+    if (currency != null) {
+      data['currency'] = currency!.toJson();
+    }
+
     return data;
   }
 
@@ -388,6 +399,8 @@ class OrderC {
     data['totalDiscountForOrderAndProduct'] = totalDiscountForOrderAndProduct;
     data['kitchenInfo'] = kitchenInfo?.toJson();
     data['totalCalories'] = totalCalories;
+    data['minimumReservationPrice'] = minimumReservationPrice;
+    data['currency'] = currency?.toJsonOrder();
     return data;
   }
 
@@ -432,6 +445,10 @@ class AppliedProduct {
       getUnitPrice + (optionPrice ?? 0) / quantity;
 
   double get totalTaxableAmt => (taxableAmt ?? 0) + taxableAmtForModifier;
+  bool? isFixedPrice = false;
+  bool? canEditQty = true;
+
+  double? barcodePrice;
 
   String get getProductName =>
       "${product.target?.name ?? ''} @ ${unit.target?.name ?? ''} * ${unit.target?.factor.removeTrailingZeros}";
@@ -491,6 +508,9 @@ class AppliedProduct {
     this.freeQuantity,
     this.kitchenInfo,
     this.taxableAmt,
+    this.canEditQty = true,
+    this.isFixedPrice = false,
+    this.barcodePrice,
   });
   AppliedProduct copyWith({
     ExtractProduct? product,
@@ -517,6 +537,9 @@ class AppliedProduct {
     double? freeQuantity,
     KitchenInfo? kitchenInfo,
     double? taxableAmt,
+    bool? canEditQty,
+    bool? isFixedPrice,
+    double? barcodePrice,
   }) {
     return AppliedProduct(
       quantity: quantity ?? this.quantity,
@@ -534,6 +557,9 @@ class AppliedProduct {
       note: note ?? this.note,
       freeQuantity: freeQuantity ?? this.freeQuantity,
       taxableAmt: taxableAmt ?? this.taxableAmt,
+      canEditQty: canEditQty ?? this.canEditQty,
+      isFixedPrice: isFixedPrice ?? this.isFixedPrice,
+      barcodePrice: barcodePrice ?? this.barcodePrice,
     )
           ..product.target = product ?? this.product.target
           ..unit.target = unit ?? this.unit.target
@@ -591,6 +617,9 @@ class AppliedProduct {
       kitchenInfo = KitchenInfo.fromJson(json['kitchenInfo']);
     }
     taxableAmt = json['taxableAmt'];
+    canEditQty = json['canEditQty'];
+    isFixedPrice = json['isFixedPrice'];
+    barcodePrice = json['barcodePrice'];
   }
 
   Map<String, dynamic> toJson() {
@@ -635,6 +664,9 @@ class AppliedProduct {
     data['subTotal'] = subTotal;
     data['kitchenInfo'] = kitchenInfo?.toJson();
     data['taxableAmt'] = taxableAmt;
+    data['canEditQty'] = canEditQty;
+    data['isFixedPrice'] = isFixedPrice;
+    data['barcodePrice'] = barcodePrice;
     return data;
   }
 
@@ -681,6 +713,9 @@ class AppliedProduct {
     data['subTotal'] = subTotal;
     data['kitchenInfo'] = kitchenInfo?.toJson();
     data['taxableAmt'] = taxableAmt;
+    data['canEditQty'] = canEditQty;
+    data['isFixedPrice'] = isFixedPrice;
+    data['barcodePrice'] = barcodePrice;
     return data;
   }
 
@@ -880,9 +915,11 @@ class PaymentValue {
   double? exchangeRate;
   double? amountCurecny;
   String? currencyCode;
+  String? defaultCurrencyId;
   PaymentValue({
     required this.amt,
     required this.refreance,
+    required this.defaultCurrencyId,
     this.amountCurecny,
     this.exchangeRate,
     this.currencyCode,
@@ -897,6 +934,7 @@ class PaymentValue {
     exchangeRate = json['exchangeRate'];
     amountCurecny = json['amountCurecny'];
     currencyCode = json['currencyCode'];
+    defaultCurrencyId = json['defaultCurrencyId'];
 
     if (json['method'] != null) {
       method.target = PaymentMethod.fromJson(json['method']);
@@ -911,6 +949,7 @@ class PaymentValue {
     data['currencyCode'] = currencyCode;
     data['amountCurecny'] = amountCurecny;
     data['exchangeRate'] = exchangeRate;
+    data['defaultCurrencyId'] = defaultCurrencyId;
 
     data['method'] = method.target?.toJson().removeNull();
 
@@ -925,8 +964,10 @@ class PaymentValue {
     double? exchangeRate,
     String? currencyCode,
     String? refreance,
+    String? defaultCurrencyId,
   }) {
     return PaymentValue(
+      defaultCurrencyId: defaultCurrencyId ?? this.defaultCurrencyId,
       refreance: refreance ?? this.refreance,
       amt: amt ?? this.amt,
       remainAmt: remainAmt ?? this.remainAmt,

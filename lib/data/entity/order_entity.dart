@@ -50,6 +50,10 @@ class OrderEntity extends Table {
   RealColumn get totalDiscountForOrderAndProduct => real().nullable()();
   TextColumn get kitchenInfo =>
       text().map(const JsonTypeConverter()).nullable()();
+  TextColumn get currency => text().map(const JsonTypeConverter()).nullable()();
+  TextColumn get paymentCurrency =>
+      text().map(const JsonTypeConverter()).nullable()();
+  RealColumn get minimumReservationPrice => real().nullable()();
 
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [

@@ -47,6 +47,7 @@ import 'data/model/order/price_list_value.dart';
 import 'data/model/order/unit.dart';
 import 'data/model/order/unit_modifer.dart';
 import 'data/model/product/Ingredients.dart';
+import 'data/model/product/barcode_scale.dart';
 import 'data/model/product/modifier.dart';
 import 'data/model/product/product1.dart';
 import 'data/model/product/product_price_list.dart';
@@ -71,6 +72,7 @@ import 'data/model/setting/sales_invoice_templates.dart';
 import 'data/model/setting/sales_invoice_templatesA4.dart';
 import 'data/model/setting/tax_setting.dart';
 import 'data/model/setting/tenant_setting.dart';
+import 'data/model/setting/user_cashier_setting.dart';
 import 'data/model/setting/view_settings.dart';
 import 'data/model/shift.dart';
 import 'data/model/tax/tax_c.dart';
@@ -81,7 +83,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 5753316018002223132),
       name: 'ActivationInfo',
-      lastPropertyId: const IdUid(24, 4544610953277289076),
+      lastPropertyId: const IdUid(28, 9149901265846442063),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -202,6 +204,26 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(24, 4544610953277289076),
             name: 'currentDeviceId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 7639568410244113722),
+            name: 'company',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 2325171491536283203),
+            name: 'fCompany',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 2745344738895200628),
+            name: 'branch',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 9149901265846442063),
+            name: 'fBranch',
             type: 9,
             flags: 0)
       ],
@@ -380,7 +402,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(5, 6600000843738374292),
       name: 'AppliedProduct',
-      lastPropertyId: const IdUid(24, 3583234907337386259),
+      lastPropertyId: const IdUid(27, 3585065567033838086),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -510,6 +532,21 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(24, 3583234907337386259),
             name: 'taxableAmt',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 7964116179825037394),
+            name: 'isFixedPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 4624016540054226080),
+            name: 'canEditQty',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 3585065567033838086),
+            name: 'barcodePrice',
             type: 8,
             flags: 0)
       ],
@@ -1301,7 +1338,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(15, 1709354910588741966),
       name: 'Customer',
-      lastPropertyId: const IdUid(16, 4307301827250704506),
+      lastPropertyId: const IdUid(17, 707772581729270881),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -1383,6 +1420,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(16, 4307301827250704506),
             name: 'enableHouseAccount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 707772581729270881),
+            name: 'taxable',
             type: 1,
             flags: 0)
       ],
@@ -1598,7 +1640,7 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(5, 8206374997722592336),
             name: 'deviceTypeCode',
-            type: 9,
+            type: 6,
             flags: 0),
         ModelProperty(
             id: const IdUid(6, 1911769193153073890),
@@ -1668,7 +1710,7 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(19, 5622058200416888116),
             name: 'connectionType',
-            type: 9,
+            type: 6,
             flags: 0),
         ModelProperty(
             id: const IdUid(20, 1500724765342486693),
@@ -3039,7 +3081,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(41, 440055725736552913),
       name: 'OrderC',
-      lastPropertyId: const IdUid(38, 8433737418177929448),
+      lastPropertyId: const IdUid(40, 7643465825531770773),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -3242,6 +3284,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(38, 8433737418177929448),
             name: 'totalCalories',
             type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(39, 7886854267189551285),
+            name: 'minimumReservationPrice',
+            type: 8,
             flags: 0)
       ],
       relations: <ModelRelation>[
@@ -3266,7 +3313,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(42, 6195915471022332426),
       name: 'PaymentMethod',
-      lastPropertyId: const IdUid(9, 8816688962022329550),
+      lastPropertyId: const IdUid(10, 9214158631094744920),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -3314,6 +3361,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(9, 8816688962022329550),
             name: 'autoOpenCashDrawer',
             type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 9214158631094744920),
+            name: 'imageUrl',
+            type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -3321,7 +3373,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(43, 3971644332505711263),
       name: 'PaymentValue',
-      lastPropertyId: const IdUid(8, 6442357828788916647),
+      lastPropertyId: const IdUid(9, 3713215889888607302),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -3364,6 +3416,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(8, 6442357828788916647),
             name: 'currencyCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 3713215889888607302),
+            name: 'defaultCurrencyId',
             type: 9,
             flags: 0)
       ],
@@ -3411,7 +3468,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(45, 2416376579055331518),
       name: 'PosUser',
-      lastPropertyId: const IdUid(12, 6360305472393338813),
+      lastPropertyId: const IdUid(13, 406180694348473144),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -3473,7 +3530,14 @@ final _entities = <ModelEntity>[
             id: const IdUid(12, 6360305472393338813),
             name: 'dashboardlanguageCode',
             type: 9,
-            flags: 0)
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 406180694348473144),
+            name: 'cashierSettingId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(65, 252049419746215059),
+            relationTarget: 'UserCashierSetting')
       ],
       relations: <ModelRelation>[
         ModelRelation(
@@ -4380,7 +4444,7 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(6, 8847684928990019657),
             name: 'minumumReservationPrice',
-            type: 6,
+            type: 8,
             flags: 0),
         ModelProperty(
             id: const IdUid(7, 8420797386734806816),
@@ -4958,7 +5022,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(71, 1925984399764325802),
       name: 'SalesInvoiceTemplates',
-      lastPropertyId: const IdUid(46, 7510796586211910547),
+      lastPropertyId: const IdUid(51, 5713016033835135895),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -5191,6 +5255,31 @@ final _entities = <ModelEntity>[
             id: const IdUid(46, 7510796586211910547),
             name: 'secondCode',
             type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(47, 5397614305225470905),
+            name: 'printedTitle',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(48, 4241058430207649166),
+            name: 'fPrintedTitle',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(49, 4624498590484831938),
+            name: 'pointsMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(50, 6599727214003349599),
+            name: 'fPointsMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(51, 5713016033835135895),
+            name: 'printCustomerPoints',
+            type: 1,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -5576,6 +5665,180 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(76, 6616187084094249572),
+      name: 'UserCashierSetting',
+      lastPropertyId: const IdUid(17, 820680473083265703),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3777479195137330034),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 8304021525539083755),
+            name: 'shortName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 8557496258251322548),
+            name: 'fShortName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 3149115020391222031),
+            name: 'salesInvoiceTemplateId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 1272632938594458370),
+            name: 'salesInvoiceTemplateA4Id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 7743754531134830559),
+            name: 'groupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6243831614658684920),
+            name: 'priceListId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 3727463538628448539),
+            name: 'warehouseId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 2035408722847137495),
+            name: 'discountPercentageLimit',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 3108883343224360633),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 5643371905850221404),
+            name: 'paymentMethods',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 4866255397252802830),
+            name: 'restaurantSections',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 6968202578691800974),
+            name: 'devices',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 2234483785184262092),
+            name: 'groups',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 349791599911857368),
+            name: 'priceLists',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 4550699847262728183),
+            name: 'salesInvoiceTemplates',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 820680473083265703),
+            name: 'salesInvoiceTemplatesA4',
+            type: 30,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(78, 8367548960609222594),
+      name: 'BarcodeScale',
+      lastPropertyId: const IdUid(15, 3040734359635577666),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5207791344527844967),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1286580070772740767),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(67, 3735846757600100268)),
+        ModelProperty(
+            id: const IdUid(3, 973367886313172914),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7233858581128158153),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 1475696328733608898),
+            name: 'scanPriceFromScale',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 9010313136779557910),
+            name: 'scalePriceIncludeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 7668204935257570072),
+            name: 'scaleBarcodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 8953443731432486103),
+            name: 'scaleProductCodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 234152594563864269),
+            name: 'scaleIntDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 7425237318867831425),
+            name: 'scaleDecimalDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 3355206056164552982),
+            name: 'departments',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 2843767497890078777),
+            name: 'categories',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 4300864943654878833),
+            name: 'products',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 3040734359635577666),
+            name: 'scaleProductCodeFirstInBarcode',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -5606,11 +5869,11 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(75, 2271541013230993056),
-      lastIndexId: const IdUid(64, 7169902607711834136),
+      lastEntityId: const IdUid(78, 8367548960609222594),
+      lastIndexId: const IdUid(67, 3735846757600100268),
       lastRelationId: const IdUid(32, 2657844446207983663),
       lastSequenceId: const IdUid(0, 0),
-      retiredEntityUids: const [],
+      retiredEntityUids: const [4481046626857652659],
       retiredIndexUids: const [],
       retiredPropertyUids: const [
         1875832421897830843,
@@ -5619,7 +5882,23 @@ ModelDefinition getObjectBoxModel() {
         4874781372007549423,
         4219402363920495111,
         4266436893371589106,
-        2707724798938672112
+        2707724798938672112,
+        7643465825531770773,
+        1610264126596635876,
+        2906363155981282972,
+        257423837226474316,
+        5753686362863251833,
+        5700115538431701412,
+        3789531479542178183,
+        8079671959738355093,
+        6832653930366687715,
+        6344098663838880279,
+        4751644974899568360,
+        2371430737299234413,
+        5980240438905013524,
+        6171825477919522910,
+        669569068201303509,
+        4125500750030956845
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -5696,7 +5975,16 @@ ModelDefinition getObjectBoxModel() {
           final currentDeviceIdOffset = object.currentDeviceId == null
               ? null
               : fbb.writeString(object.currentDeviceId!);
-          fbb.startTable(25);
+          final companyOffset =
+              object.company == null ? null : fbb.writeString(object.company!);
+          final fCompanyOffset = object.fCompany == null
+              ? null
+              : fbb.writeString(object.fCompany!);
+          final branchOffset =
+              object.branch == null ? null : fbb.writeString(object.branch!);
+          final fBranchOffset =
+              object.fBranch == null ? null : fbb.writeString(object.fBranch!);
+          fbb.startTable(29);
           fbb.addOffset(0, idOffset);
           fbb.addOffset(1, nameOffset);
           fbb.addOffset(2, fNameOffset);
@@ -5721,6 +6009,10 @@ ModelDefinition getObjectBoxModel() {
           fbb.addInt64(21, object.idSeq ?? 0);
           fbb.addOffset(22, codeOffset);
           fbb.addOffset(23, currentDeviceIdOffset);
+          fbb.addOffset(24, companyOffset);
+          fbb.addOffset(25, fCompanyOffset);
+          fbb.addOffset(26, branchOffset);
+          fbb.addOffset(27, fBranchOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -5778,6 +6070,17 @@ ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
           final codeParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 48);
+          final currentDeviceIdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 50);
+          final companyParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 52);
+          final fCompanyParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 54);
+          final branchParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 56);
+          final fBranchParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 58);
           final object = ActivationInfo(
               id: idParam,
               name: nameParam,
@@ -5800,11 +6103,14 @@ ModelDefinition getObjectBoxModel() {
               headerInvoiceMsg: headerInvoiceMsgParam,
               footerInvoiceMsg: footerInvoiceMsgParam,
               receiveOnlineOrders: receiveOnlineOrdersParam,
-              code: codeParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 46)
-            ..currentDeviceId = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 50);
+              code: codeParam,
+              currentDeviceId: currentDeviceIdParam,
+              company: companyParam,
+              fCompany: fCompanyParam,
+              branch: branchParam,
+              fBranch: fBranchParam)
+            ..idSeq = const fb.Int64Reader()
+                .vTableGetNullable(buffer, rootOffset, 46);
           InternalToManyAccess.setRelInfo<ActivationInfo>(
               object.devices,
               store,
@@ -6046,7 +6352,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.giftCardCode!);
           final noteOffset =
               object.note == null ? null : fbb.writeString(object.note!);
-          fbb.startTable(25);
+          fbb.startTable(28);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addInt64(1, object.product.targetId);
           fbb.addInt64(2, object.unit.targetId);
@@ -6070,6 +6376,9 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(21, noteOffset);
           fbb.addFloat64(22, object.freeQuantity);
           fbb.addFloat64(23, object.taxableAmt);
+          fbb.addBool(24, object.isFixedPrice);
+          fbb.addBool(25, object.canEditQty);
+          fbb.addFloat64(26, object.barcodePrice);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6107,6 +6416,12 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 48);
           final taxableAmtParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 50);
+          final canEditQtyParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
+          final isFixedPriceParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
+          final barcodePriceParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 56);
           final object = AppliedProduct(
               quantity: quantityParam,
               prodRef: prodRefParam,
@@ -6122,7 +6437,10 @@ ModelDefinition getObjectBoxModel() {
               taxPrice: taxPriceParam,
               giftCardCode: giftCardCodeParam,
               freeQuantity: freeQuantityParam,
-              taxableAmt: taxableAmtParam)
+              taxableAmt: taxableAmtParam,
+              canEditQty: canEditQtyParam,
+              isFixedPrice: isFixedPriceParam,
+              barcodePrice: barcodePriceParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           object.product.targetId =
@@ -7124,7 +7442,7 @@ ModelDefinition getObjectBoxModel() {
           final priceListIdOffset = object.priceListId == null
               ? null
               : fbb.writeString(object.priceListId!);
-          fbb.startTable(17);
+          fbb.startTable(18);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -7141,6 +7459,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(13, blackListNoteOffset);
           fbb.addOffset(14, priceListIdOffset);
           fbb.addBool(15, object.enableHouseAccount);
+          fbb.addBool(16, object.taxable);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -7179,6 +7498,8 @@ ModelDefinition getObjectBoxModel() {
           final priceListIdParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 32);
+          final taxableParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 36);
           final object = Customer(
               id: idParam,
               name: nameParam,
@@ -7193,7 +7514,8 @@ ModelDefinition getObjectBoxModel() {
               taxRegisterationName: taxRegisterationNameParam,
               inBlackList: inBlackListParam,
               blackListNote: blackListNoteParam,
-              priceListId: priceListIdParam)
+              priceListId: priceListIdParam,
+              taxable: taxableParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
             ..enableHouseAccount =
@@ -7440,9 +7762,6 @@ ModelDefinition getObjectBoxModel() {
           final deviceModelIdOffset = object.deviceModelId == null
               ? null
               : fbb.writeString(object.deviceModelId!);
-          final deviceTypeCodeOffset = object.deviceTypeCode == null
-              ? null
-              : fbb.writeString(object.deviceTypeCode!);
           final referenceOffset = object.reference == null
               ? null
               : fbb.writeString(object.reference!);
@@ -7469,9 +7788,6 @@ ModelDefinition getObjectBoxModel() {
           final connectionIPAddressOffset = object.connectionIPAddress == null
               ? null
               : fbb.writeString(object.connectionIPAddress!);
-          final connectionTypeOffset = object.connectionType == null
-              ? null
-              : fbb.writeString(object.connectionType!);
           final imeiOffset =
               object.imei == null ? null : fbb.writeString(object.imei!);
           final orderTypesOffset = object.orderTypes == null
@@ -7511,7 +7827,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(1, deviceIdOffset);
           fbb.addOffset(2, deviceTypeIdOffset);
           fbb.addOffset(3, deviceModelIdOffset);
-          fbb.addOffset(4, deviceTypeCodeOffset);
+          fbb.addInt64(4, object.deviceTypeCode);
           fbb.addInt64(5, object.masterDeviceNo);
           fbb.addOffset(6, referenceOffset);
           fbb.addOffset(7, nameOffset);
@@ -7525,7 +7841,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(15, longitudeOffset);
           fbb.addOffset(16, connectionIPAddressOffset);
           fbb.addInt64(17, object.connectionPort);
-          fbb.addOffset(18, connectionTypeOffset);
+          fbb.addInt64(18, object.connectionType);
           fbb.addOffset(19, imeiOffset);
           fbb.addOffset(20, orderTypesOffset);
           fbb.addOffset(21, refrencePrefixOffset);
@@ -7582,16 +7898,14 @@ ModelDefinition getObjectBoxModel() {
           final connectionPortParam =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 38);
           final connectionTypeParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 40);
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 40);
           final orderTypesParam =
               const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
                   .vTableGetNullable(buffer, rootOffset, 44);
           final imeiParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 42);
           final deviceTypeCodeParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
           final refrencePrefixParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 46);
@@ -9248,7 +9562,7 @@ ModelDefinition getObjectBoxModel() {
               object.shiftId == null ? null : fbb.writeString(object.shiftId!);
           final tillIdOffset =
               object.tillId == null ? null : fbb.writeString(object.tillId!);
-          fbb.startTable(39);
+          fbb.startTable(41);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, invoiceNumberOffset);
           fbb.addOffset(2, deviceIdOffset);
@@ -9287,6 +9601,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(35, shiftIdOffset);
           fbb.addOffset(36, tillIdOffset);
           fbb.addFloat64(37, object.totalCalories);
+          fbb.addFloat64(38, object.minimumReservationPrice);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9366,7 +9681,9 @@ ModelDefinition getObjectBoxModel() {
             ..tillId = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 76)
             ..totalCalories = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 78);
+                .vTableGetNullable(buffer, rootOffset, 78)
+            ..minimumReservationPrice = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 80);
           object.deliveryCompanyInfo.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
           object.deliveryCompanyInfo.attach(store);
@@ -9407,7 +9724,10 @@ ModelDefinition getObjectBoxModel() {
               object.name == null ? null : fbb.writeString(object.name!);
           final fNameOffset =
               object.fName == null ? null : fbb.writeString(object.fName!);
-          fbb.startTable(10);
+          final imageUrlOffset = object.imageUrl == null
+              ? null
+              : fbb.writeString(object.imageUrl!);
+          fbb.startTable(11);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -9417,6 +9737,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addBool(6, object.isActive);
           fbb.addBool(7, object.isDeleted);
           fbb.addBool(8, object.autoOpenCashDrawer);
+          fbb.addOffset(9, imageUrlOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9449,7 +9770,9 @@ ModelDefinition getObjectBoxModel() {
               isDeleted: isDeletedParam,
               autoOpenCashDrawer: autoOpenCashDrawerParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
+            ..imageUrl = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 22);
 
           return object;
         }),
@@ -9466,7 +9789,10 @@ ModelDefinition getObjectBoxModel() {
           final currencyCodeOffset = object.currencyCode == null
               ? null
               : fbb.writeString(object.currencyCode!);
-          fbb.startTable(9);
+          final defaultCurrencyIdOffset = object.defaultCurrencyId == null
+              ? null
+              : fbb.writeString(object.defaultCurrencyId!);
+          fbb.startTable(10);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, refreanceOffset);
           fbb.addInt64(2, object.method.targetId);
@@ -9475,6 +9801,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(5, object.exchangeRate);
           fbb.addFloat64(6, object.amountCurecny);
           fbb.addOffset(7, currencyCodeOffset);
+          fbb.addOffset(8, defaultCurrencyIdOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9485,6 +9812,9 @@ ModelDefinition getObjectBoxModel() {
               const fb.Float64Reader().vTableGet(buffer, rootOffset, 10, 0);
           final refreanceParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 6, '');
+          final defaultCurrencyIdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
           final amountCurecnyParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 16);
           final exchangeRateParam = const fb.Float64Reader()
@@ -9497,6 +9827,7 @@ ModelDefinition getObjectBoxModel() {
           final object = PaymentValue(
               amt: amtParam,
               refreance: refreanceParam,
+              defaultCurrencyId: defaultCurrencyIdParam,
               amountCurecny: amountCurecnyParam,
               exchangeRate: exchangeRateParam,
               currencyCode: currencyCodeParam,
@@ -9561,7 +9892,7 @@ ModelDefinition getObjectBoxModel() {
         }),
     PosUser: EntityDefinition<PosUser>(
         model: _entities[44],
-        toOneRelations: (PosUser object) => [],
+        toOneRelations: (PosUser object) => [object.cashierSetting],
         toManyRelations: (PosUser object) =>
             {RelInfo<PosUser>.toMany(19, object.idSeq!): object.roles},
         getId: (PosUser object) => object.idSeq,
@@ -9597,7 +9928,7 @@ ModelDefinition getObjectBoxModel() {
               object.dashboardlanguageCode == null
                   ? null
                   : fbb.writeString(object.dashboardlanguageCode!);
-          fbb.startTable(13);
+          fbb.startTable(14);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -9610,6 +9941,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(9, appslanguageCodeOffset);
           fbb.addOffset(10, appsDataLanguageCodeOffset);
           fbb.addOffset(11, dashboardlanguageCodeOffset);
+          fbb.addInt64(12, object.cashierSetting.targetId);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9658,6 +9990,9 @@ ModelDefinition getObjectBoxModel() {
               orderTypes: orderTypesParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          object.cashierSetting.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 28, 0);
+          object.cashierSetting.attach(store);
           InternalToManyAccess.setRelInfo<PosUser>(
               object.roles, store, RelInfo<PosUser>.toMany(19, object.idSeq!));
           return object;
@@ -10715,7 +11050,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addInt64(2, object.tableNumber);
           fbb.addOffset(3, tableCodeOffset);
           fbb.addInt64(4, object.numberOfIndividuals);
-          fbb.addInt64(5, object.minumumReservationPrice);
+          fbb.addFloat64(5, object.minumumReservationPrice);
           fbb.addInt64(6, object.status);
           fbb.addInt64(7, object.shape);
           fbb.addInt64(8, object.offsetX);
@@ -10734,8 +11069,8 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 10);
           final numberOfIndividualsParam =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
-          final minumumReservationPriceParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
+          final minumumReservationPriceParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 14);
           final statusParam =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
           final shapeParam =
@@ -11524,7 +11859,19 @@ ModelDefinition getObjectBoxModel() {
           final secondCodeOffset = object.secondCode == null
               ? null
               : fbb.writeString(object.secondCode!);
-          fbb.startTable(47);
+          final printedTitleOffset = object.printedTitle == null
+              ? null
+              : fbb.writeString(object.printedTitle!);
+          final fPrintedTitleOffset = object.fPrintedTitle == null
+              ? null
+              : fbb.writeString(object.fPrintedTitle!);
+          final pointsMessageOffset = object.pointsMessage == null
+              ? null
+              : fbb.writeString(object.pointsMessage!);
+          final fPointsMessageOffset = object.fPointsMessage == null
+              ? null
+              : fbb.writeString(object.fPointsMessage!);
+          fbb.startTable(52);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -11571,6 +11918,11 @@ ModelDefinition getObjectBoxModel() {
           fbb.addBool(43, object.printProductSecondaryName);
           fbb.addOffset(44, defaultCodeOffset);
           fbb.addOffset(45, secondCodeOffset);
+          fbb.addOffset(46, printedTitleOffset);
+          fbb.addOffset(47, fPrintedTitleOffset);
+          fbb.addOffset(48, pointsMessageOffset);
+          fbb.addOffset(49, fPointsMessageOffset);
+          fbb.addBool(50, object.printCustomerPoints);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -11676,6 +12028,25 @@ ModelDefinition getObjectBoxModel() {
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
               .vTableGetNullable(buffer, rootOffset, 74);
+          final printedTitleParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 96);
+          final fPrintedTitleParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 98);
+          final defaultCodeParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 92);
+          final secondCodeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 94);
+          final pointsMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 100);
+          final fPointsMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 102);
+          final printCustomerPointsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
           final object = SalesInvoiceTemplates(
               id: idParam,
               name: nameParam,
@@ -11722,13 +12093,16 @@ ModelDefinition getObjectBoxModel() {
               defaultLanguage: defaultLanguageParam,
               secondLanguage: secondLanguageParam,
               orderTypes: orderTypesParam,
-              users: usersParam)
+              users: usersParam,
+              printedTitle: printedTitleParam,
+              fPrintedTitle: fPrintedTitleParam,
+              defaultCode: defaultCodeParam,
+              secondCode: secondCodeParam,
+              pointsMessage: pointsMessageParam,
+              fPointsMessage: fPointsMessageParam,
+              printCustomerPoints: printCustomerPointsParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..defaultCode = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 92)
-            ..secondCode = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 94);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
         }),
@@ -12237,6 +12611,275 @@ ModelDefinition getObjectBoxModel() {
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
+        }),
+    UserCashierSetting: EntityDefinition<UserCashierSetting>(
+        model: _entities[75],
+        toOneRelations: (UserCashierSetting object) => [],
+        toManyRelations: (UserCashierSetting object) => {},
+        getId: (UserCashierSetting object) => object.idSeq,
+        setId: (UserCashierSetting object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (UserCashierSetting object, fb.Builder fbb) {
+          final shortNameOffset = object.shortName == null
+              ? null
+              : fbb.writeString(object.shortName!);
+          final fShortNameOffset = object.fShortName == null
+              ? null
+              : fbb.writeString(object.fShortName!);
+          final salesInvoiceTemplateIdOffset =
+              object.salesInvoiceTemplateId == null
+                  ? null
+                  : fbb.writeString(object.salesInvoiceTemplateId!);
+          final salesInvoiceTemplateA4IdOffset =
+              object.salesInvoiceTemplateA4Id == null
+                  ? null
+                  : fbb.writeString(object.salesInvoiceTemplateA4Id!);
+          final groupIdOffset =
+              object.groupId == null ? null : fbb.writeString(object.groupId!);
+          final priceListIdOffset = object.priceListId == null
+              ? null
+              : fbb.writeString(object.priceListId!);
+          final warehouseIdOffset = object.warehouseId == null
+              ? null
+              : fbb.writeString(object.warehouseId!);
+          final orderTypesOffset = object.orderTypes == null
+              ? null
+              : fbb.writeListInt64(object.orderTypes!);
+          final paymentMethodsOffset = object.paymentMethods == null
+              ? null
+              : fbb.writeList(object.paymentMethods!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final restaurantSectionsOffset = object.restaurantSections == null
+              ? null
+              : fbb.writeList(object.restaurantSections!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final devicesOffset = object.devices == null
+              ? null
+              : fbb.writeList(
+                  object.devices!.map(fbb.writeString).toList(growable: false));
+          final groupsOffset = object.groups == null
+              ? null
+              : fbb.writeList(
+                  object.groups!.map(fbb.writeString).toList(growable: false));
+          final priceListsOffset = object.priceLists == null
+              ? null
+              : fbb.writeList(object.priceLists!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final salesInvoiceTemplatesOffset =
+              object.salesInvoiceTemplates == null
+                  ? null
+                  : fbb.writeList(object.salesInvoiceTemplates!
+                      .map(fbb.writeString)
+                      .toList(growable: false));
+          final salesInvoiceTemplatesA4Offset =
+              object.salesInvoiceTemplatesA4 == null
+                  ? null
+                  : fbb.writeList(object.salesInvoiceTemplatesA4!
+                      .map(fbb.writeString)
+                      .toList(growable: false));
+          fbb.startTable(18);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, shortNameOffset);
+          fbb.addOffset(2, fShortNameOffset);
+          fbb.addOffset(3, salesInvoiceTemplateIdOffset);
+          fbb.addOffset(4, salesInvoiceTemplateA4IdOffset);
+          fbb.addOffset(5, groupIdOffset);
+          fbb.addOffset(6, priceListIdOffset);
+          fbb.addOffset(7, warehouseIdOffset);
+          fbb.addInt64(8, object.discountPercentageLimit);
+          fbb.addOffset(9, orderTypesOffset);
+          fbb.addOffset(10, paymentMethodsOffset);
+          fbb.addOffset(11, restaurantSectionsOffset);
+          fbb.addOffset(12, devicesOffset);
+          fbb.addOffset(13, groupsOffset);
+          fbb.addOffset(14, priceListsOffset);
+          fbb.addOffset(15, salesInvoiceTemplatesOffset);
+          fbb.addOffset(16, salesInvoiceTemplatesA4Offset);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final shortNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final fShortNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final salesInvoiceTemplateIdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final salesInvoiceTemplateA4IdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final groupIdParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final priceListIdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final warehouseIdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final discountPercentageLimitParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final orderTypesParam =
+              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final paymentMethodsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 24);
+          final restaurantSectionsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final devicesParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 28);
+          final groupsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final priceListsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 32);
+          final salesInvoiceTemplatesParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 34);
+          final salesInvoiceTemplatesA4Param = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 36);
+          final object = UserCashierSetting(
+              shortName: shortNameParam,
+              fShortName: fShortNameParam,
+              salesInvoiceTemplateId: salesInvoiceTemplateIdParam,
+              salesInvoiceTemplateA4Id: salesInvoiceTemplateA4IdParam,
+              groupId: groupIdParam,
+              priceListId: priceListIdParam,
+              warehouseId: warehouseIdParam,
+              discountPercentageLimit: discountPercentageLimitParam,
+              orderTypes: orderTypesParam,
+              paymentMethods: paymentMethodsParam,
+              restaurantSections: restaurantSectionsParam,
+              devices: devicesParam,
+              groups: groupsParam,
+              priceLists: priceListsParam,
+              salesInvoiceTemplates: salesInvoiceTemplatesParam,
+              salesInvoiceTemplatesA4: salesInvoiceTemplatesA4Param)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
+    BarcodeScale: EntityDefinition<BarcodeScale>(
+        model: _entities[76],
+        toOneRelations: (BarcodeScale object) => [],
+        toManyRelations: (BarcodeScale object) => {},
+        getId: (BarcodeScale object) => object.idSeq,
+        setId: (BarcodeScale object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (BarcodeScale object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          final departmentsOffset = object.departments == null
+              ? null
+              : fbb.writeList(object.departments!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final categoriesOffset = object.categories == null
+              ? null
+              : fbb.writeList(object.categories!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final productsOffset = object.products == null
+              ? null
+              : fbb.writeList(object.products!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          fbb.startTable(16);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addBool(4, object.scanPriceFromScale);
+          fbb.addBool(5, object.scalePriceIncludeTax);
+          fbb.addInt64(6, object.scaleBarcodeDigits);
+          fbb.addInt64(7, object.scaleProductCodeDigits);
+          fbb.addInt64(8, object.scaleIntDigits);
+          fbb.addInt64(9, object.scaleDecimalDigits);
+          fbb.addOffset(11, departmentsOffset);
+          fbb.addOffset(12, categoriesOffset);
+          fbb.addOffset(13, productsOffset);
+          fbb.addBool(14, object.scaleProductCodeFirstInBarcode);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final scanPriceFromScaleParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+          final scalePriceIncludeTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final scaleBarcodeDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
+          final scaleProductCodeDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
+          final scaleIntDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final scaleDecimalDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
+          final scaleProductCodeFirstInBarcodeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
+          final departmentsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final categoriesParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 28);
+          final productsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final object = BarcodeScale(
+              id: idParam,
+              name: nameParam,
+              fName: fNameParam,
+              scanPriceFromScale: scanPriceFromScaleParam,
+              scalePriceIncludeTax: scalePriceIncludeTaxParam,
+              scaleBarcodeDigits: scaleBarcodeDigitsParam,
+              scaleProductCodeDigits: scaleProductCodeDigitsParam,
+              scaleIntDigits: scaleIntDigitsParam,
+              scaleDecimalDigits: scaleDecimalDigitsParam,
+              scaleProductCodeFirstInBarcode:
+                  scaleProductCodeFirstInBarcodeParam,
+              departments: departmentsParam,
+              categories: categoriesParam,
+              products: productsParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
         })
   };
 
@@ -12340,6 +12983,22 @@ class ActivationInfo_ {
   /// see [ActivationInfo.currentDeviceId]
   static final currentDeviceId =
       QueryStringProperty<ActivationInfo>(_entities[0].properties[23]);
+
+  /// see [ActivationInfo.company]
+  static final company =
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[24]);
+
+  /// see [ActivationInfo.fCompany]
+  static final fCompany =
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[25]);
+
+  /// see [ActivationInfo.branch]
+  static final branch =
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[26]);
+
+  /// see [ActivationInfo.fBranch]
+  static final fBranch =
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[27]);
 }
 
 /// [Address] entity fields to define ObjectBox queries.
@@ -12550,6 +13209,18 @@ class AppliedProduct_ {
   /// see [AppliedProduct.taxableAmt]
   static final taxableAmt =
       QueryDoubleProperty<AppliedProduct>(_entities[4].properties[22]);
+
+  /// see [AppliedProduct.isFixedPrice]
+  static final isFixedPrice =
+      QueryBooleanProperty<AppliedProduct>(_entities[4].properties[23]);
+
+  /// see [AppliedProduct.canEditQty]
+  static final canEditQty =
+      QueryBooleanProperty<AppliedProduct>(_entities[4].properties[24]);
+
+  /// see [AppliedProduct.barcodePrice]
+  static final barcodePrice =
+      QueryDoubleProperty<AppliedProduct>(_entities[4].properties[25]);
 
   /// see [AppliedProduct.appliedModifer]
   static final appliedModifer =
@@ -13191,6 +13862,10 @@ class Customer_ {
   static final enableHouseAccount =
       QueryBooleanProperty<Customer>(_entities[14].properties[15]);
 
+  /// see [Customer.taxable]
+  static final taxable =
+      QueryBooleanProperty<Customer>(_entities[14].properties[16]);
+
   /// see [Customer.addersses]
   static final addersses =
       QueryRelationToMany<Customer, Address>(_entities[14].relations[0]);
@@ -13336,7 +14011,7 @@ class Device_ {
 
   /// see [Device.deviceTypeCode]
   static final deviceTypeCode =
-      QueryStringProperty<Device>(_entities[19].properties[4]);
+      QueryIntegerProperty<Device>(_entities[19].properties[4]);
 
   /// see [Device.masterDeviceNo]
   static final masterDeviceNo =
@@ -13390,7 +14065,7 @@ class Device_ {
 
   /// see [Device.connectionType]
   static final connectionType =
-      QueryStringProperty<Device>(_entities[19].properties[18]);
+      QueryIntegerProperty<Device>(_entities[19].properties[18]);
 
   /// see [Device.imei]
   static final imei = QueryStringProperty<Device>(_entities[19].properties[19]);
@@ -14519,6 +15194,10 @@ class OrderC_ {
   static final totalCalories =
       QueryDoubleProperty<OrderC>(_entities[40].properties[37]);
 
+  /// see [OrderC.minimumReservationPrice]
+  static final minimumReservationPrice =
+      QueryDoubleProperty<OrderC>(_entities[40].properties[38]);
+
   /// see [OrderC.products]
   static final products =
       QueryRelationToMany<OrderC, AppliedProduct>(_entities[40].relations[0]);
@@ -14573,6 +15252,10 @@ class PaymentMethod_ {
   /// see [PaymentMethod.autoOpenCashDrawer]
   static final autoOpenCashDrawer =
       QueryBooleanProperty<PaymentMethod>(_entities[41].properties[8]);
+
+  /// see [PaymentMethod.imageUrl]
+  static final imageUrl =
+      QueryStringProperty<PaymentMethod>(_entities[41].properties[9]);
 }
 
 /// [PaymentValue] entity fields to define ObjectBox queries.
@@ -14608,6 +15291,10 @@ class PaymentValue_ {
   /// see [PaymentValue.currencyCode]
   static final currencyCode =
       QueryStringProperty<PaymentValue>(_entities[42].properties[7]);
+
+  /// see [PaymentValue.defaultCurrencyId]
+  static final defaultCurrencyId =
+      QueryStringProperty<PaymentValue>(_entities[42].properties[8]);
 }
 
 /// [PolicySetting] entity fields to define ObjectBox queries.
@@ -14683,6 +15370,10 @@ class PosUser_ {
   /// see [PosUser.dashboardlanguageCode]
   static final dashboardlanguageCode =
       QueryStringProperty<PosUser>(_entities[44].properties[11]);
+
+  /// see [PosUser.cashierSetting]
+  static final cashierSetting = QueryRelationToOne<PosUser, UserCashierSetting>(
+      _entities[44].properties[12]);
 
   /// see [PosUser.roles]
   static final roles =
@@ -15327,7 +16018,7 @@ class Table_ {
 
   /// see [Table.minumumReservationPrice]
   static final minumumReservationPrice =
-      QueryIntegerProperty<Table>(_entities[58].properties[5]);
+      QueryDoubleProperty<Table>(_entities[58].properties[5]);
 
   /// see [Table.status]
   static final status =
@@ -15906,6 +16597,26 @@ class SalesInvoiceTemplates_ {
   /// see [SalesInvoiceTemplates.secondCode]
   static final secondCode =
       QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[45]);
+
+  /// see [SalesInvoiceTemplates.printedTitle]
+  static final printedTitle =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[46]);
+
+  /// see [SalesInvoiceTemplates.fPrintedTitle]
+  static final fPrintedTitle =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[47]);
+
+  /// see [SalesInvoiceTemplates.pointsMessage]
+  static final pointsMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[48]);
+
+  /// see [SalesInvoiceTemplates.fPointsMessage]
+  static final fPointsMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[49]);
+
+  /// see [SalesInvoiceTemplates.printCustomerPoints]
+  static final printCustomerPoints =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[50]);
 }
 
 /// [Language] entity fields to define ObjectBox queries.
@@ -16194,4 +16905,137 @@ class DiscountSetting_ {
   /// see [DiscountSetting.enableFreeQuantityInPurchaseInvoiceItems]
   static final enableFreeQuantityInPurchaseInvoiceItems =
       QueryBooleanProperty<DiscountSetting>(_entities[74].properties[10]);
+}
+
+/// [UserCashierSetting] entity fields to define ObjectBox queries.
+class UserCashierSetting_ {
+  /// see [UserCashierSetting.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<UserCashierSetting>(_entities[75].properties[0]);
+
+  /// see [UserCashierSetting.shortName]
+  static final shortName =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[1]);
+
+  /// see [UserCashierSetting.fShortName]
+  static final fShortName =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[2]);
+
+  /// see [UserCashierSetting.salesInvoiceTemplateId]
+  static final salesInvoiceTemplateId =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[3]);
+
+  /// see [UserCashierSetting.salesInvoiceTemplateA4Id]
+  static final salesInvoiceTemplateA4Id =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[4]);
+
+  /// see [UserCashierSetting.groupId]
+  static final groupId =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[5]);
+
+  /// see [UserCashierSetting.priceListId]
+  static final priceListId =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[6]);
+
+  /// see [UserCashierSetting.warehouseId]
+  static final warehouseId =
+      QueryStringProperty<UserCashierSetting>(_entities[75].properties[7]);
+
+  /// see [UserCashierSetting.discountPercentageLimit]
+  static final discountPercentageLimit =
+      QueryIntegerProperty<UserCashierSetting>(_entities[75].properties[8]);
+
+  /// see [UserCashierSetting.orderTypes]
+  static final orderTypes = QueryIntegerVectorProperty<UserCashierSetting>(
+      _entities[75].properties[9]);
+
+  /// see [UserCashierSetting.paymentMethods]
+  static final paymentMethods = QueryStringVectorProperty<UserCashierSetting>(
+      _entities[75].properties[10]);
+
+  /// see [UserCashierSetting.restaurantSections]
+  static final restaurantSections =
+      QueryStringVectorProperty<UserCashierSetting>(
+          _entities[75].properties[11]);
+
+  /// see [UserCashierSetting.devices]
+  static final devices = QueryStringVectorProperty<UserCashierSetting>(
+      _entities[75].properties[12]);
+
+  /// see [UserCashierSetting.groups]
+  static final groups = QueryStringVectorProperty<UserCashierSetting>(
+      _entities[75].properties[13]);
+
+  /// see [UserCashierSetting.priceLists]
+  static final priceLists = QueryStringVectorProperty<UserCashierSetting>(
+      _entities[75].properties[14]);
+
+  /// see [UserCashierSetting.salesInvoiceTemplates]
+  static final salesInvoiceTemplates =
+      QueryStringVectorProperty<UserCashierSetting>(
+          _entities[75].properties[15]);
+
+  /// see [UserCashierSetting.salesInvoiceTemplatesA4]
+  static final salesInvoiceTemplatesA4 =
+      QueryStringVectorProperty<UserCashierSetting>(
+          _entities[75].properties[16]);
+}
+
+/// [BarcodeScale] entity fields to define ObjectBox queries.
+class BarcodeScale_ {
+  /// see [BarcodeScale.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[0]);
+
+  /// see [BarcodeScale.id]
+  static final id =
+      QueryStringProperty<BarcodeScale>(_entities[76].properties[1]);
+
+  /// see [BarcodeScale.name]
+  static final name =
+      QueryStringProperty<BarcodeScale>(_entities[76].properties[2]);
+
+  /// see [BarcodeScale.fName]
+  static final fName =
+      QueryStringProperty<BarcodeScale>(_entities[76].properties[3]);
+
+  /// see [BarcodeScale.scanPriceFromScale]
+  static final scanPriceFromScale =
+      QueryBooleanProperty<BarcodeScale>(_entities[76].properties[4]);
+
+  /// see [BarcodeScale.scalePriceIncludeTax]
+  static final scalePriceIncludeTax =
+      QueryBooleanProperty<BarcodeScale>(_entities[76].properties[5]);
+
+  /// see [BarcodeScale.scaleBarcodeDigits]
+  static final scaleBarcodeDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[6]);
+
+  /// see [BarcodeScale.scaleProductCodeDigits]
+  static final scaleProductCodeDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[7]);
+
+  /// see [BarcodeScale.scaleIntDigits]
+  static final scaleIntDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[8]);
+
+  /// see [BarcodeScale.scaleDecimalDigits]
+  static final scaleDecimalDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[9]);
+
+  /// see [BarcodeScale.departments]
+  static final departments =
+      QueryStringVectorProperty<BarcodeScale>(_entities[76].properties[10]);
+
+  /// see [BarcodeScale.categories]
+  static final categories =
+      QueryStringVectorProperty<BarcodeScale>(_entities[76].properties[11]);
+
+  /// see [BarcodeScale.products]
+  static final products =
+      QueryStringVectorProperty<BarcodeScale>(_entities[76].properties[12]);
+
+  /// see [BarcodeScale.scaleProductCodeFirstInBarcode]
+  static final scaleProductCodeFirstInBarcode =
+      QueryBooleanProperty<BarcodeScale>(_entities[76].properties[13]);
 }

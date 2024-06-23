@@ -28,4 +28,8 @@ class ActivationInfoEntity extends Table {
   TextColumn get devices => text().map(const JsonTypeConverter()).nullable()();
   TextColumn get code => text().nullable()();
   TextColumn get currentDeviceId => text().nullable()();
+  TextColumn get company => text().nullable()();
+  TextColumn get fCompany => text().nullable()();
+  TextColumn get branch => text().nullable()();
+  TextColumn get fBranch => text().nullable()();
 }

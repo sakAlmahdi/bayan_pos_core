@@ -17,6 +17,7 @@ class PaymentMethod {
   bool? isActive;
   bool? isDeleted;
   bool? autoOpenCashDrawer;
+  String? imageUrl;
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
@@ -42,6 +43,7 @@ class PaymentMethod {
     isActive = json['isActive'];
     isDeleted = json['isDeleted'];
     autoOpenCashDrawer = json['autoOpenCashDrawer'];
+    imageUrl = json['imageUrl'];
   }
 
   Map<String, dynamic> toJson() {
@@ -54,6 +56,7 @@ class PaymentMethod {
     data['isActive'] = isActive;
     data['is_Deleted'] = isDeleted;
     data['autoOpenCashDrawer'] = autoOpenCashDrawer;
+    data['imageUrl'] = imageUrl;
     return data;
   }
 }

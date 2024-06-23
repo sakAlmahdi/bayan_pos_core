@@ -22,11 +22,10 @@ class Customer {
   String? taxRegisterationName;
   bool? inBlackList;
   String? blackListNote;
-
   String? priceListId;
-
-  ///TODO: add enableHouseAccount  to api, priceListID
   bool? enableHouseAccount;
+  bool? taxable;
+
   final addersses = ToMany<Address>();
   final houseAccountTranscations = ToMany<Transaction>();
 
@@ -48,6 +47,7 @@ class Customer {
     this.inBlackList,
     this.blackListNote,
     this.priceListId,
+    this.taxable,
   });
 
   Customer.fromJson(Map<String, dynamic> json) {
@@ -76,6 +76,7 @@ class Customer {
       });
     }
     priceListId = json['priceListId'];
+    taxable = json['taxable'];
   }
 
   Map<String, dynamic> toJson() {
@@ -98,6 +99,8 @@ class Customer {
     data['transactions'] =
         houseAccountTranscations.map((v) => v.toJson()).toList();
     data['priceListId'] = priceListId;
+
+    data['taxable'] = taxable;
 
     return data;
   }
@@ -122,6 +125,7 @@ class Customer {
     // data['transactions'] =
     //     houseAccountTranscations.map((v) => v.toJson()).toList();
     data['priceListId'] = priceListId;
+    data['taxable'] = taxable;
 
     return data;
   }

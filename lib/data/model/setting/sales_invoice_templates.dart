@@ -9,6 +9,8 @@ class SalesInvoiceTemplates {
   String? id;
   String? name;
   String? fName;
+  String? printedTitle;
+  String? fPrintedTitle;
   String? headerInvoiceMessage;
   String? fHeaderInvoiceMessage;
   String? footerInvoiceMessage;
@@ -52,6 +54,9 @@ class SalesInvoiceTemplates {
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
   String? defaultCode;
   String? secondCode;
+  String? pointsMessage;
+  String? fPointsMessage;
+  bool? printCustomerPoints;
 
   SalesInvoiceTemplates({
     this.id,
@@ -97,6 +102,13 @@ class SalesInvoiceTemplates {
     this.secondLanguage,
     this.orderTypes,
     this.users,
+    this.printedTitle,
+    this.fPrintedTitle,
+    this.defaultCode,
+    this.secondCode,
+    this.pointsMessage,
+    this.fPointsMessage,
+    this.printCustomerPoints,
   });
 
   SalesInvoiceTemplates.fromJson(Map<String, dynamic> json) {
@@ -150,59 +162,80 @@ class SalesInvoiceTemplates {
         orderTypes!.add(v);
       });
     }
-    users = json['users'].cast<String>();
+    if (json['users'] != null) {
+      users = <String>[];
+      json['users'].forEach((v) {
+        users!.add(v.toString().toLowerCase());
+      });
+    }
+
+    printedTitle = json['printedTitle'];
+    fPrintedTitle = json['fPrintedTitle'];
+    defaultCode = json['defaultCode'];
+    secondCode = json['secondCode'];
+    pointsMessage = json['pointsMessage'];
+    fPointsMessage = json['fPointsMessage'];
+    printCustomerPoints = json['print_Customer_Points'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['fName'] = this.fName;
-    data['header_Invoice_Message'] = this.headerInvoiceMessage;
-    data['f_Header_Invoice_Message'] = this.fHeaderInvoiceMessage;
-    data['footer_Invoice_Message'] = this.footerInvoiceMessage;
-    data['f_Footer_Invoice_Message'] = this.fFooterInvoiceMessage;
-    data['print_Company_Name'] = this.printCompanyName;
-    data['print_Branch_Name'] = this.printBranchName;
-    data['print_CR_No'] = this.printCRNo;
-    data['print_Bank_Account'] = this.printBankAccount;
-    data['print_Tax_Number'] = this.printTaxNumber;
-    data['print_Payment_Type'] = this.printPaymentType;
-    data['print_Order_Type'] = this.printOrderType;
-    data['print_Order_Number'] = this.printOrderNumber;
-    data['print_Unit_Size'] = this.printUnitSize;
-    data['print_Product_SecondaryName'] = this.printProductSecondaryName;
-    data['print_Calories'] = this.printCalories;
-    data['print_SubTotal'] = this.printSubTotal;
-    data['print_Round_Digit'] = this.printRoundDigit;
-    data['print_Product_Unit'] = this.printProductUnit;
-    data['print_Product_Unit_Price'] = this.printProductUnitPrice;
-    data['print_Product_Total_Price'] = this.printProductTotalPrice;
-    data['print_Product_Discount_Price'] = this.printProductDiscountPrice;
-    data['print_Product_Free_Quantity'] = this.printProductFreeQuantity;
+    data['id'] = id;
+    data['name'] = name;
+    data['fName'] = fName;
+    data['header_Invoice_Message'] = headerInvoiceMessage;
+    data['f_Header_Invoice_Message'] = fHeaderInvoiceMessage;
+    data['footer_Invoice_Message'] = footerInvoiceMessage;
+    data['f_Footer_Invoice_Message'] = fFooterInvoiceMessage;
+    data['print_Company_Name'] = printCompanyName;
+    data['print_Branch_Name'] = printBranchName;
+    data['print_CR_No'] = printCRNo;
+    data['print_Bank_Account'] = printBankAccount;
+    data['print_Tax_Number'] = printTaxNumber;
+    data['print_Payment_Type'] = printPaymentType;
+    data['print_Order_Type'] = printOrderType;
+    data['print_Order_Number'] = printOrderNumber;
+    data['print_Unit_Size'] = printUnitSize;
+    data['print_Product_SecondaryName'] = printProductSecondaryName;
+    data['print_Calories'] = printCalories;
+    data['print_SubTotal'] = printSubTotal;
+    data['print_Round_Digit'] = printRoundDigit;
+    data['print_Product_Unit'] = printProductUnit;
+    data['print_Product_Unit_Price'] = printProductUnitPrice;
+    data['print_Product_Total_Price'] = printProductTotalPrice;
+    data['print_Product_Discount_Price'] = printProductDiscountPrice;
+    data['print_Product_Free_Quantity'] = printProductFreeQuantity;
     data['print_Product_Total_Price_Before_Tax'] =
-        this.printProductTotalPriceBeforeTax;
-    data['print_Product_Tax_Amount'] = this.printProductTaxAmount;
-    data['print_Product_Tax_Percentage'] = this.printProductTaxPercentage;
+        printProductTotalPriceBeforeTax;
+    data['print_Product_Tax_Amount'] = printProductTaxAmount;
+    data['print_Product_Tax_Percentage'] = printProductTaxPercentage;
     data['print_Product_Total_Price_After_Discount'] =
-        this.printProductTotalPriceAfterDiscount;
+        printProductTotalPriceAfterDiscount;
     data['print_Product_Total_Price_Include_Tax'] =
-        this.printProductTotalPriceIncludeTax;
-    data['print_Order_Closed_User'] = this.printOrderClosedUser;
-    data['print_Order_Created_User'] = this.printOrderCreatedUser;
-    data['print_Check_Number'] = this.printCheckNumber;
-    data['hide_Free_ModifierOptions'] = this.hideFreeModifierOptions;
-    data['auto_Print_OnSave'] = this.autoPrintOnSave;
-    data['print_language'] = this.printLanguage;
-    data['printerPaperSize'] = this.printerPaperSize;
-    data['printerPaperDirection'] = this.printerPaperDirection;
-    data['invoiceCategory'] = this.invoiceCategory;
-    data['default_Language'] = this.defaultLanguage;
-    data['second_Language'] = this.secondLanguage;
-    if (this.orderTypes != null) {
-      data['orderTypes'] = this.orderTypes!.map((v) => v).toList();
+        printProductTotalPriceIncludeTax;
+    data['print_Order_Closed_User'] = printOrderClosedUser;
+    data['print_Order_Created_User'] = printOrderCreatedUser;
+    data['print_Check_Number'] = printCheckNumber;
+    data['hide_Free_ModifierOptions'] = hideFreeModifierOptions;
+    data['auto_Print_OnSave'] = autoPrintOnSave;
+    data['print_language'] = printLanguage;
+    data['printerPaperSize'] = printerPaperSize;
+    data['printerPaperDirection'] = printerPaperDirection;
+    data['invoiceCategory'] = invoiceCategory;
+    data['default_Language'] = defaultLanguage;
+    data['second_Language'] = secondLanguage;
+    if (orderTypes != null) {
+      data['orderTypes'] = orderTypes!.map((v) => v).toList();
     }
-    data['users'] = this.users;
+    data['users'] = users;
+    data['printedTitle'] = printedTitle;
+    data['fPrintedTitle'] = fPrintedTitle;
+    data['defaultCode'] = defaultCode;
+    data['secondCode'] = secondCode;
+    data['pointsMessage'] = pointsMessage;
+    data['fPointsMessage'] = fPointsMessage;
+    data['print_Customer_Points'] = printCustomerPoints;
+
     return data;
   }
 }

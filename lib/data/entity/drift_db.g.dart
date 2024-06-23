@@ -283,6 +283,26 @@ class $OrderEntityTable extends OrderEntity
       GeneratedColumn<String>('kitchen_info', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterkitchenInfo);
+  static const VerificationMeta _currencyMeta =
+      const VerificationMeta('currency');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> currency =
+      GeneratedColumn<String>('currency', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>($OrderEntityTable.$convertercurrency);
+  static const VerificationMeta _paymentCurrencyMeta =
+      const VerificationMeta('paymentCurrency');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> paymentCurrency =
+      GeneratedColumn<String>('payment_currency', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>($OrderEntityTable.$converterpaymentCurrency);
+  static const VerificationMeta _minimumReservationPriceMeta =
+      const VerificationMeta('minimumReservationPrice');
+  @override
+  late final GeneratedColumn<double> minimumReservationPrice =
+      GeneratedColumn<double>('minimum_reservation_price', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         idSeq,
@@ -327,7 +347,10 @@ class $OrderEntityTable extends OrderEntity
         shiftId,
         tillId,
         totalDiscountForOrderAndProduct,
-        kitchenInfo
+        kitchenInfo,
+        currency,
+        paymentCurrency,
+        minimumReservationPrice
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -513,6 +536,15 @@ class $OrderEntityTable extends OrderEntity
               _totalDiscountForOrderAndProductMeta));
     }
     context.handle(_kitchenInfoMeta, const VerificationResult.success());
+    context.handle(_currencyMeta, const VerificationResult.success());
+    context.handle(_paymentCurrencyMeta, const VerificationResult.success());
+    if (data.containsKey('minimum_reservation_price')) {
+      context.handle(
+          _minimumReservationPriceMeta,
+          minimumReservationPrice.isAcceptableOrUnknown(
+              data['minimum_reservation_price']!,
+              _minimumReservationPriceMeta));
+    }
     return context;
   }
 
@@ -626,6 +658,15 @@ class $OrderEntityTable extends OrderEntity
       kitchenInfo: $OrderEntityTable.$converterkitchenInfo.fromSql(
           attachedDatabase.typeMapping.read(
               DriftSqlType.string, data['${effectivePrefix}kitchen_info'])),
+      currency: $OrderEntityTable.$convertercurrency.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}currency'])),
+      paymentCurrency: $OrderEntityTable.$converterpaymentCurrency.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.string, data['${effectivePrefix}payment_currency'])),
+      minimumReservationPrice: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}minimum_reservation_price']),
     );
   }
 
@@ -657,6 +698,10 @@ class $OrderEntityTable extends OrderEntity
   static TypeConverter<dynamic, String?> $converterpayments =
       const JsonTypeConverter();
   static TypeConverter<dynamic, String?> $converterkitchenInfo =
+      const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $convertercurrency =
+      const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $converterpaymentCurrency =
       const JsonTypeConverter();
 }
 
@@ -704,6 +749,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final String? tillId;
   final double? totalDiscountForOrderAndProduct;
   final dynamic kitchenInfo;
+  final dynamic currency;
+  final dynamic paymentCurrency;
+  final double? minimumReservationPrice;
   const OrderEntityData(
       {this.idSeq,
       this.invoiceNumber,
@@ -747,7 +795,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       this.shiftId,
       this.tillId,
       this.totalDiscountForOrderAndProduct,
-      this.kitchenInfo});
+      this.kitchenInfo,
+      this.currency,
+      this.paymentCurrency,
+      this.minimumReservationPrice});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -882,6 +933,18 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       map['kitchen_info'] = Variable<String>(
           $OrderEntityTable.$converterkitchenInfo.toSql(kitchenInfo));
     }
+    if (!nullToAbsent || currency != null) {
+      map['currency'] = Variable<String>(
+          $OrderEntityTable.$convertercurrency.toSql(currency));
+    }
+    if (!nullToAbsent || paymentCurrency != null) {
+      map['payment_currency'] = Variable<String>(
+          $OrderEntityTable.$converterpaymentCurrency.toSql(paymentCurrency));
+    }
+    if (!nullToAbsent || minimumReservationPrice != null) {
+      map['minimum_reservation_price'] =
+          Variable<double>(minimumReservationPrice);
+    }
     return map;
   }
 
@@ -999,6 +1062,15 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       kitchenInfo: kitchenInfo == null && nullToAbsent
           ? const Value.absent()
           : Value(kitchenInfo),
+      currency: currency == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currency),
+      paymentCurrency: paymentCurrency == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentCurrency),
+      minimumReservationPrice: minimumReservationPrice == null && nullToAbsent
+          ? const Value.absent()
+          : Value(minimumReservationPrice),
     );
   }
 
@@ -1052,6 +1124,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       totalDiscountForOrderAndProduct:
           serializer.fromJson<double?>(json['totalDiscountForOrderAndProduct']),
       kitchenInfo: serializer.fromJson<dynamic>(json['kitchenInfo']),
+      currency: serializer.fromJson<dynamic>(json['currency']),
+      paymentCurrency: serializer.fromJson<dynamic>(json['paymentCurrency']),
+      minimumReservationPrice:
+          serializer.fromJson<double?>(json['minimumReservationPrice']),
     );
   }
   @override
@@ -1103,6 +1179,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'totalDiscountForOrderAndProduct':
           serializer.toJson<double?>(totalDiscountForOrderAndProduct),
       'kitchenInfo': serializer.toJson<dynamic>(kitchenInfo),
+      'currency': serializer.toJson<dynamic>(currency),
+      'paymentCurrency': serializer.toJson<dynamic>(paymentCurrency),
+      'minimumReservationPrice':
+          serializer.toJson<double?>(minimumReservationPrice),
     };
   }
 
@@ -1149,7 +1229,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<String?> shiftId = const Value.absent(),
           Value<String?> tillId = const Value.absent(),
           Value<double?> totalDiscountForOrderAndProduct = const Value.absent(),
-          Value<dynamic> kitchenInfo = const Value.absent()}) =>
+          Value<dynamic> kitchenInfo = const Value.absent(),
+          Value<dynamic> currency = const Value.absent(),
+          Value<dynamic> paymentCurrency = const Value.absent(),
+          Value<double?> minimumReservationPrice = const Value.absent()}) =>
       OrderEntityData(
         idSeq: idSeq.present ? idSeq.value : this.idSeq,
         invoiceNumber:
@@ -1208,6 +1291,13 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
             ? totalDiscountForOrderAndProduct.value
             : this.totalDiscountForOrderAndProduct,
         kitchenInfo: kitchenInfo.present ? kitchenInfo.value : this.kitchenInfo,
+        currency: currency.present ? currency.value : this.currency,
+        paymentCurrency: paymentCurrency.present
+            ? paymentCurrency.value
+            : this.paymentCurrency,
+        minimumReservationPrice: minimumReservationPrice.present
+            ? minimumReservationPrice.value
+            : this.minimumReservationPrice,
       );
   @override
   String toString() {
@@ -1255,7 +1345,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ..write('tillId: $tillId, ')
           ..write(
               'totalDiscountForOrderAndProduct: $totalDiscountForOrderAndProduct, ')
-          ..write('kitchenInfo: $kitchenInfo')
+          ..write('kitchenInfo: $kitchenInfo, ')
+          ..write('currency: $currency, ')
+          ..write('paymentCurrency: $paymentCurrency, ')
+          ..write('minimumReservationPrice: $minimumReservationPrice')
           ..write(')'))
         .toString();
   }
@@ -1304,7 +1397,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         shiftId,
         tillId,
         totalDiscountForOrderAndProduct,
-        kitchenInfo
+        kitchenInfo,
+        currency,
+        paymentCurrency,
+        minimumReservationPrice
       ]);
   @override
   bool operator ==(Object other) =>
@@ -1353,7 +1449,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           other.tillId == this.tillId &&
           other.totalDiscountForOrderAndProduct ==
               this.totalDiscountForOrderAndProduct &&
-          other.kitchenInfo == this.kitchenInfo);
+          other.kitchenInfo == this.kitchenInfo &&
+          other.currency == this.currency &&
+          other.paymentCurrency == this.paymentCurrency &&
+          other.minimumReservationPrice == this.minimumReservationPrice);
 }
 
 class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
@@ -1400,6 +1499,9 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<String?> tillId;
   final Value<double?> totalDiscountForOrderAndProduct;
   final Value<dynamic> kitchenInfo;
+  final Value<dynamic> currency;
+  final Value<dynamic> paymentCurrency;
+  final Value<double?> minimumReservationPrice;
   const OrderEntityCompanion({
     this.idSeq = const Value.absent(),
     this.invoiceNumber = const Value.absent(),
@@ -1444,6 +1546,9 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.tillId = const Value.absent(),
     this.totalDiscountForOrderAndProduct = const Value.absent(),
     this.kitchenInfo = const Value.absent(),
+    this.currency = const Value.absent(),
+    this.paymentCurrency = const Value.absent(),
+    this.minimumReservationPrice = const Value.absent(),
   });
   OrderEntityCompanion.insert({
     this.idSeq = const Value.absent(),
@@ -1489,6 +1594,9 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.tillId = const Value.absent(),
     this.totalDiscountForOrderAndProduct = const Value.absent(),
     this.kitchenInfo = const Value.absent(),
+    this.currency = const Value.absent(),
+    this.paymentCurrency = const Value.absent(),
+    this.minimumReservationPrice = const Value.absent(),
   })  : startDate = Value(startDate),
         orderRef = Value(orderRef),
         orderType = Value(orderType),
@@ -1538,6 +1646,9 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<String>? tillId,
     Expression<double>? totalDiscountForOrderAndProduct,
     Expression<String>? kitchenInfo,
+    Expression<String>? currency,
+    Expression<String>? paymentCurrency,
+    Expression<double>? minimumReservationPrice,
   }) {
     return RawValuesInsertable({
       if (idSeq != null) 'id_seq': idSeq,
@@ -1586,6 +1697,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       if (totalDiscountForOrderAndProduct != null)
         'total_discount_for_order_and_product': totalDiscountForOrderAndProduct,
       if (kitchenInfo != null) 'kitchen_info': kitchenInfo,
+      if (currency != null) 'currency': currency,
+      if (paymentCurrency != null) 'payment_currency': paymentCurrency,
+      if (minimumReservationPrice != null)
+        'minimum_reservation_price': minimumReservationPrice,
     });
   }
 
@@ -1632,7 +1747,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<String?>? shiftId,
       Value<String?>? tillId,
       Value<double?>? totalDiscountForOrderAndProduct,
-      Value<dynamic>? kitchenInfo}) {
+      Value<dynamic>? kitchenInfo,
+      Value<dynamic>? currency,
+      Value<dynamic>? paymentCurrency,
+      Value<double?>? minimumReservationPrice}) {
     return OrderEntityCompanion(
       idSeq: idSeq ?? this.idSeq,
       invoiceNumber: invoiceNumber ?? this.invoiceNumber,
@@ -1679,6 +1797,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       totalDiscountForOrderAndProduct: totalDiscountForOrderAndProduct ??
           this.totalDiscountForOrderAndProduct,
       kitchenInfo: kitchenInfo ?? this.kitchenInfo,
+      currency: currency ?? this.currency,
+      paymentCurrency: paymentCurrency ?? this.paymentCurrency,
+      minimumReservationPrice:
+          minimumReservationPrice ?? this.minimumReservationPrice,
     );
   }
 
@@ -1829,6 +1951,19 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       map['kitchen_info'] = Variable<String>(
           $OrderEntityTable.$converterkitchenInfo.toSql(kitchenInfo.value));
     }
+    if (currency.present) {
+      map['currency'] = Variable<String>(
+          $OrderEntityTable.$convertercurrency.toSql(currency.value));
+    }
+    if (paymentCurrency.present) {
+      map['payment_currency'] = Variable<String>($OrderEntityTable
+          .$converterpaymentCurrency
+          .toSql(paymentCurrency.value));
+    }
+    if (minimumReservationPrice.present) {
+      map['minimum_reservation_price'] =
+          Variable<double>(minimumReservationPrice.value);
+    }
     return map;
   }
 
@@ -1878,7 +2013,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           ..write('tillId: $tillId, ')
           ..write(
               'totalDiscountForOrderAndProduct: $totalDiscountForOrderAndProduct, ')
-          ..write('kitchenInfo: $kitchenInfo')
+          ..write('kitchenInfo: $kitchenInfo, ')
+          ..write('currency: $currency, ')
+          ..write('paymentCurrency: $paymentCurrency, ')
+          ..write('minimumReservationPrice: $minimumReservationPrice')
           ..write(')'))
         .toString();
   }
@@ -4196,6 +4334,12 @@ class $PaymentMethodEntityTable extends PaymentMethodEntity
       requiredDuringInsert: false,
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('CHECK ("is_deleted" IN (0, 1))'));
+  static const VerificationMeta _imageUrlMeta =
+      const VerificationMeta('imageUrl');
+  @override
+  late final GeneratedColumn<String> imageUrl = GeneratedColumn<String>(
+      'image_url', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         idSeq,
@@ -4206,7 +4350,8 @@ class $PaymentMethodEntityTable extends PaymentMethodEntity
         displayOrder,
         autoOpenCashDrawer,
         isActive,
-        isDeleted
+        isDeleted,
+        imageUrl
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -4268,6 +4413,10 @@ class $PaymentMethodEntityTable extends PaymentMethodEntity
       context.handle(_isDeletedMeta,
           isDeleted.isAcceptableOrUnknown(data['is_deleted']!, _isDeletedMeta));
     }
+    if (data.containsKey('image_url')) {
+      context.handle(_imageUrlMeta,
+          imageUrl.isAcceptableOrUnknown(data['image_url']!, _imageUrlMeta));
+    }
     return context;
   }
 
@@ -4300,6 +4449,8 @@ class $PaymentMethodEntityTable extends PaymentMethodEntity
           .read(DriftSqlType.bool, data['${effectivePrefix}is_active']),
       isDeleted: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_deleted']),
+      imageUrl: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}image_url']),
     );
   }
 
@@ -4320,6 +4471,7 @@ class PaymentMethodEntityData extends DataClass
   final bool? autoOpenCashDrawer;
   final bool? isActive;
   final bool? isDeleted;
+  final String? imageUrl;
   const PaymentMethodEntityData(
       {this.idSeq,
       required this.id,
@@ -4329,7 +4481,8 @@ class PaymentMethodEntityData extends DataClass
       this.displayOrder,
       this.autoOpenCashDrawer,
       this.isActive,
-      this.isDeleted});
+      this.isDeleted,
+      this.imageUrl});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -4351,6 +4504,9 @@ class PaymentMethodEntityData extends DataClass
     }
     if (!nullToAbsent || isDeleted != null) {
       map['is_deleted'] = Variable<bool>(isDeleted);
+    }
+    if (!nullToAbsent || imageUrl != null) {
+      map['image_url'] = Variable<String>(imageUrl);
     }
     return map;
   }
@@ -4375,6 +4531,9 @@ class PaymentMethodEntityData extends DataClass
       isDeleted: isDeleted == null && nullToAbsent
           ? const Value.absent()
           : Value(isDeleted),
+      imageUrl: imageUrl == null && nullToAbsent
+          ? const Value.absent()
+          : Value(imageUrl),
     );
   }
 
@@ -4392,6 +4551,7 @@ class PaymentMethodEntityData extends DataClass
           serializer.fromJson<bool?>(json['autoOpenCashDrawer']),
       isActive: serializer.fromJson<bool?>(json['isActive']),
       isDeleted: serializer.fromJson<bool?>(json['isDeleted']),
+      imageUrl: serializer.fromJson<String?>(json['imageUrl']),
     );
   }
   @override
@@ -4407,6 +4567,7 @@ class PaymentMethodEntityData extends DataClass
       'autoOpenCashDrawer': serializer.toJson<bool?>(autoOpenCashDrawer),
       'isActive': serializer.toJson<bool?>(isActive),
       'isDeleted': serializer.toJson<bool?>(isDeleted),
+      'imageUrl': serializer.toJson<String?>(imageUrl),
     };
   }
 
@@ -4419,7 +4580,8 @@ class PaymentMethodEntityData extends DataClass
           Value<int?> displayOrder = const Value.absent(),
           Value<bool?> autoOpenCashDrawer = const Value.absent(),
           Value<bool?> isActive = const Value.absent(),
-          Value<bool?> isDeleted = const Value.absent()}) =>
+          Value<bool?> isDeleted = const Value.absent(),
+          Value<String?> imageUrl = const Value.absent()}) =>
       PaymentMethodEntityData(
         idSeq: idSeq.present ? idSeq.value : this.idSeq,
         id: id ?? this.id,
@@ -4433,6 +4595,7 @@ class PaymentMethodEntityData extends DataClass
             : this.autoOpenCashDrawer,
         isActive: isActive.present ? isActive.value : this.isActive,
         isDeleted: isDeleted.present ? isDeleted.value : this.isDeleted,
+        imageUrl: imageUrl.present ? imageUrl.value : this.imageUrl,
       );
   @override
   String toString() {
@@ -4445,14 +4608,15 @@ class PaymentMethodEntityData extends DataClass
           ..write('displayOrder: $displayOrder, ')
           ..write('autoOpenCashDrawer: $autoOpenCashDrawer, ')
           ..write('isActive: $isActive, ')
-          ..write('isDeleted: $isDeleted')
+          ..write('isDeleted: $isDeleted, ')
+          ..write('imageUrl: $imageUrl')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode => Object.hash(idSeq, id, name, fName, paymentType,
-      displayOrder, autoOpenCashDrawer, isActive, isDeleted);
+      displayOrder, autoOpenCashDrawer, isActive, isDeleted, imageUrl);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -4465,7 +4629,8 @@ class PaymentMethodEntityData extends DataClass
           other.displayOrder == this.displayOrder &&
           other.autoOpenCashDrawer == this.autoOpenCashDrawer &&
           other.isActive == this.isActive &&
-          other.isDeleted == this.isDeleted);
+          other.isDeleted == this.isDeleted &&
+          other.imageUrl == this.imageUrl);
 }
 
 class PaymentMethodEntityCompanion
@@ -4479,6 +4644,7 @@ class PaymentMethodEntityCompanion
   final Value<bool?> autoOpenCashDrawer;
   final Value<bool?> isActive;
   final Value<bool?> isDeleted;
+  final Value<String?> imageUrl;
   const PaymentMethodEntityCompanion({
     this.idSeq = const Value.absent(),
     this.id = const Value.absent(),
@@ -4489,6 +4655,7 @@ class PaymentMethodEntityCompanion
     this.autoOpenCashDrawer = const Value.absent(),
     this.isActive = const Value.absent(),
     this.isDeleted = const Value.absent(),
+    this.imageUrl = const Value.absent(),
   });
   PaymentMethodEntityCompanion.insert({
     this.idSeq = const Value.absent(),
@@ -4500,6 +4667,7 @@ class PaymentMethodEntityCompanion
     this.autoOpenCashDrawer = const Value.absent(),
     this.isActive = const Value.absent(),
     this.isDeleted = const Value.absent(),
+    this.imageUrl = const Value.absent(),
   })  : id = Value(id),
         name = Value(name),
         fName = Value(fName),
@@ -4514,6 +4682,7 @@ class PaymentMethodEntityCompanion
     Expression<bool>? autoOpenCashDrawer,
     Expression<bool>? isActive,
     Expression<bool>? isDeleted,
+    Expression<String>? imageUrl,
   }) {
     return RawValuesInsertable({
       if (idSeq != null) 'id_seq': idSeq,
@@ -4526,6 +4695,7 @@ class PaymentMethodEntityCompanion
         'auto_open_cash_drawer': autoOpenCashDrawer,
       if (isActive != null) 'is_active': isActive,
       if (isDeleted != null) 'is_deleted': isDeleted,
+      if (imageUrl != null) 'image_url': imageUrl,
     });
   }
 
@@ -4538,7 +4708,8 @@ class PaymentMethodEntityCompanion
       Value<int?>? displayOrder,
       Value<bool?>? autoOpenCashDrawer,
       Value<bool?>? isActive,
-      Value<bool?>? isDeleted}) {
+      Value<bool?>? isDeleted,
+      Value<String?>? imageUrl}) {
     return PaymentMethodEntityCompanion(
       idSeq: idSeq ?? this.idSeq,
       id: id ?? this.id,
@@ -4549,6 +4720,7 @@ class PaymentMethodEntityCompanion
       autoOpenCashDrawer: autoOpenCashDrawer ?? this.autoOpenCashDrawer,
       isActive: isActive ?? this.isActive,
       isDeleted: isDeleted ?? this.isDeleted,
+      imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 
@@ -4582,6 +4754,9 @@ class PaymentMethodEntityCompanion
     if (isDeleted.present) {
       map['is_deleted'] = Variable<bool>(isDeleted.value);
     }
+    if (imageUrl.present) {
+      map['image_url'] = Variable<String>(imageUrl.value);
+    }
     return map;
   }
 
@@ -4596,7 +4771,8 @@ class PaymentMethodEntityCompanion
           ..write('displayOrder: $displayOrder, ')
           ..write('autoOpenCashDrawer: $autoOpenCashDrawer, ')
           ..write('isActive: $isActive, ')
-          ..write('isDeleted: $isDeleted')
+          ..write('isDeleted: $isDeleted, ')
+          ..write('imageUrl: $imageUrl')
           ..write(')'))
         .toString();
   }
@@ -6048,6 +6224,29 @@ class $ActivationInfoEntityTable extends ActivationInfoEntity
   late final GeneratedColumn<String> currentDeviceId = GeneratedColumn<String>(
       'current_device_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _companyMeta =
+      const VerificationMeta('company');
+  @override
+  late final GeneratedColumn<String> company = GeneratedColumn<String>(
+      'company', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fCompanyMeta =
+      const VerificationMeta('fCompany');
+  @override
+  late final GeneratedColumn<String> fCompany = GeneratedColumn<String>(
+      'f_company', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _branchMeta = const VerificationMeta('branch');
+  @override
+  late final GeneratedColumn<String> branch = GeneratedColumn<String>(
+      'branch', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fBranchMeta =
+      const VerificationMeta('fBranch');
+  @override
+  late final GeneratedColumn<String> fBranch = GeneratedColumn<String>(
+      'f_branch', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         idSeq,
@@ -6074,7 +6273,11 @@ class $ActivationInfoEntityTable extends ActivationInfoEntity
         receiveOnlineOrders,
         devices,
         code,
-        currentDeviceId
+        currentDeviceId,
+        company,
+        fCompany,
+        branch,
+        fBranch
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -6203,6 +6406,22 @@ class $ActivationInfoEntityTable extends ActivationInfoEntity
           currentDeviceId.isAcceptableOrUnknown(
               data['current_device_id']!, _currentDeviceIdMeta));
     }
+    if (data.containsKey('company')) {
+      context.handle(_companyMeta,
+          company.isAcceptableOrUnknown(data['company']!, _companyMeta));
+    }
+    if (data.containsKey('f_company')) {
+      context.handle(_fCompanyMeta,
+          fCompany.isAcceptableOrUnknown(data['f_company']!, _fCompanyMeta));
+    }
+    if (data.containsKey('branch')) {
+      context.handle(_branchMeta,
+          branch.isAcceptableOrUnknown(data['branch']!, _branchMeta));
+    }
+    if (data.containsKey('f_branch')) {
+      context.handle(_fBranchMeta,
+          fBranch.isAcceptableOrUnknown(data['f_branch']!, _fBranchMeta));
+    }
     return context;
   }
 
@@ -6265,6 +6484,14 @@ class $ActivationInfoEntityTable extends ActivationInfoEntity
           .read(DriftSqlType.string, data['${effectivePrefix}code']),
       currentDeviceId: attachedDatabase.typeMapping.read(
           DriftSqlType.string, data['${effectivePrefix}current_device_id']),
+      company: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}company']),
+      fCompany: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_company']),
+      branch: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}branch']),
+      fBranch: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_branch']),
     );
   }
 
@@ -6304,6 +6531,10 @@ class ActivationInfoEntityData extends DataClass
   final dynamic devices;
   final String? code;
   final String? currentDeviceId;
+  final String? company;
+  final String? fCompany;
+  final String? branch;
+  final String? fBranch;
   const ActivationInfoEntityData(
       {this.idSeq,
       this.id,
@@ -6329,7 +6560,11 @@ class ActivationInfoEntityData extends DataClass
       this.receiveOnlineOrders,
       this.devices,
       this.code,
-      this.currentDeviceId});
+      this.currentDeviceId,
+      this.company,
+      this.fCompany,
+      this.branch,
+      this.fBranch});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -6409,6 +6644,18 @@ class ActivationInfoEntityData extends DataClass
     if (!nullToAbsent || currentDeviceId != null) {
       map['current_device_id'] = Variable<String>(currentDeviceId);
     }
+    if (!nullToAbsent || company != null) {
+      map['company'] = Variable<String>(company);
+    }
+    if (!nullToAbsent || fCompany != null) {
+      map['f_company'] = Variable<String>(fCompany);
+    }
+    if (!nullToAbsent || branch != null) {
+      map['branch'] = Variable<String>(branch);
+    }
+    if (!nullToAbsent || fBranch != null) {
+      map['f_branch'] = Variable<String>(fBranch);
+    }
     return map;
   }
 
@@ -6477,6 +6724,17 @@ class ActivationInfoEntityData extends DataClass
       currentDeviceId: currentDeviceId == null && nullToAbsent
           ? const Value.absent()
           : Value(currentDeviceId),
+      company: company == null && nullToAbsent
+          ? const Value.absent()
+          : Value(company),
+      fCompany: fCompany == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fCompany),
+      branch:
+          branch == null && nullToAbsent ? const Value.absent() : Value(branch),
+      fBranch: fBranch == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fBranch),
     );
   }
 
@@ -6512,6 +6770,10 @@ class ActivationInfoEntityData extends DataClass
       devices: serializer.fromJson<dynamic>(json['devices']),
       code: serializer.fromJson<String?>(json['code']),
       currentDeviceId: serializer.fromJson<String?>(json['currentDeviceId']),
+      company: serializer.fromJson<String?>(json['company']),
+      fCompany: serializer.fromJson<String?>(json['fCompany']),
+      branch: serializer.fromJson<String?>(json['branch']),
+      fBranch: serializer.fromJson<String?>(json['fBranch']),
     );
   }
   @override
@@ -6543,6 +6805,10 @@ class ActivationInfoEntityData extends DataClass
       'devices': serializer.toJson<dynamic>(devices),
       'code': serializer.toJson<String?>(code),
       'currentDeviceId': serializer.toJson<String?>(currentDeviceId),
+      'company': serializer.toJson<String?>(company),
+      'fCompany': serializer.toJson<String?>(fCompany),
+      'branch': serializer.toJson<String?>(branch),
+      'fBranch': serializer.toJson<String?>(fBranch),
     };
   }
 
@@ -6571,7 +6837,11 @@ class ActivationInfoEntityData extends DataClass
           Value<bool?> receiveOnlineOrders = const Value.absent(),
           Value<dynamic> devices = const Value.absent(),
           Value<String?> code = const Value.absent(),
-          Value<String?> currentDeviceId = const Value.absent()}) =>
+          Value<String?> currentDeviceId = const Value.absent(),
+          Value<String?> company = const Value.absent(),
+          Value<String?> fCompany = const Value.absent(),
+          Value<String?> branch = const Value.absent(),
+          Value<String?> fBranch = const Value.absent()}) =>
       ActivationInfoEntityData(
         idSeq: idSeq.present ? idSeq.value : this.idSeq,
         id: id.present ? id.value : this.id,
@@ -6613,6 +6883,10 @@ class ActivationInfoEntityData extends DataClass
         currentDeviceId: currentDeviceId.present
             ? currentDeviceId.value
             : this.currentDeviceId,
+        company: company.present ? company.value : this.company,
+        fCompany: fCompany.present ? fCompany.value : this.fCompany,
+        branch: branch.present ? branch.value : this.branch,
+        fBranch: fBranch.present ? fBranch.value : this.fBranch,
       );
   @override
   String toString() {
@@ -6641,7 +6915,11 @@ class ActivationInfoEntityData extends DataClass
           ..write('receiveOnlineOrders: $receiveOnlineOrders, ')
           ..write('devices: $devices, ')
           ..write('code: $code, ')
-          ..write('currentDeviceId: $currentDeviceId')
+          ..write('currentDeviceId: $currentDeviceId, ')
+          ..write('company: $company, ')
+          ..write('fCompany: $fCompany, ')
+          ..write('branch: $branch, ')
+          ..write('fBranch: $fBranch')
           ..write(')'))
         .toString();
   }
@@ -6672,7 +6950,11 @@ class ActivationInfoEntityData extends DataClass
         receiveOnlineOrders,
         devices,
         code,
-        currentDeviceId
+        currentDeviceId,
+        company,
+        fCompany,
+        branch,
+        fBranch
       ]);
   @override
   bool operator ==(Object other) =>
@@ -6702,7 +6984,11 @@ class ActivationInfoEntityData extends DataClass
           other.receiveOnlineOrders == this.receiveOnlineOrders &&
           other.devices == this.devices &&
           other.code == this.code &&
-          other.currentDeviceId == this.currentDeviceId);
+          other.currentDeviceId == this.currentDeviceId &&
+          other.company == this.company &&
+          other.fCompany == this.fCompany &&
+          other.branch == this.branch &&
+          other.fBranch == this.fBranch);
 }
 
 class ActivationInfoEntityCompanion
@@ -6732,6 +7018,10 @@ class ActivationInfoEntityCompanion
   final Value<dynamic> devices;
   final Value<String?> code;
   final Value<String?> currentDeviceId;
+  final Value<String?> company;
+  final Value<String?> fCompany;
+  final Value<String?> branch;
+  final Value<String?> fBranch;
   const ActivationInfoEntityCompanion({
     this.idSeq = const Value.absent(),
     this.id = const Value.absent(),
@@ -6758,6 +7048,10 @@ class ActivationInfoEntityCompanion
     this.devices = const Value.absent(),
     this.code = const Value.absent(),
     this.currentDeviceId = const Value.absent(),
+    this.company = const Value.absent(),
+    this.fCompany = const Value.absent(),
+    this.branch = const Value.absent(),
+    this.fBranch = const Value.absent(),
   });
   ActivationInfoEntityCompanion.insert({
     this.idSeq = const Value.absent(),
@@ -6785,6 +7079,10 @@ class ActivationInfoEntityCompanion
     this.devices = const Value.absent(),
     this.code = const Value.absent(),
     this.currentDeviceId = const Value.absent(),
+    this.company = const Value.absent(),
+    this.fCompany = const Value.absent(),
+    this.branch = const Value.absent(),
+    this.fBranch = const Value.absent(),
   });
   static Insertable<ActivationInfoEntityData> custom({
     Expression<int>? idSeq,
@@ -6812,6 +7110,10 @@ class ActivationInfoEntityCompanion
     Expression<String>? devices,
     Expression<String>? code,
     Expression<String>? currentDeviceId,
+    Expression<String>? company,
+    Expression<String>? fCompany,
+    Expression<String>? branch,
+    Expression<String>? fBranch,
   }) {
     return RawValuesInsertable({
       if (idSeq != null) 'id_seq': idSeq,
@@ -6842,6 +7144,10 @@ class ActivationInfoEntityCompanion
       if (devices != null) 'devices': devices,
       if (code != null) 'code': code,
       if (currentDeviceId != null) 'current_device_id': currentDeviceId,
+      if (company != null) 'company': company,
+      if (fCompany != null) 'f_company': fCompany,
+      if (branch != null) 'branch': branch,
+      if (fBranch != null) 'f_branch': fBranch,
     });
   }
 
@@ -6870,7 +7176,11 @@ class ActivationInfoEntityCompanion
       Value<bool?>? receiveOnlineOrders,
       Value<dynamic>? devices,
       Value<String?>? code,
-      Value<String?>? currentDeviceId}) {
+      Value<String?>? currentDeviceId,
+      Value<String?>? company,
+      Value<String?>? fCompany,
+      Value<String?>? branch,
+      Value<String?>? fBranch}) {
     return ActivationInfoEntityCompanion(
       idSeq: idSeq ?? this.idSeq,
       id: id ?? this.id,
@@ -6897,6 +7207,10 @@ class ActivationInfoEntityCompanion
       devices: devices ?? this.devices,
       code: code ?? this.code,
       currentDeviceId: currentDeviceId ?? this.currentDeviceId,
+      company: company ?? this.company,
+      fCompany: fCompany ?? this.fCompany,
+      branch: branch ?? this.branch,
+      fBranch: fBranch ?? this.fBranch,
     );
   }
 
@@ -6980,6 +7294,18 @@ class ActivationInfoEntityCompanion
     if (currentDeviceId.present) {
       map['current_device_id'] = Variable<String>(currentDeviceId.value);
     }
+    if (company.present) {
+      map['company'] = Variable<String>(company.value);
+    }
+    if (fCompany.present) {
+      map['f_company'] = Variable<String>(fCompany.value);
+    }
+    if (branch.present) {
+      map['branch'] = Variable<String>(branch.value);
+    }
+    if (fBranch.present) {
+      map['f_branch'] = Variable<String>(fBranch.value);
+    }
     return map;
   }
 
@@ -7010,7 +7336,309 @@ class ActivationInfoEntityCompanion
           ..write('receiveOnlineOrders: $receiveOnlineOrders, ')
           ..write('devices: $devices, ')
           ..write('code: $code, ')
-          ..write('currentDeviceId: $currentDeviceId')
+          ..write('currentDeviceId: $currentDeviceId, ')
+          ..write('company: $company, ')
+          ..write('fCompany: $fCompany, ')
+          ..write('branch: $branch, ')
+          ..write('fBranch: $fBranch')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ProductQtyEntityTable extends ProductQtyEntity
+    with TableInfo<$ProductQtyEntityTable, ProductQtyEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ProductQtyEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _qtyMeta = const VerificationMeta('qty');
+  @override
+  late final GeneratedColumn<int> qty = GeneratedColumn<int>(
+      'qty', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _productIdMeta =
+      const VerificationMeta('productId');
+  @override
+  late final GeneratedColumn<String> productId = GeneratedColumn<String>(
+      'product_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<String> unitId = GeneratedColumn<String>(
+      'unit_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _isAvailableMeta =
+      const VerificationMeta('isAvailable');
+  @override
+  late final GeneratedColumn<bool> isAvailable = GeneratedColumn<bool>(
+      'is_available', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: true,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("is_available" IN (0, 1))'));
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, qty, productId, unitId, isAvailable];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'product_qty_entity';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<ProductQtyEntityData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('qty')) {
+      context.handle(
+          _qtyMeta, qty.isAcceptableOrUnknown(data['qty']!, _qtyMeta));
+    } else if (isInserting) {
+      context.missing(_qtyMeta);
+    }
+    if (data.containsKey('product_id')) {
+      context.handle(_productIdMeta,
+          productId.isAcceptableOrUnknown(data['product_id']!, _productIdMeta));
+    } else if (isInserting) {
+      context.missing(_productIdMeta);
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(_unitIdMeta,
+          unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta));
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('is_available')) {
+      context.handle(
+          _isAvailableMeta,
+          isAvailable.isAcceptableOrUnknown(
+              data['is_available']!, _isAvailableMeta));
+    } else if (isInserting) {
+      context.missing(_isAvailableMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+        {productId, unitId},
+      ];
+  @override
+  ProductQtyEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ProductQtyEntityData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      qty: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}qty'])!,
+      productId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}product_id'])!,
+      unitId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}unit_id'])!,
+      isAvailable: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_available'])!,
+    );
+  }
+
+  @override
+  $ProductQtyEntityTable createAlias(String alias) {
+    return $ProductQtyEntityTable(attachedDatabase, alias);
+  }
+}
+
+class ProductQtyEntityData extends DataClass
+    implements Insertable<ProductQtyEntityData> {
+  final int id;
+  final int qty;
+  final String productId;
+  final String unitId;
+  final bool isAvailable;
+  const ProductQtyEntityData(
+      {required this.id,
+      required this.qty,
+      required this.productId,
+      required this.unitId,
+      required this.isAvailable});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['qty'] = Variable<int>(qty);
+    map['product_id'] = Variable<String>(productId);
+    map['unit_id'] = Variable<String>(unitId);
+    map['is_available'] = Variable<bool>(isAvailable);
+    return map;
+  }
+
+  ProductQtyEntityCompanion toCompanion(bool nullToAbsent) {
+    return ProductQtyEntityCompanion(
+      id: Value(id),
+      qty: Value(qty),
+      productId: Value(productId),
+      unitId: Value(unitId),
+      isAvailable: Value(isAvailable),
+    );
+  }
+
+  factory ProductQtyEntityData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ProductQtyEntityData(
+      id: serializer.fromJson<int>(json['id']),
+      qty: serializer.fromJson<int>(json['qty']),
+      productId: serializer.fromJson<String>(json['productId']),
+      unitId: serializer.fromJson<String>(json['unitId']),
+      isAvailable: serializer.fromJson<bool>(json['isAvailable']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'qty': serializer.toJson<int>(qty),
+      'productId': serializer.toJson<String>(productId),
+      'unitId': serializer.toJson<String>(unitId),
+      'isAvailable': serializer.toJson<bool>(isAvailable),
+    };
+  }
+
+  ProductQtyEntityData copyWith(
+          {int? id,
+          int? qty,
+          String? productId,
+          String? unitId,
+          bool? isAvailable}) =>
+      ProductQtyEntityData(
+        id: id ?? this.id,
+        qty: qty ?? this.qty,
+        productId: productId ?? this.productId,
+        unitId: unitId ?? this.unitId,
+        isAvailable: isAvailable ?? this.isAvailable,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('ProductQtyEntityData(')
+          ..write('id: $id, ')
+          ..write('qty: $qty, ')
+          ..write('productId: $productId, ')
+          ..write('unitId: $unitId, ')
+          ..write('isAvailable: $isAvailable')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, qty, productId, unitId, isAvailable);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ProductQtyEntityData &&
+          other.id == this.id &&
+          other.qty == this.qty &&
+          other.productId == this.productId &&
+          other.unitId == this.unitId &&
+          other.isAvailable == this.isAvailable);
+}
+
+class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
+  final Value<int> id;
+  final Value<int> qty;
+  final Value<String> productId;
+  final Value<String> unitId;
+  final Value<bool> isAvailable;
+  const ProductQtyEntityCompanion({
+    this.id = const Value.absent(),
+    this.qty = const Value.absent(),
+    this.productId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.isAvailable = const Value.absent(),
+  });
+  ProductQtyEntityCompanion.insert({
+    this.id = const Value.absent(),
+    required int qty,
+    required String productId,
+    required String unitId,
+    required bool isAvailable,
+  })  : qty = Value(qty),
+        productId = Value(productId),
+        unitId = Value(unitId),
+        isAvailable = Value(isAvailable);
+  static Insertable<ProductQtyEntityData> custom({
+    Expression<int>? id,
+    Expression<int>? qty,
+    Expression<String>? productId,
+    Expression<String>? unitId,
+    Expression<bool>? isAvailable,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (qty != null) 'qty': qty,
+      if (productId != null) 'product_id': productId,
+      if (unitId != null) 'unit_id': unitId,
+      if (isAvailable != null) 'is_available': isAvailable,
+    });
+  }
+
+  ProductQtyEntityCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? qty,
+      Value<String>? productId,
+      Value<String>? unitId,
+      Value<bool>? isAvailable}) {
+    return ProductQtyEntityCompanion(
+      id: id ?? this.id,
+      qty: qty ?? this.qty,
+      productId: productId ?? this.productId,
+      unitId: unitId ?? this.unitId,
+      isAvailable: isAvailable ?? this.isAvailable,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (qty.present) {
+      map['qty'] = Variable<int>(qty.value);
+    }
+    if (productId.present) {
+      map['product_id'] = Variable<String>(productId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<String>(unitId.value);
+    }
+    if (isAvailable.present) {
+      map['is_available'] = Variable<bool>(isAvailable.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProductQtyEntityCompanion(')
+          ..write('id: $id, ')
+          ..write('qty: $qty, ')
+          ..write('productId: $productId, ')
+          ..write('unitId: $unitId, ')
+          ..write('isAvailable: $isAvailable')
           ..write(')'))
         .toString();
   }
@@ -7034,6 +7662,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
       $DrawerOperationEntityTable(this);
   late final $ActivationInfoEntityTable activationInfoEntity =
       $ActivationInfoEntityTable(this);
+  late final $ProductQtyEntityTable productQtyEntity =
+      $ProductQtyEntityTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -7049,6 +7679,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         settingEntity,
         orderPayments,
         drawerOperationEntity,
-        activationInfoEntity
+        activationInfoEntity,
+        productQtyEntity
       ];
 }

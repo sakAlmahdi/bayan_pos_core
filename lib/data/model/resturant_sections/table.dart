@@ -10,7 +10,7 @@ class Table {
   int? tableNumber;
   String? tableCode;
   int? numberOfIndividuals;
-  int? minumumReservationPrice;
+  double? minumumReservationPrice;
   int? status;
   int? shape;
   int? offsetX;
@@ -36,7 +36,8 @@ class Table {
     tableNumber = json['tableNumber'];
     tableCode = json['tableCode'];
     numberOfIndividuals = json['numberOfIndividuals'];
-    minumumReservationPrice = json['minumumReservationPrice'];
+    minumumReservationPrice =
+        double.tryParse(json['minumumReservationPrice'].toString());
     status = json['status'];
     shape = json['shape'];
     offsetX = json['offsetX'];

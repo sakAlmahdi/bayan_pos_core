@@ -1,5 +1,5 @@
 import 'package:bayan_pos_core/data/enum/order_type.dart';
-import 'package:bayan_pos_core/data/model/setting/pos_user1.dart';
+import 'package:bayan_pos_core/data/model/setting/user_cashier_setting.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -22,6 +22,8 @@ class PosUser {
   List<OrderType?>? get getOrderTypes => [];
 
   final roles = ToMany<Roles>();
+
+  final cashierSetting = ToOne<UserCashierSetting>();
 
   PosUser({
     this.id,
@@ -61,6 +63,10 @@ class PosUser {
         roles.add(Roles.fromJson(v));
       });
     }
+    if (json['cashierSetting'] != null) {
+      cashierSetting.target =
+          UserCashierSetting.fromJson(json['cashierSetting']);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -77,6 +83,9 @@ class PosUser {
     data['appsDataLanguageCode'] = appsDataLanguageCode;
     data['appslanguageCode'] = appslanguageCode;
     data['dashboardlanguageCode'] = dashboardlanguageCode;
+    if (cashierSetting.target != null) {
+      data['cashierSetting'] = cashierSetting.target!.toJson();
+    }
     return data;
   }
 
