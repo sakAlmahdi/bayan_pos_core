@@ -14,7 +14,7 @@ PrinterInterface convertStringToPrinterInterface(int? key) {
     case 2:
       return PrinterInterface.bluetooth;
     case 3:
-      return PrinterInterface.usb;
+      return PrinterInterface.bluetooth;
     default:
       return PrinterInterface.ethernet;
   }
@@ -41,9 +41,9 @@ extension PrinterInterfaceEx on PrinterInterface {
       case PrinterInterface.ethernet:
         return 0;
       case PrinterInterface.bluetooth:
-        return 3;
+        return 2;
       case PrinterInterface.usb:
-        return 4;
+        return 3;
     }
   }
 }

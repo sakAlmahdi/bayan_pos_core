@@ -21,7 +21,8 @@ class PaymentMethod {
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
-  PaymentMethods get getPaymentType => convetStringToPaymentMethod(paymentType);
+  PaymentMethods get getPaymentType =>
+      convertStringToPaymentMethod(paymentType);
 
   PaymentMethod({
     this.id,

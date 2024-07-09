@@ -15,7 +15,7 @@ enum PaymentMethods {
   // houseAccount,
 }
 
-PaymentMethods convetStringToPaymentMethod(int? key) {
+PaymentMethods convertStringToPaymentMethod(int? key) {
   switch (key) {
     case 1:
       return PaymentMethods.cash;
