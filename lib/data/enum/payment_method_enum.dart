@@ -12,6 +12,7 @@ enum PaymentMethods {
   gitCard,
   online,
   credit,
+
   // houseAccount,
 }
 
@@ -52,6 +53,9 @@ extension PaymentMethodEnumEx on PaymentMethods {
         return 6;
       // case PaymentMethods.houseAccount:
       //   return 7;
+
+      default:
+        return 1;
     }
   }
 }
