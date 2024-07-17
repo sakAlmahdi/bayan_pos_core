@@ -3470,7 +3470,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(45, 2416376579055331518),
       name: 'PosUser',
-      lastPropertyId: const obx_int.IdUid(13, 406180694348473144),
+      lastPropertyId: const obx_int.IdUid(19, 6512887319579920164),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -3539,7 +3539,37 @@ final _entities = <obx_int.ModelEntity>[
             type: 11,
             flags: 520,
             indexId: const obx_int.IdUid(65, 252049419746215059),
-            relationTarget: 'UserCashierSetting')
+            relationTarget: 'UserCashierSetting'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 3905745435441474248),
+            name: 'paymentMethods',
+            type: 30,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 589242790508177185),
+            name: 'restaurantSections',
+            type: 30,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 6162056765582694101),
+            name: 'groups',
+            type: 30,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 8801763861276036398),
+            name: 'priceLists',
+            type: 30,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 4337221645915883101),
+            name: 'salesInvoiceTemplates',
+            type: 30,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 6512887319579920164),
+            name: 'salesInvoiceTemplatesA4',
+            type: 30,
+            flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
         obx_int.ModelRelation(
@@ -9962,7 +9992,38 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.dashboardlanguageCode == null
                   ? null
                   : fbb.writeString(object.dashboardlanguageCode!);
-          fbb.startTable(14);
+          final paymentMethodsOffset = object.paymentMethods == null
+              ? null
+              : fbb.writeList(object.paymentMethods!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final restaurantSectionsOffset = object.restaurantSections == null
+              ? null
+              : fbb.writeList(object.restaurantSections!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final groupsOffset = object.groups == null
+              ? null
+              : fbb.writeList(
+                  object.groups!.map(fbb.writeString).toList(growable: false));
+          final priceListsOffset = object.priceLists == null
+              ? null
+              : fbb.writeList(object.priceLists!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final salesInvoiceTemplatesOffset =
+              object.salesInvoiceTemplates == null
+                  ? null
+                  : fbb.writeList(object.salesInvoiceTemplates!
+                      .map(fbb.writeString)
+                      .toList(growable: false));
+          final salesInvoiceTemplatesA4Offset =
+              object.salesInvoiceTemplatesA4 == null
+                  ? null
+                  : fbb.writeList(object.salesInvoiceTemplatesA4!
+                      .map(fbb.writeString)
+                      .toList(growable: false));
+          fbb.startTable(20);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -9976,6 +10037,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(10, appsDataLanguageCodeOffset);
           fbb.addOffset(11, dashboardlanguageCodeOffset);
           fbb.addInt64(12, object.cashierSetting.targetId);
+          fbb.addOffset(13, paymentMethodsOffset);
+          fbb.addOffset(14, restaurantSectionsOffset);
+          fbb.addOffset(15, groupsOffset);
+          fbb.addOffset(16, priceListsOffset);
+          fbb.addOffset(17, salesInvoiceTemplatesOffset);
+          fbb.addOffset(18, salesInvoiceTemplatesA4Offset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -10010,6 +10077,30 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final orderTypesParam =
               const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
                   .vTableGetNullable(buffer, rootOffset, 20);
+          final paymentMethodsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final restaurantSectionsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 32);
+          final groupsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 34);
+          final priceListsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 36);
+          final salesInvoiceTemplatesParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 38);
+          final salesInvoiceTemplatesA4Param = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 40);
           final object = PosUser(
               id: idParam,
               name: nameParam,
@@ -10021,7 +10112,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               appsDataLanguageCode: appsDataLanguageCodeParam,
               appslanguageCode: appslanguageCodeParam,
               dashboardlanguageCode: dashboardlanguageCodeParam,
-              orderTypes: orderTypesParam)
+              orderTypes: orderTypesParam,
+              paymentMethods: paymentMethodsParam,
+              restaurantSections: restaurantSectionsParam,
+              groups: groupsParam,
+              priceLists: priceListsParam,
+              salesInvoiceTemplates: salesInvoiceTemplatesParam,
+              salesInvoiceTemplatesA4: salesInvoiceTemplatesA4Param)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           object.cashierSetting.targetId =
@@ -15464,6 +15561,30 @@ class PosUser_ {
   static final cashierSetting =
       obx.QueryRelationToOne<PosUser, UserCashierSetting>(
           _entities[44].properties[12]);
+
+  /// see [PosUser.paymentMethods]
+  static final paymentMethods =
+      obx.QueryStringVectorProperty<PosUser>(_entities[44].properties[13]);
+
+  /// see [PosUser.restaurantSections]
+  static final restaurantSections =
+      obx.QueryStringVectorProperty<PosUser>(_entities[44].properties[14]);
+
+  /// see [PosUser.groups]
+  static final groups =
+      obx.QueryStringVectorProperty<PosUser>(_entities[44].properties[15]);
+
+  /// see [PosUser.priceLists]
+  static final priceLists =
+      obx.QueryStringVectorProperty<PosUser>(_entities[44].properties[16]);
+
+  /// see [PosUser.salesInvoiceTemplates]
+  static final salesInvoiceTemplates =
+      obx.QueryStringVectorProperty<PosUser>(_entities[44].properties[17]);
+
+  /// see [PosUser.salesInvoiceTemplatesA4]
+  static final salesInvoiceTemplatesA4 =
+      obx.QueryStringVectorProperty<PosUser>(_entities[44].properties[18]);
 
   /// see [PosUser.roles]
   static final roles =

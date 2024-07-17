@@ -17,6 +17,12 @@ class PosUser {
   String? appslanguageCode;
   String? appsDataLanguageCode;
   String? dashboardlanguageCode;
+  List<String>? paymentMethods;
+  List<String>? restaurantSections;
+  List<String>? groups;
+  List<String>? priceLists;
+  List<String>? salesInvoiceTemplates;
+  List<String>? salesInvoiceTemplatesA4;
 
   @Transient()
   List<OrderType?>? get getOrderTypes => [];
@@ -37,6 +43,12 @@ class PosUser {
     this.appslanguageCode,
     this.dashboardlanguageCode,
     this.orderTypes,
+    this.paymentMethods,
+    this.restaurantSections,
+    this.groups,
+    this.priceLists,
+    this.salesInvoiceTemplates,
+    this.salesInvoiceTemplatesA4,
   });
 
   PosUser.fromJson(Map<String, dynamic> json) {
@@ -67,6 +79,43 @@ class PosUser {
       cashierSetting.target =
           UserCashierSetting.fromJson(json['cashierSetting']);
     }
+    if (json['paymentMethods'] != null) {
+      paymentMethods = <String>[];
+      json['paymentMethods'].forEach((v) {
+        paymentMethods?.add(v.toString().toLowerCase());
+      });
+    }
+    if (json['restaurantSections'] != null) {
+      restaurantSections = <String>[];
+      json['restaurantSections'].forEach((v) {
+        restaurantSections?.add(v.toString().toLowerCase());
+      });
+    }
+
+    if (json['groups'] != null) {
+      groups = <String>[];
+      json['groups'].forEach((v) {
+        groups?.add(v.toString().toLowerCase());
+      });
+    }
+    if (json['priceLists'] != null) {
+      priceLists = <String>[];
+      json['priceLists'].forEach((v) {
+        priceLists?.add(v.toString().toLowerCase());
+      });
+    }
+    if (json['salesInvoiceTemplates'] != null) {
+      salesInvoiceTemplates = <String>[];
+      json['salesInvoiceTemplates'].forEach((v) {
+        salesInvoiceTemplates?.add(v.toString().toLowerCase());
+      });
+    }
+    if (json['salesInvoiceTemplatesA4'] != null) {
+      salesInvoiceTemplatesA4 = <String>[];
+      json['salesInvoiceTemplatesA4'].forEach((v) {
+        salesInvoiceTemplatesA4?.add(v.toString().toLowerCase());
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -86,6 +135,13 @@ class PosUser {
     if (cashierSetting.target != null) {
       data['cashierSetting'] = cashierSetting.target!.toJson();
     }
+    data['paymentMethods'] = paymentMethods;
+    data['restaurantSections'] = restaurantSections;
+    data['groups'] = groups;
+    data['priceLists'] = priceLists;
+    data['salesInvoiceTemplates'] = salesInvoiceTemplates;
+    data['salesInvoiceTemplatesA4'] = salesInvoiceTemplatesA4;
+
     return data;
   }
 

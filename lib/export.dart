@@ -127,7 +127,6 @@ export 'package:bayan_pos_core/data/model/setting/pos_user.dart';
 export 'package:bayan_pos_core/data/model/setting/cashier_setting.dart';
 export 'package:bayan_pos_core/data/model/setting/printer_setting.dart';
 export 'package:bayan_pos_core/data/model/setting/loyalty.dart';
-export 'package:bayan_pos_core/data/model/setting/pos_user1.dart';
 export 'package:bayan_pos_core/data/model/setting/tax_setting.dart';
 export 'package:bayan_pos_core/data/model/setting/view_settings.dart';
 export 'package:bayan_pos_core/data/model/setting/printer.dart';

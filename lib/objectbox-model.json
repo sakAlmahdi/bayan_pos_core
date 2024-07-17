@@ -3455,7 +3455,7 @@
     },
     {
       "id": "45:2416376579055331518",
-      "lastPropertyId": "13:406180694348473144",
+      "lastPropertyId": "19:6512887319579920164",
       "name": "PosUser",
       "properties": [
         {
@@ -3526,6 +3526,36 @@
           "flags": 520,
           "indexId": "65:252049419746215059",
           "relationTarget": "UserCashierSetting"
+        },
+        {
+          "id": "14:3905745435441474248",
+          "name": "paymentMethods",
+          "type": 30
+        },
+        {
+          "id": "15:589242790508177185",
+          "name": "restaurantSections",
+          "type": 30
+        },
+        {
+          "id": "16:6162056765582694101",
+          "name": "groups",
+          "type": 30
+        },
+        {
+          "id": "17:8801763861276036398",
+          "name": "priceLists",
+          "type": 30
+        },
+        {
+          "id": "18:4337221645915883101",
+          "name": "salesInvoiceTemplates",
+          "type": 30
+        },
+        {
+          "id": "19:6512887319579920164",
+          "name": "salesInvoiceTemplatesA4",
+          "type": 30
         }
       ],
       "relations": [
