@@ -1901,7 +1901,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(22, 3747886948757388250),
       name: 'Discount',
-      lastPropertyId: const IdUid(22, 2878251201238095405),
+      lastPropertyId: const IdUid(23, 4398119468342528638),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -2011,8 +2011,8 @@ final _entities = <ModelEntity>[
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(22, 2878251201238095405),
-            name: 'categoeries',
+            id: const IdUid(23, 4398119468342528638),
+            name: 'categories',
             type: 30,
             flags: 0)
       ],
@@ -5898,7 +5898,8 @@ ModelDefinition getObjectBoxModel() {
         5980240438905013524,
         6171825477919522910,
         669569068201303509,
-        4125500750030956845
+        4125500750030956845,
+        2878251201238095405
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -8163,12 +8164,12 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.departments!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          final categoeriesOffset = object.categoeries == null
+          final categoriesOffset = object.categories == null
               ? null
-              : fbb.writeList(object.categoeries!
+              : fbb.writeList(object.categories!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          fbb.startTable(23);
+          fbb.startTable(24);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -8190,7 +8191,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(18, priceListOffset);
           fbb.addOffset(19, customersOffset);
           fbb.addOffset(20, departmentsOffset);
-          fbb.addOffset(21, categoeriesOffset);
+          fbb.addOffset(22, categoriesOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -8247,10 +8248,10 @@ ModelDefinition getObjectBoxModel() {
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
               .vTableGetNullable(buffer, rootOffset, 44);
-          final categoeriesParam = const fb.ListReader<String>(
+          final categoriesParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 46);
+              .vTableGetNullable(buffer, rootOffset, 48);
           final object = Discount(
               id: idParam,
               name: nameParam,
@@ -8272,7 +8273,7 @@ ModelDefinition getObjectBoxModel() {
               priceList: priceListParam,
               customers: customersParam,
               departments: departmentsParam,
-              categoeries: categoeriesParam)
+              categories: categoriesParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
@@ -14290,8 +14291,8 @@ class Discount_ {
   static final departments =
       QueryStringVectorProperty<Discount>(_entities[21].properties[20]);
 
-  /// see [Discount.categoeries]
-  static final categoeries =
+  /// see [Discount.categories]
+  static final categories =
       QueryStringVectorProperty<Discount>(_entities[21].properties[21]);
 }
 

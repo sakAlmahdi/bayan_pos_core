@@ -30,7 +30,7 @@ class Discount {
   List<String>? priceList;
   List<String>? customers;
   List<String>? departments;
-  List<String>? categoeries;
+  List<String>? categories;
   @Transient()
   DiscountType get getDiscountType => convertToDiscontType(discountType);
   @Transient()
@@ -81,7 +81,7 @@ class Discount {
       this.priceList,
       this.customers,
       this.departments,
-      this.categoeries});
+      this.categories});
 
   Discount.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -137,10 +137,10 @@ class Discount {
         departments!.add(v!.toString().toLowerCase());
       });
     }
-    if (json['categoeries'] != null) {
-      categoeries = <String>[];
-      json['categoeries'].forEach((v) {
-        categoeries!.add(v!.toString().toLowerCase());
+    if (json['categories'] != null) {
+      categories = <String>[];
+      json['categories'].forEach((v) {
+        categories!.add(v!.toString().toLowerCase());
       });
     }
   }
@@ -180,8 +180,8 @@ class Discount {
     if (departments != null) {
       data['departments'] = departments!.map((v) => v).toList();
     }
-    if (categoeries != null) {
-      data['categoeries'] = categoeries!.map((v) => v).toList();
+    if (categories != null) {
+      data['categories'] = categories!.map((v) => v).toList();
     }
     return data;
   }
