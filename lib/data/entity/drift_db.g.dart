@@ -7355,7 +7355,7 @@ class $ProductQtyEntityTable extends ProductQtyEntity
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+      'id', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -7363,9 +7363,9 @@ class $ProductQtyEntityTable extends ProductQtyEntity
           GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
   static const VerificationMeta _qtyMeta = const VerificationMeta('qty');
   @override
-  late final GeneratedColumn<int> qty = GeneratedColumn<int>(
+  late final GeneratedColumn<double> qty = GeneratedColumn<double>(
       'qty', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      type: DriftSqlType.double, requiredDuringInsert: true);
   static const VerificationMeta _productIdMeta =
       const VerificationMeta('productId');
   @override
@@ -7443,9 +7443,9 @@ class $ProductQtyEntityTable extends ProductQtyEntity
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ProductQtyEntityData(
       id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}id']),
       qty: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}qty'])!,
+          .read(DriftSqlType.double, data['${effectivePrefix}qty'])!,
       productId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}product_id'])!,
       unitId: attachedDatabase.typeMapping
@@ -7463,13 +7463,13 @@ class $ProductQtyEntityTable extends ProductQtyEntity
 
 class ProductQtyEntityData extends DataClass
     implements Insertable<ProductQtyEntityData> {
-  final int id;
-  final int qty;
+  final int? id;
+  final double qty;
   final String productId;
   final String unitId;
   final bool isAvailable;
   const ProductQtyEntityData(
-      {required this.id,
+      {this.id,
       required this.qty,
       required this.productId,
       required this.unitId,
@@ -7477,8 +7477,10 @@ class ProductQtyEntityData extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
-    map['qty'] = Variable<int>(qty);
+    if (!nullToAbsent || id != null) {
+      map['id'] = Variable<int>(id);
+    }
+    map['qty'] = Variable<double>(qty);
     map['product_id'] = Variable<String>(productId);
     map['unit_id'] = Variable<String>(unitId);
     map['is_available'] = Variable<bool>(isAvailable);
@@ -7487,7 +7489,7 @@ class ProductQtyEntityData extends DataClass
 
   ProductQtyEntityCompanion toCompanion(bool nullToAbsent) {
     return ProductQtyEntityCompanion(
-      id: Value(id),
+      id: id == null && nullToAbsent ? const Value.absent() : Value(id),
       qty: Value(qty),
       productId: Value(productId),
       unitId: Value(unitId),
@@ -7499,8 +7501,8 @@ class ProductQtyEntityData extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ProductQtyEntityData(
-      id: serializer.fromJson<int>(json['id']),
-      qty: serializer.fromJson<int>(json['qty']),
+      id: serializer.fromJson<int?>(json['id']),
+      qty: serializer.fromJson<double>(json['qty']),
       productId: serializer.fromJson<String>(json['productId']),
       unitId: serializer.fromJson<String>(json['unitId']),
       isAvailable: serializer.fromJson<bool>(json['isAvailable']),
@@ -7510,8 +7512,8 @@ class ProductQtyEntityData extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
-      'qty': serializer.toJson<int>(qty),
+      'id': serializer.toJson<int?>(id),
+      'qty': serializer.toJson<double>(qty),
       'productId': serializer.toJson<String>(productId),
       'unitId': serializer.toJson<String>(unitId),
       'isAvailable': serializer.toJson<bool>(isAvailable),
@@ -7519,13 +7521,13 @@ class ProductQtyEntityData extends DataClass
   }
 
   ProductQtyEntityData copyWith(
-          {int? id,
-          int? qty,
+          {Value<int?> id = const Value.absent(),
+          double? qty,
           String? productId,
           String? unitId,
           bool? isAvailable}) =>
       ProductQtyEntityData(
-        id: id ?? this.id,
+        id: id.present ? id.value : this.id,
         qty: qty ?? this.qty,
         productId: productId ?? this.productId,
         unitId: unitId ?? this.unitId,
@@ -7557,8 +7559,8 @@ class ProductQtyEntityData extends DataClass
 }
 
 class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
-  final Value<int> id;
-  final Value<int> qty;
+  final Value<int?> id;
+  final Value<double> qty;
   final Value<String> productId;
   final Value<String> unitId;
   final Value<bool> isAvailable;
@@ -7571,7 +7573,7 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
   });
   ProductQtyEntityCompanion.insert({
     this.id = const Value.absent(),
-    required int qty,
+    required double qty,
     required String productId,
     required String unitId,
     required bool isAvailable,
@@ -7581,7 +7583,7 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
         isAvailable = Value(isAvailable);
   static Insertable<ProductQtyEntityData> custom({
     Expression<int>? id,
-    Expression<int>? qty,
+    Expression<double>? qty,
     Expression<String>? productId,
     Expression<String>? unitId,
     Expression<bool>? isAvailable,
@@ -7596,8 +7598,8 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
   }
 
   ProductQtyEntityCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? qty,
+      {Value<int?>? id,
+      Value<double>? qty,
       Value<String>? productId,
       Value<String>? unitId,
       Value<bool>? isAvailable}) {
@@ -7617,7 +7619,7 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
       map['id'] = Variable<int>(id.value);
     }
     if (qty.present) {
-      map['qty'] = Variable<int>(qty.value);
+      map['qty'] = Variable<double>(qty.value);
     }
     if (productId.present) {
       map['product_id'] = Variable<String>(productId.value);

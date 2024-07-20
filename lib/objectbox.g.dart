@@ -81,148 +81,148 @@ export 'package:objectbox/objectbox.dart'; // so that callers only have to impor
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 5753316018002223132),
+      id: const IdUid(1, 5078537192262167922),
       name: 'ActivationInfo',
-      lastPropertyId: const IdUid(28, 9149901265846442063),
+      lastPropertyId: const IdUid(28, 5662268905937071904),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5892785115422746146),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(2, 4543876292197249420),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 3931846411869730744),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 6246684726831141824),
-            name: 'email',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 5750663658116881988),
-            name: 'phone',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 4093345116160509551),
-            name: 'mobile',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 1391290141983328129),
-            name: 'taxRegName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 2479104141252133916),
-            name: 'fTaxRegName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 8924825583878104572),
-            name: 'taxCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 4794988072002383138),
-            name: 'onlineOrderStartTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 5665201945229625822),
-            name: 'onlineOrderEndTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 3975383629256558367),
-            name: 'branchPrefix',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5817250271933315391),
-            name: 'customerService',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 8953245993626086519),
-            name: 'countryId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 9070668720841189684),
-            name: 'cityId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 8052509098152640608),
-            name: 'address',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 5077178114045300751),
-            name: 'latitude',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 3633385185586798892),
-            name: 'longitude',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 8870533501786250898),
-            name: 'headerInvoiceMsg',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 7433018022190680684),
-            name: 'footerInvoiceMsg',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(21, 6436511633417511655),
-            name: 'receiveOnlineOrders',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 4399404169093491721),
+            id: const IdUid(1, 3223202823007304929),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(23, 1293238072448142102),
+            id: const IdUid(2, 6091612847521249910),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 8741200941855432730),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2437631924415990938),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 6473249508829283168),
+            name: 'email',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 1730416216416602878),
+            name: 'phone',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 1318037990047875899),
+            name: 'mobile',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 1149148787965608900),
+            name: 'taxRegName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 5317020327320241673),
+            name: 'fTaxRegName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 3351802390777219248),
+            name: 'taxCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7984186295441988887),
+            name: 'onlineOrderStartTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 8648722596701420280),
+            name: 'onlineOrderEndTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 558611756860811153),
+            name: 'branchPrefix',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 8443107429127540017),
+            name: 'customerService',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 1762838332605545177),
+            name: 'countryId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 5164975244690734091),
+            name: 'cityId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 5911288947759507383),
+            name: 'address',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 3897273691349935204),
+            name: 'latitude',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 8770234132421644749),
+            name: 'longitude',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 2992451001325496480),
+            name: 'headerInvoiceMsg',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 377379200868239102),
+            name: 'footerInvoiceMsg',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 4347877574517361409),
             name: 'code',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(24, 4544610953277289076),
+            id: const IdUid(23, 5744036660114902604),
             name: 'currentDeviceId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(25, 7639568410244113722),
+            id: const IdUid(24, 1538232173767592339),
+            name: 'receiveOnlineOrders',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 5973231038699532467),
             name: 'company',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(26, 2325171491536283203),
+            id: const IdUid(26, 1152121519414821926),
             name: 'fCompany',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(27, 2745344738895200628),
+            id: const IdUid(27, 5110236903330579707),
             name: 'branch',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(28, 9149901265846442063),
+            id: const IdUid(28, 5662268905937071904),
             name: 'fBranch',
             type: 9,
             flags: 0)
@@ -232,93 +232,93 @@ final _entities = <ModelEntity>[
         ModelBacklink(name: 'devices', srcEntity: 'Device', srcField: 'info')
       ]),
   ModelEntity(
-      id: const IdUid(2, 5477093702701178189),
+      id: const IdUid(2, 4439097372131907976),
       name: 'Address',
-      lastPropertyId: const IdUid(17, 6815365135802105854),
+      lastPropertyId: const IdUid(17, 1882172437748657611),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5369882007154259662),
+            id: const IdUid(1, 7920913395933692266),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 4894928698622599789),
+            id: const IdUid(2, 8392240664857418516),
             name: 'id',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 7820460421125692278),
+            id: const IdUid(3, 1616733363367448622),
             name: 'addressTypeId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 6247592342154265089),
+            id: const IdUid(4, 4257182754681311765),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 3792240543852068404),
+            id: const IdUid(5, 6286461577457926642),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 3505355146691812087),
+            id: const IdUid(6, 7876317815958982303),
             name: 'latitude',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 8557559620420270932),
+            id: const IdUid(7, 1979336680284768646),
             name: 'longitude',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 4334409787349658530),
+            id: const IdUid(8, 5133888345704498233),
             name: 'deliveryZoneId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 5574922554066713401),
+            id: const IdUid(9, 7791265863872610031),
             name: 'description',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 6674655929052526171),
+            id: const IdUid(10, 7997185559175027227),
             name: 'mainStreet',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 7729835990780559568),
+            id: const IdUid(11, 8315888087797063635),
             name: 'byStreet',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 3558753639219598056),
+            id: const IdUid(12, 1620481582629545869),
             name: 'buildingNo',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 7998348605620386340),
+            id: const IdUid(13, 6975206202961672338),
             name: 'floor',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 2306028890719594117),
+            id: const IdUid(14, 5861227137858738996),
             name: 'apartmentNo',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 2803462689270291562),
+            id: const IdUid(15, 212803463526935401),
             name: 'phone',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 5842470402653374407),
+            id: const IdUid(16, 8485962957605402769),
             name: 'popularPlace',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 6815365135802105854),
+            id: const IdUid(17, 1882172437748657611),
             name: 'zipCode',
             type: 9,
             flags: 0)
@@ -326,261 +326,341 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(3, 2467053341010370170),
+      id: const IdUid(3, 1955817320292669185),
       name: 'AppliedModifer',
-      lastPropertyId: const IdUid(2, 7613648899452709052),
+      lastPropertyId: const IdUid(2, 3618687878765758156),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5420662565931780871),
+            id: const IdUid(1, 3872837847727394833),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 7613648899452709052),
+            id: const IdUid(2, 3618687878765758156),
             name: 'modifierId',
             type: 11,
             flags: 520,
-            indexId: const IdUid(1, 4433389935134718662),
+            indexId: const IdUid(1, 2515846616428893431),
             relationTarget: 'UnitModifer')
       ],
       relations: <ModelRelation>[
         ModelRelation(
-            id: const IdUid(1, 1127109772374484822),
+            id: const IdUid(1, 693736185462814457),
             name: 'options',
-            targetId: const IdUid(4, 8401319202084866110))
+            targetId: const IdUid(4, 4117185276158093119))
       ],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(4, 8401319202084866110),
+      id: const IdUid(4, 4117185276158093119),
       name: 'AppliedOption',
-      lastPropertyId: const IdUid(9, 3450086742284031876),
+      lastPropertyId: const IdUid(7, 2660295593291881546),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5082420523183930215),
+            id: const IdUid(1, 8021337090072032312),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(4, 1964529226949435292),
-            name: 'priceWithTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 5081607864978015491),
-            name: 'optionId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(2, 3931701752065206823),
-            relationTarget: 'Option'),
-        ModelProperty(
-            id: const IdUid(6, 584620530190105333),
-            name: 'taxInfoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(3, 7652959616579473545),
-            relationTarget: 'TaxInfo'),
-        ModelProperty(
-            id: const IdUid(7, 6571665587232045509),
+            id: const IdUid(2, 2059967163411097457),
             name: 'quantity',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 6177495519533226135),
+            id: const IdUid(3, 5853410200593129234),
             name: 'freeQuantity',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 3450086742284031876),
+            id: const IdUid(4, 8189131991405474862),
             name: 'taxableAmt',
             type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3661354841928664798),
+            name: 'priceWithTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 6552050349153996301),
+            name: 'optionId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(2, 3300774321091627442),
+            relationTarget: 'Option'),
+        ModelProperty(
+            id: const IdUid(7, 2660295593291881546),
+            name: 'taxInfoId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(3, 1708228762115429769),
+            relationTarget: 'TaxInfo')
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(5, 3395040555646562610),
+      name: 'AppliedProduct',
+      lastPropertyId: const IdUid(26, 7374746321741354385),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3444471323894119602),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1202533667212891739),
+            name: 'productId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(4, 4855617400728108169),
+            relationTarget: 'ExtractProduct'),
+        ModelProperty(
+            id: const IdUid(3, 7889572791976303266),
+            name: 'unitId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(5, 1942839024701746310),
+            relationTarget: 'Unit'),
+        ModelProperty(
+            id: const IdUid(4, 1368655952020932774),
+            name: 'quantity',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 605721681940524731),
+            name: 'prodRef',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 4356848318812262856),
+            name: 'priceWithTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 8914562403344428127),
+            name: 'isCansel',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 1307594033844717212),
+            name: 'msgCansel',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 1355511948269407267),
+            name: 'priceLevel',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 2902308629694783163),
+            name: 'eventId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(6, 1501991685287232868),
+            relationTarget: 'TimeEvent'),
+        ModelProperty(
+            id: const IdUid(11, 9091469063345611059),
+            name: 'discountId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(7, 4517887254972162853),
+            relationTarget: 'Discount'),
+        ModelProperty(
+            id: const IdUid(12, 2758933101519443285),
+            name: 'promotionId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(8, 6621755809806995659),
+            relationTarget: 'Promotion'),
+        ModelProperty(
+            id: const IdUid(13, 7893905738037728003),
+            name: 'taxInfoId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(9, 5909637595183244922),
+            relationTarget: 'TaxInfo'),
+        ModelProperty(
+            id: const IdUid(14, 3097389579650871978),
+            name: 'throwbackInfoId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(10, 4548151801569972813),
+            relationTarget: 'ThrowbackInfo'),
+        ModelProperty(
+            id: const IdUid(15, 7103929944394243819),
+            name: 'giftCardCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 2563610509656151429),
+            name: 'price',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 6717969005107733656),
+            name: 'optionPrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 2435042160236860600),
+            name: 'priceDiscount',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 7905225343117339782),
+            name: 'pricePromotion',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 3154229700332008243),
+            name: 'taxPrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 4913642765171323541),
+            name: 'taxableAmt',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 2736988844187576348),
+            name: 'freeQuantity',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(23, 8699925615269242863),
+            name: 'isFixedPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(24, 8441853193068914492),
+            name: 'canEditQty',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 7829270761317390279),
+            name: 'barcodePrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 7374746321741354385),
+            name: 'note',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(2, 8506033748105868945),
+            name: 'appliedModifer',
+            targetId: const IdUid(3, 1955817320292669185))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(6, 5041489962734308180),
+      name: 'BarcodeScale',
+      lastPropertyId: const IdUid(14, 7563962047243206424),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5679350626431696823),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 2763595664892735264),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(11, 7197124700357410589)),
+        ModelProperty(
+            id: const IdUid(3, 2406697575879175231),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7066800565295303758),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 7768459212710794122),
+            name: 'scanPriceFromScale',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 6511869404582426088),
+            name: 'scalePriceIncludeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 8128703164009516223),
+            name: 'scaleBarcodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 1963815260475317584),
+            name: 'scaleProductCodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 2435195400816812508),
+            name: 'scaleIntDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 9126064118480816615),
+            name: 'scaleDecimalDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 1534858682964673087),
+            name: 'scaleProductCodeFirstInBarcode',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 3122836428163424959),
+            name: 'departments',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 3577289673800311593),
+            name: 'categories',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 7563962047243206424),
+            name: 'products',
+            type: 30,
             flags: 0)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(5, 6600000843738374292),
-      name: 'AppliedProduct',
-      lastPropertyId: const IdUid(27, 3585065567033838086),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 145257182996353622),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6031806734151529248),
-            name: 'productId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(4, 1239266596120761280),
-            relationTarget: 'ExtractProduct'),
-        ModelProperty(
-            id: const IdUid(3, 2350403340355043304),
-            name: 'unitId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(5, 8136347199185766505),
-            relationTarget: 'Unit'),
-        ModelProperty(
-            id: const IdUid(4, 6762102969455178052),
-            name: 'quantity',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 230751248607139134),
-            name: 'prodRef',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 5913746805971877162),
-            name: 'priceWithTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 8575333283847157400),
-            name: 'isCansel',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 1264269810026450423),
-            name: 'msgCansel',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 8833688331970281527),
-            name: 'priceLevel',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 5059616936022441220),
-            name: 'eventId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(6, 8107473025290026647),
-            relationTarget: 'TimeEvent'),
-        ModelProperty(
-            id: const IdUid(11, 4306726996213770478),
-            name: 'discountId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(7, 6617174921749896618),
-            relationTarget: 'Discount'),
-        ModelProperty(
-            id: const IdUid(12, 6584843947419219629),
-            name: 'promotionId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(8, 326876653237298119),
-            relationTarget: 'Promotion'),
-        ModelProperty(
-            id: const IdUid(13, 6518101560148471238),
-            name: 'taxInfoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(9, 4571413240304676210),
-            relationTarget: 'TaxInfo'),
-        ModelProperty(
-            id: const IdUid(14, 3855597283393023436),
-            name: 'throwbackInfoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(10, 2090564563186480561),
-            relationTarget: 'ThrowbackInfo'),
-        ModelProperty(
-            id: const IdUid(15, 2830787394814512589),
-            name: 'giftCardCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 165020834789208562),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 2546474802391440785),
-            name: 'optionPrice',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 8566668941413325742),
-            name: 'priceDiscount',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 1652483806462215281),
-            name: 'pricePromotion',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 1774188752175875972),
-            name: 'taxPrice',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 8099949254286528233),
-            name: 'note',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(23, 1012455212153826515),
-            name: 'freeQuantity',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(24, 3583234907337386259),
-            name: 'taxableAmt',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(25, 7964116179825037394),
-            name: 'isFixedPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 4624016540054226080),
-            name: 'canEditQty',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 3585065567033838086),
-            name: 'barcodePrice',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(2, 6675737867559916383),
-            name: 'appliedModifer',
-            targetId: const IdUid(3, 2467053341010370170))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(6, 8799969479485450265),
+      id: const IdUid(7, 6214450579417633665),
       name: 'BillCopyHistory',
-      lastPropertyId: const IdUid(4, 1108550317992064702),
+      lastPropertyId: const IdUid(4, 469913051010676242),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5912054381534261885),
+            id: const IdUid(1, 9129568429371689214),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 7937113778910276173),
+            id: const IdUid(2, 1686500530634019462),
             name: 'billRef',
             type: 9,
             flags: 2048,
-            indexId: const IdUid(11, 8434479621221583949)),
+            indexId: const IdUid(12, 4710435579298204897)),
         ModelProperty(
-            id: const IdUid(3, 2181838800395815986),
+            id: const IdUid(3, 78359146743386413),
             name: 'billNo',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 1108550317992064702),
+            id: const IdUid(4, 469913051010676242),
             name: 'billeDate',
             type: 9,
             flags: 0)
@@ -588,533 +668,533 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(7, 4911151394425122503),
+      id: const IdUid(8, 8764308303900277643),
       name: 'BillCounter',
-      lastPropertyId: const IdUid(6, 1659547514342858611),
+      lastPropertyId: const IdUid(6, 1003870551098125389),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 3832194801462515442),
+            id: const IdUid(1, 3637347488900925406),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 389821381368639377),
+            id: const IdUid(2, 5442616931469873481),
             name: 'dateTimeOpenOn',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 6916002744422770738),
+            id: const IdUid(3, 6465630264630568809),
             name: 'dateTimeCloseOn',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 4172089779055786452),
+            id: const IdUid(4, 5838781069475597852),
             name: 'isClosed',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 7925704923966507191),
+            id: const IdUid(5, 3079815282778834304),
             name: 'curentCounter',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 1659547514342858611),
+            id: const IdUid(6, 1003870551098125389),
             name: 'billPerfex',
             type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[
         ModelRelation(
-            id: const IdUid(3, 4385583026967760229),
+            id: const IdUid(3, 9039019706899526311),
             name: 'billCopyHistory',
-            targetId: const IdUid(6, 8799969479485450265))
+            targetId: const IdUid(7, 6214450579417633665))
       ],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(8, 7101378114871066112),
+      id: const IdUid(9, 7293699095239774891),
       name: 'BillSetting',
-      lastPropertyId: const IdUid(41, 3397577615294015588),
+      lastPropertyId: const IdUid(41, 8637578123573579639),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 8939727369491038841),
+            id: const IdUid(1, 1854613113297043964),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3411269962525680538),
+            id: const IdUid(2, 5966891126173573436),
             name: 'logoUrl',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 2101397750427592447),
+            id: const IdUid(3, 9030561629240009173),
             name: 'companyName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 8335902312050229752),
+            id: const IdUid(4, 5408363225248365608),
             name: 'fCompanyName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 7584763572537046128),
+            id: const IdUid(5, 3140542507389415416),
             name: 'taxNo',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 8107927624615431733),
+            id: const IdUid(6, 6046576167504097175),
             name: 'phoneNumber',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 5433198124437804528),
+            id: const IdUid(7, 7048309509345288299),
             name: 'address',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 1518695909893619580),
+            id: const IdUid(8, 1137017682491125915),
             name: 'fAddress',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 5364415357511394579),
+            id: const IdUid(9, 864330936986164922),
             name: 'headerInvoiceMessage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 7835703919135534918),
+            id: const IdUid(10, 639724637488802196),
             name: 'fHeaderInvoiceMessage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 6820632976415734135),
+            id: const IdUid(11, 1359316498001655313),
             name: 'footerInvoiceMessage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 2552795666231282813),
+            id: const IdUid(12, 1102880574855038464),
             name: 'fFooterInvoiceMessage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 3075381715090242101),
+            id: const IdUid(13, 8528412732115330781),
             name: 'invoiceRoundFactor',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 8068257571922336428),
+            id: const IdUid(14, 7445524497609501453),
             name: 'enablePrintBundleProductChildren',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 7195985282026439749),
+            id: const IdUid(15, 8702327457315297378),
             name: 'printOrderNumber',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 8400758336684141170),
+            id: const IdUid(16, 182902786620554706),
             name: 'printCalories',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 2959394745830083642),
+            id: const IdUid(17, 4849016011640096500),
             name: 'printSubTotal',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(18, 4682868103186495239),
+            id: const IdUid(18, 4886862272517836658),
             name: 'printRoundDigit',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(19, 1988299512637591049),
+            id: const IdUid(19, 7025159904764164699),
             name: 'printProductUnit',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(20, 2551007814582332860),
+            id: const IdUid(20, 235059893301096032),
             name: 'printProductUnitPrice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(21, 6900534443791466767),
+            id: const IdUid(21, 2081623139912124872),
             name: 'printProductTotalPrice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(22, 5845865354423804621),
+            id: const IdUid(22, 6927008684599554110),
             name: 'printProductDiscountPrice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(23, 5106188324675849014),
+            id: const IdUid(23, 6774619695125998623),
             name: 'printProductFreeQuantity',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(24, 7573638613304156704),
+            id: const IdUid(24, 4801993567181599045),
             name: 'printProductTotalPriceBeforeTax',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(25, 5156412165839495923),
+            id: const IdUid(25, 9211704724624268506),
             name: 'printProductTaxAmount',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(26, 4765873789086665024),
+            id: const IdUid(26, 1699313621181279166),
             name: 'printProductTaxPercentage',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(27, 6929513260178588733),
+            id: const IdUid(27, 423527832169962447),
             name: 'printProductTotalPriceAfterDiscount',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(28, 563423894412745751),
+            id: const IdUid(28, 1204246412832918572),
             name: 'printProductTotalPriceIncludeTax',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(29, 4949875933928250703),
+            id: const IdUid(29, 8294106039294756591),
             name: 'printOrderClosedUser',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(30, 6053243884570951024),
+            id: const IdUid(30, 6091955543556055750),
             name: 'printOrderCreatedUser',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(31, 3734168949756890875),
+            id: const IdUid(31, 4026792262202974459),
             name: 'printCheckNumber',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(32, 7626985389872466786),
+            id: const IdUid(32, 8739204249342321483),
             name: 'hideFreeModifierOptions',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(33, 6675322167936202995),
+            id: const IdUid(33, 8009722872193271817),
             name: 'invoiceTemplate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(34, 4527447405704924914),
+            id: const IdUid(34, 4056929534503048052),
             name: 'refundTemplate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(35, 5799355522297073069),
+            id: const IdUid(35, 6247117746456904254),
             name: 'autoPrintOnSave',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(36, 4708905130825046707),
+            id: const IdUid(36, 7552024838357146771),
             name: 'printlanguage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(37, 2312204799814641027),
+            id: const IdUid(37, 526832412114146118),
             name: 'defaultLanguage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(38, 6592717113408232801),
+            id: const IdUid(38, 8133146392396405761),
             name: 'secondLanguage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(39, 8940536251071924919),
+            id: const IdUid(39, 7254632069314863587),
             name: 'invoiceTitle',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(40, 1990396419081592067),
+            id: const IdUid(40, 7566033784299441319),
             name: 'fInvoiceTitle',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(41, 3397577615294015588),
+            id: const IdUid(41, 8637578123573579639),
             name: 'logoDataId',
             type: 11,
             flags: 520,
-            indexId: const IdUid(12, 751885457738527195),
+            indexId: const IdUid(13, 1147782899810362967),
             relationTarget: 'LogoData')
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(9, 5970686894060194847),
+      id: const IdUid(10, 1857137658629190313),
       name: 'Branch',
-      lastPropertyId: const IdUid(17, 3285422773391675081),
+      lastPropertyId: const IdUid(17, 6211251296124780652),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 1277760761559260344),
+            id: const IdUid(1, 7675283729568400909),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 2211030339835355213),
+            id: const IdUid(2, 8885380467736671471),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(13, 9056394876979746368)),
+            indexId: const IdUid(14, 1341583054647358602)),
         ModelProperty(
-            id: const IdUid(3, 396430022572910782),
+            id: const IdUid(3, 1668547512528071407),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 5450157657225185693),
+            id: const IdUid(4, 489348374803324093),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 1134724760310139820),
             name: 'email',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 8202209498149799361),
+            id: const IdUid(6, 2324308296772291793),
             name: 'phone',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 6935099879989213068),
+            id: const IdUid(7, 314977582612779734),
             name: 'mobile',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 3594376070560815347),
+            id: const IdUid(8, 6555681108920318685),
             name: 'taxRegName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 7199785546990412380),
+            id: const IdUid(9, 9005581555498722182),
             name: 'taxCode',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 4959393444316255683),
+            id: const IdUid(10, 8777796994718252145),
             name: 'onlineOrderStartTime',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 7371928901884463297),
+            id: const IdUid(11, 984050293823785752),
             name: 'onlineOrderEndTime',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 1462842504436170217),
+            id: const IdUid(12, 6169084221030975337),
             name: 'branchPrefix',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 8827376031793486685),
+            id: const IdUid(13, 8245691796973689665),
             name: 'customerService',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 3472295475704825237),
+            id: const IdUid(14, 7617873564637730413),
             name: 'address',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 3742014740676936868),
+            id: const IdUid(15, 318076814528697172),
             name: 'headerInvoiceMsg',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 2687104572991820982),
+            id: const IdUid(16, 4186523966661038416),
             name: 'footerInvoiceMsg',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 7387775667464477886),
+            id: const IdUid(17, 6211251296124780652),
             name: 'receiveOnlineOrders',
             type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 3285422773391675081),
-            name: 'fName',
-            type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(10, 2242861351924245884),
+      id: const IdUid(11, 133251527730575127),
       name: 'CashierSetting',
-      lastPropertyId: const IdUid(34, 7418372648051736148),
+      lastPropertyId: const IdUid(34, 3408433645045645622),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 8403949033618388993),
+            id: const IdUid(1, 2060254376959589485),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 2366986854184663462),
+            id: const IdUid(2, 7084282162835867592),
             name: 'enableCashSales',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 6233799526876701111),
+            id: const IdUid(3, 2144327106193200314),
             name: 'enableCreditCardSales',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 4631191609301970507),
+            id: const IdUid(4, 7190143635062038205),
             name: 'enableCustomerSales',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 4594215082290825446),
+            id: const IdUid(5, 2094634787592296260),
             name: 'enableFreeQuantity',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 6611987425109176731),
+            id: const IdUid(6, 7690820874758201094),
             name: 'enableEditItemName',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 7938801697490119188),
+            id: const IdUid(7, 9065451903917371266),
             name: 'enableSalesDiscount',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 7197779888204991553),
+            id: const IdUid(8, 6401513082286126924),
             name: 'enableChangePrice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 4117647046575865985),
+            id: const IdUid(9, 4525884050304112230),
             name: 'enableProductPackages',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 1203489643378452758),
+            id: const IdUid(10, 8528322825907529603),
             name: 'enableTablesSystem',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 8872500075341637816),
+            id: const IdUid(11, 1738360711646703524),
             name: 'tableGuestCountRequired',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 8227262350571194764),
+            id: const IdUid(12, 4521832275034244264),
             name: 'tableRequired',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 7029350284699925068),
+            id: const IdUid(13, 2549861747007353472),
             name: 'discountPercentageLimit',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 511720326557820857),
+            id: const IdUid(14, 7020448039086938908),
             name: 'defaultCustomerId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 5317324704123051430),
+            id: const IdUid(15, 7645336577710514341),
             name: 'priceListId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 6835961717230374684),
+            id: const IdUid(16, 7526318569482065220),
             name: 'daily',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 2033000667977483083),
+            id: const IdUid(17, 7210991816762255396),
             name: 'submittingRequestsDelayMinutes',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(18, 3129569721285284684),
+            id: const IdUid(18, 4035046544894275469),
             name: 'inactiveUsersLogoutMinutes',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(19, 7660038879436570044),
+            id: const IdUid(19, 3556252487756690888),
             name: 'maximumReturnPeriodMinutes',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(20, 841857049973350419),
+            id: const IdUid(20, 286853503204725183),
             name: 'requireOrderTypesForOrders',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(21, 887948099349258836),
+            id: const IdUid(21, 9134206151544290437),
             name: 'roundingType',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(22, 2633056932650472373),
+            id: const IdUid(22, 1133956198942194469),
             name: 'roundDigits',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(23, 5508308216324662122),
+            id: const IdUid(23, 2054528028188750477),
             name: 'kitchenSortingType',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(24, 908310203203665652),
+            id: const IdUid(24, 2296172532186373267),
             name: 'printSortingType',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(25, 825386222537997548),
+            id: const IdUid(25, 2844766058985651345),
             name: 'activeTips',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(26, 9077898707145563190),
+            id: const IdUid(26, 3242172242953045577),
             name: 'discountRequireCustomerInfo',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(27, 2063377321340432747),
+            id: const IdUid(27, 5480643359125450441),
             name: 'returnRequireCustomerInfo',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(28, 3683659949620095041),
+            id: const IdUid(28, 8582778332221782547),
             name: 'requireCancelReason',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(29, 6308173101484730041),
+            id: const IdUid(29, 581926613006561938),
             name: 'autoSentOrderToKitchenAfterPaid',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(30, 5615367293467954798),
+            id: const IdUid(30, 6967524824387489164),
             name: 'autoSyncDataAtStartOfDay',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(31, 7525406350367000618),
+            id: const IdUid(31, 3543264193991833354),
             name: 'autoPrintProductsReport',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(32, 6426473194993697922),
+            id: const IdUid(32, 5652122886597374694),
             name: 'autoPrintTillsReport',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(33, 6923827879544000653),
+            id: const IdUid(33, 1261241416933329764),
             name: 'preventEndingDayBeforeInventoryCount',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(34, 7418372648051736148),
+            id: const IdUid(34, 3408433645045645622),
             name: 'imei',
             type: 9,
             flags: 0)
@@ -1122,39 +1202,39 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(11, 2761295368270433978),
+      id: const IdUid(12, 6539893447143728092),
       name: 'Category',
-      lastPropertyId: const IdUid(6, 5417043343244595409),
+      lastPropertyId: const IdUid(6, 8673464029236815671),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 1145934989194881939),
+            id: const IdUid(1, 7313555087738964698),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 8981873643416546016),
+            id: const IdUid(2, 3580597356229871582),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(14, 5059489825706829041)),
+            indexId: const IdUid(15, 8249464839236816939)),
         ModelProperty(
-            id: const IdUid(3, 5541561270383368331),
+            id: const IdUid(3, 3197794021818080854),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 2178204737711281734),
+            id: const IdUid(4, 8566356786614266273),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 936528038568296231),
+            id: const IdUid(5, 4568680481545229858),
             name: 'displayOrder',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 5417043343244595409),
+            id: const IdUid(6, 8673464029236815671),
             name: 'imageUrl',
             type: 9,
             flags: 0)
@@ -1162,23 +1242,23 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(12, 2348684625165328419),
+      id: const IdUid(13, 2778191342442055432),
       name: 'Claims',
-      lastPropertyId: const IdUid(3, 5859174407098280928),
+      lastPropertyId: const IdUid(3, 1038158744780464183),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 3496900972975587027),
+            id: const IdUid(1, 7756342864713209665),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 2290245918547791104),
+            id: const IdUid(2, 7856554431237586904),
             name: 'id',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 5859174407098280928),
+            id: const IdUid(3, 1038158744780464183),
             name: 'name',
             type: 9,
             flags: 0)
@@ -1186,79 +1266,79 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(13, 8969586280975122242),
+      id: const IdUid(14, 8304632206112735488),
       name: 'Coupon',
-      lastPropertyId: const IdUid(14, 7857225664024611700),
+      lastPropertyId: const IdUid(14, 6859342607323947140),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 4274898028166280396),
+            id: const IdUid(1, 438628984429088434),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 6217061886793253824),
+            id: const IdUid(2, 4293681314874862195),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(15, 3765434398659213500)),
+            indexId: const IdUid(16, 746880545472373952)),
         ModelProperty(
-            id: const IdUid(3, 7307236775111634936),
+            id: const IdUid(3, 4263249347516655018),
             name: 'couponCode',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 4083869634486451492),
+            id: const IdUid(4, 1160242761510583226),
             name: 'useCountForAll',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 6942599747252549189),
+            id: const IdUid(5, 7044057534575105203),
             name: 'useCountForOne',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 5215414938886430438),
+            id: const IdUid(6, 4068454688897038749),
             name: 'maximumUses',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 28318363574192901),
+            id: const IdUid(7, 9197024878743779710),
             name: 'startDate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 7196121331300470170),
+            id: const IdUid(8, 2152777525646079020),
             name: 'endDate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 8912974846151912311),
+            id: const IdUid(9, 7146196050368849749),
             name: 'startTime',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 3993664829409825365),
+            id: const IdUid(10, 8839779253265795541),
             name: 'endTime',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 1392434308517048157),
+            id: const IdUid(11, 7941349687210195239),
             name: 'discountId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 3545461166498982701),
+            id: const IdUid(12, 676983019813732491),
             name: 'days',
             type: 27,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 3924650253380767645),
+            id: const IdUid(13, 8411525602463713463),
             name: 'couponLevel',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 7857225664024611700),
+            id: const IdUid(14, 6859342607323947140),
             name: 'numberOFProducts',
             type: 6,
             flags: 0)
@@ -1266,69 +1346,69 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(14, 6314304865470921673),
+      id: const IdUid(15, 7362410201579327419),
       name: 'Currencies',
-      lastPropertyId: const IdUid(12, 1295206081683333988),
+      lastPropertyId: const IdUid(12, 7128200875167127605),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 2346630925543585145),
+            id: const IdUid(1, 6696870709230945167),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3929149747240663517),
+            id: const IdUid(2, 5035736744398913241),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(16, 2131753372186440006)),
+            indexId: const IdUid(17, 4929129380119650247)),
         ModelProperty(
-            id: const IdUid(3, 3054901492323356485),
+            id: const IdUid(3, 1171899863897704635),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 9118292440051412313),
+            id: const IdUid(4, 5171662477558996848),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 7481132782743143178),
+            id: const IdUid(5, 3655407829499188378),
             name: 'currencyCode',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 6762994409776092572),
+            id: const IdUid(6, 3962732731152878091),
             name: 'displayLocale',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 3757722947446498413),
+            id: const IdUid(7, 8453759702821001484),
             name: 'isDefault',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 51421866813893696),
+            id: const IdUid(8, 4170310184296287746),
             name: 'customFormatting',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 1277373905790528469),
+            id: const IdUid(9, 7629884100691873089),
             name: 'exchangeRate',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 699383844079872257),
+            id: const IdUid(10, 161776228853356440),
             name: 'minExchangeRate',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 810085156101981873),
+            id: const IdUid(11, 7410048150240708640),
             name: 'maxExchangeRate',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 1295206081683333988),
+            id: const IdUid(12, 7128200875167127605),
             name: 'dens',
             type: 27,
             flags: 0)
@@ -1336,158 +1416,158 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(15, 1709354910588741966),
+      id: const IdUid(16, 9111968847624171466),
       name: 'Customer',
-      lastPropertyId: const IdUid(17, 707772581729270881),
+      lastPropertyId: const IdUid(17, 2873617363993033609),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 448825591833972811),
+            id: const IdUid(1, 5507421863317256902),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 5159766747552507781),
+            id: const IdUid(2, 2942199321580443107),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(17, 1497591084057427184)),
+            indexId: const IdUid(18, 2375717540313058965)),
         ModelProperty(
-            id: const IdUid(3, 8661924307397468343),
+            id: const IdUid(3, 7576460861312839633),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 7895967154552472090),
+            id: const IdUid(4, 7528076718825189384),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 1080688798153720940),
+            id: const IdUid(5, 6037246711943307175),
             name: 'mobile',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 6462279402836581951),
+            id: const IdUid(6, 2193090554057668728),
             name: 'email',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 1596271757385585322),
+            id: const IdUid(7, 5553823362742757738),
             name: 'debitLimit',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 4230374311315705645),
+            id: const IdUid(8, 4209906935080338274),
             name: 'balance',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 655881355648637344),
+            id: const IdUid(9, 6055633850638836813),
             name: 'paymentMethodId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 1574417676227854026),
+            id: const IdUid(10, 4389445351998749471),
             name: 'currencyId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 3964163293059347703),
+            id: const IdUid(11, 6321390370503667117),
             name: 'taxNumber',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 5944631626379580467),
+            id: const IdUid(12, 7671368850712929421),
             name: 'taxRegisterationName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 4574251741208564923),
+            id: const IdUid(13, 1646884377573738998),
             name: 'inBlackList',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 9144729328475872481),
+            id: const IdUid(14, 288466176606849914),
             name: 'blackListNote',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 8649868345367219692),
+            id: const IdUid(15, 8929212388140742422),
             name: 'priceListId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 4307301827250704506),
+            id: const IdUid(16, 6852140952250080958),
             name: 'enableHouseAccount',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 707772581729270881),
+            id: const IdUid(17, 2873617363993033609),
             name: 'taxable',
             type: 1,
             flags: 0)
       ],
       relations: <ModelRelation>[
         ModelRelation(
-            id: const IdUid(4, 3204416311926070240),
+            id: const IdUid(4, 5246255256127383939),
             name: 'addersses',
-            targetId: const IdUid(2, 5477093702701178189)),
+            targetId: const IdUid(2, 4439097372131907976)),
         ModelRelation(
-            id: const IdUid(5, 6532219739085899378),
+            id: const IdUid(5, 8794315387327907998),
             name: 'houseAccountTranscations',
-            targetId: const IdUid(66, 7327816255404985015))
+            targetId: const IdUid(73, 4398007770835094797))
       ],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(16, 3345916896721220522),
+      id: const IdUid(17, 3211306352844454223),
       name: 'DeliveryCompany',
-      lastPropertyId: const IdUid(9, 6431712346773932804),
+      lastPropertyId: const IdUid(9, 8615494619579191768),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 2989562734479843271),
+            id: const IdUid(1, 1659158685168086156),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3286511829086774636),
+            id: const IdUid(2, 7407407015614375564),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(18, 5917695740166384865)),
+            indexId: const IdUid(19, 6629993936477617758)),
         ModelProperty(
-            id: const IdUid(3, 5173299677293549054),
+            id: const IdUid(3, 2434581818156903206),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 7024703366238984630),
+            id: const IdUid(4, 3529664958114106358),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 5440047084828690258),
+            id: const IdUid(5, 6207010013746529066),
             name: 'mobile',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 5385046940416116779),
+            id: const IdUid(6, 1445908650739393432),
             name: 'email',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 2954675339063988179),
+            id: const IdUid(7, 6276090464772818095),
             name: 'countryId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 788694370756159702),
+            id: const IdUid(8, 8396402534973969797),
             name: 'imageUrl',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 6431712346773932804),
+            id: const IdUid(9, 8615494619579191768),
             name: 'commissionRate',
             type: 8,
             flags: 0)
@@ -1495,25 +1575,25 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(17, 6676215441474931428),
+      id: const IdUid(18, 473103036784901843),
       name: 'DeliveryCompanyInfo',
-      lastPropertyId: const IdUid(3, 7129682724662883802),
+      lastPropertyId: const IdUid(3, 3670939271000057381),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5536597505902921159),
+            id: const IdUid(1, 6483121517268425795),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 5340495889527287966),
+            id: const IdUid(2, 8186281923593915086),
             name: 'companyId',
             type: 11,
             flags: 520,
-            indexId: const IdUid(19, 6186671319794701930),
+            indexId: const IdUid(20, 4214149224925646766),
             relationTarget: 'DeliveryCompany'),
         ModelProperty(
-            id: const IdUid(3, 7129682724662883802),
+            id: const IdUid(3, 3670939271000057381),
             name: 'orderNumber',
             type: 9,
             flags: 0)
@@ -1521,44 +1601,44 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(18, 1858459634391851035),
+      id: const IdUid(19, 6638342233810496517),
       name: 'DeliveryZone',
-      lastPropertyId: const IdUid(7, 7121422537992909006),
+      lastPropertyId: const IdUid(7, 243016630278573501),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 4147369697389299292),
+            id: const IdUid(1, 5752733947078550836),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 195553202369852268),
+            id: const IdUid(2, 5395186238782471427),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(20, 3659336044575980648)),
+            indexId: const IdUid(21, 7688947988266923149)),
         ModelProperty(
-            id: const IdUid(3, 440524384694999475),
+            id: const IdUid(3, 5360473027903358632),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 5604119471643933716),
+            id: const IdUid(4, 212400811362027403),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 7023478585483525670),
+            id: const IdUid(5, 7269064965859735636),
             name: 'deliveryZoneCoordinate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 4260151172700346619),
+            id: const IdUid(6, 7230316362590180283),
             name: 'minimumDeliveryCharge',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 7121422537992909006),
+            id: const IdUid(7, 243016630278573501),
             name: 'deliveryChargePerKM',
             type: 8,
             flags: 0)
@@ -1566,208 +1646,208 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(19, 4985490252396266465),
+      id: const IdUid(20, 8492191425836204019),
       name: 'Department1',
-      lastPropertyId: const IdUid(6, 8170845147393942817),
+      lastPropertyId: const IdUid(6, 825899679247309325),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 3001131388372272568),
+            id: const IdUid(1, 9171554778624191743),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 5472977474346489022),
+            id: const IdUid(2, 1655869219531527672),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(21, 5523182956951200615)),
+            indexId: const IdUid(22, 1203513043471991579)),
         ModelProperty(
-            id: const IdUid(3, 5911286031901494807),
+            id: const IdUid(3, 1914249842343046006),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 2042654434746579180),
+            id: const IdUid(4, 121521029497455455),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 769272970766923158),
+            id: const IdUid(5, 7233360069405690970),
             name: 'displayOrder',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 8170845147393942817),
+            id: const IdUid(6, 825899679247309325),
             name: 'imageUrl',
             type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[
         ModelRelation(
-            id: const IdUid(6, 6232608473792648197),
+            id: const IdUid(6, 7521151188648881359),
             name: 'categories',
-            targetId: const IdUid(11, 2761295368270433978))
+            targetId: const IdUid(12, 6539893447143728092))
       ],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(20, 5682762296369902978),
+      id: const IdUid(21, 1355326822435423417),
       name: 'Device',
-      lastPropertyId: const IdUid(31, 7658310684206287156),
+      lastPropertyId: const IdUid(30, 3282721690783310913),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 4522792297435729800),
+            id: const IdUid(1, 4124661258586628943),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 4941052465308995254),
+            id: const IdUid(2, 6478936320239353826),
             name: 'deviceId',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(22, 7180364891563762316)),
+            indexId: const IdUid(23, 1456325154153145133)),
         ModelProperty(
-            id: const IdUid(3, 405240044546606840),
+            id: const IdUid(3, 9021377498876432255),
             name: 'deviceTypeId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 7929321709752332196),
+            id: const IdUid(4, 5967610981865592255),
             name: 'deviceModelId',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 8206374997722592336),
+            id: const IdUid(5, 6673167352646443039),
             name: 'deviceTypeCode',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 1911769193153073890),
+            id: const IdUid(6, 8936805402483316059),
             name: 'masterDeviceNo',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 7945773660590411693),
+            id: const IdUid(7, 4760148902368859018),
             name: 'reference',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 1650173083068596826),
+            id: const IdUid(8, 7528864515573544400),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 7403886614654079721),
+            id: const IdUid(9, 4806072435949114269),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 9185306385403732430),
+            id: const IdUid(10, 3981136267153368243),
             name: 'enableOnlineOrderReceiver',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 4158135814435241901),
+            id: const IdUid(11, 2604453983077096592),
             name: 'model',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 9202225835300140873),
+            id: const IdUid(12, 6240305008178445138),
             name: 'systemVersion',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 4244514638243642603),
+            id: const IdUid(13, 3849201905029305078),
             name: 'appVersion',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 2676774468092248443),
+            id: const IdUid(14, 4902812557895919019),
             name: 'build',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 519788484522328953),
+            id: const IdUid(15, 8545318933984449496),
             name: 'latitude',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 4894062056342275063),
+            id: const IdUid(16, 1307456727138386633),
             name: 'longitude',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 7513051007360971835),
+            id: const IdUid(17, 4235729576041982201),
             name: 'connectionIPAddress',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(18, 5360502660308373689),
+            id: const IdUid(18, 3114178028385937785),
             name: 'connectionPort',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(19, 5622058200416888116),
+            id: const IdUid(19, 6197427166631599245),
             name: 'connectionType',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(20, 1500724765342486693),
+            id: const IdUid(20, 3239820665526057441),
             name: 'imei',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(21, 3578650511447289289),
+            id: const IdUid(21, 6824551729719901033),
             name: 'orderTypes',
             type: 27,
             flags: 0),
         ModelProperty(
-            id: const IdUid(22, 8608912905585746409),
+            id: const IdUid(22, 2938026657028460695),
             name: 'refrencePrefix',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(23, 286420536970665668),
-            name: 'infoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(23, 4977546018570233779),
-            relationTarget: 'ActivationInfo'),
-        ModelProperty(
-            id: const IdUid(24, 1093605994330055151),
-            name: 'settingId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(24, 6329808891648922489),
-            relationTarget: 'DeviceSetting'),
-        ModelProperty(
-            id: const IdUid(25, 4296030085774268798),
-            name: 'products',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 1345269928723651295),
-            name: 'categories',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 8731932480924779802),
-            name: 'departments',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(29, 5874590673968742968),
+            id: const IdUid(23, 5172061254569514386),
             name: 'ip',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(30, 8770631652663573191),
+            id: const IdUid(24, 4572891421361240755),
+            name: 'infoId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(24, 5613909973947605761),
+            relationTarget: 'ActivationInfo'),
+        ModelProperty(
+            id: const IdUid(25, 2892466532481923659),
+            name: 'settingId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(25, 7567767039253956080),
+            relationTarget: 'DeviceSetting'),
+        ModelProperty(
+            id: const IdUid(26, 81778002880463522),
+            name: 'products',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 3797740575462721093),
+            name: 'categories',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 7630301238920672849),
+            name: 'departments',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(29, 1974120748247998333),
             name: 'users',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(31, 7658310684206287156),
+            id: const IdUid(30, 3282721690783310913),
             name: 'resturnatSections',
             type: 30,
             flags: 0)
@@ -1775,123 +1855,123 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(21, 8684979996826178570),
+      id: const IdUid(22, 1302079590150384697),
       name: 'DeviceSetting',
-      lastPropertyId: const IdUid(25, 4874781372007549423),
+      lastPropertyId: const IdUid(23, 7576139344661849138),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 4784009174846902149),
+            id: const IdUid(1, 8037667083694603020),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 7037522181899491690),
+            id: const IdUid(2, 4076832095395862073),
             name: 'dailyStartCallNumber',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 7400359206697980675),
+            id: const IdUid(3, 4188043263073905599),
             name: 'dailyReCallNumber',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 3730469829384564244),
+            id: const IdUid(4, 3606231920352938148),
             name: 'newOrderDefaultType',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 249648571633636023),
+            id: const IdUid(5, 1532283040419947632),
             name: 'printLanguage',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 7973533917600662386),
+            id: const IdUid(6, 6966614091417077452),
             name: 'defaultTag',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 1197906229632902642),
+            id: const IdUid(7, 1481065104917120507),
             name: 'emailForDailyReport',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 3677128514440026155),
+            id: const IdUid(8, 4207228902100122584),
             name: 'emailForShiftReport',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 4595227856502238934),
+            id: const IdUid(9, 3199821912912514280),
             name: 'emailForTillReport',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 3113572021592424237),
+            id: const IdUid(10, 355633895722937701),
             name: 'autoConnectToDevices',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 3890915628839155652),
+            id: const IdUid(11, 4162507187090191183),
             name: 'enableBarcodeScanner',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 8180453088342120917),
+            id: const IdUid(12, 8052248559856663796),
             name: 'acceptOnlineOrders',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 3606582774733042781),
+            id: const IdUid(13, 6436029051098192039),
             name: 'sentOnlineOrdersToKitchen',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 7325912964526764856),
+            id: const IdUid(14, 322701016776398854),
             name: 'printOnlineOrdersUponReceipt',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 2268752866413493988),
+            id: const IdUid(15, 6832055107576753593),
             name: 'disableAutoPrintInvoice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 3213440878917934463),
+            id: const IdUid(16, 4278332119424307854),
             name: 'readCallNumberFromMasterCasher',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 6673573247289808481),
+            id: const IdUid(17, 3236570306745055443),
             name: 'printReceiptVoucherTransactions',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(18, 4733147179903174792),
+            id: const IdUid(18, 3087759266225147516),
             name: 'forceSelectPriceList',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(19, 7222619154374137987),
+            id: const IdUid(19, 2419286716508544463),
             name: 'forceSelectChareOnProductSale',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(20, 4612213789488178099),
+            id: const IdUid(20, 2503704328588500451),
             name: 'forceRestCallNumberEveryDay',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(21, 4220363121614661224),
+            id: const IdUid(21, 5791779050250214953),
             name: 'invoiceNumberPerfixSymoble',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(22, 4849995488232021366),
+            id: const IdUid(22, 2617777965122558245),
             name: 'invoiceNumberPerfix',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(23, 5262288280712875139),
+            id: const IdUid(23, 7576139344661849138),
             name: 'refrencePerfix',
             type: 1,
             flags: 0)
@@ -1899,119 +1979,119 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(22, 3747886948757388250),
+      id: const IdUid(23, 9185748372912527130),
       name: 'Discount',
-      lastPropertyId: const IdUid(23, 4398119468342528638),
+      lastPropertyId: const IdUid(22, 3184067258967696812),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 6587753439341610001),
+            id: const IdUid(1, 270414285739946965),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 239402786272494510),
+            id: const IdUid(2, 259741646708942112),
             name: 'id',
             type: 9,
             flags: 34848,
-            indexId: const IdUid(25, 2751410895668330143)),
+            indexId: const IdUid(26, 7440495570163538573)),
         ModelProperty(
-            id: const IdUid(3, 5666273823928534903),
+            id: const IdUid(3, 891244801249512934),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 719855596907398672),
+            id: const IdUid(4, 6263643328426052678),
             name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 1333004548364595851),
+            id: const IdUid(5, 4259465222635360814),
             name: 'startDate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 3786313278438198188),
+            id: const IdUid(6, 1862726665125705107),
             name: 'endDate',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 5824659744684381527),
+            id: const IdUid(7, 7415758070647861270),
             name: 'startTime',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 4069165364817003687),
+            id: const IdUid(8, 6483700081279263592),
             name: 'endTime',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 8826218593175680662),
+            id: const IdUid(9, 6665065342750557832),
             name: 'discountAppliedTo',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 4264299438315712199),
+            id: const IdUid(10, 7256678540288276348),
             name: 'discountType',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 2719063294080581438),
+            id: const IdUid(11, 1113322726532148180),
             name: 'discountPercentage',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 7715582256533588871),
+            id: const IdUid(12, 8378724941076773912),
             name: 'discountAmount',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 43728477629105634),
+            id: const IdUid(13, 3584942998823669336),
             name: 'maximumDiscountAmount',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 8643240145242632676),
+            id: const IdUid(14, 3216407877854893980),
             name: 'minimalOrderAmount',
             type: 8,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 8937910927016162725),
+            id: const IdUid(15, 2205141204099548528),
             name: 'taxable',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 3028712828216306893),
+            id: const IdUid(16, 4470455029741745837),
             name: 'productIDs',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 8401590368118217565),
+            id: const IdUid(17, 4210769363760183319),
             name: 'days',
             type: 27,
             flags: 0),
         ModelProperty(
-            id: const IdUid(18, 1691191832195932143),
+            id: const IdUid(18, 4375178329138723915),
             name: 'orderTypes',
             type: 27,
             flags: 0),
         ModelProperty(
-            id: const IdUid(19, 4109706360242280551),
+            id: const IdUid(19, 2305755341026310554),
             name: 'priceList',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(20, 964247390047739899),
+            id: const IdUid(20, 8154182393820195265),
             name: 'customers',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(21, 3067587299645465423),
+            id: const IdUid(21, 3128841909327378123),
             name: 'departments',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(23, 4398119468342528638),
+            id: const IdUid(22, 3184067258967696812),
             name: 'categories',
             type: 30,
             flags: 0)
@@ -2019,3647 +2099,63 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(23, 271323472016662874),
-      name: 'ExtractCategory',
-      lastPropertyId: const IdUid(6, 2790409378439509154),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4981274134005779066),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 618368406203336375),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(26, 1700559955496607831)),
-        ModelProperty(
-            id: const IdUid(3, 3515768998357929844),
-            name: 'order',
-            type: 6,
-            flags: 8,
-            indexId: const IdUid(27, 1967538059126240187)),
-        ModelProperty(
-            id: const IdUid(4, 868144377835440511),
-            name: 'image',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 7387649546585979034),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 2790409378439509154),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(24, 6731560150184878734),
-      name: 'ExtractDepartment',
-      lastPropertyId: const IdUid(6, 312230650136832111),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4040404276561946219),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 7202345898964380179),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(28, 4428826923051428031)),
-        ModelProperty(
-            id: const IdUid(3, 4666949144828567187),
-            name: 'order',
-            type: 6,
-            flags: 8,
-            indexId: const IdUid(29, 1020033565645910832)),
-        ModelProperty(
-            id: const IdUid(4, 7528955236010097136),
-            name: 'image',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 8323751389094169538),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 312230650136832111),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(7, 4329911979095164229),
-            name: 'categories',
-            targetId: const IdUid(23, 271323472016662874))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(25, 5166869987614666219),
-      name: 'ExtractProduct',
-      lastPropertyId: const IdUid(51, 524478564024209809),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 7514010239206458078),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3007442123702182771),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(30, 3945559969234852951)),
-        ModelProperty(
-            id: const IdUid(3, 3685064613390278009),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4530283104596202914),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 5135551533568805283),
-            name: 'sku',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 1619340970902750430),
-            name: 'barcode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 2019119973586841726),
-            name: 'productTypeId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 1885742787869605770),
-            name: 'costType',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 6403823709447426126),
-            name: 'priceType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 5581384291890385421),
-            name: 'salesMethod',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 3966138195520002687),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 7889008972315475612),
-            name: 'cost',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 4216358177772066732),
-            name: 'preparationTime',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 6702758307744766651),
-            name: 'activeQRScan',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 5119214071169240105),
-            name: 'qrScanOnSameDate',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 4784942206799450675),
-            name: 'enableSalesDiscount',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 5792000226593956181),
-            name: 'discountPercentageLimit',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 148469808334679236),
-            name: 'enableFreeQuantity',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 224980847931103889),
-            name: 'enableDateExpire',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 5680994511322336223),
-            name: 'enableIMEISerial',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(21, 7327493194025025655),
-            name: 'enableWeights',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 8473556688041431636),
-            name: 'scanPriceFromScale',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(23, 5957895530188475114),
-            name: 'scalePriceIncludeTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(24, 8975835463386968990),
-            name: 'independentPrinting',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(25, 8014560899375265224),
-            name: 'calculateQuantityFromTotalPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 8301229498428635865),
-            name: 'reservationRequired',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 6679707676384994050),
-            name: 'scaleBarcodeDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(28, 2519999457273545072),
-            name: 'scaleProductCodeDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(29, 6964180677635273270),
-            name: 'scaleIntDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(30, 2884915854063436907),
-            name: 'scaledecimalDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(31, 6753828253965735800),
-            name: 'scaleProductCodeFirstInBracode',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(32, 3829550607537990924),
-            name: 'availableStartDateTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(33, 2816752753816326095),
-            name: 'availableEndDateTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(34, 4830793399616069840),
-            name: 'description',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(35, 3271228699088465826),
-            name: 'fDescription',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(36, 8045963193617674263),
-            name: 'imageUrl',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(37, 6014890111526362185),
-            name: 'calories',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(38, 3185984366692042177),
-            name: 'minimumLevel',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(39, 4160690914748252957),
-            name: 'maximumLevel',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(40, 7565769202300934003),
-            name: 'categoryId',
-            type: 9,
-            flags: 2048,
-            indexId: const IdUid(31, 3949847797242179478)),
-        ModelProperty(
-            id: const IdUid(41, 2477798524783257658),
-            name: 'departmentId',
-            type: 9,
-            flags: 2048,
-            indexId: const IdUid(32, 5818671828654140858)),
-        ModelProperty(
-            id: const IdUid(42, 3276781839153795388),
-            name: 'productNature',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(43, 4717091478580949873),
-            name: 'active',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(44, 944687593232167680),
-            name: 'taxGroupId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(45, 5618266249460534397),
-            name: 'subName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(46, 4761968018994137506),
-            name: 'fSubName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(47, 4365189053299301621),
-            name: 'promotionalName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(48, 3441436325082733495),
-            name: 'fPromotionalName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(49, 6016860137729535279),
-            name: 'tags',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(50, 3156250924862863761),
-            name: 'fTags',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(8, 3008527926002549002),
-            name: 'units',
-            targetId: const IdUid(67, 3597743784650840072)),
-        ModelRelation(
-            id: const IdUid(9, 8250878917912201371),
-            name: 'groups',
-            targetId: const IdUid(29, 1595458013487081695))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(26, 2083122425669999402),
-      name: 'Fee',
-      lastPropertyId: const IdUid(19, 2662621784544414193),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5022196423856313288),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 457097074779885214),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(33, 3903851387280945960)),
-        ModelProperty(
-            id: const IdUid(3, 176659809979855522),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 1032369634912824593),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6122352209700723306),
-            name: 'type',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 5128223625324489420),
-            name: 'valueType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 7570224163219428303),
-            name: 'value',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 5630654602567613718),
-            name: 'percentage',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 2522597582384754463),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 9031161386887735498),
-            name: 'days',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 8690275635033780063),
-            name: 'products',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 8129253124143439066),
-            name: 'taxGroupId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 7420500098061952332),
-            name: 'applyAuto',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 6765542604914774582),
-            name: 'applyToSubtotal',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 5047646905739747198),
-            name: 'applyForProducts',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 2321594339704220688),
-            name: 'printSeparatelyInTotalInvoice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 1104757344737578708),
-            name: 'amountIncludeInProductPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 3338196855687413995),
-            name: 'minAmountPerProduct',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 2662621784544414193),
-            name: 'maxAmountPerProduct',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(27, 8842402685444687112),
-      name: 'FeeValue',
-      lastPropertyId: const IdUid(5, 4232442806447155105),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 1635396266624534348),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6269231149775828947),
-            name: 'feeId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 9212399019676155631),
-            name: 'value',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 5535332653528197002),
-            name: 'applyAuto',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 4232442806447155105),
-            name: 'taxInfoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(34, 324743993538212409),
-            relationTarget: 'TaxInfo')
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(28, 7232831508253653114),
-      name: 'FreeOption',
-      lastPropertyId: const IdUid(3, 26040113488167006),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 7750476904920128302),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4343264170898047775),
-            name: 'optionId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 26040113488167006),
-            name: 'freeQuantity',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(29, 1595458013487081695),
-      name: 'Group',
-      lastPropertyId: const IdUid(5, 7133046711045380001),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3172345128539539682),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4693879165185177458),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(35, 6121506304261699267)),
-        ModelProperty(
-            id: const IdUid(3, 4326030166642855426),
-            name: 'groupId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4403394674515700448),
-            name: 'groupName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 7133046711045380001),
-            name: 'reference',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(30, 4326427474543990368),
-      name: 'Ingredient',
-      lastPropertyId: const IdUid(15, 3565990035003102634),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4634452398904091740),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 7405732550226908089),
-            name: 'isActive',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 3477774720065286130),
-            name: 'displayOrder',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 13618016531027533),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(36, 7367796380174743488)),
-        ModelProperty(
-            id: const IdUid(5, 689152945752048508),
-            name: 'ingredientItemId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 4502948324130645287),
-            name: 'ingredientItemName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 30236302186457287),
-            name: 'barcode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 6602954938043996388),
-            name: 'unitOfMeasureName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 3047269762977038578),
-            name: 'warehouseToIngredientFactor',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 6121283550887633896),
-            name: 'quantity',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 980151970236378669),
-            name: 'wasteQuantity',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 1834162786505068904),
-            name: 'unitCost',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 734707035937856617),
-            name: 'estimatedUnitCost',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 865831279331076004),
-            name: 'yieldPercentage',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 3565990035003102634),
-            name: 'orderTypes',
-            type: 30,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(31, 3630247853841844558),
-      name: 'LoginHistory',
-      lastPropertyId: const IdUid(7, 5546528578685376253),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3256976240236333157),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 938728144087908199),
-            name: 'idIdentity',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2505643865702922823),
-            name: 'loginTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4712439669451355600),
-            name: 'logoutTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 7237349327737053581),
-            name: 'usertId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 2223883349887109452),
-            name: 'deviceNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 5546528578685376253),
-            name: 'deviceRef',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(32, 3229159070454982391),
-      name: 'LogoData',
-      lastPropertyId: const IdUid(3, 2199351897242257297),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8452957952204258769),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4187041024378846792),
-            name: 'logoUrl',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2199351897242257297),
-            name: 'logoData',
-            type: 23,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(33, 3123898613896240448),
-      name: 'LoyaltySetting',
-      lastPropertyId: const IdUid(13, 5371321627140916238),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3924500325632710731),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 202715572292071374),
-            name: 'enableSystem',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2113430902111841465),
-            name: 'loyaltyMethod',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 3222079703773209341),
-            name: 'lowestOrderPrice',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 3571303796761310204),
-            name: 'delayInEarningPointsMinutes',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 8561330865104885203),
-            name: 'bonusType',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 5527901502104479342),
-            name: 'bonusValue',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 458945111902495840),
-            name: 'maximumBonusLimit',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 3997967912475996331),
-            name: 'requiredBonusPoint',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 8904107092029092795),
-            name: 'bonusValidityDays',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 8746336564225306203),
-            name: 'enableSMSNotifications',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 401440468738997847),
-            name: 'displayBonusOnNewOrder',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5371321627140916238),
-            name: 'printBonusBalanceOnNewOrder',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(34, 1180204125616213471),
-      name: 'Menu',
-      lastPropertyId: const IdUid(4, 2085726330910350664),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 2970241490280131497),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1039965260299574708),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(37, 7241469073382054187)),
-        ModelProperty(
-            id: const IdUid(3, 8422991822495537748),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 2085726330910350664),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(10, 623265252342862217),
-            name: 'departments',
-            targetId: const IdUid(36, 3377733243471850252)),
-        ModelRelation(
-            id: const IdUid(11, 8839726858792500518),
-            name: 'categories',
-            targetId: const IdUid(35, 6287608580324350896)),
-        ModelRelation(
-            id: const IdUid(12, 7680188618894578837),
-            name: 'products',
-            targetId: const IdUid(38, 111620981282290283)),
-        ModelRelation(
-            id: const IdUid(13, 7452946232023885083),
-            name: 'giftCards',
-            targetId: const IdUid(37, 3824342246845361211))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(35, 6287608580324350896),
-      name: 'MenuCategory',
-      lastPropertyId: const IdUid(3, 7299801463213850615),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4854688659571919404),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 2769501490241313839),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 7299801463213850615),
-            name: 'order',
-            type: 6,
-            flags: 8,
-            indexId: const IdUid(38, 5928322252319362685))
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(36, 3377733243471850252),
-      name: 'MenuDepartment',
-      lastPropertyId: const IdUid(3, 2029528746651814170),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 6098446319472617650),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1790283566782410060),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2029528746651814170),
-            name: 'order',
-            type: 6,
-            flags: 8,
-            indexId: const IdUid(39, 1840908635553581867))
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(37, 3824342246845361211),
-      name: 'MenuGiftCard',
-      lastPropertyId: const IdUid(3, 666469200217282065),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5010251915884730315),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4228128274792919997),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 666469200217282065),
-            name: 'order',
-            type: 6,
-            flags: 8,
-            indexId: const IdUid(40, 9180174814153840046))
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(38, 111620981282290283),
-      name: 'MenuProduct',
-      lastPropertyId: const IdUid(3, 2077222443381691898),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 33720784796417557),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3400275666496115987),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2077222443381691898),
-            name: 'order',
-            type: 6,
-            flags: 8,
-            indexId: const IdUid(41, 5688809254226710478))
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(39, 3707461291806939123),
-      name: 'Modifier',
-      lastPropertyId: const IdUid(7, 4320362929709055947),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 1953591855438467670),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1692711901059727489),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2646689285264471878),
-            name: 'minimumOptions',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 963076980656978386),
-            name: 'maximumOptions',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 7266181685102928053),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 2783381810204554545),
-            name: 'fname',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 4320362929709055947),
-            name: 'isUnique',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(14, 2200251967527562784),
-            name: 'options',
-            targetId: const IdUid(40, 1319253148321887871))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(40, 1319253148321887871),
-      name: 'Option',
-      lastPropertyId: const IdUid(14, 105834754590192313),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5764888673310113389),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 2443493352248764119),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 1188308039762000455),
-            name: 'costType',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4096786701813073048),
-            name: 'modifierType',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6623045074234892064),
-            name: 'instructionType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 789770640405013613),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 7486427825727535674),
-            name: 'cost',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 306061079086779684),
-            name: 'calories',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 6249456404592288595),
-            name: 'inStock',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 859389013440498929),
-            name: 'isDefault',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 1983348893818538580),
-            name: 'displayOrder',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 8114588762658153948),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5354697310180448622),
-            name: 'fname',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 105834754590192313),
-            name: 'taxGroupId',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(41, 440055725736552913),
-      name: 'OrderC',
-      lastPropertyId: const IdUid(40, 7643465825531770773),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5156760772142943964),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1884322827939243554),
-            name: 'invoiceNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 5884937257002994677),
-            name: 'deviceId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 9054573041024909694),
-            name: 'startDate',
-            type: 10,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 4340468339903615511),
-            name: 'timeOfReceipt',
-            type: 10,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 5713291636733924781),
-            name: 'parentOrderId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 4713602392213210899),
-            name: 'splitIndex',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 1495385328582141704),
-            name: 'orderRef',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(42, 754121656398238775)),
-        ModelProperty(
-            id: const IdUid(9, 1236092661624535471),
-            name: 'callName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 5015616265848654698),
-            name: 'orderType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 5681745721764539379),
-            name: 'status',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 2181435061924292657),
-            name: 'orderSource',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 2566166118356742481),
-            name: 'endTime',
-            type: 10,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 1235458357814002609),
-            name: 'deliveryCompanyInfoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(43, 4032441425232503343),
-            relationTarget: 'DeliveryCompanyInfo'),
-        ModelProperty(
-            id: const IdUid(15, 1927857273179086587),
-            name: 'selectedPriceListId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 943803227434860865),
-            name: 'tableId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 2518483878705822795),
-            name: 'tableCaption',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 1011260967077964994),
-            name: 'numberVistor',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 915339819905930802),
-            name: 'customerId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(44, 3002874521297792198),
-            relationTarget: 'Customer'),
-        ModelProperty(
-            id: const IdUid(20, 3136436952412893345),
-            name: 'addressId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(45, 8312841701817023448),
-            relationTarget: 'Address'),
-        ModelProperty(
-            id: const IdUid(21, 2944962238003122655),
-            name: 'promotionId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(46, 8941272548230399602),
-            relationTarget: 'Promotion'),
-        ModelProperty(
-            id: const IdUid(22, 8223424986752044243),
-            name: 'discountId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(47, 6707487529689126297),
-            relationTarget: 'Discount'),
-        ModelProperty(
-            id: const IdUid(23, 3902248239064262723),
-            name: 'priceDiscount',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(24, 2371481107238640034),
-            name: 'pricePromotion',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(25, 8987450955577951942),
-            name: 'note',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 1926225771624325052),
-            name: 'kitchenNote',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 13779042729179240),
-            name: 'msgCansel',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(28, 5861826581507851014),
-            name: 'subTotal',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(29, 1459264862632351723),
-            name: 'checksum',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(30, 262559875533668315),
-            name: 'masterChecksum',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(31, 2007015909054879652),
-            name: 'serverChecksum',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(32, 885274847785342868),
-            name: 'totalFee',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(33, 3881082180814756078),
-            name: 'taxPrice',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(34, 8876488965308877932),
-            name: 'totalDiscountForOrderAndProduct',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(35, 1167984699570338577),
-            name: 'totalPaid',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(36, 6989495659858237842),
-            name: 'shiftId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(37, 1084350786205460154),
-            name: 'tillId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(38, 8433737418177929448),
-            name: 'totalCalories',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(39, 7886854267189551285),
-            name: 'minimumReservationPrice',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(15, 640654066743172645),
-            name: 'products',
-            targetId: const IdUid(5, 6600000843738374292)),
-        ModelRelation(
-            id: const IdUid(16, 5994268913931326930),
-            name: 'fees',
-            targetId: const IdUid(26, 2083122425669999402)),
-        ModelRelation(
-            id: const IdUid(17, 5041577075986142316),
-            name: 'feeValues',
-            targetId: const IdUid(27, 8842402685444687112)),
-        ModelRelation(
-            id: const IdUid(18, 1838498453228008743),
-            name: 'payments',
-            targetId: const IdUid(43, 3971644332505711263))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(42, 6195915471022332426),
-      name: 'PaymentMethod',
-      lastPropertyId: const IdUid(10, 9214158631094744920),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 6556583083914823208),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 190639283092551657),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(48, 7981084127844363050)),
-        ModelProperty(
-            id: const IdUid(3, 8464136977882065031),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 2133989622690355816),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 471669075498100810),
-            name: 'paymentType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 3305898936998810387),
-            name: 'displayOrder',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 8349848393409385195),
-            name: 'isActive',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 6182059390174984413),
-            name: 'isDeleted',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 8816688962022329550),
-            name: 'autoOpenCashDrawer',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 9214158631094744920),
-            name: 'imageUrl',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(43, 3971644332505711263),
-      name: 'PaymentValue',
-      lastPropertyId: const IdUid(9, 3713215889888607302),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3117676232203215019),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6908299309178864689),
-            name: 'refreance',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 666665171260168424),
-            name: 'methodId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(49, 2972879828512661328),
-            relationTarget: 'PaymentMethod'),
-        ModelProperty(
-            id: const IdUid(4, 4765383869482726076),
-            name: 'amt',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 2525469928430844846),
-            name: 'remainAmt',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 3029675275601873040),
-            name: 'exchangeRate',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 76101150628075813),
-            name: 'amountCurecny',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 6442357828788916647),
-            name: 'currencyCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 3713215889888607302),
-            name: 'defaultCurrencyId',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(44, 7275336771366977437),
-      name: 'PolicySetting',
-      lastPropertyId: const IdUid(6, 1626070514497475972),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 1514158218517242017),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4398265661986811692),
-            name: 'enableOrderCancelation',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 9206342855971973061),
-            name: 'enablePosRefund',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 1170860436073056281),
-            name: 'enableUsingExpiredTicket',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6314305344819763235),
-            name: 'orderPolicyAR',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 1626070514497475972),
-            name: 'orderPolicyEN',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(45, 2416376579055331518),
-      name: 'PosUser',
-      lastPropertyId: const IdUid(13, 406180694348473144),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4460987121286615061),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6916887402823041861),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2545233952919979441),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 14183123437568268),
-            name: 'phoneNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6121476534619356945),
-            name: 'passwordHash',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 6542671176293684107),
-            name: 'pin',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 2178836702545266500),
-            name: 'pinMD5',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 979567350740904903),
-            name: 'imageUrl',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 2320164306360414821),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 7671386645120069927),
-            name: 'appslanguageCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 396034175714699592),
-            name: 'appsDataLanguageCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 6360305472393338813),
-            name: 'dashboardlanguageCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 406180694348473144),
-            name: 'cashierSettingId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(65, 252049419746215059),
-            relationTarget: 'UserCashierSetting')
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(19, 2412089581472623096),
-            name: 'roles',
-            targetId: const IdUid(56, 7465815325378404094))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(46, 3556598931043556735),
-      name: 'PriceList',
-      lastPropertyId: const IdUid(5, 199687629516066360),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5214712593110198749),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 5896830132776979249),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(50, 6293177883680235470)),
-        ModelProperty(
-            id: const IdUid(3, 3738453988515588148),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4494586457440808063),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 199687629516066360),
-            name: 'priceIncludeTax',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(47, 2947866864810053810),
-      name: 'PriceListValue',
-      lastPropertyId: const IdUid(3, 8489755179475408004),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5574638353552224690),
-            name: 'idSeq',
-            type: 6,
-            flags: 129),
-        ModelProperty(
-            id: const IdUid(2, 1765662655810606886),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 8489755179475408004),
-            name: 'price',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(20, 6800009959805833695),
-            name: 'slaps',
-            targetId: const IdUid(58, 6833702557015644824))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(48, 8588961364000669504),
-      name: 'Printer',
-      lastPropertyId: const IdUid(15, 6076506145868074218),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 904045446432173663),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 9072113875347659810),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(51, 4387971571851591423)),
-        ModelProperty(
-            id: const IdUid(3, 1773712171933188914),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 7228966280970915325),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 8648632897770210593),
-            name: 'deviceId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 3391566875586202962),
-            name: 'printerModelId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 3662017553057348863),
-            name: 'connectionType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 7593205226029660066),
-            name: 'ipAddress',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 5957658376235045279),
-            name: 'printerType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 4196765126519119615),
-            name: 'printTo',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 623713734691696879),
-            name: 'port',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 2559230236648482335),
-            name: 'products',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5168034358227001460),
-            name: 'departments',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 8951608053252565518),
-            name: 'categories',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 6076506145868074218),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(21, 901042952877981),
-            name: 'settings',
-            targetId: const IdUid(49, 1901987453575986251))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(49, 1901987453575986251),
-      name: 'PrinterSetting',
-      lastPropertyId: const IdUid(9, 1200428668555257658),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 2875959280012404063),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 5465970542251497918),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(52, 6167124611767813591)),
-        ModelProperty(
-            id: const IdUid(3, 7244363742753388697),
-            name: 'printerId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 8858751180848092056),
-            name: 'paperSize',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6489532089918222561),
-            name: 'scale',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 7039090060408721505),
-            name: 'imageCutterFactor',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 3712789382766329662),
-            name: 'cutterCommandCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 7365796749774852036),
-            name: 'autoPrint',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 1200428668555257658),
-            name: 'numberOfCopy',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(50, 4755514460628459791),
-      name: 'Product1',
-      lastPropertyId: const IdUid(51, 2480221626711207876),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3429283146069499437),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 289896951496537473),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(53, 1863210580035000281)),
-        ModelProperty(
-            id: const IdUid(3, 5672544036575776750),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 1425166202235570733),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 670365257133328348),
-            name: 'sku',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 7749521286367372464),
-            name: 'barcode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 2859207892168974347),
-            name: 'productTypeId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 8111819992598601693),
-            name: 'costType',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 1172494913839709048),
-            name: 'priceType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 6814071321749182805),
-            name: 'salesMethod',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 3294515476776523307),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 7228519366126965577),
-            name: 'cost',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 6035392106741193415),
-            name: 'preparationTime',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 1539284303276561095),
-            name: 'activeQRScan',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 4472014055978868987),
-            name: 'qrScanOnSameDate',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 5772093786859585114),
-            name: 'enableSalesDiscount',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 3746715032532511336),
-            name: 'discountPercentageLimit',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 599422940266412222),
-            name: 'enableFreeQuantity',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 8752433844317760259),
-            name: 'enableDateExpire',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 3823589444717187663),
-            name: 'enableIMEISerial',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(21, 4723858808221473761),
-            name: 'enableWeights',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 6534230699695472609),
-            name: 'scanPriceFromScale',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(23, 5244633725410135677),
-            name: 'scalePriceIncludeTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(24, 1758249765586506418),
-            name: 'independentPrinting',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(25, 1527691919478012501),
-            name: 'calculateQuantityFromTotalPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 1008640281980451768),
-            name: 'reservationRequired',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 9147738503699185842),
-            name: 'scaleBarcodeDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(28, 108629884626919527),
-            name: 'scaleProductCodeDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(29, 6663847263359403372),
-            name: 'scaleIntDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(30, 5994459903846709257),
-            name: 'scaledecimalDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(31, 4024875822458131808),
-            name: 'scaleProductCodeFirstInBracode',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(32, 4492626992689665818),
-            name: 'availableStartDateTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(33, 4290233195984401093),
-            name: 'availableEndDateTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(34, 4614957916686969817),
-            name: 'description',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(35, 8226361651559580624),
-            name: 'fDescription',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(36, 2350174664944846400),
-            name: 'imageUrl',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(37, 1828777235353333601),
-            name: 'calories',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(38, 8878029966097136499),
-            name: 'minimumLevel',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(39, 6964447139314192378),
-            name: 'maximumLevel',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(40, 3876663257127175256),
-            name: 'categoryId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(41, 9162976641061317232),
-            name: 'departmentId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(42, 6918109437148805323),
-            name: 'productNature',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(43, 7687976863279750513),
-            name: 'active',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(44, 2381108363109575710),
-            name: 'taxGroupId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(45, 6316342281875200472),
-            name: 'subName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(46, 2496973857085991197),
-            name: 'fSubName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(47, 1307663160438526525),
-            name: 'promotionalName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(48, 2625034001777353246),
-            name: 'fPromotionalName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(49, 3995024837713593522),
-            name: 'tags',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(50, 8345438066250576638),
-            name: 'fTags',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(51, 2480221626711207876),
-            name: 'showAlertPreparationTime',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(22, 683641517663940836),
-            name: 'units',
-            targetId: const IdUid(67, 3597743784650840072)),
-        ModelRelation(
-            id: const IdUid(23, 2350810413869259127),
-            name: 'modifiers',
-            targetId: const IdUid(39, 3707461291806939123)),
-        ModelRelation(
-            id: const IdUid(24, 5825804326841338406),
-            name: 'ingredients',
-            targetId: const IdUid(30, 4326427474543990368)),
-        ModelRelation(
-            id: const IdUid(25, 8337563821019144730),
-            name: 'groups',
-            targetId: const IdUid(29, 1595458013487081695))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(51, 4544951115526964569),
-      name: 'ProductPriceList',
-      lastPropertyId: const IdUid(3, 1964954194690799784),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3691864282483421288),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6030906393724456007),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(54, 6703085625916726703)),
-        ModelProperty(
-            id: const IdUid(3, 1964954194690799784),
-            name: 'price',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(52, 1514094967424977593),
-      name: 'Promotion',
-      lastPropertyId: const IdUid(22, 6114099304945958367),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8295855806914372087),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 9191388330301243730),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(55, 4451366124760661627)),
-        ModelProperty(
-            id: const IdUid(3, 2300530675903281111),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 1317118112976546596),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 1156821012764560152),
-            name: 'startDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 7917815173611065955),
-            name: 'endDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 6045278134028669031),
-            name: 'startTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 9095824837513122291),
-            name: 'endTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 440001568299636128),
-            name: 'promotionType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 2364239251558587325),
-            name: 'discountType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 587578510017983389),
-            name: 'discountPercentage',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 8813193866701020696),
-            name: 'discountAmount',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 8086472931057169943),
-            name: 'maximumDiscountAmount',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 5075469001087089504),
-            name: 'promotionApplyType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 6867353538573304096),
-            name: 'customerQuantity',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 9152414472242689385),
-            name: 'customerAmount',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 8044007644894628753),
-            name: 'promotionApplyToType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 2498414514656692661),
-            name: 'days',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 2509378350385765000),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 2812535361216407114),
-            name: 'purchaseProducts',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(21, 1148171354943650158),
-            name: 'discountProducts',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 6114099304945958367),
-            name: 'priority',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(53, 6183598006631018694),
-      name: 'ReasonsCanceling',
-      lastPropertyId: const IdUid(4, 3976329363931458699),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8508818442808209639),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3654317682285502883),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(56, 4861181930944032675)),
-        ModelProperty(
-            id: const IdUid(3, 8574565254054746958),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 3976329363931458699),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(54, 6247416926140919931),
-      name: 'ReasonsDrawerOpen',
-      lastPropertyId: const IdUid(4, 2279646935435197470),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 1398893428524420677),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4396066501990943496),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(57, 2389400696389271005)),
-        ModelProperty(
-            id: const IdUid(3, 7996983978217059327),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 2279646935435197470),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(55, 7881240014240633842),
-      name: 'ResturantSection',
-      lastPropertyId: const IdUid(4, 2088758743361517816),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3133384776134774134),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 2948683465109725009),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(58, 391522911878745384)),
-        ModelProperty(
-            id: const IdUid(3, 4656537539899313571),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 2088758743361517816),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(26, 1879667254327479523),
-            name: 'tables',
-            targetId: const IdUid(59, 4839518761440366790))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(56, 7465815325378404094),
-      name: 'Roles',
-      lastPropertyId: const IdUid(3, 5077126946776788665),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 1595085592687842916),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 7193038853844849746),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 5077126946776788665),
-            name: 'name',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(27, 517768777543967606),
-            name: 'claims',
-            targetId: const IdUid(12, 2348684625165328419))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(57, 6565311541168342486),
-      name: 'Shift',
-      lastPropertyId: const IdUid(12, 2281425873328883872),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 9112560562615270035),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 8068948179042237367),
-            name: 'shiftId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 5181566854932654836),
-            name: 'reference',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4542894899425162560),
-            name: 'userId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6984886403219755343),
-            name: 'userName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 491065676344271931),
-            name: 'branchName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 8839194417471541614),
-            name: 'clockedInDateAt',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 1942837555975882043),
-            name: 'clockedInTimeAt',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 9132052099897283441),
-            name: 'clockedOutDateAt',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 1863771425594735798),
-            name: 'clockedOutTimeAt',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 1899818274529625630),
-            name: 'isClockedOut',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 2281425873328883872),
-            name: 'isSync',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(58, 6833702557015644824),
-      name: 'Slaps',
-      lastPropertyId: const IdUid(5, 8158020273035246914),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 2644380751191906361),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4649672808866325285),
-            name: 'from',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 5440726341201258672),
-            name: 'to',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 2550356672546082947),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 8158020273035246914),
-            name: 'timeEventId',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(59, 4839518761440366790),
-      name: 'Table',
-      lastPropertyId: const IdUid(10, 1263708317664963505),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8501311730871736306),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1366432423752368951),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(59, 4177107431090399721)),
-        ModelProperty(
-            id: const IdUid(3, 909208596240059274),
-            name: 'tableNumber',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 6624465034211891016),
-            name: 'tableCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 861553777068983361),
-            name: 'numberOfIndividuals',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 8847684928990019657),
-            name: 'minumumReservationPrice',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 8420797386734806816),
-            name: 'status',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 3478055973218166008),
-            name: 'shape',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 8481980535700766921),
-            name: 'offsetX',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 1263708317664963505),
-            name: 'offsetY',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(60, 5113750596420551426),
-      name: 'TaxC',
-      lastPropertyId: const IdUid(13, 4610840739269508145),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 3673480710575102645),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 5777873875698536469),
-            name: 'taxName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 1672322302052533335),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(60, 4020491847613386175)),
-        ModelProperty(
-            id: const IdUid(4, 6629560829271803362),
-            name: 'taxPercentage',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 8506936702161795644),
-            name: 'customerTaxable',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 4450477889235787369),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 8423377194616263015),
-            name: 'taxCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 4065210115633809551),
-            name: 'taxAccount',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 7401937222647426244),
-            name: 'isTaxExempt',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 5906487209433114204),
-            name: 'zeroTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 7700594202331078735),
-            name: 'exceptCustomers',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 8401505175904299481),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 4610840739269508145),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(32, 2657844446207983663),
-            name: 'periods',
-            targetId: const IdUid(70, 2902099792572805862))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(61, 6133639552234037784),
-      name: 'TaxGroup',
-      lastPropertyId: const IdUid(5, 7553601278901966260),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8522178893456353086),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 4345476735491272637),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(61, 3045471657296884332)),
-        ModelProperty(
-            id: const IdUid(3, 8101576582866247343),
-            name: 'types',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4115265470411421935),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 7553601278901966260),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(62, 2509799629347346572),
-      name: 'TaxInfo',
-      lastPropertyId: const IdUid(3, 8379708787943051527),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5417337895578404104),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6520029756619868432),
-            name: 'taxGroupId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 8379708787943051527),
-            name: 'value',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(63, 2603734699994073722),
-      name: 'TaxSetting',
-      lastPropertyId: const IdUid(5, 3395835760300758524),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8289807280704781009),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 8039487800418249406),
-            name: 'enableSalesTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 7010266052033560395),
-            name: 'salesPriceIncludeTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 5842214521283153857),
-            name: 'enableCustomerSupplierTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 3395835760300758524),
-            name: 'taxRoundFactor',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(64, 3530559317447698156),
-      name: 'ThrowbackInfo',
-      lastPropertyId: const IdUid(5, 798863641726890739),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 86107911702640754),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 7712670610531767641),
-            name: 'productRef',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2208026546136701257),
-            name: 'quantity',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 7859426922580493392),
-            name: 'isWaste',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 798863641726890739),
-            name: 'ref',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(65, 602893701758561339),
-      name: 'TimeEvent',
-      lastPropertyId: const IdUid(17, 2939285306159142778),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 6653342652210642419),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 472604618691265833),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(62, 531290669536068024)),
-        ModelProperty(
-            id: const IdUid(3, 8304914376747579015),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 3875941493626234750),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 5713667119919807777),
-            name: 'timeEventType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 2778553251844457771),
-            name: 'timeEventValue',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 3579413272824954923),
-            name: 'startDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 4545061256396167431),
-            name: 'endDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 4860608453734198322),
-            name: 'startTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 2462427941839403517),
-            name: 'endTime',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 8645822334923712054),
-            name: 'days',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 6709249152175175328),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5510174686912868445),
-            name: 'products',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 3799412674266768908),
-            name: 'customers',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 6615171009960173528),
-            name: 'departments',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 5589935366850032321),
-            name: 'categories',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 2939285306159142778),
-            name: 'priority',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(66, 7327816255404985015),
-      name: 'Transaction',
-      lastPropertyId: const IdUid(7, 872562144236624767),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4151361176948180105),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 7026715570133593566),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2005020633382262263),
-            name: 'refId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 3790569048709824655),
-            name: 'toAcount',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 2392237661911626830),
-            name: 'amt',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 3910580783607182974),
-            name: 'createBy',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 872562144236624767),
-            name: 'date',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(67, 3597743784650840072),
-      name: 'Unit',
-      lastPropertyId: const IdUid(13, 8836993324162456577),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 2192670692039040722),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1871865539786777925),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2314662511881589966),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 6093180643794263919),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6097085868328746074),
-            name: 'barcode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 7558710295228677632),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 1042143395087687594),
-            name: 'cost',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 5250114143229824159),
-            name: 'factor',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 4413148147837047286),
-            name: 'defaultForSales',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 4126536524799291812),
-            name: 'defaultForPurchase',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 3148419574286375478),
-            name: 'defaultForStore',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 5892411286175917611),
-            name: 'showAlertPreparationTime',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 8836993324162456577),
-            name: 'priceType',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(28, 7814589171469132614),
-            name: 'priceList',
-            targetId: const IdUid(47, 2947866864810053810)),
-        ModelRelation(
-            id: const IdUid(29, 7820984340105242392),
-            name: 'modifiers',
-            targetId: const IdUid(68, 8776743849509695800))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(68, 8776743849509695800),
-      name: 'UnitModifer',
-      lastPropertyId: const IdUid(10, 1431751418206130270),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 4172433710821267429),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 6354885841048043583),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 1831965470920514982),
-            name: 'minimumOptions',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 3471833350361386704),
-            name: 'maximumOptions',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6721474328646645470),
-            name: 'isUnique',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 5237241917271224349),
-            name: 'isRequired',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 6227954377372859097),
-            name: 'defulatOptions',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 6898488114105129843),
-            name: 'exceptOptions',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 5331114391242172516),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 1431751418206130270),
-            name: 'fName',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[
-        ModelRelation(
-            id: const IdUid(30, 7232422679133058412),
-            name: 'freeOptions',
-            targetId: const IdUid(28, 7232831508253653114)),
-        ModelRelation(
-            id: const IdUid(31, 8070921436436844507),
-            name: 'options',
-            targetId: const IdUid(40, 1319253148321887871))
-      ],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(69, 355928782074654663),
-      name: 'ViewSettings',
-      lastPropertyId: const IdUid(1, 6222299673989702099),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 6222299673989702099),
-            name: 'idSeq',
-            type: 6,
-            flags: 1)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(70, 2902099792572805862),
-      name: 'TaxPeriod',
-      lastPropertyId: const IdUid(6, 5492148311060845573),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 993677953456313511),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3932346667643467212),
-            name: 'id',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 5007221720799226007),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 6835960210719902183),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 5096183895733503058),
-            name: 'startDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 5492148311060845573),
-            name: 'endDate',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(71, 1925984399764325802),
-      name: 'SalesInvoiceTemplates',
-      lastPropertyId: const IdUid(51, 5713016033835135895),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 5654898919373550640),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 5020119211070583239),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(63, 8476373695210262957)),
-        ModelProperty(
-            id: const IdUid(3, 3657147591615611562),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 5401164250643027084),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 832576520133107930),
-            name: 'headerInvoiceMessage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 8458081570167089908),
-            name: 'fHeaderInvoiceMessage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 738016384915694030),
-            name: 'footerInvoiceMessage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 4577718770073094106),
-            name: 'fFooterInvoiceMessage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 466743203463414413),
-            name: 'printPaymentType',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 5305516696753605439),
-            name: 'printOrderNumber',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 9131441381974950967),
-            name: 'printCalories',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 3169019717312236194),
-            name: 'printSubTotal',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5628333728747878099),
-            name: 'printRoundDigit',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 412258828962750923),
-            name: 'printProductUnit',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 8027250738398112481),
-            name: 'printProductUnitPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 8585366685184503756),
-            name: 'printProductTotalPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 1476120420842826864),
-            name: 'printProductDiscountPrice',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 4074204899894933179),
-            name: 'printProductFreeQuantity',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 3762146053623215116),
-            name: 'printProductTotalPriceBeforeTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 4842609419978851063),
-            name: 'printProductTaxAmount',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(21, 3272594504835837716),
-            name: 'printProductTaxPercentage',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 6521734063543085236),
-            name: 'printProductTotalPriceAfterDiscount',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(23, 3369826327285982004),
-            name: 'printProductTotalPriceIncludeTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(24, 510000585419987907),
-            name: 'printOrderClosedUser',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(25, 2198635159535850633),
-            name: 'printOrderCreatedUser',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 2669881147103429752),
-            name: 'printCheckNumber',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 4341542508648610000),
-            name: 'hideFreeModifierOptions',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(28, 8895871042642826737),
-            name: 'autoPrintOnSave',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(29, 3558362468174055461),
-            name: 'printLanguage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(30, 7395879740543001864),
-            name: 'printerPaperSize',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(31, 892876860940582521),
-            name: 'printerPaperDirection',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(32, 4236007860876280518),
-            name: 'invoiceCategory',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(33, 2104021388960397831),
-            name: 'defaultLanguage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(34, 4271142293236867423),
-            name: 'secondLanguage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(35, 3726858993828175745),
-            name: 'orderTypes',
-            type: 27,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(36, 4987891463637222413),
-            name: 'users',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(37, 1777940697508999224),
-            name: 'printCompanyName',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(38, 1686598805252884917),
-            name: 'printBranchName',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(39, 6597633839570300882),
-            name: 'printCRNo',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(40, 2201722608666441933),
-            name: 'printBankAccount',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(41, 5790976498496381832),
-            name: 'printTaxNumber',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(42, 5793717611116144477),
-            name: 'printOrderType',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(43, 2102193222922566064),
-            name: 'printUnitSize',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(44, 7283108991839824272),
-            name: 'printProductSecondaryName',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(45, 8046867627561673780),
-            name: 'defaultCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(46, 7510796586211910547),
-            name: 'secondCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(47, 5397614305225470905),
-            name: 'printedTitle',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(48, 4241058430207649166),
-            name: 'fPrintedTitle',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(49, 4624498590484831938),
-            name: 'pointsMessage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(50, 6599727214003349599),
-            name: 'fPointsMessage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(51, 5713016033835135895),
-            name: 'printCustomerPoints',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(72, 4681840542175023833),
-      name: 'Language',
-      lastPropertyId: const IdUid(6, 702845822150435846),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 8567362093750961807),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3869496766236978207),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 6221356746654788205),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4042011654493988292),
-            name: 'languageCulture',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6696888209902527347),
-            name: 'uniqueSeoCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 702845822150435846),
-            name: 'rtl',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(73, 5910075037515243254),
-      name: 'TenantSetting',
-      lastPropertyId: const IdUid(41, 3757332631459999701),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 6119971428699949869),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 7750365994452583925),
-            name: 'logoUrl',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 2004769398374054568),
-            name: 'companyName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 7473452760393975102),
-            name: 'fCompanyName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 344956567648415887),
-            name: 'activity',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 442592488308187454),
-            name: 'fActivity',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 2010149188871123556),
-            name: 'phoneNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 2625423927052957639),
-            name: 'faxNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 866838525792398194),
-            name: 'webSite',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 84893497850171926),
-            name: 'email',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 3285388712256350237),
-            name: 'taxRegistrationName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 742648270027682259),
-            name: 'crNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 5091186263981118637),
-            name: 'taxNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 2712123669479928088),
-            name: 'zakatRegistrationNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 7405523868788160308),
-            name: 'municipalLicenseNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 4683950622566264279),
-            name: 'gulfCouncilIdentificationNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 293309017986313354),
-            name: 'sagiALicenseNumber',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(18, 866391731120009059),
-            name: 'country',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(19, 1112382947546859736),
-            name: 'postalCode',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 7683342703334855350),
-            name: 'province',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(21, 3622845189240501263),
-            name: 'city',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(22, 7613204119321147163),
-            name: 'district',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(23, 3284428565301527821),
-            name: 'street',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(24, 7861841939276975225),
-            name: 'fProvince',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(25, 5184306082127081786),
-            name: 'fCity',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(26, 3205296565549332872),
-            name: 'fDistrict',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(27, 3740525210268691064),
-            name: 'fStreet',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(28, 2156462089552687063),
-            name: 'buildingNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(29, 2315867153672342156),
-            name: 'floorNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(30, 1823428977903958207),
-            name: 'officeNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(31, 6696338054511840307),
-            name: 'additionalNo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(32, 6971734447975005745),
-            name: 'invoiceRoundFactor',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(33, 9196190738864039051),
-            name: 'localCurrencyId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(34, 993899120065238515),
-            name: 'salesPriceCurrencyId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(35, 6755088864508396249),
-            name: 'inventoryCostCurrencyId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(36, 7685470751611684824),
-            name: 'payrollCurrencyId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(37, 2639416958071977223),
-            name: 'inventoryCalculateCostMethod',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(38, 1532703215716746493),
-            name: 'stockInventoryType',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(39, 7008599630336342815),
-            name: 'printLanguage',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(40, 2661786517946548175),
-            name: 'defaultLanguage',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(41, 3757332631459999701),
-            name: 'secondLanguage',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(74, 1251769217539857356),
-      name: 'SalesInvoiceTemplatesA4',
-      lastPropertyId: const IdUid(11, 5663638226172233796),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 6564212448654537998),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 47934968507481002),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(64, 7169902607711834136)),
-        ModelProperty(
-            id: const IdUid(3, 655441037598736699),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 8168933727003161181),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 4742287902578509934),
-            name: 'menuName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 5770496111540411798),
-            name: 'fMenuName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 3093469460643151345),
-            name: 'title',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 9126182213192926523),
-            name: 'fTitle',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 6141989178448448665),
-            name: 'printLanguage',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 2631144445073793407),
-            name: 'invoiceCategory',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 5663638226172233796),
-            name: 'appsFormPath',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(75, 2271541013230993056),
+      id: const IdUid(24, 5520862168450556420),
       name: 'DiscountSetting',
-      lastPropertyId: const IdUid(11, 5045387206022607917),
+      lastPropertyId: const IdUid(11, 4744808860988895148),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 2708823713450071216),
+            id: const IdUid(1, 1748094276300866495),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3390649955537068834),
+            id: const IdUid(2, 62555577705137942),
             name: 'enableDiscount',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 8376405925876685108),
+            id: const IdUid(3, 3090528256363148228),
             name: 'enablePromotion',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 8435335815720236690),
+            id: const IdUid(4, 4413447142536944433),
             name: 'enableCoupon',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 7608126082226616300),
+            id: const IdUid(5, 5370832922233530649),
             name: 'enableTimeEvent',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 2931658381713886838),
+            id: const IdUid(6, 8024390407545271534),
             name: 'enableDiscountInSalesInvoice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 6121332339452160958),
+            id: const IdUid(7, 8119677765212051144),
             name: 'enableDiscountInPurchaseInvoice',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 5934466178720908619),
+            id: const IdUid(8, 8198693909939363915),
             name: 'enableDiscountInSalesInvoiceProducts',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 4849393026673972072),
+            id: const IdUid(9, 5572637103627369931),
             name: 'enableDiscountInPurchaseInvoiceItems',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 3762876160294152459),
+            id: const IdUid(10, 4207090907924326763),
             name: 'enableFreeQuantityInSalesInvoiceItems',
             type: 1,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 5045387206022607917),
+            id: const IdUid(11, 4744808860988895148),
             name: 'enableFreeQuantityInPurchaseInvoiceItems',
             type: 1,
             flags: 0)
@@ -5667,93 +2163,3663 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(76, 6616187084094249572),
-      name: 'UserCashierSetting',
-      lastPropertyId: const IdUid(17, 820680473083265703),
+      id: const IdUid(25, 3752804277856565725),
+      name: 'ExtractCategory',
+      lastPropertyId: const IdUid(6, 2757289021056899984),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 3777479195137330034),
+            id: const IdUid(1, 5646629627907819326),
             name: 'idSeq',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 8304021525539083755),
-            name: 'shortName',
+            id: const IdUid(2, 4096840208659000649),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(27, 3481777413191450235)),
+        ModelProperty(
+            id: const IdUid(3, 3100333602177303151),
+            name: 'order',
+            type: 6,
+            flags: 8,
+            indexId: const IdUid(28, 1049264017354306411)),
+        ModelProperty(
+            id: const IdUid(4, 2384154848110011445),
+            name: 'image',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 8557496258251322548),
-            name: 'fShortName',
+            id: const IdUid(5, 2617968635838091742),
+            name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 3149115020391222031),
-            name: 'salesInvoiceTemplateId',
+            id: const IdUid(6, 2757289021056899984),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(26, 211140865492701773),
+      name: 'ExtractDepartment',
+      lastPropertyId: const IdUid(6, 6902179768713044083),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5269947892991819529),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 6138597200079576519),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(29, 3686716345989764088)),
+        ModelProperty(
+            id: const IdUid(3, 7553781417053843116),
+            name: 'order',
+            type: 6,
+            flags: 8,
+            indexId: const IdUid(30, 6877117194912469381)),
+        ModelProperty(
+            id: const IdUid(4, 6676905047180255709),
+            name: 'image',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 1272632938594458370),
-            name: 'salesInvoiceTemplateA4Id',
+            id: const IdUid(5, 2851698104441737128),
+            name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 7743754531134830559),
-            name: 'groupId',
+            id: const IdUid(6, 6902179768713044083),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(7, 8651280534068691683),
+            name: 'categories',
+            targetId: const IdUid(25, 3752804277856565725))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(27, 32489894134662649),
+      name: 'ExtractProduct',
+      lastPropertyId: const IdUid(50, 2694269790679308696),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3541793643808911249),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4118726883077894306),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(31, 5735536508623068473)),
+        ModelProperty(
+            id: const IdUid(3, 3832396844151107134),
+            name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 6243831614658684920),
-            name: 'priceListId',
+            id: const IdUid(4, 980610753497969070),
+            name: 'fName',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(8, 3727463538628448539),
-            name: 'warehouseId',
+            id: const IdUid(5, 3601631241848656737),
+            name: 'sku',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(9, 2035408722847137495),
-            name: 'discountPercentageLimit',
+            id: const IdUid(6, 4411265714006363549),
+            name: 'barcode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 1786485352856012642),
+            name: 'productTypeId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 398452365061185687),
+            name: 'costType',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 4869260215905187657),
+            name: 'priceType',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 3108883343224360633),
+            id: const IdUid(10, 7127189588320803021),
+            name: 'salesMethod',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 8002983162980914034),
+            name: 'price',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 5317507554214608985),
+            name: 'cost',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 1551255946699853615),
+            name: 'preparationTime',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 1384265633398020045),
+            name: 'activeQRScan',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 6459114598210508421),
+            name: 'qrScanOnSameDate',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 1462687434408371439),
+            name: 'enableSalesDiscount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 2601002539342745275),
+            name: 'discountPercentageLimit',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 7311349001894621308),
+            name: 'enableFreeQuantity',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 5848944313566814128),
+            name: 'enableDateExpire',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 6904849301360726618),
+            name: 'enableIMEISerial',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 5001161996938087205),
+            name: 'enableWeights',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 3422302098587190597),
+            name: 'scanPriceFromScale',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(23, 126249540907342073),
+            name: 'scalePriceIncludeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(24, 7270294032545655728),
+            name: 'independentPrinting',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 2266046430818028488),
+            name: 'calculateQuantityFromTotalPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 1693833709642807884),
+            name: 'reservationRequired',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 7166596835648826425),
+            name: 'scaleBarcodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 7854746059416883840),
+            name: 'scaleProductCodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(29, 8104183122767288891),
+            name: 'scaleIntDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(30, 3041931229527183812),
+            name: 'scaledecimalDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(31, 2312305205807452404),
+            name: 'scaleProductCodeFirstInBracode',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(32, 6254229035605089656),
+            name: 'availableStartDateTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(33, 5831161913342125547),
+            name: 'availableEndDateTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(34, 6334091124719334519),
+            name: 'description',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(35, 9068296668018686648),
+            name: 'fDescription',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(36, 8782961797435622719),
+            name: 'imageUrl',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(37, 5116315752562249492),
+            name: 'calories',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(38, 1102480828414850312),
+            name: 'minimumLevel',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(39, 287671005926566268),
+            name: 'maximumLevel',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(40, 3700443218227235794),
+            name: 'categoryId',
+            type: 9,
+            flags: 2048,
+            indexId: const IdUid(32, 7405292725312957645)),
+        ModelProperty(
+            id: const IdUid(41, 2292740697958271965),
+            name: 'departmentId',
+            type: 9,
+            flags: 2048,
+            indexId: const IdUid(33, 3488033048063121555)),
+        ModelProperty(
+            id: const IdUid(42, 971629365348743595),
+            name: 'productNature',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(43, 5754577104562595597),
+            name: 'active',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(44, 7013465075316598968),
+            name: 'taxGroupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(45, 1517904224653615795),
+            name: 'subName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(46, 3179309766105823724),
+            name: 'fSubName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(47, 2084845610195628794),
+            name: 'promotionalName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(48, 3684575799708122536),
+            name: 'fPromotionalName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(49, 6372866123882551193),
+            name: 'tags',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(50, 2694269790679308696),
+            name: 'fTags',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(8, 2919834666958791384),
+            name: 'units',
+            targetId: const IdUid(74, 3654581316309482064)),
+        ModelRelation(
+            id: const IdUid(9, 5986257262322687220),
+            name: 'groups',
+            targetId: const IdUid(31, 5589309508760530966))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(28, 5124530212458106972),
+      name: 'Fee',
+      lastPropertyId: const IdUid(19, 80884363226949483),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 4884902125008062536),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 9138230327519886627),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(34, 6246784355061974010)),
+        ModelProperty(
+            id: const IdUid(3, 1324371491861553608),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7745340054346708686),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 4018742741793156766),
+            name: 'type',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 234260998346123564),
+            name: 'valueType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6852974825504948875),
+            name: 'value',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 72319879783865403),
+            name: 'percentage',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 7772483310787450834),
             name: 'orderTypes',
             type: 27,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 5643371905850221404),
+            id: const IdUid(10, 5010747817098342582),
+            name: 'days',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 305222574121020945),
+            name: 'products',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 2438947310024385381),
+            name: 'taxGroupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 6800773505582702874),
+            name: 'applyAuto',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 1097769241287109196),
+            name: 'applyToSubtotal',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 4459509121881880845),
+            name: 'applyForProducts',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 3694866456593932037),
+            name: 'printSeparatelyInTotalInvoice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 2882029287213774807),
+            name: 'amountIncludeInProductPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 4159783790784956424),
+            name: 'minAmountPerProduct',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 80884363226949483),
+            name: 'maxAmountPerProduct',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(29, 4604171929002796322),
+      name: 'FeeValue',
+      lastPropertyId: const IdUid(5, 7535875223422240764),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 690681391081500763),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4336826819411127287),
+            name: 'feeId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 102078829933116189),
+            name: 'value',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 6431103153566861917),
+            name: 'applyAuto',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 7535875223422240764),
+            name: 'taxInfoId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(35, 6439789490409214206),
+            relationTarget: 'TaxInfo')
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(30, 918487118263088897),
+      name: 'FreeOption',
+      lastPropertyId: const IdUid(3, 1588761437750335695),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5734806913476565976),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 9165974913087044771),
+            name: 'optionId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1588761437750335695),
+            name: 'freeQuantity',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(31, 5589309508760530966),
+      name: 'Group',
+      lastPropertyId: const IdUid(5, 8625532302196917428),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1041795194146091075),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 3442710384566890509),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(36, 82875257710873279)),
+        ModelProperty(
+            id: const IdUid(3, 1649682513202213111),
+            name: 'groupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 1039551050467460231),
+            name: 'groupName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8625532302196917428),
+            name: 'reference',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(32, 4644419215042816685),
+      name: 'Ingredient',
+      lastPropertyId: const IdUid(15, 5588703751751709092),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 9215208612731180230),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 8950661886693433875),
+            name: 'isActive',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1184529634600893016),
+            name: 'displayOrder',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 8192285281261018354),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(37, 4059992596436103466)),
+        ModelProperty(
+            id: const IdUid(5, 2091322737278486347),
+            name: 'ingredientItemId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 8294943425939117807),
+            name: 'ingredientItemName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 2784040611200619411),
+            name: 'barcode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 7043354920352095813),
+            name: 'unitOfMeasureName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 7459154774002621405),
+            name: 'warehouseToIngredientFactor',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 1150761332243259484),
+            name: 'quantity',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 1421426903465849287),
+            name: 'wasteQuantity',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 3795968649063936181),
+            name: 'unitCost',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 810991181503762925),
+            name: 'estimatedUnitCost',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 8446584535004652302),
+            name: 'yieldPercentage',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 5588703751751709092),
+            name: 'orderTypes',
+            type: 30,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(33, 467584381504437472),
+      name: 'Language',
+      lastPropertyId: const IdUid(6, 3018154629514317015),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 353124607670167537),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5947293293346987556),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 4504659690370094462),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 4425886119126045371),
+            name: 'languageCulture',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 4153401988874653454),
+            name: 'uniqueSeoCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 3018154629514317015),
+            name: 'rtl',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(34, 2303713955024179868),
+      name: 'LoginHistory',
+      lastPropertyId: const IdUid(7, 2952989052818074444),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8860080040745786125),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 3538273508266628730),
+            name: 'idIdentity',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1004698010649136430),
+            name: 'loginTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7025812538199067348),
+            name: 'logoutTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8542592437325490328),
+            name: 'usertId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 4283672046278783490),
+            name: 'deviceNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 2952989052818074444),
+            name: 'deviceRef',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(35, 4629334041677446448),
+      name: 'LogoData',
+      lastPropertyId: const IdUid(3, 2940810884503453836),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8188552915299021323),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 2839267176373183850),
+            name: 'logoUrl',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 2940810884503453836),
+            name: 'logoData',
+            type: 23,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(36, 3051106532269731773),
+      name: 'LoyaltySetting',
+      lastPropertyId: const IdUid(13, 8085156998696536532),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1789972363103796677),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5383184568683660700),
+            name: 'enableSystem',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 925226441055238478),
+            name: 'loyaltyMethod',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7769225090316856311),
+            name: 'lowestOrderPrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3566835531868012602),
+            name: 'delayInEarningPointsMinutes',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 5460718117823753120),
+            name: 'bonusType',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 5045353131477343590),
+            name: 'bonusValue',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 1704266694283030279),
+            name: 'maximumBonusLimit',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 5839949082147453687),
+            name: 'requiredBonusPoint',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 8104635458304524882),
+            name: 'bonusValidityDays',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 3441465258538262494),
+            name: 'enableSMSNotifications',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 5173193408948464702),
+            name: 'displayBonusOnNewOrder',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 8085156998696536532),
+            name: 'printBonusBalanceOnNewOrder',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(37, 8428016155197411241),
+      name: 'Menu',
+      lastPropertyId: const IdUid(4, 1141928906955081070),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1166170457013805153),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1336899341019286511),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(38, 6196522468669841841)),
+        ModelProperty(
+            id: const IdUid(3, 8509791132996516158),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 1141928906955081070),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(10, 8522505941270408548),
+            name: 'departments',
+            targetId: const IdUid(39, 4655673534149819067)),
+        ModelRelation(
+            id: const IdUid(11, 2295018806314146287),
+            name: 'categories',
+            targetId: const IdUid(38, 8589907802887053260)),
+        ModelRelation(
+            id: const IdUid(12, 7360745898510506640),
+            name: 'products',
+            targetId: const IdUid(41, 8019793471587578807)),
+        ModelRelation(
+            id: const IdUid(13, 8022738369518284071),
+            name: 'giftCards',
+            targetId: const IdUid(40, 56908100499152217))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(38, 8589907802887053260),
+      name: 'MenuCategory',
+      lastPropertyId: const IdUid(3, 539437101176700740),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3446900739084454614),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 7038194102248960211),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 539437101176700740),
+            name: 'order',
+            type: 6,
+            flags: 8,
+            indexId: const IdUid(39, 6400661544891588507))
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(39, 4655673534149819067),
+      name: 'MenuDepartment',
+      lastPropertyId: const IdUid(3, 8890406008987862240),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5113650267046154607),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1620286105552731413),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 8890406008987862240),
+            name: 'order',
+            type: 6,
+            flags: 8,
+            indexId: const IdUid(40, 1408554867661246967))
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(40, 56908100499152217),
+      name: 'MenuGiftCard',
+      lastPropertyId: const IdUid(3, 1619768406405148424),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 110614976664944302),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 3827444000162577106),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1619768406405148424),
+            name: 'order',
+            type: 6,
+            flags: 8,
+            indexId: const IdUid(41, 2793796963128463163))
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(41, 8019793471587578807),
+      name: 'MenuProduct',
+      lastPropertyId: const IdUid(3, 564452707142703485),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3345572733794133607),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 2886503174204221144),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 564452707142703485),
+            name: 'order',
+            type: 6,
+            flags: 8,
+            indexId: const IdUid(42, 3803097817538968939))
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(42, 4408296639779931103),
+      name: 'Modifier',
+      lastPropertyId: const IdUid(7, 3273832268212063026),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3656537839317946052),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 280975556690750336),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 3813241215275605788),
+            name: 'minimumOptions',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 4506814930598025303),
+            name: 'maximumOptions',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8589832690639879133),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 3144392107023937589),
+            name: 'fname',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 3273832268212063026),
+            name: 'isUnique',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(14, 2851339358648195134),
+            name: 'options',
+            targetId: const IdUid(43, 466122196377659305))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(43, 466122196377659305),
+      name: 'Option',
+      lastPropertyId: const IdUid(14, 8641216902070802651),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1289032257837475338),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 6691459010655919695),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 5314771818370437101),
+            name: 'costType',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 3740645607214472039),
+            name: 'modifierType',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 2887929443362535010),
+            name: 'instructionType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 3865928995243756510),
+            name: 'price',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 7991005879829540557),
+            name: 'cost',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 6304300399389545456),
+            name: 'calories',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 8846597815524292260),
+            name: 'inStock',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 91817419042374463),
+            name: 'isDefault',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 4024569768127869070),
+            name: 'displayOrder',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 1497845615840878145),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 4059516959144277763),
+            name: 'fname',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 8641216902070802651),
+            name: 'taxGroupId',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(44, 476933913180062174),
+      name: 'OrderC',
+      lastPropertyId: const IdUid(39, 1575018996431518575),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7748098193089488933),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 574647854079790588),
+            name: 'invoiceNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 3506133895861701238),
+            name: 'deviceId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 8364168499108824877),
+            name: 'startDate',
+            type: 10,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8595246065486172473),
+            name: 'timeOfReceipt',
+            type: 10,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 4192428832808148118),
+            name: 'parentOrderId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6836213879941222048),
+            name: 'splitIndex',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 4075067353287071774),
+            name: 'orderRef',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(43, 1348637428735328405)),
+        ModelProperty(
+            id: const IdUid(9, 1554973704824156309),
+            name: 'callName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 8314511449209017714),
+            name: 'orderType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7291745603985894089),
+            name: 'status',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 4361423790270463285),
+            name: 'orderSource',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 6442723301980767119),
+            name: 'endTime',
+            type: 10,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 830059187210371093),
+            name: 'deliveryCompanyInfoId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(44, 703482521714060793),
+            relationTarget: 'DeliveryCompanyInfo'),
+        ModelProperty(
+            id: const IdUid(15, 2035865605300480746),
+            name: 'selectedPriceListId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 1934275218330999198),
+            name: 'tableId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 8895730729116020456),
+            name: 'tableCaption',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 7238782014025399494),
+            name: 'numberVistor',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 4013099349396757372),
+            name: 'minimumReservationPrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 4407087310762788880),
+            name: 'customerId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(45, 3996535199111957413),
+            relationTarget: 'Customer'),
+        ModelProperty(
+            id: const IdUid(21, 1092593485847534082),
+            name: 'addressId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(46, 6589735294853365019),
+            relationTarget: 'Address'),
+        ModelProperty(
+            id: const IdUid(22, 6705901827063339551),
+            name: 'promotionId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(47, 711067229839492378),
+            relationTarget: 'Promotion'),
+        ModelProperty(
+            id: const IdUid(23, 7441730378250702023),
+            name: 'discountId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(48, 9147285996308556746),
+            relationTarget: 'Discount'),
+        ModelProperty(
+            id: const IdUid(24, 5588348138945704071),
+            name: 'priceDiscount',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 4564459654598657648),
+            name: 'pricePromotion',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 875332607285158668),
+            name: 'note',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 2935455929126794563),
+            name: 'kitchenNote',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 3382730818913217671),
+            name: 'msgCansel',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(29, 2706223880202263140),
+            name: 'subTotal',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(30, 8015169447149285580),
+            name: 'checksum',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(31, 1972944627798259037),
+            name: 'masterChecksum',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(32, 1943775659354346106),
+            name: 'serverChecksum',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(33, 8852603503814418378),
+            name: 'totalFee',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(34, 658903214901778574),
+            name: 'taxPrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(35, 6155405563402001987),
+            name: 'totalPaid',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(36, 2664822597194993779),
+            name: 'shiftId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(37, 6740041404743547306),
+            name: 'tillId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(38, 515310798254994168),
+            name: 'totalCalories',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(39, 1575018996431518575),
+            name: 'totalDiscountForOrderAndProduct',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(15, 4282506554905633490),
+            name: 'products',
+            targetId: const IdUid(5, 3395040555646562610)),
+        ModelRelation(
+            id: const IdUid(16, 4055205457924076627),
+            name: 'fees',
+            targetId: const IdUid(28, 5124530212458106972)),
+        ModelRelation(
+            id: const IdUid(17, 4282978778939226601),
+            name: 'feeValues',
+            targetId: const IdUid(29, 4604171929002796322)),
+        ModelRelation(
+            id: const IdUid(18, 7199400346931531439),
+            name: 'payments',
+            targetId: const IdUid(46, 464745978783864964))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(45, 6901247009736541861),
+      name: 'PaymentMethod',
+      lastPropertyId: const IdUid(10, 7046342443064980157),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 2582205238124400968),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5088872984873580601),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(49, 2166261478618966051)),
+        ModelProperty(
+            id: const IdUid(3, 4792947654157322057),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 8565459334069427347),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3596381390230347128),
+            name: 'paymentType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 432714256179936196),
+            name: 'displayOrder',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 3866436847641108372),
+            name: 'isActive',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 3021883683728763084),
+            name: 'isDeleted',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 8724473122377245177),
+            name: 'autoOpenCashDrawer',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 7046342443064980157),
+            name: 'imageUrl',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(46, 464745978783864964),
+      name: 'PaymentValue',
+      lastPropertyId: const IdUid(9, 6004567214307594568),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 341132361632516181),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 2772482500425501040),
+            name: 'refreance',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1499528578174580348),
+            name: 'methodId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(50, 4002277015414674300),
+            relationTarget: 'PaymentMethod'),
+        ModelProperty(
+            id: const IdUid(4, 4495570324258048502),
+            name: 'amt',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 7880294575524371400),
+            name: 'remainAmt',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 8927092920118405662),
+            name: 'exchangeRate',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 4348377477136517215),
+            name: 'amountCurecny',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 8628389508611792100),
+            name: 'currencyCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 6004567214307594568),
+            name: 'defaultCurrencyId',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(47, 7457475522420281779),
+      name: 'PolicySetting',
+      lastPropertyId: const IdUid(6, 5181053952053117040),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3537959690931039687),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1729460992593113296),
+            name: 'enableOrderCancelation',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 2858065220344095015),
+            name: 'enablePosRefund',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 694176939161159502),
+            name: 'enableUsingExpiredTicket',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 2048819704922941536),
+            name: 'orderPolicyAR',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 5181053952053117040),
+            name: 'orderPolicyEN',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(48, 2597340680503827751),
+      name: 'PosUser',
+      lastPropertyId: const IdUid(13, 8073005192876878348),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8500889776391282029),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 9077568821572367578),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1729284852437138664),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 1117168490747465857),
+            name: 'phoneNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 7859120578108603212),
+            name: 'passwordHash',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 2427251113136020888),
+            name: 'pin',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 4652546437091856803),
+            name: 'pinMD5',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 4728697458750472065),
+            name: 'imageUrl',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 8351941712023455811),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 4484634091318354874),
+            name: 'appslanguageCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7976539784893281377),
+            name: 'appsDataLanguageCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 2693739840880808555),
+            name: 'dashboardlanguageCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 8073005192876878348),
+            name: 'cashierSettingId',
+            type: 11,
+            flags: 520,
+            indexId: const IdUid(51, 8339866962229572620),
+            relationTarget: 'UserCashierSetting')
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(19, 7076451863413293656),
+            name: 'roles',
+            targetId: const IdUid(59, 4370052721100590549))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(49, 2540404651802691752),
+      name: 'PriceList',
+      lastPropertyId: const IdUid(5, 5918981566505498221),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1307145586394008394),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1904336852474386087),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(52, 905011543923482351)),
+        ModelProperty(
+            id: const IdUid(3, 7452176596312978370),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 4178105329149086193),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 5918981566505498221),
+            name: 'priceIncludeTax',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(50, 9028021474327645362),
+      name: 'PriceListValue',
+      lastPropertyId: const IdUid(3, 3014099937980448358),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8936438881804059069),
+            name: 'idSeq',
+            type: 6,
+            flags: 129),
+        ModelProperty(
+            id: const IdUid(2, 2370019736168594330),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 3014099937980448358),
+            name: 'price',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(20, 2245153154389763829),
+            name: 'slaps',
+            targetId: const IdUid(63, 6303492439832967150))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(51, 7312532630760544341),
+      name: 'Printer',
+      lastPropertyId: const IdUid(15, 124283532621353786),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 6627806514735165516),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4796204930197738596),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(53, 9088544823105522204)),
+        ModelProperty(
+            id: const IdUid(3, 678067378467781819),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7149542419124295415),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 934303535855469133),
+            name: 'deviceId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 8446338720341006425),
+            name: 'printerModelId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 2931837315370695570),
+            name: 'connectionType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 1690671291507830064),
+            name: 'ipAddress',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 745727646381608672),
+            name: 'printerType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 2351524171082140444),
+            name: 'printTo',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7684559669772784697),
+            name: 'port',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 5996010512694561001),
+            name: 'products',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 8259668290644235180),
+            name: 'departments',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 1787894624650297269),
+            name: 'categories',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 124283532621353786),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(21, 4049662665918288734),
+            name: 'settings',
+            targetId: const IdUid(52, 5205406944108081665))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(52, 5205406944108081665),
+      name: 'PrinterSetting',
+      lastPropertyId: const IdUid(9, 8192766769209640357),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8732485202220201677),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5274074500532871523),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(54, 289561093422384479)),
+        ModelProperty(
+            id: const IdUid(3, 9032991603680338727),
+            name: 'printerId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 425589713421552038),
+            name: 'paperSize',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 6441653076520284915),
+            name: 'scale',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 2296161500888606605),
+            name: 'imageCutterFactor',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 1771699965398684688),
+            name: 'cutterCommandCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 146801943661528994),
+            name: 'autoPrint',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 8192766769209640357),
+            name: 'numberOfCopy',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(53, 1470974652789734082),
+      name: 'Product1',
+      lastPropertyId: const IdUid(51, 3993294515580781724),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7298527733999613228),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 2873788632648349538),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(55, 2988807075589850292)),
+        ModelProperty(
+            id: const IdUid(3, 6978592632606853522),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 6756207305512903226),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 2324939740744536526),
+            name: 'sku',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 6962351246075345732),
+            name: 'barcode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 9213545631881115614),
+            name: 'productTypeId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 2484387793996271210),
+            name: 'costType',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 6942106996718852979),
+            name: 'priceType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 7129327711298951480),
+            name: 'salesMethod',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 5435259563887186881),
+            name: 'price',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 7283200267200288597),
+            name: 'cost',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 2134473901048160717),
+            name: 'preparationTime',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 4776161076281890113),
+            name: 'activeQRScan',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 6665962755076402422),
+            name: 'qrScanOnSameDate',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 2819863446599425620),
+            name: 'enableSalesDiscount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 1164424446865881155),
+            name: 'discountPercentageLimit',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 7067248561981771809),
+            name: 'enableFreeQuantity',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 7564861762242334494),
+            name: 'enableDateExpire',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 224749038293003161),
+            name: 'enableIMEISerial',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 4727414041737126380),
+            name: 'enableWeights',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 2969696716878689213),
+            name: 'scanPriceFromScale',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(23, 3688409477128216310),
+            name: 'scalePriceIncludeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(24, 5097775437830867044),
+            name: 'independentPrinting',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 6666814344219103700),
+            name: 'calculateQuantityFromTotalPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 5793139352019345352),
+            name: 'reservationRequired',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 6060820695941777577),
+            name: 'scaleBarcodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 5906712051770571197),
+            name: 'scaleProductCodeDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(29, 3903406347613827740),
+            name: 'scaleIntDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(30, 6893303423606323163),
+            name: 'scaledecimalDigits',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(31, 7909542235278011050),
+            name: 'scaleProductCodeFirstInBracode',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(32, 6910312610401495270),
+            name: 'availableStartDateTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(33, 6941916998846892634),
+            name: 'availableEndDateTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(34, 2134132292192284564),
+            name: 'description',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(35, 5077646951354175412),
+            name: 'fDescription',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(36, 2318093759829787915),
+            name: 'imageUrl',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(37, 4960858620495256013),
+            name: 'calories',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(38, 7990401573772553961),
+            name: 'minimumLevel',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(39, 182550445848123258),
+            name: 'maximumLevel',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(40, 3316714757933489023),
+            name: 'categoryId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(41, 963075489875409915),
+            name: 'departmentId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(42, 6555209803848460265),
+            name: 'productNature',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(43, 8947397198782421403),
+            name: 'active',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(44, 4801295001218533305),
+            name: 'taxGroupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(45, 8431520348321921444),
+            name: 'subName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(46, 1541035317649280273),
+            name: 'fSubName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(47, 5419368909300012966),
+            name: 'promotionalName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(48, 3003363985171037193),
+            name: 'fPromotionalName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(49, 7902924782949389930),
+            name: 'tags',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(50, 499478200096044464),
+            name: 'fTags',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(51, 3993294515580781724),
+            name: 'showAlertPreparationTime',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(22, 3406261709002533919),
+            name: 'units',
+            targetId: const IdUid(74, 3654581316309482064)),
+        ModelRelation(
+            id: const IdUid(23, 5215284122169364376),
+            name: 'modifiers',
+            targetId: const IdUid(42, 4408296639779931103)),
+        ModelRelation(
+            id: const IdUid(24, 5964173048244659171),
+            name: 'ingredients',
+            targetId: const IdUid(32, 4644419215042816685)),
+        ModelRelation(
+            id: const IdUid(25, 8369700162454605034),
+            name: 'groups',
+            targetId: const IdUid(31, 5589309508760530966))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(54, 5857590280855030305),
+      name: 'ProductPriceList',
+      lastPropertyId: const IdUid(3, 1587233173090704413),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 4260698089271979282),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4558195437499479320),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(56, 3200195031815150103)),
+        ModelProperty(
+            id: const IdUid(3, 1587233173090704413),
+            name: 'price',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(55, 4781936713100931432),
+      name: 'Promotion',
+      lastPropertyId: const IdUid(22, 1401898080727539469),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 3819759215831589066),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5277399847695959359),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(57, 223515691901806049)),
+        ModelProperty(
+            id: const IdUid(3, 3564003632053538638),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2093851725687623391),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 948211271385881690),
+            name: 'startDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 2560092404253207218),
+            name: 'endDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 1233920950730808133),
+            name: 'startTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 9043580745100596689),
+            name: 'endTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 8773928852828237861),
+            name: 'promotionType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 2980251115227718257),
+            name: 'discountType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 4011775688494336649),
+            name: 'discountPercentage',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 2873769519940837138),
+            name: 'discountAmount',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 917279622994400897),
+            name: 'maximumDiscountAmount',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 268485491429083363),
+            name: 'promotionApplyType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 3675355877100834146),
+            name: 'customerQuantity',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 1442344152322762178),
+            name: 'customerAmount',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 1982195522886594335),
+            name: 'promotionApplyToType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 7339793298315438847),
+            name: 'days',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 2481602686616499987),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 2033127177372262286),
+            name: 'purchaseProducts',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 2165561477021507132),
+            name: 'discountProducts',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 1401898080727539469),
+            name: 'priority',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(56, 7223537317026639726),
+      name: 'ReasonsCanceling',
+      lastPropertyId: const IdUid(4, 258153848321232145),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8142665808261052768),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 2052070571362903420),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(58, 6293512747152320511)),
+        ModelProperty(
+            id: const IdUid(3, 5187226249599481639),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 258153848321232145),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(57, 7550337869798362537),
+      name: 'ReasonsDrawerOpen',
+      lastPropertyId: const IdUid(4, 5771912893777739497),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7399126565366543275),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 7184576649172049320),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(59, 7580489704004716508)),
+        ModelProperty(
+            id: const IdUid(3, 2776376127665823868),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 5771912893777739497),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(58, 7712162944613970354),
+      name: 'ResturantSection',
+      lastPropertyId: const IdUid(4, 7467799372138281014),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 2603099267220470811),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 7918277834222561317),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(60, 2547827806372467833)),
+        ModelProperty(
+            id: const IdUid(3, 1208138121477930930),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7467799372138281014),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(26, 5567375408546384165),
+            name: 'tables',
+            targetId: const IdUid(64, 7649421465433177223))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(59, 4370052721100590549),
+      name: 'Roles',
+      lastPropertyId: const IdUid(3, 6093977857067272371),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 9074343292654374443),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 3110124279913299854),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 6093977857067272371),
+            name: 'name',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(27, 1626003981272979711),
+            name: 'claims',
+            targetId: const IdUid(13, 2778191342442055432))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(60, 1048941401547701928),
+      name: 'SalesInvoiceTemplates',
+      lastPropertyId: const IdUid(51, 5283656273564040914),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7012567991153155596),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 7027596902109433972),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(61, 972988146704848416)),
+        ModelProperty(
+            id: const IdUid(3, 3644983667390404874),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2234074535160816755),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 5686879569630578003),
+            name: 'printedTitle',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 1044414522449283722),
+            name: 'fPrintedTitle',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 7617257524535431992),
+            name: 'headerInvoiceMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 6909333930276561719),
+            name: 'fHeaderInvoiceMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 3920656681936610550),
+            name: 'footerInvoiceMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 7879263107288964547),
+            name: 'fFooterInvoiceMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 1998658066161356503),
+            name: 'printCompanyName',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 5028073927554780559),
+            name: 'printBranchName',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 3127367596242705838),
+            name: 'printCRNo',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 9076838100364809767),
+            name: 'printBankAccount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 8414461353966929308),
+            name: 'printTaxNumber',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 2992617267649272522),
+            name: 'printPaymentType',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 8886966390517088277),
+            name: 'printOrderType',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 459982575159530192),
+            name: 'printOrderNumber',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 458430265760021413),
+            name: 'printUnitSize',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 5355391935654812366),
+            name: 'printProductSecondaryName',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 1629793062050030027),
+            name: 'printCalories',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 5414894330547661451),
+            name: 'printSubTotal',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(23, 7237338372479642381),
+            name: 'printRoundDigit',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(24, 5295097038495148211),
+            name: 'printProductUnit',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 4808817542150098107),
+            name: 'printProductUnitPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 8987076990619487550),
+            name: 'printProductTotalPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 356693995606399092),
+            name: 'printProductDiscountPrice',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 655530254858535556),
+            name: 'printProductFreeQuantity',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(29, 8543207919421145067),
+            name: 'printProductTotalPriceBeforeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(30, 3570262485023749011),
+            name: 'printProductTaxAmount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(31, 6528740550721351863),
+            name: 'printProductTaxPercentage',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(32, 4928795368576828300),
+            name: 'printProductTotalPriceAfterDiscount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(33, 4015852584577908498),
+            name: 'printProductTotalPriceIncludeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(34, 5529803808627631985),
+            name: 'printOrderClosedUser',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(35, 8796783182910419906),
+            name: 'printOrderCreatedUser',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(36, 8247873362653710940),
+            name: 'printCheckNumber',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(37, 3849814587639744960),
+            name: 'hideFreeModifierOptions',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(38, 287076962696455716),
+            name: 'autoPrintOnSave',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(39, 992676033716878163),
+            name: 'printLanguage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(40, 161997464849547893),
+            name: 'printerPaperSize',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(41, 1824698922900414406),
+            name: 'printerPaperDirection',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(42, 6458985789404325186),
+            name: 'invoiceCategory',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(43, 5500387970116708916),
+            name: 'defaultLanguage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(44, 1684081200777569016),
+            name: 'secondLanguage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(45, 3029281867340345017),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(46, 7558642493223497898),
+            name: 'users',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(47, 585397800607450016),
+            name: 'defaultCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(48, 53594549642254498),
+            name: 'secondCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(49, 201751941788046652),
+            name: 'pointsMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(50, 5256187476007204840),
+            name: 'fPointsMessage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(51, 5283656273564040914),
+            name: 'printCustomerPoints',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(61, 2751512998973159627),
+      name: 'SalesInvoiceTemplatesA4',
+      lastPropertyId: const IdUid(11, 7505348122986308558),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 4719913032758749838),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5328780482634024220),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(62, 3128097105927075719)),
+        ModelProperty(
+            id: const IdUid(3, 5098810754491556779),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 3721124456499278486),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3079591253975828688),
+            name: 'menuName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 4408935844792119554),
+            name: 'fMenuName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 1588917478820207189),
+            name: 'title',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 4893671459407680387),
+            name: 'fTitle',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 2657168474852691890),
+            name: 'printLanguage',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 1005653852818178091),
+            name: 'invoiceCategory',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7505348122986308558),
+            name: 'appsFormPath',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(62, 241906389279569710),
+      name: 'Shift',
+      lastPropertyId: const IdUid(12, 55736975097475147),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1440625732246551358),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 6984320593624368578),
+            name: 'shiftId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 2315628848131619256),
+            name: 'reference',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 6095622209784871686),
+            name: 'userId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 5983389975237064142),
+            name: 'userName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 1596558662475507015),
+            name: 'branchName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 3265799294131765951),
+            name: 'clockedInDateAt',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 446259008600819674),
+            name: 'clockedInTimeAt',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 2663941766213369222),
+            name: 'clockedOutDateAt',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 8252909006310907914),
+            name: 'clockedOutTimeAt',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 2542500904524063282),
+            name: 'isClockedOut',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 55736975097475147),
+            name: 'isSync',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(63, 6303492439832967150),
+      name: 'Slaps',
+      lastPropertyId: const IdUid(5, 9014486188758909415),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7977220639147151622),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4150645558847718629),
+            name: 'from',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 2073218705742179344),
+            name: 'to',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7891904795546732),
+            name: 'price',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 9014486188758909415),
+            name: 'timeEventId',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(64, 7649421465433177223),
+      name: 'Table',
+      lastPropertyId: const IdUid(10, 37621034263747069),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 2461624375059514129),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4958198599406259573),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(63, 723494273386064390)),
+        ModelProperty(
+            id: const IdUid(3, 5066370667490955589),
+            name: 'tableNumber',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 3266223648405840586),
+            name: 'tableCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 842305420182420603),
+            name: 'numberOfIndividuals',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 297180978757577635),
+            name: 'minumumReservationPrice',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 646322156518787567),
+            name: 'status',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 4795639171027791287),
+            name: 'shape',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 1680804025769542148),
+            name: 'offsetX',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 37621034263747069),
+            name: 'offsetY',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(65, 3100701921110616036),
+      name: 'TaxC',
+      lastPropertyId: const IdUid(13, 3044594613830317980),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5420518027529756238),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 8833510951680422823),
+            name: 'taxName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 8966712561214477688),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 3708141237914993218),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 7707323188537184390),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(64, 3841048113309537773)),
+        ModelProperty(
+            id: const IdUid(6, 8490992915853915154),
+            name: 'taxPercentage',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 4559850713946181801),
+            name: 'customerTaxable',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 3530891023518074499),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 543137425699639226),
+            name: 'taxCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 4774626448219242155),
+            name: 'taxAccount',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 2591186473786974305),
+            name: 'isTaxExempt',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 1592146789849670704),
+            name: 'zeroTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 3044594613830317980),
+            name: 'exceptCustomers',
+            type: 30,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(28, 5581328976940711950),
+            name: 'periods',
+            targetId: const IdUid(68, 5923196811518083407))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(66, 2943426637262277818),
+      name: 'TaxGroup',
+      lastPropertyId: const IdUid(5, 6348645404661885244),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1185925958826237724),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 851834835594759517),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(65, 4431731563390266404)),
+        ModelProperty(
+            id: const IdUid(3, 981994640924859217),
+            name: 'types',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 9030694720251442314),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 6348645404661885244),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(67, 3401450824918653340),
+      name: 'TaxInfo',
+      lastPropertyId: const IdUid(3, 1058612862032569581),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5154680791978463673),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5137299941162341702),
+            name: 'taxGroupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1058612862032569581),
+            name: 'value',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(68, 5923196811518083407),
+      name: 'TaxPeriod',
+      lastPropertyId: const IdUid(6, 3379236032815452646),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 885201699516087025),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 8566802286418518439),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 4854460691445108092),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2361506629490392496),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 9178323465648052560),
+            name: 'startDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 3379236032815452646),
+            name: 'endDate',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(69, 2881945014081622141),
+      name: 'TaxSetting',
+      lastPropertyId: const IdUid(5, 4335631397304723403),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 4624521795535572133),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 6803797479719258487),
+            name: 'enableSalesTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 6042541254203171064),
+            name: 'salesPriceIncludeTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 4758465282718416665),
+            name: 'enableCustomerSupplierTax',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 4335631397304723403),
+            name: 'taxRoundFactor',
+            type: 8,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(70, 6889300962721610180),
+      name: 'TenantSetting',
+      lastPropertyId: const IdUid(41, 6498384486651354356),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 4142455215572811869),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 1344460211136525127),
+            name: 'logoUrl',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 4019423546079458666),
+            name: 'companyName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 9056049201959209235),
+            name: 'fCompanyName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 4503822252295320758),
+            name: 'activity',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 6401773893936026921),
+            name: 'fActivity',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 2651887648168813297),
+            name: 'phoneNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 3792958399643623636),
+            name: 'faxNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 2767719313197082267),
+            name: 'webSite',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 1223135712950330611),
+            name: 'email',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 8441212357004598241),
+            name: 'taxRegistrationName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 3467192471799245395),
+            name: 'crNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 154734044356694437),
+            name: 'taxNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 2486234121313943492),
+            name: 'zakatRegistrationNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 4956649119634604101),
+            name: 'municipalLicenseNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 2502057616468961797),
+            name: 'gulfCouncilIdentificationNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 45424898826679934),
+            name: 'sagiALicenseNumber',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 9215048259628711920),
+            name: 'country',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 1267942595789640565),
+            name: 'postalCode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(20, 1708969498735379419),
+            name: 'province',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(21, 7506985439688420693),
+            name: 'city',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(22, 7749280400441682556),
+            name: 'district',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(23, 777691698730267772),
+            name: 'street',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(24, 4652081104276097070),
+            name: 'fProvince',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(25, 1714359196723502580),
+            name: 'fCity',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(26, 4045214073909763150),
+            name: 'fDistrict',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(27, 2497638674770723247),
+            name: 'fStreet',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(28, 8923445190586556335),
+            name: 'buildingNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(29, 6193546200332026170),
+            name: 'floorNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(30, 590834085369694018),
+            name: 'officeNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(31, 9055394150328525809),
+            name: 'additionalNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(32, 7065801132485265602),
+            name: 'invoiceRoundFactor',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(33, 5638722357572203347),
+            name: 'localCurrencyId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(34, 8450786407588125458),
+            name: 'salesPriceCurrencyId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(35, 7056883116105200225),
+            name: 'inventoryCostCurrencyId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(36, 6893792547101429578),
+            name: 'payrollCurrencyId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(37, 35298839713147181),
+            name: 'inventoryCalculateCostMethod',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(38, 7147801302528932585),
+            name: 'stockInventoryType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(39, 1341947844212298114),
+            name: 'printLanguage',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(40, 7274836293654069379),
+            name: 'defaultLanguage',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(41, 6498384486651354356),
+            name: 'secondLanguage',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(71, 2141306122983032360),
+      name: 'ThrowbackInfo',
+      lastPropertyId: const IdUid(5, 9167146241721739613),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 8863268950646385469),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 8322398013346724502),
+            name: 'productRef',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 2676932194840319811),
+            name: 'quantity',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2359705139023375949),
+            name: 'isWaste',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 9167146241721739613),
+            name: 'ref',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(72, 4412520250352501536),
+      name: 'TimeEvent',
+      lastPropertyId: const IdUid(17, 8384804799058827878),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 7505119988746381925),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 7054318360663875308),
+            name: 'id',
+            type: 9,
+            flags: 34848,
+            indexId: const IdUid(66, 148000271843617901)),
+        ModelProperty(
+            id: const IdUid(3, 7251223999647917134),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2252071250338583840),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8271531824342460545),
+            name: 'timeEventType',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 94179618329682946),
+            name: 'timeEventValue',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 7715592180346462728),
+            name: 'startDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 6869027677896598020),
+            name: 'endDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 2798966946118257267),
+            name: 'startTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 8692124759040169954),
+            name: 'endTime',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 895170194154982161),
+            name: 'days',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 2505081172124337834),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 3679919233605729916),
+            name: 'products',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 4913891467434690543),
+            name: 'customers',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 7456226479122001326),
+            name: 'departments',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(16, 3316109308068252139),
+            name: 'categories',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(17, 8384804799058827878),
+            name: 'priority',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(73, 4398007770835094797),
+      name: 'Transaction',
+      lastPropertyId: const IdUid(7, 6609024257478909963),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 530506481516192285),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 7233674824637185508),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 8321581170650392502),
+            name: 'refId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 563996480430460544),
+            name: 'toAcount',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 4178445844847664259),
+            name: 'amt',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 6495446192919094067),
+            name: 'createBy',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 6609024257478909963),
+            name: 'date',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(74, 3654581316309482064),
+      name: 'Unit',
+      lastPropertyId: const IdUid(13, 5567985801941321089),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 750203649113582929),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5358175406070376930),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1824095540127232824),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2211726872961066792),
+            name: 'fName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 5654849344772844182),
+            name: 'barcode',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 3137010195566701196),
+            name: 'price',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 7810923835335677110),
+            name: 'cost',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 5652015769431893275),
+            name: 'factor',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 3769016658350382478),
+            name: 'defaultForSales',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 6136832827050347167),
+            name: 'defaultForPurchase',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7033709194073193138),
+            name: 'defaultForStore',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 5916647371356079495),
+            name: 'showAlertPreparationTime',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 5567985801941321089),
+            name: 'priceType',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(29, 8148976198114781827),
+            name: 'priceList',
+            targetId: const IdUid(50, 9028021474327645362)),
+        ModelRelation(
+            id: const IdUid(30, 5420033597551466594),
+            name: 'modifiers',
+            targetId: const IdUid(75, 3339802201919537632))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(75, 3339802201919537632),
+      name: 'UnitModifer',
+      lastPropertyId: const IdUid(10, 950870036752717816),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 5693004887182026306),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 447052541439401191),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 5042930097244591606),
+            name: 'minimumOptions',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 6641776602297738480),
+            name: 'maximumOptions',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 1034067842289280612),
+            name: 'isUnique',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 5023233855170784846),
+            name: 'isRequired',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 2381224590510148185),
+            name: 'defulatOptions',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 237200502203320970),
+            name: 'exceptOptions',
+            type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 1177298052412733849),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 950870036752717816),
+            name: 'fName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[
+        ModelRelation(
+            id: const IdUid(31, 6385259868590059044),
+            name: 'freeOptions',
+            targetId: const IdUid(30, 918487118263088897)),
+        ModelRelation(
+            id: const IdUid(32, 6680930832664415527),
+            name: 'options',
+            targetId: const IdUid(43, 466122196377659305))
+      ],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(76, 2192437231179354120),
+      name: 'UserCashierSetting',
+      lastPropertyId: const IdUid(17, 5502455540800449549),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 6136099067135898805),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 6359173179765338869),
+            name: 'shortName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 6020915194996636127),
+            name: 'fShortName',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 6428758867697991112),
+            name: 'salesInvoiceTemplateId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 1040409473270191446),
+            name: 'salesInvoiceTemplateA4Id',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 1114645156702919860),
+            name: 'groupId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 5708914224999922086),
+            name: 'priceListId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 6261350098003006723),
+            name: 'warehouseId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 5965906161119674502),
+            name: 'discountPercentageLimit',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 810436138183589753),
+            name: 'orderTypes',
+            type: 27,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 7667193618320619936),
             name: 'paymentMethods',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 4866255397252802830),
+            id: const IdUid(12, 3836345177674048279),
             name: 'restaurantSections',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(13, 6968202578691800974),
+            id: const IdUid(13, 8946440949496481959),
             name: 'devices',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 2234483785184262092),
+            id: const IdUid(14, 6226139336960169618),
             name: 'groups',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(15, 349791599911857368),
+            id: const IdUid(15, 4713941895039020461),
             name: 'priceLists',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(16, 4550699847262728183),
+            id: const IdUid(16, 7185144895431764723),
             name: 'salesInvoiceTemplates',
             type: 30,
             flags: 0),
         ModelProperty(
-            id: const IdUid(17, 820680473083265703),
+            id: const IdUid(17, 5502455540800449549),
             name: 'salesInvoiceTemplatesA4',
             type: 30,
             flags: 0)
@@ -5761,82 +5827,16 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(78, 8367548960609222594),
-      name: 'BarcodeScale',
-      lastPropertyId: const IdUid(15, 3040734359635577666),
+      id: const IdUid(77, 2181314319316818521),
+      name: 'ViewSettings',
+      lastPropertyId: const IdUid(1, 6738643149751147921),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 5207791344527844967),
+            id: const IdUid(1, 6738643149751147921),
             name: 'idSeq',
             type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 1286580070772740767),
-            name: 'id',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(67, 3735846757600100268)),
-        ModelProperty(
-            id: const IdUid(3, 973367886313172914),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 7233858581128158153),
-            name: 'fName',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 1475696328733608898),
-            name: 'scanPriceFromScale',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 9010313136779557910),
-            name: 'scalePriceIncludeTax',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 7668204935257570072),
-            name: 'scaleBarcodeDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 8953443731432486103),
-            name: 'scaleProductCodeDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 234152594563864269),
-            name: 'scaleIntDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 7425237318867831425),
-            name: 'scaleDecimalDigits',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 3355206056164552982),
-            name: 'departments',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 2843767497890078777),
-            name: 'categories',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 4300864943654878833),
-            name: 'products',
-            type: 30,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 3040734359635577666),
-            name: 'scaleProductCodeFirstInBarcode',
-            type: 1,
-            flags: 0)
+            flags: 1)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
@@ -5869,38 +5869,13 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(78, 8367548960609222594),
-      lastIndexId: const IdUid(67, 3735846757600100268),
-      lastRelationId: const IdUid(32, 2657844446207983663),
+      lastEntityId: const IdUid(77, 2181314319316818521),
+      lastIndexId: const IdUid(66, 148000271843617901),
+      lastRelationId: const IdUid(32, 6680930832664415527),
       lastSequenceId: const IdUid(0, 0),
-      retiredEntityUids: const [4481046626857652659],
+      retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [
-        1875832421897830843,
-        524478564024209809,
-        5694651609974679835,
-        4874781372007549423,
-        4219402363920495111,
-        4266436893371589106,
-        2707724798938672112,
-        7643465825531770773,
-        1610264126596635876,
-        2906363155981282972,
-        257423837226474316,
-        5753686362863251833,
-        5700115538431701412,
-        3789531479542178183,
-        8079671959738355093,
-        6832653930366687715,
-        6344098663838880279,
-        4751644974899568360,
-        2371430737299234413,
-        5980240438905013524,
-        6171825477919522910,
-        669569068201303509,
-        4125500750030956845,
-        2878251201238095405
-      ],
+      retiredPropertyUids: const [],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -5912,7 +5887,7 @@ ModelDefinition getObjectBoxModel() {
         toOneRelations: (ActivationInfo object) => [],
         toManyRelations: (ActivationInfo object) => {
               RelInfo<Device>.toOneBacklink(
-                      23, object.idSeq!, (Device srcObject) => srcObject.info):
+                      24, object.idSeq!, (Device srcObject) => srcObject.info):
                   object.devices
             },
         getId: (ActivationInfo object) => object.idSeq,
@@ -5986,30 +5961,30 @@ ModelDefinition getObjectBoxModel() {
           final fBranchOffset =
               object.fBranch == null ? null : fbb.writeString(object.fBranch!);
           fbb.startTable(29);
-          fbb.addOffset(0, idOffset);
-          fbb.addOffset(1, nameOffset);
-          fbb.addOffset(2, fNameOffset);
-          fbb.addOffset(3, emailOffset);
-          fbb.addOffset(4, phoneOffset);
-          fbb.addOffset(5, mobileOffset);
-          fbb.addOffset(6, taxRegNameOffset);
-          fbb.addOffset(7, fTaxRegNameOffset);
-          fbb.addOffset(8, taxCodeOffset);
-          fbb.addOffset(9, onlineOrderStartTimeOffset);
-          fbb.addOffset(10, onlineOrderEndTimeOffset);
-          fbb.addOffset(11, branchPrefixOffset);
-          fbb.addOffset(12, customerServiceOffset);
-          fbb.addOffset(13, countryIdOffset);
-          fbb.addOffset(14, cityIdOffset);
-          fbb.addOffset(15, addressOffset);
-          fbb.addOffset(16, latitudeOffset);
-          fbb.addOffset(17, longitudeOffset);
-          fbb.addOffset(18, headerInvoiceMsgOffset);
-          fbb.addOffset(19, footerInvoiceMsgOffset);
-          fbb.addBool(20, object.receiveOnlineOrders);
-          fbb.addInt64(21, object.idSeq ?? 0);
-          fbb.addOffset(22, codeOffset);
-          fbb.addOffset(23, currentDeviceIdOffset);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addOffset(4, emailOffset);
+          fbb.addOffset(5, phoneOffset);
+          fbb.addOffset(6, mobileOffset);
+          fbb.addOffset(7, taxRegNameOffset);
+          fbb.addOffset(8, fTaxRegNameOffset);
+          fbb.addOffset(9, taxCodeOffset);
+          fbb.addOffset(10, onlineOrderStartTimeOffset);
+          fbb.addOffset(11, onlineOrderEndTimeOffset);
+          fbb.addOffset(12, branchPrefixOffset);
+          fbb.addOffset(13, customerServiceOffset);
+          fbb.addOffset(14, countryIdOffset);
+          fbb.addOffset(15, cityIdOffset);
+          fbb.addOffset(16, addressOffset);
+          fbb.addOffset(17, latitudeOffset);
+          fbb.addOffset(18, longitudeOffset);
+          fbb.addOffset(19, headerInvoiceMsgOffset);
+          fbb.addOffset(20, footerInvoiceMsgOffset);
+          fbb.addOffset(21, codeOffset);
+          fbb.addOffset(22, currentDeviceIdOffset);
+          fbb.addBool(23, object.receiveOnlineOrders);
           fbb.addOffset(24, companyOffset);
           fbb.addOffset(25, fCompanyOffset);
           fbb.addOffset(26, branchOffset);
@@ -6021,59 +5996,59 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
           final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 4);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 6);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
+          final nameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 8);
-          final emailParam = const fb.StringReader(asciiOptimization: true)
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 10);
-          final phoneParam = const fb.StringReader(asciiOptimization: true)
+          final emailParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 12);
-          final mobileParam = const fb.StringReader(asciiOptimization: true)
+          final phoneParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 14);
-          final taxRegNameParam = const fb.StringReader(asciiOptimization: true)
+          final mobileParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 16);
+          final taxRegNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 18);
           final fTaxRegNameParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 18);
+                  .vTableGetNullable(buffer, rootOffset, 20);
           final taxCodeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 20);
+              .vTableGetNullable(buffer, rootOffset, 22);
           final onlineOrderStartTimeParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 22);
+                  .vTableGetNullable(buffer, rootOffset, 24);
           final onlineOrderEndTimeParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 24);
+                  .vTableGetNullable(buffer, rootOffset, 26);
           final branchPrefixParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 26);
+                  .vTableGetNullable(buffer, rootOffset, 28);
           final customerServiceParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 28);
+                  .vTableGetNullable(buffer, rootOffset, 30);
           final countryIdParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 30);
-          final cityIdParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 32);
-          final addressParam = const fb.StringReader(asciiOptimization: true)
+          final cityIdParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 34);
-          final latitudeParam = const fb.StringReader(asciiOptimization: true)
+          final addressParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 36);
-          final longitudeParam = const fb.StringReader(asciiOptimization: true)
+          final latitudeParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 38);
+          final longitudeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 40);
           final headerInvoiceMsgParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 40);
+                  .vTableGetNullable(buffer, rootOffset, 42);
           final footerInvoiceMsgParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 42);
+                  .vTableGetNullable(buffer, rootOffset, 44);
           final receiveOnlineOrdersParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
           final codeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 48);
+              .vTableGetNullable(buffer, rootOffset, 46);
           final currentDeviceIdParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 50);
+                  .vTableGetNullable(buffer, rootOffset, 48);
           final companyParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 52);
           final fCompanyParam = const fb.StringReader(asciiOptimization: true)
@@ -6110,13 +6085,13 @@ ModelDefinition getObjectBoxModel() {
               fCompany: fCompanyParam,
               branch: branchParam,
               fBranch: fBranchParam)
-            ..idSeq = const fb.Int64Reader()
-                .vTableGetNullable(buffer, rootOffset, 46);
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           InternalToManyAccess.setRelInfo<ActivationInfo>(
               object.devices,
               store,
               RelInfo<Device>.toOneBacklink(
-                  23, object.idSeq!, (Device srcObject) => srcObject.info));
+                  24, object.idSeq!, (Device srcObject) => srcObject.info));
           return object;
         }),
     Address: EntityDefinition<Address>(
@@ -6288,14 +6263,14 @@ ModelDefinition getObjectBoxModel() {
           object.idSeq = id;
         },
         objectToFB: (AppliedOption object, fb.Builder fbb) {
-          fbb.startTable(10);
+          fbb.startTable(8);
           fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addBool(3, object.priceWithTax);
-          fbb.addInt64(4, object.option.targetId);
-          fbb.addInt64(5, object.taxInfo.targetId);
-          fbb.addFloat64(6, object.quantity);
-          fbb.addFloat64(7, object.freeQuantity);
-          fbb.addFloat64(8, object.taxableAmt);
+          fbb.addFloat64(1, object.quantity);
+          fbb.addFloat64(2, object.freeQuantity);
+          fbb.addFloat64(3, object.taxableAmt);
+          fbb.addBool(4, object.priceWithTax);
+          fbb.addInt64(5, object.option.targetId);
+          fbb.addInt64(6, object.taxInfo.targetId);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6303,11 +6278,11 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
           final quantityParam =
-              const fb.Float64Reader().vTableGet(buffer, rootOffset, 16, 0);
+              const fb.Float64Reader().vTableGet(buffer, rootOffset, 6, 0);
           final freeQuantityParam =
-              const fb.Float64Reader().vTableGet(buffer, rootOffset, 18, 0);
+              const fb.Float64Reader().vTableGet(buffer, rootOffset, 8, 0);
           final taxableAmtParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 20);
+              .vTableGetNullable(buffer, rootOffset, 10);
           final object = AppliedOption(
               quantity: quantityParam,
               freeQuantity: freeQuantityParam,
@@ -6315,12 +6290,12 @@ ModelDefinition getObjectBoxModel() {
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
             ..priceWithTax =
-                const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
+                const fb.BoolReader().vTableGet(buffer, rootOffset, 12, false);
           object.option.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0);
           object.option.attach(store);
           object.taxInfo.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 16, 0);
           object.taxInfo.attach(store);
           return object;
         }),
@@ -6353,7 +6328,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.giftCardCode!);
           final noteOffset =
               object.note == null ? null : fbb.writeString(object.note!);
-          fbb.startTable(28);
+          fbb.startTable(27);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addInt64(1, object.product.targetId);
           fbb.addInt64(2, object.unit.targetId);
@@ -6374,12 +6349,12 @@ ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(17, object.priceDiscount);
           fbb.addFloat64(18, object.pricePromotion);
           fbb.addFloat64(19, object.taxPrice);
-          fbb.addOffset(21, noteOffset);
-          fbb.addFloat64(22, object.freeQuantity);
-          fbb.addFloat64(23, object.taxableAmt);
-          fbb.addBool(24, object.isFixedPrice);
-          fbb.addBool(25, object.canEditQty);
-          fbb.addFloat64(26, object.barcodePrice);
+          fbb.addFloat64(20, object.taxableAmt);
+          fbb.addFloat64(21, object.freeQuantity);
+          fbb.addBool(22, object.isFixedPrice);
+          fbb.addBool(23, object.canEditQty);
+          fbb.addFloat64(24, object.barcodePrice);
+          fbb.addOffset(25, noteOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6395,7 +6370,7 @@ ModelDefinition getObjectBoxModel() {
           final msgCanselParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 18);
           final noteParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 46);
+              .vTableGetNullable(buffer, rootOffset, 54);
           final optionPriceParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 36);
           final priceParam = const fb.Float64Reader()
@@ -6414,15 +6389,15 @@ ModelDefinition getObjectBoxModel() {
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 32);
           final freeQuantityParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 48);
+              .vTableGetNullable(buffer, rootOffset, 46);
           final taxableAmtParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 50);
+              .vTableGetNullable(buffer, rootOffset, 44);
           final canEditQtyParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
           final isFixedPriceParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
           final barcodePriceParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 56);
+              .vTableGetNullable(buffer, rootOffset, 52);
           final object = AppliedProduct(
               quantity: quantityParam,
               prodRef: prodRefParam,
@@ -6469,8 +6444,111 @@ ModelDefinition getObjectBoxModel() {
               store, RelInfo<AppliedProduct>.toMany(2, object.idSeq!));
           return object;
         }),
-    BillCopyHistory: EntityDefinition<BillCopyHistory>(
+    BarcodeScale: EntityDefinition<BarcodeScale>(
         model: _entities[5],
+        toOneRelations: (BarcodeScale object) => [],
+        toManyRelations: (BarcodeScale object) => {},
+        getId: (BarcodeScale object) => object.idSeq,
+        setId: (BarcodeScale object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (BarcodeScale object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          final departmentsOffset = object.departments == null
+              ? null
+              : fbb.writeList(object.departments!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final categoriesOffset = object.categories == null
+              ? null
+              : fbb.writeList(object.categories!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final productsOffset = object.products == null
+              ? null
+              : fbb.writeList(object.products!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          fbb.startTable(15);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addBool(4, object.scanPriceFromScale);
+          fbb.addBool(5, object.scalePriceIncludeTax);
+          fbb.addInt64(6, object.scaleBarcodeDigits);
+          fbb.addInt64(7, object.scaleProductCodeDigits);
+          fbb.addInt64(8, object.scaleIntDigits);
+          fbb.addInt64(9, object.scaleDecimalDigits);
+          fbb.addBool(10, object.scaleProductCodeFirstInBarcode);
+          fbb.addOffset(11, departmentsOffset);
+          fbb.addOffset(12, categoriesOffset);
+          fbb.addOffset(13, productsOffset);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final scanPriceFromScaleParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+          final scalePriceIncludeTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final scaleBarcodeDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
+          final scaleProductCodeDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
+          final scaleIntDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final scaleDecimalDigitsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
+          final scaleProductCodeFirstInBarcodeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final departmentsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final categoriesParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 28);
+          final productsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final object = BarcodeScale(
+              id: idParam,
+              name: nameParam,
+              fName: fNameParam,
+              scanPriceFromScale: scanPriceFromScaleParam,
+              scalePriceIncludeTax: scalePriceIncludeTaxParam,
+              scaleBarcodeDigits: scaleBarcodeDigitsParam,
+              scaleProductCodeDigits: scaleProductCodeDigitsParam,
+              scaleIntDigits: scaleIntDigitsParam,
+              scaleDecimalDigits: scaleDecimalDigitsParam,
+              scaleProductCodeFirstInBarcode:
+                  scaleProductCodeFirstInBarcodeParam,
+              departments: departmentsParam,
+              categories: categoriesParam,
+              products: productsParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
+    BillCopyHistory: EntityDefinition<BillCopyHistory>(
+        model: _entities[6],
         toOneRelations: (BillCopyHistory object) => [],
         toManyRelations: (BillCopyHistory object) => {},
         getId: (BillCopyHistory object) => object.id,
@@ -6513,7 +6591,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     BillCounter: EntityDefinition<BillCounter>(
-        model: _entities[6],
+        model: _entities[7],
         toOneRelations: (BillCounter object) => [],
         toManyRelations: (BillCounter object) => {
               RelInfo<BillCounter>.toMany(3, object.id!): object.billCopyHistory
@@ -6571,7 +6649,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     BillSetting: EntityDefinition<BillSetting>(
-        model: _entities[7],
+        model: _entities[8],
         toOneRelations: (BillSetting object) => [object.logoData],
         toManyRelations: (BillSetting object) => {},
         getId: (BillSetting object) => object.id,
@@ -6825,7 +6903,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Branch: EntityDefinition<Branch>(
-        model: _entities[8],
+        model: _entities[9],
         toOneRelations: (Branch object) => [],
         toManyRelations: (Branch object) => {},
         getId: (Branch object) => object.idSeq,
@@ -6837,6 +6915,8 @@ ModelDefinition getObjectBoxModel() {
               object.id == null ? null : fbb.writeString(object.id!);
           final nameOffset =
               object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
           final emailOffset =
               object.email == null ? null : fbb.writeString(object.email!);
           final phoneOffset =
@@ -6868,26 +6948,24 @@ ModelDefinition getObjectBoxModel() {
           final footerInvoiceMsgOffset = object.footerInvoiceMsg == null
               ? null
               : fbb.writeString(object.footerInvoiceMsg!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
           fbb.startTable(18);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
-          fbb.addOffset(3, emailOffset);
-          fbb.addOffset(4, phoneOffset);
-          fbb.addOffset(5, mobileOffset);
-          fbb.addOffset(6, taxRegNameOffset);
-          fbb.addOffset(7, taxCodeOffset);
-          fbb.addOffset(8, onlineOrderStartTimeOffset);
-          fbb.addOffset(9, onlineOrderEndTimeOffset);
-          fbb.addOffset(10, branchPrefixOffset);
-          fbb.addOffset(11, customerServiceOffset);
-          fbb.addOffset(12, addressOffset);
-          fbb.addOffset(13, headerInvoiceMsgOffset);
-          fbb.addOffset(14, footerInvoiceMsgOffset);
-          fbb.addBool(15, object.receiveOnlineOrders);
-          fbb.addOffset(16, fNameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addOffset(4, emailOffset);
+          fbb.addOffset(5, phoneOffset);
+          fbb.addOffset(6, mobileOffset);
+          fbb.addOffset(7, taxRegNameOffset);
+          fbb.addOffset(8, taxCodeOffset);
+          fbb.addOffset(9, onlineOrderStartTimeOffset);
+          fbb.addOffset(10, onlineOrderEndTimeOffset);
+          fbb.addOffset(11, branchPrefixOffset);
+          fbb.addOffset(12, customerServiceOffset);
+          fbb.addOffset(13, addressOffset);
+          fbb.addOffset(14, headerInvoiceMsgOffset);
+          fbb.addOffset(15, footerInvoiceMsgOffset);
+          fbb.addBool(16, object.receiveOnlineOrders);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6901,39 +6979,39 @@ ModelDefinition getObjectBoxModel() {
           final nameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 8);
           final emailParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final phoneParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 12);
-          final mobileParam = const fb.StringReader(asciiOptimization: true)
+          final phoneParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 14);
-          final taxRegNameParam = const fb.StringReader(asciiOptimization: true)
+          final mobileParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 16);
-          final taxCodeParam = const fb.StringReader(asciiOptimization: true)
+          final taxRegNameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 18);
+          final taxCodeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
           final onlineOrderStartTimeParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 20);
+                  .vTableGetNullable(buffer, rootOffset, 22);
           final onlineOrderEndTimeParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 22);
+                  .vTableGetNullable(buffer, rootOffset, 24);
           final branchPrefixParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 24);
+                  .vTableGetNullable(buffer, rootOffset, 26);
           final customerServiceParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 26);
+                  .vTableGetNullable(buffer, rootOffset, 28);
           final addressParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 28);
+              .vTableGetNullable(buffer, rootOffset, 30);
           final headerInvoiceMsgParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 30);
+                  .vTableGetNullable(buffer, rootOffset, 32);
           final footerInvoiceMsgParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 32);
+                  .vTableGetNullable(buffer, rootOffset, 34);
           final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 36);
+              .vTableGetNullable(buffer, rootOffset, 10);
           final receiveOnlineOrdersParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 36);
           final object = Branch(
               idSeq: idSeqParam,
               id: idParam,
@@ -6956,7 +7034,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     CashierSetting: EntityDefinition<CashierSetting>(
-        model: _entities[9],
+        model: _entities[10],
         toOneRelations: (CashierSetting object) => [],
         toManyRelations: (CashierSetting object) => {},
         getId: (CashierSetting object) => object.idSeq,
@@ -7136,7 +7214,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Category: EntityDefinition<Category>(
-        model: _entities[10],
+        model: _entities[11],
         toOneRelations: (Category object) => [],
         toManyRelations: (Category object) => {},
         getId: (Category object) => object.idSeq,
@@ -7188,7 +7266,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Claims: EntityDefinition<Claims>(
-        model: _entities[11],
+        model: _entities[12],
         toOneRelations: (Claims object) => [],
         toManyRelations: (Claims object) => {},
         getId: (Claims object) => object.idSeq,
@@ -7221,7 +7299,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Coupon: EntityDefinition<Coupon>(
-        model: _entities[12],
+        model: _entities[13],
         toOneRelations: (Coupon object) => [],
         toManyRelations: (Coupon object) => {},
         getId: (Coupon object) => object.idSeq,
@@ -7315,7 +7393,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Currencies: EntityDefinition<Currencies>(
-        model: _entities[13],
+        model: _entities[14],
         toOneRelations: (Currencies object) => [],
         toManyRelations: (Currencies object) => {},
         getId: (Currencies object) => object.idSeq,
@@ -7403,7 +7481,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Customer: EntityDefinition<Customer>(
-        model: _entities[14],
+        model: _entities[15],
         toOneRelations: (Customer object) => [],
         toManyRelations: (Customer object) => {
               RelInfo<Customer>.toMany(4, object.idSeq!): object.addersses,
@@ -7530,7 +7608,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     DeliveryCompany: EntityDefinition<DeliveryCompany>(
-        model: _entities[15],
+        model: _entities[16],
         toOneRelations: (DeliveryCompany object) => [],
         toManyRelations: (DeliveryCompany object) => {},
         getId: (DeliveryCompany object) => object.idSeq,
@@ -7602,7 +7680,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     DeliveryCompanyInfo: EntityDefinition<DeliveryCompanyInfo>(
-        model: _entities[16],
+        model: _entities[17],
         toOneRelations: (DeliveryCompanyInfo object) => [object.company],
         toManyRelations: (DeliveryCompanyInfo object) => {},
         getId: (DeliveryCompanyInfo object) => object.idSeq,
@@ -7633,7 +7711,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     DeliveryZone: EntityDefinition<DeliveryZone>(
-        model: _entities[17],
+        model: _entities[18],
         toOneRelations: (DeliveryZone object) => [],
         toManyRelations: (DeliveryZone object) => {},
         getId: (DeliveryZone object) => object.idSeq,
@@ -7692,7 +7770,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Department1: EntityDefinition<Department1>(
-        model: _entities[18],
+        model: _entities[19],
         toOneRelations: (Department1 object) => [],
         toManyRelations: (Department1 object) =>
             {RelInfo<Department1>.toMany(6, object.idSeq!): object.categories},
@@ -7746,7 +7824,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Device: EntityDefinition<Device>(
-        model: _entities[19],
+        model: _entities[20],
         toOneRelations: (Device object) => [object.info, object.setting],
         toManyRelations: (Device object) => {},
         getId: (Device object) => object.id,
@@ -7797,6 +7875,8 @@ ModelDefinition getObjectBoxModel() {
           final refrencePrefixOffset = object.refrencePrefix == null
               ? null
               : fbb.writeString(object.refrencePrefix!);
+          final ipOffset =
+              object.ip == null ? null : fbb.writeString(object.ip!);
           final productsOffset = object.products == null
               ? null
               : fbb.writeList(object.products!
@@ -7812,8 +7892,6 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.departments!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          final ipOffset =
-              object.ip == null ? null : fbb.writeString(object.ip!);
           final usersOffset = object.users == null
               ? null
               : fbb.writeList(
@@ -7823,7 +7901,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.resturnatSections!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          fbb.startTable(32);
+          fbb.startTable(31);
           fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, deviceIdOffset);
           fbb.addOffset(2, deviceTypeIdOffset);
@@ -7846,14 +7924,14 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(19, imeiOffset);
           fbb.addOffset(20, orderTypesOffset);
           fbb.addOffset(21, refrencePrefixOffset);
-          fbb.addInt64(22, object.info.targetId);
-          fbb.addInt64(23, object.setting.targetId);
-          fbb.addOffset(24, productsOffset);
-          fbb.addOffset(25, categoriesOffset);
-          fbb.addOffset(26, departmentsOffset);
-          fbb.addOffset(28, ipOffset);
-          fbb.addOffset(29, usersOffset);
-          fbb.addOffset(30, resturnatSectionsOffset);
+          fbb.addOffset(22, ipOffset);
+          fbb.addInt64(23, object.info.targetId);
+          fbb.addInt64(24, object.setting.targetId);
+          fbb.addOffset(25, productsOffset);
+          fbb.addOffset(26, categoriesOffset);
+          fbb.addOffset(27, departmentsOffset);
+          fbb.addOffset(28, usersOffset);
+          fbb.addOffset(29, resturnatSectionsOffset);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -7913,23 +7991,23 @@ ModelDefinition getObjectBoxModel() {
           final categoriesParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 54);
+              .vTableGetNullable(buffer, rootOffset, 56);
           final departmentsParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 56);
+              .vTableGetNullable(buffer, rootOffset, 58);
           final productsParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 52);
+              .vTableGetNullable(buffer, rootOffset, 54);
           final resturnatSectionsParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 64);
+              .vTableGetNullable(buffer, rootOffset, 62);
           final usersParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 62);
+              .vTableGetNullable(buffer, rootOffset, 60);
           final object = Device(
               id: idParam,
               deviceId: deviceIdParam,
@@ -7959,17 +8037,17 @@ ModelDefinition getObjectBoxModel() {
               resturnatSections: resturnatSectionsParam,
               users: usersParam)
             ..ip = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 60);
+                .vTableGetNullable(buffer, rootOffset, 48);
           object.info.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 48, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 50, 0);
           object.info.attach(store);
           object.setting.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 50, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 52, 0);
           object.setting.attach(store);
           return object;
         }),
     DeviceSetting: EntityDefinition<DeviceSetting>(
-        model: _entities[20],
+        model: _entities[21],
         toOneRelations: (DeviceSetting object) => [],
         toManyRelations: (DeviceSetting object) => {},
         getId: (DeviceSetting object) => object.idSeq,
@@ -8002,7 +8080,7 @@ ModelDefinition getObjectBoxModel() {
           final invoiceNumberPerfixOffset = object.invoiceNumberPerfix == null
               ? null
               : fbb.writeString(object.invoiceNumberPerfix!);
-          fbb.startTable(26);
+          fbb.startTable(24);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addInt64(1, object.dailyStartCallNumber);
           fbb.addInt64(2, object.dailyReCallNumber);
@@ -8115,7 +8193,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Discount: EntityDefinition<Discount>(
-        model: _entities[21],
+        model: _entities[22],
         toOneRelations: (Discount object) => [],
         toManyRelations: (Discount object) => {},
         getId: (Discount object) => object.idSeq,
@@ -8169,7 +8247,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.categories!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          fbb.startTable(24);
+          fbb.startTable(23);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -8191,7 +8269,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(18, priceListOffset);
           fbb.addOffset(19, customersOffset);
           fbb.addOffset(20, departmentsOffset);
-          fbb.addOffset(22, categoriesOffset);
+          fbb.addOffset(21, categoriesOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -8251,7 +8329,7 @@ ModelDefinition getObjectBoxModel() {
           final categoriesParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 48);
+              .vTableGetNullable(buffer, rootOffset, 46);
           final object = Discount(
               id: idParam,
               name: nameParam,
@@ -8279,8 +8357,76 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
+    DiscountSetting: EntityDefinition<DiscountSetting>(
+        model: _entities[23],
+        toOneRelations: (DiscountSetting object) => [],
+        toManyRelations: (DiscountSetting object) => {},
+        getId: (DiscountSetting object) => object.idSeq,
+        setId: (DiscountSetting object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (DiscountSetting object, fb.Builder fbb) {
+          fbb.startTable(12);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addBool(1, object.enableDiscount);
+          fbb.addBool(2, object.enablePromotion);
+          fbb.addBool(3, object.enableCoupon);
+          fbb.addBool(4, object.enableTimeEvent);
+          fbb.addBool(5, object.enableDiscountInSalesInvoice);
+          fbb.addBool(6, object.enableDiscountInPurchaseInvoice);
+          fbb.addBool(7, object.enableDiscountInSalesInvoiceProducts);
+          fbb.addBool(8, object.enableDiscountInPurchaseInvoiceItems);
+          fbb.addBool(9, object.enableFreeQuantityInSalesInvoiceItems);
+          fbb.addBool(10, object.enableFreeQuantityInPurchaseInvoiceItems);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final enableDiscountParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 6);
+          final enablePromotionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
+          final enableCouponParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
+          final enableTimeEventParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+          final enableDiscountInSalesInvoiceParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final enableDiscountInPurchaseInvoiceParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16);
+          final enableDiscountInSalesInvoiceProductsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 18);
+          final enableDiscountInPurchaseInvoiceItemsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 20);
+          final enableFreeQuantityInSalesInvoiceItemsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
+          final enableFreeQuantityInPurchaseInvoiceItemsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final object = DiscountSetting(
+              enableDiscount: enableDiscountParam,
+              enablePromotion: enablePromotionParam,
+              enableCoupon: enableCouponParam,
+              enableTimeEvent: enableTimeEventParam,
+              enableDiscountInSalesInvoice: enableDiscountInSalesInvoiceParam,
+              enableDiscountInPurchaseInvoice:
+                  enableDiscountInPurchaseInvoiceParam,
+              enableDiscountInSalesInvoiceProducts:
+                  enableDiscountInSalesInvoiceProductsParam,
+              enableDiscountInPurchaseInvoiceItems:
+                  enableDiscountInPurchaseInvoiceItemsParam,
+              enableFreeQuantityInSalesInvoiceItems:
+                  enableFreeQuantityInSalesInvoiceItemsParam,
+              enableFreeQuantityInPurchaseInvoiceItems:
+                  enableFreeQuantityInPurchaseInvoiceItemsParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
     ExtractCategory: EntityDefinition<ExtractCategory>(
-        model: _entities[22],
+        model: _entities[24],
         toOneRelations: (ExtractCategory object) => [],
         toManyRelations: (ExtractCategory object) => {},
         getId: (ExtractCategory object) => object.idSeq,
@@ -8330,7 +8476,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ExtractDepartment: EntityDefinition<ExtractDepartment>(
-        model: _entities[23],
+        model: _entities[25],
         toOneRelations: (ExtractDepartment object) => [],
         toManyRelations: (ExtractDepartment object) => {
               RelInfo<ExtractDepartment>.toMany(7, object.idSeq!):
@@ -8384,7 +8530,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ExtractProduct: EntityDefinition<ExtractProduct>(
-        model: _entities[24],
+        model: _entities[26],
         toOneRelations: (ExtractProduct object) => [],
         toManyRelations: (ExtractProduct object) => {
               RelInfo<ExtractProduct>.toMany(8, object.idSeq!): object.units,
@@ -8454,7 +8600,7 @@ ModelDefinition getObjectBoxModel() {
               object.tags == null ? null : fbb.writeString(object.tags!);
           final fTagsOffset =
               object.fTags == null ? null : fbb.writeString(object.fTags!);
-          fbb.startTable(52);
+          fbb.startTable(51);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -8680,7 +8826,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Fee: EntityDefinition<Fee>(
-        model: _entities[25],
+        model: _entities[27],
         toOneRelations: (Fee object) => [],
         toManyRelations: (Fee object) => {},
         getId: (Fee object) => object.idSeq,
@@ -8780,7 +8926,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     FeeValue: EntityDefinition<FeeValue>(
-        model: _entities[26],
+        model: _entities[28],
         toOneRelations: (FeeValue object) => [object.taxInfo],
         toManyRelations: (FeeValue object) => {},
         getId: (FeeValue object) => object.idSeq,
@@ -8818,7 +8964,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     FreeOption: EntityDefinition<FreeOption>(
-        model: _entities[27],
+        model: _entities[29],
         toOneRelations: (FreeOption object) => [],
         toManyRelations: (FreeOption object) => {},
         getId: (FreeOption object) => object.idSeq,
@@ -8851,7 +8997,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Group: EntityDefinition<Group>(
-        model: _entities[28],
+        model: _entities[30],
         toOneRelations: (Group object) => [],
         toManyRelations: (Group object) => {},
         getId: (Group object) => object.idSeq,
@@ -8900,7 +9046,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Ingredient: EntityDefinition<Ingredient>(
-        model: _entities[29],
+        model: _entities[31],
         toOneRelations: (Ingredient object) => [],
         toManyRelations: (Ingredient object) => {},
         getId: (Ingredient object) => object.idSeq,
@@ -9001,8 +9147,63 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
+    Language: EntityDefinition<Language>(
+        model: _entities[32],
+        toOneRelations: (Language object) => [],
+        toManyRelations: (Language object) => {},
+        getId: (Language object) => object.idSeq,
+        setId: (Language object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (Language object, fb.Builder fbb) {
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          final languageCultureOffset = object.languageCulture == null
+              ? null
+              : fbb.writeString(object.languageCulture!);
+          final uniqueSeoCodeOffset = object.uniqueSeoCode == null
+              ? null
+              : fbb.writeString(object.uniqueSeoCode!);
+          fbb.startTable(7);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, nameOffset);
+          fbb.addOffset(2, fNameOffset);
+          fbb.addOffset(3, languageCultureOffset);
+          fbb.addOffset(4, uniqueSeoCodeOffset);
+          fbb.addBool(5, object.rtl);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final languageCultureParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final uniqueSeoCodeParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final rtlParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final object = Language(
+              name: nameParam,
+              fName: fNameParam,
+              languageCulture: languageCultureParam,
+              uniqueSeoCode: uniqueSeoCodeParam,
+              rtl: rtlParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
     LoginHistory: EntityDefinition<LoginHistory>(
-        model: _entities[30],
+        model: _entities[33],
         toOneRelations: (LoginHistory object) => [],
         toManyRelations: (LoginHistory object) => {},
         getId: (LoginHistory object) => object.id,
@@ -9064,7 +9265,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     LogoData: EntityDefinition<LogoData>(
-        model: _entities[31],
+        model: _entities[34],
         toOneRelations: (LogoData object) => [],
         toManyRelations: (LogoData object) => {},
         getId: (LogoData object) => object.id,
@@ -9100,7 +9301,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     LoyaltySetting: EntityDefinition<LoyaltySetting>(
-        model: _entities[32],
+        model: _entities[35],
         toOneRelations: (LoyaltySetting object) => [],
         toManyRelations: (LoyaltySetting object) => {},
         getId: (LoyaltySetting object) => object.idSeq,
@@ -9178,7 +9379,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Menu: EntityDefinition<Menu>(
-        model: _entities[33],
+        model: _entities[36],
         toOneRelations: (Menu object) => [],
         toManyRelations: (Menu object) => {
               RelInfo<Menu>.toMany(10, object.idSeq!): object.departments,
@@ -9232,7 +9433,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     MenuCategory: EntityDefinition<MenuCategory>(
-        model: _entities[34],
+        model: _entities[37],
         toOneRelations: (MenuCategory object) => [],
         toManyRelations: (MenuCategory object) => {},
         getId: (MenuCategory object) => object.idSeq,
@@ -9264,7 +9465,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     MenuDepartment: EntityDefinition<MenuDepartment>(
-        model: _entities[35],
+        model: _entities[38],
         toOneRelations: (MenuDepartment object) => [],
         toManyRelations: (MenuDepartment object) => {},
         getId: (MenuDepartment object) => object.idSeq,
@@ -9296,7 +9497,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     MenuGiftCard: EntityDefinition<MenuGiftCard>(
-        model: _entities[36],
+        model: _entities[39],
         toOneRelations: (MenuGiftCard object) => [],
         toManyRelations: (MenuGiftCard object) => {},
         getId: (MenuGiftCard object) => object.idSeq,
@@ -9328,7 +9529,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     MenuProduct: EntityDefinition<MenuProduct>(
-        model: _entities[37],
+        model: _entities[40],
         toOneRelations: (MenuProduct object) => [],
         toManyRelations: (MenuProduct object) => {},
         getId: (MenuProduct object) => object.idSeq,
@@ -9360,7 +9561,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Modifier: EntityDefinition<Modifier>(
-        model: _entities[38],
+        model: _entities[41],
         toOneRelations: (Modifier object) => [],
         toManyRelations: (Modifier object) =>
             {RelInfo<Modifier>.toMany(14, object.idSeq!): object.options},
@@ -9413,7 +9614,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Option: EntityDefinition<Option>(
-        model: _entities[39],
+        model: _entities[42],
         toOneRelations: (Option object) => [],
         toManyRelations: (Option object) => {},
         getId: (Option object) => object.idSeq,
@@ -9502,7 +9703,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     OrderC: EntityDefinition<OrderC>(
-        model: _entities[40],
+        model: _entities[43],
         toOneRelations: (OrderC object) => [
               object.deliveryCompanyInfo,
               object.customer,
@@ -9563,7 +9764,7 @@ ModelDefinition getObjectBoxModel() {
               object.shiftId == null ? null : fbb.writeString(object.shiftId!);
           final tillIdOffset =
               object.tillId == null ? null : fbb.writeString(object.tillId!);
-          fbb.startTable(41);
+          fbb.startTable(40);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, invoiceNumberOffset);
           fbb.addOffset(2, deviceIdOffset);
@@ -9582,27 +9783,27 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(15, tableIdOffset);
           fbb.addOffset(16, tableCaptionOffset);
           fbb.addInt64(17, object.numberVistor);
-          fbb.addInt64(18, object.customer.targetId);
-          fbb.addInt64(19, object.address.targetId);
-          fbb.addInt64(20, object.promotion.targetId);
-          fbb.addInt64(21, object.discount.targetId);
-          fbb.addFloat64(22, object.priceDiscount);
-          fbb.addFloat64(23, object.pricePromotion);
-          fbb.addOffset(24, noteOffset);
-          fbb.addOffset(25, kitchenNoteOffset);
-          fbb.addOffset(26, msgCanselOffset);
-          fbb.addFloat64(27, object.subTotal);
-          fbb.addOffset(28, checksumOffset);
-          fbb.addOffset(29, masterChecksumOffset);
-          fbb.addOffset(30, serverChecksumOffset);
-          fbb.addFloat64(31, object.totalFee);
-          fbb.addFloat64(32, object.taxPrice);
-          fbb.addFloat64(33, object.totalDiscountForOrderAndProduct);
+          fbb.addFloat64(18, object.minimumReservationPrice);
+          fbb.addInt64(19, object.customer.targetId);
+          fbb.addInt64(20, object.address.targetId);
+          fbb.addInt64(21, object.promotion.targetId);
+          fbb.addInt64(22, object.discount.targetId);
+          fbb.addFloat64(23, object.priceDiscount);
+          fbb.addFloat64(24, object.pricePromotion);
+          fbb.addOffset(25, noteOffset);
+          fbb.addOffset(26, kitchenNoteOffset);
+          fbb.addOffset(27, msgCanselOffset);
+          fbb.addFloat64(28, object.subTotal);
+          fbb.addOffset(29, checksumOffset);
+          fbb.addOffset(30, masterChecksumOffset);
+          fbb.addOffset(31, serverChecksumOffset);
+          fbb.addFloat64(32, object.totalFee);
+          fbb.addFloat64(33, object.taxPrice);
           fbb.addFloat64(34, object.totalPaid);
           fbb.addOffset(35, shiftIdOffset);
           fbb.addOffset(36, tillIdOffset);
           fbb.addFloat64(37, object.totalCalories);
-          fbb.addFloat64(38, object.minimumReservationPrice);
+          fbb.addFloat64(38, object.totalDiscountForOrderAndProduct);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9651,29 +9852,29 @@ ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 36)
             ..numberVistor =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 38)
+            ..minimumReservationPrice = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 40)
             ..priceDiscount = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 48)
-            ..pricePromotion = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 50)
-            ..note = const fb.StringReader(asciiOptimization: true)
+            ..pricePromotion = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 52)
-            ..kitchenNote = const fb.StringReader(asciiOptimization: true)
+            ..note = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 54)
-            ..msgCansel = const fb.StringReader(asciiOptimization: true)
+            ..kitchenNote = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 56)
+            ..msgCansel = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 58)
             ..subTotal =
-                const fb.Float64Reader().vTableGet(buffer, rootOffset, 58, 0)
+                const fb.Float64Reader().vTableGet(buffer, rootOffset, 60, 0)
             ..checksum = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 60)
-            ..masterChecksum = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 62)
-            ..serverChecksum = const fb.StringReader(asciiOptimization: true)
+            ..masterChecksum = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 64)
-            ..totalFee = const fb.Float64Reader()
+            ..serverChecksum = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 66)
-            ..taxPrice = const fb.Float64Reader()
+            ..totalFee = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 68)
-            ..totalDiscountForOrderAndProduct = const fb.Float64Reader()
+            ..taxPrice = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 70)
             ..totalPaid = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 72)
@@ -9683,22 +9884,22 @@ ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 76)
             ..totalCalories = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 78)
-            ..minimumReservationPrice = const fb.Float64Reader()
+            ..totalDiscountForOrderAndProduct = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 80);
           object.deliveryCompanyInfo.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
           object.deliveryCompanyInfo.attach(store);
           object.customer.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 40, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 42, 0);
           object.customer.attach(store);
           object.address.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 42, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 44, 0);
           object.address.attach(store);
           object.promotion.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 44, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 46, 0);
           object.promotion.attach(store);
           object.discount.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 46, 0);
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 48, 0);
           object.discount.attach(store);
           InternalToManyAccess.setRelInfo<OrderC>(object.products, store,
               RelInfo<OrderC>.toMany(15, object.idSeq!));
@@ -9711,7 +9912,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PaymentMethod: EntityDefinition<PaymentMethod>(
-        model: _entities[41],
+        model: _entities[44],
         toOneRelations: (PaymentMethod object) => [],
         toManyRelations: (PaymentMethod object) => {},
         getId: (PaymentMethod object) => object.idSeq,
@@ -9778,7 +9979,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PaymentValue: EntityDefinition<PaymentValue>(
-        model: _entities[42],
+        model: _entities[45],
         toOneRelations: (PaymentValue object) => [object.method],
         toManyRelations: (PaymentValue object) => {},
         getId: (PaymentValue object) => object.idSeq,
@@ -9841,7 +10042,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PolicySetting: EntityDefinition<PolicySetting>(
-        model: _entities[43],
+        model: _entities[46],
         toOneRelations: (PolicySetting object) => [],
         toManyRelations: (PolicySetting object) => {},
         getId: (PolicySetting object) => object.idSeq,
@@ -9892,7 +10093,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PosUser: EntityDefinition<PosUser>(
-        model: _entities[44],
+        model: _entities[47],
         toOneRelations: (PosUser object) => [object.cashierSetting],
         toManyRelations: (PosUser object) =>
             {RelInfo<PosUser>.toMany(19, object.idSeq!): object.roles},
@@ -9999,7 +10200,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PriceList: EntityDefinition<PriceList>(
-        model: _entities[45],
+        model: _entities[48],
         toOneRelations: (PriceList object) => [],
         toManyRelations: (PriceList object) => {},
         getId: (PriceList object) => object.idSeq,
@@ -10045,7 +10246,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PriceListValue: EntityDefinition<PriceListValue>(
-        model: _entities[46],
+        model: _entities[49],
         toOneRelations: (PriceListValue object) => [],
         toManyRelations: (PriceListValue object) =>
             {RelInfo<PriceListValue>.toMany(20, object.idSeq!): object.slaps},
@@ -10079,7 +10280,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Printer: EntityDefinition<Printer>(
-        model: _entities[47],
+        model: _entities[50],
         toOneRelations: (Printer object) => [],
         toManyRelations: (Printer object) =>
             {RelInfo<Printer>.toMany(21, object.idSeq!): object.settings},
@@ -10198,7 +10399,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     PrinterSetting: EntityDefinition<PrinterSetting>(
-        model: _entities[48],
+        model: _entities[51],
         toOneRelations: (PrinterSetting object) => [],
         toManyRelations: (PrinterSetting object) => {},
         getId: (PrinterSetting object) => object.idSeq,
@@ -10265,7 +10466,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Product1: EntityDefinition<Product1>(
-        model: _entities[49],
+        model: _entities[52],
         toOneRelations: (Product1 object) => [],
         toManyRelations: (Product1 object) => {
               RelInfo<Product1>.toMany(22, object.idSeq!): object.units,
@@ -10567,7 +10768,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ProductPriceList: EntityDefinition<ProductPriceList>(
-        model: _entities[50],
+        model: _entities[53],
         toOneRelations: (ProductPriceList object) => [],
         toManyRelations: (ProductPriceList object) => {},
         getId: (ProductPriceList object) => object.idSeq,
@@ -10598,7 +10799,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Promotion: EntityDefinition<Promotion>(
-        model: _entities[51],
+        model: _entities[54],
         toOneRelations: (Promotion object) => [],
         toManyRelations: (Promotion object) => {},
         getId: (Promotion object) => object.idSeq,
@@ -10742,7 +10943,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ReasonsCanceling: EntityDefinition<ReasonsCanceling>(
-        model: _entities[52],
+        model: _entities[55],
         toOneRelations: (ReasonsCanceling object) => [],
         toManyRelations: (ReasonsCanceling object) => {},
         getId: (ReasonsCanceling object) => object.idSeq,
@@ -10781,7 +10982,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ReasonsDrawerOpen: EntityDefinition<ReasonsDrawerOpen>(
-        model: _entities[53],
+        model: _entities[56],
         toOneRelations: (ReasonsDrawerOpen object) => [],
         toManyRelations: (ReasonsDrawerOpen object) => {},
         getId: (ReasonsDrawerOpen object) => object.idSeq,
@@ -10820,7 +11021,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     ResturantSection: EntityDefinition<ResturantSection>(
-        model: _entities[54],
+        model: _entities[57],
         toOneRelations: (ResturantSection object) => [],
         toManyRelations: (ResturantSection object) => {
               RelInfo<ResturantSection>.toMany(26, object.idSeq!): object.tables
@@ -10862,7 +11063,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Roles: EntityDefinition<Roles>(
-        model: _entities[55],
+        model: _entities[58],
         toOneRelations: (Roles object) => [],
         toManyRelations: (Roles object) =>
             {RelInfo<Roles>.toMany(27, object.idSeq!): object.claims},
@@ -10896,8 +11097,399 @@ ModelDefinition getObjectBoxModel() {
               object.claims, store, RelInfo<Roles>.toMany(27, object.idSeq!));
           return object;
         }),
+    SalesInvoiceTemplates: EntityDefinition<SalesInvoiceTemplates>(
+        model: _entities[59],
+        toOneRelations: (SalesInvoiceTemplates object) => [],
+        toManyRelations: (SalesInvoiceTemplates object) => {},
+        getId: (SalesInvoiceTemplates object) => object.idSeq,
+        setId: (SalesInvoiceTemplates object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (SalesInvoiceTemplates object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          final printedTitleOffset = object.printedTitle == null
+              ? null
+              : fbb.writeString(object.printedTitle!);
+          final fPrintedTitleOffset = object.fPrintedTitle == null
+              ? null
+              : fbb.writeString(object.fPrintedTitle!);
+          final headerInvoiceMessageOffset = object.headerInvoiceMessage == null
+              ? null
+              : fbb.writeString(object.headerInvoiceMessage!);
+          final fHeaderInvoiceMessageOffset =
+              object.fHeaderInvoiceMessage == null
+                  ? null
+                  : fbb.writeString(object.fHeaderInvoiceMessage!);
+          final footerInvoiceMessageOffset = object.footerInvoiceMessage == null
+              ? null
+              : fbb.writeString(object.footerInvoiceMessage!);
+          final fFooterInvoiceMessageOffset =
+              object.fFooterInvoiceMessage == null
+                  ? null
+                  : fbb.writeString(object.fFooterInvoiceMessage!);
+          final printLanguageOffset = object.printLanguage == null
+              ? null
+              : fbb.writeString(object.printLanguage!);
+          final printerPaperSizeOffset = object.printerPaperSize == null
+              ? null
+              : fbb.writeString(object.printerPaperSize!);
+          final printerPaperDirectionOffset =
+              object.printerPaperDirection == null
+                  ? null
+                  : fbb.writeString(object.printerPaperDirection!);
+          final invoiceCategoryOffset = object.invoiceCategory == null
+              ? null
+              : fbb.writeString(object.invoiceCategory!);
+          final defaultLanguageOffset = object.defaultLanguage == null
+              ? null
+              : fbb.writeString(object.defaultLanguage!);
+          final secondLanguageOffset = object.secondLanguage == null
+              ? null
+              : fbb.writeString(object.secondLanguage!);
+          final orderTypesOffset = object.orderTypes == null
+              ? null
+              : fbb.writeListInt64(object.orderTypes!);
+          final usersOffset = object.users == null
+              ? null
+              : fbb.writeList(
+                  object.users!.map(fbb.writeString).toList(growable: false));
+          final defaultCodeOffset = object.defaultCode == null
+              ? null
+              : fbb.writeString(object.defaultCode!);
+          final secondCodeOffset = object.secondCode == null
+              ? null
+              : fbb.writeString(object.secondCode!);
+          final pointsMessageOffset = object.pointsMessage == null
+              ? null
+              : fbb.writeString(object.pointsMessage!);
+          final fPointsMessageOffset = object.fPointsMessage == null
+              ? null
+              : fbb.writeString(object.fPointsMessage!);
+          fbb.startTable(52);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addOffset(4, printedTitleOffset);
+          fbb.addOffset(5, fPrintedTitleOffset);
+          fbb.addOffset(6, headerInvoiceMessageOffset);
+          fbb.addOffset(7, fHeaderInvoiceMessageOffset);
+          fbb.addOffset(8, footerInvoiceMessageOffset);
+          fbb.addOffset(9, fFooterInvoiceMessageOffset);
+          fbb.addBool(10, object.printCompanyName);
+          fbb.addBool(11, object.printBranchName);
+          fbb.addBool(12, object.printCRNo);
+          fbb.addBool(13, object.printBankAccount);
+          fbb.addBool(14, object.printTaxNumber);
+          fbb.addBool(15, object.printPaymentType);
+          fbb.addBool(16, object.printOrderType);
+          fbb.addBool(17, object.printOrderNumber);
+          fbb.addBool(18, object.printUnitSize);
+          fbb.addBool(19, object.printProductSecondaryName);
+          fbb.addBool(20, object.printCalories);
+          fbb.addBool(21, object.printSubTotal);
+          fbb.addBool(22, object.printRoundDigit);
+          fbb.addBool(23, object.printProductUnit);
+          fbb.addBool(24, object.printProductUnitPrice);
+          fbb.addBool(25, object.printProductTotalPrice);
+          fbb.addBool(26, object.printProductDiscountPrice);
+          fbb.addBool(27, object.printProductFreeQuantity);
+          fbb.addBool(28, object.printProductTotalPriceBeforeTax);
+          fbb.addBool(29, object.printProductTaxAmount);
+          fbb.addBool(30, object.printProductTaxPercentage);
+          fbb.addBool(31, object.printProductTotalPriceAfterDiscount);
+          fbb.addBool(32, object.printProductTotalPriceIncludeTax);
+          fbb.addBool(33, object.printOrderClosedUser);
+          fbb.addBool(34, object.printOrderCreatedUser);
+          fbb.addBool(35, object.printCheckNumber);
+          fbb.addBool(36, object.hideFreeModifierOptions);
+          fbb.addBool(37, object.autoPrintOnSave);
+          fbb.addOffset(38, printLanguageOffset);
+          fbb.addOffset(39, printerPaperSizeOffset);
+          fbb.addOffset(40, printerPaperDirectionOffset);
+          fbb.addOffset(41, invoiceCategoryOffset);
+          fbb.addOffset(42, defaultLanguageOffset);
+          fbb.addOffset(43, secondLanguageOffset);
+          fbb.addOffset(44, orderTypesOffset);
+          fbb.addOffset(45, usersOffset);
+          fbb.addOffset(46, defaultCodeOffset);
+          fbb.addOffset(47, secondCodeOffset);
+          fbb.addOffset(48, pointsMessageOffset);
+          fbb.addOffset(49, fPointsMessageOffset);
+          fbb.addBool(50, object.printCustomerPoints);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final headerInvoiceMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final fHeaderInvoiceMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final footerInvoiceMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final fFooterInvoiceMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final printCompanyNameParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final printBranchNameParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
+          final printCRNoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
+          final printBankAccountParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30);
+          final printTaxNumberParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
+          final printPaymentTypeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+          final printOrderTypeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 36);
+          final printOrderNumberParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38);
+          final printUnitSizeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 40);
+          final printProductSecondaryNameParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 42);
+          final printCaloriesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
+          final printSubTotalParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 46);
+          final printRoundDigitParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
+          final printProductUnitParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
+          final printProductUnitPriceParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
+          final printProductTotalPriceParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
+          final printProductDiscountPriceParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 56);
+          final printProductFreeQuantityParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 58);
+          final printProductTotalPriceBeforeTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 60);
+          final printProductTaxAmountParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 62);
+          final printProductTaxPercentageParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 64);
+          final printProductTotalPriceAfterDiscountParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66);
+          final printProductTotalPriceIncludeTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 68);
+          final printOrderClosedUserParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 70);
+          final printOrderCreatedUserParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 72);
+          final printCheckNumberParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 74);
+          final hideFreeModifierOptionsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 76);
+          final autoPrintOnSaveParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 78);
+          final printLanguageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 80);
+          final printerPaperSizeParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 82);
+          final printerPaperDirectionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 84);
+          final invoiceCategoryParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 86);
+          final defaultLanguageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 88);
+          final secondLanguageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 90);
+          final orderTypesParam =
+              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
+                  .vTableGetNullable(buffer, rootOffset, 92);
+          final usersParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 94);
+          final printedTitleParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final fPrintedTitleParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final defaultCodeParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 96);
+          final secondCodeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 98);
+          final pointsMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 100);
+          final fPointsMessageParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 102);
+          final printCustomerPointsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
+          final object = SalesInvoiceTemplates(
+              id: idParam,
+              name: nameParam,
+              fName: fNameParam,
+              headerInvoiceMessage: headerInvoiceMessageParam,
+              fHeaderInvoiceMessage: fHeaderInvoiceMessageParam,
+              footerInvoiceMessage: footerInvoiceMessageParam,
+              fFooterInvoiceMessage: fFooterInvoiceMessageParam,
+              printCompanyName: printCompanyNameParam,
+              printBranchName: printBranchNameParam,
+              printCRNo: printCRNoParam,
+              printBankAccount: printBankAccountParam,
+              printTaxNumber: printTaxNumberParam,
+              printPaymentType: printPaymentTypeParam,
+              printOrderType: printOrderTypeParam,
+              printOrderNumber: printOrderNumberParam,
+              printUnitSize: printUnitSizeParam,
+              printProductSecondaryName: printProductSecondaryNameParam,
+              printCalories: printCaloriesParam,
+              printSubTotal: printSubTotalParam,
+              printRoundDigit: printRoundDigitParam,
+              printProductUnit: printProductUnitParam,
+              printProductUnitPrice: printProductUnitPriceParam,
+              printProductTotalPrice: printProductTotalPriceParam,
+              printProductDiscountPrice: printProductDiscountPriceParam,
+              printProductFreeQuantity: printProductFreeQuantityParam,
+              printProductTotalPriceBeforeTax:
+                  printProductTotalPriceBeforeTaxParam,
+              printProductTaxAmount: printProductTaxAmountParam,
+              printProductTaxPercentage: printProductTaxPercentageParam,
+              printProductTotalPriceAfterDiscount:
+                  printProductTotalPriceAfterDiscountParam,
+              printProductTotalPriceIncludeTax:
+                  printProductTotalPriceIncludeTaxParam,
+              printOrderClosedUser: printOrderClosedUserParam,
+              printOrderCreatedUser: printOrderCreatedUserParam,
+              printCheckNumber: printCheckNumberParam,
+              hideFreeModifierOptions: hideFreeModifierOptionsParam,
+              autoPrintOnSave: autoPrintOnSaveParam,
+              printLanguage: printLanguageParam,
+              printerPaperSize: printerPaperSizeParam,
+              printerPaperDirection: printerPaperDirectionParam,
+              invoiceCategory: invoiceCategoryParam,
+              defaultLanguage: defaultLanguageParam,
+              secondLanguage: secondLanguageParam,
+              orderTypes: orderTypesParam,
+              users: usersParam,
+              printedTitle: printedTitleParam,
+              fPrintedTitle: fPrintedTitleParam,
+              defaultCode: defaultCodeParam,
+              secondCode: secondCodeParam,
+              pointsMessage: pointsMessageParam,
+              fPointsMessage: fPointsMessageParam,
+              printCustomerPoints: printCustomerPointsParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
+    SalesInvoiceTemplatesA4: EntityDefinition<SalesInvoiceTemplatesA4>(
+        model: _entities[60],
+        toOneRelations: (SalesInvoiceTemplatesA4 object) => [],
+        toManyRelations: (SalesInvoiceTemplatesA4 object) => {},
+        getId: (SalesInvoiceTemplatesA4 object) => object.idSeq,
+        setId: (SalesInvoiceTemplatesA4 object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (SalesInvoiceTemplatesA4 object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          final menuNameOffset = object.menuName == null
+              ? null
+              : fbb.writeString(object.menuName!);
+          final fMenuNameOffset = object.fMenuName == null
+              ? null
+              : fbb.writeString(object.fMenuName!);
+          final titleOffset =
+              object.title == null ? null : fbb.writeString(object.title!);
+          final fTitleOffset =
+              object.fTitle == null ? null : fbb.writeString(object.fTitle!);
+          final appsFormPathOffset = object.appsFormPath == null
+              ? null
+              : fbb.writeString(object.appsFormPath!);
+          fbb.startTable(12);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addOffset(4, menuNameOffset);
+          fbb.addOffset(5, fMenuNameOffset);
+          fbb.addOffset(6, titleOffset);
+          fbb.addOffset(7, fTitleOffset);
+          fbb.addInt64(8, object.printLanguage);
+          fbb.addInt64(9, object.invoiceCategory);
+          fbb.addOffset(10, appsFormPathOffset);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final menuNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final fMenuNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final titleParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final fTitleParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 18);
+          final printLanguageParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final invoiceCategoryParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
+          final appsFormPathParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final object = SalesInvoiceTemplatesA4(
+              id: idParam,
+              name: nameParam,
+              fName: fNameParam,
+              menuName: menuNameParam,
+              fMenuName: fMenuNameParam,
+              title: titleParam,
+              fTitle: fTitleParam,
+              printLanguage: printLanguageParam,
+              invoiceCategory: invoiceCategoryParam,
+              appsFormPath: appsFormPathParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
     Shift: EntityDefinition<Shift>(
-        model: _entities[56],
+        model: _entities[61],
         toOneRelations: (Shift object) => [],
         toManyRelations: (Shift object) => {},
         getId: (Shift object) => object.id,
@@ -10994,7 +11586,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Slaps: EntityDefinition<Slaps>(
-        model: _entities[57],
+        model: _entities[62],
         toOneRelations: (Slaps object) => [],
         toManyRelations: (Slaps object) => {},
         getId: (Slaps object) => object.idSeq,
@@ -11032,7 +11624,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     Table: EntityDefinition<Table>(
-        model: _entities[58],
+        model: _entities[63],
         toOneRelations: (Table object) => [],
         toManyRelations: (Table object) => {},
         getId: (Table object) => object.idSeq,
@@ -11096,10 +11688,10 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     TaxC: EntityDefinition<TaxC>(
-        model: _entities[59],
+        model: _entities[64],
         toOneRelations: (TaxC object) => [],
         toManyRelations: (TaxC object) =>
-            {RelInfo<TaxC>.toMany(32, object.idSeq!): object.periods},
+            {RelInfo<TaxC>.toMany(28, object.idSeq!): object.periods},
         getId: (TaxC object) => object.idSeq,
         setId: (TaxC object, int id) {
           object.idSeq = id;
@@ -11107,6 +11699,10 @@ ModelDefinition getObjectBoxModel() {
         objectToFB: (TaxC object, fb.Builder fbb) {
           final taxNameOffset =
               object.taxName == null ? null : fbb.writeString(object.taxName!);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
           final idOffset =
               object.id == null ? null : fbb.writeString(object.id!);
           final orderTypesOffset = object.orderTypes == null
@@ -11122,24 +11718,20 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.exceptCustomers!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
           fbb.startTable(14);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, taxNameOffset);
-          fbb.addOffset(2, idOffset);
-          fbb.addFloat64(3, object.taxPercentage);
-          fbb.addBool(4, object.customerTaxable);
-          fbb.addOffset(5, orderTypesOffset);
-          fbb.addOffset(6, taxCodeOffset);
-          fbb.addOffset(7, taxAccountOffset);
-          fbb.addBool(8, object.isTaxExempt);
-          fbb.addBool(9, object.zeroTax);
-          fbb.addOffset(10, exceptCustomersOffset);
-          fbb.addOffset(11, nameOffset);
-          fbb.addOffset(12, fNameOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addOffset(4, idOffset);
+          fbb.addFloat64(5, object.taxPercentage);
+          fbb.addBool(6, object.customerTaxable);
+          fbb.addOffset(7, orderTypesOffset);
+          fbb.addOffset(8, taxCodeOffset);
+          fbb.addOffset(9, taxAccountOffset);
+          fbb.addBool(10, object.isTaxExempt);
+          fbb.addBool(11, object.zeroTax);
+          fbb.addOffset(12, exceptCustomersOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -11147,28 +11739,28 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
           final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
+              .vTableGetNullable(buffer, rootOffset, 12);
           final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 26);
+              .vTableGetNullable(buffer, rootOffset, 8);
           final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 28);
+              .vTableGetNullable(buffer, rootOffset, 10);
           final taxNameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 6);
           final taxPercentageParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 10);
+              .vTableGetNullable(buffer, rootOffset, 14);
           final orderTypesParam =
               const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
-                  .vTableGetNullable(buffer, rootOffset, 14);
+                  .vTableGetNullable(buffer, rootOffset, 18);
           final customerTaxableParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16);
           final exceptCustomersParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 24);
+              .vTableGetNullable(buffer, rootOffset, 28);
           final taxAccountParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 18);
+              .vTableGetNullable(buffer, rootOffset, 22);
           final taxCodeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 16);
+              .vTableGetNullable(buffer, rootOffset, 20);
           final object = TaxC(
               id: idParam,
               name: nameParam,
@@ -11183,15 +11775,15 @@ ModelDefinition getObjectBoxModel() {
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
             ..isTaxExempt =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 20)
+                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24)
             ..zeroTax =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
+                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
           InternalToManyAccess.setRelInfo<TaxC>(
-              object.periods, store, RelInfo<TaxC>.toMany(32, object.idSeq!));
+              object.periods, store, RelInfo<TaxC>.toMany(28, object.idSeq!));
           return object;
         }),
     TaxGroup: EntityDefinition<TaxGroup>(
-        model: _entities[60],
+        model: _entities[65],
         toOneRelations: (TaxGroup object) => [],
         toManyRelations: (TaxGroup object) => {},
         getId: (TaxGroup object) => object.idSeq,
@@ -11243,7 +11835,7 @@ ModelDefinition getObjectBoxModel() {
           return object;
         }),
     TaxInfo: EntityDefinition<TaxInfo>(
-        model: _entities[61],
+        model: _entities[66],
         toOneRelations: (TaxInfo object) => [],
         toManyRelations: (TaxInfo object) => {},
         getId: (TaxInfo object) => object.idSeq,
@@ -11274,479 +11866,8 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    TaxSetting: EntityDefinition<TaxSetting>(
-        model: _entities[62],
-        toOneRelations: (TaxSetting object) => [],
-        toManyRelations: (TaxSetting object) => {},
-        getId: (TaxSetting object) => object.idSeq,
-        setId: (TaxSetting object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (TaxSetting object, fb.Builder fbb) {
-          fbb.startTable(6);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addBool(1, object.enableSalesTax);
-          fbb.addBool(2, object.salesPriceIncludeTax);
-          fbb.addBool(3, object.enableCustomerSupplierTax);
-          fbb.addFloat64(4, object.taxRoundFactor);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final enableSalesTaxParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 6);
-          final salesPriceIncludeTaxParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
-          final enableCustomerSupplierTaxParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
-          final taxRoundFactorParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 12);
-          final object = TaxSetting(
-              enableSalesTax: enableSalesTaxParam,
-              salesPriceIncludeTax: salesPriceIncludeTaxParam,
-              enableCustomerSupplierTax: enableCustomerSupplierTaxParam,
-              taxRoundFactor: taxRoundFactorParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-
-          return object;
-        }),
-    ThrowbackInfo: EntityDefinition<ThrowbackInfo>(
-        model: _entities[63],
-        toOneRelations: (ThrowbackInfo object) => [],
-        toManyRelations: (ThrowbackInfo object) => {},
-        getId: (ThrowbackInfo object) => object.idSeq,
-        setId: (ThrowbackInfo object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (ThrowbackInfo object, fb.Builder fbb) {
-          final productRefOffset = object.productRef == null
-              ? null
-              : fbb.writeString(object.productRef!);
-          final refOffset =
-              object.ref == null ? null : fbb.writeString(object.ref!);
-          fbb.startTable(6);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, productRefOffset);
-          fbb.addFloat64(2, object.quantity);
-          fbb.addBool(3, object.isWaste);
-          fbb.addOffset(4, refOffset);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final refParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 12);
-          final productRefParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final quantityParam =
-              const fb.Float64Reader().vTableGet(buffer, rootOffset, 8, 0);
-          final isWasteParam =
-              const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
-          final object = ThrowbackInfo(
-              ref: refParam,
-              productRef: productRefParam,
-              quantity: quantityParam,
-              isWaste: isWasteParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-
-          return object;
-        }),
-    TimeEvent: EntityDefinition<TimeEvent>(
-        model: _entities[64],
-        toOneRelations: (TimeEvent object) => [],
-        toManyRelations: (TimeEvent object) => {},
-        getId: (TimeEvent object) => object.idSeq,
-        setId: (TimeEvent object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (TimeEvent object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
-          final startDateOffset = object.startDate == null
-              ? null
-              : fbb.writeString(object.startDate!);
-          final endDateOffset =
-              object.endDate == null ? null : fbb.writeString(object.endDate!);
-          final startTimeOffset = object.startTime == null
-              ? null
-              : fbb.writeString(object.startTime!);
-          final endTimeOffset =
-              object.endTime == null ? null : fbb.writeString(object.endTime!);
-          final daysOffset =
-              object.days == null ? null : fbb.writeListInt64(object.days!);
-          final orderTypesOffset = object.orderTypes == null
-              ? null
-              : fbb.writeListInt64(object.orderTypes!);
-          final productsOffset = object.products == null
-              ? null
-              : fbb.writeList(object.products!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final customersOffset = object.customers == null
-              ? null
-              : fbb.writeList(object.customers!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final departmentsOffset = object.departments == null
-              ? null
-              : fbb.writeList(object.departments!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final categoriesOffset = object.categories == null
-              ? null
-              : fbb.writeList(object.categories!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          fbb.startTable(18);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addOffset(2, nameOffset);
-          fbb.addOffset(3, fNameOffset);
-          fbb.addInt64(4, object.timeEventType);
-          fbb.addFloat64(5, object.timeEventValue);
-          fbb.addOffset(6, startDateOffset);
-          fbb.addOffset(7, endDateOffset);
-          fbb.addOffset(8, startTimeOffset);
-          fbb.addOffset(9, endTimeOffset);
-          fbb.addOffset(10, daysOffset);
-          fbb.addOffset(11, orderTypesOffset);
-          fbb.addOffset(12, productsOffset);
-          fbb.addOffset(13, customersOffset);
-          fbb.addOffset(14, departmentsOffset);
-          fbb.addOffset(15, categoriesOffset);
-          fbb.addInt64(16, object.priority);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final timeEventTypeParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
-          final timeEventValueParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 14);
-          final startDateParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 16);
-          final endDateParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 18);
-          final startTimeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 20);
-          final endTimeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 22);
-          final daysParam =
-              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
-                  .vTableGetNullable(buffer, rootOffset, 24);
-          final orderTypesParam =
-              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
-                  .vTableGetNullable(buffer, rootOffset, 26);
-          final productsParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 28);
-          final object = TimeEvent(
-              id: idParam,
-              name: nameParam,
-              fName: fNameParam,
-              timeEventType: timeEventTypeParam,
-              timeEventValue: timeEventValueParam,
-              startDate: startDateParam,
-              endDate: endDateParam,
-              startTime: startTimeParam,
-              endTime: endTimeParam,
-              days: daysParam,
-              orderTypes: orderTypesParam,
-              products: productsParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..customers = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 30)
-            ..departments = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 32)
-            ..categories = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 34)
-            ..priority =
-                const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0);
-
-          return object;
-        }),
-    Transaction: EntityDefinition<Transaction>(
-        model: _entities[65],
-        toOneRelations: (Transaction object) => [],
-        toManyRelations: (Transaction object) => {},
-        getId: (Transaction object) => object.idSeq,
-        setId: (Transaction object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (Transaction object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final refIdOffset =
-              object.refId == null ? null : fbb.writeString(object.refId!);
-          final toAcountOffset = object.toAcount == null
-              ? null
-              : fbb.writeString(object.toAcount!);
-          final createByOffset = object.createBy == null
-              ? null
-              : fbb.writeString(object.createBy!);
-          final dateOffset =
-              object.date == null ? null : fbb.writeString(object.date!);
-          fbb.startTable(8);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addOffset(2, refIdOffset);
-          fbb.addOffset(3, toAcountOffset);
-          fbb.addFloat64(4, object.amt);
-          fbb.addOffset(5, createByOffset);
-          fbb.addOffset(6, dateOffset);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final refIdParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final toAcountParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final amtParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 12);
-          final createByParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 14);
-          final dateParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 16);
-          final object = Transaction(
-              id: idParam,
-              refId: refIdParam,
-              toAcount: toAcountParam,
-              amt: amtParam,
-              createBy: createByParam,
-              date: dateParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-
-          return object;
-        }),
-    Unit: EntityDefinition<Unit>(
-        model: _entities[66],
-        toOneRelations: (Unit object) => [],
-        toManyRelations: (Unit object) => {
-              RelInfo<Unit>.toMany(28, object.idSeq!): object.priceList,
-              RelInfo<Unit>.toMany(29, object.idSeq!): object.modifiers
-            },
-        getId: (Unit object) => object.idSeq,
-        setId: (Unit object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (Unit object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
-          final barcodeOffset =
-              object.barcode == null ? null : fbb.writeString(object.barcode!);
-          fbb.startTable(14);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addOffset(2, nameOffset);
-          fbb.addOffset(3, fNameOffset);
-          fbb.addOffset(4, barcodeOffset);
-          fbb.addFloat64(5, object.price);
-          fbb.addFloat64(6, object.cost);
-          fbb.addFloat64(7, object.factor);
-          fbb.addBool(8, object.defaultForSales);
-          fbb.addBool(9, object.defaultForPurchase);
-          fbb.addBool(10, object.defaultForStore);
-          fbb.addBool(11, object.showAlertPreparationTime);
-          fbb.addInt64(12, object.priceType);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final barcodeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 12);
-          final priceParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 14);
-          final costParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 16);
-          final factorParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 18);
-          final defaultForSalesParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 20);
-          final defaultForPurchaseParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
-          final defaultForStoreParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final showAlertPreparationTimeParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
-          final priceTypeParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 28);
-          final object = Unit(
-              id: idParam,
-              barcode: barcodeParam,
-              price: priceParam,
-              cost: costParam,
-              factor: factorParam,
-              defaultForSales: defaultForSalesParam,
-              defaultForPurchase: defaultForPurchaseParam,
-              defaultForStore: defaultForStoreParam,
-              name: nameParam,
-              fName: fNameParam,
-              showAlertPreparationTime: showAlertPreparationTimeParam,
-              priceType: priceTypeParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-          InternalToManyAccess.setRelInfo<Unit>(
-              object.priceList, store, RelInfo<Unit>.toMany(28, object.idSeq!));
-          InternalToManyAccess.setRelInfo<Unit>(
-              object.modifiers, store, RelInfo<Unit>.toMany(29, object.idSeq!));
-          return object;
-        }),
-    UnitModifer: EntityDefinition<UnitModifer>(
-        model: _entities[67],
-        toOneRelations: (UnitModifer object) => [],
-        toManyRelations: (UnitModifer object) => {
-              RelInfo<UnitModifer>.toMany(30, object.idSeq!):
-                  object.freeOptions,
-              RelInfo<UnitModifer>.toMany(31, object.idSeq!): object.options
-            },
-        getId: (UnitModifer object) => object.idSeq,
-        setId: (UnitModifer object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (UnitModifer object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final defulatOptionsOffset = object.defulatOptions == null
-              ? null
-              : fbb.writeList(object.defulatOptions!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final exceptOptionsOffset = object.exceptOptions == null
-              ? null
-              : fbb.writeList(object.exceptOptions!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
-          fbb.startTable(11);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addInt64(2, object.minimumOptions);
-          fbb.addInt64(3, object.maximumOptions);
-          fbb.addBool(4, object.isUnique);
-          fbb.addBool(5, object.isRequired);
-          fbb.addOffset(6, defulatOptionsOffset);
-          fbb.addOffset(7, exceptOptionsOffset);
-          fbb.addOffset(8, nameOffset);
-          fbb.addOffset(9, fNameOffset);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final minimumOptionsParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
-          final maximumOptionsParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
-          final isUniqueParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
-          final isRequiredParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
-          final defulatOptionsParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 16);
-          final exceptOptionsParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 18);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 20);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 22);
-          final object = UnitModifer(
-              id: idParam,
-              minimumOptions: minimumOptionsParam,
-              maximumOptions: maximumOptionsParam,
-              isUnique: isUniqueParam,
-              isRequired: isRequiredParam,
-              defulatOptions: defulatOptionsParam,
-              exceptOptions: exceptOptionsParam,
-              name: nameParam,
-              fName: fNameParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-          InternalToManyAccess.setRelInfo<UnitModifer>(object.freeOptions,
-              store, RelInfo<UnitModifer>.toMany(30, object.idSeq!));
-          InternalToManyAccess.setRelInfo<UnitModifer>(object.options, store,
-              RelInfo<UnitModifer>.toMany(31, object.idSeq!));
-          return object;
-        }),
-    ViewSettings: EntityDefinition<ViewSettings>(
-        model: _entities[68],
-        toOneRelations: (ViewSettings object) => [],
-        toManyRelations: (ViewSettings object) => {},
-        getId: (ViewSettings object) => object.idSeq,
-        setId: (ViewSettings object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (ViewSettings object, fb.Builder fbb) {
-          fbb.startTable(2);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-
-          final object = ViewSettings()
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-
-          return object;
-        }),
     TaxPeriod: EntityDefinition<TaxPeriod>(
-        model: _entities[69],
+        model: _entities[67],
         toOneRelations: (TaxPeriod object) => [],
         toManyRelations: (TaxPeriod object) => {},
         getId: (TaxPeriod object) => object.idSeq,
@@ -11799,371 +11920,47 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    SalesInvoiceTemplates: EntityDefinition<SalesInvoiceTemplates>(
-        model: _entities[70],
-        toOneRelations: (SalesInvoiceTemplates object) => [],
-        toManyRelations: (SalesInvoiceTemplates object) => {},
-        getId: (SalesInvoiceTemplates object) => object.idSeq,
-        setId: (SalesInvoiceTemplates object, int id) {
+    TaxSetting: EntityDefinition<TaxSetting>(
+        model: _entities[68],
+        toOneRelations: (TaxSetting object) => [],
+        toManyRelations: (TaxSetting object) => {},
+        getId: (TaxSetting object) => object.idSeq,
+        setId: (TaxSetting object, int id) {
           object.idSeq = id;
         },
-        objectToFB: (SalesInvoiceTemplates object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
-          final headerInvoiceMessageOffset = object.headerInvoiceMessage == null
-              ? null
-              : fbb.writeString(object.headerInvoiceMessage!);
-          final fHeaderInvoiceMessageOffset =
-              object.fHeaderInvoiceMessage == null
-                  ? null
-                  : fbb.writeString(object.fHeaderInvoiceMessage!);
-          final footerInvoiceMessageOffset = object.footerInvoiceMessage == null
-              ? null
-              : fbb.writeString(object.footerInvoiceMessage!);
-          final fFooterInvoiceMessageOffset =
-              object.fFooterInvoiceMessage == null
-                  ? null
-                  : fbb.writeString(object.fFooterInvoiceMessage!);
-          final printLanguageOffset = object.printLanguage == null
-              ? null
-              : fbb.writeString(object.printLanguage!);
-          final printerPaperSizeOffset = object.printerPaperSize == null
-              ? null
-              : fbb.writeString(object.printerPaperSize!);
-          final printerPaperDirectionOffset =
-              object.printerPaperDirection == null
-                  ? null
-                  : fbb.writeString(object.printerPaperDirection!);
-          final invoiceCategoryOffset = object.invoiceCategory == null
-              ? null
-              : fbb.writeString(object.invoiceCategory!);
-          final defaultLanguageOffset = object.defaultLanguage == null
-              ? null
-              : fbb.writeString(object.defaultLanguage!);
-          final secondLanguageOffset = object.secondLanguage == null
-              ? null
-              : fbb.writeString(object.secondLanguage!);
-          final orderTypesOffset = object.orderTypes == null
-              ? null
-              : fbb.writeListInt64(object.orderTypes!);
-          final usersOffset = object.users == null
-              ? null
-              : fbb.writeList(
-                  object.users!.map(fbb.writeString).toList(growable: false));
-          final defaultCodeOffset = object.defaultCode == null
-              ? null
-              : fbb.writeString(object.defaultCode!);
-          final secondCodeOffset = object.secondCode == null
-              ? null
-              : fbb.writeString(object.secondCode!);
-          final printedTitleOffset = object.printedTitle == null
-              ? null
-              : fbb.writeString(object.printedTitle!);
-          final fPrintedTitleOffset = object.fPrintedTitle == null
-              ? null
-              : fbb.writeString(object.fPrintedTitle!);
-          final pointsMessageOffset = object.pointsMessage == null
-              ? null
-              : fbb.writeString(object.pointsMessage!);
-          final fPointsMessageOffset = object.fPointsMessage == null
-              ? null
-              : fbb.writeString(object.fPointsMessage!);
-          fbb.startTable(52);
+        objectToFB: (TaxSetting object, fb.Builder fbb) {
+          fbb.startTable(6);
           fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addOffset(2, nameOffset);
-          fbb.addOffset(3, fNameOffset);
-          fbb.addOffset(4, headerInvoiceMessageOffset);
-          fbb.addOffset(5, fHeaderInvoiceMessageOffset);
-          fbb.addOffset(6, footerInvoiceMessageOffset);
-          fbb.addOffset(7, fFooterInvoiceMessageOffset);
-          fbb.addBool(8, object.printPaymentType);
-          fbb.addBool(9, object.printOrderNumber);
-          fbb.addBool(10, object.printCalories);
-          fbb.addBool(11, object.printSubTotal);
-          fbb.addBool(12, object.printRoundDigit);
-          fbb.addBool(13, object.printProductUnit);
-          fbb.addBool(14, object.printProductUnitPrice);
-          fbb.addBool(15, object.printProductTotalPrice);
-          fbb.addBool(16, object.printProductDiscountPrice);
-          fbb.addBool(17, object.printProductFreeQuantity);
-          fbb.addBool(18, object.printProductTotalPriceBeforeTax);
-          fbb.addBool(19, object.printProductTaxAmount);
-          fbb.addBool(20, object.printProductTaxPercentage);
-          fbb.addBool(21, object.printProductTotalPriceAfterDiscount);
-          fbb.addBool(22, object.printProductTotalPriceIncludeTax);
-          fbb.addBool(23, object.printOrderClosedUser);
-          fbb.addBool(24, object.printOrderCreatedUser);
-          fbb.addBool(25, object.printCheckNumber);
-          fbb.addBool(26, object.hideFreeModifierOptions);
-          fbb.addBool(27, object.autoPrintOnSave);
-          fbb.addOffset(28, printLanguageOffset);
-          fbb.addOffset(29, printerPaperSizeOffset);
-          fbb.addOffset(30, printerPaperDirectionOffset);
-          fbb.addOffset(31, invoiceCategoryOffset);
-          fbb.addOffset(32, defaultLanguageOffset);
-          fbb.addOffset(33, secondLanguageOffset);
-          fbb.addOffset(34, orderTypesOffset);
-          fbb.addOffset(35, usersOffset);
-          fbb.addBool(36, object.printCompanyName);
-          fbb.addBool(37, object.printBranchName);
-          fbb.addBool(38, object.printCRNo);
-          fbb.addBool(39, object.printBankAccount);
-          fbb.addBool(40, object.printTaxNumber);
-          fbb.addBool(41, object.printOrderType);
-          fbb.addBool(42, object.printUnitSize);
-          fbb.addBool(43, object.printProductSecondaryName);
-          fbb.addOffset(44, defaultCodeOffset);
-          fbb.addOffset(45, secondCodeOffset);
-          fbb.addOffset(46, printedTitleOffset);
-          fbb.addOffset(47, fPrintedTitleOffset);
-          fbb.addOffset(48, pointsMessageOffset);
-          fbb.addOffset(49, fPointsMessageOffset);
-          fbb.addBool(50, object.printCustomerPoints);
+          fbb.addBool(1, object.enableSalesTax);
+          fbb.addBool(2, object.salesPriceIncludeTax);
+          fbb.addBool(3, object.enableCustomerSupplierTax);
+          fbb.addFloat64(4, object.taxRoundFactor);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
         objectFromFB: (Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final headerInvoiceMessageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
-          final fHeaderInvoiceMessageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 14);
-          final footerInvoiceMessageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 16);
-          final fFooterInvoiceMessageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 18);
-          final printCompanyNameParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 76);
-          final printBranchNameParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 78);
-          final printCRNoParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 80);
-          final printBankAccountParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 82);
-          final printTaxNumberParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 84);
-          final printPaymentTypeParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 20);
-          final printOrderTypeParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 86);
-          final printOrderNumberParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
-          final printUnitSizeParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 88);
-          final printProductSecondaryNameParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 90);
-          final printCaloriesParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
-          final printSubTotalParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
-          final printRoundDigitParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
-          final printProductUnitParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30);
-          final printProductUnitPriceParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
-          final printProductTotalPriceParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
-          final printProductDiscountPriceParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 36);
-          final printProductFreeQuantityParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38);
-          final printProductTotalPriceBeforeTaxParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 40);
-          final printProductTaxAmountParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 42);
-          final printProductTaxPercentageParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
-          final printProductTotalPriceAfterDiscountParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 46);
-          final printProductTotalPriceIncludeTaxParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
-          final printOrderClosedUserParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
-          final printOrderCreatedUserParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
-          final printCheckNumberParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
-          final hideFreeModifierOptionsParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 56);
-          final autoPrintOnSaveParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 58);
-          final printLanguageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 60);
-          final printerPaperSizeParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 62);
-          final printerPaperDirectionParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 64);
-          final invoiceCategoryParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 66);
-          final defaultLanguageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 68);
-          final secondLanguageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 70);
-          final orderTypesParam =
-              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
-                  .vTableGetNullable(buffer, rootOffset, 72);
-          final usersParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 74);
-          final printedTitleParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 96);
-          final fPrintedTitleParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 98);
-          final defaultCodeParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 92);
-          final secondCodeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 94);
-          final pointsMessageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 100);
-          final fPointsMessageParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 102);
-          final printCustomerPointsParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
-          final object = SalesInvoiceTemplates(
-              id: idParam,
-              name: nameParam,
-              fName: fNameParam,
-              headerInvoiceMessage: headerInvoiceMessageParam,
-              fHeaderInvoiceMessage: fHeaderInvoiceMessageParam,
-              footerInvoiceMessage: footerInvoiceMessageParam,
-              fFooterInvoiceMessage: fFooterInvoiceMessageParam,
-              printCompanyName: printCompanyNameParam,
-              printBranchName: printBranchNameParam,
-              printCRNo: printCRNoParam,
-              printBankAccount: printBankAccountParam,
-              printTaxNumber: printTaxNumberParam,
-              printPaymentType: printPaymentTypeParam,
-              printOrderType: printOrderTypeParam,
-              printOrderNumber: printOrderNumberParam,
-              printUnitSize: printUnitSizeParam,
-              printProductSecondaryName: printProductSecondaryNameParam,
-              printCalories: printCaloriesParam,
-              printSubTotal: printSubTotalParam,
-              printRoundDigit: printRoundDigitParam,
-              printProductUnit: printProductUnitParam,
-              printProductUnitPrice: printProductUnitPriceParam,
-              printProductTotalPrice: printProductTotalPriceParam,
-              printProductDiscountPrice: printProductDiscountPriceParam,
-              printProductFreeQuantity: printProductFreeQuantityParam,
-              printProductTotalPriceBeforeTax:
-                  printProductTotalPriceBeforeTaxParam,
-              printProductTaxAmount: printProductTaxAmountParam,
-              printProductTaxPercentage: printProductTaxPercentageParam,
-              printProductTotalPriceAfterDiscount:
-                  printProductTotalPriceAfterDiscountParam,
-              printProductTotalPriceIncludeTax:
-                  printProductTotalPriceIncludeTaxParam,
-              printOrderClosedUser: printOrderClosedUserParam,
-              printOrderCreatedUser: printOrderCreatedUserParam,
-              printCheckNumber: printCheckNumberParam,
-              hideFreeModifierOptions: hideFreeModifierOptionsParam,
-              autoPrintOnSave: autoPrintOnSaveParam,
-              printLanguage: printLanguageParam,
-              printerPaperSize: printerPaperSizeParam,
-              printerPaperDirection: printerPaperDirectionParam,
-              invoiceCategory: invoiceCategoryParam,
-              defaultLanguage: defaultLanguageParam,
-              secondLanguage: secondLanguageParam,
-              orderTypes: orderTypesParam,
-              users: usersParam,
-              printedTitle: printedTitleParam,
-              fPrintedTitle: fPrintedTitleParam,
-              defaultCode: defaultCodeParam,
-              secondCode: secondCodeParam,
-              pointsMessage: pointsMessageParam,
-              fPointsMessage: fPointsMessageParam,
-              printCustomerPoints: printCustomerPointsParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-
-          return object;
-        }),
-    Language: EntityDefinition<Language>(
-        model: _entities[71],
-        toOneRelations: (Language object) => [],
-        toManyRelations: (Language object) => {},
-        getId: (Language object) => object.idSeq,
-        setId: (Language object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (Language object, fb.Builder fbb) {
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
-          final languageCultureOffset = object.languageCulture == null
-              ? null
-              : fbb.writeString(object.languageCulture!);
-          final uniqueSeoCodeOffset = object.uniqueSeoCode == null
-              ? null
-              : fbb.writeString(object.uniqueSeoCode!);
-          fbb.startTable(7);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, nameOffset);
-          fbb.addOffset(2, fNameOffset);
-          fbb.addOffset(3, languageCultureOffset);
-          fbb.addOffset(4, uniqueSeoCodeOffset);
-          fbb.addBool(5, object.rtl);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final languageCultureParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10);
-          final uniqueSeoCodeParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
-          final rtlParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
-          final object = Language(
-              name: nameParam,
-              fName: fNameParam,
-              languageCulture: languageCultureParam,
-              uniqueSeoCode: uniqueSeoCodeParam,
-              rtl: rtlParam)
+          final enableSalesTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 6);
+          final salesPriceIncludeTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
+          final enableCustomerSupplierTaxParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
+          final taxRoundFactorParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final object = TaxSetting(
+              enableSalesTax: enableSalesTaxParam,
+              salesPriceIncludeTax: salesPriceIncludeTaxParam,
+              enableCustomerSupplierTax: enableCustomerSupplierTaxParam,
+              taxRoundFactor: taxRoundFactorParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
         }),
     TenantSetting: EntityDefinition<TenantSetting>(
-        model: _entities[72],
+        model: _entities[69],
         toOneRelations: (TenantSetting object) => [],
         toManyRelations: (TenantSetting object) => {},
         getId: (TenantSetting object) => object.idSeq,
@@ -12462,46 +12259,118 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    SalesInvoiceTemplatesA4: EntityDefinition<SalesInvoiceTemplatesA4>(
-        model: _entities[73],
-        toOneRelations: (SalesInvoiceTemplatesA4 object) => [],
-        toManyRelations: (SalesInvoiceTemplatesA4 object) => {},
-        getId: (SalesInvoiceTemplatesA4 object) => object.idSeq,
-        setId: (SalesInvoiceTemplatesA4 object, int id) {
+    ThrowbackInfo: EntityDefinition<ThrowbackInfo>(
+        model: _entities[70],
+        toOneRelations: (ThrowbackInfo object) => [],
+        toManyRelations: (ThrowbackInfo object) => {},
+        getId: (ThrowbackInfo object) => object.idSeq,
+        setId: (ThrowbackInfo object, int id) {
           object.idSeq = id;
         },
-        objectToFB: (SalesInvoiceTemplatesA4 object, fb.Builder fbb) {
+        objectToFB: (ThrowbackInfo object, fb.Builder fbb) {
+          final productRefOffset = object.productRef == null
+              ? null
+              : fbb.writeString(object.productRef!);
+          final refOffset =
+              object.ref == null ? null : fbb.writeString(object.ref!);
+          fbb.startTable(6);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, productRefOffset);
+          fbb.addFloat64(2, object.quantity);
+          fbb.addBool(3, object.isWaste);
+          fbb.addOffset(4, refOffset);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final refParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final productRefParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final quantityParam =
+              const fb.Float64Reader().vTableGet(buffer, rootOffset, 8, 0);
+          final isWasteParam =
+              const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
+          final object = ThrowbackInfo(
+              ref: refParam,
+              productRef: productRefParam,
+              quantity: quantityParam,
+              isWaste: isWasteParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
+        }),
+    TimeEvent: EntityDefinition<TimeEvent>(
+        model: _entities[71],
+        toOneRelations: (TimeEvent object) => [],
+        toManyRelations: (TimeEvent object) => {},
+        getId: (TimeEvent object) => object.idSeq,
+        setId: (TimeEvent object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (TimeEvent object, fb.Builder fbb) {
           final idOffset =
               object.id == null ? null : fbb.writeString(object.id!);
           final nameOffset =
               object.name == null ? null : fbb.writeString(object.name!);
           final fNameOffset =
               object.fName == null ? null : fbb.writeString(object.fName!);
-          final menuNameOffset = object.menuName == null
+          final startDateOffset = object.startDate == null
               ? null
-              : fbb.writeString(object.menuName!);
-          final fMenuNameOffset = object.fMenuName == null
+              : fbb.writeString(object.startDate!);
+          final endDateOffset =
+              object.endDate == null ? null : fbb.writeString(object.endDate!);
+          final startTimeOffset = object.startTime == null
               ? null
-              : fbb.writeString(object.fMenuName!);
-          final titleOffset =
-              object.title == null ? null : fbb.writeString(object.title!);
-          final fTitleOffset =
-              object.fTitle == null ? null : fbb.writeString(object.fTitle!);
-          final appsFormPathOffset = object.appsFormPath == null
+              : fbb.writeString(object.startTime!);
+          final endTimeOffset =
+              object.endTime == null ? null : fbb.writeString(object.endTime!);
+          final daysOffset =
+              object.days == null ? null : fbb.writeListInt64(object.days!);
+          final orderTypesOffset = object.orderTypes == null
               ? null
-              : fbb.writeString(object.appsFormPath!);
-          fbb.startTable(12);
+              : fbb.writeListInt64(object.orderTypes!);
+          final productsOffset = object.products == null
+              ? null
+              : fbb.writeList(object.products!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final customersOffset = object.customers == null
+              ? null
+              : fbb.writeList(object.customers!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final departmentsOffset = object.departments == null
+              ? null
+              : fbb.writeList(object.departments!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final categoriesOffset = object.categories == null
+              ? null
+              : fbb.writeList(object.categories!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          fbb.startTable(18);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
           fbb.addOffset(3, fNameOffset);
-          fbb.addOffset(4, menuNameOffset);
-          fbb.addOffset(5, fMenuNameOffset);
-          fbb.addOffset(6, titleOffset);
-          fbb.addOffset(7, fTitleOffset);
-          fbb.addInt64(8, object.printLanguage);
-          fbb.addInt64(9, object.invoiceCategory);
-          fbb.addOffset(10, appsFormPathOffset);
+          fbb.addInt64(4, object.timeEventType);
+          fbb.addFloat64(5, object.timeEventValue);
+          fbb.addOffset(6, startDateOffset);
+          fbb.addOffset(7, endDateOffset);
+          fbb.addOffset(8, startTimeOffset);
+          fbb.addOffset(9, endTimeOffset);
+          fbb.addOffset(10, daysOffset);
+          fbb.addOffset(11, orderTypesOffset);
+          fbb.addOffset(12, productsOffset);
+          fbb.addOffset(13, customersOffset);
+          fbb.addOffset(14, departmentsOffset);
+          fbb.addOffset(15, categoriesOffset);
+          fbb.addInt64(16, object.priority);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -12514,103 +12383,288 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 8);
           final fNameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 10);
-          final menuNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 12);
-          final fMenuNameParam = const fb.StringReader(asciiOptimization: true)
+          final timeEventTypeParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final timeEventValueParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 14);
-          final titleParam = const fb.StringReader(asciiOptimization: true)
+          final startDateParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 16);
-          final fTitleParam = const fb.StringReader(asciiOptimization: true)
+          final endDateParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 18);
-          final printLanguageParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
-          final invoiceCategoryParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
-          final appsFormPathParam =
-              const fb.StringReader(asciiOptimization: true)
+          final startTimeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
+          final endTimeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 22);
+          final daysParam =
+              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
                   .vTableGetNullable(buffer, rootOffset, 24);
-          final object = SalesInvoiceTemplatesA4(
+          final orderTypesParam =
+              const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final productsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 28);
+          final object = TimeEvent(
               id: idParam,
               name: nameParam,
               fName: fNameParam,
-              menuName: menuNameParam,
-              fMenuName: fMenuNameParam,
-              title: titleParam,
-              fTitle: fTitleParam,
-              printLanguage: printLanguageParam,
-              invoiceCategory: invoiceCategoryParam,
-              appsFormPath: appsFormPathParam)
+              timeEventType: timeEventTypeParam,
+              timeEventValue: timeEventValueParam,
+              startDate: startDateParam,
+              endDate: endDateParam,
+              startTime: startTimeParam,
+              endTime: endTimeParam,
+              days: daysParam,
+              orderTypes: orderTypesParam,
+              products: productsParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
+            ..customers = const fb.ListReader<String>(
+                    fb.StringReader(asciiOptimization: true),
+                    lazy: false)
+                .vTableGetNullable(buffer, rootOffset, 30)
+            ..departments = const fb.ListReader<String>(
+                    fb.StringReader(asciiOptimization: true),
+                    lazy: false)
+                .vTableGetNullable(buffer, rootOffset, 32)
+            ..categories = const fb.ListReader<String>(
+                    fb.StringReader(asciiOptimization: true),
+                    lazy: false)
+                .vTableGetNullable(buffer, rootOffset, 34)
+            ..priority =
+                const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0);
 
           return object;
         }),
-    DiscountSetting: EntityDefinition<DiscountSetting>(
-        model: _entities[74],
-        toOneRelations: (DiscountSetting object) => [],
-        toManyRelations: (DiscountSetting object) => {},
-        getId: (DiscountSetting object) => object.idSeq,
-        setId: (DiscountSetting object, int id) {
+    Transaction: EntityDefinition<Transaction>(
+        model: _entities[72],
+        toOneRelations: (Transaction object) => [],
+        toManyRelations: (Transaction object) => {},
+        getId: (Transaction object) => object.idSeq,
+        setId: (Transaction object, int id) {
           object.idSeq = id;
         },
-        objectToFB: (DiscountSetting object, fb.Builder fbb) {
-          fbb.startTable(12);
+        objectToFB: (Transaction object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final refIdOffset =
+              object.refId == null ? null : fbb.writeString(object.refId!);
+          final toAcountOffset = object.toAcount == null
+              ? null
+              : fbb.writeString(object.toAcount!);
+          final createByOffset = object.createBy == null
+              ? null
+              : fbb.writeString(object.createBy!);
+          final dateOffset =
+              object.date == null ? null : fbb.writeString(object.date!);
+          fbb.startTable(8);
           fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addBool(1, object.enableDiscount);
-          fbb.addBool(2, object.enablePromotion);
-          fbb.addBool(3, object.enableCoupon);
-          fbb.addBool(4, object.enableTimeEvent);
-          fbb.addBool(5, object.enableDiscountInSalesInvoice);
-          fbb.addBool(6, object.enableDiscountInPurchaseInvoice);
-          fbb.addBool(7, object.enableDiscountInSalesInvoiceProducts);
-          fbb.addBool(8, object.enableDiscountInPurchaseInvoiceItems);
-          fbb.addBool(9, object.enableFreeQuantityInSalesInvoiceItems);
-          fbb.addBool(10, object.enableFreeQuantityInPurchaseInvoiceItems);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, refIdOffset);
+          fbb.addOffset(3, toAcountOffset);
+          fbb.addFloat64(4, object.amt);
+          fbb.addOffset(5, createByOffset);
+          fbb.addOffset(6, dateOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
         objectFromFB: (Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
-          final enableDiscountParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 6);
-          final enablePromotionParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
-          final enableCouponParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
-          final enableTimeEventParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
-          final enableDiscountInSalesInvoiceParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
-          final enableDiscountInPurchaseInvoiceParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16);
-          final enableDiscountInSalesInvoiceProductsParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 18);
-          final enableDiscountInPurchaseInvoiceItemsParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 20);
-          final enableFreeQuantityInSalesInvoiceItemsParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
-          final enableFreeQuantityInPurchaseInvoiceItemsParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
-          final object = DiscountSetting(
-              enableDiscount: enableDiscountParam,
-              enablePromotion: enablePromotionParam,
-              enableCoupon: enableCouponParam,
-              enableTimeEvent: enableTimeEventParam,
-              enableDiscountInSalesInvoice: enableDiscountInSalesInvoiceParam,
-              enableDiscountInPurchaseInvoice:
-                  enableDiscountInPurchaseInvoiceParam,
-              enableDiscountInSalesInvoiceProducts:
-                  enableDiscountInSalesInvoiceProductsParam,
-              enableDiscountInPurchaseInvoiceItems:
-                  enableDiscountInPurchaseInvoiceItemsParam,
-              enableFreeQuantityInSalesInvoiceItems:
-                  enableFreeQuantityInSalesInvoiceItemsParam,
-              enableFreeQuantityInPurchaseInvoiceItems:
-                  enableFreeQuantityInPurchaseInvoiceItemsParam)
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final refIdParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final toAcountParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final amtParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final createByParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final dateParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final object = Transaction(
+              id: idParam,
+              refId: refIdParam,
+              toAcount: toAcountParam,
+              amt: amtParam,
+              createBy: createByParam,
+              date: dateParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
+          return object;
+        }),
+    Unit: EntityDefinition<Unit>(
+        model: _entities[73],
+        toOneRelations: (Unit object) => [],
+        toManyRelations: (Unit object) => {
+              RelInfo<Unit>.toMany(29, object.idSeq!): object.priceList,
+              RelInfo<Unit>.toMany(30, object.idSeq!): object.modifiers
+            },
+        getId: (Unit object) => object.idSeq,
+        setId: (Unit object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (Unit object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          final barcodeOffset =
+              object.barcode == null ? null : fbb.writeString(object.barcode!);
+          fbb.startTable(14);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, fNameOffset);
+          fbb.addOffset(4, barcodeOffset);
+          fbb.addFloat64(5, object.price);
+          fbb.addFloat64(6, object.cost);
+          fbb.addFloat64(7, object.factor);
+          fbb.addBool(8, object.defaultForSales);
+          fbb.addBool(9, object.defaultForPurchase);
+          fbb.addBool(10, object.defaultForStore);
+          fbb.addBool(11, object.showAlertPreparationTime);
+          fbb.addInt64(12, object.priceType);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final barcodeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final priceParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final costParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final factorParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 18);
+          final defaultForSalesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 20);
+          final defaultForPurchaseParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
+          final defaultForStoreParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final showAlertPreparationTimeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
+          final priceTypeParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 28);
+          final object = Unit(
+              id: idParam,
+              barcode: barcodeParam,
+              price: priceParam,
+              cost: costParam,
+              factor: factorParam,
+              defaultForSales: defaultForSalesParam,
+              defaultForPurchase: defaultForPurchaseParam,
+              defaultForStore: defaultForStoreParam,
+              name: nameParam,
+              fName: fNameParam,
+              showAlertPreparationTime: showAlertPreparationTimeParam,
+              priceType: priceTypeParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          InternalToManyAccess.setRelInfo<Unit>(
+              object.priceList, store, RelInfo<Unit>.toMany(29, object.idSeq!));
+          InternalToManyAccess.setRelInfo<Unit>(
+              object.modifiers, store, RelInfo<Unit>.toMany(30, object.idSeq!));
+          return object;
+        }),
+    UnitModifer: EntityDefinition<UnitModifer>(
+        model: _entities[74],
+        toOneRelations: (UnitModifer object) => [],
+        toManyRelations: (UnitModifer object) => {
+              RelInfo<UnitModifer>.toMany(31, object.idSeq!):
+                  object.freeOptions,
+              RelInfo<UnitModifer>.toMany(32, object.idSeq!): object.options
+            },
+        getId: (UnitModifer object) => object.idSeq,
+        setId: (UnitModifer object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (UnitModifer object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          final defulatOptionsOffset = object.defulatOptions == null
+              ? null
+              : fbb.writeList(object.defulatOptions!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final exceptOptionsOffset = object.exceptOptions == null
+              ? null
+              : fbb.writeList(object.exceptOptions!
+                  .map(fbb.writeString)
+                  .toList(growable: false));
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final fNameOffset =
+              object.fName == null ? null : fbb.writeString(object.fName!);
+          fbb.startTable(11);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addInt64(2, object.minimumOptions);
+          fbb.addInt64(3, object.maximumOptions);
+          fbb.addBool(4, object.isUnique);
+          fbb.addBool(5, object.isRequired);
+          fbb.addOffset(6, defulatOptionsOffset);
+          fbb.addOffset(7, exceptOptionsOffset);
+          fbb.addOffset(8, nameOffset);
+          fbb.addOffset(9, fNameOffset);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final minimumOptionsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final maximumOptionsParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
+          final isUniqueParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+          final isRequiredParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final defulatOptionsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final exceptOptionsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 18);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
+          final fNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 22);
+          final object = UnitModifer(
+              id: idParam,
+              minimumOptions: minimumOptionsParam,
+              maximumOptions: maximumOptionsParam,
+              isUnique: isUniqueParam,
+              isRequired: isRequiredParam,
+              defulatOptions: defulatOptionsParam,
+              exceptOptions: exceptOptionsParam,
+              name: nameParam,
+              fName: fNameParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          InternalToManyAccess.setRelInfo<UnitModifer>(object.freeOptions,
+              store, RelInfo<UnitModifer>.toMany(31, object.idSeq!));
+          InternalToManyAccess.setRelInfo<UnitModifer>(object.options, store,
+              RelInfo<UnitModifer>.toMany(32, object.idSeq!));
           return object;
         }),
     UserCashierSetting: EntityDefinition<UserCashierSetting>(
@@ -12779,104 +12833,25 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    BarcodeScale: EntityDefinition<BarcodeScale>(
+    ViewSettings: EntityDefinition<ViewSettings>(
         model: _entities[76],
-        toOneRelations: (BarcodeScale object) => [],
-        toManyRelations: (BarcodeScale object) => {},
-        getId: (BarcodeScale object) => object.idSeq,
-        setId: (BarcodeScale object, int id) {
+        toOneRelations: (ViewSettings object) => [],
+        toManyRelations: (ViewSettings object) => {},
+        getId: (ViewSettings object) => object.idSeq,
+        setId: (ViewSettings object, int id) {
           object.idSeq = id;
         },
-        objectToFB: (BarcodeScale object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final fNameOffset =
-              object.fName == null ? null : fbb.writeString(object.fName!);
-          final departmentsOffset = object.departments == null
-              ? null
-              : fbb.writeList(object.departments!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final categoriesOffset = object.categories == null
-              ? null
-              : fbb.writeList(object.categories!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final productsOffset = object.products == null
-              ? null
-              : fbb.writeList(object.products!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          fbb.startTable(16);
+        objectToFB: (ViewSettings object, fb.Builder fbb) {
+          fbb.startTable(2);
           fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addOffset(2, nameOffset);
-          fbb.addOffset(3, fNameOffset);
-          fbb.addBool(4, object.scanPriceFromScale);
-          fbb.addBool(5, object.scalePriceIncludeTax);
-          fbb.addInt64(6, object.scaleBarcodeDigits);
-          fbb.addInt64(7, object.scaleProductCodeDigits);
-          fbb.addInt64(8, object.scaleIntDigits);
-          fbb.addInt64(9, object.scaleDecimalDigits);
-          fbb.addOffset(11, departmentsOffset);
-          fbb.addOffset(12, categoriesOffset);
-          fbb.addOffset(13, productsOffset);
-          fbb.addBool(14, object.scaleProductCodeFirstInBarcode);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
         objectFromFB: (Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final fNameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final scanPriceFromScaleParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
-          final scalePriceIncludeTaxParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
-          final scaleBarcodeDigitsParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
-          final scaleProductCodeDigitsParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
-          final scaleIntDigitsParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
-          final scaleDecimalDigitsParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
-          final scaleProductCodeFirstInBarcodeParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
-          final departmentsParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 26);
-          final categoriesParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 28);
-          final productsParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 30);
-          final object = BarcodeScale(
-              id: idParam,
-              name: nameParam,
-              fName: fNameParam,
-              scanPriceFromScale: scanPriceFromScaleParam,
-              scalePriceIncludeTax: scalePriceIncludeTaxParam,
-              scaleBarcodeDigits: scaleBarcodeDigitsParam,
-              scaleProductCodeDigits: scaleProductCodeDigitsParam,
-              scaleIntDigits: scaleIntDigitsParam,
-              scaleDecimalDigits: scaleDecimalDigitsParam,
-              scaleProductCodeFirstInBarcode:
-                  scaleProductCodeFirstInBarcodeParam,
-              departments: departmentsParam,
-              categories: categoriesParam,
-              products: productsParam)
+
+          final object = ViewSettings()
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
@@ -12889,101 +12864,101 @@ ModelDefinition getObjectBoxModel() {
 
 /// [ActivationInfo] entity fields to define ObjectBox queries.
 class ActivationInfo_ {
+  /// see [ActivationInfo.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ActivationInfo>(_entities[0].properties[0]);
+
   /// see [ActivationInfo.id]
   static final id =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[0]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[1]);
 
   /// see [ActivationInfo.name]
   static final name =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[1]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[2]);
 
   /// see [ActivationInfo.fName]
   static final fName =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[2]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[3]);
 
   /// see [ActivationInfo.email]
   static final email =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[3]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[4]);
 
   /// see [ActivationInfo.phone]
   static final phone =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[4]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[5]);
 
   /// see [ActivationInfo.mobile]
   static final mobile =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[5]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[6]);
 
   /// see [ActivationInfo.taxRegName]
   static final taxRegName =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[6]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[7]);
 
   /// see [ActivationInfo.fTaxRegName]
   static final fTaxRegName =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[7]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[8]);
 
   /// see [ActivationInfo.taxCode]
   static final taxCode =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[8]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[9]);
 
   /// see [ActivationInfo.onlineOrderStartTime]
   static final onlineOrderStartTime =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[9]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[10]);
 
   /// see [ActivationInfo.onlineOrderEndTime]
   static final onlineOrderEndTime =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[10]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[11]);
 
   /// see [ActivationInfo.branchPrefix]
   static final branchPrefix =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[11]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[12]);
 
   /// see [ActivationInfo.customerService]
   static final customerService =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[12]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[13]);
 
   /// see [ActivationInfo.countryId]
   static final countryId =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[13]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[14]);
 
   /// see [ActivationInfo.cityId]
   static final cityId =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[14]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[15]);
 
   /// see [ActivationInfo.address]
   static final address =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[15]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[16]);
 
   /// see [ActivationInfo.latitude]
   static final latitude =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[16]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[17]);
 
   /// see [ActivationInfo.longitude]
   static final longitude =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[17]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[18]);
 
   /// see [ActivationInfo.headerInvoiceMsg]
   static final headerInvoiceMsg =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[18]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[19]);
 
   /// see [ActivationInfo.footerInvoiceMsg]
   static final footerInvoiceMsg =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[19]);
-
-  /// see [ActivationInfo.receiveOnlineOrders]
-  static final receiveOnlineOrders =
-      QueryBooleanProperty<ActivationInfo>(_entities[0].properties[20]);
-
-  /// see [ActivationInfo.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ActivationInfo>(_entities[0].properties[21]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[20]);
 
   /// see [ActivationInfo.code]
   static final code =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[22]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[21]);
 
   /// see [ActivationInfo.currentDeviceId]
   static final currentDeviceId =
-      QueryStringProperty<ActivationInfo>(_entities[0].properties[23]);
+      QueryStringProperty<ActivationInfo>(_entities[0].properties[22]);
+
+  /// see [ActivationInfo.receiveOnlineOrders]
+  static final receiveOnlineOrders =
+      QueryBooleanProperty<ActivationInfo>(_entities[0].properties[23]);
 
   /// see [ActivationInfo.company]
   static final company =
@@ -13091,29 +13066,29 @@ class AppliedOption_ {
   static final idSeq =
       QueryIntegerProperty<AppliedOption>(_entities[3].properties[0]);
 
-  /// see [AppliedOption.priceWithTax]
-  static final priceWithTax =
-      QueryBooleanProperty<AppliedOption>(_entities[3].properties[1]);
-
-  /// see [AppliedOption.option]
-  static final option =
-      QueryRelationToOne<AppliedOption, Option>(_entities[3].properties[2]);
-
-  /// see [AppliedOption.taxInfo]
-  static final taxInfo =
-      QueryRelationToOne<AppliedOption, TaxInfo>(_entities[3].properties[3]);
-
   /// see [AppliedOption.quantity]
   static final quantity =
-      QueryDoubleProperty<AppliedOption>(_entities[3].properties[4]);
+      QueryDoubleProperty<AppliedOption>(_entities[3].properties[1]);
 
   /// see [AppliedOption.freeQuantity]
   static final freeQuantity =
-      QueryDoubleProperty<AppliedOption>(_entities[3].properties[5]);
+      QueryDoubleProperty<AppliedOption>(_entities[3].properties[2]);
 
   /// see [AppliedOption.taxableAmt]
   static final taxableAmt =
-      QueryDoubleProperty<AppliedOption>(_entities[3].properties[6]);
+      QueryDoubleProperty<AppliedOption>(_entities[3].properties[3]);
+
+  /// see [AppliedOption.priceWithTax]
+  static final priceWithTax =
+      QueryBooleanProperty<AppliedOption>(_entities[3].properties[4]);
+
+  /// see [AppliedOption.option]
+  static final option =
+      QueryRelationToOne<AppliedOption, Option>(_entities[3].properties[5]);
+
+  /// see [AppliedOption.taxInfo]
+  static final taxInfo =
+      QueryRelationToOne<AppliedOption, TaxInfo>(_entities[3].properties[6]);
 }
 
 /// [AppliedProduct] entity fields to define ObjectBox queries.
@@ -13199,29 +13174,29 @@ class AppliedProduct_ {
   static final taxPrice =
       QueryDoubleProperty<AppliedProduct>(_entities[4].properties[19]);
 
-  /// see [AppliedProduct.note]
-  static final note =
-      QueryStringProperty<AppliedProduct>(_entities[4].properties[20]);
+  /// see [AppliedProduct.taxableAmt]
+  static final taxableAmt =
+      QueryDoubleProperty<AppliedProduct>(_entities[4].properties[20]);
 
   /// see [AppliedProduct.freeQuantity]
   static final freeQuantity =
       QueryDoubleProperty<AppliedProduct>(_entities[4].properties[21]);
 
-  /// see [AppliedProduct.taxableAmt]
-  static final taxableAmt =
-      QueryDoubleProperty<AppliedProduct>(_entities[4].properties[22]);
-
   /// see [AppliedProduct.isFixedPrice]
   static final isFixedPrice =
-      QueryBooleanProperty<AppliedProduct>(_entities[4].properties[23]);
+      QueryBooleanProperty<AppliedProduct>(_entities[4].properties[22]);
 
   /// see [AppliedProduct.canEditQty]
   static final canEditQty =
-      QueryBooleanProperty<AppliedProduct>(_entities[4].properties[24]);
+      QueryBooleanProperty<AppliedProduct>(_entities[4].properties[23]);
 
   /// see [AppliedProduct.barcodePrice]
   static final barcodePrice =
-      QueryDoubleProperty<AppliedProduct>(_entities[4].properties[25]);
+      QueryDoubleProperty<AppliedProduct>(_entities[4].properties[24]);
+
+  /// see [AppliedProduct.note]
+  static final note =
+      QueryStringProperty<AppliedProduct>(_entities[4].properties[25]);
 
   /// see [AppliedProduct.appliedModifer]
   static final appliedModifer =
@@ -13229,3683 +13204,3735 @@ class AppliedProduct_ {
           _entities[4].relations[0]);
 }
 
+/// [BarcodeScale] entity fields to define ObjectBox queries.
+class BarcodeScale_ {
+  /// see [BarcodeScale.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<BarcodeScale>(_entities[5].properties[0]);
+
+  /// see [BarcodeScale.id]
+  static final id =
+      QueryStringProperty<BarcodeScale>(_entities[5].properties[1]);
+
+  /// see [BarcodeScale.name]
+  static final name =
+      QueryStringProperty<BarcodeScale>(_entities[5].properties[2]);
+
+  /// see [BarcodeScale.fName]
+  static final fName =
+      QueryStringProperty<BarcodeScale>(_entities[5].properties[3]);
+
+  /// see [BarcodeScale.scanPriceFromScale]
+  static final scanPriceFromScale =
+      QueryBooleanProperty<BarcodeScale>(_entities[5].properties[4]);
+
+  /// see [BarcodeScale.scalePriceIncludeTax]
+  static final scalePriceIncludeTax =
+      QueryBooleanProperty<BarcodeScale>(_entities[5].properties[5]);
+
+  /// see [BarcodeScale.scaleBarcodeDigits]
+  static final scaleBarcodeDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[5].properties[6]);
+
+  /// see [BarcodeScale.scaleProductCodeDigits]
+  static final scaleProductCodeDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[5].properties[7]);
+
+  /// see [BarcodeScale.scaleIntDigits]
+  static final scaleIntDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[5].properties[8]);
+
+  /// see [BarcodeScale.scaleDecimalDigits]
+  static final scaleDecimalDigits =
+      QueryIntegerProperty<BarcodeScale>(_entities[5].properties[9]);
+
+  /// see [BarcodeScale.scaleProductCodeFirstInBarcode]
+  static final scaleProductCodeFirstInBarcode =
+      QueryBooleanProperty<BarcodeScale>(_entities[5].properties[10]);
+
+  /// see [BarcodeScale.departments]
+  static final departments =
+      QueryStringVectorProperty<BarcodeScale>(_entities[5].properties[11]);
+
+  /// see [BarcodeScale.categories]
+  static final categories =
+      QueryStringVectorProperty<BarcodeScale>(_entities[5].properties[12]);
+
+  /// see [BarcodeScale.products]
+  static final products =
+      QueryStringVectorProperty<BarcodeScale>(_entities[5].properties[13]);
+}
+
 /// [BillCopyHistory] entity fields to define ObjectBox queries.
 class BillCopyHistory_ {
   /// see [BillCopyHistory.id]
   static final id =
-      QueryIntegerProperty<BillCopyHistory>(_entities[5].properties[0]);
+      QueryIntegerProperty<BillCopyHistory>(_entities[6].properties[0]);
 
   /// see [BillCopyHistory.billRef]
   static final billRef =
-      QueryStringProperty<BillCopyHistory>(_entities[5].properties[1]);
+      QueryStringProperty<BillCopyHistory>(_entities[6].properties[1]);
 
   /// see [BillCopyHistory.billNo]
   static final billNo =
-      QueryStringProperty<BillCopyHistory>(_entities[5].properties[2]);
+      QueryStringProperty<BillCopyHistory>(_entities[6].properties[2]);
 
   /// see [BillCopyHistory.billeDate]
   static final billeDate =
-      QueryStringProperty<BillCopyHistory>(_entities[5].properties[3]);
+      QueryStringProperty<BillCopyHistory>(_entities[6].properties[3]);
 }
 
 /// [BillCounter] entity fields to define ObjectBox queries.
 class BillCounter_ {
   /// see [BillCounter.id]
   static final id =
-      QueryIntegerProperty<BillCounter>(_entities[6].properties[0]);
+      QueryIntegerProperty<BillCounter>(_entities[7].properties[0]);
 
   /// see [BillCounter.dateTimeOpenOn]
   static final dateTimeOpenOn =
-      QueryStringProperty<BillCounter>(_entities[6].properties[1]);
+      QueryStringProperty<BillCounter>(_entities[7].properties[1]);
 
   /// see [BillCounter.dateTimeCloseOn]
   static final dateTimeCloseOn =
-      QueryStringProperty<BillCounter>(_entities[6].properties[2]);
+      QueryStringProperty<BillCounter>(_entities[7].properties[2]);
 
   /// see [BillCounter.isClosed]
   static final isClosed =
-      QueryBooleanProperty<BillCounter>(_entities[6].properties[3]);
+      QueryBooleanProperty<BillCounter>(_entities[7].properties[3]);
 
   /// see [BillCounter.curentCounter]
   static final curentCounter =
-      QueryIntegerProperty<BillCounter>(_entities[6].properties[4]);
+      QueryIntegerProperty<BillCounter>(_entities[7].properties[4]);
 
   /// see [BillCounter.billPerfex]
   static final billPerfex =
-      QueryStringProperty<BillCounter>(_entities[6].properties[5]);
+      QueryStringProperty<BillCounter>(_entities[7].properties[5]);
 
   /// see [BillCounter.billCopyHistory]
   static final billCopyHistory =
       QueryRelationToMany<BillCounter, BillCopyHistory>(
-          _entities[6].relations[0]);
+          _entities[7].relations[0]);
 }
 
 /// [BillSetting] entity fields to define ObjectBox queries.
 class BillSetting_ {
   /// see [BillSetting.id]
   static final id =
-      QueryIntegerProperty<BillSetting>(_entities[7].properties[0]);
+      QueryIntegerProperty<BillSetting>(_entities[8].properties[0]);
 
   /// see [BillSetting.logoUrl]
   static final logoUrl =
-      QueryStringProperty<BillSetting>(_entities[7].properties[1]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[1]);
 
   /// see [BillSetting.companyName]
   static final companyName =
-      QueryStringProperty<BillSetting>(_entities[7].properties[2]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[2]);
 
   /// see [BillSetting.fCompanyName]
   static final fCompanyName =
-      QueryStringProperty<BillSetting>(_entities[7].properties[3]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[3]);
 
   /// see [BillSetting.taxNo]
   static final taxNo =
-      QueryStringProperty<BillSetting>(_entities[7].properties[4]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[4]);
 
   /// see [BillSetting.phoneNumber]
   static final phoneNumber =
-      QueryStringProperty<BillSetting>(_entities[7].properties[5]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[5]);
 
   /// see [BillSetting.address]
   static final address =
-      QueryStringProperty<BillSetting>(_entities[7].properties[6]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[6]);
 
   /// see [BillSetting.fAddress]
   static final fAddress =
-      QueryStringProperty<BillSetting>(_entities[7].properties[7]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[7]);
 
   /// see [BillSetting.headerInvoiceMessage]
   static final headerInvoiceMessage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[8]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[8]);
 
   /// see [BillSetting.fHeaderInvoiceMessage]
   static final fHeaderInvoiceMessage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[9]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[9]);
 
   /// see [BillSetting.footerInvoiceMessage]
   static final footerInvoiceMessage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[10]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[10]);
 
   /// see [BillSetting.fFooterInvoiceMessage]
   static final fFooterInvoiceMessage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[11]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[11]);
 
   /// see [BillSetting.invoiceRoundFactor]
   static final invoiceRoundFactor =
-      QueryIntegerProperty<BillSetting>(_entities[7].properties[12]);
+      QueryIntegerProperty<BillSetting>(_entities[8].properties[12]);
 
   /// see [BillSetting.enablePrintBundleProductChildren]
   static final enablePrintBundleProductChildren =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[13]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[13]);
 
   /// see [BillSetting.printOrderNumber]
   static final printOrderNumber =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[14]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[14]);
 
   /// see [BillSetting.printCalories]
   static final printCalories =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[15]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[15]);
 
   /// see [BillSetting.printSubTotal]
   static final printSubTotal =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[16]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[16]);
 
   /// see [BillSetting.printRoundDigit]
   static final printRoundDigit =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[17]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[17]);
 
   /// see [BillSetting.printProductUnit]
   static final printProductUnit =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[18]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[18]);
 
   /// see [BillSetting.printProductUnitPrice]
   static final printProductUnitPrice =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[19]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[19]);
 
   /// see [BillSetting.printProductTotalPrice]
   static final printProductTotalPrice =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[20]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[20]);
 
   /// see [BillSetting.printProductDiscountPrice]
   static final printProductDiscountPrice =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[21]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[21]);
 
   /// see [BillSetting.printProductFreeQuantity]
   static final printProductFreeQuantity =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[22]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[22]);
 
   /// see [BillSetting.printProductTotalPriceBeforeTax]
   static final printProductTotalPriceBeforeTax =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[23]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[23]);
 
   /// see [BillSetting.printProductTaxAmount]
   static final printProductTaxAmount =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[24]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[24]);
 
   /// see [BillSetting.printProductTaxPercentage]
   static final printProductTaxPercentage =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[25]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[25]);
 
   /// see [BillSetting.printProductTotalPriceAfterDiscount]
   static final printProductTotalPriceAfterDiscount =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[26]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[26]);
 
   /// see [BillSetting.printProductTotalPriceIncludeTax]
   static final printProductTotalPriceIncludeTax =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[27]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[27]);
 
   /// see [BillSetting.printOrderClosedUser]
   static final printOrderClosedUser =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[28]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[28]);
 
   /// see [BillSetting.printOrderCreatedUser]
   static final printOrderCreatedUser =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[29]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[29]);
 
   /// see [BillSetting.printCheckNumber]
   static final printCheckNumber =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[30]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[30]);
 
   /// see [BillSetting.hideFreeModifierOptions]
   static final hideFreeModifierOptions =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[31]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[31]);
 
   /// see [BillSetting.invoiceTemplate]
   static final invoiceTemplate =
-      QueryStringProperty<BillSetting>(_entities[7].properties[32]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[32]);
 
   /// see [BillSetting.refundTemplate]
   static final refundTemplate =
-      QueryStringProperty<BillSetting>(_entities[7].properties[33]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[33]);
 
   /// see [BillSetting.autoPrintOnSave]
   static final autoPrintOnSave =
-      QueryBooleanProperty<BillSetting>(_entities[7].properties[34]);
+      QueryBooleanProperty<BillSetting>(_entities[8].properties[34]);
 
   /// see [BillSetting.printlanguage]
   static final printlanguage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[35]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[35]);
 
   /// see [BillSetting.defaultLanguage]
   static final defaultLanguage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[36]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[36]);
 
   /// see [BillSetting.secondLanguage]
   static final secondLanguage =
-      QueryStringProperty<BillSetting>(_entities[7].properties[37]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[37]);
 
   /// see [BillSetting.invoiceTitle]
   static final invoiceTitle =
-      QueryStringProperty<BillSetting>(_entities[7].properties[38]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[38]);
 
   /// see [BillSetting.fInvoiceTitle]
   static final fInvoiceTitle =
-      QueryStringProperty<BillSetting>(_entities[7].properties[39]);
+      QueryStringProperty<BillSetting>(_entities[8].properties[39]);
 
   /// see [BillSetting.logoData]
   static final logoData =
-      QueryRelationToOne<BillSetting, LogoData>(_entities[7].properties[40]);
+      QueryRelationToOne<BillSetting, LogoData>(_entities[8].properties[40]);
 }
 
 /// [Branch] entity fields to define ObjectBox queries.
 class Branch_ {
   /// see [Branch.idSeq]
-  static final idSeq = QueryIntegerProperty<Branch>(_entities[8].properties[0]);
+  static final idSeq = QueryIntegerProperty<Branch>(_entities[9].properties[0]);
 
   /// see [Branch.id]
-  static final id = QueryStringProperty<Branch>(_entities[8].properties[1]);
+  static final id = QueryStringProperty<Branch>(_entities[9].properties[1]);
 
   /// see [Branch.name]
-  static final name = QueryStringProperty<Branch>(_entities[8].properties[2]);
+  static final name = QueryStringProperty<Branch>(_entities[9].properties[2]);
+
+  /// see [Branch.fName]
+  static final fName = QueryStringProperty<Branch>(_entities[9].properties[3]);
 
   /// see [Branch.email]
-  static final email = QueryStringProperty<Branch>(_entities[8].properties[3]);
+  static final email = QueryStringProperty<Branch>(_entities[9].properties[4]);
 
   /// see [Branch.phone]
-  static final phone = QueryStringProperty<Branch>(_entities[8].properties[4]);
+  static final phone = QueryStringProperty<Branch>(_entities[9].properties[5]);
 
   /// see [Branch.mobile]
-  static final mobile = QueryStringProperty<Branch>(_entities[8].properties[5]);
+  static final mobile = QueryStringProperty<Branch>(_entities[9].properties[6]);
 
   /// see [Branch.taxRegName]
   static final taxRegName =
-      QueryStringProperty<Branch>(_entities[8].properties[6]);
+      QueryStringProperty<Branch>(_entities[9].properties[7]);
 
   /// see [Branch.taxCode]
   static final taxCode =
-      QueryStringProperty<Branch>(_entities[8].properties[7]);
+      QueryStringProperty<Branch>(_entities[9].properties[8]);
 
   /// see [Branch.onlineOrderStartTime]
   static final onlineOrderStartTime =
-      QueryStringProperty<Branch>(_entities[8].properties[8]);
+      QueryStringProperty<Branch>(_entities[9].properties[9]);
 
   /// see [Branch.onlineOrderEndTime]
   static final onlineOrderEndTime =
-      QueryStringProperty<Branch>(_entities[8].properties[9]);
+      QueryStringProperty<Branch>(_entities[9].properties[10]);
 
   /// see [Branch.branchPrefix]
   static final branchPrefix =
-      QueryStringProperty<Branch>(_entities[8].properties[10]);
+      QueryStringProperty<Branch>(_entities[9].properties[11]);
 
   /// see [Branch.customerService]
   static final customerService =
-      QueryStringProperty<Branch>(_entities[8].properties[11]);
+      QueryStringProperty<Branch>(_entities[9].properties[12]);
 
   /// see [Branch.address]
   static final address =
-      QueryStringProperty<Branch>(_entities[8].properties[12]);
+      QueryStringProperty<Branch>(_entities[9].properties[13]);
 
   /// see [Branch.headerInvoiceMsg]
   static final headerInvoiceMsg =
-      QueryStringProperty<Branch>(_entities[8].properties[13]);
+      QueryStringProperty<Branch>(_entities[9].properties[14]);
 
   /// see [Branch.footerInvoiceMsg]
   static final footerInvoiceMsg =
-      QueryStringProperty<Branch>(_entities[8].properties[14]);
+      QueryStringProperty<Branch>(_entities[9].properties[15]);
 
   /// see [Branch.receiveOnlineOrders]
   static final receiveOnlineOrders =
-      QueryBooleanProperty<Branch>(_entities[8].properties[15]);
-
-  /// see [Branch.fName]
-  static final fName = QueryStringProperty<Branch>(_entities[8].properties[16]);
+      QueryBooleanProperty<Branch>(_entities[9].properties[16]);
 }
 
 /// [CashierSetting] entity fields to define ObjectBox queries.
 class CashierSetting_ {
   /// see [CashierSetting.idSeq]
   static final idSeq =
-      QueryIntegerProperty<CashierSetting>(_entities[9].properties[0]);
+      QueryIntegerProperty<CashierSetting>(_entities[10].properties[0]);
 
   /// see [CashierSetting.enableCashSales]
   static final enableCashSales =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[1]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[1]);
 
   /// see [CashierSetting.enableCreditCardSales]
   static final enableCreditCardSales =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[2]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[2]);
 
   /// see [CashierSetting.enableCustomerSales]
   static final enableCustomerSales =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[3]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[3]);
 
   /// see [CashierSetting.enableFreeQuantity]
   static final enableFreeQuantity =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[4]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[4]);
 
   /// see [CashierSetting.enableEditItemName]
   static final enableEditItemName =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[5]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[5]);
 
   /// see [CashierSetting.enableSalesDiscount]
   static final enableSalesDiscount =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[6]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[6]);
 
   /// see [CashierSetting.enableChangePrice]
   static final enableChangePrice =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[7]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[7]);
 
   /// see [CashierSetting.enableProductPackages]
   static final enableProductPackages =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[8]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[8]);
 
   /// see [CashierSetting.enableTablesSystem]
   static final enableTablesSystem =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[9]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[9]);
 
   /// see [CashierSetting.tableGuestCountRequired]
   static final tableGuestCountRequired =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[10]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[10]);
 
   /// see [CashierSetting.tableRequired]
   static final tableRequired =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[11]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[11]);
 
   /// see [CashierSetting.discountPercentageLimit]
   static final discountPercentageLimit =
-      QueryDoubleProperty<CashierSetting>(_entities[9].properties[12]);
+      QueryDoubleProperty<CashierSetting>(_entities[10].properties[12]);
 
   /// see [CashierSetting.defaultCustomerId]
   static final defaultCustomerId =
-      QueryStringProperty<CashierSetting>(_entities[9].properties[13]);
+      QueryStringProperty<CashierSetting>(_entities[10].properties[13]);
 
   /// see [CashierSetting.priceListId]
   static final priceListId =
-      QueryStringProperty<CashierSetting>(_entities[9].properties[14]);
+      QueryStringProperty<CashierSetting>(_entities[10].properties[14]);
 
   /// see [CashierSetting.daily]
   static final daily =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[15]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[15]);
 
   /// see [CashierSetting.submittingRequestsDelayMinutes]
   static final submittingRequestsDelayMinutes =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[16]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[16]);
 
   /// see [CashierSetting.inactiveUsersLogoutMinutes]
   static final inactiveUsersLogoutMinutes =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[17]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[17]);
 
   /// see [CashierSetting.maximumReturnPeriodMinutes]
   static final maximumReturnPeriodMinutes =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[18]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[18]);
 
   /// see [CashierSetting.requireOrderTypesForOrders]
   static final requireOrderTypesForOrders =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[19]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[19]);
 
   /// see [CashierSetting.roundingType]
   static final roundingType =
-      QueryStringProperty<CashierSetting>(_entities[9].properties[20]);
+      QueryStringProperty<CashierSetting>(_entities[10].properties[20]);
 
   /// see [CashierSetting.roundDigits]
   static final roundDigits =
-      QueryDoubleProperty<CashierSetting>(_entities[9].properties[21]);
+      QueryDoubleProperty<CashierSetting>(_entities[10].properties[21]);
 
   /// see [CashierSetting.kitchenSortingType]
   static final kitchenSortingType =
-      QueryStringProperty<CashierSetting>(_entities[9].properties[22]);
+      QueryStringProperty<CashierSetting>(_entities[10].properties[22]);
 
   /// see [CashierSetting.printSortingType]
   static final printSortingType =
-      QueryStringProperty<CashierSetting>(_entities[9].properties[23]);
+      QueryStringProperty<CashierSetting>(_entities[10].properties[23]);
 
   /// see [CashierSetting.activeTips]
   static final activeTips =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[24]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[24]);
 
   /// see [CashierSetting.discountRequireCustomerInfo]
   static final discountRequireCustomerInfo =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[25]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[25]);
 
   /// see [CashierSetting.returnRequireCustomerInfo]
   static final returnRequireCustomerInfo =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[26]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[26]);
 
   /// see [CashierSetting.requireCancelReason]
   static final requireCancelReason =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[27]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[27]);
 
   /// see [CashierSetting.autoSentOrderToKitchenAfterPaid]
   static final autoSentOrderToKitchenAfterPaid =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[28]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[28]);
 
   /// see [CashierSetting.autoSyncDataAtStartOfDay]
   static final autoSyncDataAtStartOfDay =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[29]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[29]);
 
   /// see [CashierSetting.autoPrintProductsReport]
   static final autoPrintProductsReport =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[30]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[30]);
 
   /// see [CashierSetting.autoPrintTillsReport]
   static final autoPrintTillsReport =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[31]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[31]);
 
   /// see [CashierSetting.preventEndingDayBeforeInventoryCount]
   static final preventEndingDayBeforeInventoryCount =
-      QueryBooleanProperty<CashierSetting>(_entities[9].properties[32]);
+      QueryBooleanProperty<CashierSetting>(_entities[10].properties[32]);
 
   /// see [CashierSetting.imei]
   static final imei =
-      QueryStringProperty<CashierSetting>(_entities[9].properties[33]);
+      QueryStringProperty<CashierSetting>(_entities[10].properties[33]);
 }
 
 /// [Category] entity fields to define ObjectBox queries.
 class Category_ {
   /// see [Category.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Category>(_entities[10].properties[0]);
+      QueryIntegerProperty<Category>(_entities[11].properties[0]);
 
   /// see [Category.id]
-  static final id = QueryStringProperty<Category>(_entities[10].properties[1]);
+  static final id = QueryStringProperty<Category>(_entities[11].properties[1]);
 
   /// see [Category.name]
   static final name =
-      QueryStringProperty<Category>(_entities[10].properties[2]);
+      QueryStringProperty<Category>(_entities[11].properties[2]);
 
   /// see [Category.fName]
   static final fName =
-      QueryStringProperty<Category>(_entities[10].properties[3]);
+      QueryStringProperty<Category>(_entities[11].properties[3]);
 
   /// see [Category.displayOrder]
   static final displayOrder =
-      QueryIntegerProperty<Category>(_entities[10].properties[4]);
+      QueryIntegerProperty<Category>(_entities[11].properties[4]);
 
   /// see [Category.imageUrl]
   static final imageUrl =
-      QueryStringProperty<Category>(_entities[10].properties[5]);
+      QueryStringProperty<Category>(_entities[11].properties[5]);
 }
 
 /// [Claims] entity fields to define ObjectBox queries.
 class Claims_ {
   /// see [Claims.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Claims>(_entities[11].properties[0]);
+      QueryIntegerProperty<Claims>(_entities[12].properties[0]);
 
   /// see [Claims.id]
-  static final id = QueryStringProperty<Claims>(_entities[11].properties[1]);
+  static final id = QueryStringProperty<Claims>(_entities[12].properties[1]);
 
   /// see [Claims.name]
-  static final name = QueryStringProperty<Claims>(_entities[11].properties[2]);
+  static final name = QueryStringProperty<Claims>(_entities[12].properties[2]);
 }
 
 /// [Coupon] entity fields to define ObjectBox queries.
 class Coupon_ {
   /// see [Coupon.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Coupon>(_entities[12].properties[0]);
+      QueryIntegerProperty<Coupon>(_entities[13].properties[0]);
 
   /// see [Coupon.id]
-  static final id = QueryStringProperty<Coupon>(_entities[12].properties[1]);
+  static final id = QueryStringProperty<Coupon>(_entities[13].properties[1]);
 
   /// see [Coupon.couponCode]
   static final couponCode =
-      QueryStringProperty<Coupon>(_entities[12].properties[2]);
+      QueryStringProperty<Coupon>(_entities[13].properties[2]);
 
   /// see [Coupon.useCountForAll]
   static final useCountForAll =
-      QueryIntegerProperty<Coupon>(_entities[12].properties[3]);
+      QueryIntegerProperty<Coupon>(_entities[13].properties[3]);
 
   /// see [Coupon.useCountForOne]
   static final useCountForOne =
-      QueryIntegerProperty<Coupon>(_entities[12].properties[4]);
+      QueryIntegerProperty<Coupon>(_entities[13].properties[4]);
 
   /// see [Coupon.maximumUses]
   static final maximumUses =
-      QueryIntegerProperty<Coupon>(_entities[12].properties[5]);
+      QueryIntegerProperty<Coupon>(_entities[13].properties[5]);
 
   /// see [Coupon.startDate]
   static final startDate =
-      QueryStringProperty<Coupon>(_entities[12].properties[6]);
+      QueryStringProperty<Coupon>(_entities[13].properties[6]);
 
   /// see [Coupon.endDate]
   static final endDate =
-      QueryStringProperty<Coupon>(_entities[12].properties[7]);
+      QueryStringProperty<Coupon>(_entities[13].properties[7]);
 
   /// see [Coupon.startTime]
   static final startTime =
-      QueryStringProperty<Coupon>(_entities[12].properties[8]);
+      QueryStringProperty<Coupon>(_entities[13].properties[8]);
 
   /// see [Coupon.endTime]
   static final endTime =
-      QueryStringProperty<Coupon>(_entities[12].properties[9]);
+      QueryStringProperty<Coupon>(_entities[13].properties[9]);
 
   /// see [Coupon.discountId]
   static final discountId =
-      QueryStringProperty<Coupon>(_entities[12].properties[10]);
+      QueryStringProperty<Coupon>(_entities[13].properties[10]);
 
   /// see [Coupon.days]
   static final days =
-      QueryIntegerVectorProperty<Coupon>(_entities[12].properties[11]);
+      QueryIntegerVectorProperty<Coupon>(_entities[13].properties[11]);
 
   /// see [Coupon.couponLevel]
   static final couponLevel =
-      QueryIntegerProperty<Coupon>(_entities[12].properties[12]);
+      QueryIntegerProperty<Coupon>(_entities[13].properties[12]);
 
   /// see [Coupon.numberOFProducts]
   static final numberOFProducts =
-      QueryIntegerProperty<Coupon>(_entities[12].properties[13]);
+      QueryIntegerProperty<Coupon>(_entities[13].properties[13]);
 }
 
 /// [Currencies] entity fields to define ObjectBox queries.
 class Currencies_ {
   /// see [Currencies.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Currencies>(_entities[13].properties[0]);
+      QueryIntegerProperty<Currencies>(_entities[14].properties[0]);
 
   /// see [Currencies.id]
   static final id =
-      QueryStringProperty<Currencies>(_entities[13].properties[1]);
+      QueryStringProperty<Currencies>(_entities[14].properties[1]);
 
   /// see [Currencies.name]
   static final name =
-      QueryStringProperty<Currencies>(_entities[13].properties[2]);
+      QueryStringProperty<Currencies>(_entities[14].properties[2]);
 
   /// see [Currencies.fName]
   static final fName =
-      QueryStringProperty<Currencies>(_entities[13].properties[3]);
+      QueryStringProperty<Currencies>(_entities[14].properties[3]);
 
   /// see [Currencies.currencyCode]
   static final currencyCode =
-      QueryStringProperty<Currencies>(_entities[13].properties[4]);
+      QueryStringProperty<Currencies>(_entities[14].properties[4]);
 
   /// see [Currencies.displayLocale]
   static final displayLocale =
-      QueryStringProperty<Currencies>(_entities[13].properties[5]);
+      QueryStringProperty<Currencies>(_entities[14].properties[5]);
 
   /// see [Currencies.isDefault]
   static final isDefault =
-      QueryBooleanProperty<Currencies>(_entities[13].properties[6]);
+      QueryBooleanProperty<Currencies>(_entities[14].properties[6]);
 
   /// see [Currencies.customFormatting]
   static final customFormatting =
-      QueryStringProperty<Currencies>(_entities[13].properties[7]);
+      QueryStringProperty<Currencies>(_entities[14].properties[7]);
 
   /// see [Currencies.exchangeRate]
   static final exchangeRate =
-      QueryDoubleProperty<Currencies>(_entities[13].properties[8]);
+      QueryDoubleProperty<Currencies>(_entities[14].properties[8]);
 
   /// see [Currencies.minExchangeRate]
   static final minExchangeRate =
-      QueryDoubleProperty<Currencies>(_entities[13].properties[9]);
+      QueryDoubleProperty<Currencies>(_entities[14].properties[9]);
 
   /// see [Currencies.maxExchangeRate]
   static final maxExchangeRate =
-      QueryDoubleProperty<Currencies>(_entities[13].properties[10]);
+      QueryDoubleProperty<Currencies>(_entities[14].properties[10]);
 
   /// see [Currencies.dens]
   static final dens =
-      QueryIntegerVectorProperty<Currencies>(_entities[13].properties[11]);
+      QueryIntegerVectorProperty<Currencies>(_entities[14].properties[11]);
 }
 
 /// [Customer] entity fields to define ObjectBox queries.
 class Customer_ {
   /// see [Customer.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Customer>(_entities[14].properties[0]);
+      QueryIntegerProperty<Customer>(_entities[15].properties[0]);
 
   /// see [Customer.id]
-  static final id = QueryStringProperty<Customer>(_entities[14].properties[1]);
+  static final id = QueryStringProperty<Customer>(_entities[15].properties[1]);
 
   /// see [Customer.name]
   static final name =
-      QueryStringProperty<Customer>(_entities[14].properties[2]);
+      QueryStringProperty<Customer>(_entities[15].properties[2]);
 
   /// see [Customer.fName]
   static final fName =
-      QueryStringProperty<Customer>(_entities[14].properties[3]);
+      QueryStringProperty<Customer>(_entities[15].properties[3]);
 
   /// see [Customer.mobile]
   static final mobile =
-      QueryStringProperty<Customer>(_entities[14].properties[4]);
+      QueryStringProperty<Customer>(_entities[15].properties[4]);
 
   /// see [Customer.email]
   static final email =
-      QueryStringProperty<Customer>(_entities[14].properties[5]);
+      QueryStringProperty<Customer>(_entities[15].properties[5]);
 
   /// see [Customer.debitLimit]
   static final debitLimit =
-      QueryDoubleProperty<Customer>(_entities[14].properties[6]);
+      QueryDoubleProperty<Customer>(_entities[15].properties[6]);
 
   /// see [Customer.balance]
   static final balance =
-      QueryDoubleProperty<Customer>(_entities[14].properties[7]);
+      QueryDoubleProperty<Customer>(_entities[15].properties[7]);
 
   /// see [Customer.paymentMethodId]
   static final paymentMethodId =
-      QueryStringProperty<Customer>(_entities[14].properties[8]);
+      QueryStringProperty<Customer>(_entities[15].properties[8]);
 
   /// see [Customer.currencyId]
   static final currencyId =
-      QueryStringProperty<Customer>(_entities[14].properties[9]);
+      QueryStringProperty<Customer>(_entities[15].properties[9]);
 
   /// see [Customer.taxNumber]
   static final taxNumber =
-      QueryStringProperty<Customer>(_entities[14].properties[10]);
+      QueryStringProperty<Customer>(_entities[15].properties[10]);
 
   /// see [Customer.taxRegisterationName]
   static final taxRegisterationName =
-      QueryStringProperty<Customer>(_entities[14].properties[11]);
+      QueryStringProperty<Customer>(_entities[15].properties[11]);
 
   /// see [Customer.inBlackList]
   static final inBlackList =
-      QueryBooleanProperty<Customer>(_entities[14].properties[12]);
+      QueryBooleanProperty<Customer>(_entities[15].properties[12]);
 
   /// see [Customer.blackListNote]
   static final blackListNote =
-      QueryStringProperty<Customer>(_entities[14].properties[13]);
+      QueryStringProperty<Customer>(_entities[15].properties[13]);
 
   /// see [Customer.priceListId]
   static final priceListId =
-      QueryStringProperty<Customer>(_entities[14].properties[14]);
+      QueryStringProperty<Customer>(_entities[15].properties[14]);
 
   /// see [Customer.enableHouseAccount]
   static final enableHouseAccount =
-      QueryBooleanProperty<Customer>(_entities[14].properties[15]);
+      QueryBooleanProperty<Customer>(_entities[15].properties[15]);
 
   /// see [Customer.taxable]
   static final taxable =
-      QueryBooleanProperty<Customer>(_entities[14].properties[16]);
+      QueryBooleanProperty<Customer>(_entities[15].properties[16]);
 
   /// see [Customer.addersses]
   static final addersses =
-      QueryRelationToMany<Customer, Address>(_entities[14].relations[0]);
+      QueryRelationToMany<Customer, Address>(_entities[15].relations[0]);
 
   /// see [Customer.houseAccountTranscations]
   static final houseAccountTranscations =
-      QueryRelationToMany<Customer, Transaction>(_entities[14].relations[1]);
+      QueryRelationToMany<Customer, Transaction>(_entities[15].relations[1]);
 }
 
 /// [DeliveryCompany] entity fields to define ObjectBox queries.
 class DeliveryCompany_ {
   /// see [DeliveryCompany.idSeq]
   static final idSeq =
-      QueryIntegerProperty<DeliveryCompany>(_entities[15].properties[0]);
+      QueryIntegerProperty<DeliveryCompany>(_entities[16].properties[0]);
 
   /// see [DeliveryCompany.id]
   static final id =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[1]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[1]);
 
   /// see [DeliveryCompany.name]
   static final name =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[2]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[2]);
 
   /// see [DeliveryCompany.fName]
   static final fName =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[3]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[3]);
 
   /// see [DeliveryCompany.mobile]
   static final mobile =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[4]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[4]);
 
   /// see [DeliveryCompany.email]
   static final email =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[5]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[5]);
 
   /// see [DeliveryCompany.countryId]
   static final countryId =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[6]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[6]);
 
   /// see [DeliveryCompany.imageUrl]
   static final imageUrl =
-      QueryStringProperty<DeliveryCompany>(_entities[15].properties[7]);
+      QueryStringProperty<DeliveryCompany>(_entities[16].properties[7]);
 
   /// see [DeliveryCompany.commissionRate]
   static final commissionRate =
-      QueryDoubleProperty<DeliveryCompany>(_entities[15].properties[8]);
+      QueryDoubleProperty<DeliveryCompany>(_entities[16].properties[8]);
 }
 
 /// [DeliveryCompanyInfo] entity fields to define ObjectBox queries.
 class DeliveryCompanyInfo_ {
   /// see [DeliveryCompanyInfo.idSeq]
   static final idSeq =
-      QueryIntegerProperty<DeliveryCompanyInfo>(_entities[16].properties[0]);
+      QueryIntegerProperty<DeliveryCompanyInfo>(_entities[17].properties[0]);
 
   /// see [DeliveryCompanyInfo.company]
   static final company =
       QueryRelationToOne<DeliveryCompanyInfo, DeliveryCompany>(
-          _entities[16].properties[1]);
+          _entities[17].properties[1]);
 
   /// see [DeliveryCompanyInfo.orderNumber]
   static final orderNumber =
-      QueryStringProperty<DeliveryCompanyInfo>(_entities[16].properties[2]);
+      QueryStringProperty<DeliveryCompanyInfo>(_entities[17].properties[2]);
 }
 
 /// [DeliveryZone] entity fields to define ObjectBox queries.
 class DeliveryZone_ {
   /// see [DeliveryZone.idSeq]
   static final idSeq =
-      QueryIntegerProperty<DeliveryZone>(_entities[17].properties[0]);
+      QueryIntegerProperty<DeliveryZone>(_entities[18].properties[0]);
 
   /// see [DeliveryZone.id]
   static final id =
-      QueryStringProperty<DeliveryZone>(_entities[17].properties[1]);
+      QueryStringProperty<DeliveryZone>(_entities[18].properties[1]);
 
   /// see [DeliveryZone.name]
   static final name =
-      QueryStringProperty<DeliveryZone>(_entities[17].properties[2]);
+      QueryStringProperty<DeliveryZone>(_entities[18].properties[2]);
 
   /// see [DeliveryZone.fName]
   static final fName =
-      QueryStringProperty<DeliveryZone>(_entities[17].properties[3]);
+      QueryStringProperty<DeliveryZone>(_entities[18].properties[3]);
 
   /// see [DeliveryZone.deliveryZoneCoordinate]
   static final deliveryZoneCoordinate =
-      QueryStringProperty<DeliveryZone>(_entities[17].properties[4]);
+      QueryStringProperty<DeliveryZone>(_entities[18].properties[4]);
 
   /// see [DeliveryZone.minimumDeliveryCharge]
   static final minimumDeliveryCharge =
-      QueryDoubleProperty<DeliveryZone>(_entities[17].properties[5]);
+      QueryDoubleProperty<DeliveryZone>(_entities[18].properties[5]);
 
   /// see [DeliveryZone.deliveryChargePerKM]
   static final deliveryChargePerKM =
-      QueryDoubleProperty<DeliveryZone>(_entities[17].properties[6]);
+      QueryDoubleProperty<DeliveryZone>(_entities[18].properties[6]);
 }
 
 /// [Department1] entity fields to define ObjectBox queries.
 class Department1_ {
   /// see [Department1.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Department1>(_entities[18].properties[0]);
+      QueryIntegerProperty<Department1>(_entities[19].properties[0]);
 
   /// see [Department1.id]
   static final id =
-      QueryStringProperty<Department1>(_entities[18].properties[1]);
+      QueryStringProperty<Department1>(_entities[19].properties[1]);
 
   /// see [Department1.name]
   static final name =
-      QueryStringProperty<Department1>(_entities[18].properties[2]);
+      QueryStringProperty<Department1>(_entities[19].properties[2]);
 
   /// see [Department1.fName]
   static final fName =
-      QueryStringProperty<Department1>(_entities[18].properties[3]);
+      QueryStringProperty<Department1>(_entities[19].properties[3]);
 
   /// see [Department1.displayOrder]
   static final displayOrder =
-      QueryIntegerProperty<Department1>(_entities[18].properties[4]);
+      QueryIntegerProperty<Department1>(_entities[19].properties[4]);
 
   /// see [Department1.imageUrl]
   static final imageUrl =
-      QueryStringProperty<Department1>(_entities[18].properties[5]);
+      QueryStringProperty<Department1>(_entities[19].properties[5]);
 
   /// see [Department1.categories]
   static final categories =
-      QueryRelationToMany<Department1, Category>(_entities[18].relations[0]);
+      QueryRelationToMany<Department1, Category>(_entities[19].relations[0]);
 }
 
 /// [Device] entity fields to define ObjectBox queries.
 class Device_ {
   /// see [Device.id]
-  static final id = QueryIntegerProperty<Device>(_entities[19].properties[0]);
+  static final id = QueryIntegerProperty<Device>(_entities[20].properties[0]);
 
   /// see [Device.deviceId]
   static final deviceId =
-      QueryStringProperty<Device>(_entities[19].properties[1]);
+      QueryStringProperty<Device>(_entities[20].properties[1]);
 
   /// see [Device.deviceTypeId]
   static final deviceTypeId =
-      QueryStringProperty<Device>(_entities[19].properties[2]);
+      QueryStringProperty<Device>(_entities[20].properties[2]);
 
   /// see [Device.deviceModelId]
   static final deviceModelId =
-      QueryStringProperty<Device>(_entities[19].properties[3]);
+      QueryStringProperty<Device>(_entities[20].properties[3]);
 
   /// see [Device.deviceTypeCode]
   static final deviceTypeCode =
-      QueryIntegerProperty<Device>(_entities[19].properties[4]);
+      QueryIntegerProperty<Device>(_entities[20].properties[4]);
 
   /// see [Device.masterDeviceNo]
   static final masterDeviceNo =
-      QueryIntegerProperty<Device>(_entities[19].properties[5]);
+      QueryIntegerProperty<Device>(_entities[20].properties[5]);
 
   /// see [Device.reference]
   static final reference =
-      QueryStringProperty<Device>(_entities[19].properties[6]);
+      QueryStringProperty<Device>(_entities[20].properties[6]);
 
   /// see [Device.name]
-  static final name = QueryStringProperty<Device>(_entities[19].properties[7]);
+  static final name = QueryStringProperty<Device>(_entities[20].properties[7]);
 
   /// see [Device.fName]
-  static final fName = QueryStringProperty<Device>(_entities[19].properties[8]);
+  static final fName = QueryStringProperty<Device>(_entities[20].properties[8]);
 
   /// see [Device.enableOnlineOrderReceiver]
   static final enableOnlineOrderReceiver =
-      QueryBooleanProperty<Device>(_entities[19].properties[9]);
+      QueryBooleanProperty<Device>(_entities[20].properties[9]);
 
   /// see [Device.model]
   static final model =
-      QueryStringProperty<Device>(_entities[19].properties[10]);
+      QueryStringProperty<Device>(_entities[20].properties[10]);
 
   /// see [Device.systemVersion]
   static final systemVersion =
-      QueryStringProperty<Device>(_entities[19].properties[11]);
+      QueryStringProperty<Device>(_entities[20].properties[11]);
 
   /// see [Device.appVersion]
   static final appVersion =
-      QueryStringProperty<Device>(_entities[19].properties[12]);
+      QueryStringProperty<Device>(_entities[20].properties[12]);
 
   /// see [Device.build]
   static final build =
-      QueryStringProperty<Device>(_entities[19].properties[13]);
+      QueryStringProperty<Device>(_entities[20].properties[13]);
 
   /// see [Device.latitude]
   static final latitude =
-      QueryStringProperty<Device>(_entities[19].properties[14]);
+      QueryStringProperty<Device>(_entities[20].properties[14]);
 
   /// see [Device.longitude]
   static final longitude =
-      QueryStringProperty<Device>(_entities[19].properties[15]);
+      QueryStringProperty<Device>(_entities[20].properties[15]);
 
   /// see [Device.connectionIPAddress]
   static final connectionIPAddress =
-      QueryStringProperty<Device>(_entities[19].properties[16]);
+      QueryStringProperty<Device>(_entities[20].properties[16]);
 
   /// see [Device.connectionPort]
   static final connectionPort =
-      QueryIntegerProperty<Device>(_entities[19].properties[17]);
+      QueryIntegerProperty<Device>(_entities[20].properties[17]);
 
   /// see [Device.connectionType]
   static final connectionType =
-      QueryIntegerProperty<Device>(_entities[19].properties[18]);
+      QueryIntegerProperty<Device>(_entities[20].properties[18]);
 
   /// see [Device.imei]
-  static final imei = QueryStringProperty<Device>(_entities[19].properties[19]);
+  static final imei = QueryStringProperty<Device>(_entities[20].properties[19]);
 
   /// see [Device.orderTypes]
   static final orderTypes =
-      QueryIntegerVectorProperty<Device>(_entities[19].properties[20]);
+      QueryIntegerVectorProperty<Device>(_entities[20].properties[20]);
 
   /// see [Device.refrencePrefix]
   static final refrencePrefix =
-      QueryStringProperty<Device>(_entities[19].properties[21]);
+      QueryStringProperty<Device>(_entities[20].properties[21]);
+
+  /// see [Device.ip]
+  static final ip = QueryStringProperty<Device>(_entities[20].properties[22]);
 
   /// see [Device.info]
   static final info =
-      QueryRelationToOne<Device, ActivationInfo>(_entities[19].properties[22]);
+      QueryRelationToOne<Device, ActivationInfo>(_entities[20].properties[23]);
 
   /// see [Device.setting]
   static final setting =
-      QueryRelationToOne<Device, DeviceSetting>(_entities[19].properties[23]);
+      QueryRelationToOne<Device, DeviceSetting>(_entities[20].properties[24]);
 
   /// see [Device.products]
   static final products =
-      QueryStringVectorProperty<Device>(_entities[19].properties[24]);
+      QueryStringVectorProperty<Device>(_entities[20].properties[25]);
 
   /// see [Device.categories]
   static final categories =
-      QueryStringVectorProperty<Device>(_entities[19].properties[25]);
+      QueryStringVectorProperty<Device>(_entities[20].properties[26]);
 
   /// see [Device.departments]
   static final departments =
-      QueryStringVectorProperty<Device>(_entities[19].properties[26]);
-
-  /// see [Device.ip]
-  static final ip = QueryStringProperty<Device>(_entities[19].properties[27]);
+      QueryStringVectorProperty<Device>(_entities[20].properties[27]);
 
   /// see [Device.users]
   static final users =
-      QueryStringVectorProperty<Device>(_entities[19].properties[28]);
+      QueryStringVectorProperty<Device>(_entities[20].properties[28]);
 
   /// see [Device.resturnatSections]
   static final resturnatSections =
-      QueryStringVectorProperty<Device>(_entities[19].properties[29]);
+      QueryStringVectorProperty<Device>(_entities[20].properties[29]);
 }
 
 /// [DeviceSetting] entity fields to define ObjectBox queries.
 class DeviceSetting_ {
   /// see [DeviceSetting.idSeq]
   static final idSeq =
-      QueryIntegerProperty<DeviceSetting>(_entities[20].properties[0]);
+      QueryIntegerProperty<DeviceSetting>(_entities[21].properties[0]);
 
   /// see [DeviceSetting.dailyStartCallNumber]
   static final dailyStartCallNumber =
-      QueryIntegerProperty<DeviceSetting>(_entities[20].properties[1]);
+      QueryIntegerProperty<DeviceSetting>(_entities[21].properties[1]);
 
   /// see [DeviceSetting.dailyReCallNumber]
   static final dailyReCallNumber =
-      QueryIntegerProperty<DeviceSetting>(_entities[20].properties[2]);
+      QueryIntegerProperty<DeviceSetting>(_entities[21].properties[2]);
 
   /// see [DeviceSetting.newOrderDefaultType]
   static final newOrderDefaultType =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[3]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[3]);
 
   /// see [DeviceSetting.printLanguage]
   static final printLanguage =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[4]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[4]);
 
   /// see [DeviceSetting.defaultTag]
   static final defaultTag =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[5]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[5]);
 
   /// see [DeviceSetting.emailForDailyReport]
   static final emailForDailyReport =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[6]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[6]);
 
   /// see [DeviceSetting.emailForShiftReport]
   static final emailForShiftReport =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[7]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[7]);
 
   /// see [DeviceSetting.emailForTillReport]
   static final emailForTillReport =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[8]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[8]);
 
   /// see [DeviceSetting.autoConnectToDevices]
   static final autoConnectToDevices =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[9]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[9]);
 
   /// see [DeviceSetting.enableBarcodeScanner]
   static final enableBarcodeScanner =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[10]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[10]);
 
   /// see [DeviceSetting.acceptOnlineOrders]
   static final acceptOnlineOrders =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[11]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[11]);
 
   /// see [DeviceSetting.sentOnlineOrdersToKitchen]
   static final sentOnlineOrdersToKitchen =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[12]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[12]);
 
   /// see [DeviceSetting.printOnlineOrdersUponReceipt]
   static final printOnlineOrdersUponReceipt =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[13]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[13]);
 
   /// see [DeviceSetting.disableAutoPrintInvoice]
   static final disableAutoPrintInvoice =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[14]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[14]);
 
   /// see [DeviceSetting.readCallNumberFromMasterCasher]
   static final readCallNumberFromMasterCasher =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[15]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[15]);
 
   /// see [DeviceSetting.printReceiptVoucherTransactions]
   static final printReceiptVoucherTransactions =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[16]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[16]);
 
   /// see [DeviceSetting.forceSelectPriceList]
   static final forceSelectPriceList =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[17]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[17]);
 
   /// see [DeviceSetting.forceSelectChareOnProductSale]
   static final forceSelectChareOnProductSale =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[18]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[18]);
 
   /// see [DeviceSetting.forceRestCallNumberEveryDay]
   static final forceRestCallNumberEveryDay =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[19]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[19]);
 
   /// see [DeviceSetting.invoiceNumberPerfixSymoble]
   static final invoiceNumberPerfixSymoble =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[20]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[20]);
 
   /// see [DeviceSetting.invoiceNumberPerfix]
   static final invoiceNumberPerfix =
-      QueryStringProperty<DeviceSetting>(_entities[20].properties[21]);
+      QueryStringProperty<DeviceSetting>(_entities[21].properties[21]);
 
   /// see [DeviceSetting.refrencePerfix]
   static final refrencePerfix =
-      QueryBooleanProperty<DeviceSetting>(_entities[20].properties[22]);
+      QueryBooleanProperty<DeviceSetting>(_entities[21].properties[22]);
 }
 
 /// [Discount] entity fields to define ObjectBox queries.
 class Discount_ {
   /// see [Discount.idSeq]
   static final idSeq =
-      QueryIntegerProperty<Discount>(_entities[21].properties[0]);
+      QueryIntegerProperty<Discount>(_entities[22].properties[0]);
 
   /// see [Discount.id]
-  static final id = QueryStringProperty<Discount>(_entities[21].properties[1]);
+  static final id = QueryStringProperty<Discount>(_entities[22].properties[1]);
 
   /// see [Discount.name]
   static final name =
-      QueryStringProperty<Discount>(_entities[21].properties[2]);
+      QueryStringProperty<Discount>(_entities[22].properties[2]);
 
   /// see [Discount.fName]
   static final fName =
-      QueryStringProperty<Discount>(_entities[21].properties[3]);
+      QueryStringProperty<Discount>(_entities[22].properties[3]);
 
   /// see [Discount.startDate]
   static final startDate =
-      QueryStringProperty<Discount>(_entities[21].properties[4]);
+      QueryStringProperty<Discount>(_entities[22].properties[4]);
 
   /// see [Discount.endDate]
   static final endDate =
-      QueryStringProperty<Discount>(_entities[21].properties[5]);
+      QueryStringProperty<Discount>(_entities[22].properties[5]);
 
   /// see [Discount.startTime]
   static final startTime =
-      QueryStringProperty<Discount>(_entities[21].properties[6]);
+      QueryStringProperty<Discount>(_entities[22].properties[6]);
 
   /// see [Discount.endTime]
   static final endTime =
-      QueryStringProperty<Discount>(_entities[21].properties[7]);
+      QueryStringProperty<Discount>(_entities[22].properties[7]);
 
   /// see [Discount.discountAppliedTo]
   static final discountAppliedTo =
-      QueryIntegerProperty<Discount>(_entities[21].properties[8]);
+      QueryIntegerProperty<Discount>(_entities[22].properties[8]);
 
   /// see [Discount.discountType]
   static final discountType =
-      QueryIntegerProperty<Discount>(_entities[21].properties[9]);
+      QueryIntegerProperty<Discount>(_entities[22].properties[9]);
 
   /// see [Discount.discountPercentage]
   static final discountPercentage =
-      QueryDoubleProperty<Discount>(_entities[21].properties[10]);
+      QueryDoubleProperty<Discount>(_entities[22].properties[10]);
 
   /// see [Discount.discountAmount]
   static final discountAmount =
-      QueryDoubleProperty<Discount>(_entities[21].properties[11]);
+      QueryDoubleProperty<Discount>(_entities[22].properties[11]);
 
   /// see [Discount.maximumDiscountAmount]
   static final maximumDiscountAmount =
-      QueryDoubleProperty<Discount>(_entities[21].properties[12]);
+      QueryDoubleProperty<Discount>(_entities[22].properties[12]);
 
   /// see [Discount.minimalOrderAmount]
   static final minimalOrderAmount =
-      QueryDoubleProperty<Discount>(_entities[21].properties[13]);
+      QueryDoubleProperty<Discount>(_entities[22].properties[13]);
 
   /// see [Discount.taxable]
   static final taxable =
-      QueryBooleanProperty<Discount>(_entities[21].properties[14]);
+      QueryBooleanProperty<Discount>(_entities[22].properties[14]);
 
   /// see [Discount.productIDs]
   static final productIDs =
-      QueryStringVectorProperty<Discount>(_entities[21].properties[15]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[15]);
 
   /// see [Discount.days]
   static final days =
-      QueryIntegerVectorProperty<Discount>(_entities[21].properties[16]);
+      QueryIntegerVectorProperty<Discount>(_entities[22].properties[16]);
 
   /// see [Discount.orderTypes]
   static final orderTypes =
-      QueryIntegerVectorProperty<Discount>(_entities[21].properties[17]);
+      QueryIntegerVectorProperty<Discount>(_entities[22].properties[17]);
 
   /// see [Discount.priceList]
   static final priceList =
-      QueryStringVectorProperty<Discount>(_entities[21].properties[18]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[18]);
 
   /// see [Discount.customers]
   static final customers =
-      QueryStringVectorProperty<Discount>(_entities[21].properties[19]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[19]);
 
   /// see [Discount.departments]
   static final departments =
-      QueryStringVectorProperty<Discount>(_entities[21].properties[20]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[20]);
 
   /// see [Discount.categories]
   static final categories =
-      QueryStringVectorProperty<Discount>(_entities[21].properties[21]);
-}
-
-/// [ExtractCategory] entity fields to define ObjectBox queries.
-class ExtractCategory_ {
-  /// see [ExtractCategory.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ExtractCategory>(_entities[22].properties[0]);
-
-  /// see [ExtractCategory.id]
-  static final id =
-      QueryStringProperty<ExtractCategory>(_entities[22].properties[1]);
-
-  /// see [ExtractCategory.order]
-  static final order =
-      QueryIntegerProperty<ExtractCategory>(_entities[22].properties[2]);
-
-  /// see [ExtractCategory.image]
-  static final image =
-      QueryStringProperty<ExtractCategory>(_entities[22].properties[3]);
-
-  /// see [ExtractCategory.name]
-  static final name =
-      QueryStringProperty<ExtractCategory>(_entities[22].properties[4]);
-
-  /// see [ExtractCategory.fName]
-  static final fName =
-      QueryStringProperty<ExtractCategory>(_entities[22].properties[5]);
-}
-
-/// [ExtractDepartment] entity fields to define ObjectBox queries.
-class ExtractDepartment_ {
-  /// see [ExtractDepartment.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ExtractDepartment>(_entities[23].properties[0]);
-
-  /// see [ExtractDepartment.id]
-  static final id =
-      QueryStringProperty<ExtractDepartment>(_entities[23].properties[1]);
-
-  /// see [ExtractDepartment.order]
-  static final order =
-      QueryIntegerProperty<ExtractDepartment>(_entities[23].properties[2]);
-
-  /// see [ExtractDepartment.image]
-  static final image =
-      QueryStringProperty<ExtractDepartment>(_entities[23].properties[3]);
-
-  /// see [ExtractDepartment.name]
-  static final name =
-      QueryStringProperty<ExtractDepartment>(_entities[23].properties[4]);
-
-  /// see [ExtractDepartment.fName]
-  static final fName =
-      QueryStringProperty<ExtractDepartment>(_entities[23].properties[5]);
-
-  /// see [ExtractDepartment.categories]
-  static final categories =
-      QueryRelationToMany<ExtractDepartment, ExtractCategory>(
-          _entities[23].relations[0]);
-}
-
-/// [ExtractProduct] entity fields to define ObjectBox queries.
-class ExtractProduct_ {
-  /// see [ExtractProduct.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[0]);
-
-  /// see [ExtractProduct.id]
-  static final id =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[1]);
-
-  /// see [ExtractProduct.name]
-  static final name =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[2]);
-
-  /// see [ExtractProduct.fName]
-  static final fName =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[3]);
-
-  /// see [ExtractProduct.sku]
-  static final sku =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[4]);
-
-  /// see [ExtractProduct.barcode]
-  static final barcode =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[5]);
-
-  /// see [ExtractProduct.productTypeId]
-  static final productTypeId =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[6]);
-
-  /// see [ExtractProduct.costType]
-  static final costType =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[7]);
-
-  /// see [ExtractProduct.priceType]
-  static final priceType =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[8]);
-
-  /// see [ExtractProduct.salesMethod]
-  static final salesMethod =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[9]);
-
-  /// see [ExtractProduct.price]
-  static final price =
-      QueryDoubleProperty<ExtractProduct>(_entities[24].properties[10]);
-
-  /// see [ExtractProduct.cost]
-  static final cost =
-      QueryDoubleProperty<ExtractProduct>(_entities[24].properties[11]);
-
-  /// see [ExtractProduct.preparationTime]
-  static final preparationTime =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[12]);
-
-  /// see [ExtractProduct.activeQRScan]
-  static final activeQRScan =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[13]);
-
-  /// see [ExtractProduct.qrScanOnSameDate]
-  static final qrScanOnSameDate =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[14]);
-
-  /// see [ExtractProduct.enableSalesDiscount]
-  static final enableSalesDiscount =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[15]);
-
-  /// see [ExtractProduct.discountPercentageLimit]
-  static final discountPercentageLimit =
-      QueryDoubleProperty<ExtractProduct>(_entities[24].properties[16]);
-
-  /// see [ExtractProduct.enableFreeQuantity]
-  static final enableFreeQuantity =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[17]);
-
-  /// see [ExtractProduct.enableDateExpire]
-  static final enableDateExpire =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[18]);
-
-  /// see [ExtractProduct.enableIMEISerial]
-  static final enableIMEISerial =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[19]);
-
-  /// see [ExtractProduct.enableWeights]
-  static final enableWeights =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[20]);
-
-  /// see [ExtractProduct.scanPriceFromScale]
-  static final scanPriceFromScale =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[21]);
-
-  /// see [ExtractProduct.scalePriceIncludeTax]
-  static final scalePriceIncludeTax =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[22]);
-
-  /// see [ExtractProduct.independentPrinting]
-  static final independentPrinting =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[23]);
-
-  /// see [ExtractProduct.calculateQuantityFromTotalPrice]
-  static final calculateQuantityFromTotalPrice =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[24]);
-
-  /// see [ExtractProduct.reservationRequired]
-  static final reservationRequired =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[25]);
-
-  /// see [ExtractProduct.scaleBarcodeDigits]
-  static final scaleBarcodeDigits =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[26]);
-
-  /// see [ExtractProduct.scaleProductCodeDigits]
-  static final scaleProductCodeDigits =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[27]);
-
-  /// see [ExtractProduct.scaleIntDigits]
-  static final scaleIntDigits =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[28]);
-
-  /// see [ExtractProduct.scaledecimalDigits]
-  static final scaledecimalDigits =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[29]);
-
-  /// see [ExtractProduct.scaleProductCodeFirstInBracode]
-  static final scaleProductCodeFirstInBracode =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[30]);
-
-  /// see [ExtractProduct.availableStartDateTime]
-  static final availableStartDateTime =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[31]);
-
-  /// see [ExtractProduct.availableEndDateTime]
-  static final availableEndDateTime =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[32]);
-
-  /// see [ExtractProduct.description]
-  static final description =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[33]);
-
-  /// see [ExtractProduct.fDescription]
-  static final fDescription =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[34]);
-
-  /// see [ExtractProduct.imageUrl]
-  static final imageUrl =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[35]);
-
-  /// see [ExtractProduct.calories]
-  static final calories =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[36]);
-
-  /// see [ExtractProduct.minimumLevel]
-  static final minimumLevel =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[37]);
-
-  /// see [ExtractProduct.maximumLevel]
-  static final maximumLevel =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[38]);
-
-  /// see [ExtractProduct.categoryId]
-  static final categoryId =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[39]);
-
-  /// see [ExtractProduct.departmentId]
-  static final departmentId =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[40]);
-
-  /// see [ExtractProduct.productNature]
-  static final productNature =
-      QueryIntegerProperty<ExtractProduct>(_entities[24].properties[41]);
-
-  /// see [ExtractProduct.active]
-  static final active =
-      QueryBooleanProperty<ExtractProduct>(_entities[24].properties[42]);
-
-  /// see [ExtractProduct.taxGroupId]
-  static final taxGroupId =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[43]);
-
-  /// see [ExtractProduct.subName]
-  static final subName =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[44]);
-
-  /// see [ExtractProduct.fSubName]
-  static final fSubName =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[45]);
-
-  /// see [ExtractProduct.promotionalName]
-  static final promotionalName =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[46]);
-
-  /// see [ExtractProduct.fPromotionalName]
-  static final fPromotionalName =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[47]);
-
-  /// see [ExtractProduct.tags]
-  static final tags =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[48]);
-
-  /// see [ExtractProduct.fTags]
-  static final fTags =
-      QueryStringProperty<ExtractProduct>(_entities[24].properties[49]);
-
-  /// see [ExtractProduct.units]
-  static final units =
-      QueryRelationToMany<ExtractProduct, Unit>(_entities[24].relations[0]);
-
-  /// see [ExtractProduct.groups]
-  static final groups =
-      QueryRelationToMany<ExtractProduct, Group>(_entities[24].relations[1]);
-}
-
-/// [Fee] entity fields to define ObjectBox queries.
-class Fee_ {
-  /// see [Fee.idSeq]
-  static final idSeq = QueryIntegerProperty<Fee>(_entities[25].properties[0]);
-
-  /// see [Fee.id]
-  static final id = QueryStringProperty<Fee>(_entities[25].properties[1]);
-
-  /// see [Fee.name]
-  static final name = QueryStringProperty<Fee>(_entities[25].properties[2]);
-
-  /// see [Fee.fName]
-  static final fName = QueryStringProperty<Fee>(_entities[25].properties[3]);
-
-  /// see [Fee.type]
-  static final type = QueryIntegerProperty<Fee>(_entities[25].properties[4]);
-
-  /// see [Fee.valueType]
-  static final valueType =
-      QueryIntegerProperty<Fee>(_entities[25].properties[5]);
-
-  /// see [Fee.value]
-  static final value = QueryDoubleProperty<Fee>(_entities[25].properties[6]);
-
-  /// see [Fee.percentage]
-  static final percentage =
-      QueryDoubleProperty<Fee>(_entities[25].properties[7]);
-
-  /// see [Fee.orderTypes]
-  static final orderTypes =
-      QueryIntegerVectorProperty<Fee>(_entities[25].properties[8]);
-
-  /// see [Fee.days]
-  static final days =
-      QueryIntegerVectorProperty<Fee>(_entities[25].properties[9]);
-
-  /// see [Fee.products]
-  static final products =
-      QueryStringVectorProperty<Fee>(_entities[25].properties[10]);
-
-  /// see [Fee.taxGroupId]
-  static final taxGroupId =
-      QueryStringProperty<Fee>(_entities[25].properties[11]);
-
-  /// see [Fee.applyAuto]
-  static final applyAuto =
-      QueryBooleanProperty<Fee>(_entities[25].properties[12]);
-
-  /// see [Fee.applyToSubtotal]
-  static final applyToSubtotal =
-      QueryBooleanProperty<Fee>(_entities[25].properties[13]);
-
-  /// see [Fee.applyForProducts]
-  static final applyForProducts =
-      QueryBooleanProperty<Fee>(_entities[25].properties[14]);
-
-  /// see [Fee.printSeparatelyInTotalInvoice]
-  static final printSeparatelyInTotalInvoice =
-      QueryBooleanProperty<Fee>(_entities[25].properties[15]);
-
-  /// see [Fee.amountIncludeInProductPrice]
-  static final amountIncludeInProductPrice =
-      QueryBooleanProperty<Fee>(_entities[25].properties[16]);
-
-  /// see [Fee.minAmountPerProduct]
-  static final minAmountPerProduct =
-      QueryDoubleProperty<Fee>(_entities[25].properties[17]);
-
-  /// see [Fee.maxAmountPerProduct]
-  static final maxAmountPerProduct =
-      QueryDoubleProperty<Fee>(_entities[25].properties[18]);
-}
-
-/// [FeeValue] entity fields to define ObjectBox queries.
-class FeeValue_ {
-  /// see [FeeValue.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<FeeValue>(_entities[26].properties[0]);
-
-  /// see [FeeValue.feeId]
-  static final feeId =
-      QueryStringProperty<FeeValue>(_entities[26].properties[1]);
-
-  /// see [FeeValue.value]
-  static final value =
-      QueryDoubleProperty<FeeValue>(_entities[26].properties[2]);
-
-  /// see [FeeValue.applyAuto]
-  static final applyAuto =
-      QueryBooleanProperty<FeeValue>(_entities[26].properties[3]);
-
-  /// see [FeeValue.taxInfo]
-  static final taxInfo =
-      QueryRelationToOne<FeeValue, TaxInfo>(_entities[26].properties[4]);
-}
-
-/// [FreeOption] entity fields to define ObjectBox queries.
-class FreeOption_ {
-  /// see [FreeOption.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<FreeOption>(_entities[27].properties[0]);
-
-  /// see [FreeOption.optionId]
-  static final optionId =
-      QueryStringProperty<FreeOption>(_entities[27].properties[1]);
-
-  /// see [FreeOption.freeQuantity]
-  static final freeQuantity =
-      QueryDoubleProperty<FreeOption>(_entities[27].properties[2]);
-}
-
-/// [Group] entity fields to define ObjectBox queries.
-class Group_ {
-  /// see [Group.idSeq]
-  static final idSeq = QueryIntegerProperty<Group>(_entities[28].properties[0]);
-
-  /// see [Group.id]
-  static final id = QueryStringProperty<Group>(_entities[28].properties[1]);
-
-  /// see [Group.groupId]
-  static final groupId =
-      QueryStringProperty<Group>(_entities[28].properties[2]);
-
-  /// see [Group.groupName]
-  static final groupName =
-      QueryStringProperty<Group>(_entities[28].properties[3]);
-
-  /// see [Group.reference]
-  static final reference =
-      QueryStringProperty<Group>(_entities[28].properties[4]);
-}
-
-/// [Ingredient] entity fields to define ObjectBox queries.
-class Ingredient_ {
-  /// see [Ingredient.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Ingredient>(_entities[29].properties[0]);
-
-  /// see [Ingredient.isActive]
-  static final isActive =
-      QueryBooleanProperty<Ingredient>(_entities[29].properties[1]);
-
-  /// see [Ingredient.displayOrder]
-  static final displayOrder =
-      QueryIntegerProperty<Ingredient>(_entities[29].properties[2]);
-
-  /// see [Ingredient.id]
-  static final id =
-      QueryStringProperty<Ingredient>(_entities[29].properties[3]);
-
-  /// see [Ingredient.ingredientItemId]
-  static final ingredientItemId =
-      QueryStringProperty<Ingredient>(_entities[29].properties[4]);
-
-  /// see [Ingredient.ingredientItemName]
-  static final ingredientItemName =
-      QueryStringProperty<Ingredient>(_entities[29].properties[5]);
-
-  /// see [Ingredient.barcode]
-  static final barcode =
-      QueryStringProperty<Ingredient>(_entities[29].properties[6]);
-
-  /// see [Ingredient.unitOfMeasureName]
-  static final unitOfMeasureName =
-      QueryStringProperty<Ingredient>(_entities[29].properties[7]);
-
-  /// see [Ingredient.warehouseToIngredientFactor]
-  static final warehouseToIngredientFactor =
-      QueryDoubleProperty<Ingredient>(_entities[29].properties[8]);
-
-  /// see [Ingredient.quantity]
-  static final quantity =
-      QueryDoubleProperty<Ingredient>(_entities[29].properties[9]);
-
-  /// see [Ingredient.wasteQuantity]
-  static final wasteQuantity =
-      QueryDoubleProperty<Ingredient>(_entities[29].properties[10]);
-
-  /// see [Ingredient.unitCost]
-  static final unitCost =
-      QueryDoubleProperty<Ingredient>(_entities[29].properties[11]);
-
-  /// see [Ingredient.estimatedUnitCost]
-  static final estimatedUnitCost =
-      QueryDoubleProperty<Ingredient>(_entities[29].properties[12]);
-
-  /// see [Ingredient.yieldPercentage]
-  static final yieldPercentage =
-      QueryDoubleProperty<Ingredient>(_entities[29].properties[13]);
-
-  /// see [Ingredient.orderTypes]
-  static final orderTypes =
-      QueryStringVectorProperty<Ingredient>(_entities[29].properties[14]);
-}
-
-/// [LoginHistory] entity fields to define ObjectBox queries.
-class LoginHistory_ {
-  /// see [LoginHistory.id]
-  static final id =
-      QueryIntegerProperty<LoginHistory>(_entities[30].properties[0]);
-
-  /// see [LoginHistory.idIdentity]
-  static final idIdentity =
-      QueryIntegerProperty<LoginHistory>(_entities[30].properties[1]);
-
-  /// see [LoginHistory.loginTime]
-  static final loginTime =
-      QueryStringProperty<LoginHistory>(_entities[30].properties[2]);
-
-  /// see [LoginHistory.logoutTime]
-  static final logoutTime =
-      QueryStringProperty<LoginHistory>(_entities[30].properties[3]);
-
-  /// see [LoginHistory.usertId]
-  static final usertId =
-      QueryStringProperty<LoginHistory>(_entities[30].properties[4]);
-
-  /// see [LoginHistory.deviceNo]
-  static final deviceNo =
-      QueryStringProperty<LoginHistory>(_entities[30].properties[5]);
-
-  /// see [LoginHistory.deviceRef]
-  static final deviceRef =
-      QueryStringProperty<LoginHistory>(_entities[30].properties[6]);
-}
-
-/// [LogoData] entity fields to define ObjectBox queries.
-class LogoData_ {
-  /// see [LogoData.id]
-  static final id = QueryIntegerProperty<LogoData>(_entities[31].properties[0]);
-
-  /// see [LogoData.logoUrl]
-  static final logoUrl =
-      QueryStringProperty<LogoData>(_entities[31].properties[1]);
-
-  /// see [LogoData.logoData]
-  static final logoData =
-      QueryByteVectorProperty<LogoData>(_entities[31].properties[2]);
-}
-
-/// [LoyaltySetting] entity fields to define ObjectBox queries.
-class LoyaltySetting_ {
-  /// see [LoyaltySetting.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<LoyaltySetting>(_entities[32].properties[0]);
-
-  /// see [LoyaltySetting.enableSystem]
-  static final enableSystem =
-      QueryBooleanProperty<LoyaltySetting>(_entities[32].properties[1]);
-
-  /// see [LoyaltySetting.loyaltyMethod]
-  static final loyaltyMethod =
-      QueryStringProperty<LoyaltySetting>(_entities[32].properties[2]);
-
-  /// see [LoyaltySetting.lowestOrderPrice]
-  static final lowestOrderPrice =
-      QueryDoubleProperty<LoyaltySetting>(_entities[32].properties[3]);
-
-  /// see [LoyaltySetting.delayInEarningPointsMinutes]
-  static final delayInEarningPointsMinutes =
-      QueryDoubleProperty<LoyaltySetting>(_entities[32].properties[4]);
-
-  /// see [LoyaltySetting.bonusType]
-  static final bonusType =
-      QueryStringProperty<LoyaltySetting>(_entities[32].properties[5]);
-
-  /// see [LoyaltySetting.bonusValue]
-  static final bonusValue =
-      QueryDoubleProperty<LoyaltySetting>(_entities[32].properties[6]);
-
-  /// see [LoyaltySetting.maximumBonusLimit]
-  static final maximumBonusLimit =
-      QueryDoubleProperty<LoyaltySetting>(_entities[32].properties[7]);
-
-  /// see [LoyaltySetting.requiredBonusPoint]
-  static final requiredBonusPoint =
-      QueryDoubleProperty<LoyaltySetting>(_entities[32].properties[8]);
-
-  /// see [LoyaltySetting.bonusValidityDays]
-  static final bonusValidityDays =
-      QueryDoubleProperty<LoyaltySetting>(_entities[32].properties[9]);
-
-  /// see [LoyaltySetting.enableSMSNotifications]
-  static final enableSMSNotifications =
-      QueryBooleanProperty<LoyaltySetting>(_entities[32].properties[10]);
-
-  /// see [LoyaltySetting.displayBonusOnNewOrder]
-  static final displayBonusOnNewOrder =
-      QueryBooleanProperty<LoyaltySetting>(_entities[32].properties[11]);
-
-  /// see [LoyaltySetting.printBonusBalanceOnNewOrder]
-  static final printBonusBalanceOnNewOrder =
-      QueryBooleanProperty<LoyaltySetting>(_entities[32].properties[12]);
-}
-
-/// [Menu] entity fields to define ObjectBox queries.
-class Menu_ {
-  /// see [Menu.idSeq]
-  static final idSeq = QueryIntegerProperty<Menu>(_entities[33].properties[0]);
-
-  /// see [Menu.id]
-  static final id = QueryStringProperty<Menu>(_entities[33].properties[1]);
-
-  /// see [Menu.name]
-  static final name = QueryStringProperty<Menu>(_entities[33].properties[2]);
-
-  /// see [Menu.fName]
-  static final fName = QueryStringProperty<Menu>(_entities[33].properties[3]);
-
-  /// see [Menu.departments]
-  static final departments =
-      QueryRelationToMany<Menu, MenuDepartment>(_entities[33].relations[0]);
-
-  /// see [Menu.categories]
-  static final categories =
-      QueryRelationToMany<Menu, MenuCategory>(_entities[33].relations[1]);
-
-  /// see [Menu.products]
-  static final products =
-      QueryRelationToMany<Menu, MenuProduct>(_entities[33].relations[2]);
-
-  /// see [Menu.giftCards]
-  static final giftCards =
-      QueryRelationToMany<Menu, MenuGiftCard>(_entities[33].relations[3]);
-}
-
-/// [MenuCategory] entity fields to define ObjectBox queries.
-class MenuCategory_ {
-  /// see [MenuCategory.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<MenuCategory>(_entities[34].properties[0]);
-
-  /// see [MenuCategory.id]
-  static final id =
-      QueryStringProperty<MenuCategory>(_entities[34].properties[1]);
-
-  /// see [MenuCategory.order]
-  static final order =
-      QueryIntegerProperty<MenuCategory>(_entities[34].properties[2]);
-}
-
-/// [MenuDepartment] entity fields to define ObjectBox queries.
-class MenuDepartment_ {
-  /// see [MenuDepartment.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<MenuDepartment>(_entities[35].properties[0]);
-
-  /// see [MenuDepartment.id]
-  static final id =
-      QueryStringProperty<MenuDepartment>(_entities[35].properties[1]);
-
-  /// see [MenuDepartment.order]
-  static final order =
-      QueryIntegerProperty<MenuDepartment>(_entities[35].properties[2]);
-}
-
-/// [MenuGiftCard] entity fields to define ObjectBox queries.
-class MenuGiftCard_ {
-  /// see [MenuGiftCard.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<MenuGiftCard>(_entities[36].properties[0]);
-
-  /// see [MenuGiftCard.id]
-  static final id =
-      QueryStringProperty<MenuGiftCard>(_entities[36].properties[1]);
-
-  /// see [MenuGiftCard.order]
-  static final order =
-      QueryIntegerProperty<MenuGiftCard>(_entities[36].properties[2]);
-}
-
-/// [MenuProduct] entity fields to define ObjectBox queries.
-class MenuProduct_ {
-  /// see [MenuProduct.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<MenuProduct>(_entities[37].properties[0]);
-
-  /// see [MenuProduct.id]
-  static final id =
-      QueryStringProperty<MenuProduct>(_entities[37].properties[1]);
-
-  /// see [MenuProduct.order]
-  static final order =
-      QueryIntegerProperty<MenuProduct>(_entities[37].properties[2]);
-}
-
-/// [Modifier] entity fields to define ObjectBox queries.
-class Modifier_ {
-  /// see [Modifier.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Modifier>(_entities[38].properties[0]);
-
-  /// see [Modifier.id]
-  static final id = QueryStringProperty<Modifier>(_entities[38].properties[1]);
-
-  /// see [Modifier.minimumOptions]
-  static final minimumOptions =
-      QueryIntegerProperty<Modifier>(_entities[38].properties[2]);
-
-  /// see [Modifier.maximumOptions]
-  static final maximumOptions =
-      QueryIntegerProperty<Modifier>(_entities[38].properties[3]);
-
-  /// see [Modifier.name]
-  static final name =
-      QueryStringProperty<Modifier>(_entities[38].properties[4]);
-
-  /// see [Modifier.fname]
-  static final fname =
-      QueryStringProperty<Modifier>(_entities[38].properties[5]);
-
-  /// see [Modifier.isUnique]
-  static final isUnique =
-      QueryBooleanProperty<Modifier>(_entities[38].properties[6]);
-
-  /// see [Modifier.options]
-  static final options =
-      QueryRelationToMany<Modifier, Option>(_entities[38].relations[0]);
-}
-
-/// [Option] entity fields to define ObjectBox queries.
-class Option_ {
-  /// see [Option.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Option>(_entities[39].properties[0]);
-
-  /// see [Option.id]
-  static final id = QueryStringProperty<Option>(_entities[39].properties[1]);
-
-  /// see [Option.costType]
-  static final costType =
-      QueryStringProperty<Option>(_entities[39].properties[2]);
-
-  /// see [Option.modifierType]
-  static final modifierType =
-      QueryStringProperty<Option>(_entities[39].properties[3]);
-
-  /// see [Option.instructionType]
-  static final instructionType =
-      QueryIntegerProperty<Option>(_entities[39].properties[4]);
-
-  /// see [Option.price]
-  static final price = QueryDoubleProperty<Option>(_entities[39].properties[5]);
-
-  /// see [Option.cost]
-  static final cost = QueryDoubleProperty<Option>(_entities[39].properties[6]);
-
-  /// see [Option.calories]
-  static final calories =
-      QueryDoubleProperty<Option>(_entities[39].properties[7]);
-
-  /// see [Option.inStock]
-  static final inStock =
-      QueryBooleanProperty<Option>(_entities[39].properties[8]);
-
-  /// see [Option.isDefault]
-  static final isDefault =
-      QueryBooleanProperty<Option>(_entities[39].properties[9]);
-
-  /// see [Option.displayOrder]
-  static final displayOrder =
-      QueryIntegerProperty<Option>(_entities[39].properties[10]);
-
-  /// see [Option.name]
-  static final name = QueryStringProperty<Option>(_entities[39].properties[11]);
-
-  /// see [Option.fname]
-  static final fname =
-      QueryStringProperty<Option>(_entities[39].properties[12]);
-
-  /// see [Option.taxGroupId]
-  static final taxGroupId =
-      QueryStringProperty<Option>(_entities[39].properties[13]);
-}
-
-/// [OrderC] entity fields to define ObjectBox queries.
-class OrderC_ {
-  /// see [OrderC.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[0]);
-
-  /// see [OrderC.invoiceNumber]
-  static final invoiceNumber =
-      QueryStringProperty<OrderC>(_entities[40].properties[1]);
-
-  /// see [OrderC.deviceId]
-  static final deviceId =
-      QueryStringProperty<OrderC>(_entities[40].properties[2]);
-
-  /// see [OrderC.startDate]
-  static final startDate =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[3]);
-
-  /// see [OrderC.timeOfReceipt]
-  static final timeOfReceipt =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[4]);
-
-  /// see [OrderC.parentOrderId]
-  static final parentOrderId =
-      QueryStringProperty<OrderC>(_entities[40].properties[5]);
-
-  /// see [OrderC.splitIndex]
-  static final splitIndex =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[6]);
-
-  /// see [OrderC.orderRef]
-  static final orderRef =
-      QueryStringProperty<OrderC>(_entities[40].properties[7]);
-
-  /// see [OrderC.callName]
-  static final callName =
-      QueryStringProperty<OrderC>(_entities[40].properties[8]);
-
-  /// see [OrderC.orderType]
-  static final orderType =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[9]);
-
-  /// see [OrderC.status]
-  static final status =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[10]);
-
-  /// see [OrderC.orderSource]
-  static final orderSource =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[11]);
-
-  /// see [OrderC.endTime]
-  static final endTime =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[12]);
-
-  /// see [OrderC.deliveryCompanyInfo]
-  static final deliveryCompanyInfo =
-      QueryRelationToOne<OrderC, DeliveryCompanyInfo>(
-          _entities[40].properties[13]);
-
-  /// see [OrderC.selectedPriceListId]
-  static final selectedPriceListId =
-      QueryStringProperty<OrderC>(_entities[40].properties[14]);
-
-  /// see [OrderC.tableId]
-  static final tableId =
-      QueryStringProperty<OrderC>(_entities[40].properties[15]);
-
-  /// see [OrderC.tableCaption]
-  static final tableCaption =
-      QueryStringProperty<OrderC>(_entities[40].properties[16]);
-
-  /// see [OrderC.numberVistor]
-  static final numberVistor =
-      QueryIntegerProperty<OrderC>(_entities[40].properties[17]);
-
-  /// see [OrderC.customer]
-  static final customer =
-      QueryRelationToOne<OrderC, Customer>(_entities[40].properties[18]);
-
-  /// see [OrderC.address]
-  static final address =
-      QueryRelationToOne<OrderC, Address>(_entities[40].properties[19]);
-
-  /// see [OrderC.promotion]
-  static final promotion =
-      QueryRelationToOne<OrderC, Promotion>(_entities[40].properties[20]);
-
-  /// see [OrderC.discount]
-  static final discount =
-      QueryRelationToOne<OrderC, Discount>(_entities[40].properties[21]);
-
-  /// see [OrderC.priceDiscount]
-  static final priceDiscount =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[22]);
-
-  /// see [OrderC.pricePromotion]
-  static final pricePromotion =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[23]);
-
-  /// see [OrderC.note]
-  static final note = QueryStringProperty<OrderC>(_entities[40].properties[24]);
-
-  /// see [OrderC.kitchenNote]
-  static final kitchenNote =
-      QueryStringProperty<OrderC>(_entities[40].properties[25]);
-
-  /// see [OrderC.msgCansel]
-  static final msgCansel =
-      QueryStringProperty<OrderC>(_entities[40].properties[26]);
-
-  /// see [OrderC.subTotal]
-  static final subTotal =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[27]);
-
-  /// see [OrderC.checksum]
-  static final checksum =
-      QueryStringProperty<OrderC>(_entities[40].properties[28]);
-
-  /// see [OrderC.masterChecksum]
-  static final masterChecksum =
-      QueryStringProperty<OrderC>(_entities[40].properties[29]);
-
-  /// see [OrderC.serverChecksum]
-  static final serverChecksum =
-      QueryStringProperty<OrderC>(_entities[40].properties[30]);
-
-  /// see [OrderC.totalFee]
-  static final totalFee =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[31]);
-
-  /// see [OrderC.taxPrice]
-  static final taxPrice =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[32]);
-
-  /// see [OrderC.totalDiscountForOrderAndProduct]
-  static final totalDiscountForOrderAndProduct =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[33]);
-
-  /// see [OrderC.totalPaid]
-  static final totalPaid =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[34]);
-
-  /// see [OrderC.shiftId]
-  static final shiftId =
-      QueryStringProperty<OrderC>(_entities[40].properties[35]);
-
-  /// see [OrderC.tillId]
-  static final tillId =
-      QueryStringProperty<OrderC>(_entities[40].properties[36]);
-
-  /// see [OrderC.totalCalories]
-  static final totalCalories =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[37]);
-
-  /// see [OrderC.minimumReservationPrice]
-  static final minimumReservationPrice =
-      QueryDoubleProperty<OrderC>(_entities[40].properties[38]);
-
-  /// see [OrderC.products]
-  static final products =
-      QueryRelationToMany<OrderC, AppliedProduct>(_entities[40].relations[0]);
-
-  /// see [OrderC.fees]
-  static final fees =
-      QueryRelationToMany<OrderC, Fee>(_entities[40].relations[1]);
-
-  /// see [OrderC.feeValues]
-  static final feeValues =
-      QueryRelationToMany<OrderC, FeeValue>(_entities[40].relations[2]);
-
-  /// see [OrderC.payments]
-  static final payments =
-      QueryRelationToMany<OrderC, PaymentValue>(_entities[40].relations[3]);
-}
-
-/// [PaymentMethod] entity fields to define ObjectBox queries.
-class PaymentMethod_ {
-  /// see [PaymentMethod.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PaymentMethod>(_entities[41].properties[0]);
-
-  /// see [PaymentMethod.id]
-  static final id =
-      QueryStringProperty<PaymentMethod>(_entities[41].properties[1]);
-
-  /// see [PaymentMethod.name]
-  static final name =
-      QueryStringProperty<PaymentMethod>(_entities[41].properties[2]);
-
-  /// see [PaymentMethod.fName]
-  static final fName =
-      QueryStringProperty<PaymentMethod>(_entities[41].properties[3]);
-
-  /// see [PaymentMethod.paymentType]
-  static final paymentType =
-      QueryIntegerProperty<PaymentMethod>(_entities[41].properties[4]);
-
-  /// see [PaymentMethod.displayOrder]
-  static final displayOrder =
-      QueryIntegerProperty<PaymentMethod>(_entities[41].properties[5]);
-
-  /// see [PaymentMethod.isActive]
-  static final isActive =
-      QueryBooleanProperty<PaymentMethod>(_entities[41].properties[6]);
-
-  /// see [PaymentMethod.isDeleted]
-  static final isDeleted =
-      QueryBooleanProperty<PaymentMethod>(_entities[41].properties[7]);
-
-  /// see [PaymentMethod.autoOpenCashDrawer]
-  static final autoOpenCashDrawer =
-      QueryBooleanProperty<PaymentMethod>(_entities[41].properties[8]);
-
-  /// see [PaymentMethod.imageUrl]
-  static final imageUrl =
-      QueryStringProperty<PaymentMethod>(_entities[41].properties[9]);
-}
-
-/// [PaymentValue] entity fields to define ObjectBox queries.
-class PaymentValue_ {
-  /// see [PaymentValue.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PaymentValue>(_entities[42].properties[0]);
-
-  /// see [PaymentValue.refreance]
-  static final refreance =
-      QueryStringProperty<PaymentValue>(_entities[42].properties[1]);
-
-  /// see [PaymentValue.method]
-  static final method = QueryRelationToOne<PaymentValue, PaymentMethod>(
-      _entities[42].properties[2]);
-
-  /// see [PaymentValue.amt]
-  static final amt =
-      QueryDoubleProperty<PaymentValue>(_entities[42].properties[3]);
-
-  /// see [PaymentValue.remainAmt]
-  static final remainAmt =
-      QueryDoubleProperty<PaymentValue>(_entities[42].properties[4]);
-
-  /// see [PaymentValue.exchangeRate]
-  static final exchangeRate =
-      QueryDoubleProperty<PaymentValue>(_entities[42].properties[5]);
-
-  /// see [PaymentValue.amountCurecny]
-  static final amountCurecny =
-      QueryDoubleProperty<PaymentValue>(_entities[42].properties[6]);
-
-  /// see [PaymentValue.currencyCode]
-  static final currencyCode =
-      QueryStringProperty<PaymentValue>(_entities[42].properties[7]);
-
-  /// see [PaymentValue.defaultCurrencyId]
-  static final defaultCurrencyId =
-      QueryStringProperty<PaymentValue>(_entities[42].properties[8]);
-}
-
-/// [PolicySetting] entity fields to define ObjectBox queries.
-class PolicySetting_ {
-  /// see [PolicySetting.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PolicySetting>(_entities[43].properties[0]);
-
-  /// see [PolicySetting.enableOrderCancelation]
-  static final enableOrderCancelation =
-      QueryBooleanProperty<PolicySetting>(_entities[43].properties[1]);
-
-  /// see [PolicySetting.enablePosRefund]
-  static final enablePosRefund =
-      QueryBooleanProperty<PolicySetting>(_entities[43].properties[2]);
-
-  /// see [PolicySetting.enableUsingExpiredTicket]
-  static final enableUsingExpiredTicket =
-      QueryBooleanProperty<PolicySetting>(_entities[43].properties[3]);
-
-  /// see [PolicySetting.orderPolicyAR]
-  static final orderPolicyAR =
-      QueryStringProperty<PolicySetting>(_entities[43].properties[4]);
-
-  /// see [PolicySetting.orderPolicyEN]
-  static final orderPolicyEN =
-      QueryStringProperty<PolicySetting>(_entities[43].properties[5]);
-}
-
-/// [PosUser] entity fields to define ObjectBox queries.
-class PosUser_ {
-  /// see [PosUser.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PosUser>(_entities[44].properties[0]);
-
-  /// see [PosUser.id]
-  static final id = QueryStringProperty<PosUser>(_entities[44].properties[1]);
-
-  /// see [PosUser.name]
-  static final name = QueryStringProperty<PosUser>(_entities[44].properties[2]);
-
-  /// see [PosUser.phoneNumber]
-  static final phoneNumber =
-      QueryStringProperty<PosUser>(_entities[44].properties[3]);
-
-  /// see [PosUser.passwordHash]
-  static final passwordHash =
-      QueryStringProperty<PosUser>(_entities[44].properties[4]);
-
-  /// see [PosUser.pin]
-  static final pin = QueryIntegerProperty<PosUser>(_entities[44].properties[5]);
-
-  /// see [PosUser.pinMD5]
-  static final pinMD5 =
-      QueryStringProperty<PosUser>(_entities[44].properties[6]);
-
-  /// see [PosUser.imageUrl]
-  static final imageUrl =
-      QueryStringProperty<PosUser>(_entities[44].properties[7]);
-
-  /// see [PosUser.orderTypes]
-  static final orderTypes =
-      QueryIntegerVectorProperty<PosUser>(_entities[44].properties[8]);
-
-  /// see [PosUser.appslanguageCode]
-  static final appslanguageCode =
-      QueryStringProperty<PosUser>(_entities[44].properties[9]);
-
-  /// see [PosUser.appsDataLanguageCode]
-  static final appsDataLanguageCode =
-      QueryStringProperty<PosUser>(_entities[44].properties[10]);
-
-  /// see [PosUser.dashboardlanguageCode]
-  static final dashboardlanguageCode =
-      QueryStringProperty<PosUser>(_entities[44].properties[11]);
-
-  /// see [PosUser.cashierSetting]
-  static final cashierSetting = QueryRelationToOne<PosUser, UserCashierSetting>(
-      _entities[44].properties[12]);
-
-  /// see [PosUser.roles]
-  static final roles =
-      QueryRelationToMany<PosUser, Roles>(_entities[44].relations[0]);
-}
-
-/// [PriceList] entity fields to define ObjectBox queries.
-class PriceList_ {
-  /// see [PriceList.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PriceList>(_entities[45].properties[0]);
-
-  /// see [PriceList.id]
-  static final id = QueryStringProperty<PriceList>(_entities[45].properties[1]);
-
-  /// see [PriceList.name]
-  static final name =
-      QueryStringProperty<PriceList>(_entities[45].properties[2]);
-
-  /// see [PriceList.fName]
-  static final fName =
-      QueryStringProperty<PriceList>(_entities[45].properties[3]);
-
-  /// see [PriceList.priceIncludeTax]
-  static final priceIncludeTax =
-      QueryBooleanProperty<PriceList>(_entities[45].properties[4]);
-}
-
-/// [PriceListValue] entity fields to define ObjectBox queries.
-class PriceListValue_ {
-  /// see [PriceListValue.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PriceListValue>(_entities[46].properties[0]);
-
-  /// see [PriceListValue.id]
-  static final id =
-      QueryStringProperty<PriceListValue>(_entities[46].properties[1]);
-
-  /// see [PriceListValue.price]
-  static final price =
-      QueryDoubleProperty<PriceListValue>(_entities[46].properties[2]);
-
-  /// see [PriceListValue.slaps]
-  static final slaps =
-      QueryRelationToMany<PriceListValue, Slaps>(_entities[46].relations[0]);
-}
-
-/// [Printer] entity fields to define ObjectBox queries.
-class Printer_ {
-  /// see [Printer.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Printer>(_entities[47].properties[0]);
-
-  /// see [Printer.id]
-  static final id = QueryStringProperty<Printer>(_entities[47].properties[1]);
-
-  /// see [Printer.name]
-  static final name = QueryStringProperty<Printer>(_entities[47].properties[2]);
-
-  /// see [Printer.fName]
-  static final fName =
-      QueryStringProperty<Printer>(_entities[47].properties[3]);
-
-  /// see [Printer.deviceId]
-  static final deviceId =
-      QueryStringProperty<Printer>(_entities[47].properties[4]);
-
-  /// see [Printer.printerModelId]
-  static final printerModelId =
-      QueryStringProperty<Printer>(_entities[47].properties[5]);
-
-  /// see [Printer.connectionType]
-  static final connectionType =
-      QueryIntegerProperty<Printer>(_entities[47].properties[6]);
-
-  /// see [Printer.ipAddress]
-  static final ipAddress =
-      QueryStringProperty<Printer>(_entities[47].properties[7]);
-
-  /// see [Printer.printerType]
-  static final printerType =
-      QueryIntegerProperty<Printer>(_entities[47].properties[8]);
-
-  /// see [Printer.printTo]
-  static final printTo =
-      QueryIntegerProperty<Printer>(_entities[47].properties[9]);
-
-  /// see [Printer.port]
-  static final port =
-      QueryIntegerProperty<Printer>(_entities[47].properties[10]);
-
-  /// see [Printer.products]
-  static final products =
-      QueryStringVectorProperty<Printer>(_entities[47].properties[11]);
-
-  /// see [Printer.departments]
-  static final departments =
-      QueryStringVectorProperty<Printer>(_entities[47].properties[12]);
-
-  /// see [Printer.categories]
-  static final categories =
-      QueryStringVectorProperty<Printer>(_entities[47].properties[13]);
-
-  /// see [Printer.orderTypes]
-  static final orderTypes =
-      QueryIntegerVectorProperty<Printer>(_entities[47].properties[14]);
-
-  /// see [Printer.settings]
-  static final settings =
-      QueryRelationToMany<Printer, PrinterSetting>(_entities[47].relations[0]);
-}
-
-/// [PrinterSetting] entity fields to define ObjectBox queries.
-class PrinterSetting_ {
-  /// see [PrinterSetting.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<PrinterSetting>(_entities[48].properties[0]);
-
-  /// see [PrinterSetting.id]
-  static final id =
-      QueryStringProperty<PrinterSetting>(_entities[48].properties[1]);
-
-  /// see [PrinterSetting.printerId]
-  static final printerId =
-      QueryStringProperty<PrinterSetting>(_entities[48].properties[2]);
-
-  /// see [PrinterSetting.paperSize]
-  static final paperSize =
-      QueryStringProperty<PrinterSetting>(_entities[48].properties[3]);
-
-  /// see [PrinterSetting.scale]
-  static final scale =
-      QueryIntegerProperty<PrinterSetting>(_entities[48].properties[4]);
-
-  /// see [PrinterSetting.imageCutterFactor]
-  static final imageCutterFactor =
-      QueryIntegerProperty<PrinterSetting>(_entities[48].properties[5]);
-
-  /// see [PrinterSetting.cutterCommandCode]
-  static final cutterCommandCode =
-      QueryStringProperty<PrinterSetting>(_entities[48].properties[6]);
-
-  /// see [PrinterSetting.autoPrint]
-  static final autoPrint =
-      QueryBooleanProperty<PrinterSetting>(_entities[48].properties[7]);
-
-  /// see [PrinterSetting.numberOfCopy]
-  static final numberOfCopy =
-      QueryIntegerProperty<PrinterSetting>(_entities[48].properties[8]);
-}
-
-/// [Product1] entity fields to define ObjectBox queries.
-class Product1_ {
-  /// see [Product1.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Product1>(_entities[49].properties[0]);
-
-  /// see [Product1.id]
-  static final id = QueryStringProperty<Product1>(_entities[49].properties[1]);
-
-  /// see [Product1.name]
-  static final name =
-      QueryStringProperty<Product1>(_entities[49].properties[2]);
-
-  /// see [Product1.fName]
-  static final fName =
-      QueryStringProperty<Product1>(_entities[49].properties[3]);
-
-  /// see [Product1.sku]
-  static final sku = QueryStringProperty<Product1>(_entities[49].properties[4]);
-
-  /// see [Product1.barcode]
-  static final barcode =
-      QueryStringProperty<Product1>(_entities[49].properties[5]);
-
-  /// see [Product1.productTypeId]
-  static final productTypeId =
-      QueryStringProperty<Product1>(_entities[49].properties[6]);
-
-  /// see [Product1.costType]
-  static final costType =
-      QueryStringProperty<Product1>(_entities[49].properties[7]);
-
-  /// see [Product1.priceType]
-  static final priceType =
-      QueryIntegerProperty<Product1>(_entities[49].properties[8]);
-
-  /// see [Product1.salesMethod]
-  static final salesMethod =
-      QueryStringProperty<Product1>(_entities[49].properties[9]);
-
-  /// see [Product1.price]
-  static final price =
-      QueryDoubleProperty<Product1>(_entities[49].properties[10]);
-
-  /// see [Product1.cost]
-  static final cost =
-      QueryDoubleProperty<Product1>(_entities[49].properties[11]);
-
-  /// see [Product1.preparationTime]
-  static final preparationTime =
-      QueryIntegerProperty<Product1>(_entities[49].properties[12]);
-
-  /// see [Product1.activeQRScan]
-  static final activeQRScan =
-      QueryBooleanProperty<Product1>(_entities[49].properties[13]);
-
-  /// see [Product1.qrScanOnSameDate]
-  static final qrScanOnSameDate =
-      QueryBooleanProperty<Product1>(_entities[49].properties[14]);
-
-  /// see [Product1.enableSalesDiscount]
-  static final enableSalesDiscount =
-      QueryBooleanProperty<Product1>(_entities[49].properties[15]);
-
-  /// see [Product1.discountPercentageLimit]
-  static final discountPercentageLimit =
-      QueryDoubleProperty<Product1>(_entities[49].properties[16]);
-
-  /// see [Product1.enableFreeQuantity]
-  static final enableFreeQuantity =
-      QueryBooleanProperty<Product1>(_entities[49].properties[17]);
-
-  /// see [Product1.enableDateExpire]
-  static final enableDateExpire =
-      QueryBooleanProperty<Product1>(_entities[49].properties[18]);
-
-  /// see [Product1.enableIMEISerial]
-  static final enableIMEISerial =
-      QueryBooleanProperty<Product1>(_entities[49].properties[19]);
-
-  /// see [Product1.enableWeights]
-  static final enableWeights =
-      QueryBooleanProperty<Product1>(_entities[49].properties[20]);
-
-  /// see [Product1.scanPriceFromScale]
-  static final scanPriceFromScale =
-      QueryBooleanProperty<Product1>(_entities[49].properties[21]);
-
-  /// see [Product1.scalePriceIncludeTax]
-  static final scalePriceIncludeTax =
-      QueryBooleanProperty<Product1>(_entities[49].properties[22]);
-
-  /// see [Product1.independentPrinting]
-  static final independentPrinting =
-      QueryBooleanProperty<Product1>(_entities[49].properties[23]);
-
-  /// see [Product1.calculateQuantityFromTotalPrice]
-  static final calculateQuantityFromTotalPrice =
-      QueryBooleanProperty<Product1>(_entities[49].properties[24]);
-
-  /// see [Product1.reservationRequired]
-  static final reservationRequired =
-      QueryBooleanProperty<Product1>(_entities[49].properties[25]);
-
-  /// see [Product1.scaleBarcodeDigits]
-  static final scaleBarcodeDigits =
-      QueryIntegerProperty<Product1>(_entities[49].properties[26]);
-
-  /// see [Product1.scaleProductCodeDigits]
-  static final scaleProductCodeDigits =
-      QueryIntegerProperty<Product1>(_entities[49].properties[27]);
-
-  /// see [Product1.scaleIntDigits]
-  static final scaleIntDigits =
-      QueryIntegerProperty<Product1>(_entities[49].properties[28]);
-
-  /// see [Product1.scaledecimalDigits]
-  static final scaledecimalDigits =
-      QueryIntegerProperty<Product1>(_entities[49].properties[29]);
-
-  /// see [Product1.scaleProductCodeFirstInBracode]
-  static final scaleProductCodeFirstInBracode =
-      QueryBooleanProperty<Product1>(_entities[49].properties[30]);
-
-  /// see [Product1.availableStartDateTime]
-  static final availableStartDateTime =
-      QueryStringProperty<Product1>(_entities[49].properties[31]);
-
-  /// see [Product1.availableEndDateTime]
-  static final availableEndDateTime =
-      QueryStringProperty<Product1>(_entities[49].properties[32]);
-
-  /// see [Product1.description]
-  static final description =
-      QueryStringProperty<Product1>(_entities[49].properties[33]);
-
-  /// see [Product1.fDescription]
-  static final fDescription =
-      QueryStringProperty<Product1>(_entities[49].properties[34]);
-
-  /// see [Product1.imageUrl]
-  static final imageUrl =
-      QueryStringProperty<Product1>(_entities[49].properties[35]);
-
-  /// see [Product1.calories]
-  static final calories =
-      QueryIntegerProperty<Product1>(_entities[49].properties[36]);
-
-  /// see [Product1.minimumLevel]
-  static final minimumLevel =
-      QueryIntegerProperty<Product1>(_entities[49].properties[37]);
-
-  /// see [Product1.maximumLevel]
-  static final maximumLevel =
-      QueryIntegerProperty<Product1>(_entities[49].properties[38]);
-
-  /// see [Product1.categoryId]
-  static final categoryId =
-      QueryStringProperty<Product1>(_entities[49].properties[39]);
-
-  /// see [Product1.departmentId]
-  static final departmentId =
-      QueryStringProperty<Product1>(_entities[49].properties[40]);
-
-  /// see [Product1.productNature]
-  static final productNature =
-      QueryIntegerProperty<Product1>(_entities[49].properties[41]);
-
-  /// see [Product1.active]
-  static final active =
-      QueryBooleanProperty<Product1>(_entities[49].properties[42]);
-
-  /// see [Product1.taxGroupId]
-  static final taxGroupId =
-      QueryStringProperty<Product1>(_entities[49].properties[43]);
-
-  /// see [Product1.subName]
-  static final subName =
-      QueryStringProperty<Product1>(_entities[49].properties[44]);
-
-  /// see [Product1.fSubName]
-  static final fSubName =
-      QueryStringProperty<Product1>(_entities[49].properties[45]);
-
-  /// see [Product1.promotionalName]
-  static final promotionalName =
-      QueryStringProperty<Product1>(_entities[49].properties[46]);
-
-  /// see [Product1.fPromotionalName]
-  static final fPromotionalName =
-      QueryStringProperty<Product1>(_entities[49].properties[47]);
-
-  /// see [Product1.tags]
-  static final tags =
-      QueryStringProperty<Product1>(_entities[49].properties[48]);
-
-  /// see [Product1.fTags]
-  static final fTags =
-      QueryStringProperty<Product1>(_entities[49].properties[49]);
-
-  /// see [Product1.showAlertPreparationTime]
-  static final showAlertPreparationTime =
-      QueryBooleanProperty<Product1>(_entities[49].properties[50]);
-
-  /// see [Product1.units]
-  static final units =
-      QueryRelationToMany<Product1, Unit>(_entities[49].relations[0]);
-
-  /// see [Product1.modifiers]
-  static final modifiers =
-      QueryRelationToMany<Product1, Modifier>(_entities[49].relations[1]);
-
-  /// see [Product1.ingredients]
-  static final ingredients =
-      QueryRelationToMany<Product1, Ingredient>(_entities[49].relations[2]);
-
-  /// see [Product1.groups]
-  static final groups =
-      QueryRelationToMany<Product1, Group>(_entities[49].relations[3]);
-}
-
-/// [ProductPriceList] entity fields to define ObjectBox queries.
-class ProductPriceList_ {
-  /// see [ProductPriceList.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ProductPriceList>(_entities[50].properties[0]);
-
-  /// see [ProductPriceList.id]
-  static final id =
-      QueryStringProperty<ProductPriceList>(_entities[50].properties[1]);
-
-  /// see [ProductPriceList.price]
-  static final price =
-      QueryDoubleProperty<ProductPriceList>(_entities[50].properties[2]);
-}
-
-/// [Promotion] entity fields to define ObjectBox queries.
-class Promotion_ {
-  /// see [Promotion.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Promotion>(_entities[51].properties[0]);
-
-  /// see [Promotion.id]
-  static final id = QueryStringProperty<Promotion>(_entities[51].properties[1]);
-
-  /// see [Promotion.name]
-  static final name =
-      QueryStringProperty<Promotion>(_entities[51].properties[2]);
-
-  /// see [Promotion.fName]
-  static final fName =
-      QueryStringProperty<Promotion>(_entities[51].properties[3]);
-
-  /// see [Promotion.startDate]
-  static final startDate =
-      QueryStringProperty<Promotion>(_entities[51].properties[4]);
-
-  /// see [Promotion.endDate]
-  static final endDate =
-      QueryStringProperty<Promotion>(_entities[51].properties[5]);
-
-  /// see [Promotion.startTime]
-  static final startTime =
-      QueryStringProperty<Promotion>(_entities[51].properties[6]);
-
-  /// see [Promotion.endTime]
-  static final endTime =
-      QueryStringProperty<Promotion>(_entities[51].properties[7]);
-
-  /// see [Promotion.promotionType]
-  static final promotionType =
-      QueryIntegerProperty<Promotion>(_entities[51].properties[8]);
-
-  /// see [Promotion.discountType]
-  static final discountType =
-      QueryIntegerProperty<Promotion>(_entities[51].properties[9]);
-
-  /// see [Promotion.discountPercentage]
-  static final discountPercentage =
-      QueryDoubleProperty<Promotion>(_entities[51].properties[10]);
-
-  /// see [Promotion.discountAmount]
-  static final discountAmount =
-      QueryDoubleProperty<Promotion>(_entities[51].properties[11]);
-
-  /// see [Promotion.maximumDiscountAmount]
-  static final maximumDiscountAmount =
-      QueryDoubleProperty<Promotion>(_entities[51].properties[12]);
-
-  /// see [Promotion.promotionApplyType]
-  static final promotionApplyType =
-      QueryIntegerProperty<Promotion>(_entities[51].properties[13]);
-
-  /// see [Promotion.customerQuantity]
-  static final customerQuantity =
-      QueryDoubleProperty<Promotion>(_entities[51].properties[14]);
-
-  /// see [Promotion.customerAmount]
-  static final customerAmount =
-      QueryDoubleProperty<Promotion>(_entities[51].properties[15]);
-
-  /// see [Promotion.promotionApplyToType]
-  static final promotionApplyToType =
-      QueryIntegerProperty<Promotion>(_entities[51].properties[16]);
-
-  /// see [Promotion.days]
-  static final days =
-      QueryIntegerVectorProperty<Promotion>(_entities[51].properties[17]);
-
-  /// see [Promotion.orderTypes]
-  static final orderTypes =
-      QueryIntegerVectorProperty<Promotion>(_entities[51].properties[18]);
-
-  /// see [Promotion.purchaseProducts]
-  static final purchaseProducts =
-      QueryStringVectorProperty<Promotion>(_entities[51].properties[19]);
-
-  /// see [Promotion.discountProducts]
-  static final discountProducts =
-      QueryStringVectorProperty<Promotion>(_entities[51].properties[20]);
-
-  /// see [Promotion.priority]
-  static final priority =
-      QueryIntegerProperty<Promotion>(_entities[51].properties[21]);
-}
-
-/// [ReasonsCanceling] entity fields to define ObjectBox queries.
-class ReasonsCanceling_ {
-  /// see [ReasonsCanceling.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ReasonsCanceling>(_entities[52].properties[0]);
-
-  /// see [ReasonsCanceling.id]
-  static final id =
-      QueryStringProperty<ReasonsCanceling>(_entities[52].properties[1]);
-
-  /// see [ReasonsCanceling.name]
-  static final name =
-      QueryStringProperty<ReasonsCanceling>(_entities[52].properties[2]);
-
-  /// see [ReasonsCanceling.fName]
-  static final fName =
-      QueryStringProperty<ReasonsCanceling>(_entities[52].properties[3]);
-}
-
-/// [ReasonsDrawerOpen] entity fields to define ObjectBox queries.
-class ReasonsDrawerOpen_ {
-  /// see [ReasonsDrawerOpen.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ReasonsDrawerOpen>(_entities[53].properties[0]);
-
-  /// see [ReasonsDrawerOpen.id]
-  static final id =
-      QueryStringProperty<ReasonsDrawerOpen>(_entities[53].properties[1]);
-
-  /// see [ReasonsDrawerOpen.name]
-  static final name =
-      QueryStringProperty<ReasonsDrawerOpen>(_entities[53].properties[2]);
-
-  /// see [ReasonsDrawerOpen.fName]
-  static final fName =
-      QueryStringProperty<ReasonsDrawerOpen>(_entities[53].properties[3]);
-}
-
-/// [ResturantSection] entity fields to define ObjectBox queries.
-class ResturantSection_ {
-  /// see [ResturantSection.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ResturantSection>(_entities[54].properties[0]);
-
-  /// see [ResturantSection.id]
-  static final id =
-      QueryStringProperty<ResturantSection>(_entities[54].properties[1]);
-
-  /// see [ResturantSection.name]
-  static final name =
-      QueryStringProperty<ResturantSection>(_entities[54].properties[2]);
-
-  /// see [ResturantSection.fName]
-  static final fName =
-      QueryStringProperty<ResturantSection>(_entities[54].properties[3]);
-
-  /// see [ResturantSection.tables]
-  static final tables =
-      QueryRelationToMany<ResturantSection, Table>(_entities[54].relations[0]);
-}
-
-/// [Roles] entity fields to define ObjectBox queries.
-class Roles_ {
-  /// see [Roles.idSeq]
-  static final idSeq = QueryIntegerProperty<Roles>(_entities[55].properties[0]);
-
-  /// see [Roles.id]
-  static final id = QueryStringProperty<Roles>(_entities[55].properties[1]);
-
-  /// see [Roles.name]
-  static final name = QueryStringProperty<Roles>(_entities[55].properties[2]);
-
-  /// see [Roles.claims]
-  static final claims =
-      QueryRelationToMany<Roles, Claims>(_entities[55].relations[0]);
-}
-
-/// [Shift] entity fields to define ObjectBox queries.
-class Shift_ {
-  /// see [Shift.id]
-  static final id = QueryIntegerProperty<Shift>(_entities[56].properties[0]);
-
-  /// see [Shift.shiftId]
-  static final shiftId =
-      QueryStringProperty<Shift>(_entities[56].properties[1]);
-
-  /// see [Shift.reference]
-  static final reference =
-      QueryStringProperty<Shift>(_entities[56].properties[2]);
-
-  /// see [Shift.userId]
-  static final userId = QueryStringProperty<Shift>(_entities[56].properties[3]);
-
-  /// see [Shift.userName]
-  static final userName =
-      QueryStringProperty<Shift>(_entities[56].properties[4]);
-
-  /// see [Shift.branchName]
-  static final branchName =
-      QueryStringProperty<Shift>(_entities[56].properties[5]);
-
-  /// see [Shift.clockedInDateAt]
-  static final clockedInDateAt =
-      QueryStringProperty<Shift>(_entities[56].properties[6]);
-
-  /// see [Shift.clockedInTimeAt]
-  static final clockedInTimeAt =
-      QueryStringProperty<Shift>(_entities[56].properties[7]);
-
-  /// see [Shift.clockedOutDateAt]
-  static final clockedOutDateAt =
-      QueryStringProperty<Shift>(_entities[56].properties[8]);
-
-  /// see [Shift.clockedOutTimeAt]
-  static final clockedOutTimeAt =
-      QueryStringProperty<Shift>(_entities[56].properties[9]);
-
-  /// see [Shift.isClockedOut]
-  static final isClockedOut =
-      QueryBooleanProperty<Shift>(_entities[56].properties[10]);
-
-  /// see [Shift.isSync]
-  static final isSync =
-      QueryBooleanProperty<Shift>(_entities[56].properties[11]);
-}
-
-/// [Slaps] entity fields to define ObjectBox queries.
-class Slaps_ {
-  /// see [Slaps.idSeq]
-  static final idSeq = QueryIntegerProperty<Slaps>(_entities[57].properties[0]);
-
-  /// see [Slaps.from]
-  static final from = QueryDoubleProperty<Slaps>(_entities[57].properties[1]);
-
-  /// see [Slaps.to]
-  static final to = QueryDoubleProperty<Slaps>(_entities[57].properties[2]);
-
-  /// see [Slaps.price]
-  static final price = QueryDoubleProperty<Slaps>(_entities[57].properties[3]);
-
-  /// see [Slaps.timeEventId]
-  static final timeEventId =
-      QueryStringProperty<Slaps>(_entities[57].properties[4]);
-}
-
-/// [Table] entity fields to define ObjectBox queries.
-class Table_ {
-  /// see [Table.idSeq]
-  static final idSeq = QueryIntegerProperty<Table>(_entities[58].properties[0]);
-
-  /// see [Table.id]
-  static final id = QueryStringProperty<Table>(_entities[58].properties[1]);
-
-  /// see [Table.tableNumber]
-  static final tableNumber =
-      QueryIntegerProperty<Table>(_entities[58].properties[2]);
-
-  /// see [Table.tableCode]
-  static final tableCode =
-      QueryStringProperty<Table>(_entities[58].properties[3]);
-
-  /// see [Table.numberOfIndividuals]
-  static final numberOfIndividuals =
-      QueryIntegerProperty<Table>(_entities[58].properties[4]);
-
-  /// see [Table.minumumReservationPrice]
-  static final minumumReservationPrice =
-      QueryDoubleProperty<Table>(_entities[58].properties[5]);
-
-  /// see [Table.status]
-  static final status =
-      QueryIntegerProperty<Table>(_entities[58].properties[6]);
-
-  /// see [Table.shape]
-  static final shape = QueryIntegerProperty<Table>(_entities[58].properties[7]);
-
-  /// see [Table.offsetX]
-  static final offsetX =
-      QueryIntegerProperty<Table>(_entities[58].properties[8]);
-
-  /// see [Table.offsetY]
-  static final offsetY =
-      QueryIntegerProperty<Table>(_entities[58].properties[9]);
-}
-
-/// [TaxC] entity fields to define ObjectBox queries.
-class TaxC_ {
-  /// see [TaxC.idSeq]
-  static final idSeq = QueryIntegerProperty<TaxC>(_entities[59].properties[0]);
-
-  /// see [TaxC.taxName]
-  static final taxName = QueryStringProperty<TaxC>(_entities[59].properties[1]);
-
-  /// see [TaxC.id]
-  static final id = QueryStringProperty<TaxC>(_entities[59].properties[2]);
-
-  /// see [TaxC.taxPercentage]
-  static final taxPercentage =
-      QueryDoubleProperty<TaxC>(_entities[59].properties[3]);
-
-  /// see [TaxC.customerTaxable]
-  static final customerTaxable =
-      QueryBooleanProperty<TaxC>(_entities[59].properties[4]);
-
-  /// see [TaxC.orderTypes]
-  static final orderTypes =
-      QueryIntegerVectorProperty<TaxC>(_entities[59].properties[5]);
-
-  /// see [TaxC.taxCode]
-  static final taxCode = QueryStringProperty<TaxC>(_entities[59].properties[6]);
-
-  /// see [TaxC.taxAccount]
-  static final taxAccount =
-      QueryStringProperty<TaxC>(_entities[59].properties[7]);
-
-  /// see [TaxC.isTaxExempt]
-  static final isTaxExempt =
-      QueryBooleanProperty<TaxC>(_entities[59].properties[8]);
-
-  /// see [TaxC.zeroTax]
-  static final zeroTax =
-      QueryBooleanProperty<TaxC>(_entities[59].properties[9]);
-
-  /// see [TaxC.exceptCustomers]
-  static final exceptCustomers =
-      QueryStringVectorProperty<TaxC>(_entities[59].properties[10]);
-
-  /// see [TaxC.name]
-  static final name = QueryStringProperty<TaxC>(_entities[59].properties[11]);
-
-  /// see [TaxC.fName]
-  static final fName = QueryStringProperty<TaxC>(_entities[59].properties[12]);
-
-  /// see [TaxC.periods]
-  static final periods =
-      QueryRelationToMany<TaxC, TaxPeriod>(_entities[59].relations[0]);
-}
-
-/// [TaxGroup] entity fields to define ObjectBox queries.
-class TaxGroup_ {
-  /// see [TaxGroup.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<TaxGroup>(_entities[60].properties[0]);
-
-  /// see [TaxGroup.id]
-  static final id = QueryStringProperty<TaxGroup>(_entities[60].properties[1]);
-
-  /// see [TaxGroup.types]
-  static final types =
-      QueryStringVectorProperty<TaxGroup>(_entities[60].properties[2]);
-
-  /// see [TaxGroup.name]
-  static final name =
-      QueryStringProperty<TaxGroup>(_entities[60].properties[3]);
-
-  /// see [TaxGroup.fName]
-  static final fName =
-      QueryStringProperty<TaxGroup>(_entities[60].properties[4]);
-}
-
-/// [TaxInfo] entity fields to define ObjectBox queries.
-class TaxInfo_ {
-  /// see [TaxInfo.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<TaxInfo>(_entities[61].properties[0]);
-
-  /// see [TaxInfo.taxGroupId]
-  static final taxGroupId =
-      QueryStringProperty<TaxInfo>(_entities[61].properties[1]);
-
-  /// see [TaxInfo.value]
-  static final value =
-      QueryDoubleProperty<TaxInfo>(_entities[61].properties[2]);
-}
-
-/// [TaxSetting] entity fields to define ObjectBox queries.
-class TaxSetting_ {
-  /// see [TaxSetting.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<TaxSetting>(_entities[62].properties[0]);
-
-  /// see [TaxSetting.enableSalesTax]
-  static final enableSalesTax =
-      QueryBooleanProperty<TaxSetting>(_entities[62].properties[1]);
-
-  /// see [TaxSetting.salesPriceIncludeTax]
-  static final salesPriceIncludeTax =
-      QueryBooleanProperty<TaxSetting>(_entities[62].properties[2]);
-
-  /// see [TaxSetting.enableCustomerSupplierTax]
-  static final enableCustomerSupplierTax =
-      QueryBooleanProperty<TaxSetting>(_entities[62].properties[3]);
-
-  /// see [TaxSetting.taxRoundFactor]
-  static final taxRoundFactor =
-      QueryDoubleProperty<TaxSetting>(_entities[62].properties[4]);
-}
-
-/// [ThrowbackInfo] entity fields to define ObjectBox queries.
-class ThrowbackInfo_ {
-  /// see [ThrowbackInfo.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ThrowbackInfo>(_entities[63].properties[0]);
-
-  /// see [ThrowbackInfo.productRef]
-  static final productRef =
-      QueryStringProperty<ThrowbackInfo>(_entities[63].properties[1]);
-
-  /// see [ThrowbackInfo.quantity]
-  static final quantity =
-      QueryDoubleProperty<ThrowbackInfo>(_entities[63].properties[2]);
-
-  /// see [ThrowbackInfo.isWaste]
-  static final isWaste =
-      QueryBooleanProperty<ThrowbackInfo>(_entities[63].properties[3]);
-
-  /// see [ThrowbackInfo.ref]
-  static final ref =
-      QueryStringProperty<ThrowbackInfo>(_entities[63].properties[4]);
-}
-
-/// [TimeEvent] entity fields to define ObjectBox queries.
-class TimeEvent_ {
-  /// see [TimeEvent.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<TimeEvent>(_entities[64].properties[0]);
-
-  /// see [TimeEvent.id]
-  static final id = QueryStringProperty<TimeEvent>(_entities[64].properties[1]);
-
-  /// see [TimeEvent.name]
-  static final name =
-      QueryStringProperty<TimeEvent>(_entities[64].properties[2]);
-
-  /// see [TimeEvent.fName]
-  static final fName =
-      QueryStringProperty<TimeEvent>(_entities[64].properties[3]);
-
-  /// see [TimeEvent.timeEventType]
-  static final timeEventType =
-      QueryIntegerProperty<TimeEvent>(_entities[64].properties[4]);
-
-  /// see [TimeEvent.timeEventValue]
-  static final timeEventValue =
-      QueryDoubleProperty<TimeEvent>(_entities[64].properties[5]);
-
-  /// see [TimeEvent.startDate]
-  static final startDate =
-      QueryStringProperty<TimeEvent>(_entities[64].properties[6]);
-
-  /// see [TimeEvent.endDate]
-  static final endDate =
-      QueryStringProperty<TimeEvent>(_entities[64].properties[7]);
-
-  /// see [TimeEvent.startTime]
-  static final startTime =
-      QueryStringProperty<TimeEvent>(_entities[64].properties[8]);
-
-  /// see [TimeEvent.endTime]
-  static final endTime =
-      QueryStringProperty<TimeEvent>(_entities[64].properties[9]);
-
-  /// see [TimeEvent.days]
-  static final days =
-      QueryIntegerVectorProperty<TimeEvent>(_entities[64].properties[10]);
-
-  /// see [TimeEvent.orderTypes]
-  static final orderTypes =
-      QueryIntegerVectorProperty<TimeEvent>(_entities[64].properties[11]);
-
-  /// see [TimeEvent.products]
-  static final products =
-      QueryStringVectorProperty<TimeEvent>(_entities[64].properties[12]);
-
-  /// see [TimeEvent.customers]
-  static final customers =
-      QueryStringVectorProperty<TimeEvent>(_entities[64].properties[13]);
-
-  /// see [TimeEvent.departments]
-  static final departments =
-      QueryStringVectorProperty<TimeEvent>(_entities[64].properties[14]);
-
-  /// see [TimeEvent.categories]
-  static final categories =
-      QueryStringVectorProperty<TimeEvent>(_entities[64].properties[15]);
-
-  /// see [TimeEvent.priority]
-  static final priority =
-      QueryIntegerProperty<TimeEvent>(_entities[64].properties[16]);
-}
-
-/// [Transaction] entity fields to define ObjectBox queries.
-class Transaction_ {
-  /// see [Transaction.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Transaction>(_entities[65].properties[0]);
-
-  /// see [Transaction.id]
-  static final id =
-      QueryStringProperty<Transaction>(_entities[65].properties[1]);
-
-  /// see [Transaction.refId]
-  static final refId =
-      QueryStringProperty<Transaction>(_entities[65].properties[2]);
-
-  /// see [Transaction.toAcount]
-  static final toAcount =
-      QueryStringProperty<Transaction>(_entities[65].properties[3]);
-
-  /// see [Transaction.amt]
-  static final amt =
-      QueryDoubleProperty<Transaction>(_entities[65].properties[4]);
-
-  /// see [Transaction.createBy]
-  static final createBy =
-      QueryStringProperty<Transaction>(_entities[65].properties[5]);
-
-  /// see [Transaction.date]
-  static final date =
-      QueryStringProperty<Transaction>(_entities[65].properties[6]);
-}
-
-/// [Unit] entity fields to define ObjectBox queries.
-class Unit_ {
-  /// see [Unit.idSeq]
-  static final idSeq = QueryIntegerProperty<Unit>(_entities[66].properties[0]);
-
-  /// see [Unit.id]
-  static final id = QueryStringProperty<Unit>(_entities[66].properties[1]);
-
-  /// see [Unit.name]
-  static final name = QueryStringProperty<Unit>(_entities[66].properties[2]);
-
-  /// see [Unit.fName]
-  static final fName = QueryStringProperty<Unit>(_entities[66].properties[3]);
-
-  /// see [Unit.barcode]
-  static final barcode = QueryStringProperty<Unit>(_entities[66].properties[4]);
-
-  /// see [Unit.price]
-  static final price = QueryDoubleProperty<Unit>(_entities[66].properties[5]);
-
-  /// see [Unit.cost]
-  static final cost = QueryDoubleProperty<Unit>(_entities[66].properties[6]);
-
-  /// see [Unit.factor]
-  static final factor = QueryDoubleProperty<Unit>(_entities[66].properties[7]);
-
-  /// see [Unit.defaultForSales]
-  static final defaultForSales =
-      QueryBooleanProperty<Unit>(_entities[66].properties[8]);
-
-  /// see [Unit.defaultForPurchase]
-  static final defaultForPurchase =
-      QueryBooleanProperty<Unit>(_entities[66].properties[9]);
-
-  /// see [Unit.defaultForStore]
-  static final defaultForStore =
-      QueryBooleanProperty<Unit>(_entities[66].properties[10]);
-
-  /// see [Unit.showAlertPreparationTime]
-  static final showAlertPreparationTime =
-      QueryBooleanProperty<Unit>(_entities[66].properties[11]);
-
-  /// see [Unit.priceType]
-  static final priceType =
-      QueryIntegerProperty<Unit>(_entities[66].properties[12]);
-
-  /// see [Unit.priceList]
-  static final priceList =
-      QueryRelationToMany<Unit, PriceListValue>(_entities[66].relations[0]);
-
-  /// see [Unit.modifiers]
-  static final modifiers =
-      QueryRelationToMany<Unit, UnitModifer>(_entities[66].relations[1]);
-}
-
-/// [UnitModifer] entity fields to define ObjectBox queries.
-class UnitModifer_ {
-  /// see [UnitModifer.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<UnitModifer>(_entities[67].properties[0]);
-
-  /// see [UnitModifer.id]
-  static final id =
-      QueryStringProperty<UnitModifer>(_entities[67].properties[1]);
-
-  /// see [UnitModifer.minimumOptions]
-  static final minimumOptions =
-      QueryIntegerProperty<UnitModifer>(_entities[67].properties[2]);
-
-  /// see [UnitModifer.maximumOptions]
-  static final maximumOptions =
-      QueryIntegerProperty<UnitModifer>(_entities[67].properties[3]);
-
-  /// see [UnitModifer.isUnique]
-  static final isUnique =
-      QueryBooleanProperty<UnitModifer>(_entities[67].properties[4]);
-
-  /// see [UnitModifer.isRequired]
-  static final isRequired =
-      QueryBooleanProperty<UnitModifer>(_entities[67].properties[5]);
-
-  /// see [UnitModifer.defulatOptions]
-  static final defulatOptions =
-      QueryStringVectorProperty<UnitModifer>(_entities[67].properties[6]);
-
-  /// see [UnitModifer.exceptOptions]
-  static final exceptOptions =
-      QueryStringVectorProperty<UnitModifer>(_entities[67].properties[7]);
-
-  /// see [UnitModifer.name]
-  static final name =
-      QueryStringProperty<UnitModifer>(_entities[67].properties[8]);
-
-  /// see [UnitModifer.fName]
-  static final fName =
-      QueryStringProperty<UnitModifer>(_entities[67].properties[9]);
-
-  /// see [UnitModifer.freeOptions]
-  static final freeOptions =
-      QueryRelationToMany<UnitModifer, FreeOption>(_entities[67].relations[0]);
-
-  /// see [UnitModifer.options]
-  static final options =
-      QueryRelationToMany<UnitModifer, Option>(_entities[67].relations[1]);
-}
-
-/// [ViewSettings] entity fields to define ObjectBox queries.
-class ViewSettings_ {
-  /// see [ViewSettings.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<ViewSettings>(_entities[68].properties[0]);
-}
-
-/// [TaxPeriod] entity fields to define ObjectBox queries.
-class TaxPeriod_ {
-  /// see [TaxPeriod.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<TaxPeriod>(_entities[69].properties[0]);
-
-  /// see [TaxPeriod.id]
-  static final id = QueryStringProperty<TaxPeriod>(_entities[69].properties[1]);
-
-  /// see [TaxPeriod.name]
-  static final name =
-      QueryStringProperty<TaxPeriod>(_entities[69].properties[2]);
-
-  /// see [TaxPeriod.fName]
-  static final fName =
-      QueryStringProperty<TaxPeriod>(_entities[69].properties[3]);
-
-  /// see [TaxPeriod.startDate]
-  static final startDate =
-      QueryStringProperty<TaxPeriod>(_entities[69].properties[4]);
-
-  /// see [TaxPeriod.endDate]
-  static final endDate =
-      QueryStringProperty<TaxPeriod>(_entities[69].properties[5]);
-}
-
-/// [SalesInvoiceTemplates] entity fields to define ObjectBox queries.
-class SalesInvoiceTemplates_ {
-  /// see [SalesInvoiceTemplates.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<SalesInvoiceTemplates>(_entities[70].properties[0]);
-
-  /// see [SalesInvoiceTemplates.id]
-  static final id =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[1]);
-
-  /// see [SalesInvoiceTemplates.name]
-  static final name =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[2]);
-
-  /// see [SalesInvoiceTemplates.fName]
-  static final fName =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[3]);
-
-  /// see [SalesInvoiceTemplates.headerInvoiceMessage]
-  static final headerInvoiceMessage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[4]);
-
-  /// see [SalesInvoiceTemplates.fHeaderInvoiceMessage]
-  static final fHeaderInvoiceMessage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[5]);
-
-  /// see [SalesInvoiceTemplates.footerInvoiceMessage]
-  static final footerInvoiceMessage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[6]);
-
-  /// see [SalesInvoiceTemplates.fFooterInvoiceMessage]
-  static final fFooterInvoiceMessage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[7]);
-
-  /// see [SalesInvoiceTemplates.printPaymentType]
-  static final printPaymentType =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[8]);
-
-  /// see [SalesInvoiceTemplates.printOrderNumber]
-  static final printOrderNumber =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[9]);
-
-  /// see [SalesInvoiceTemplates.printCalories]
-  static final printCalories =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[10]);
-
-  /// see [SalesInvoiceTemplates.printSubTotal]
-  static final printSubTotal =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[11]);
-
-  /// see [SalesInvoiceTemplates.printRoundDigit]
-  static final printRoundDigit =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[12]);
-
-  /// see [SalesInvoiceTemplates.printProductUnit]
-  static final printProductUnit =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[13]);
-
-  /// see [SalesInvoiceTemplates.printProductUnitPrice]
-  static final printProductUnitPrice =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[14]);
-
-  /// see [SalesInvoiceTemplates.printProductTotalPrice]
-  static final printProductTotalPrice =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[15]);
-
-  /// see [SalesInvoiceTemplates.printProductDiscountPrice]
-  static final printProductDiscountPrice =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[16]);
-
-  /// see [SalesInvoiceTemplates.printProductFreeQuantity]
-  static final printProductFreeQuantity =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[17]);
-
-  /// see [SalesInvoiceTemplates.printProductTotalPriceBeforeTax]
-  static final printProductTotalPriceBeforeTax =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[18]);
-
-  /// see [SalesInvoiceTemplates.printProductTaxAmount]
-  static final printProductTaxAmount =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[19]);
-
-  /// see [SalesInvoiceTemplates.printProductTaxPercentage]
-  static final printProductTaxPercentage =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[20]);
-
-  /// see [SalesInvoiceTemplates.printProductTotalPriceAfterDiscount]
-  static final printProductTotalPriceAfterDiscount =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[21]);
-
-  /// see [SalesInvoiceTemplates.printProductTotalPriceIncludeTax]
-  static final printProductTotalPriceIncludeTax =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[22]);
-
-  /// see [SalesInvoiceTemplates.printOrderClosedUser]
-  static final printOrderClosedUser =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[23]);
-
-  /// see [SalesInvoiceTemplates.printOrderCreatedUser]
-  static final printOrderCreatedUser =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[24]);
-
-  /// see [SalesInvoiceTemplates.printCheckNumber]
-  static final printCheckNumber =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[25]);
-
-  /// see [SalesInvoiceTemplates.hideFreeModifierOptions]
-  static final hideFreeModifierOptions =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[26]);
-
-  /// see [SalesInvoiceTemplates.autoPrintOnSave]
-  static final autoPrintOnSave =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[27]);
-
-  /// see [SalesInvoiceTemplates.printLanguage]
-  static final printLanguage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[28]);
-
-  /// see [SalesInvoiceTemplates.printerPaperSize]
-  static final printerPaperSize =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[29]);
-
-  /// see [SalesInvoiceTemplates.printerPaperDirection]
-  static final printerPaperDirection =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[30]);
-
-  /// see [SalesInvoiceTemplates.invoiceCategory]
-  static final invoiceCategory =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[31]);
-
-  /// see [SalesInvoiceTemplates.defaultLanguage]
-  static final defaultLanguage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[32]);
-
-  /// see [SalesInvoiceTemplates.secondLanguage]
-  static final secondLanguage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[33]);
-
-  /// see [SalesInvoiceTemplates.orderTypes]
-  static final orderTypes = QueryIntegerVectorProperty<SalesInvoiceTemplates>(
-      _entities[70].properties[34]);
-
-  /// see [SalesInvoiceTemplates.users]
-  static final users = QueryStringVectorProperty<SalesInvoiceTemplates>(
-      _entities[70].properties[35]);
-
-  /// see [SalesInvoiceTemplates.printCompanyName]
-  static final printCompanyName =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[36]);
-
-  /// see [SalesInvoiceTemplates.printBranchName]
-  static final printBranchName =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[37]);
-
-  /// see [SalesInvoiceTemplates.printCRNo]
-  static final printCRNo =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[38]);
-
-  /// see [SalesInvoiceTemplates.printBankAccount]
-  static final printBankAccount =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[39]);
-
-  /// see [SalesInvoiceTemplates.printTaxNumber]
-  static final printTaxNumber =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[40]);
-
-  /// see [SalesInvoiceTemplates.printOrderType]
-  static final printOrderType =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[41]);
-
-  /// see [SalesInvoiceTemplates.printUnitSize]
-  static final printUnitSize =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[42]);
-
-  /// see [SalesInvoiceTemplates.printProductSecondaryName]
-  static final printProductSecondaryName =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[43]);
-
-  /// see [SalesInvoiceTemplates.defaultCode]
-  static final defaultCode =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[44]);
-
-  /// see [SalesInvoiceTemplates.secondCode]
-  static final secondCode =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[45]);
-
-  /// see [SalesInvoiceTemplates.printedTitle]
-  static final printedTitle =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[46]);
-
-  /// see [SalesInvoiceTemplates.fPrintedTitle]
-  static final fPrintedTitle =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[47]);
-
-  /// see [SalesInvoiceTemplates.pointsMessage]
-  static final pointsMessage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[48]);
-
-  /// see [SalesInvoiceTemplates.fPointsMessage]
-  static final fPointsMessage =
-      QueryStringProperty<SalesInvoiceTemplates>(_entities[70].properties[49]);
-
-  /// see [SalesInvoiceTemplates.printCustomerPoints]
-  static final printCustomerPoints =
-      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[70].properties[50]);
-}
-
-/// [Language] entity fields to define ObjectBox queries.
-class Language_ {
-  /// see [Language.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<Language>(_entities[71].properties[0]);
-
-  /// see [Language.name]
-  static final name =
-      QueryStringProperty<Language>(_entities[71].properties[1]);
-
-  /// see [Language.fName]
-  static final fName =
-      QueryStringProperty<Language>(_entities[71].properties[2]);
-
-  /// see [Language.languageCulture]
-  static final languageCulture =
-      QueryStringProperty<Language>(_entities[71].properties[3]);
-
-  /// see [Language.uniqueSeoCode]
-  static final uniqueSeoCode =
-      QueryStringProperty<Language>(_entities[71].properties[4]);
-
-  /// see [Language.rtl]
-  static final rtl =
-      QueryBooleanProperty<Language>(_entities[71].properties[5]);
-}
-
-/// [TenantSetting] entity fields to define ObjectBox queries.
-class TenantSetting_ {
-  /// see [TenantSetting.idSeq]
-  static final idSeq =
-      QueryIntegerProperty<TenantSetting>(_entities[72].properties[0]);
-
-  /// see [TenantSetting.logoUrl]
-  static final logoUrl =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[1]);
-
-  /// see [TenantSetting.companyName]
-  static final companyName =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[2]);
-
-  /// see [TenantSetting.fCompanyName]
-  static final fCompanyName =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[3]);
-
-  /// see [TenantSetting.activity]
-  static final activity =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[4]);
-
-  /// see [TenantSetting.fActivity]
-  static final fActivity =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[5]);
-
-  /// see [TenantSetting.phoneNumber]
-  static final phoneNumber =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[6]);
-
-  /// see [TenantSetting.faxNumber]
-  static final faxNumber =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[7]);
-
-  /// see [TenantSetting.webSite]
-  static final webSite =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[8]);
-
-  /// see [TenantSetting.email]
-  static final email =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[9]);
-
-  /// see [TenantSetting.taxRegistrationName]
-  static final taxRegistrationName =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[10]);
-
-  /// see [TenantSetting.crNo]
-  static final crNo =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[11]);
-
-  /// see [TenantSetting.taxNo]
-  static final taxNo =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[12]);
-
-  /// see [TenantSetting.zakatRegistrationNumber]
-  static final zakatRegistrationNumber =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[13]);
-
-  /// see [TenantSetting.municipalLicenseNumber]
-  static final municipalLicenseNumber =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[14]);
-
-  /// see [TenantSetting.gulfCouncilIdentificationNumber]
-  static final gulfCouncilIdentificationNumber =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[15]);
-
-  /// see [TenantSetting.sagiALicenseNumber]
-  static final sagiALicenseNumber =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[16]);
-
-  /// see [TenantSetting.country]
-  static final country =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[17]);
-
-  /// see [TenantSetting.postalCode]
-  static final postalCode =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[18]);
-
-  /// see [TenantSetting.province]
-  static final province =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[19]);
-
-  /// see [TenantSetting.city]
-  static final city =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[20]);
-
-  /// see [TenantSetting.district]
-  static final district =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[21]);
-
-  /// see [TenantSetting.street]
-  static final street =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[22]);
-
-  /// see [TenantSetting.fProvince]
-  static final fProvince =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[23]);
-
-  /// see [TenantSetting.fCity]
-  static final fCity =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[24]);
-
-  /// see [TenantSetting.fDistrict]
-  static final fDistrict =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[25]);
-
-  /// see [TenantSetting.fStreet]
-  static final fStreet =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[26]);
-
-  /// see [TenantSetting.buildingNo]
-  static final buildingNo =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[27]);
-
-  /// see [TenantSetting.floorNo]
-  static final floorNo =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[28]);
-
-  /// see [TenantSetting.officeNo]
-  static final officeNo =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[29]);
-
-  /// see [TenantSetting.additionalNo]
-  static final additionalNo =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[30]);
-
-  /// see [TenantSetting.invoiceRoundFactor]
-  static final invoiceRoundFactor =
-      QueryIntegerProperty<TenantSetting>(_entities[72].properties[31]);
-
-  /// see [TenantSetting.localCurrencyId]
-  static final localCurrencyId =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[32]);
-
-  /// see [TenantSetting.salesPriceCurrencyId]
-  static final salesPriceCurrencyId =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[33]);
-
-  /// see [TenantSetting.inventoryCostCurrencyId]
-  static final inventoryCostCurrencyId =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[34]);
-
-  /// see [TenantSetting.payrollCurrencyId]
-  static final payrollCurrencyId =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[35]);
-
-  /// see [TenantSetting.inventoryCalculateCostMethod]
-  static final inventoryCalculateCostMethod =
-      QueryIntegerProperty<TenantSetting>(_entities[72].properties[36]);
-
-  /// see [TenantSetting.stockInventoryType]
-  static final stockInventoryType =
-      QueryIntegerProperty<TenantSetting>(_entities[72].properties[37]);
-
-  /// see [TenantSetting.printLanguage]
-  static final printLanguage =
-      QueryIntegerProperty<TenantSetting>(_entities[72].properties[38]);
-
-  /// see [TenantSetting.defaultLanguage]
-  static final defaultLanguage =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[39]);
-
-  /// see [TenantSetting.secondLanguage]
-  static final secondLanguage =
-      QueryStringProperty<TenantSetting>(_entities[72].properties[40]);
-}
-
-/// [SalesInvoiceTemplatesA4] entity fields to define ObjectBox queries.
-class SalesInvoiceTemplatesA4_ {
-  /// see [SalesInvoiceTemplatesA4.idSeq]
-  static final idSeq = QueryIntegerProperty<SalesInvoiceTemplatesA4>(
-      _entities[73].properties[0]);
-
-  /// see [SalesInvoiceTemplatesA4.id]
-  static final id =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[1]);
-
-  /// see [SalesInvoiceTemplatesA4.name]
-  static final name =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[2]);
-
-  /// see [SalesInvoiceTemplatesA4.fName]
-  static final fName =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[3]);
-
-  /// see [SalesInvoiceTemplatesA4.menuName]
-  static final menuName =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[4]);
-
-  /// see [SalesInvoiceTemplatesA4.fMenuName]
-  static final fMenuName =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[5]);
-
-  /// see [SalesInvoiceTemplatesA4.title]
-  static final title =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[6]);
-
-  /// see [SalesInvoiceTemplatesA4.fTitle]
-  static final fTitle =
-      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[73].properties[7]);
-
-  /// see [SalesInvoiceTemplatesA4.printLanguage]
-  static final printLanguage = QueryIntegerProperty<SalesInvoiceTemplatesA4>(
-      _entities[73].properties[8]);
-
-  /// see [SalesInvoiceTemplatesA4.invoiceCategory]
-  static final invoiceCategory = QueryIntegerProperty<SalesInvoiceTemplatesA4>(
-      _entities[73].properties[9]);
-
-  /// see [SalesInvoiceTemplatesA4.appsFormPath]
-  static final appsFormPath = QueryStringProperty<SalesInvoiceTemplatesA4>(
-      _entities[73].properties[10]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[21]);
 }
 
 /// [DiscountSetting] entity fields to define ObjectBox queries.
 class DiscountSetting_ {
   /// see [DiscountSetting.idSeq]
   static final idSeq =
-      QueryIntegerProperty<DiscountSetting>(_entities[74].properties[0]);
+      QueryIntegerProperty<DiscountSetting>(_entities[23].properties[0]);
 
   /// see [DiscountSetting.enableDiscount]
   static final enableDiscount =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[1]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[1]);
 
   /// see [DiscountSetting.enablePromotion]
   static final enablePromotion =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[2]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[2]);
 
   /// see [DiscountSetting.enableCoupon]
   static final enableCoupon =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[3]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[3]);
 
   /// see [DiscountSetting.enableTimeEvent]
   static final enableTimeEvent =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[4]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[4]);
 
   /// see [DiscountSetting.enableDiscountInSalesInvoice]
   static final enableDiscountInSalesInvoice =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[5]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[5]);
 
   /// see [DiscountSetting.enableDiscountInPurchaseInvoice]
   static final enableDiscountInPurchaseInvoice =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[6]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[6]);
 
   /// see [DiscountSetting.enableDiscountInSalesInvoiceProducts]
   static final enableDiscountInSalesInvoiceProducts =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[7]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[7]);
 
   /// see [DiscountSetting.enableDiscountInPurchaseInvoiceItems]
   static final enableDiscountInPurchaseInvoiceItems =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[8]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[8]);
 
   /// see [DiscountSetting.enableFreeQuantityInSalesInvoiceItems]
   static final enableFreeQuantityInSalesInvoiceItems =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[9]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[9]);
 
   /// see [DiscountSetting.enableFreeQuantityInPurchaseInvoiceItems]
   static final enableFreeQuantityInPurchaseInvoiceItems =
-      QueryBooleanProperty<DiscountSetting>(_entities[74].properties[10]);
+      QueryBooleanProperty<DiscountSetting>(_entities[23].properties[10]);
+}
+
+/// [ExtractCategory] entity fields to define ObjectBox queries.
+class ExtractCategory_ {
+  /// see [ExtractCategory.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ExtractCategory>(_entities[24].properties[0]);
+
+  /// see [ExtractCategory.id]
+  static final id =
+      QueryStringProperty<ExtractCategory>(_entities[24].properties[1]);
+
+  /// see [ExtractCategory.order]
+  static final order =
+      QueryIntegerProperty<ExtractCategory>(_entities[24].properties[2]);
+
+  /// see [ExtractCategory.image]
+  static final image =
+      QueryStringProperty<ExtractCategory>(_entities[24].properties[3]);
+
+  /// see [ExtractCategory.name]
+  static final name =
+      QueryStringProperty<ExtractCategory>(_entities[24].properties[4]);
+
+  /// see [ExtractCategory.fName]
+  static final fName =
+      QueryStringProperty<ExtractCategory>(_entities[24].properties[5]);
+}
+
+/// [ExtractDepartment] entity fields to define ObjectBox queries.
+class ExtractDepartment_ {
+  /// see [ExtractDepartment.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ExtractDepartment>(_entities[25].properties[0]);
+
+  /// see [ExtractDepartment.id]
+  static final id =
+      QueryStringProperty<ExtractDepartment>(_entities[25].properties[1]);
+
+  /// see [ExtractDepartment.order]
+  static final order =
+      QueryIntegerProperty<ExtractDepartment>(_entities[25].properties[2]);
+
+  /// see [ExtractDepartment.image]
+  static final image =
+      QueryStringProperty<ExtractDepartment>(_entities[25].properties[3]);
+
+  /// see [ExtractDepartment.name]
+  static final name =
+      QueryStringProperty<ExtractDepartment>(_entities[25].properties[4]);
+
+  /// see [ExtractDepartment.fName]
+  static final fName =
+      QueryStringProperty<ExtractDepartment>(_entities[25].properties[5]);
+
+  /// see [ExtractDepartment.categories]
+  static final categories =
+      QueryRelationToMany<ExtractDepartment, ExtractCategory>(
+          _entities[25].relations[0]);
+}
+
+/// [ExtractProduct] entity fields to define ObjectBox queries.
+class ExtractProduct_ {
+  /// see [ExtractProduct.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[0]);
+
+  /// see [ExtractProduct.id]
+  static final id =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[1]);
+
+  /// see [ExtractProduct.name]
+  static final name =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[2]);
+
+  /// see [ExtractProduct.fName]
+  static final fName =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[3]);
+
+  /// see [ExtractProduct.sku]
+  static final sku =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[4]);
+
+  /// see [ExtractProduct.barcode]
+  static final barcode =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[5]);
+
+  /// see [ExtractProduct.productTypeId]
+  static final productTypeId =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[6]);
+
+  /// see [ExtractProduct.costType]
+  static final costType =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[7]);
+
+  /// see [ExtractProduct.priceType]
+  static final priceType =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[8]);
+
+  /// see [ExtractProduct.salesMethod]
+  static final salesMethod =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[9]);
+
+  /// see [ExtractProduct.price]
+  static final price =
+      QueryDoubleProperty<ExtractProduct>(_entities[26].properties[10]);
+
+  /// see [ExtractProduct.cost]
+  static final cost =
+      QueryDoubleProperty<ExtractProduct>(_entities[26].properties[11]);
+
+  /// see [ExtractProduct.preparationTime]
+  static final preparationTime =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[12]);
+
+  /// see [ExtractProduct.activeQRScan]
+  static final activeQRScan =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[13]);
+
+  /// see [ExtractProduct.qrScanOnSameDate]
+  static final qrScanOnSameDate =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[14]);
+
+  /// see [ExtractProduct.enableSalesDiscount]
+  static final enableSalesDiscount =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[15]);
+
+  /// see [ExtractProduct.discountPercentageLimit]
+  static final discountPercentageLimit =
+      QueryDoubleProperty<ExtractProduct>(_entities[26].properties[16]);
+
+  /// see [ExtractProduct.enableFreeQuantity]
+  static final enableFreeQuantity =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[17]);
+
+  /// see [ExtractProduct.enableDateExpire]
+  static final enableDateExpire =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[18]);
+
+  /// see [ExtractProduct.enableIMEISerial]
+  static final enableIMEISerial =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[19]);
+
+  /// see [ExtractProduct.enableWeights]
+  static final enableWeights =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[20]);
+
+  /// see [ExtractProduct.scanPriceFromScale]
+  static final scanPriceFromScale =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[21]);
+
+  /// see [ExtractProduct.scalePriceIncludeTax]
+  static final scalePriceIncludeTax =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[22]);
+
+  /// see [ExtractProduct.independentPrinting]
+  static final independentPrinting =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[23]);
+
+  /// see [ExtractProduct.calculateQuantityFromTotalPrice]
+  static final calculateQuantityFromTotalPrice =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[24]);
+
+  /// see [ExtractProduct.reservationRequired]
+  static final reservationRequired =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[25]);
+
+  /// see [ExtractProduct.scaleBarcodeDigits]
+  static final scaleBarcodeDigits =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[26]);
+
+  /// see [ExtractProduct.scaleProductCodeDigits]
+  static final scaleProductCodeDigits =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[27]);
+
+  /// see [ExtractProduct.scaleIntDigits]
+  static final scaleIntDigits =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[28]);
+
+  /// see [ExtractProduct.scaledecimalDigits]
+  static final scaledecimalDigits =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[29]);
+
+  /// see [ExtractProduct.scaleProductCodeFirstInBracode]
+  static final scaleProductCodeFirstInBracode =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[30]);
+
+  /// see [ExtractProduct.availableStartDateTime]
+  static final availableStartDateTime =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[31]);
+
+  /// see [ExtractProduct.availableEndDateTime]
+  static final availableEndDateTime =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[32]);
+
+  /// see [ExtractProduct.description]
+  static final description =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[33]);
+
+  /// see [ExtractProduct.fDescription]
+  static final fDescription =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[34]);
+
+  /// see [ExtractProduct.imageUrl]
+  static final imageUrl =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[35]);
+
+  /// see [ExtractProduct.calories]
+  static final calories =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[36]);
+
+  /// see [ExtractProduct.minimumLevel]
+  static final minimumLevel =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[37]);
+
+  /// see [ExtractProduct.maximumLevel]
+  static final maximumLevel =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[38]);
+
+  /// see [ExtractProduct.categoryId]
+  static final categoryId =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[39]);
+
+  /// see [ExtractProduct.departmentId]
+  static final departmentId =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[40]);
+
+  /// see [ExtractProduct.productNature]
+  static final productNature =
+      QueryIntegerProperty<ExtractProduct>(_entities[26].properties[41]);
+
+  /// see [ExtractProduct.active]
+  static final active =
+      QueryBooleanProperty<ExtractProduct>(_entities[26].properties[42]);
+
+  /// see [ExtractProduct.taxGroupId]
+  static final taxGroupId =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[43]);
+
+  /// see [ExtractProduct.subName]
+  static final subName =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[44]);
+
+  /// see [ExtractProduct.fSubName]
+  static final fSubName =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[45]);
+
+  /// see [ExtractProduct.promotionalName]
+  static final promotionalName =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[46]);
+
+  /// see [ExtractProduct.fPromotionalName]
+  static final fPromotionalName =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[47]);
+
+  /// see [ExtractProduct.tags]
+  static final tags =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[48]);
+
+  /// see [ExtractProduct.fTags]
+  static final fTags =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[49]);
+
+  /// see [ExtractProduct.units]
+  static final units =
+      QueryRelationToMany<ExtractProduct, Unit>(_entities[26].relations[0]);
+
+  /// see [ExtractProduct.groups]
+  static final groups =
+      QueryRelationToMany<ExtractProduct, Group>(_entities[26].relations[1]);
+}
+
+/// [Fee] entity fields to define ObjectBox queries.
+class Fee_ {
+  /// see [Fee.idSeq]
+  static final idSeq = QueryIntegerProperty<Fee>(_entities[27].properties[0]);
+
+  /// see [Fee.id]
+  static final id = QueryStringProperty<Fee>(_entities[27].properties[1]);
+
+  /// see [Fee.name]
+  static final name = QueryStringProperty<Fee>(_entities[27].properties[2]);
+
+  /// see [Fee.fName]
+  static final fName = QueryStringProperty<Fee>(_entities[27].properties[3]);
+
+  /// see [Fee.type]
+  static final type = QueryIntegerProperty<Fee>(_entities[27].properties[4]);
+
+  /// see [Fee.valueType]
+  static final valueType =
+      QueryIntegerProperty<Fee>(_entities[27].properties[5]);
+
+  /// see [Fee.value]
+  static final value = QueryDoubleProperty<Fee>(_entities[27].properties[6]);
+
+  /// see [Fee.percentage]
+  static final percentage =
+      QueryDoubleProperty<Fee>(_entities[27].properties[7]);
+
+  /// see [Fee.orderTypes]
+  static final orderTypes =
+      QueryIntegerVectorProperty<Fee>(_entities[27].properties[8]);
+
+  /// see [Fee.days]
+  static final days =
+      QueryIntegerVectorProperty<Fee>(_entities[27].properties[9]);
+
+  /// see [Fee.products]
+  static final products =
+      QueryStringVectorProperty<Fee>(_entities[27].properties[10]);
+
+  /// see [Fee.taxGroupId]
+  static final taxGroupId =
+      QueryStringProperty<Fee>(_entities[27].properties[11]);
+
+  /// see [Fee.applyAuto]
+  static final applyAuto =
+      QueryBooleanProperty<Fee>(_entities[27].properties[12]);
+
+  /// see [Fee.applyToSubtotal]
+  static final applyToSubtotal =
+      QueryBooleanProperty<Fee>(_entities[27].properties[13]);
+
+  /// see [Fee.applyForProducts]
+  static final applyForProducts =
+      QueryBooleanProperty<Fee>(_entities[27].properties[14]);
+
+  /// see [Fee.printSeparatelyInTotalInvoice]
+  static final printSeparatelyInTotalInvoice =
+      QueryBooleanProperty<Fee>(_entities[27].properties[15]);
+
+  /// see [Fee.amountIncludeInProductPrice]
+  static final amountIncludeInProductPrice =
+      QueryBooleanProperty<Fee>(_entities[27].properties[16]);
+
+  /// see [Fee.minAmountPerProduct]
+  static final minAmountPerProduct =
+      QueryDoubleProperty<Fee>(_entities[27].properties[17]);
+
+  /// see [Fee.maxAmountPerProduct]
+  static final maxAmountPerProduct =
+      QueryDoubleProperty<Fee>(_entities[27].properties[18]);
+}
+
+/// [FeeValue] entity fields to define ObjectBox queries.
+class FeeValue_ {
+  /// see [FeeValue.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<FeeValue>(_entities[28].properties[0]);
+
+  /// see [FeeValue.feeId]
+  static final feeId =
+      QueryStringProperty<FeeValue>(_entities[28].properties[1]);
+
+  /// see [FeeValue.value]
+  static final value =
+      QueryDoubleProperty<FeeValue>(_entities[28].properties[2]);
+
+  /// see [FeeValue.applyAuto]
+  static final applyAuto =
+      QueryBooleanProperty<FeeValue>(_entities[28].properties[3]);
+
+  /// see [FeeValue.taxInfo]
+  static final taxInfo =
+      QueryRelationToOne<FeeValue, TaxInfo>(_entities[28].properties[4]);
+}
+
+/// [FreeOption] entity fields to define ObjectBox queries.
+class FreeOption_ {
+  /// see [FreeOption.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<FreeOption>(_entities[29].properties[0]);
+
+  /// see [FreeOption.optionId]
+  static final optionId =
+      QueryStringProperty<FreeOption>(_entities[29].properties[1]);
+
+  /// see [FreeOption.freeQuantity]
+  static final freeQuantity =
+      QueryDoubleProperty<FreeOption>(_entities[29].properties[2]);
+}
+
+/// [Group] entity fields to define ObjectBox queries.
+class Group_ {
+  /// see [Group.idSeq]
+  static final idSeq = QueryIntegerProperty<Group>(_entities[30].properties[0]);
+
+  /// see [Group.id]
+  static final id = QueryStringProperty<Group>(_entities[30].properties[1]);
+
+  /// see [Group.groupId]
+  static final groupId =
+      QueryStringProperty<Group>(_entities[30].properties[2]);
+
+  /// see [Group.groupName]
+  static final groupName =
+      QueryStringProperty<Group>(_entities[30].properties[3]);
+
+  /// see [Group.reference]
+  static final reference =
+      QueryStringProperty<Group>(_entities[30].properties[4]);
+}
+
+/// [Ingredient] entity fields to define ObjectBox queries.
+class Ingredient_ {
+  /// see [Ingredient.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Ingredient>(_entities[31].properties[0]);
+
+  /// see [Ingredient.isActive]
+  static final isActive =
+      QueryBooleanProperty<Ingredient>(_entities[31].properties[1]);
+
+  /// see [Ingredient.displayOrder]
+  static final displayOrder =
+      QueryIntegerProperty<Ingredient>(_entities[31].properties[2]);
+
+  /// see [Ingredient.id]
+  static final id =
+      QueryStringProperty<Ingredient>(_entities[31].properties[3]);
+
+  /// see [Ingredient.ingredientItemId]
+  static final ingredientItemId =
+      QueryStringProperty<Ingredient>(_entities[31].properties[4]);
+
+  /// see [Ingredient.ingredientItemName]
+  static final ingredientItemName =
+      QueryStringProperty<Ingredient>(_entities[31].properties[5]);
+
+  /// see [Ingredient.barcode]
+  static final barcode =
+      QueryStringProperty<Ingredient>(_entities[31].properties[6]);
+
+  /// see [Ingredient.unitOfMeasureName]
+  static final unitOfMeasureName =
+      QueryStringProperty<Ingredient>(_entities[31].properties[7]);
+
+  /// see [Ingredient.warehouseToIngredientFactor]
+  static final warehouseToIngredientFactor =
+      QueryDoubleProperty<Ingredient>(_entities[31].properties[8]);
+
+  /// see [Ingredient.quantity]
+  static final quantity =
+      QueryDoubleProperty<Ingredient>(_entities[31].properties[9]);
+
+  /// see [Ingredient.wasteQuantity]
+  static final wasteQuantity =
+      QueryDoubleProperty<Ingredient>(_entities[31].properties[10]);
+
+  /// see [Ingredient.unitCost]
+  static final unitCost =
+      QueryDoubleProperty<Ingredient>(_entities[31].properties[11]);
+
+  /// see [Ingredient.estimatedUnitCost]
+  static final estimatedUnitCost =
+      QueryDoubleProperty<Ingredient>(_entities[31].properties[12]);
+
+  /// see [Ingredient.yieldPercentage]
+  static final yieldPercentage =
+      QueryDoubleProperty<Ingredient>(_entities[31].properties[13]);
+
+  /// see [Ingredient.orderTypes]
+  static final orderTypes =
+      QueryStringVectorProperty<Ingredient>(_entities[31].properties[14]);
+}
+
+/// [Language] entity fields to define ObjectBox queries.
+class Language_ {
+  /// see [Language.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Language>(_entities[32].properties[0]);
+
+  /// see [Language.name]
+  static final name =
+      QueryStringProperty<Language>(_entities[32].properties[1]);
+
+  /// see [Language.fName]
+  static final fName =
+      QueryStringProperty<Language>(_entities[32].properties[2]);
+
+  /// see [Language.languageCulture]
+  static final languageCulture =
+      QueryStringProperty<Language>(_entities[32].properties[3]);
+
+  /// see [Language.uniqueSeoCode]
+  static final uniqueSeoCode =
+      QueryStringProperty<Language>(_entities[32].properties[4]);
+
+  /// see [Language.rtl]
+  static final rtl =
+      QueryBooleanProperty<Language>(_entities[32].properties[5]);
+}
+
+/// [LoginHistory] entity fields to define ObjectBox queries.
+class LoginHistory_ {
+  /// see [LoginHistory.id]
+  static final id =
+      QueryIntegerProperty<LoginHistory>(_entities[33].properties[0]);
+
+  /// see [LoginHistory.idIdentity]
+  static final idIdentity =
+      QueryIntegerProperty<LoginHistory>(_entities[33].properties[1]);
+
+  /// see [LoginHistory.loginTime]
+  static final loginTime =
+      QueryStringProperty<LoginHistory>(_entities[33].properties[2]);
+
+  /// see [LoginHistory.logoutTime]
+  static final logoutTime =
+      QueryStringProperty<LoginHistory>(_entities[33].properties[3]);
+
+  /// see [LoginHistory.usertId]
+  static final usertId =
+      QueryStringProperty<LoginHistory>(_entities[33].properties[4]);
+
+  /// see [LoginHistory.deviceNo]
+  static final deviceNo =
+      QueryStringProperty<LoginHistory>(_entities[33].properties[5]);
+
+  /// see [LoginHistory.deviceRef]
+  static final deviceRef =
+      QueryStringProperty<LoginHistory>(_entities[33].properties[6]);
+}
+
+/// [LogoData] entity fields to define ObjectBox queries.
+class LogoData_ {
+  /// see [LogoData.id]
+  static final id = QueryIntegerProperty<LogoData>(_entities[34].properties[0]);
+
+  /// see [LogoData.logoUrl]
+  static final logoUrl =
+      QueryStringProperty<LogoData>(_entities[34].properties[1]);
+
+  /// see [LogoData.logoData]
+  static final logoData =
+      QueryByteVectorProperty<LogoData>(_entities[34].properties[2]);
+}
+
+/// [LoyaltySetting] entity fields to define ObjectBox queries.
+class LoyaltySetting_ {
+  /// see [LoyaltySetting.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<LoyaltySetting>(_entities[35].properties[0]);
+
+  /// see [LoyaltySetting.enableSystem]
+  static final enableSystem =
+      QueryBooleanProperty<LoyaltySetting>(_entities[35].properties[1]);
+
+  /// see [LoyaltySetting.loyaltyMethod]
+  static final loyaltyMethod =
+      QueryStringProperty<LoyaltySetting>(_entities[35].properties[2]);
+
+  /// see [LoyaltySetting.lowestOrderPrice]
+  static final lowestOrderPrice =
+      QueryDoubleProperty<LoyaltySetting>(_entities[35].properties[3]);
+
+  /// see [LoyaltySetting.delayInEarningPointsMinutes]
+  static final delayInEarningPointsMinutes =
+      QueryDoubleProperty<LoyaltySetting>(_entities[35].properties[4]);
+
+  /// see [LoyaltySetting.bonusType]
+  static final bonusType =
+      QueryStringProperty<LoyaltySetting>(_entities[35].properties[5]);
+
+  /// see [LoyaltySetting.bonusValue]
+  static final bonusValue =
+      QueryDoubleProperty<LoyaltySetting>(_entities[35].properties[6]);
+
+  /// see [LoyaltySetting.maximumBonusLimit]
+  static final maximumBonusLimit =
+      QueryDoubleProperty<LoyaltySetting>(_entities[35].properties[7]);
+
+  /// see [LoyaltySetting.requiredBonusPoint]
+  static final requiredBonusPoint =
+      QueryDoubleProperty<LoyaltySetting>(_entities[35].properties[8]);
+
+  /// see [LoyaltySetting.bonusValidityDays]
+  static final bonusValidityDays =
+      QueryDoubleProperty<LoyaltySetting>(_entities[35].properties[9]);
+
+  /// see [LoyaltySetting.enableSMSNotifications]
+  static final enableSMSNotifications =
+      QueryBooleanProperty<LoyaltySetting>(_entities[35].properties[10]);
+
+  /// see [LoyaltySetting.displayBonusOnNewOrder]
+  static final displayBonusOnNewOrder =
+      QueryBooleanProperty<LoyaltySetting>(_entities[35].properties[11]);
+
+  /// see [LoyaltySetting.printBonusBalanceOnNewOrder]
+  static final printBonusBalanceOnNewOrder =
+      QueryBooleanProperty<LoyaltySetting>(_entities[35].properties[12]);
+}
+
+/// [Menu] entity fields to define ObjectBox queries.
+class Menu_ {
+  /// see [Menu.idSeq]
+  static final idSeq = QueryIntegerProperty<Menu>(_entities[36].properties[0]);
+
+  /// see [Menu.id]
+  static final id = QueryStringProperty<Menu>(_entities[36].properties[1]);
+
+  /// see [Menu.name]
+  static final name = QueryStringProperty<Menu>(_entities[36].properties[2]);
+
+  /// see [Menu.fName]
+  static final fName = QueryStringProperty<Menu>(_entities[36].properties[3]);
+
+  /// see [Menu.departments]
+  static final departments =
+      QueryRelationToMany<Menu, MenuDepartment>(_entities[36].relations[0]);
+
+  /// see [Menu.categories]
+  static final categories =
+      QueryRelationToMany<Menu, MenuCategory>(_entities[36].relations[1]);
+
+  /// see [Menu.products]
+  static final products =
+      QueryRelationToMany<Menu, MenuProduct>(_entities[36].relations[2]);
+
+  /// see [Menu.giftCards]
+  static final giftCards =
+      QueryRelationToMany<Menu, MenuGiftCard>(_entities[36].relations[3]);
+}
+
+/// [MenuCategory] entity fields to define ObjectBox queries.
+class MenuCategory_ {
+  /// see [MenuCategory.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<MenuCategory>(_entities[37].properties[0]);
+
+  /// see [MenuCategory.id]
+  static final id =
+      QueryStringProperty<MenuCategory>(_entities[37].properties[1]);
+
+  /// see [MenuCategory.order]
+  static final order =
+      QueryIntegerProperty<MenuCategory>(_entities[37].properties[2]);
+}
+
+/// [MenuDepartment] entity fields to define ObjectBox queries.
+class MenuDepartment_ {
+  /// see [MenuDepartment.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<MenuDepartment>(_entities[38].properties[0]);
+
+  /// see [MenuDepartment.id]
+  static final id =
+      QueryStringProperty<MenuDepartment>(_entities[38].properties[1]);
+
+  /// see [MenuDepartment.order]
+  static final order =
+      QueryIntegerProperty<MenuDepartment>(_entities[38].properties[2]);
+}
+
+/// [MenuGiftCard] entity fields to define ObjectBox queries.
+class MenuGiftCard_ {
+  /// see [MenuGiftCard.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<MenuGiftCard>(_entities[39].properties[0]);
+
+  /// see [MenuGiftCard.id]
+  static final id =
+      QueryStringProperty<MenuGiftCard>(_entities[39].properties[1]);
+
+  /// see [MenuGiftCard.order]
+  static final order =
+      QueryIntegerProperty<MenuGiftCard>(_entities[39].properties[2]);
+}
+
+/// [MenuProduct] entity fields to define ObjectBox queries.
+class MenuProduct_ {
+  /// see [MenuProduct.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<MenuProduct>(_entities[40].properties[0]);
+
+  /// see [MenuProduct.id]
+  static final id =
+      QueryStringProperty<MenuProduct>(_entities[40].properties[1]);
+
+  /// see [MenuProduct.order]
+  static final order =
+      QueryIntegerProperty<MenuProduct>(_entities[40].properties[2]);
+}
+
+/// [Modifier] entity fields to define ObjectBox queries.
+class Modifier_ {
+  /// see [Modifier.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Modifier>(_entities[41].properties[0]);
+
+  /// see [Modifier.id]
+  static final id = QueryStringProperty<Modifier>(_entities[41].properties[1]);
+
+  /// see [Modifier.minimumOptions]
+  static final minimumOptions =
+      QueryIntegerProperty<Modifier>(_entities[41].properties[2]);
+
+  /// see [Modifier.maximumOptions]
+  static final maximumOptions =
+      QueryIntegerProperty<Modifier>(_entities[41].properties[3]);
+
+  /// see [Modifier.name]
+  static final name =
+      QueryStringProperty<Modifier>(_entities[41].properties[4]);
+
+  /// see [Modifier.fname]
+  static final fname =
+      QueryStringProperty<Modifier>(_entities[41].properties[5]);
+
+  /// see [Modifier.isUnique]
+  static final isUnique =
+      QueryBooleanProperty<Modifier>(_entities[41].properties[6]);
+
+  /// see [Modifier.options]
+  static final options =
+      QueryRelationToMany<Modifier, Option>(_entities[41].relations[0]);
+}
+
+/// [Option] entity fields to define ObjectBox queries.
+class Option_ {
+  /// see [Option.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Option>(_entities[42].properties[0]);
+
+  /// see [Option.id]
+  static final id = QueryStringProperty<Option>(_entities[42].properties[1]);
+
+  /// see [Option.costType]
+  static final costType =
+      QueryStringProperty<Option>(_entities[42].properties[2]);
+
+  /// see [Option.modifierType]
+  static final modifierType =
+      QueryStringProperty<Option>(_entities[42].properties[3]);
+
+  /// see [Option.instructionType]
+  static final instructionType =
+      QueryIntegerProperty<Option>(_entities[42].properties[4]);
+
+  /// see [Option.price]
+  static final price = QueryDoubleProperty<Option>(_entities[42].properties[5]);
+
+  /// see [Option.cost]
+  static final cost = QueryDoubleProperty<Option>(_entities[42].properties[6]);
+
+  /// see [Option.calories]
+  static final calories =
+      QueryDoubleProperty<Option>(_entities[42].properties[7]);
+
+  /// see [Option.inStock]
+  static final inStock =
+      QueryBooleanProperty<Option>(_entities[42].properties[8]);
+
+  /// see [Option.isDefault]
+  static final isDefault =
+      QueryBooleanProperty<Option>(_entities[42].properties[9]);
+
+  /// see [Option.displayOrder]
+  static final displayOrder =
+      QueryIntegerProperty<Option>(_entities[42].properties[10]);
+
+  /// see [Option.name]
+  static final name = QueryStringProperty<Option>(_entities[42].properties[11]);
+
+  /// see [Option.fname]
+  static final fname =
+      QueryStringProperty<Option>(_entities[42].properties[12]);
+
+  /// see [Option.taxGroupId]
+  static final taxGroupId =
+      QueryStringProperty<Option>(_entities[42].properties[13]);
+}
+
+/// [OrderC] entity fields to define ObjectBox queries.
+class OrderC_ {
+  /// see [OrderC.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[0]);
+
+  /// see [OrderC.invoiceNumber]
+  static final invoiceNumber =
+      QueryStringProperty<OrderC>(_entities[43].properties[1]);
+
+  /// see [OrderC.deviceId]
+  static final deviceId =
+      QueryStringProperty<OrderC>(_entities[43].properties[2]);
+
+  /// see [OrderC.startDate]
+  static final startDate =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[3]);
+
+  /// see [OrderC.timeOfReceipt]
+  static final timeOfReceipt =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[4]);
+
+  /// see [OrderC.parentOrderId]
+  static final parentOrderId =
+      QueryStringProperty<OrderC>(_entities[43].properties[5]);
+
+  /// see [OrderC.splitIndex]
+  static final splitIndex =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[6]);
+
+  /// see [OrderC.orderRef]
+  static final orderRef =
+      QueryStringProperty<OrderC>(_entities[43].properties[7]);
+
+  /// see [OrderC.callName]
+  static final callName =
+      QueryStringProperty<OrderC>(_entities[43].properties[8]);
+
+  /// see [OrderC.orderType]
+  static final orderType =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[9]);
+
+  /// see [OrderC.status]
+  static final status =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[10]);
+
+  /// see [OrderC.orderSource]
+  static final orderSource =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[11]);
+
+  /// see [OrderC.endTime]
+  static final endTime =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[12]);
+
+  /// see [OrderC.deliveryCompanyInfo]
+  static final deliveryCompanyInfo =
+      QueryRelationToOne<OrderC, DeliveryCompanyInfo>(
+          _entities[43].properties[13]);
+
+  /// see [OrderC.selectedPriceListId]
+  static final selectedPriceListId =
+      QueryStringProperty<OrderC>(_entities[43].properties[14]);
+
+  /// see [OrderC.tableId]
+  static final tableId =
+      QueryStringProperty<OrderC>(_entities[43].properties[15]);
+
+  /// see [OrderC.tableCaption]
+  static final tableCaption =
+      QueryStringProperty<OrderC>(_entities[43].properties[16]);
+
+  /// see [OrderC.numberVistor]
+  static final numberVistor =
+      QueryIntegerProperty<OrderC>(_entities[43].properties[17]);
+
+  /// see [OrderC.minimumReservationPrice]
+  static final minimumReservationPrice =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[18]);
+
+  /// see [OrderC.customer]
+  static final customer =
+      QueryRelationToOne<OrderC, Customer>(_entities[43].properties[19]);
+
+  /// see [OrderC.address]
+  static final address =
+      QueryRelationToOne<OrderC, Address>(_entities[43].properties[20]);
+
+  /// see [OrderC.promotion]
+  static final promotion =
+      QueryRelationToOne<OrderC, Promotion>(_entities[43].properties[21]);
+
+  /// see [OrderC.discount]
+  static final discount =
+      QueryRelationToOne<OrderC, Discount>(_entities[43].properties[22]);
+
+  /// see [OrderC.priceDiscount]
+  static final priceDiscount =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[23]);
+
+  /// see [OrderC.pricePromotion]
+  static final pricePromotion =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[24]);
+
+  /// see [OrderC.note]
+  static final note = QueryStringProperty<OrderC>(_entities[43].properties[25]);
+
+  /// see [OrderC.kitchenNote]
+  static final kitchenNote =
+      QueryStringProperty<OrderC>(_entities[43].properties[26]);
+
+  /// see [OrderC.msgCansel]
+  static final msgCansel =
+      QueryStringProperty<OrderC>(_entities[43].properties[27]);
+
+  /// see [OrderC.subTotal]
+  static final subTotal =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[28]);
+
+  /// see [OrderC.checksum]
+  static final checksum =
+      QueryStringProperty<OrderC>(_entities[43].properties[29]);
+
+  /// see [OrderC.masterChecksum]
+  static final masterChecksum =
+      QueryStringProperty<OrderC>(_entities[43].properties[30]);
+
+  /// see [OrderC.serverChecksum]
+  static final serverChecksum =
+      QueryStringProperty<OrderC>(_entities[43].properties[31]);
+
+  /// see [OrderC.totalFee]
+  static final totalFee =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[32]);
+
+  /// see [OrderC.taxPrice]
+  static final taxPrice =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[33]);
+
+  /// see [OrderC.totalPaid]
+  static final totalPaid =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[34]);
+
+  /// see [OrderC.shiftId]
+  static final shiftId =
+      QueryStringProperty<OrderC>(_entities[43].properties[35]);
+
+  /// see [OrderC.tillId]
+  static final tillId =
+      QueryStringProperty<OrderC>(_entities[43].properties[36]);
+
+  /// see [OrderC.totalCalories]
+  static final totalCalories =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[37]);
+
+  /// see [OrderC.totalDiscountForOrderAndProduct]
+  static final totalDiscountForOrderAndProduct =
+      QueryDoubleProperty<OrderC>(_entities[43].properties[38]);
+
+  /// see [OrderC.products]
+  static final products =
+      QueryRelationToMany<OrderC, AppliedProduct>(_entities[43].relations[0]);
+
+  /// see [OrderC.fees]
+  static final fees =
+      QueryRelationToMany<OrderC, Fee>(_entities[43].relations[1]);
+
+  /// see [OrderC.feeValues]
+  static final feeValues =
+      QueryRelationToMany<OrderC, FeeValue>(_entities[43].relations[2]);
+
+  /// see [OrderC.payments]
+  static final payments =
+      QueryRelationToMany<OrderC, PaymentValue>(_entities[43].relations[3]);
+}
+
+/// [PaymentMethod] entity fields to define ObjectBox queries.
+class PaymentMethod_ {
+  /// see [PaymentMethod.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PaymentMethod>(_entities[44].properties[0]);
+
+  /// see [PaymentMethod.id]
+  static final id =
+      QueryStringProperty<PaymentMethod>(_entities[44].properties[1]);
+
+  /// see [PaymentMethod.name]
+  static final name =
+      QueryStringProperty<PaymentMethod>(_entities[44].properties[2]);
+
+  /// see [PaymentMethod.fName]
+  static final fName =
+      QueryStringProperty<PaymentMethod>(_entities[44].properties[3]);
+
+  /// see [PaymentMethod.paymentType]
+  static final paymentType =
+      QueryIntegerProperty<PaymentMethod>(_entities[44].properties[4]);
+
+  /// see [PaymentMethod.displayOrder]
+  static final displayOrder =
+      QueryIntegerProperty<PaymentMethod>(_entities[44].properties[5]);
+
+  /// see [PaymentMethod.isActive]
+  static final isActive =
+      QueryBooleanProperty<PaymentMethod>(_entities[44].properties[6]);
+
+  /// see [PaymentMethod.isDeleted]
+  static final isDeleted =
+      QueryBooleanProperty<PaymentMethod>(_entities[44].properties[7]);
+
+  /// see [PaymentMethod.autoOpenCashDrawer]
+  static final autoOpenCashDrawer =
+      QueryBooleanProperty<PaymentMethod>(_entities[44].properties[8]);
+
+  /// see [PaymentMethod.imageUrl]
+  static final imageUrl =
+      QueryStringProperty<PaymentMethod>(_entities[44].properties[9]);
+}
+
+/// [PaymentValue] entity fields to define ObjectBox queries.
+class PaymentValue_ {
+  /// see [PaymentValue.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PaymentValue>(_entities[45].properties[0]);
+
+  /// see [PaymentValue.refreance]
+  static final refreance =
+      QueryStringProperty<PaymentValue>(_entities[45].properties[1]);
+
+  /// see [PaymentValue.method]
+  static final method = QueryRelationToOne<PaymentValue, PaymentMethod>(
+      _entities[45].properties[2]);
+
+  /// see [PaymentValue.amt]
+  static final amt =
+      QueryDoubleProperty<PaymentValue>(_entities[45].properties[3]);
+
+  /// see [PaymentValue.remainAmt]
+  static final remainAmt =
+      QueryDoubleProperty<PaymentValue>(_entities[45].properties[4]);
+
+  /// see [PaymentValue.exchangeRate]
+  static final exchangeRate =
+      QueryDoubleProperty<PaymentValue>(_entities[45].properties[5]);
+
+  /// see [PaymentValue.amountCurecny]
+  static final amountCurecny =
+      QueryDoubleProperty<PaymentValue>(_entities[45].properties[6]);
+
+  /// see [PaymentValue.currencyCode]
+  static final currencyCode =
+      QueryStringProperty<PaymentValue>(_entities[45].properties[7]);
+
+  /// see [PaymentValue.defaultCurrencyId]
+  static final defaultCurrencyId =
+      QueryStringProperty<PaymentValue>(_entities[45].properties[8]);
+}
+
+/// [PolicySetting] entity fields to define ObjectBox queries.
+class PolicySetting_ {
+  /// see [PolicySetting.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PolicySetting>(_entities[46].properties[0]);
+
+  /// see [PolicySetting.enableOrderCancelation]
+  static final enableOrderCancelation =
+      QueryBooleanProperty<PolicySetting>(_entities[46].properties[1]);
+
+  /// see [PolicySetting.enablePosRefund]
+  static final enablePosRefund =
+      QueryBooleanProperty<PolicySetting>(_entities[46].properties[2]);
+
+  /// see [PolicySetting.enableUsingExpiredTicket]
+  static final enableUsingExpiredTicket =
+      QueryBooleanProperty<PolicySetting>(_entities[46].properties[3]);
+
+  /// see [PolicySetting.orderPolicyAR]
+  static final orderPolicyAR =
+      QueryStringProperty<PolicySetting>(_entities[46].properties[4]);
+
+  /// see [PolicySetting.orderPolicyEN]
+  static final orderPolicyEN =
+      QueryStringProperty<PolicySetting>(_entities[46].properties[5]);
+}
+
+/// [PosUser] entity fields to define ObjectBox queries.
+class PosUser_ {
+  /// see [PosUser.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PosUser>(_entities[47].properties[0]);
+
+  /// see [PosUser.id]
+  static final id = QueryStringProperty<PosUser>(_entities[47].properties[1]);
+
+  /// see [PosUser.name]
+  static final name = QueryStringProperty<PosUser>(_entities[47].properties[2]);
+
+  /// see [PosUser.phoneNumber]
+  static final phoneNumber =
+      QueryStringProperty<PosUser>(_entities[47].properties[3]);
+
+  /// see [PosUser.passwordHash]
+  static final passwordHash =
+      QueryStringProperty<PosUser>(_entities[47].properties[4]);
+
+  /// see [PosUser.pin]
+  static final pin = QueryIntegerProperty<PosUser>(_entities[47].properties[5]);
+
+  /// see [PosUser.pinMD5]
+  static final pinMD5 =
+      QueryStringProperty<PosUser>(_entities[47].properties[6]);
+
+  /// see [PosUser.imageUrl]
+  static final imageUrl =
+      QueryStringProperty<PosUser>(_entities[47].properties[7]);
+
+  /// see [PosUser.orderTypes]
+  static final orderTypes =
+      QueryIntegerVectorProperty<PosUser>(_entities[47].properties[8]);
+
+  /// see [PosUser.appslanguageCode]
+  static final appslanguageCode =
+      QueryStringProperty<PosUser>(_entities[47].properties[9]);
+
+  /// see [PosUser.appsDataLanguageCode]
+  static final appsDataLanguageCode =
+      QueryStringProperty<PosUser>(_entities[47].properties[10]);
+
+  /// see [PosUser.dashboardlanguageCode]
+  static final dashboardlanguageCode =
+      QueryStringProperty<PosUser>(_entities[47].properties[11]);
+
+  /// see [PosUser.cashierSetting]
+  static final cashierSetting = QueryRelationToOne<PosUser, UserCashierSetting>(
+      _entities[47].properties[12]);
+
+  /// see [PosUser.roles]
+  static final roles =
+      QueryRelationToMany<PosUser, Roles>(_entities[47].relations[0]);
+}
+
+/// [PriceList] entity fields to define ObjectBox queries.
+class PriceList_ {
+  /// see [PriceList.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PriceList>(_entities[48].properties[0]);
+
+  /// see [PriceList.id]
+  static final id = QueryStringProperty<PriceList>(_entities[48].properties[1]);
+
+  /// see [PriceList.name]
+  static final name =
+      QueryStringProperty<PriceList>(_entities[48].properties[2]);
+
+  /// see [PriceList.fName]
+  static final fName =
+      QueryStringProperty<PriceList>(_entities[48].properties[3]);
+
+  /// see [PriceList.priceIncludeTax]
+  static final priceIncludeTax =
+      QueryBooleanProperty<PriceList>(_entities[48].properties[4]);
+}
+
+/// [PriceListValue] entity fields to define ObjectBox queries.
+class PriceListValue_ {
+  /// see [PriceListValue.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PriceListValue>(_entities[49].properties[0]);
+
+  /// see [PriceListValue.id]
+  static final id =
+      QueryStringProperty<PriceListValue>(_entities[49].properties[1]);
+
+  /// see [PriceListValue.price]
+  static final price =
+      QueryDoubleProperty<PriceListValue>(_entities[49].properties[2]);
+
+  /// see [PriceListValue.slaps]
+  static final slaps =
+      QueryRelationToMany<PriceListValue, Slaps>(_entities[49].relations[0]);
+}
+
+/// [Printer] entity fields to define ObjectBox queries.
+class Printer_ {
+  /// see [Printer.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Printer>(_entities[50].properties[0]);
+
+  /// see [Printer.id]
+  static final id = QueryStringProperty<Printer>(_entities[50].properties[1]);
+
+  /// see [Printer.name]
+  static final name = QueryStringProperty<Printer>(_entities[50].properties[2]);
+
+  /// see [Printer.fName]
+  static final fName =
+      QueryStringProperty<Printer>(_entities[50].properties[3]);
+
+  /// see [Printer.deviceId]
+  static final deviceId =
+      QueryStringProperty<Printer>(_entities[50].properties[4]);
+
+  /// see [Printer.printerModelId]
+  static final printerModelId =
+      QueryStringProperty<Printer>(_entities[50].properties[5]);
+
+  /// see [Printer.connectionType]
+  static final connectionType =
+      QueryIntegerProperty<Printer>(_entities[50].properties[6]);
+
+  /// see [Printer.ipAddress]
+  static final ipAddress =
+      QueryStringProperty<Printer>(_entities[50].properties[7]);
+
+  /// see [Printer.printerType]
+  static final printerType =
+      QueryIntegerProperty<Printer>(_entities[50].properties[8]);
+
+  /// see [Printer.printTo]
+  static final printTo =
+      QueryIntegerProperty<Printer>(_entities[50].properties[9]);
+
+  /// see [Printer.port]
+  static final port =
+      QueryIntegerProperty<Printer>(_entities[50].properties[10]);
+
+  /// see [Printer.products]
+  static final products =
+      QueryStringVectorProperty<Printer>(_entities[50].properties[11]);
+
+  /// see [Printer.departments]
+  static final departments =
+      QueryStringVectorProperty<Printer>(_entities[50].properties[12]);
+
+  /// see [Printer.categories]
+  static final categories =
+      QueryStringVectorProperty<Printer>(_entities[50].properties[13]);
+
+  /// see [Printer.orderTypes]
+  static final orderTypes =
+      QueryIntegerVectorProperty<Printer>(_entities[50].properties[14]);
+
+  /// see [Printer.settings]
+  static final settings =
+      QueryRelationToMany<Printer, PrinterSetting>(_entities[50].relations[0]);
+}
+
+/// [PrinterSetting] entity fields to define ObjectBox queries.
+class PrinterSetting_ {
+  /// see [PrinterSetting.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<PrinterSetting>(_entities[51].properties[0]);
+
+  /// see [PrinterSetting.id]
+  static final id =
+      QueryStringProperty<PrinterSetting>(_entities[51].properties[1]);
+
+  /// see [PrinterSetting.printerId]
+  static final printerId =
+      QueryStringProperty<PrinterSetting>(_entities[51].properties[2]);
+
+  /// see [PrinterSetting.paperSize]
+  static final paperSize =
+      QueryStringProperty<PrinterSetting>(_entities[51].properties[3]);
+
+  /// see [PrinterSetting.scale]
+  static final scale =
+      QueryIntegerProperty<PrinterSetting>(_entities[51].properties[4]);
+
+  /// see [PrinterSetting.imageCutterFactor]
+  static final imageCutterFactor =
+      QueryIntegerProperty<PrinterSetting>(_entities[51].properties[5]);
+
+  /// see [PrinterSetting.cutterCommandCode]
+  static final cutterCommandCode =
+      QueryStringProperty<PrinterSetting>(_entities[51].properties[6]);
+
+  /// see [PrinterSetting.autoPrint]
+  static final autoPrint =
+      QueryBooleanProperty<PrinterSetting>(_entities[51].properties[7]);
+
+  /// see [PrinterSetting.numberOfCopy]
+  static final numberOfCopy =
+      QueryIntegerProperty<PrinterSetting>(_entities[51].properties[8]);
+}
+
+/// [Product1] entity fields to define ObjectBox queries.
+class Product1_ {
+  /// see [Product1.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Product1>(_entities[52].properties[0]);
+
+  /// see [Product1.id]
+  static final id = QueryStringProperty<Product1>(_entities[52].properties[1]);
+
+  /// see [Product1.name]
+  static final name =
+      QueryStringProperty<Product1>(_entities[52].properties[2]);
+
+  /// see [Product1.fName]
+  static final fName =
+      QueryStringProperty<Product1>(_entities[52].properties[3]);
+
+  /// see [Product1.sku]
+  static final sku = QueryStringProperty<Product1>(_entities[52].properties[4]);
+
+  /// see [Product1.barcode]
+  static final barcode =
+      QueryStringProperty<Product1>(_entities[52].properties[5]);
+
+  /// see [Product1.productTypeId]
+  static final productTypeId =
+      QueryStringProperty<Product1>(_entities[52].properties[6]);
+
+  /// see [Product1.costType]
+  static final costType =
+      QueryStringProperty<Product1>(_entities[52].properties[7]);
+
+  /// see [Product1.priceType]
+  static final priceType =
+      QueryIntegerProperty<Product1>(_entities[52].properties[8]);
+
+  /// see [Product1.salesMethod]
+  static final salesMethod =
+      QueryStringProperty<Product1>(_entities[52].properties[9]);
+
+  /// see [Product1.price]
+  static final price =
+      QueryDoubleProperty<Product1>(_entities[52].properties[10]);
+
+  /// see [Product1.cost]
+  static final cost =
+      QueryDoubleProperty<Product1>(_entities[52].properties[11]);
+
+  /// see [Product1.preparationTime]
+  static final preparationTime =
+      QueryIntegerProperty<Product1>(_entities[52].properties[12]);
+
+  /// see [Product1.activeQRScan]
+  static final activeQRScan =
+      QueryBooleanProperty<Product1>(_entities[52].properties[13]);
+
+  /// see [Product1.qrScanOnSameDate]
+  static final qrScanOnSameDate =
+      QueryBooleanProperty<Product1>(_entities[52].properties[14]);
+
+  /// see [Product1.enableSalesDiscount]
+  static final enableSalesDiscount =
+      QueryBooleanProperty<Product1>(_entities[52].properties[15]);
+
+  /// see [Product1.discountPercentageLimit]
+  static final discountPercentageLimit =
+      QueryDoubleProperty<Product1>(_entities[52].properties[16]);
+
+  /// see [Product1.enableFreeQuantity]
+  static final enableFreeQuantity =
+      QueryBooleanProperty<Product1>(_entities[52].properties[17]);
+
+  /// see [Product1.enableDateExpire]
+  static final enableDateExpire =
+      QueryBooleanProperty<Product1>(_entities[52].properties[18]);
+
+  /// see [Product1.enableIMEISerial]
+  static final enableIMEISerial =
+      QueryBooleanProperty<Product1>(_entities[52].properties[19]);
+
+  /// see [Product1.enableWeights]
+  static final enableWeights =
+      QueryBooleanProperty<Product1>(_entities[52].properties[20]);
+
+  /// see [Product1.scanPriceFromScale]
+  static final scanPriceFromScale =
+      QueryBooleanProperty<Product1>(_entities[52].properties[21]);
+
+  /// see [Product1.scalePriceIncludeTax]
+  static final scalePriceIncludeTax =
+      QueryBooleanProperty<Product1>(_entities[52].properties[22]);
+
+  /// see [Product1.independentPrinting]
+  static final independentPrinting =
+      QueryBooleanProperty<Product1>(_entities[52].properties[23]);
+
+  /// see [Product1.calculateQuantityFromTotalPrice]
+  static final calculateQuantityFromTotalPrice =
+      QueryBooleanProperty<Product1>(_entities[52].properties[24]);
+
+  /// see [Product1.reservationRequired]
+  static final reservationRequired =
+      QueryBooleanProperty<Product1>(_entities[52].properties[25]);
+
+  /// see [Product1.scaleBarcodeDigits]
+  static final scaleBarcodeDigits =
+      QueryIntegerProperty<Product1>(_entities[52].properties[26]);
+
+  /// see [Product1.scaleProductCodeDigits]
+  static final scaleProductCodeDigits =
+      QueryIntegerProperty<Product1>(_entities[52].properties[27]);
+
+  /// see [Product1.scaleIntDigits]
+  static final scaleIntDigits =
+      QueryIntegerProperty<Product1>(_entities[52].properties[28]);
+
+  /// see [Product1.scaledecimalDigits]
+  static final scaledecimalDigits =
+      QueryIntegerProperty<Product1>(_entities[52].properties[29]);
+
+  /// see [Product1.scaleProductCodeFirstInBracode]
+  static final scaleProductCodeFirstInBracode =
+      QueryBooleanProperty<Product1>(_entities[52].properties[30]);
+
+  /// see [Product1.availableStartDateTime]
+  static final availableStartDateTime =
+      QueryStringProperty<Product1>(_entities[52].properties[31]);
+
+  /// see [Product1.availableEndDateTime]
+  static final availableEndDateTime =
+      QueryStringProperty<Product1>(_entities[52].properties[32]);
+
+  /// see [Product1.description]
+  static final description =
+      QueryStringProperty<Product1>(_entities[52].properties[33]);
+
+  /// see [Product1.fDescription]
+  static final fDescription =
+      QueryStringProperty<Product1>(_entities[52].properties[34]);
+
+  /// see [Product1.imageUrl]
+  static final imageUrl =
+      QueryStringProperty<Product1>(_entities[52].properties[35]);
+
+  /// see [Product1.calories]
+  static final calories =
+      QueryIntegerProperty<Product1>(_entities[52].properties[36]);
+
+  /// see [Product1.minimumLevel]
+  static final minimumLevel =
+      QueryIntegerProperty<Product1>(_entities[52].properties[37]);
+
+  /// see [Product1.maximumLevel]
+  static final maximumLevel =
+      QueryIntegerProperty<Product1>(_entities[52].properties[38]);
+
+  /// see [Product1.categoryId]
+  static final categoryId =
+      QueryStringProperty<Product1>(_entities[52].properties[39]);
+
+  /// see [Product1.departmentId]
+  static final departmentId =
+      QueryStringProperty<Product1>(_entities[52].properties[40]);
+
+  /// see [Product1.productNature]
+  static final productNature =
+      QueryIntegerProperty<Product1>(_entities[52].properties[41]);
+
+  /// see [Product1.active]
+  static final active =
+      QueryBooleanProperty<Product1>(_entities[52].properties[42]);
+
+  /// see [Product1.taxGroupId]
+  static final taxGroupId =
+      QueryStringProperty<Product1>(_entities[52].properties[43]);
+
+  /// see [Product1.subName]
+  static final subName =
+      QueryStringProperty<Product1>(_entities[52].properties[44]);
+
+  /// see [Product1.fSubName]
+  static final fSubName =
+      QueryStringProperty<Product1>(_entities[52].properties[45]);
+
+  /// see [Product1.promotionalName]
+  static final promotionalName =
+      QueryStringProperty<Product1>(_entities[52].properties[46]);
+
+  /// see [Product1.fPromotionalName]
+  static final fPromotionalName =
+      QueryStringProperty<Product1>(_entities[52].properties[47]);
+
+  /// see [Product1.tags]
+  static final tags =
+      QueryStringProperty<Product1>(_entities[52].properties[48]);
+
+  /// see [Product1.fTags]
+  static final fTags =
+      QueryStringProperty<Product1>(_entities[52].properties[49]);
+
+  /// see [Product1.showAlertPreparationTime]
+  static final showAlertPreparationTime =
+      QueryBooleanProperty<Product1>(_entities[52].properties[50]);
+
+  /// see [Product1.units]
+  static final units =
+      QueryRelationToMany<Product1, Unit>(_entities[52].relations[0]);
+
+  /// see [Product1.modifiers]
+  static final modifiers =
+      QueryRelationToMany<Product1, Modifier>(_entities[52].relations[1]);
+
+  /// see [Product1.ingredients]
+  static final ingredients =
+      QueryRelationToMany<Product1, Ingredient>(_entities[52].relations[2]);
+
+  /// see [Product1.groups]
+  static final groups =
+      QueryRelationToMany<Product1, Group>(_entities[52].relations[3]);
+}
+
+/// [ProductPriceList] entity fields to define ObjectBox queries.
+class ProductPriceList_ {
+  /// see [ProductPriceList.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ProductPriceList>(_entities[53].properties[0]);
+
+  /// see [ProductPriceList.id]
+  static final id =
+      QueryStringProperty<ProductPriceList>(_entities[53].properties[1]);
+
+  /// see [ProductPriceList.price]
+  static final price =
+      QueryDoubleProperty<ProductPriceList>(_entities[53].properties[2]);
+}
+
+/// [Promotion] entity fields to define ObjectBox queries.
+class Promotion_ {
+  /// see [Promotion.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Promotion>(_entities[54].properties[0]);
+
+  /// see [Promotion.id]
+  static final id = QueryStringProperty<Promotion>(_entities[54].properties[1]);
+
+  /// see [Promotion.name]
+  static final name =
+      QueryStringProperty<Promotion>(_entities[54].properties[2]);
+
+  /// see [Promotion.fName]
+  static final fName =
+      QueryStringProperty<Promotion>(_entities[54].properties[3]);
+
+  /// see [Promotion.startDate]
+  static final startDate =
+      QueryStringProperty<Promotion>(_entities[54].properties[4]);
+
+  /// see [Promotion.endDate]
+  static final endDate =
+      QueryStringProperty<Promotion>(_entities[54].properties[5]);
+
+  /// see [Promotion.startTime]
+  static final startTime =
+      QueryStringProperty<Promotion>(_entities[54].properties[6]);
+
+  /// see [Promotion.endTime]
+  static final endTime =
+      QueryStringProperty<Promotion>(_entities[54].properties[7]);
+
+  /// see [Promotion.promotionType]
+  static final promotionType =
+      QueryIntegerProperty<Promotion>(_entities[54].properties[8]);
+
+  /// see [Promotion.discountType]
+  static final discountType =
+      QueryIntegerProperty<Promotion>(_entities[54].properties[9]);
+
+  /// see [Promotion.discountPercentage]
+  static final discountPercentage =
+      QueryDoubleProperty<Promotion>(_entities[54].properties[10]);
+
+  /// see [Promotion.discountAmount]
+  static final discountAmount =
+      QueryDoubleProperty<Promotion>(_entities[54].properties[11]);
+
+  /// see [Promotion.maximumDiscountAmount]
+  static final maximumDiscountAmount =
+      QueryDoubleProperty<Promotion>(_entities[54].properties[12]);
+
+  /// see [Promotion.promotionApplyType]
+  static final promotionApplyType =
+      QueryIntegerProperty<Promotion>(_entities[54].properties[13]);
+
+  /// see [Promotion.customerQuantity]
+  static final customerQuantity =
+      QueryDoubleProperty<Promotion>(_entities[54].properties[14]);
+
+  /// see [Promotion.customerAmount]
+  static final customerAmount =
+      QueryDoubleProperty<Promotion>(_entities[54].properties[15]);
+
+  /// see [Promotion.promotionApplyToType]
+  static final promotionApplyToType =
+      QueryIntegerProperty<Promotion>(_entities[54].properties[16]);
+
+  /// see [Promotion.days]
+  static final days =
+      QueryIntegerVectorProperty<Promotion>(_entities[54].properties[17]);
+
+  /// see [Promotion.orderTypes]
+  static final orderTypes =
+      QueryIntegerVectorProperty<Promotion>(_entities[54].properties[18]);
+
+  /// see [Promotion.purchaseProducts]
+  static final purchaseProducts =
+      QueryStringVectorProperty<Promotion>(_entities[54].properties[19]);
+
+  /// see [Promotion.discountProducts]
+  static final discountProducts =
+      QueryStringVectorProperty<Promotion>(_entities[54].properties[20]);
+
+  /// see [Promotion.priority]
+  static final priority =
+      QueryIntegerProperty<Promotion>(_entities[54].properties[21]);
+}
+
+/// [ReasonsCanceling] entity fields to define ObjectBox queries.
+class ReasonsCanceling_ {
+  /// see [ReasonsCanceling.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ReasonsCanceling>(_entities[55].properties[0]);
+
+  /// see [ReasonsCanceling.id]
+  static final id =
+      QueryStringProperty<ReasonsCanceling>(_entities[55].properties[1]);
+
+  /// see [ReasonsCanceling.name]
+  static final name =
+      QueryStringProperty<ReasonsCanceling>(_entities[55].properties[2]);
+
+  /// see [ReasonsCanceling.fName]
+  static final fName =
+      QueryStringProperty<ReasonsCanceling>(_entities[55].properties[3]);
+}
+
+/// [ReasonsDrawerOpen] entity fields to define ObjectBox queries.
+class ReasonsDrawerOpen_ {
+  /// see [ReasonsDrawerOpen.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ReasonsDrawerOpen>(_entities[56].properties[0]);
+
+  /// see [ReasonsDrawerOpen.id]
+  static final id =
+      QueryStringProperty<ReasonsDrawerOpen>(_entities[56].properties[1]);
+
+  /// see [ReasonsDrawerOpen.name]
+  static final name =
+      QueryStringProperty<ReasonsDrawerOpen>(_entities[56].properties[2]);
+
+  /// see [ReasonsDrawerOpen.fName]
+  static final fName =
+      QueryStringProperty<ReasonsDrawerOpen>(_entities[56].properties[3]);
+}
+
+/// [ResturantSection] entity fields to define ObjectBox queries.
+class ResturantSection_ {
+  /// see [ResturantSection.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ResturantSection>(_entities[57].properties[0]);
+
+  /// see [ResturantSection.id]
+  static final id =
+      QueryStringProperty<ResturantSection>(_entities[57].properties[1]);
+
+  /// see [ResturantSection.name]
+  static final name =
+      QueryStringProperty<ResturantSection>(_entities[57].properties[2]);
+
+  /// see [ResturantSection.fName]
+  static final fName =
+      QueryStringProperty<ResturantSection>(_entities[57].properties[3]);
+
+  /// see [ResturantSection.tables]
+  static final tables =
+      QueryRelationToMany<ResturantSection, Table>(_entities[57].relations[0]);
+}
+
+/// [Roles] entity fields to define ObjectBox queries.
+class Roles_ {
+  /// see [Roles.idSeq]
+  static final idSeq = QueryIntegerProperty<Roles>(_entities[58].properties[0]);
+
+  /// see [Roles.id]
+  static final id = QueryStringProperty<Roles>(_entities[58].properties[1]);
+
+  /// see [Roles.name]
+  static final name = QueryStringProperty<Roles>(_entities[58].properties[2]);
+
+  /// see [Roles.claims]
+  static final claims =
+      QueryRelationToMany<Roles, Claims>(_entities[58].relations[0]);
+}
+
+/// [SalesInvoiceTemplates] entity fields to define ObjectBox queries.
+class SalesInvoiceTemplates_ {
+  /// see [SalesInvoiceTemplates.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<SalesInvoiceTemplates>(_entities[59].properties[0]);
+
+  /// see [SalesInvoiceTemplates.id]
+  static final id =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[1]);
+
+  /// see [SalesInvoiceTemplates.name]
+  static final name =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[2]);
+
+  /// see [SalesInvoiceTemplates.fName]
+  static final fName =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[3]);
+
+  /// see [SalesInvoiceTemplates.printedTitle]
+  static final printedTitle =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[4]);
+
+  /// see [SalesInvoiceTemplates.fPrintedTitle]
+  static final fPrintedTitle =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[5]);
+
+  /// see [SalesInvoiceTemplates.headerInvoiceMessage]
+  static final headerInvoiceMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[6]);
+
+  /// see [SalesInvoiceTemplates.fHeaderInvoiceMessage]
+  static final fHeaderInvoiceMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[7]);
+
+  /// see [SalesInvoiceTemplates.footerInvoiceMessage]
+  static final footerInvoiceMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[8]);
+
+  /// see [SalesInvoiceTemplates.fFooterInvoiceMessage]
+  static final fFooterInvoiceMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[9]);
+
+  /// see [SalesInvoiceTemplates.printCompanyName]
+  static final printCompanyName =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[10]);
+
+  /// see [SalesInvoiceTemplates.printBranchName]
+  static final printBranchName =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[11]);
+
+  /// see [SalesInvoiceTemplates.printCRNo]
+  static final printCRNo =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[12]);
+
+  /// see [SalesInvoiceTemplates.printBankAccount]
+  static final printBankAccount =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[13]);
+
+  /// see [SalesInvoiceTemplates.printTaxNumber]
+  static final printTaxNumber =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[14]);
+
+  /// see [SalesInvoiceTemplates.printPaymentType]
+  static final printPaymentType =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[15]);
+
+  /// see [SalesInvoiceTemplates.printOrderType]
+  static final printOrderType =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[16]);
+
+  /// see [SalesInvoiceTemplates.printOrderNumber]
+  static final printOrderNumber =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[17]);
+
+  /// see [SalesInvoiceTemplates.printUnitSize]
+  static final printUnitSize =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[18]);
+
+  /// see [SalesInvoiceTemplates.printProductSecondaryName]
+  static final printProductSecondaryName =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[19]);
+
+  /// see [SalesInvoiceTemplates.printCalories]
+  static final printCalories =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[20]);
+
+  /// see [SalesInvoiceTemplates.printSubTotal]
+  static final printSubTotal =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[21]);
+
+  /// see [SalesInvoiceTemplates.printRoundDigit]
+  static final printRoundDigit =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[22]);
+
+  /// see [SalesInvoiceTemplates.printProductUnit]
+  static final printProductUnit =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[23]);
+
+  /// see [SalesInvoiceTemplates.printProductUnitPrice]
+  static final printProductUnitPrice =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[24]);
+
+  /// see [SalesInvoiceTemplates.printProductTotalPrice]
+  static final printProductTotalPrice =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[25]);
+
+  /// see [SalesInvoiceTemplates.printProductDiscountPrice]
+  static final printProductDiscountPrice =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[26]);
+
+  /// see [SalesInvoiceTemplates.printProductFreeQuantity]
+  static final printProductFreeQuantity =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[27]);
+
+  /// see [SalesInvoiceTemplates.printProductTotalPriceBeforeTax]
+  static final printProductTotalPriceBeforeTax =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[28]);
+
+  /// see [SalesInvoiceTemplates.printProductTaxAmount]
+  static final printProductTaxAmount =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[29]);
+
+  /// see [SalesInvoiceTemplates.printProductTaxPercentage]
+  static final printProductTaxPercentage =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[30]);
+
+  /// see [SalesInvoiceTemplates.printProductTotalPriceAfterDiscount]
+  static final printProductTotalPriceAfterDiscount =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[31]);
+
+  /// see [SalesInvoiceTemplates.printProductTotalPriceIncludeTax]
+  static final printProductTotalPriceIncludeTax =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[32]);
+
+  /// see [SalesInvoiceTemplates.printOrderClosedUser]
+  static final printOrderClosedUser =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[33]);
+
+  /// see [SalesInvoiceTemplates.printOrderCreatedUser]
+  static final printOrderCreatedUser =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[34]);
+
+  /// see [SalesInvoiceTemplates.printCheckNumber]
+  static final printCheckNumber =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[35]);
+
+  /// see [SalesInvoiceTemplates.hideFreeModifierOptions]
+  static final hideFreeModifierOptions =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[36]);
+
+  /// see [SalesInvoiceTemplates.autoPrintOnSave]
+  static final autoPrintOnSave =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[37]);
+
+  /// see [SalesInvoiceTemplates.printLanguage]
+  static final printLanguage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[38]);
+
+  /// see [SalesInvoiceTemplates.printerPaperSize]
+  static final printerPaperSize =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[39]);
+
+  /// see [SalesInvoiceTemplates.printerPaperDirection]
+  static final printerPaperDirection =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[40]);
+
+  /// see [SalesInvoiceTemplates.invoiceCategory]
+  static final invoiceCategory =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[41]);
+
+  /// see [SalesInvoiceTemplates.defaultLanguage]
+  static final defaultLanguage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[42]);
+
+  /// see [SalesInvoiceTemplates.secondLanguage]
+  static final secondLanguage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[43]);
+
+  /// see [SalesInvoiceTemplates.orderTypes]
+  static final orderTypes = QueryIntegerVectorProperty<SalesInvoiceTemplates>(
+      _entities[59].properties[44]);
+
+  /// see [SalesInvoiceTemplates.users]
+  static final users = QueryStringVectorProperty<SalesInvoiceTemplates>(
+      _entities[59].properties[45]);
+
+  /// see [SalesInvoiceTemplates.defaultCode]
+  static final defaultCode =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[46]);
+
+  /// see [SalesInvoiceTemplates.secondCode]
+  static final secondCode =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[47]);
+
+  /// see [SalesInvoiceTemplates.pointsMessage]
+  static final pointsMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[48]);
+
+  /// see [SalesInvoiceTemplates.fPointsMessage]
+  static final fPointsMessage =
+      QueryStringProperty<SalesInvoiceTemplates>(_entities[59].properties[49]);
+
+  /// see [SalesInvoiceTemplates.printCustomerPoints]
+  static final printCustomerPoints =
+      QueryBooleanProperty<SalesInvoiceTemplates>(_entities[59].properties[50]);
+}
+
+/// [SalesInvoiceTemplatesA4] entity fields to define ObjectBox queries.
+class SalesInvoiceTemplatesA4_ {
+  /// see [SalesInvoiceTemplatesA4.idSeq]
+  static final idSeq = QueryIntegerProperty<SalesInvoiceTemplatesA4>(
+      _entities[60].properties[0]);
+
+  /// see [SalesInvoiceTemplatesA4.id]
+  static final id =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[1]);
+
+  /// see [SalesInvoiceTemplatesA4.name]
+  static final name =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[2]);
+
+  /// see [SalesInvoiceTemplatesA4.fName]
+  static final fName =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[3]);
+
+  /// see [SalesInvoiceTemplatesA4.menuName]
+  static final menuName =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[4]);
+
+  /// see [SalesInvoiceTemplatesA4.fMenuName]
+  static final fMenuName =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[5]);
+
+  /// see [SalesInvoiceTemplatesA4.title]
+  static final title =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[6]);
+
+  /// see [SalesInvoiceTemplatesA4.fTitle]
+  static final fTitle =
+      QueryStringProperty<SalesInvoiceTemplatesA4>(_entities[60].properties[7]);
+
+  /// see [SalesInvoiceTemplatesA4.printLanguage]
+  static final printLanguage = QueryIntegerProperty<SalesInvoiceTemplatesA4>(
+      _entities[60].properties[8]);
+
+  /// see [SalesInvoiceTemplatesA4.invoiceCategory]
+  static final invoiceCategory = QueryIntegerProperty<SalesInvoiceTemplatesA4>(
+      _entities[60].properties[9]);
+
+  /// see [SalesInvoiceTemplatesA4.appsFormPath]
+  static final appsFormPath = QueryStringProperty<SalesInvoiceTemplatesA4>(
+      _entities[60].properties[10]);
+}
+
+/// [Shift] entity fields to define ObjectBox queries.
+class Shift_ {
+  /// see [Shift.id]
+  static final id = QueryIntegerProperty<Shift>(_entities[61].properties[0]);
+
+  /// see [Shift.shiftId]
+  static final shiftId =
+      QueryStringProperty<Shift>(_entities[61].properties[1]);
+
+  /// see [Shift.reference]
+  static final reference =
+      QueryStringProperty<Shift>(_entities[61].properties[2]);
+
+  /// see [Shift.userId]
+  static final userId = QueryStringProperty<Shift>(_entities[61].properties[3]);
+
+  /// see [Shift.userName]
+  static final userName =
+      QueryStringProperty<Shift>(_entities[61].properties[4]);
+
+  /// see [Shift.branchName]
+  static final branchName =
+      QueryStringProperty<Shift>(_entities[61].properties[5]);
+
+  /// see [Shift.clockedInDateAt]
+  static final clockedInDateAt =
+      QueryStringProperty<Shift>(_entities[61].properties[6]);
+
+  /// see [Shift.clockedInTimeAt]
+  static final clockedInTimeAt =
+      QueryStringProperty<Shift>(_entities[61].properties[7]);
+
+  /// see [Shift.clockedOutDateAt]
+  static final clockedOutDateAt =
+      QueryStringProperty<Shift>(_entities[61].properties[8]);
+
+  /// see [Shift.clockedOutTimeAt]
+  static final clockedOutTimeAt =
+      QueryStringProperty<Shift>(_entities[61].properties[9]);
+
+  /// see [Shift.isClockedOut]
+  static final isClockedOut =
+      QueryBooleanProperty<Shift>(_entities[61].properties[10]);
+
+  /// see [Shift.isSync]
+  static final isSync =
+      QueryBooleanProperty<Shift>(_entities[61].properties[11]);
+}
+
+/// [Slaps] entity fields to define ObjectBox queries.
+class Slaps_ {
+  /// see [Slaps.idSeq]
+  static final idSeq = QueryIntegerProperty<Slaps>(_entities[62].properties[0]);
+
+  /// see [Slaps.from]
+  static final from = QueryDoubleProperty<Slaps>(_entities[62].properties[1]);
+
+  /// see [Slaps.to]
+  static final to = QueryDoubleProperty<Slaps>(_entities[62].properties[2]);
+
+  /// see [Slaps.price]
+  static final price = QueryDoubleProperty<Slaps>(_entities[62].properties[3]);
+
+  /// see [Slaps.timeEventId]
+  static final timeEventId =
+      QueryStringProperty<Slaps>(_entities[62].properties[4]);
+}
+
+/// [Table] entity fields to define ObjectBox queries.
+class Table_ {
+  /// see [Table.idSeq]
+  static final idSeq = QueryIntegerProperty<Table>(_entities[63].properties[0]);
+
+  /// see [Table.id]
+  static final id = QueryStringProperty<Table>(_entities[63].properties[1]);
+
+  /// see [Table.tableNumber]
+  static final tableNumber =
+      QueryIntegerProperty<Table>(_entities[63].properties[2]);
+
+  /// see [Table.tableCode]
+  static final tableCode =
+      QueryStringProperty<Table>(_entities[63].properties[3]);
+
+  /// see [Table.numberOfIndividuals]
+  static final numberOfIndividuals =
+      QueryIntegerProperty<Table>(_entities[63].properties[4]);
+
+  /// see [Table.minumumReservationPrice]
+  static final minumumReservationPrice =
+      QueryDoubleProperty<Table>(_entities[63].properties[5]);
+
+  /// see [Table.status]
+  static final status =
+      QueryIntegerProperty<Table>(_entities[63].properties[6]);
+
+  /// see [Table.shape]
+  static final shape = QueryIntegerProperty<Table>(_entities[63].properties[7]);
+
+  /// see [Table.offsetX]
+  static final offsetX =
+      QueryIntegerProperty<Table>(_entities[63].properties[8]);
+
+  /// see [Table.offsetY]
+  static final offsetY =
+      QueryIntegerProperty<Table>(_entities[63].properties[9]);
+}
+
+/// [TaxC] entity fields to define ObjectBox queries.
+class TaxC_ {
+  /// see [TaxC.idSeq]
+  static final idSeq = QueryIntegerProperty<TaxC>(_entities[64].properties[0]);
+
+  /// see [TaxC.taxName]
+  static final taxName = QueryStringProperty<TaxC>(_entities[64].properties[1]);
+
+  /// see [TaxC.name]
+  static final name = QueryStringProperty<TaxC>(_entities[64].properties[2]);
+
+  /// see [TaxC.fName]
+  static final fName = QueryStringProperty<TaxC>(_entities[64].properties[3]);
+
+  /// see [TaxC.id]
+  static final id = QueryStringProperty<TaxC>(_entities[64].properties[4]);
+
+  /// see [TaxC.taxPercentage]
+  static final taxPercentage =
+      QueryDoubleProperty<TaxC>(_entities[64].properties[5]);
+
+  /// see [TaxC.customerTaxable]
+  static final customerTaxable =
+      QueryBooleanProperty<TaxC>(_entities[64].properties[6]);
+
+  /// see [TaxC.orderTypes]
+  static final orderTypes =
+      QueryIntegerVectorProperty<TaxC>(_entities[64].properties[7]);
+
+  /// see [TaxC.taxCode]
+  static final taxCode = QueryStringProperty<TaxC>(_entities[64].properties[8]);
+
+  /// see [TaxC.taxAccount]
+  static final taxAccount =
+      QueryStringProperty<TaxC>(_entities[64].properties[9]);
+
+  /// see [TaxC.isTaxExempt]
+  static final isTaxExempt =
+      QueryBooleanProperty<TaxC>(_entities[64].properties[10]);
+
+  /// see [TaxC.zeroTax]
+  static final zeroTax =
+      QueryBooleanProperty<TaxC>(_entities[64].properties[11]);
+
+  /// see [TaxC.exceptCustomers]
+  static final exceptCustomers =
+      QueryStringVectorProperty<TaxC>(_entities[64].properties[12]);
+
+  /// see [TaxC.periods]
+  static final periods =
+      QueryRelationToMany<TaxC, TaxPeriod>(_entities[64].relations[0]);
+}
+
+/// [TaxGroup] entity fields to define ObjectBox queries.
+class TaxGroup_ {
+  /// see [TaxGroup.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<TaxGroup>(_entities[65].properties[0]);
+
+  /// see [TaxGroup.id]
+  static final id = QueryStringProperty<TaxGroup>(_entities[65].properties[1]);
+
+  /// see [TaxGroup.types]
+  static final types =
+      QueryStringVectorProperty<TaxGroup>(_entities[65].properties[2]);
+
+  /// see [TaxGroup.name]
+  static final name =
+      QueryStringProperty<TaxGroup>(_entities[65].properties[3]);
+
+  /// see [TaxGroup.fName]
+  static final fName =
+      QueryStringProperty<TaxGroup>(_entities[65].properties[4]);
+}
+
+/// [TaxInfo] entity fields to define ObjectBox queries.
+class TaxInfo_ {
+  /// see [TaxInfo.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<TaxInfo>(_entities[66].properties[0]);
+
+  /// see [TaxInfo.taxGroupId]
+  static final taxGroupId =
+      QueryStringProperty<TaxInfo>(_entities[66].properties[1]);
+
+  /// see [TaxInfo.value]
+  static final value =
+      QueryDoubleProperty<TaxInfo>(_entities[66].properties[2]);
+}
+
+/// [TaxPeriod] entity fields to define ObjectBox queries.
+class TaxPeriod_ {
+  /// see [TaxPeriod.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<TaxPeriod>(_entities[67].properties[0]);
+
+  /// see [TaxPeriod.id]
+  static final id = QueryStringProperty<TaxPeriod>(_entities[67].properties[1]);
+
+  /// see [TaxPeriod.name]
+  static final name =
+      QueryStringProperty<TaxPeriod>(_entities[67].properties[2]);
+
+  /// see [TaxPeriod.fName]
+  static final fName =
+      QueryStringProperty<TaxPeriod>(_entities[67].properties[3]);
+
+  /// see [TaxPeriod.startDate]
+  static final startDate =
+      QueryStringProperty<TaxPeriod>(_entities[67].properties[4]);
+
+  /// see [TaxPeriod.endDate]
+  static final endDate =
+      QueryStringProperty<TaxPeriod>(_entities[67].properties[5]);
+}
+
+/// [TaxSetting] entity fields to define ObjectBox queries.
+class TaxSetting_ {
+  /// see [TaxSetting.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<TaxSetting>(_entities[68].properties[0]);
+
+  /// see [TaxSetting.enableSalesTax]
+  static final enableSalesTax =
+      QueryBooleanProperty<TaxSetting>(_entities[68].properties[1]);
+
+  /// see [TaxSetting.salesPriceIncludeTax]
+  static final salesPriceIncludeTax =
+      QueryBooleanProperty<TaxSetting>(_entities[68].properties[2]);
+
+  /// see [TaxSetting.enableCustomerSupplierTax]
+  static final enableCustomerSupplierTax =
+      QueryBooleanProperty<TaxSetting>(_entities[68].properties[3]);
+
+  /// see [TaxSetting.taxRoundFactor]
+  static final taxRoundFactor =
+      QueryDoubleProperty<TaxSetting>(_entities[68].properties[4]);
+}
+
+/// [TenantSetting] entity fields to define ObjectBox queries.
+class TenantSetting_ {
+  /// see [TenantSetting.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<TenantSetting>(_entities[69].properties[0]);
+
+  /// see [TenantSetting.logoUrl]
+  static final logoUrl =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[1]);
+
+  /// see [TenantSetting.companyName]
+  static final companyName =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[2]);
+
+  /// see [TenantSetting.fCompanyName]
+  static final fCompanyName =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[3]);
+
+  /// see [TenantSetting.activity]
+  static final activity =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[4]);
+
+  /// see [TenantSetting.fActivity]
+  static final fActivity =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[5]);
+
+  /// see [TenantSetting.phoneNumber]
+  static final phoneNumber =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[6]);
+
+  /// see [TenantSetting.faxNumber]
+  static final faxNumber =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[7]);
+
+  /// see [TenantSetting.webSite]
+  static final webSite =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[8]);
+
+  /// see [TenantSetting.email]
+  static final email =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[9]);
+
+  /// see [TenantSetting.taxRegistrationName]
+  static final taxRegistrationName =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[10]);
+
+  /// see [TenantSetting.crNo]
+  static final crNo =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[11]);
+
+  /// see [TenantSetting.taxNo]
+  static final taxNo =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[12]);
+
+  /// see [TenantSetting.zakatRegistrationNumber]
+  static final zakatRegistrationNumber =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[13]);
+
+  /// see [TenantSetting.municipalLicenseNumber]
+  static final municipalLicenseNumber =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[14]);
+
+  /// see [TenantSetting.gulfCouncilIdentificationNumber]
+  static final gulfCouncilIdentificationNumber =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[15]);
+
+  /// see [TenantSetting.sagiALicenseNumber]
+  static final sagiALicenseNumber =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[16]);
+
+  /// see [TenantSetting.country]
+  static final country =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[17]);
+
+  /// see [TenantSetting.postalCode]
+  static final postalCode =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[18]);
+
+  /// see [TenantSetting.province]
+  static final province =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[19]);
+
+  /// see [TenantSetting.city]
+  static final city =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[20]);
+
+  /// see [TenantSetting.district]
+  static final district =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[21]);
+
+  /// see [TenantSetting.street]
+  static final street =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[22]);
+
+  /// see [TenantSetting.fProvince]
+  static final fProvince =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[23]);
+
+  /// see [TenantSetting.fCity]
+  static final fCity =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[24]);
+
+  /// see [TenantSetting.fDistrict]
+  static final fDistrict =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[25]);
+
+  /// see [TenantSetting.fStreet]
+  static final fStreet =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[26]);
+
+  /// see [TenantSetting.buildingNo]
+  static final buildingNo =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[27]);
+
+  /// see [TenantSetting.floorNo]
+  static final floorNo =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[28]);
+
+  /// see [TenantSetting.officeNo]
+  static final officeNo =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[29]);
+
+  /// see [TenantSetting.additionalNo]
+  static final additionalNo =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[30]);
+
+  /// see [TenantSetting.invoiceRoundFactor]
+  static final invoiceRoundFactor =
+      QueryIntegerProperty<TenantSetting>(_entities[69].properties[31]);
+
+  /// see [TenantSetting.localCurrencyId]
+  static final localCurrencyId =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[32]);
+
+  /// see [TenantSetting.salesPriceCurrencyId]
+  static final salesPriceCurrencyId =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[33]);
+
+  /// see [TenantSetting.inventoryCostCurrencyId]
+  static final inventoryCostCurrencyId =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[34]);
+
+  /// see [TenantSetting.payrollCurrencyId]
+  static final payrollCurrencyId =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[35]);
+
+  /// see [TenantSetting.inventoryCalculateCostMethod]
+  static final inventoryCalculateCostMethod =
+      QueryIntegerProperty<TenantSetting>(_entities[69].properties[36]);
+
+  /// see [TenantSetting.stockInventoryType]
+  static final stockInventoryType =
+      QueryIntegerProperty<TenantSetting>(_entities[69].properties[37]);
+
+  /// see [TenantSetting.printLanguage]
+  static final printLanguage =
+      QueryIntegerProperty<TenantSetting>(_entities[69].properties[38]);
+
+  /// see [TenantSetting.defaultLanguage]
+  static final defaultLanguage =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[39]);
+
+  /// see [TenantSetting.secondLanguage]
+  static final secondLanguage =
+      QueryStringProperty<TenantSetting>(_entities[69].properties[40]);
+}
+
+/// [ThrowbackInfo] entity fields to define ObjectBox queries.
+class ThrowbackInfo_ {
+  /// see [ThrowbackInfo.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<ThrowbackInfo>(_entities[70].properties[0]);
+
+  /// see [ThrowbackInfo.productRef]
+  static final productRef =
+      QueryStringProperty<ThrowbackInfo>(_entities[70].properties[1]);
+
+  /// see [ThrowbackInfo.quantity]
+  static final quantity =
+      QueryDoubleProperty<ThrowbackInfo>(_entities[70].properties[2]);
+
+  /// see [ThrowbackInfo.isWaste]
+  static final isWaste =
+      QueryBooleanProperty<ThrowbackInfo>(_entities[70].properties[3]);
+
+  /// see [ThrowbackInfo.ref]
+  static final ref =
+      QueryStringProperty<ThrowbackInfo>(_entities[70].properties[4]);
+}
+
+/// [TimeEvent] entity fields to define ObjectBox queries.
+class TimeEvent_ {
+  /// see [TimeEvent.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<TimeEvent>(_entities[71].properties[0]);
+
+  /// see [TimeEvent.id]
+  static final id = QueryStringProperty<TimeEvent>(_entities[71].properties[1]);
+
+  /// see [TimeEvent.name]
+  static final name =
+      QueryStringProperty<TimeEvent>(_entities[71].properties[2]);
+
+  /// see [TimeEvent.fName]
+  static final fName =
+      QueryStringProperty<TimeEvent>(_entities[71].properties[3]);
+
+  /// see [TimeEvent.timeEventType]
+  static final timeEventType =
+      QueryIntegerProperty<TimeEvent>(_entities[71].properties[4]);
+
+  /// see [TimeEvent.timeEventValue]
+  static final timeEventValue =
+      QueryDoubleProperty<TimeEvent>(_entities[71].properties[5]);
+
+  /// see [TimeEvent.startDate]
+  static final startDate =
+      QueryStringProperty<TimeEvent>(_entities[71].properties[6]);
+
+  /// see [TimeEvent.endDate]
+  static final endDate =
+      QueryStringProperty<TimeEvent>(_entities[71].properties[7]);
+
+  /// see [TimeEvent.startTime]
+  static final startTime =
+      QueryStringProperty<TimeEvent>(_entities[71].properties[8]);
+
+  /// see [TimeEvent.endTime]
+  static final endTime =
+      QueryStringProperty<TimeEvent>(_entities[71].properties[9]);
+
+  /// see [TimeEvent.days]
+  static final days =
+      QueryIntegerVectorProperty<TimeEvent>(_entities[71].properties[10]);
+
+  /// see [TimeEvent.orderTypes]
+  static final orderTypes =
+      QueryIntegerVectorProperty<TimeEvent>(_entities[71].properties[11]);
+
+  /// see [TimeEvent.products]
+  static final products =
+      QueryStringVectorProperty<TimeEvent>(_entities[71].properties[12]);
+
+  /// see [TimeEvent.customers]
+  static final customers =
+      QueryStringVectorProperty<TimeEvent>(_entities[71].properties[13]);
+
+  /// see [TimeEvent.departments]
+  static final departments =
+      QueryStringVectorProperty<TimeEvent>(_entities[71].properties[14]);
+
+  /// see [TimeEvent.categories]
+  static final categories =
+      QueryStringVectorProperty<TimeEvent>(_entities[71].properties[15]);
+
+  /// see [TimeEvent.priority]
+  static final priority =
+      QueryIntegerProperty<TimeEvent>(_entities[71].properties[16]);
+}
+
+/// [Transaction] entity fields to define ObjectBox queries.
+class Transaction_ {
+  /// see [Transaction.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<Transaction>(_entities[72].properties[0]);
+
+  /// see [Transaction.id]
+  static final id =
+      QueryStringProperty<Transaction>(_entities[72].properties[1]);
+
+  /// see [Transaction.refId]
+  static final refId =
+      QueryStringProperty<Transaction>(_entities[72].properties[2]);
+
+  /// see [Transaction.toAcount]
+  static final toAcount =
+      QueryStringProperty<Transaction>(_entities[72].properties[3]);
+
+  /// see [Transaction.amt]
+  static final amt =
+      QueryDoubleProperty<Transaction>(_entities[72].properties[4]);
+
+  /// see [Transaction.createBy]
+  static final createBy =
+      QueryStringProperty<Transaction>(_entities[72].properties[5]);
+
+  /// see [Transaction.date]
+  static final date =
+      QueryStringProperty<Transaction>(_entities[72].properties[6]);
+}
+
+/// [Unit] entity fields to define ObjectBox queries.
+class Unit_ {
+  /// see [Unit.idSeq]
+  static final idSeq = QueryIntegerProperty<Unit>(_entities[73].properties[0]);
+
+  /// see [Unit.id]
+  static final id = QueryStringProperty<Unit>(_entities[73].properties[1]);
+
+  /// see [Unit.name]
+  static final name = QueryStringProperty<Unit>(_entities[73].properties[2]);
+
+  /// see [Unit.fName]
+  static final fName = QueryStringProperty<Unit>(_entities[73].properties[3]);
+
+  /// see [Unit.barcode]
+  static final barcode = QueryStringProperty<Unit>(_entities[73].properties[4]);
+
+  /// see [Unit.price]
+  static final price = QueryDoubleProperty<Unit>(_entities[73].properties[5]);
+
+  /// see [Unit.cost]
+  static final cost = QueryDoubleProperty<Unit>(_entities[73].properties[6]);
+
+  /// see [Unit.factor]
+  static final factor = QueryDoubleProperty<Unit>(_entities[73].properties[7]);
+
+  /// see [Unit.defaultForSales]
+  static final defaultForSales =
+      QueryBooleanProperty<Unit>(_entities[73].properties[8]);
+
+  /// see [Unit.defaultForPurchase]
+  static final defaultForPurchase =
+      QueryBooleanProperty<Unit>(_entities[73].properties[9]);
+
+  /// see [Unit.defaultForStore]
+  static final defaultForStore =
+      QueryBooleanProperty<Unit>(_entities[73].properties[10]);
+
+  /// see [Unit.showAlertPreparationTime]
+  static final showAlertPreparationTime =
+      QueryBooleanProperty<Unit>(_entities[73].properties[11]);
+
+  /// see [Unit.priceType]
+  static final priceType =
+      QueryIntegerProperty<Unit>(_entities[73].properties[12]);
+
+  /// see [Unit.priceList]
+  static final priceList =
+      QueryRelationToMany<Unit, PriceListValue>(_entities[73].relations[0]);
+
+  /// see [Unit.modifiers]
+  static final modifiers =
+      QueryRelationToMany<Unit, UnitModifer>(_entities[73].relations[1]);
+}
+
+/// [UnitModifer] entity fields to define ObjectBox queries.
+class UnitModifer_ {
+  /// see [UnitModifer.idSeq]
+  static final idSeq =
+      QueryIntegerProperty<UnitModifer>(_entities[74].properties[0]);
+
+  /// see [UnitModifer.id]
+  static final id =
+      QueryStringProperty<UnitModifer>(_entities[74].properties[1]);
+
+  /// see [UnitModifer.minimumOptions]
+  static final minimumOptions =
+      QueryIntegerProperty<UnitModifer>(_entities[74].properties[2]);
+
+  /// see [UnitModifer.maximumOptions]
+  static final maximumOptions =
+      QueryIntegerProperty<UnitModifer>(_entities[74].properties[3]);
+
+  /// see [UnitModifer.isUnique]
+  static final isUnique =
+      QueryBooleanProperty<UnitModifer>(_entities[74].properties[4]);
+
+  /// see [UnitModifer.isRequired]
+  static final isRequired =
+      QueryBooleanProperty<UnitModifer>(_entities[74].properties[5]);
+
+  /// see [UnitModifer.defulatOptions]
+  static final defulatOptions =
+      QueryStringVectorProperty<UnitModifer>(_entities[74].properties[6]);
+
+  /// see [UnitModifer.exceptOptions]
+  static final exceptOptions =
+      QueryStringVectorProperty<UnitModifer>(_entities[74].properties[7]);
+
+  /// see [UnitModifer.name]
+  static final name =
+      QueryStringProperty<UnitModifer>(_entities[74].properties[8]);
+
+  /// see [UnitModifer.fName]
+  static final fName =
+      QueryStringProperty<UnitModifer>(_entities[74].properties[9]);
+
+  /// see [UnitModifer.freeOptions]
+  static final freeOptions =
+      QueryRelationToMany<UnitModifer, FreeOption>(_entities[74].relations[0]);
+
+  /// see [UnitModifer.options]
+  static final options =
+      QueryRelationToMany<UnitModifer, Option>(_entities[74].relations[1]);
 }
 
 /// [UserCashierSetting] entity fields to define ObjectBox queries.
@@ -16982,61 +17009,9 @@ class UserCashierSetting_ {
           _entities[75].properties[16]);
 }
 
-/// [BarcodeScale] entity fields to define ObjectBox queries.
-class BarcodeScale_ {
-  /// see [BarcodeScale.idSeq]
+/// [ViewSettings] entity fields to define ObjectBox queries.
+class ViewSettings_ {
+  /// see [ViewSettings.idSeq]
   static final idSeq =
-      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[0]);
-
-  /// see [BarcodeScale.id]
-  static final id =
-      QueryStringProperty<BarcodeScale>(_entities[76].properties[1]);
-
-  /// see [BarcodeScale.name]
-  static final name =
-      QueryStringProperty<BarcodeScale>(_entities[76].properties[2]);
-
-  /// see [BarcodeScale.fName]
-  static final fName =
-      QueryStringProperty<BarcodeScale>(_entities[76].properties[3]);
-
-  /// see [BarcodeScale.scanPriceFromScale]
-  static final scanPriceFromScale =
-      QueryBooleanProperty<BarcodeScale>(_entities[76].properties[4]);
-
-  /// see [BarcodeScale.scalePriceIncludeTax]
-  static final scalePriceIncludeTax =
-      QueryBooleanProperty<BarcodeScale>(_entities[76].properties[5]);
-
-  /// see [BarcodeScale.scaleBarcodeDigits]
-  static final scaleBarcodeDigits =
-      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[6]);
-
-  /// see [BarcodeScale.scaleProductCodeDigits]
-  static final scaleProductCodeDigits =
-      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[7]);
-
-  /// see [BarcodeScale.scaleIntDigits]
-  static final scaleIntDigits =
-      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[8]);
-
-  /// see [BarcodeScale.scaleDecimalDigits]
-  static final scaleDecimalDigits =
-      QueryIntegerProperty<BarcodeScale>(_entities[76].properties[9]);
-
-  /// see [BarcodeScale.departments]
-  static final departments =
-      QueryStringVectorProperty<BarcodeScale>(_entities[76].properties[10]);
-
-  /// see [BarcodeScale.categories]
-  static final categories =
-      QueryStringVectorProperty<BarcodeScale>(_entities[76].properties[11]);
-
-  /// see [BarcodeScale.products]
-  static final products =
-      QueryStringVectorProperty<BarcodeScale>(_entities[76].properties[12]);
-
-  /// see [BarcodeScale.scaleProductCodeFirstInBarcode]
-  static final scaleProductCodeFirstInBarcode =
-      QueryBooleanProperty<BarcodeScale>(_entities[76].properties[13]);
+      QueryIntegerProperty<ViewSettings>(_entities[76].properties[0]);
 }

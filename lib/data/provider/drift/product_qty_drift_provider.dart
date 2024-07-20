@@ -7,10 +7,27 @@ class ProductQtyDriftProvider {
 
   Future<Map<int, List<ProductQtyEntityData>>> addProductQty(
       {required ProductQtyEntityData product, int? lastIdSeq}) async {
-    int id = await db.into(db.productQtyEntity).insert(
-          product,
-          mode: InsertMode.replace,
-        );
+    var query = db.select(db.productQtyEntity);
+
+    query.where((tbl) =>
+        tbl.productId.equals(product.productId) &
+        tbl.unitId.equals(product.unitId));
+
+    ProductQtyEntityData? dataProductQty = await query.getSingleOrNull();
+    late int id;
+    if (dataProductQty != null) {
+      double value = dataProductQty.qty + product.qty;
+      dataProductQty = dataProductQty.copyWith(qty: value);
+      id = await db
+          .into(db.productQtyEntity)
+          .insert(dataProductQty, mode: InsertMode.replace);
+    } else {
+      id = await db.into(db.productQtyEntity).insert(
+            product,
+            mode: InsertMode.replace,
+          );
+    }
+
     return {
       id: await getAllProductQty(lastIdSeq: lastIdSeq),
     };
@@ -36,7 +53,7 @@ class ProductQtyDriftProvider {
                   tbl.unitId.equals(product.unit.target!.id!)))
             .getSingleOrNull();
     if (productQtyEntityData == null) return true;
-    int value = productQtyEntityData.qty - qty;
+    double value = productQtyEntityData.qty - qty;
     return value >= 0;
   }
 
@@ -51,7 +68,7 @@ class ProductQtyDriftProvider {
                     tbl.unitId.equals(product.unit.target!.id!)))
               .getSingle();
 
-      int value = productQtyEntityData.qty - qty;
+      double value = productQtyEntityData.qty - qty;
       productQtyEntityData = productQtyEntityData.copyWith(qty: value);
       int numRows = await db.into(db.productQtyEntity).insert(
             productQtyEntityData,
@@ -72,12 +89,60 @@ class ProductQtyDriftProvider {
                   tbl.unitId.equals(product.unit.target!.id!)))
             .getSingle();
 
-    int value = productQtyEntityData.qty + qty;
+    double value = productQtyEntityData.qty + qty;
     productQtyEntityData = productQtyEntityData.copyWith(qty: value);
     int numRows = await db.into(db.productQtyEntity).insert(
           productQtyEntityData,
           mode: InsertMode.replace,
         );
     return numRows >= 1;
+  }
+
+  Future<bool> unReservationQtyById({
+    required String productId,
+    required String unitId,
+    double qty = 1,
+  }) async {
+    ProductQtyEntityData productQtyEntityData =
+        await (db.select(db.productQtyEntity)
+              ..where((tbl) =>
+                  tbl.productId.equals(productId) & tbl.unitId.equals(unitId)))
+            .getSingle();
+
+    double value = productQtyEntityData.qty + qty;
+    productQtyEntityData = productQtyEntityData.copyWith(qty: value);
+    int numRows = await db.into(db.productQtyEntity).insert(
+          productQtyEntityData,
+          mode: InsertMode.replace,
+        );
+    return numRows >= 1;
+  }
+
+  Future<bool> updateProductQty({
+    required String productId,
+    required String unitId,
+    required double qty,
+    required String op,
+    bool isAvailable = false,
+  }) async {
+    ProductQtyEntityData product = ProductQtyEntityData(
+        // id: -1,
+        qty: qty,
+        productId: productId,
+        unitId: unitId,
+        isAvailable: isAvailable);
+    if (op == "+") {
+      await addProductQty(
+        product: product,
+      );
+    } else {
+      await unReservationQtyById(
+        productId: productId,
+        unitId: unitId,
+        qty: qty,
+      );
+    }
+
+    return true;
   }
 }
