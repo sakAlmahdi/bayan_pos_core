@@ -39,7 +39,7 @@ class OrderC {
   late int orderSource;
   DateTime? endTime;
   final deliveryCompanyInfo = ToOne<DeliveryCompanyInfo>();
-  String? selectedPriceListId;
+  String? priceListId;
   Map<String, dynamic>? creatorBy;
   Map<String, dynamic>? closeBy;
   String? tableId;
@@ -104,7 +104,7 @@ class OrderC {
     String? orderRef,
     DateTime? endTime,
     DeliveryCompanyInfo? deliveryCompanyInfo,
-    String? selectedPriceListId,
+    String? priceListId,
     Map<String, dynamic>? creatorBy,
     Map<String, dynamic>? closeBy,
     String? tableId,
@@ -152,7 +152,7 @@ class OrderC {
       ..endTime = endTime ?? this.endTime
       ..deliveryCompanyInfo.target =
           deliveryCompanyInfo ?? this.deliveryCompanyInfo.target
-      ..selectedPriceListId = selectedPriceListId ?? this.selectedPriceListId
+      ..priceListId = priceListId ?? this.priceListId
       ..creatorBy = creatorBy ?? this.creatorBy
       ..closeBy = closeBy ?? this.closeBy
       ..tableId = tableId ?? this.tableId
@@ -215,7 +215,7 @@ class OrderC {
     deliveryCompanyInfo.target = json['deliveryCompanyInfoId'] != null
         ? DeliveryCompanyInfo.fromJson(json['deliveryCompanyInfoId'])
         : null;
-    selectedPriceListId = json['selectedPriceListId'];
+    priceListId = json['priceListId'];
     creatorBy = json['creatorBy'];
     closeBy = json['closeBy'];
     tableId = json['tableId'];
@@ -292,7 +292,7 @@ class OrderC {
     data['endTime'] = endTime?.millisecondsSinceEpoch;
     data['deliveryCompanyInfoId'] =
         deliveryCompanyInfo.target?.toJson().removeNull().removeNull();
-    data['selectedPriceListId'] = selectedPriceListId;
+    data['priceListId'] = priceListId;
     data['creatorBy'] = creatorBy;
     data['closeBy'] = closeBy;
     data['tableId'] = tableId;
@@ -358,7 +358,7 @@ class OrderC {
     data['endTime'] = endTime?.millisecondsSinceEpoch;
     data['deliveryCompanyInfoId'] =
         deliveryCompanyInfo.target?.toJsonOrder().removeNull().removeNull();
-    data['selectedPriceListId'] = selectedPriceListId;
+    data['priceListId'] = priceListId;
     data['creatorBy'] = creatorBy?.removeNull();
     data['closeBy'] = closeBy?.removeNull();
     data['tableId'] = tableId;

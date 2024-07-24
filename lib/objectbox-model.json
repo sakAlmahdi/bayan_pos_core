@@ -3240,7 +3240,7 @@
     },
     {
       "id": "44:7842135050779151667",
-      "lastPropertyId": "39:8904683660786211987",
+      "lastPropertyId": "40:4523480091594187749",
       "name": "OrderC",
       "properties": [
         {
@@ -3318,11 +3318,6 @@
           "flags": 520,
           "indexId": "44:8282312176556683617",
           "relationTarget": "DeliveryCompanyInfo"
-        },
-        {
-          "id": "15:3891698986536151021",
-          "name": "selectedPriceListId",
-          "type": 9
         },
         {
           "id": "16:5579257531563068583",
@@ -3455,6 +3450,11 @@
           "id": "39:8904683660786211987",
           "name": "totalDiscountForOrderAndProduct",
           "type": 8
+        },
+        {
+          "id": "40:4523480091594187749",
+          "name": "priceListId",
+          "type": 9
         }
       ],
       "relations": [
@@ -5868,7 +5868,9 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    3891698986536151021
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

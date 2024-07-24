@@ -17,7 +17,7 @@ class OrderEntity extends Table {
   DateTimeColumn get endTime => dateTime().nullable()();
   TextColumn get deliveryCompanyInfoId =>
       text().map(const JsonTypeConverter()).nullable()();
-  TextColumn get selectedPriceListId => text().nullable()();
+  TextColumn get priceListId => text().nullable()();
   TextColumn get creatorBy =>
       text().map(const JsonTypeConverter()).nullable()();
   TextColumn get closeBy => text().map(const JsonTypeConverter()).nullable()();

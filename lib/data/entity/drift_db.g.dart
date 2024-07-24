@@ -98,12 +98,12 @@ class $OrderEntityTable extends OrderEntity
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>(
               $OrderEntityTable.$converterdeliveryCompanyInfoId);
-  static const VerificationMeta _selectedPriceListIdMeta =
-      const VerificationMeta('selectedPriceListId');
+  static const VerificationMeta _priceListIdMeta =
+      const VerificationMeta('priceListId');
   @override
-  late final GeneratedColumn<String> selectedPriceListId =
-      GeneratedColumn<String>('selected_price_list_id', aliasedName, true,
-          type: DriftSqlType.string, requiredDuringInsert: false);
+  late final GeneratedColumn<String> priceListId = GeneratedColumn<String>(
+      'price_list_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _creatorByMeta =
       const VerificationMeta('creatorBy');
   @override
@@ -319,7 +319,7 @@ class $OrderEntityTable extends OrderEntity
         orderSource,
         endTime,
         deliveryCompanyInfoId,
-        selectedPriceListId,
+        priceListId,
         creatorBy,
         closeBy,
         tableId,
@@ -436,11 +436,11 @@ class $OrderEntityTable extends OrderEntity
     }
     context.handle(
         _deliveryCompanyInfoIdMeta, const VerificationResult.success());
-    if (data.containsKey('selected_price_list_id')) {
+    if (data.containsKey('price_list_id')) {
       context.handle(
-          _selectedPriceListIdMeta,
-          selectedPriceListId.isAcceptableOrUnknown(
-              data['selected_price_list_id']!, _selectedPriceListIdMeta));
+          _priceListIdMeta,
+          priceListId.isAcceptableOrUnknown(
+              data['price_list_id']!, _priceListIdMeta));
     }
     context.handle(_creatorByMeta, const VerificationResult.success());
     context.handle(_closeByMeta, const VerificationResult.success());
@@ -587,9 +587,8 @@ class $OrderEntityTable extends OrderEntity
       deliveryCompanyInfoId: $OrderEntityTable.$converterdeliveryCompanyInfoId
           .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.string,
               data['${effectivePrefix}delivery_company_info_id'])),
-      selectedPriceListId: attachedDatabase.typeMapping.read(
-          DriftSqlType.string,
-          data['${effectivePrefix}selected_price_list_id']),
+      priceListId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}price_list_id']),
       creatorBy: $OrderEntityTable.$convertercreatorBy.fromSql(attachedDatabase
           .typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}creator_by'])),
@@ -720,7 +719,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final int orderSource;
   final DateTime? endTime;
   final dynamic deliveryCompanyInfoId;
-  final String? selectedPriceListId;
+  final String? priceListId;
   final dynamic creatorBy;
   final dynamic closeBy;
   final String? tableId;
@@ -767,7 +766,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       required this.orderSource,
       this.endTime,
       this.deliveryCompanyInfoId,
-      this.selectedPriceListId,
+      this.priceListId,
       this.creatorBy,
       this.closeBy,
       this.tableId,
@@ -836,8 +835,8 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           .$converterdeliveryCompanyInfoId
           .toSql(deliveryCompanyInfoId));
     }
-    if (!nullToAbsent || selectedPriceListId != null) {
-      map['selected_price_list_id'] = Variable<String>(selectedPriceListId);
+    if (!nullToAbsent || priceListId != null) {
+      map['price_list_id'] = Variable<String>(priceListId);
     }
     if (!nullToAbsent || creatorBy != null) {
       map['creator_by'] = Variable<String>(
@@ -981,9 +980,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       deliveryCompanyInfoId: deliveryCompanyInfoId == null && nullToAbsent
           ? const Value.absent()
           : Value(deliveryCompanyInfoId),
-      selectedPriceListId: selectedPriceListId == null && nullToAbsent
+      priceListId: priceListId == null && nullToAbsent
           ? const Value.absent()
-          : Value(selectedPriceListId),
+          : Value(priceListId),
       creatorBy: creatorBy == null && nullToAbsent
           ? const Value.absent()
           : Value(creatorBy),
@@ -1093,8 +1092,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       endTime: serializer.fromJson<DateTime?>(json['endTime']),
       deliveryCompanyInfoId:
           serializer.fromJson<dynamic>(json['deliveryCompanyInfoId']),
-      selectedPriceListId:
-          serializer.fromJson<String?>(json['selectedPriceListId']),
+      priceListId: serializer.fromJson<String?>(json['priceListId']),
       creatorBy: serializer.fromJson<dynamic>(json['creatorBy']),
       closeBy: serializer.fromJson<dynamic>(json['closeBy']),
       tableId: serializer.fromJson<String?>(json['tableId']),
@@ -1149,7 +1147,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'endTime': serializer.toJson<DateTime?>(endTime),
       'deliveryCompanyInfoId':
           serializer.toJson<dynamic>(deliveryCompanyInfoId),
-      'selectedPriceListId': serializer.toJson<String?>(selectedPriceListId),
+      'priceListId': serializer.toJson<String?>(priceListId),
       'creatorBy': serializer.toJson<dynamic>(creatorBy),
       'closeBy': serializer.toJson<dynamic>(closeBy),
       'tableId': serializer.toJson<String?>(tableId),
@@ -1201,7 +1199,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           int? orderSource,
           Value<DateTime?> endTime = const Value.absent(),
           Value<dynamic> deliveryCompanyInfoId = const Value.absent(),
-          Value<String?> selectedPriceListId = const Value.absent(),
+          Value<String?> priceListId = const Value.absent(),
           Value<dynamic> creatorBy = const Value.absent(),
           Value<dynamic> closeBy = const Value.absent(),
           Value<String?> tableId = const Value.absent(),
@@ -1253,9 +1251,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         deliveryCompanyInfoId: deliveryCompanyInfoId.present
             ? deliveryCompanyInfoId.value
             : this.deliveryCompanyInfoId,
-        selectedPriceListId: selectedPriceListId.present
-            ? selectedPriceListId.value
-            : this.selectedPriceListId,
+        priceListId: priceListId.present ? priceListId.value : this.priceListId,
         creatorBy: creatorBy.present ? creatorBy.value : this.creatorBy,
         closeBy: closeBy.present ? closeBy.value : this.closeBy,
         tableId: tableId.present ? tableId.value : this.tableId,
@@ -1316,7 +1312,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ..write('orderSource: $orderSource, ')
           ..write('endTime: $endTime, ')
           ..write('deliveryCompanyInfoId: $deliveryCompanyInfoId, ')
-          ..write('selectedPriceListId: $selectedPriceListId, ')
+          ..write('priceListId: $priceListId, ')
           ..write('creatorBy: $creatorBy, ')
           ..write('closeBy: $closeBy, ')
           ..write('tableId: $tableId, ')
@@ -1369,7 +1365,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         orderSource,
         endTime,
         deliveryCompanyInfoId,
-        selectedPriceListId,
+        priceListId,
         creatorBy,
         closeBy,
         tableId,
@@ -1420,7 +1416,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           other.orderSource == this.orderSource &&
           other.endTime == this.endTime &&
           other.deliveryCompanyInfoId == this.deliveryCompanyInfoId &&
-          other.selectedPriceListId == this.selectedPriceListId &&
+          other.priceListId == this.priceListId &&
           other.creatorBy == this.creatorBy &&
           other.closeBy == this.closeBy &&
           other.tableId == this.tableId &&
@@ -1470,7 +1466,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<int> orderSource;
   final Value<DateTime?> endTime;
   final Value<dynamic> deliveryCompanyInfoId;
-  final Value<String?> selectedPriceListId;
+  final Value<String?> priceListId;
   final Value<dynamic> creatorBy;
   final Value<dynamic> closeBy;
   final Value<String?> tableId;
@@ -1517,7 +1513,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.orderSource = const Value.absent(),
     this.endTime = const Value.absent(),
     this.deliveryCompanyInfoId = const Value.absent(),
-    this.selectedPriceListId = const Value.absent(),
+    this.priceListId = const Value.absent(),
     this.creatorBy = const Value.absent(),
     this.closeBy = const Value.absent(),
     this.tableId = const Value.absent(),
@@ -1565,7 +1561,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     required int orderSource,
     this.endTime = const Value.absent(),
     this.deliveryCompanyInfoId = const Value.absent(),
-    this.selectedPriceListId = const Value.absent(),
+    this.priceListId = const Value.absent(),
     this.creatorBy = const Value.absent(),
     this.closeBy = const Value.absent(),
     this.tableId = const Value.absent(),
@@ -1617,7 +1613,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<int>? orderSource,
     Expression<DateTime>? endTime,
     Expression<String>? deliveryCompanyInfoId,
-    Expression<String>? selectedPriceListId,
+    Expression<String>? priceListId,
     Expression<String>? creatorBy,
     Expression<String>? closeBy,
     Expression<String>? tableId,
@@ -1666,8 +1662,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       if (endTime != null) 'end_time': endTime,
       if (deliveryCompanyInfoId != null)
         'delivery_company_info_id': deliveryCompanyInfoId,
-      if (selectedPriceListId != null)
-        'selected_price_list_id': selectedPriceListId,
+      if (priceListId != null) 'price_list_id': priceListId,
       if (creatorBy != null) 'creator_by': creatorBy,
       if (closeBy != null) 'close_by': closeBy,
       if (tableId != null) 'table_id': tableId,
@@ -1719,7 +1714,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<int>? orderSource,
       Value<DateTime?>? endTime,
       Value<dynamic>? deliveryCompanyInfoId,
-      Value<String?>? selectedPriceListId,
+      Value<String?>? priceListId,
       Value<dynamic>? creatorBy,
       Value<dynamic>? closeBy,
       Value<String?>? tableId,
@@ -1767,7 +1762,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       endTime: endTime ?? this.endTime,
       deliveryCompanyInfoId:
           deliveryCompanyInfoId ?? this.deliveryCompanyInfoId,
-      selectedPriceListId: selectedPriceListId ?? this.selectedPriceListId,
+      priceListId: priceListId ?? this.priceListId,
       creatorBy: creatorBy ?? this.creatorBy,
       closeBy: closeBy ?? this.closeBy,
       tableId: tableId ?? this.tableId,
@@ -1851,9 +1846,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           .$converterdeliveryCompanyInfoId
           .toSql(deliveryCompanyInfoId.value));
     }
-    if (selectedPriceListId.present) {
-      map['selected_price_list_id'] =
-          Variable<String>(selectedPriceListId.value);
+    if (priceListId.present) {
+      map['price_list_id'] = Variable<String>(priceListId.value);
     }
     if (creatorBy.present) {
       map['creator_by'] = Variable<String>(
@@ -1984,7 +1978,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           ..write('orderSource: $orderSource, ')
           ..write('endTime: $endTime, ')
           ..write('deliveryCompanyInfoId: $deliveryCompanyInfoId, ')
-          ..write('selectedPriceListId: $selectedPriceListId, ')
+          ..write('priceListId: $priceListId, ')
           ..write('creatorBy: $creatorBy, ')
           ..write('closeBy: $closeBy, ')
           ..write('tableId: $tableId, ')
