@@ -60,28 +60,34 @@ class Discount {
       ? discountPercentage ?? 0
       : discountAmount ?? 0;
 
-  Discount(
-      {this.id,
-      this.name,
-      this.fName,
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime,
-      this.discountAppliedTo,
-      this.discountType,
-      this.discountPercentage,
-      this.discountAmount,
-      this.maximumDiscountAmount,
-      this.minimalOrderAmount,
-      this.taxable,
-      this.productIDs,
-      this.days,
-      this.orderTypes,
-      this.priceList,
-      this.customers,
-      this.departments,
-      this.categories});
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
+  Discount({
+    this.id,
+    this.name,
+    this.fName,
+    this.startDate,
+    this.endDate,
+    this.startTime,
+    this.endTime,
+    this.discountAppliedTo,
+    this.discountType,
+    this.discountPercentage,
+    this.discountAmount,
+    this.maximumDiscountAmount,
+    this.minimalOrderAmount,
+    this.taxable,
+    this.productIDs,
+    this.days,
+    this.orderTypes,
+    this.priceList,
+    this.customers,
+    this.departments,
+    this.categories,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
+  });
 
   Discount.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -143,6 +149,9 @@ class Discount {
         categories!.add(v!.toString().toLowerCase());
       });
     }
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -183,6 +192,9 @@ class Discount {
     if (categories != null) {
       data['categories'] = categories!.map((v) => v).toList();
     }
+
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 }

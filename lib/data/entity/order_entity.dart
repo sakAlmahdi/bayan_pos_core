@@ -2,6 +2,7 @@ import 'package:drift/drift.dart' hide JsonTypeConverter;
 import 'drift_db.dart';
 
 class OrderEntity extends Table {
+  IntColumn get posTransactionType => integer().nullable()();
   IntColumn get idSeq => integer().nullable().autoIncrement()();
   TextColumn get invoiceNumber => text().nullable()();
   TextColumn get deviceId => text().nullable()();
@@ -11,8 +12,12 @@ class OrderEntity extends Table {
   IntColumn get splitIndex => integer().nullable()();
   TextColumn get orderRef => text()();
   TextColumn get callName => text().nullable()();
+  IntColumn get callNumber => integer().nullable()();
   IntColumn get orderType => integer()();
   IntColumn get status => integer()();
+  IntColumn get paymentStatus => integer()();
+  IntColumn get refundStatus => integer()();
+  IntColumn get deliveryStatus => integer()();
   IntColumn get orderSource => integer()();
   DateTimeColumn get endTime => dateTime().nullable()();
   TextColumn get deliveryCompanyInfoId =>
@@ -55,6 +60,25 @@ class OrderEntity extends Table {
       text().map(const JsonTypeConverter()).nullable()();
   RealColumn get minimumReservationPrice => real().nullable()();
 
+  TextColumn get giftCard => text().map(const JsonTypeConverter()).nullable()();
+  RealColumn get roundingAmount => real().nullable()();
+  RealColumn get tipAmount => real().nullable()();
+  RealColumn get donationAmount => real().nullable()();
+  TextColumn get donationForId => text().nullable()();
+  TextColumn get supervisorId => text().nullable()();
+  TextColumn get reference => text().nullable()();
+  TextColumn get trackingStatusId => text().nullable()();
+  TextColumn get orderStatusTracking =>
+      text().map(const JsonTypeConverter()).nullable()();
+  TextColumn get waiters => text().map(const JsonTypeConverter()).nullable()();
+
+  TextColumn get couponId => text().nullable()();
+  TextColumn get createdOn => text().nullable()();
+  TextColumn get createdBy => text().nullable()();
+  TextColumn get lastModifiedBy => text().nullable()();
+  TextColumn get lastModifiedOn => text().nullable()();
+  TextColumn get table => text().map(const JsonTypeConverter()).nullable()();
+  TextColumn get delivery => text().map(const JsonTypeConverter()).nullable()();
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [
         {orderRef}

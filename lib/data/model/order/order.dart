@@ -17,6 +17,8 @@ import 'package:bayan_pos_core/data/model/order/kitchen_info.dart';
 import 'package:bayan_pos_core/data/model/order/order_source.dart';
 import 'package:bayan_pos_core/data/model/order/payment_method.dart';
 import 'package:bayan_pos_core/data/model/order/unit.dart';
+import 'package:bayan_pos_core/data/model/send_order/send_order.dart';
+
 import 'package:bayan_pos_core/data/model/setting/currency.dart';
 import 'package:objectbox/objectbox.dart';
 import '../delivery/delivery_company.dart';
@@ -24,6 +26,7 @@ import '../delivery/delivery_company.dart';
 @Entity()
 class OrderC {
   @Id()
+  int? posTransactionType;
   int? idSeq;
   String? invoiceNumber;
   String? deviceId;
@@ -34,6 +37,7 @@ class OrderC {
   @Unique(onConflict: ConflictStrategy.replace)
   late String orderRef;
   String? callName;
+  int? callNumber;
   late int orderType;
   late int status;
   late int orderSource;
@@ -51,6 +55,7 @@ class OrderC {
   final address = ToOne<Address>();
   final promotion = ToOne<Promotion>();
   final discount = ToOne<Discount>();
+  final giftCard = ToOne<SendGiftCard>();
   final products = ToMany<AppliedProduct>();
   double? priceDiscount;
   double? pricePromotion;
@@ -74,6 +79,28 @@ class OrderC {
   Currencies? currency;
   Currencies? paymentCurrency;
 
+  /////
+  int? paymentStatus;
+  int? refundStatus;
+  int? deliveryStatus;
+  double? roundingAmount;
+  double? tipAmount;
+  double? donationAmount;
+  String? donationForId;
+  String? supervisorId;
+  String? reference;
+  String? casherNote;
+  String? trackingStatusId;
+  List<OrderStatusTracking>? orderStatusTracking;
+  List<Waiters>? waiters;
+  String? couponId;
+  String? createdOn;
+  String? createdBy;
+  String? lastModifiedBy;
+  String? lastModifiedOn;
+  SendTable? table;
+  SendDelivery? delivery;
+
   double get total =>
       (subTotal - discountTotal) +
       taxPrice.getZeroIfNull +
@@ -96,6 +123,7 @@ class OrderC {
       convertStringToOrderSource(orderSource.toString());
   OrderC();
   OrderC copyWith({
+    int? posTransactionType,
     int? idSeq,
     int? orderType,
     int? status,
@@ -139,9 +167,10 @@ class OrderC {
     KitchenInfo? kitchenInfo,
     double? totalCalories,
     double? minimumReservationPrice,
-    Currencies? currency,
+    SendGiftCard? giftCard,
   }) {
     return OrderC()
+      ..posTransactionType = posTransactionType ?? this.posTransactionType
       ..idSeq = idSeq ?? this.idSeq
       ..orderType = orderType ?? this.orderType
       ..invoiceNumber = invoiceNumber ?? this.invoiceNumber
@@ -161,6 +190,7 @@ class OrderC {
       ..address.target = address ?? this.address.target
       ..promotion.target = promotion ?? this.promotion.target
       ..discount.target = discount ?? this.discount.target
+      ..giftCard.target = giftCard ?? this.giftCard.target
       ..products
           .addAll(products ?? this.products.map((e) => e.copyWith()).toList())
       ..priceDiscount = priceDiscount ?? this.priceDiscount
@@ -189,7 +219,8 @@ class OrderC {
       ..totalCalories = totalCalories ?? this.totalCalories
       ..minimumReservationPrice =
           minimumReservationPrice ?? this.minimumReservationPrice
-      ..currency = currency ?? this.currency;
+      ..currency = currency ?? this.currency
+      ..callNumber = callNumber ?? this.callNumber;
   }
 
   OrderC.fromJson(Map<String, dynamic> json) {
@@ -273,6 +304,7 @@ class OrderC {
     if (json['currency'] != null) {
       currency = Currencies.fromJson(json['currency']);
     }
+    callNumber = json['callNumber'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -336,6 +368,8 @@ class OrderC {
     if (currency != null) {
       data['currency'] = currency!.toJson();
     }
+
+    data['callNumber'] = callNumber;
 
     return data;
   }
@@ -406,6 +440,8 @@ class OrderC {
 
   static List<OrderC> fromList(List<dynamic> data) =>
       data.map((e) => OrderC.fromJson(e)).toList();
+
+  SendOrder convertToSendOrder() => SendOrder.fromOrder(this);
 }
 
 @Entity()
@@ -468,6 +504,10 @@ class AppliedProduct {
           .map((e) => e.taxPercentage!)
           .reduce((value, element) => value + element);
 
+  double get feesPercentage => (fess?.isEmpty ?? true)
+      ? 0
+      : fess!.map((e) => e.value!).reduce((value, element) => value + element);
+
   double get getTotalOptionUnitPrice => appliedModifer.isEmpty
       ? 0
       : appliedModifer
@@ -491,6 +531,18 @@ class AppliedProduct {
   ProductKitchenStatusEnum get productKitchenStatus =>
       convertKeyToProductKitchenStatus(kitchenInfo?.status);
 
+  // news add
+
+  String? deliveryNote;
+  String? reservedNote;
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
+  List<Fee>? fess;
+  List<FeeValue>? feeValues;
+  double? feeAmount;
+  SendPriceList? priceList;
+
   AppliedProduct({
     required this.quantity,
     required this.prodRef,
@@ -511,6 +563,14 @@ class AppliedProduct {
     this.canEditQty = true,
     this.isFixedPrice = false,
     this.barcodePrice,
+    this.deliveryNote,
+    this.reservedNote,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
+    this.fess,
+    this.feeValues,
+    this.feeAmount,
+    this.priceList,
   });
   AppliedProduct copyWith({
     ExtractProduct? product,
@@ -540,6 +600,14 @@ class AppliedProduct {
     bool? canEditQty,
     bool? isFixedPrice,
     double? barcodePrice,
+    String? deliveryNote,
+    String? reservedNote,
+    String? deviceCreatedOn,
+    String? deviceCreatedBy,
+    List<Fee>? fess,
+    List<FeeValue>? feeValues,
+    double? feeAmount,
+    SendPriceList? priceList,
   }) {
     return AppliedProduct(
       quantity: quantity ?? this.quantity,
@@ -560,6 +628,14 @@ class AppliedProduct {
       canEditQty: canEditQty ?? this.canEditQty,
       isFixedPrice: isFixedPrice ?? this.isFixedPrice,
       barcodePrice: barcodePrice ?? this.barcodePrice,
+      deliveryNote: deliveryNote ?? this.deliveryNote,
+      reservedNote: reservedNote ?? this.reservedNote,
+      deviceCreatedOn: deviceCreatedOn ?? this.deviceCreatedOn,
+      deviceCreatedBy: deviceCreatedBy ?? this.deviceCreatedBy,
+      fess: fess ?? this.fess,
+      feeValues: feeValues ?? this.feeValues,
+      feeAmount: feeAmount ?? this.feeAmount,
+      priceList: priceList ?? this.priceList,
     )
           ..product.target = product ?? this.product.target
           ..unit.target = unit ?? this.unit.target
@@ -620,6 +696,28 @@ class AppliedProduct {
     canEditQty = json['canEditQty'];
     isFixedPrice = json['isFixedPrice'];
     barcodePrice = json['barcodePrice'];
+    deliveryNote = json['deliveryNote'];
+    reservedNote = json['reservedNote'];
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
+
+    if (json['fess'] != null) {
+      fess = [];
+      json['fess'].forEach((v) {
+        fess!.add(Fee.fromJson(v));
+      });
+    }
+    if (json['feeValues'] != null) {
+      feeValues = [];
+      json['feeValues'].forEach((v) {
+        feeValues!.add(FeeValue.fromJson(v));
+      });
+    }
+    feeAmount = double.tryParse(json['feeAmount'].toString()) ?? 0.0;
+
+    if (json['priceList'] != null) {
+      priceList = SendPriceList.fromJson(json['priceList']);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -667,6 +765,24 @@ class AppliedProduct {
     data['canEditQty'] = canEditQty;
     data['isFixedPrice'] = isFixedPrice;
     data['barcodePrice'] = barcodePrice;
+    data['deliveryNote'] = deliveryNote;
+    data['reservedNote'] = reservedNote;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
+
+    if (fess != null) {
+      data['fess'] = fess!.map((v) => v.toJson()).toList();
+    }
+    if (feeValues != null) {
+      data['feeValues'] = feeValues!.map((v) => v.toJson()).toList();
+    }
+
+    data['feeAmount'] = feeAmount;
+
+    if (priceList != null) {
+      data['priceList'] = priceList!.toJson().removeNull();
+    }
+
     return data;
   }
 
@@ -773,6 +889,9 @@ class TaxValue {
   bool? isNotApplyForThisOrderType;
   bool? isNotApplyForThisPeriod;
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   bool get isAppliedTax => (isNotApplyForThisCustomer == false &&
       isTaxExempt == false &&
       isZeroTax == false &&
@@ -788,6 +907,8 @@ class TaxValue {
     this.isNotApplyForThisCustomer,
     this.isNotApplyForThisOrderType,
     this.isNotApplyForThisPeriod,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
   });
 
   TaxValue.fromJson(Map<String, dynamic> json) {
@@ -799,6 +920,8 @@ class TaxValue {
     isNotApplyForThisCustomer = json['isNotApplyForThisCustomer'];
     isNotApplyForThisOrderType = json['isNotApplyForThisOrderType'];
     isNotApplyForThisPeriod = json['isNotApplyForThisPeriod'];
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -811,6 +934,8 @@ class TaxValue {
     data['isNotApplyForThisCustomer'] = isNotApplyForThisCustomer;
     data['isNotApplyForThisOrderType'] = isNotApplyForThisOrderType;
     data['isNotApplyForThisPeriod'] = isNotApplyForThisPeriod;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 }

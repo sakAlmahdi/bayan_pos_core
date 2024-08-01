@@ -24,11 +24,19 @@ class AppliedModifer {
           .map((element) => element.taxableAmt ?? 0)
           .reduce((value, element) => value + element);
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   AppliedModifer copyWith({
     List<AppliedOption>? options,
     UnitModifer? modifer,
+    String? deviceCreatedOn,
+    String? deviceCreatedBy,
+    bool? priceWithTax,
   }) {
     return AppliedModifer()
+      ..deviceCreatedOn = deviceCreatedOn ?? this.deviceCreatedOn
+      ..deviceCreatedBy = deviceCreatedBy ?? this.deviceCreatedBy
       ..options.addAll(options ?? this.options)
       ..modifier.target = modifer ?? modifier.target;
   }
@@ -44,6 +52,9 @@ class AppliedModifer {
     modifier.target = json['modifier'] != null
         ? UnitModifer.fromJson(json['modifier'])
         : null;
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -52,6 +63,9 @@ class AppliedModifer {
     if (modifier.target != null) {
       data['modifier'] = modifier.target!.toJson().removeNull();
     }
+
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 
@@ -61,6 +75,9 @@ class AppliedModifer {
     if (modifier.target != null) {
       data['modifier'] = modifier.target!.toJson().removeNull();
     }
+
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 }
@@ -89,10 +106,15 @@ class AppliedOption {
   double get getOptionUnitPrice =>
       freeQuantity >= quantity ? 0 : (option.target?.price ?? 0) / remainQty;
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   AppliedOption({
     this.quantity = 1,
     this.freeQuantity = 0,
     this.taxableAmt = 0,
+    this.deviceCreatedBy,
+    this.deviceCreatedOn,
   });
 
   AppliedOption.fromJson(Map<String, dynamic> json) {
@@ -103,6 +125,11 @@ class AppliedOption {
     taxInfo.target =
         json['taxInfo'] != null ? TaxInfo.fromJson(json['taxInfo']) : null;
     taxableAmt = json['taxableAmt'];
+
+    priceWithTax = json['priceWithTax'] ?? false;
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -118,6 +145,9 @@ class AppliedOption {
     data['subTotal'] = subTotal;
     data['freeQtyUsed'] = freeQtyUsed;
     data['taxableAmt'] = taxableAmt;
+    data['priceWithTax'] = priceWithTax;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;
   }
@@ -135,6 +165,9 @@ class AppliedOption {
     data['subTotal'] = subTotal;
     data['freeQtyUsed'] = freeQtyUsed;
     data['taxableAmt'] = taxableAmt;
+    data['priceWithTax'] = priceWithTax;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;
   }

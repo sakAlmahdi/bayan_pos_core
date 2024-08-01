@@ -3240,14 +3240,13 @@
     },
     {
       "id": "44:7842135050779151667",
-      "lastPropertyId": "40:4523480091594187749",
+      "lastPropertyId": "59:7699985157769986675",
       "name": "OrderC",
       "properties": [
         {
           "id": "1:1753801513438199911",
           "name": "idSeq",
-          "type": 6,
-          "flags": 1
+          "type": 6
         },
         {
           "id": "2:6385703053874101680",
@@ -3454,6 +3453,105 @@
         {
           "id": "40:4523480091594187749",
           "name": "priceListId",
+          "type": 9
+        },
+        {
+          "id": "41:1124491691560176527",
+          "name": "posTransactionType",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "42:7549563512968308700",
+          "name": "callNumber",
+          "type": 6
+        },
+        {
+          "id": "43:6294190789633290918",
+          "name": "giftCardId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "67:350428259539118090",
+          "relationTarget": "SendGiftCard"
+        },
+        {
+          "id": "44:637423639748244923",
+          "name": "paymentStatus",
+          "type": 6
+        },
+        {
+          "id": "45:6955304991224222006",
+          "name": "refundStatus",
+          "type": 6
+        },
+        {
+          "id": "46:6062244521262885640",
+          "name": "deliveryStatus",
+          "type": 6
+        },
+        {
+          "id": "47:3293431292565428469",
+          "name": "roundingAmount",
+          "type": 8
+        },
+        {
+          "id": "48:4634865484995428339",
+          "name": "tipAmount",
+          "type": 8
+        },
+        {
+          "id": "49:1995106809962708726",
+          "name": "donationAmount",
+          "type": 8
+        },
+        {
+          "id": "50:2113544658629808847",
+          "name": "donationForId",
+          "type": 9
+        },
+        {
+          "id": "51:1383638675385342553",
+          "name": "supervisorId",
+          "type": 9
+        },
+        {
+          "id": "52:713992950007179333",
+          "name": "reference",
+          "type": 9
+        },
+        {
+          "id": "53:6375354927395467172",
+          "name": "casherNote",
+          "type": 9
+        },
+        {
+          "id": "54:6713291243649541549",
+          "name": "trackingStatusId",
+          "type": 9
+        },
+        {
+          "id": "55:1669804975744863900",
+          "name": "couponId",
+          "type": 9
+        },
+        {
+          "id": "56:2956535393343338489",
+          "name": "createdOn",
+          "type": 9
+        },
+        {
+          "id": "57:4158570649257554152",
+          "name": "createdBy",
+          "type": 9
+        },
+        {
+          "id": "58:7428074760909259103",
+          "name": "lastModifiedBy",
+          "type": 9
+        },
+        {
+          "id": "59:7699985157769986675",
+          "name": "lastModifiedOn",
           "type": 9
         }
       ],
@@ -5858,10 +5956,59 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "78:2277506909777593783",
+      "lastPropertyId": "8:4126026164784121566",
+      "name": "SendGiftCard",
+      "properties": [
+        {
+          "id": "1:6370735575789692441",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:17749142688200805",
+          "name": "giftCardId",
+          "type": 9
+        },
+        {
+          "id": "3:5384918611965139240",
+          "name": "baseAmount",
+          "type": 8
+        },
+        {
+          "id": "4:6836272797093270817",
+          "name": "percent",
+          "type": 8
+        },
+        {
+          "id": "5:5611508080575444828",
+          "name": "value",
+          "type": 8
+        },
+        {
+          "id": "6:435031246789707323",
+          "name": "amount",
+          "type": 8
+        },
+        {
+          "id": "7:5508217085012687773",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "8:4126026164784121566",
+          "name": "deviceCreatedBy",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "77:5097629977637169792",
-  "lastIndexId": "66:3684123412947241842",
+  "lastEntityId": "78:2277506909777593783",
+  "lastIndexId": "67:350428259539118090",
   "lastRelationId": "32:635890591433436266",
   "lastSequenceId": "0:0",
   "modelVersion": 5,

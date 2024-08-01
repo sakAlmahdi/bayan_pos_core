@@ -9,6 +9,12 @@ class $OrderEntityTable extends OrderEntity
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _posTransactionTypeMeta =
+      const VerificationMeta('posTransactionType');
+  @override
+  late final GeneratedColumn<int> posTransactionType = GeneratedColumn<int>(
+      'pos_transaction_type', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
   late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
@@ -66,6 +72,12 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<String> callName = GeneratedColumn<String>(
       'call_name', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _callNumberMeta =
+      const VerificationMeta('callNumber');
+  @override
+  late final GeneratedColumn<int> callNumber = GeneratedColumn<int>(
+      'call_number', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _orderTypeMeta =
       const VerificationMeta('orderType');
   @override
@@ -76,6 +88,24 @@ class $OrderEntityTable extends OrderEntity
   @override
   late final GeneratedColumn<int> status = GeneratedColumn<int>(
       'status', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _paymentStatusMeta =
+      const VerificationMeta('paymentStatus');
+  @override
+  late final GeneratedColumn<int> paymentStatus = GeneratedColumn<int>(
+      'payment_status', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _refundStatusMeta =
+      const VerificationMeta('refundStatus');
+  @override
+  late final GeneratedColumn<int> refundStatus = GeneratedColumn<int>(
+      'refund_status', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _deliveryStatusMeta =
+      const VerificationMeta('deliveryStatus');
+  @override
+  late final GeneratedColumn<int> deliveryStatus = GeneratedColumn<int>(
+      'delivery_status', aliasedName, false,
       type: DriftSqlType.int, requiredDuringInsert: true);
   static const VerificationMeta _orderSourceMeta =
       const VerificationMeta('orderSource');
@@ -303,8 +333,110 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<double> minimumReservationPrice =
       GeneratedColumn<double>('minimum_reservation_price', aliasedName, true,
           type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _giftCardMeta =
+      const VerificationMeta('giftCard');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> giftCard =
+      GeneratedColumn<String>('gift_card', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>($OrderEntityTable.$convertergiftCard);
+  static const VerificationMeta _roundingAmountMeta =
+      const VerificationMeta('roundingAmount');
+  @override
+  late final GeneratedColumn<double> roundingAmount = GeneratedColumn<double>(
+      'rounding_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _tipAmountMeta =
+      const VerificationMeta('tipAmount');
+  @override
+  late final GeneratedColumn<double> tipAmount = GeneratedColumn<double>(
+      'tip_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _donationAmountMeta =
+      const VerificationMeta('donationAmount');
+  @override
+  late final GeneratedColumn<double> donationAmount = GeneratedColumn<double>(
+      'donation_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _donationForIdMeta =
+      const VerificationMeta('donationForId');
+  @override
+  late final GeneratedColumn<String> donationForId = GeneratedColumn<String>(
+      'donation_for_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _supervisorIdMeta =
+      const VerificationMeta('supervisorId');
+  @override
+  late final GeneratedColumn<String> supervisorId = GeneratedColumn<String>(
+      'supervisor_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _referenceMeta =
+      const VerificationMeta('reference');
+  @override
+  late final GeneratedColumn<String> reference = GeneratedColumn<String>(
+      'reference', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _trackingStatusIdMeta =
+      const VerificationMeta('trackingStatusId');
+  @override
+  late final GeneratedColumn<String> trackingStatusId = GeneratedColumn<String>(
+      'tracking_status_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _orderStatusTrackingMeta =
+      const VerificationMeta('orderStatusTracking');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String>
+      orderStatusTracking = GeneratedColumn<String>(
+              'order_status_tracking', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>(
+              $OrderEntityTable.$converterorderStatusTracking);
+  static const VerificationMeta _waitersMeta =
+      const VerificationMeta('waiters');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> waiters =
+      GeneratedColumn<String>('waiters', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>($OrderEntityTable.$converterwaiters);
+  static const VerificationMeta _couponIdMeta =
+      const VerificationMeta('couponId');
+  @override
+  late final GeneratedColumn<String> couponId = GeneratedColumn<String>(
+      'coupon_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdOnMeta =
+      const VerificationMeta('createdOn');
+  @override
+  late final GeneratedColumn<String> createdOn = GeneratedColumn<String>(
+      'created_on', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdByMeta =
+      const VerificationMeta('createdBy');
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+      'created_by', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _lastModifiedByMeta =
+      const VerificationMeta('lastModifiedBy');
+  @override
+  late final GeneratedColumn<String> lastModifiedBy = GeneratedColumn<String>(
+      'last_modified_by', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _lastModifiedOnMeta =
+      const VerificationMeta('lastModifiedOn');
+  @override
+  late final GeneratedColumn<String> lastModifiedOn = GeneratedColumn<String>(
+      'last_modified_on', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _tableMeta = const VerificationMeta('table');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> table =
+      GeneratedColumn<String>('table', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>($OrderEntityTable.$convertertable);
   @override
   List<GeneratedColumn> get $columns => [
+        posTransactionType,
         idSeq,
         invoiceNumber,
         deviceId,
@@ -314,8 +446,12 @@ class $OrderEntityTable extends OrderEntity
         splitIndex,
         orderRef,
         callName,
+        callNumber,
         orderType,
         status,
+        paymentStatus,
+        refundStatus,
+        deliveryStatus,
         orderSource,
         endTime,
         deliveryCompanyInfoId,
@@ -350,7 +486,23 @@ class $OrderEntityTable extends OrderEntity
         kitchenInfo,
         currency,
         paymentCurrency,
-        minimumReservationPrice
+        minimumReservationPrice,
+        giftCard,
+        roundingAmount,
+        tipAmount,
+        donationAmount,
+        donationForId,
+        supervisorId,
+        reference,
+        trackingStatusId,
+        orderStatusTracking,
+        waiters,
+        couponId,
+        createdOn,
+        createdBy,
+        lastModifiedBy,
+        lastModifiedOn,
+        table
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -362,6 +514,12 @@ class $OrderEntityTable extends OrderEntity
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
+    if (data.containsKey('pos_transaction_type')) {
+      context.handle(
+          _posTransactionTypeMeta,
+          posTransactionType.isAcceptableOrUnknown(
+              data['pos_transaction_type']!, _posTransactionTypeMeta));
+    }
     if (data.containsKey('id_seq')) {
       context.handle(
           _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
@@ -410,6 +568,12 @@ class $OrderEntityTable extends OrderEntity
       context.handle(_callNameMeta,
           callName.isAcceptableOrUnknown(data['call_name']!, _callNameMeta));
     }
+    if (data.containsKey('call_number')) {
+      context.handle(
+          _callNumberMeta,
+          callNumber.isAcceptableOrUnknown(
+              data['call_number']!, _callNumberMeta));
+    }
     if (data.containsKey('order_type')) {
       context.handle(_orderTypeMeta,
           orderType.isAcceptableOrUnknown(data['order_type']!, _orderTypeMeta));
@@ -421,6 +585,30 @@ class $OrderEntityTable extends OrderEntity
           status.isAcceptableOrUnknown(data['status']!, _statusMeta));
     } else if (isInserting) {
       context.missing(_statusMeta);
+    }
+    if (data.containsKey('payment_status')) {
+      context.handle(
+          _paymentStatusMeta,
+          paymentStatus.isAcceptableOrUnknown(
+              data['payment_status']!, _paymentStatusMeta));
+    } else if (isInserting) {
+      context.missing(_paymentStatusMeta);
+    }
+    if (data.containsKey('refund_status')) {
+      context.handle(
+          _refundStatusMeta,
+          refundStatus.isAcceptableOrUnknown(
+              data['refund_status']!, _refundStatusMeta));
+    } else if (isInserting) {
+      context.missing(_refundStatusMeta);
+    }
+    if (data.containsKey('delivery_status')) {
+      context.handle(
+          _deliveryStatusMeta,
+          deliveryStatus.isAcceptableOrUnknown(
+              data['delivery_status']!, _deliveryStatusMeta));
+    } else if (isInserting) {
+      context.missing(_deliveryStatusMeta);
     }
     if (data.containsKey('order_source')) {
       context.handle(
@@ -545,6 +733,73 @@ class $OrderEntityTable extends OrderEntity
               data['minimum_reservation_price']!,
               _minimumReservationPriceMeta));
     }
+    context.handle(_giftCardMeta, const VerificationResult.success());
+    if (data.containsKey('rounding_amount')) {
+      context.handle(
+          _roundingAmountMeta,
+          roundingAmount.isAcceptableOrUnknown(
+              data['rounding_amount']!, _roundingAmountMeta));
+    }
+    if (data.containsKey('tip_amount')) {
+      context.handle(_tipAmountMeta,
+          tipAmount.isAcceptableOrUnknown(data['tip_amount']!, _tipAmountMeta));
+    }
+    if (data.containsKey('donation_amount')) {
+      context.handle(
+          _donationAmountMeta,
+          donationAmount.isAcceptableOrUnknown(
+              data['donation_amount']!, _donationAmountMeta));
+    }
+    if (data.containsKey('donation_for_id')) {
+      context.handle(
+          _donationForIdMeta,
+          donationForId.isAcceptableOrUnknown(
+              data['donation_for_id']!, _donationForIdMeta));
+    }
+    if (data.containsKey('supervisor_id')) {
+      context.handle(
+          _supervisorIdMeta,
+          supervisorId.isAcceptableOrUnknown(
+              data['supervisor_id']!, _supervisorIdMeta));
+    }
+    if (data.containsKey('reference')) {
+      context.handle(_referenceMeta,
+          reference.isAcceptableOrUnknown(data['reference']!, _referenceMeta));
+    }
+    if (data.containsKey('tracking_status_id')) {
+      context.handle(
+          _trackingStatusIdMeta,
+          trackingStatusId.isAcceptableOrUnknown(
+              data['tracking_status_id']!, _trackingStatusIdMeta));
+    }
+    context.handle(
+        _orderStatusTrackingMeta, const VerificationResult.success());
+    context.handle(_waitersMeta, const VerificationResult.success());
+    if (data.containsKey('coupon_id')) {
+      context.handle(_couponIdMeta,
+          couponId.isAcceptableOrUnknown(data['coupon_id']!, _couponIdMeta));
+    }
+    if (data.containsKey('created_on')) {
+      context.handle(_createdOnMeta,
+          createdOn.isAcceptableOrUnknown(data['created_on']!, _createdOnMeta));
+    }
+    if (data.containsKey('created_by')) {
+      context.handle(_createdByMeta,
+          createdBy.isAcceptableOrUnknown(data['created_by']!, _createdByMeta));
+    }
+    if (data.containsKey('last_modified_by')) {
+      context.handle(
+          _lastModifiedByMeta,
+          lastModifiedBy.isAcceptableOrUnknown(
+              data['last_modified_by']!, _lastModifiedByMeta));
+    }
+    if (data.containsKey('last_modified_on')) {
+      context.handle(
+          _lastModifiedOnMeta,
+          lastModifiedOn.isAcceptableOrUnknown(
+              data['last_modified_on']!, _lastModifiedOnMeta));
+    }
+    context.handle(_tableMeta, const VerificationResult.success());
     return context;
   }
 
@@ -558,6 +813,8 @@ class $OrderEntityTable extends OrderEntity
   OrderEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderEntityData(
+      posTransactionType: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}pos_transaction_type']),
       idSeq: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       invoiceNumber: attachedDatabase.typeMapping
@@ -576,10 +833,18 @@ class $OrderEntityTable extends OrderEntity
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       callName: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}call_name']),
+      callNumber: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}call_number']),
       orderType: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_type'])!,
       status: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}status'])!,
+      paymentStatus: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}payment_status'])!,
+      refundStatus: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}refund_status'])!,
+      deliveryStatus: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}delivery_status'])!,
       orderSource: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_source'])!,
       endTime: attachedDatabase.typeMapping
@@ -666,6 +931,42 @@ class $OrderEntityTable extends OrderEntity
       minimumReservationPrice: attachedDatabase.typeMapping.read(
           DriftSqlType.double,
           data['${effectivePrefix}minimum_reservation_price']),
+      giftCard: $OrderEntityTable.$convertergiftCard.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}gift_card'])),
+      roundingAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}rounding_amount']),
+      tipAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}tip_amount']),
+      donationAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}donation_amount']),
+      donationForId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}donation_for_id']),
+      supervisorId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}supervisor_id']),
+      reference: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}reference']),
+      trackingStatusId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}tracking_status_id']),
+      orderStatusTracking: $OrderEntityTable.$converterorderStatusTracking
+          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.string,
+              data['${effectivePrefix}order_status_tracking'])),
+      waiters: $OrderEntityTable.$converterwaiters.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}waiters'])),
+      couponId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}coupon_id']),
+      createdOn: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}created_on']),
+      createdBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}created_by']),
+      lastModifiedBy: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}last_modified_by']),
+      lastModifiedOn: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}last_modified_on']),
+      table: $OrderEntityTable.$convertertable.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}table'])),
     );
   }
 
@@ -702,9 +1003,18 @@ class $OrderEntityTable extends OrderEntity
       const JsonTypeConverter();
   static TypeConverter<dynamic, String?> $converterpaymentCurrency =
       const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $convertergiftCard =
+      const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $converterorderStatusTracking =
+      const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $converterwaiters =
+      const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $convertertable =
+      const JsonTypeConverter();
 }
 
 class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
+  final int? posTransactionType;
   final int? idSeq;
   final String? invoiceNumber;
   final String? deviceId;
@@ -714,8 +1024,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final int? splitIndex;
   final String orderRef;
   final String? callName;
+  final int? callNumber;
   final int orderType;
   final int status;
+  final int paymentStatus;
+  final int refundStatus;
+  final int deliveryStatus;
   final int orderSource;
   final DateTime? endTime;
   final dynamic deliveryCompanyInfoId;
@@ -751,8 +1065,25 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final dynamic currency;
   final dynamic paymentCurrency;
   final double? minimumReservationPrice;
+  final dynamic giftCard;
+  final double? roundingAmount;
+  final double? tipAmount;
+  final double? donationAmount;
+  final String? donationForId;
+  final String? supervisorId;
+  final String? reference;
+  final String? trackingStatusId;
+  final dynamic orderStatusTracking;
+  final dynamic waiters;
+  final String? couponId;
+  final String? createdOn;
+  final String? createdBy;
+  final String? lastModifiedBy;
+  final String? lastModifiedOn;
+  final dynamic table;
   const OrderEntityData(
-      {this.idSeq,
+      {this.posTransactionType,
+      this.idSeq,
       this.invoiceNumber,
       this.deviceId,
       required this.startDate,
@@ -761,8 +1092,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       this.splitIndex,
       required this.orderRef,
       this.callName,
+      this.callNumber,
       required this.orderType,
       required this.status,
+      required this.paymentStatus,
+      required this.refundStatus,
+      required this.deliveryStatus,
       required this.orderSource,
       this.endTime,
       this.deliveryCompanyInfoId,
@@ -797,10 +1132,29 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       this.kitchenInfo,
       this.currency,
       this.paymentCurrency,
-      this.minimumReservationPrice});
+      this.minimumReservationPrice,
+      this.giftCard,
+      this.roundingAmount,
+      this.tipAmount,
+      this.donationAmount,
+      this.donationForId,
+      this.supervisorId,
+      this.reference,
+      this.trackingStatusId,
+      this.orderStatusTracking,
+      this.waiters,
+      this.couponId,
+      this.createdOn,
+      this.createdBy,
+      this.lastModifiedBy,
+      this.lastModifiedOn,
+      this.table});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
+    if (!nullToAbsent || posTransactionType != null) {
+      map['pos_transaction_type'] = Variable<int>(posTransactionType);
+    }
     if (!nullToAbsent || idSeq != null) {
       map['id_seq'] = Variable<int>(idSeq);
     }
@@ -824,8 +1178,14 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
     if (!nullToAbsent || callName != null) {
       map['call_name'] = Variable<String>(callName);
     }
+    if (!nullToAbsent || callNumber != null) {
+      map['call_number'] = Variable<int>(callNumber);
+    }
     map['order_type'] = Variable<int>(orderType);
     map['status'] = Variable<int>(status);
+    map['payment_status'] = Variable<int>(paymentStatus);
+    map['refund_status'] = Variable<int>(refundStatus);
+    map['delivery_status'] = Variable<int>(deliveryStatus);
     map['order_source'] = Variable<int>(orderSource);
     if (!nullToAbsent || endTime != null) {
       map['end_time'] = Variable<DateTime>(endTime);
@@ -944,11 +1304,67 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       map['minimum_reservation_price'] =
           Variable<double>(minimumReservationPrice);
     }
+    if (!nullToAbsent || giftCard != null) {
+      map['gift_card'] = Variable<String>(
+          $OrderEntityTable.$convertergiftCard.toSql(giftCard));
+    }
+    if (!nullToAbsent || roundingAmount != null) {
+      map['rounding_amount'] = Variable<double>(roundingAmount);
+    }
+    if (!nullToAbsent || tipAmount != null) {
+      map['tip_amount'] = Variable<double>(tipAmount);
+    }
+    if (!nullToAbsent || donationAmount != null) {
+      map['donation_amount'] = Variable<double>(donationAmount);
+    }
+    if (!nullToAbsent || donationForId != null) {
+      map['donation_for_id'] = Variable<String>(donationForId);
+    }
+    if (!nullToAbsent || supervisorId != null) {
+      map['supervisor_id'] = Variable<String>(supervisorId);
+    }
+    if (!nullToAbsent || reference != null) {
+      map['reference'] = Variable<String>(reference);
+    }
+    if (!nullToAbsent || trackingStatusId != null) {
+      map['tracking_status_id'] = Variable<String>(trackingStatusId);
+    }
+    if (!nullToAbsent || orderStatusTracking != null) {
+      map['order_status_tracking'] = Variable<String>($OrderEntityTable
+          .$converterorderStatusTracking
+          .toSql(orderStatusTracking));
+    }
+    if (!nullToAbsent || waiters != null) {
+      map['waiters'] =
+          Variable<String>($OrderEntityTable.$converterwaiters.toSql(waiters));
+    }
+    if (!nullToAbsent || couponId != null) {
+      map['coupon_id'] = Variable<String>(couponId);
+    }
+    if (!nullToAbsent || createdOn != null) {
+      map['created_on'] = Variable<String>(createdOn);
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['created_by'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || lastModifiedBy != null) {
+      map['last_modified_by'] = Variable<String>(lastModifiedBy);
+    }
+    if (!nullToAbsent || lastModifiedOn != null) {
+      map['last_modified_on'] = Variable<String>(lastModifiedOn);
+    }
+    if (!nullToAbsent || table != null) {
+      map['table'] =
+          Variable<String>($OrderEntityTable.$convertertable.toSql(table));
+    }
     return map;
   }
 
   OrderEntityCompanion toCompanion(bool nullToAbsent) {
     return OrderEntityCompanion(
+      posTransactionType: posTransactionType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(posTransactionType),
       idSeq:
           idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       invoiceNumber: invoiceNumber == null && nullToAbsent
@@ -971,8 +1387,14 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       callName: callName == null && nullToAbsent
           ? const Value.absent()
           : Value(callName),
+      callNumber: callNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(callNumber),
       orderType: Value(orderType),
       status: Value(status),
+      paymentStatus: Value(paymentStatus),
+      refundStatus: Value(refundStatus),
+      deliveryStatus: Value(deliveryStatus),
       orderSource: Value(orderSource),
       endTime: endTime == null && nullToAbsent
           ? const Value.absent()
@@ -1070,6 +1492,53 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       minimumReservationPrice: minimumReservationPrice == null && nullToAbsent
           ? const Value.absent()
           : Value(minimumReservationPrice),
+      giftCard: giftCard == null && nullToAbsent
+          ? const Value.absent()
+          : Value(giftCard),
+      roundingAmount: roundingAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(roundingAmount),
+      tipAmount: tipAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(tipAmount),
+      donationAmount: donationAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(donationAmount),
+      donationForId: donationForId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(donationForId),
+      supervisorId: supervisorId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(supervisorId),
+      reference: reference == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reference),
+      trackingStatusId: trackingStatusId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(trackingStatusId),
+      orderStatusTracking: orderStatusTracking == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderStatusTracking),
+      waiters: waiters == null && nullToAbsent
+          ? const Value.absent()
+          : Value(waiters),
+      couponId: couponId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(couponId),
+      createdOn: createdOn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdOn),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      lastModifiedBy: lastModifiedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastModifiedBy),
+      lastModifiedOn: lastModifiedOn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastModifiedOn),
+      table:
+          table == null && nullToAbsent ? const Value.absent() : Value(table),
     );
   }
 
@@ -1077,6 +1546,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderEntityData(
+      posTransactionType: serializer.fromJson<int?>(json['posTransactionType']),
       idSeq: serializer.fromJson<int?>(json['idSeq']),
       invoiceNumber: serializer.fromJson<String?>(json['invoiceNumber']),
       deviceId: serializer.fromJson<String?>(json['deviceId']),
@@ -1086,8 +1556,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       splitIndex: serializer.fromJson<int?>(json['splitIndex']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       callName: serializer.fromJson<String?>(json['callName']),
+      callNumber: serializer.fromJson<int?>(json['callNumber']),
       orderType: serializer.fromJson<int>(json['orderType']),
       status: serializer.fromJson<int>(json['status']),
+      paymentStatus: serializer.fromJson<int>(json['paymentStatus']),
+      refundStatus: serializer.fromJson<int>(json['refundStatus']),
+      deliveryStatus: serializer.fromJson<int>(json['deliveryStatus']),
       orderSource: serializer.fromJson<int>(json['orderSource']),
       endTime: serializer.fromJson<DateTime?>(json['endTime']),
       deliveryCompanyInfoId:
@@ -1126,12 +1600,30 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       paymentCurrency: serializer.fromJson<dynamic>(json['paymentCurrency']),
       minimumReservationPrice:
           serializer.fromJson<double?>(json['minimumReservationPrice']),
+      giftCard: serializer.fromJson<dynamic>(json['giftCard']),
+      roundingAmount: serializer.fromJson<double?>(json['roundingAmount']),
+      tipAmount: serializer.fromJson<double?>(json['tipAmount']),
+      donationAmount: serializer.fromJson<double?>(json['donationAmount']),
+      donationForId: serializer.fromJson<String?>(json['donationForId']),
+      supervisorId: serializer.fromJson<String?>(json['supervisorId']),
+      reference: serializer.fromJson<String?>(json['reference']),
+      trackingStatusId: serializer.fromJson<String?>(json['trackingStatusId']),
+      orderStatusTracking:
+          serializer.fromJson<dynamic>(json['orderStatusTracking']),
+      waiters: serializer.fromJson<dynamic>(json['waiters']),
+      couponId: serializer.fromJson<String?>(json['couponId']),
+      createdOn: serializer.fromJson<String?>(json['createdOn']),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      lastModifiedBy: serializer.fromJson<String?>(json['lastModifiedBy']),
+      lastModifiedOn: serializer.fromJson<String?>(json['lastModifiedOn']),
+      table: serializer.fromJson<dynamic>(json['table']),
     );
   }
   @override
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
+      'posTransactionType': serializer.toJson<int?>(posTransactionType),
       'idSeq': serializer.toJson<int?>(idSeq),
       'invoiceNumber': serializer.toJson<String?>(invoiceNumber),
       'deviceId': serializer.toJson<String?>(deviceId),
@@ -1141,8 +1633,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'splitIndex': serializer.toJson<int?>(splitIndex),
       'orderRef': serializer.toJson<String>(orderRef),
       'callName': serializer.toJson<String?>(callName),
+      'callNumber': serializer.toJson<int?>(callNumber),
       'orderType': serializer.toJson<int>(orderType),
       'status': serializer.toJson<int>(status),
+      'paymentStatus': serializer.toJson<int>(paymentStatus),
+      'refundStatus': serializer.toJson<int>(refundStatus),
+      'deliveryStatus': serializer.toJson<int>(deliveryStatus),
       'orderSource': serializer.toJson<int>(orderSource),
       'endTime': serializer.toJson<DateTime?>(endTime),
       'deliveryCompanyInfoId':
@@ -1181,11 +1677,28 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'paymentCurrency': serializer.toJson<dynamic>(paymentCurrency),
       'minimumReservationPrice':
           serializer.toJson<double?>(minimumReservationPrice),
+      'giftCard': serializer.toJson<dynamic>(giftCard),
+      'roundingAmount': serializer.toJson<double?>(roundingAmount),
+      'tipAmount': serializer.toJson<double?>(tipAmount),
+      'donationAmount': serializer.toJson<double?>(donationAmount),
+      'donationForId': serializer.toJson<String?>(donationForId),
+      'supervisorId': serializer.toJson<String?>(supervisorId),
+      'reference': serializer.toJson<String?>(reference),
+      'trackingStatusId': serializer.toJson<String?>(trackingStatusId),
+      'orderStatusTracking': serializer.toJson<dynamic>(orderStatusTracking),
+      'waiters': serializer.toJson<dynamic>(waiters),
+      'couponId': serializer.toJson<String?>(couponId),
+      'createdOn': serializer.toJson<String?>(createdOn),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'lastModifiedBy': serializer.toJson<String?>(lastModifiedBy),
+      'lastModifiedOn': serializer.toJson<String?>(lastModifiedOn),
+      'table': serializer.toJson<dynamic>(table),
     };
   }
 
   OrderEntityData copyWith(
-          {Value<int?> idSeq = const Value.absent(),
+          {Value<int?> posTransactionType = const Value.absent(),
+          Value<int?> idSeq = const Value.absent(),
           Value<String?> invoiceNumber = const Value.absent(),
           Value<String?> deviceId = const Value.absent(),
           DateTime? startDate,
@@ -1194,8 +1707,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<int?> splitIndex = const Value.absent(),
           String? orderRef,
           Value<String?> callName = const Value.absent(),
+          Value<int?> callNumber = const Value.absent(),
           int? orderType,
           int? status,
+          int? paymentStatus,
+          int? refundStatus,
+          int? deliveryStatus,
           int? orderSource,
           Value<DateTime?> endTime = const Value.absent(),
           Value<dynamic> deliveryCompanyInfoId = const Value.absent(),
@@ -1230,8 +1747,27 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<dynamic> kitchenInfo = const Value.absent(),
           Value<dynamic> currency = const Value.absent(),
           Value<dynamic> paymentCurrency = const Value.absent(),
-          Value<double?> minimumReservationPrice = const Value.absent()}) =>
+          Value<double?> minimumReservationPrice = const Value.absent(),
+          Value<dynamic> giftCard = const Value.absent(),
+          Value<double?> roundingAmount = const Value.absent(),
+          Value<double?> tipAmount = const Value.absent(),
+          Value<double?> donationAmount = const Value.absent(),
+          Value<String?> donationForId = const Value.absent(),
+          Value<String?> supervisorId = const Value.absent(),
+          Value<String?> reference = const Value.absent(),
+          Value<String?> trackingStatusId = const Value.absent(),
+          Value<dynamic> orderStatusTracking = const Value.absent(),
+          Value<dynamic> waiters = const Value.absent(),
+          Value<String?> couponId = const Value.absent(),
+          Value<String?> createdOn = const Value.absent(),
+          Value<String?> createdBy = const Value.absent(),
+          Value<String?> lastModifiedBy = const Value.absent(),
+          Value<String?> lastModifiedOn = const Value.absent(),
+          Value<dynamic> table = const Value.absent()}) =>
       OrderEntityData(
+        posTransactionType: posTransactionType.present
+            ? posTransactionType.value
+            : this.posTransactionType,
         idSeq: idSeq.present ? idSeq.value : this.idSeq,
         invoiceNumber:
             invoiceNumber.present ? invoiceNumber.value : this.invoiceNumber,
@@ -1244,8 +1780,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         splitIndex: splitIndex.present ? splitIndex.value : this.splitIndex,
         orderRef: orderRef ?? this.orderRef,
         callName: callName.present ? callName.value : this.callName,
+        callNumber: callNumber.present ? callNumber.value : this.callNumber,
         orderType: orderType ?? this.orderType,
         status: status ?? this.status,
+        paymentStatus: paymentStatus ?? this.paymentStatus,
+        refundStatus: refundStatus ?? this.refundStatus,
+        deliveryStatus: deliveryStatus ?? this.deliveryStatus,
         orderSource: orderSource ?? this.orderSource,
         endTime: endTime.present ? endTime.value : this.endTime,
         deliveryCompanyInfoId: deliveryCompanyInfoId.present
@@ -1294,10 +1834,37 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         minimumReservationPrice: minimumReservationPrice.present
             ? minimumReservationPrice.value
             : this.minimumReservationPrice,
+        giftCard: giftCard.present ? giftCard.value : this.giftCard,
+        roundingAmount:
+            roundingAmount.present ? roundingAmount.value : this.roundingAmount,
+        tipAmount: tipAmount.present ? tipAmount.value : this.tipAmount,
+        donationAmount:
+            donationAmount.present ? donationAmount.value : this.donationAmount,
+        donationForId:
+            donationForId.present ? donationForId.value : this.donationForId,
+        supervisorId:
+            supervisorId.present ? supervisorId.value : this.supervisorId,
+        reference: reference.present ? reference.value : this.reference,
+        trackingStatusId: trackingStatusId.present
+            ? trackingStatusId.value
+            : this.trackingStatusId,
+        orderStatusTracking: orderStatusTracking.present
+            ? orderStatusTracking.value
+            : this.orderStatusTracking,
+        waiters: waiters.present ? waiters.value : this.waiters,
+        couponId: couponId.present ? couponId.value : this.couponId,
+        createdOn: createdOn.present ? createdOn.value : this.createdOn,
+        createdBy: createdBy.present ? createdBy.value : this.createdBy,
+        lastModifiedBy:
+            lastModifiedBy.present ? lastModifiedBy.value : this.lastModifiedBy,
+        lastModifiedOn:
+            lastModifiedOn.present ? lastModifiedOn.value : this.lastModifiedOn,
+        table: table.present ? table.value : this.table,
       );
   @override
   String toString() {
     return (StringBuffer('OrderEntityData(')
+          ..write('posTransactionType: $posTransactionType, ')
           ..write('idSeq: $idSeq, ')
           ..write('invoiceNumber: $invoiceNumber, ')
           ..write('deviceId: $deviceId, ')
@@ -1307,8 +1874,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ..write('splitIndex: $splitIndex, ')
           ..write('orderRef: $orderRef, ')
           ..write('callName: $callName, ')
+          ..write('callNumber: $callNumber, ')
           ..write('orderType: $orderType, ')
           ..write('status: $status, ')
+          ..write('paymentStatus: $paymentStatus, ')
+          ..write('refundStatus: $refundStatus, ')
+          ..write('deliveryStatus: $deliveryStatus, ')
           ..write('orderSource: $orderSource, ')
           ..write('endTime: $endTime, ')
           ..write('deliveryCompanyInfoId: $deliveryCompanyInfoId, ')
@@ -1344,13 +1915,30 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ..write('kitchenInfo: $kitchenInfo, ')
           ..write('currency: $currency, ')
           ..write('paymentCurrency: $paymentCurrency, ')
-          ..write('minimumReservationPrice: $minimumReservationPrice')
+          ..write('minimumReservationPrice: $minimumReservationPrice, ')
+          ..write('giftCard: $giftCard, ')
+          ..write('roundingAmount: $roundingAmount, ')
+          ..write('tipAmount: $tipAmount, ')
+          ..write('donationAmount: $donationAmount, ')
+          ..write('donationForId: $donationForId, ')
+          ..write('supervisorId: $supervisorId, ')
+          ..write('reference: $reference, ')
+          ..write('trackingStatusId: $trackingStatusId, ')
+          ..write('orderStatusTracking: $orderStatusTracking, ')
+          ..write('waiters: $waiters, ')
+          ..write('couponId: $couponId, ')
+          ..write('createdOn: $createdOn, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('lastModifiedBy: $lastModifiedBy, ')
+          ..write('lastModifiedOn: $lastModifiedOn, ')
+          ..write('table: $table')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode => Object.hashAll([
+        posTransactionType,
         idSeq,
         invoiceNumber,
         deviceId,
@@ -1360,8 +1948,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         splitIndex,
         orderRef,
         callName,
+        callNumber,
         orderType,
         status,
+        paymentStatus,
+        refundStatus,
+        deliveryStatus,
         orderSource,
         endTime,
         deliveryCompanyInfoId,
@@ -1396,12 +1988,29 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         kitchenInfo,
         currency,
         paymentCurrency,
-        minimumReservationPrice
+        minimumReservationPrice,
+        giftCard,
+        roundingAmount,
+        tipAmount,
+        donationAmount,
+        donationForId,
+        supervisorId,
+        reference,
+        trackingStatusId,
+        orderStatusTracking,
+        waiters,
+        couponId,
+        createdOn,
+        createdBy,
+        lastModifiedBy,
+        lastModifiedOn,
+        table
       ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderEntityData &&
+          other.posTransactionType == this.posTransactionType &&
           other.idSeq == this.idSeq &&
           other.invoiceNumber == this.invoiceNumber &&
           other.deviceId == this.deviceId &&
@@ -1411,8 +2020,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           other.splitIndex == this.splitIndex &&
           other.orderRef == this.orderRef &&
           other.callName == this.callName &&
+          other.callNumber == this.callNumber &&
           other.orderType == this.orderType &&
           other.status == this.status &&
+          other.paymentStatus == this.paymentStatus &&
+          other.refundStatus == this.refundStatus &&
+          other.deliveryStatus == this.deliveryStatus &&
           other.orderSource == this.orderSource &&
           other.endTime == this.endTime &&
           other.deliveryCompanyInfoId == this.deliveryCompanyInfoId &&
@@ -1448,10 +2061,27 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           other.kitchenInfo == this.kitchenInfo &&
           other.currency == this.currency &&
           other.paymentCurrency == this.paymentCurrency &&
-          other.minimumReservationPrice == this.minimumReservationPrice);
+          other.minimumReservationPrice == this.minimumReservationPrice &&
+          other.giftCard == this.giftCard &&
+          other.roundingAmount == this.roundingAmount &&
+          other.tipAmount == this.tipAmount &&
+          other.donationAmount == this.donationAmount &&
+          other.donationForId == this.donationForId &&
+          other.supervisorId == this.supervisorId &&
+          other.reference == this.reference &&
+          other.trackingStatusId == this.trackingStatusId &&
+          other.orderStatusTracking == this.orderStatusTracking &&
+          other.waiters == this.waiters &&
+          other.couponId == this.couponId &&
+          other.createdOn == this.createdOn &&
+          other.createdBy == this.createdBy &&
+          other.lastModifiedBy == this.lastModifiedBy &&
+          other.lastModifiedOn == this.lastModifiedOn &&
+          other.table == this.table);
 }
 
 class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
+  final Value<int?> posTransactionType;
   final Value<int?> idSeq;
   final Value<String?> invoiceNumber;
   final Value<String?> deviceId;
@@ -1461,8 +2091,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<int?> splitIndex;
   final Value<String> orderRef;
   final Value<String?> callName;
+  final Value<int?> callNumber;
   final Value<int> orderType;
   final Value<int> status;
+  final Value<int> paymentStatus;
+  final Value<int> refundStatus;
+  final Value<int> deliveryStatus;
   final Value<int> orderSource;
   final Value<DateTime?> endTime;
   final Value<dynamic> deliveryCompanyInfoId;
@@ -1498,7 +2132,24 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<dynamic> currency;
   final Value<dynamic> paymentCurrency;
   final Value<double?> minimumReservationPrice;
+  final Value<dynamic> giftCard;
+  final Value<double?> roundingAmount;
+  final Value<double?> tipAmount;
+  final Value<double?> donationAmount;
+  final Value<String?> donationForId;
+  final Value<String?> supervisorId;
+  final Value<String?> reference;
+  final Value<String?> trackingStatusId;
+  final Value<dynamic> orderStatusTracking;
+  final Value<dynamic> waiters;
+  final Value<String?> couponId;
+  final Value<String?> createdOn;
+  final Value<String?> createdBy;
+  final Value<String?> lastModifiedBy;
+  final Value<String?> lastModifiedOn;
+  final Value<dynamic> table;
   const OrderEntityCompanion({
+    this.posTransactionType = const Value.absent(),
     this.idSeq = const Value.absent(),
     this.invoiceNumber = const Value.absent(),
     this.deviceId = const Value.absent(),
@@ -1508,8 +2159,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.splitIndex = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.callName = const Value.absent(),
+    this.callNumber = const Value.absent(),
     this.orderType = const Value.absent(),
     this.status = const Value.absent(),
+    this.paymentStatus = const Value.absent(),
+    this.refundStatus = const Value.absent(),
+    this.deliveryStatus = const Value.absent(),
     this.orderSource = const Value.absent(),
     this.endTime = const Value.absent(),
     this.deliveryCompanyInfoId = const Value.absent(),
@@ -1545,8 +2200,25 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.currency = const Value.absent(),
     this.paymentCurrency = const Value.absent(),
     this.minimumReservationPrice = const Value.absent(),
+    this.giftCard = const Value.absent(),
+    this.roundingAmount = const Value.absent(),
+    this.tipAmount = const Value.absent(),
+    this.donationAmount = const Value.absent(),
+    this.donationForId = const Value.absent(),
+    this.supervisorId = const Value.absent(),
+    this.reference = const Value.absent(),
+    this.trackingStatusId = const Value.absent(),
+    this.orderStatusTracking = const Value.absent(),
+    this.waiters = const Value.absent(),
+    this.couponId = const Value.absent(),
+    this.createdOn = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.lastModifiedBy = const Value.absent(),
+    this.lastModifiedOn = const Value.absent(),
+    this.table = const Value.absent(),
   });
   OrderEntityCompanion.insert({
+    this.posTransactionType = const Value.absent(),
     this.idSeq = const Value.absent(),
     this.invoiceNumber = const Value.absent(),
     this.deviceId = const Value.absent(),
@@ -1556,8 +2228,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.splitIndex = const Value.absent(),
     required String orderRef,
     this.callName = const Value.absent(),
+    this.callNumber = const Value.absent(),
     required int orderType,
     required int status,
+    required int paymentStatus,
+    required int refundStatus,
+    required int deliveryStatus,
     required int orderSource,
     this.endTime = const Value.absent(),
     this.deliveryCompanyInfoId = const Value.absent(),
@@ -1593,12 +2269,32 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.currency = const Value.absent(),
     this.paymentCurrency = const Value.absent(),
     this.minimumReservationPrice = const Value.absent(),
+    this.giftCard = const Value.absent(),
+    this.roundingAmount = const Value.absent(),
+    this.tipAmount = const Value.absent(),
+    this.donationAmount = const Value.absent(),
+    this.donationForId = const Value.absent(),
+    this.supervisorId = const Value.absent(),
+    this.reference = const Value.absent(),
+    this.trackingStatusId = const Value.absent(),
+    this.orderStatusTracking = const Value.absent(),
+    this.waiters = const Value.absent(),
+    this.couponId = const Value.absent(),
+    this.createdOn = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.lastModifiedBy = const Value.absent(),
+    this.lastModifiedOn = const Value.absent(),
+    this.table = const Value.absent(),
   })  : startDate = Value(startDate),
         orderRef = Value(orderRef),
         orderType = Value(orderType),
         status = Value(status),
+        paymentStatus = Value(paymentStatus),
+        refundStatus = Value(refundStatus),
+        deliveryStatus = Value(deliveryStatus),
         orderSource = Value(orderSource);
   static Insertable<OrderEntityData> custom({
+    Expression<int>? posTransactionType,
     Expression<int>? idSeq,
     Expression<String>? invoiceNumber,
     Expression<String>? deviceId,
@@ -1608,8 +2304,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<int>? splitIndex,
     Expression<String>? orderRef,
     Expression<String>? callName,
+    Expression<int>? callNumber,
     Expression<int>? orderType,
     Expression<int>? status,
+    Expression<int>? paymentStatus,
+    Expression<int>? refundStatus,
+    Expression<int>? deliveryStatus,
     Expression<int>? orderSource,
     Expression<DateTime>? endTime,
     Expression<String>? deliveryCompanyInfoId,
@@ -1645,8 +2345,26 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<String>? currency,
     Expression<String>? paymentCurrency,
     Expression<double>? minimumReservationPrice,
+    Expression<String>? giftCard,
+    Expression<double>? roundingAmount,
+    Expression<double>? tipAmount,
+    Expression<double>? donationAmount,
+    Expression<String>? donationForId,
+    Expression<String>? supervisorId,
+    Expression<String>? reference,
+    Expression<String>? trackingStatusId,
+    Expression<String>? orderStatusTracking,
+    Expression<String>? waiters,
+    Expression<String>? couponId,
+    Expression<String>? createdOn,
+    Expression<String>? createdBy,
+    Expression<String>? lastModifiedBy,
+    Expression<String>? lastModifiedOn,
+    Expression<String>? table,
   }) {
     return RawValuesInsertable({
+      if (posTransactionType != null)
+        'pos_transaction_type': posTransactionType,
       if (idSeq != null) 'id_seq': idSeq,
       if (invoiceNumber != null) 'invoice_number': invoiceNumber,
       if (deviceId != null) 'device_id': deviceId,
@@ -1656,8 +2374,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       if (splitIndex != null) 'split_index': splitIndex,
       if (orderRef != null) 'order_ref': orderRef,
       if (callName != null) 'call_name': callName,
+      if (callNumber != null) 'call_number': callNumber,
       if (orderType != null) 'order_type': orderType,
       if (status != null) 'status': status,
+      if (paymentStatus != null) 'payment_status': paymentStatus,
+      if (refundStatus != null) 'refund_status': refundStatus,
+      if (deliveryStatus != null) 'delivery_status': deliveryStatus,
       if (orderSource != null) 'order_source': orderSource,
       if (endTime != null) 'end_time': endTime,
       if (deliveryCompanyInfoId != null)
@@ -1696,11 +2418,29 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       if (paymentCurrency != null) 'payment_currency': paymentCurrency,
       if (minimumReservationPrice != null)
         'minimum_reservation_price': minimumReservationPrice,
+      if (giftCard != null) 'gift_card': giftCard,
+      if (roundingAmount != null) 'rounding_amount': roundingAmount,
+      if (tipAmount != null) 'tip_amount': tipAmount,
+      if (donationAmount != null) 'donation_amount': donationAmount,
+      if (donationForId != null) 'donation_for_id': donationForId,
+      if (supervisorId != null) 'supervisor_id': supervisorId,
+      if (reference != null) 'reference': reference,
+      if (trackingStatusId != null) 'tracking_status_id': trackingStatusId,
+      if (orderStatusTracking != null)
+        'order_status_tracking': orderStatusTracking,
+      if (waiters != null) 'waiters': waiters,
+      if (couponId != null) 'coupon_id': couponId,
+      if (createdOn != null) 'created_on': createdOn,
+      if (createdBy != null) 'created_by': createdBy,
+      if (lastModifiedBy != null) 'last_modified_by': lastModifiedBy,
+      if (lastModifiedOn != null) 'last_modified_on': lastModifiedOn,
+      if (table != null) 'table': table,
     });
   }
 
   OrderEntityCompanion copyWith(
-      {Value<int?>? idSeq,
+      {Value<int?>? posTransactionType,
+      Value<int?>? idSeq,
       Value<String?>? invoiceNumber,
       Value<String?>? deviceId,
       Value<DateTime>? startDate,
@@ -1709,8 +2449,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<int?>? splitIndex,
       Value<String>? orderRef,
       Value<String?>? callName,
+      Value<int?>? callNumber,
       Value<int>? orderType,
       Value<int>? status,
+      Value<int>? paymentStatus,
+      Value<int>? refundStatus,
+      Value<int>? deliveryStatus,
       Value<int>? orderSource,
       Value<DateTime?>? endTime,
       Value<dynamic>? deliveryCompanyInfoId,
@@ -1745,8 +2489,25 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<dynamic>? kitchenInfo,
       Value<dynamic>? currency,
       Value<dynamic>? paymentCurrency,
-      Value<double?>? minimumReservationPrice}) {
+      Value<double?>? minimumReservationPrice,
+      Value<dynamic>? giftCard,
+      Value<double?>? roundingAmount,
+      Value<double?>? tipAmount,
+      Value<double?>? donationAmount,
+      Value<String?>? donationForId,
+      Value<String?>? supervisorId,
+      Value<String?>? reference,
+      Value<String?>? trackingStatusId,
+      Value<dynamic>? orderStatusTracking,
+      Value<dynamic>? waiters,
+      Value<String?>? couponId,
+      Value<String?>? createdOn,
+      Value<String?>? createdBy,
+      Value<String?>? lastModifiedBy,
+      Value<String?>? lastModifiedOn,
+      Value<dynamic>? table}) {
     return OrderEntityCompanion(
+      posTransactionType: posTransactionType ?? this.posTransactionType,
       idSeq: idSeq ?? this.idSeq,
       invoiceNumber: invoiceNumber ?? this.invoiceNumber,
       deviceId: deviceId ?? this.deviceId,
@@ -1756,8 +2517,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       splitIndex: splitIndex ?? this.splitIndex,
       orderRef: orderRef ?? this.orderRef,
       callName: callName ?? this.callName,
+      callNumber: callNumber ?? this.callNumber,
       orderType: orderType ?? this.orderType,
       status: status ?? this.status,
+      paymentStatus: paymentStatus ?? this.paymentStatus,
+      refundStatus: refundStatus ?? this.refundStatus,
+      deliveryStatus: deliveryStatus ?? this.deliveryStatus,
       orderSource: orderSource ?? this.orderSource,
       endTime: endTime ?? this.endTime,
       deliveryCompanyInfoId:
@@ -1796,12 +2561,31 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       paymentCurrency: paymentCurrency ?? this.paymentCurrency,
       minimumReservationPrice:
           minimumReservationPrice ?? this.minimumReservationPrice,
+      giftCard: giftCard ?? this.giftCard,
+      roundingAmount: roundingAmount ?? this.roundingAmount,
+      tipAmount: tipAmount ?? this.tipAmount,
+      donationAmount: donationAmount ?? this.donationAmount,
+      donationForId: donationForId ?? this.donationForId,
+      supervisorId: supervisorId ?? this.supervisorId,
+      reference: reference ?? this.reference,
+      trackingStatusId: trackingStatusId ?? this.trackingStatusId,
+      orderStatusTracking: orderStatusTracking ?? this.orderStatusTracking,
+      waiters: waiters ?? this.waiters,
+      couponId: couponId ?? this.couponId,
+      createdOn: createdOn ?? this.createdOn,
+      createdBy: createdBy ?? this.createdBy,
+      lastModifiedBy: lastModifiedBy ?? this.lastModifiedBy,
+      lastModifiedOn: lastModifiedOn ?? this.lastModifiedOn,
+      table: table ?? this.table,
     );
   }
 
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
+    if (posTransactionType.present) {
+      map['pos_transaction_type'] = Variable<int>(posTransactionType.value);
+    }
     if (idSeq.present) {
       map['id_seq'] = Variable<int>(idSeq.value);
     }
@@ -1829,11 +2613,23 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     if (callName.present) {
       map['call_name'] = Variable<String>(callName.value);
     }
+    if (callNumber.present) {
+      map['call_number'] = Variable<int>(callNumber.value);
+    }
     if (orderType.present) {
       map['order_type'] = Variable<int>(orderType.value);
     }
     if (status.present) {
       map['status'] = Variable<int>(status.value);
+    }
+    if (paymentStatus.present) {
+      map['payment_status'] = Variable<int>(paymentStatus.value);
+    }
+    if (refundStatus.present) {
+      map['refund_status'] = Variable<int>(refundStatus.value);
+    }
+    if (deliveryStatus.present) {
+      map['delivery_status'] = Variable<int>(deliveryStatus.value);
     }
     if (orderSource.present) {
       map['order_source'] = Variable<int>(orderSource.value);
@@ -1958,12 +2754,66 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       map['minimum_reservation_price'] =
           Variable<double>(minimumReservationPrice.value);
     }
+    if (giftCard.present) {
+      map['gift_card'] = Variable<String>(
+          $OrderEntityTable.$convertergiftCard.toSql(giftCard.value));
+    }
+    if (roundingAmount.present) {
+      map['rounding_amount'] = Variable<double>(roundingAmount.value);
+    }
+    if (tipAmount.present) {
+      map['tip_amount'] = Variable<double>(tipAmount.value);
+    }
+    if (donationAmount.present) {
+      map['donation_amount'] = Variable<double>(donationAmount.value);
+    }
+    if (donationForId.present) {
+      map['donation_for_id'] = Variable<String>(donationForId.value);
+    }
+    if (supervisorId.present) {
+      map['supervisor_id'] = Variable<String>(supervisorId.value);
+    }
+    if (reference.present) {
+      map['reference'] = Variable<String>(reference.value);
+    }
+    if (trackingStatusId.present) {
+      map['tracking_status_id'] = Variable<String>(trackingStatusId.value);
+    }
+    if (orderStatusTracking.present) {
+      map['order_status_tracking'] = Variable<String>($OrderEntityTable
+          .$converterorderStatusTracking
+          .toSql(orderStatusTracking.value));
+    }
+    if (waiters.present) {
+      map['waiters'] = Variable<String>(
+          $OrderEntityTable.$converterwaiters.toSql(waiters.value));
+    }
+    if (couponId.present) {
+      map['coupon_id'] = Variable<String>(couponId.value);
+    }
+    if (createdOn.present) {
+      map['created_on'] = Variable<String>(createdOn.value);
+    }
+    if (createdBy.present) {
+      map['created_by'] = Variable<String>(createdBy.value);
+    }
+    if (lastModifiedBy.present) {
+      map['last_modified_by'] = Variable<String>(lastModifiedBy.value);
+    }
+    if (lastModifiedOn.present) {
+      map['last_modified_on'] = Variable<String>(lastModifiedOn.value);
+    }
+    if (table.present) {
+      map['table'] = Variable<String>(
+          $OrderEntityTable.$convertertable.toSql(table.value));
+    }
     return map;
   }
 
   @override
   String toString() {
     return (StringBuffer('OrderEntityCompanion(')
+          ..write('posTransactionType: $posTransactionType, ')
           ..write('idSeq: $idSeq, ')
           ..write('invoiceNumber: $invoiceNumber, ')
           ..write('deviceId: $deviceId, ')
@@ -1973,8 +2823,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           ..write('splitIndex: $splitIndex, ')
           ..write('orderRef: $orderRef, ')
           ..write('callName: $callName, ')
+          ..write('callNumber: $callNumber, ')
           ..write('orderType: $orderType, ')
           ..write('status: $status, ')
+          ..write('paymentStatus: $paymentStatus, ')
+          ..write('refundStatus: $refundStatus, ')
+          ..write('deliveryStatus: $deliveryStatus, ')
           ..write('orderSource: $orderSource, ')
           ..write('endTime: $endTime, ')
           ..write('deliveryCompanyInfoId: $deliveryCompanyInfoId, ')
@@ -2010,7 +2864,23 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           ..write('kitchenInfo: $kitchenInfo, ')
           ..write('currency: $currency, ')
           ..write('paymentCurrency: $paymentCurrency, ')
-          ..write('minimumReservationPrice: $minimumReservationPrice')
+          ..write('minimumReservationPrice: $minimumReservationPrice, ')
+          ..write('giftCard: $giftCard, ')
+          ..write('roundingAmount: $roundingAmount, ')
+          ..write('tipAmount: $tipAmount, ')
+          ..write('donationAmount: $donationAmount, ')
+          ..write('donationForId: $donationForId, ')
+          ..write('supervisorId: $supervisorId, ')
+          ..write('reference: $reference, ')
+          ..write('trackingStatusId: $trackingStatusId, ')
+          ..write('orderStatusTracking: $orderStatusTracking, ')
+          ..write('waiters: $waiters, ')
+          ..write('couponId: $couponId, ')
+          ..write('createdOn: $createdOn, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('lastModifiedBy: $lastModifiedBy, ')
+          ..write('lastModifiedOn: $lastModifiedOn, ')
+          ..write('table: $table')
           ..write(')'))
         .toString();
   }

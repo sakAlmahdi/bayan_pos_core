@@ -26,6 +26,9 @@ class Customer {
   bool? enableHouseAccount;
   bool? taxable;
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   final addersses = ToMany<Address>();
   final houseAccountTranscations = ToMany<Transaction>();
 
@@ -48,6 +51,9 @@ class Customer {
     this.blackListNote,
     this.priceListId,
     this.taxable,
+    this.enableHouseAccount,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
   });
 
   Customer.fromJson(Map<String, dynamic> json) {
@@ -77,6 +83,9 @@ class Customer {
     }
     priceListId = json['priceListId'];
     taxable = json['taxable'];
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -99,8 +108,9 @@ class Customer {
     data['transactions'] =
         houseAccountTranscations.map((v) => v.toJson()).toList();
     data['priceListId'] = priceListId;
-
     data['taxable'] = taxable;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;
   }

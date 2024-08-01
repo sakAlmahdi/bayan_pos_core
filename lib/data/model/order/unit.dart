@@ -21,6 +21,9 @@ class Unit {
   bool? showAlertPreparationTime;
   int? priceType;
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   final priceList = ToMany<PriceListValue>();
   final modifiers = ToMany<UnitModifer>();
   @Transient()
@@ -29,20 +32,21 @@ class Unit {
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(priceType);
 
-  Unit({
-    this.id,
-    this.barcode,
-    this.price,
-    this.cost,
-    this.factor,
-    this.defaultForSales,
-    this.defaultForPurchase,
-    this.defaultForStore,
-    this.name,
-    this.fName,
-    this.showAlertPreparationTime,
-    this.priceType,
-  });
+  Unit(
+      {this.id,
+      this.barcode,
+      this.price,
+      this.cost,
+      this.factor,
+      this.defaultForSales,
+      this.defaultForPurchase,
+      this.defaultForStore,
+      this.name,
+      this.fName,
+      this.showAlertPreparationTime,
+      this.priceType,
+      this.deviceCreatedOn,
+      this.deviceCreatedBy});
 
   Unit.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -67,6 +71,9 @@ class Unit {
         modifiers.add(UnitModifer.fromJson(v));
       });
     }
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -85,6 +92,8 @@ class Unit {
     data['priceType'] = priceType;
     data['priceLists'] = priceList.map((v) => v.toJson()).toList();
     data['modifiers'] = modifiers.map((v) => v.toJson()).toList();
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 

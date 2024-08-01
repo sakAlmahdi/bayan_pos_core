@@ -37,6 +37,8 @@ class Option {
     this.isDefault,
     this.displayOrder,
     this.taxGroupId,
+    this.name,
+    this.fname,
   });
 
   Option.fromJson(Map<String, dynamic> json) {
@@ -70,6 +72,7 @@ class Option {
     data['isDefault'] = isDefault;
     data['displayOrder'] = displayOrder;
     data['taxGroupId'] = taxGroupId;
+
     return data;
   }
 
@@ -88,6 +91,7 @@ class Option {
     // data['isDefault9'] = isDefault;
     // data['displayOrder10'] = displayOrder;
     data['taxGroupId'] = taxGroupId;
+
     return data;
   }
 }

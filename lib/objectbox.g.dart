@@ -54,6 +54,7 @@ import 'data/model/product/product1.dart';
 import 'data/model/product/product_price_list.dart';
 import 'data/model/resturant_sections/resturant_sections.dart';
 import 'data/model/resturant_sections/table.dart';
+import 'data/model/send_order/send_order.dart';
 import 'data/model/setting/bill_copy_history.dart';
 import 'data/model/setting/bill_counter.dart';
 import 'data/model/setting/bill_setting.dart';
@@ -3266,14 +3267,14 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(44, 7842135050779151667),
       name: 'OrderC',
-      lastPropertyId: const obx_int.IdUid(40, 4523480091594187749),
+      lastPropertyId: const obx_int.IdUid(59, 7699985157769986675),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(1, 1753801513438199911),
             name: 'idSeq',
             type: 6,
-            flags: 1),
+            flags: 0),
         obx_int.ModelProperty(
             id: const obx_int.IdUid(2, 6385703053874101680),
             name: 'invoiceNumber',
@@ -3473,6 +3474,103 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(40, 4523480091594187749),
             name: 'priceListId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(41, 1124491691560176527),
+            name: 'posTransactionType',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(42, 7549563512968308700),
+            name: 'callNumber',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(43, 6294190789633290918),
+            name: 'giftCardId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(67, 350428259539118090),
+            relationTarget: 'SendGiftCard'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(44, 637423639748244923),
+            name: 'paymentStatus',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(45, 6955304991224222006),
+            name: 'refundStatus',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(46, 6062244521262885640),
+            name: 'deliveryStatus',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(47, 3293431292565428469),
+            name: 'roundingAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(48, 4634865484995428339),
+            name: 'tipAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(49, 1995106809962708726),
+            name: 'donationAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(50, 2113544658629808847),
+            name: 'donationForId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(51, 1383638675385342553),
+            name: 'supervisorId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(52, 713992950007179333),
+            name: 'reference',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(53, 6375354927395467172),
+            name: 'casherNote',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(54, 6713291243649541549),
+            name: 'trackingStatusId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(55, 1669804975744863900),
+            name: 'couponId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(56, 2956535393343338489),
+            name: 'createdOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(57, 4158570649257554152),
+            name: 'createdBy',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(58, 7428074760909259103),
+            name: 'lastModifiedBy',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(59, 7699985157769986675),
+            name: 'lastModifiedOn',
             type: 9,
             flags: 0)
       ],
@@ -5841,6 +5939,55 @@ final _entities = <obx_int.ModelEntity>[
             flags: 1)
       ],
       relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(78, 2277506909777593783),
+      name: 'SendGiftCard',
+      lastPropertyId: const obx_int.IdUid(8, 4126026164784121566),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 6370735575789692441),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 17749142688200805),
+            name: 'giftCardId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 5384918611965139240),
+            name: 'baseAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 6836272797093270817),
+            name: 'percent',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 5611508080575444828),
+            name: 'value',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 435031246789707323),
+            name: 'amount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 5508217085012687773),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 4126026164784121566),
+            name: 'deviceCreatedBy',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -5879,8 +6026,8 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(77, 5097629977637169792),
-      lastIndexId: const obx_int.IdUid(66, 3684123412947241842),
+      lastEntityId: const obx_int.IdUid(78, 2277506909777593783),
+      lastIndexId: const obx_int.IdUid(67, 350428259539118090),
       lastRelationId: const obx_int.IdUid(32, 635890591433436266),
       lastSequenceId: const obx_int.IdUid(0, 0),
       retiredEntityUids: const [],
@@ -9741,19 +9888,22 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.customer,
               object.address,
               object.promotion,
-              object.discount
+              object.discount,
+              object.giftCard
             ],
         toManyRelations: (OrderC object) => {
-              obx_int.RelInfo<OrderC>.toMany(15, object.idSeq!):
+              obx_int.RelInfo<OrderC>.toMany(15, object.posTransactionType!):
                   object.products,
-              obx_int.RelInfo<OrderC>.toMany(16, object.idSeq!): object.fees,
-              obx_int.RelInfo<OrderC>.toMany(17, object.idSeq!):
+              obx_int.RelInfo<OrderC>.toMany(16, object.posTransactionType!):
+                  object.fees,
+              obx_int.RelInfo<OrderC>.toMany(17, object.posTransactionType!):
                   object.feeValues,
-              obx_int.RelInfo<OrderC>.toMany(18, object.idSeq!): object.payments
+              obx_int.RelInfo<OrderC>.toMany(18, object.posTransactionType!):
+                  object.payments
             },
-        getId: (OrderC object) => object.idSeq,
+        getId: (OrderC object) => object.posTransactionType,
         setId: (OrderC object, int id) {
-          object.idSeq = id;
+          object.posTransactionType = id;
         },
         objectToFB: (OrderC object, fb.Builder fbb) {
           final invoiceNumberOffset = object.invoiceNumber == null
@@ -9798,8 +9948,38 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final priceListIdOffset = object.priceListId == null
               ? null
               : fbb.writeString(object.priceListId!);
-          fbb.startTable(41);
-          fbb.addInt64(0, object.idSeq ?? 0);
+          final donationForIdOffset = object.donationForId == null
+              ? null
+              : fbb.writeString(object.donationForId!);
+          final supervisorIdOffset = object.supervisorId == null
+              ? null
+              : fbb.writeString(object.supervisorId!);
+          final referenceOffset = object.reference == null
+              ? null
+              : fbb.writeString(object.reference!);
+          final casherNoteOffset = object.casherNote == null
+              ? null
+              : fbb.writeString(object.casherNote!);
+          final trackingStatusIdOffset = object.trackingStatusId == null
+              ? null
+              : fbb.writeString(object.trackingStatusId!);
+          final couponIdOffset = object.couponId == null
+              ? null
+              : fbb.writeString(object.couponId!);
+          final createdOnOffset = object.createdOn == null
+              ? null
+              : fbb.writeString(object.createdOn!);
+          final createdByOffset = object.createdBy == null
+              ? null
+              : fbb.writeString(object.createdBy!);
+          final lastModifiedByOffset = object.lastModifiedBy == null
+              ? null
+              : fbb.writeString(object.lastModifiedBy!);
+          final lastModifiedOnOffset = object.lastModifiedOn == null
+              ? null
+              : fbb.writeString(object.lastModifiedOn!);
+          fbb.startTable(60);
+          fbb.addInt64(0, object.idSeq);
           fbb.addOffset(1, invoiceNumberOffset);
           fbb.addOffset(2, deviceIdOffset);
           fbb.addInt64(3, object.startDate.millisecondsSinceEpoch);
@@ -9838,8 +10018,27 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(37, object.totalCalories);
           fbb.addFloat64(38, object.totalDiscountForOrderAndProduct);
           fbb.addOffset(39, priceListIdOffset);
+          fbb.addInt64(40, object.posTransactionType ?? 0);
+          fbb.addInt64(41, object.callNumber);
+          fbb.addInt64(42, object.giftCard.targetId);
+          fbb.addInt64(43, object.paymentStatus);
+          fbb.addInt64(44, object.refundStatus);
+          fbb.addInt64(45, object.deliveryStatus);
+          fbb.addFloat64(46, object.roundingAmount);
+          fbb.addFloat64(47, object.tipAmount);
+          fbb.addFloat64(48, object.donationAmount);
+          fbb.addOffset(49, donationForIdOffset);
+          fbb.addOffset(50, supervisorIdOffset);
+          fbb.addOffset(51, referenceOffset);
+          fbb.addOffset(52, casherNoteOffset);
+          fbb.addOffset(53, trackingStatusIdOffset);
+          fbb.addOffset(54, couponIdOffset);
+          fbb.addOffset(55, createdOnOffset);
+          fbb.addOffset(56, createdByOffset);
+          fbb.addOffset(57, lastModifiedByOffset);
+          fbb.addOffset(58, lastModifiedOnOffset);
           fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
+          return object.posTransactionType ?? 0;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
@@ -9918,7 +10117,43 @@ obx_int.ModelDefinition getObjectBoxModel() {
             ..totalDiscountForOrderAndProduct = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 80)
             ..priceListId = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 82);
+                .vTableGetNullable(buffer, rootOffset, 82)
+            ..posTransactionType =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 84)
+            ..callNumber =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 86)
+            ..paymentStatus =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 90)
+            ..refundStatus =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 92)
+            ..deliveryStatus =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 94)
+            ..roundingAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 96)
+            ..tipAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 98)
+            ..donationAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 100)
+            ..donationForId = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 102)
+            ..supervisorId = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 104)
+            ..reference = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 106)
+            ..casherNote = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 108)
+            ..trackingStatusId = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 110)
+            ..couponId = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 112)
+            ..createdOn = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 114)
+            ..createdBy = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 116)
+            ..lastModifiedBy = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 118)
+            ..lastModifiedOn = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 120);
           object.deliveryCompanyInfo.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
           object.deliveryCompanyInfo.attach(store);
@@ -9934,14 +10169,23 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.discount.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 48, 0);
           object.discount.attach(store);
-          obx_int.InternalToManyAccess.setRelInfo<OrderC>(object.products,
-              store, obx_int.RelInfo<OrderC>.toMany(15, object.idSeq!));
+          object.giftCard.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 88, 0);
+          object.giftCard.attach(store);
+          obx_int.InternalToManyAccess.setRelInfo<OrderC>(
+              object.products,
+              store,
+              obx_int.RelInfo<OrderC>.toMany(15, object.posTransactionType!));
           obx_int.InternalToManyAccess.setRelInfo<OrderC>(object.fees, store,
-              obx_int.RelInfo<OrderC>.toMany(16, object.idSeq!));
-          obx_int.InternalToManyAccess.setRelInfo<OrderC>(object.feeValues,
-              store, obx_int.RelInfo<OrderC>.toMany(17, object.idSeq!));
-          obx_int.InternalToManyAccess.setRelInfo<OrderC>(object.payments,
-              store, obx_int.RelInfo<OrderC>.toMany(18, object.idSeq!));
+              obx_int.RelInfo<OrderC>.toMany(16, object.posTransactionType!));
+          obx_int.InternalToManyAccess.setRelInfo<OrderC>(
+              object.feeValues,
+              store,
+              obx_int.RelInfo<OrderC>.toMany(17, object.posTransactionType!));
+          obx_int.InternalToManyAccess.setRelInfo<OrderC>(
+              object.payments,
+              store,
+              obx_int.RelInfo<OrderC>.toMany(18, object.posTransactionType!));
           return object;
         }),
     PaymentMethod: obx_int.EntityDefinition<PaymentMethod>(
@@ -12901,6 +13145,68 @@ obx_int.ModelDefinition getObjectBoxModel() {
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
+        }),
+    SendGiftCard: obx_int.EntityDefinition<SendGiftCard>(
+        model: _entities[77],
+        toOneRelations: (SendGiftCard object) => [],
+        toManyRelations: (SendGiftCard object) => {},
+        getId: (SendGiftCard object) => object.idSeq,
+        setId: (SendGiftCard object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (SendGiftCard object, fb.Builder fbb) {
+          final giftCardIdOffset = object.giftCardId == null
+              ? null
+              : fbb.writeString(object.giftCardId!);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(9);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, giftCardIdOffset);
+          fbb.addFloat64(2, object.baseAmount);
+          fbb.addFloat64(3, object.percent);
+          fbb.addFloat64(4, object.value);
+          fbb.addFloat64(5, object.amount);
+          fbb.addOffset(6, deviceCreatedOnOffset);
+          fbb.addOffset(7, deviceCreatedByOffset);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final giftCardIdParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final baseAmountParam =
+              const fb.Float64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final percentParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final valueParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final amountParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final object = SendGiftCard(
+              giftCardId: giftCardIdParam,
+              baseAmount: baseAmountParam,
+              percent: percentParam,
+              value: valueParam,
+              amount: amountParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
         })
   };
 
@@ -15392,6 +15698,82 @@ class OrderC_ {
   static final priceListId =
       obx.QueryStringProperty<OrderC>(_entities[43].properties[38]);
 
+  /// see [OrderC.posTransactionType]
+  static final posTransactionType =
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[39]);
+
+  /// see [OrderC.callNumber]
+  static final callNumber =
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[40]);
+
+  /// see [OrderC.giftCard]
+  static final giftCard = obx.QueryRelationToOne<OrderC, SendGiftCard>(
+      _entities[43].properties[41]);
+
+  /// see [OrderC.paymentStatus]
+  static final paymentStatus =
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[42]);
+
+  /// see [OrderC.refundStatus]
+  static final refundStatus =
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[43]);
+
+  /// see [OrderC.deliveryStatus]
+  static final deliveryStatus =
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[44]);
+
+  /// see [OrderC.roundingAmount]
+  static final roundingAmount =
+      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[45]);
+
+  /// see [OrderC.tipAmount]
+  static final tipAmount =
+      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[46]);
+
+  /// see [OrderC.donationAmount]
+  static final donationAmount =
+      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[47]);
+
+  /// see [OrderC.donationForId]
+  static final donationForId =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[48]);
+
+  /// see [OrderC.supervisorId]
+  static final supervisorId =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[49]);
+
+  /// see [OrderC.reference]
+  static final reference =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[50]);
+
+  /// see [OrderC.casherNote]
+  static final casherNote =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[51]);
+
+  /// see [OrderC.trackingStatusId]
+  static final trackingStatusId =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[52]);
+
+  /// see [OrderC.couponId]
+  static final couponId =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[53]);
+
+  /// see [OrderC.createdOn]
+  static final createdOn =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[54]);
+
+  /// see [OrderC.createdBy]
+  static final createdBy =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[55]);
+
+  /// see [OrderC.lastModifiedBy]
+  static final lastModifiedBy =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[56]);
+
+  /// see [OrderC.lastModifiedOn]
+  static final lastModifiedOn =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[57]);
+
   /// see [OrderC.products]
   static final products = obx.QueryRelationToMany<OrderC, AppliedProduct>(
       _entities[43].relations[0]);
@@ -17166,4 +17548,39 @@ class ViewSettings_ {
   /// see [ViewSettings.idSeq]
   static final idSeq =
       obx.QueryIntegerProperty<ViewSettings>(_entities[76].properties[0]);
+}
+
+/// [SendGiftCard] entity fields to define ObjectBox queries.
+class SendGiftCard_ {
+  /// see [SendGiftCard.idSeq]
+  static final idSeq =
+      obx.QueryIntegerProperty<SendGiftCard>(_entities[77].properties[0]);
+
+  /// see [SendGiftCard.giftCardId]
+  static final giftCardId =
+      obx.QueryStringProperty<SendGiftCard>(_entities[77].properties[1]);
+
+  /// see [SendGiftCard.baseAmount]
+  static final baseAmount =
+      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[2]);
+
+  /// see [SendGiftCard.percent]
+  static final percent =
+      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[3]);
+
+  /// see [SendGiftCard.value]
+  static final value =
+      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[4]);
+
+  /// see [SendGiftCard.amount]
+  static final amount =
+      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[5]);
+
+  /// see [SendGiftCard.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<SendGiftCard>(_entities[77].properties[6]);
+
+  /// see [SendGiftCard.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<SendGiftCard>(_entities[77].properties[7]);
 }
