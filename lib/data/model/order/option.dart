@@ -8,7 +8,7 @@ class Option {
 
   String? id;
   String? costType;
-  String? modifierType;
+  int? modifierType;
   int? instructionType;
   double? price;
   double? cost;
