@@ -248,7 +248,7 @@
     },
     {
       "id": "3:2510476373999365153",
-      "lastPropertyId": "2:6899431794036209456",
+      "lastPropertyId": "4:7092152800255875761",
       "name": "AppliedModifer",
       "properties": [
         {
@@ -264,6 +264,16 @@
           "flags": 520,
           "indexId": "1:7033138004333195985",
           "relationTarget": "UnitModifer"
+        },
+        {
+          "id": "3:8786838065202379936",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "4:7092152800255875761",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": [
@@ -276,7 +286,7 @@
     },
     {
       "id": "4:6570509371452973894",
-      "lastPropertyId": "7:3922546048363664928",
+      "lastPropertyId": "9:6682722018872705946",
       "name": "AppliedOption",
       "properties": [
         {
@@ -320,13 +330,23 @@
           "flags": 520,
           "indexId": "3:6002293103001121540",
           "relationTarget": "TaxInfo"
+        },
+        {
+          "id": "8:448218365017893454",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "9:6682722018872705946",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": []
     },
     {
       "id": "5:4194445702919768664",
-      "lastPropertyId": "26:3257711878978586602",
+      "lastPropertyId": "31:2856282157778801997",
       "name": "AppliedProduct",
       "properties": [
         {
@@ -480,6 +500,31 @@
           "id": "26:3257711878978586602",
           "name": "note",
           "type": 9
+        },
+        {
+          "id": "27:932147442954291716",
+          "name": "deliveryNote",
+          "type": 9
+        },
+        {
+          "id": "28:6509906888115121388",
+          "name": "reservedNote",
+          "type": 9
+        },
+        {
+          "id": "29:3553760525507715674",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "30:3770898212555042249",
+          "name": "deviceCreatedBy",
+          "type": 9
+        },
+        {
+          "id": "31:2856282157778801997",
+          "name": "feeAmount",
+          "type": 8
         }
       ],
       "relations": [
@@ -1358,7 +1403,7 @@
     },
     {
       "id": "16:7031224378041322061",
-      "lastPropertyId": "17:2267917642970494992",
+      "lastPropertyId": "19:3164564804568723457",
       "name": "Customer",
       "properties": [
         {
@@ -1448,6 +1493,16 @@
           "id": "17:2267917642970494992",
           "name": "taxable",
           "type": 1
+        },
+        {
+          "id": "18:1728354548119465324",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "19:3164564804568723457",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": [
@@ -1932,7 +1987,7 @@
     },
     {
       "id": "23:2455135106501388491",
-      "lastPropertyId": "22:4277958190418159704",
+      "lastPropertyId": "24:145195565844844885",
       "name": "Discount",
       "properties": [
         {
@@ -2047,6 +2102,16 @@
           "id": "22:4277958190418159704",
           "name": "categories",
           "type": 30
+        },
+        {
+          "id": "23:6638416067386916460",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "24:145195565844844885",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": []
@@ -3465,14 +3530,6 @@
           "id": "42:7549563512968308700",
           "name": "callNumber",
           "type": 6
-        },
-        {
-          "id": "43:6294190789633290918",
-          "name": "giftCardId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "67:350428259539118090",
-          "relationTarget": "SendGiftCard"
         },
         {
           "id": "44:637423639748244923",
@@ -5696,7 +5753,7 @@
     },
     {
       "id": "74:4161930827695234175",
-      "lastPropertyId": "13:2195879703608002373",
+      "lastPropertyId": "15:1098113963351132208",
       "name": "Unit",
       "properties": [
         {
@@ -5764,6 +5821,16 @@
           "id": "13:2195879703608002373",
           "name": "priceType",
           "type": 6
+        },
+        {
+          "id": "14:8090398804284737296",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "15:1098113963351132208",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": [
@@ -5956,55 +6023,6 @@
         }
       ],
       "relations": []
-    },
-    {
-      "id": "78:2277506909777593783",
-      "lastPropertyId": "8:4126026164784121566",
-      "name": "SendGiftCard",
-      "properties": [
-        {
-          "id": "1:6370735575789692441",
-          "name": "idSeq",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:17749142688200805",
-          "name": "giftCardId",
-          "type": 9
-        },
-        {
-          "id": "3:5384918611965139240",
-          "name": "baseAmount",
-          "type": 8
-        },
-        {
-          "id": "4:6836272797093270817",
-          "name": "percent",
-          "type": 8
-        },
-        {
-          "id": "5:5611508080575444828",
-          "name": "value",
-          "type": 8
-        },
-        {
-          "id": "6:435031246789707323",
-          "name": "amount",
-          "type": 8
-        },
-        {
-          "id": "7:5508217085012687773",
-          "name": "deviceCreatedOn",
-          "type": 9
-        },
-        {
-          "id": "8:4126026164784121566",
-          "name": "deviceCreatedBy",
-          "type": 9
-        }
-      ],
-      "relations": []
     }
   ],
   "lastEntityId": "78:2277506909777593783",
@@ -6013,10 +6031,23 @@
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
-  "retiredIndexUids": [],
+  "retiredEntityUids": [
+    2277506909777593783
+  ],
+  "retiredIndexUids": [
+    350428259539118090
+  ],
   "retiredPropertyUids": [
-    3891698986536151021
+    3891698986536151021,
+    6370735575789692441,
+    17749142688200805,
+    5384918611965139240,
+    6836272797093270817,
+    5611508080575444828,
+    435031246789707323,
+    5508217085012687773,
+    4126026164784121566,
+    6294190789633290918
   ],
   "retiredRelationUids": [],
   "version": 1

@@ -336,7 +336,7 @@ class SendOrder {
     openBy = order.creatorBy?['id'];
     closeOn = order.endTime.toString();
     closeBy = order.closeBy?['id'];
-    giftCardId = order.giftCard.target?.giftCardId;
+    giftCardId = order.giftCard?.giftCardId;
     priceListId = order.priceListId;
     checksum = order.checksum;
     masterChecksum = order.masterChecksum;
@@ -394,7 +394,7 @@ class SendOrder {
     if (order.couponId != null) {
       coupon = SendCoupon.fromOrder(order: order);
     }
-    giftCard = order.giftCard.target;
+    giftCard = order.giftCard;
     payments = order.payments
         .map((element) => SendPayments.fromOrder(value: element))
         .toList();
@@ -1105,7 +1105,7 @@ class SendUnit {
     priceList = product.priceList;
     if (product.appliedModifer.isNotEmpty) {
       modifiers = <SendModifiers>[];
-      product.appliedModifer!.forEach((element) {
+      product.appliedModifer.forEach((element) {
         modifiers!.add(SendModifiers.fromOrder(modifier: element));
       });
     }
@@ -1664,10 +1664,7 @@ class SendCoupon {
   }
 }
 
-@Entity()
 class SendGiftCard {
-  @Id()
-  int? idSeq;
   String? giftCardId;
   double? baseAmount;
   double? percent;

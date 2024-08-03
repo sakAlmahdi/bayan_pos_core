@@ -54,7 +54,6 @@ import 'data/model/product/product1.dart';
 import 'data/model/product/product_price_list.dart';
 import 'data/model/resturant_sections/resturant_sections.dart';
 import 'data/model/resturant_sections/table.dart';
-import 'data/model/send_order/send_order.dart';
 import 'data/model/setting/bill_copy_history.dart';
 import 'data/model/setting/bill_counter.dart';
 import 'data/model/setting/bill_setting.dart';
@@ -331,7 +330,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(3, 2510476373999365153),
       name: 'AppliedModifer',
-      lastPropertyId: const obx_int.IdUid(2, 6899431794036209456),
+      lastPropertyId: const obx_int.IdUid(4, 7092152800255875761),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -345,7 +344,17 @@ final _entities = <obx_int.ModelEntity>[
             type: 11,
             flags: 520,
             indexId: const obx_int.IdUid(1, 7033138004333195985),
-            relationTarget: 'UnitModifer')
+            relationTarget: 'UnitModifer'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 8786838065202379936),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 7092152800255875761),
+            name: 'deviceCreatedBy',
+            type: 9,
+            flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
         obx_int.ModelRelation(
@@ -357,7 +366,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(4, 6570509371452973894),
       name: 'AppliedOption',
-      lastPropertyId: const obx_int.IdUid(7, 3922546048363664928),
+      lastPropertyId: const obx_int.IdUid(9, 6682722018872705946),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -398,14 +407,24 @@ final _entities = <obx_int.ModelEntity>[
             type: 11,
             flags: 520,
             indexId: const obx_int.IdUid(3, 6002293103001121540),
-            relationTarget: 'TaxInfo')
+            relationTarget: 'TaxInfo'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 448218365017893454),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 6682722018872705946),
+            name: 'deviceCreatedBy',
+            type: 9,
+            flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
       id: const obx_int.IdUid(5, 4194445702919768664),
       name: 'AppliedProduct',
-      lastPropertyId: const obx_int.IdUid(26, 3257711878978586602),
+      lastPropertyId: const obx_int.IdUid(31, 2856282157778801997),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -551,6 +570,31 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(26, 3257711878978586602),
             name: 'note',
             type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 932147442954291716),
+            name: 'deliveryNote',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 6509906888115121388),
+            name: 'reservedNote',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 3553760525507715674),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 3770898212555042249),
+            name: 'deviceCreatedBy',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(31, 2856282157778801997),
+            name: 'feeAmount',
+            type: 8,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
@@ -1421,7 +1465,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(16, 7031224378041322061),
       name: 'Customer',
-      lastPropertyId: const obx_int.IdUid(17, 2267917642970494992),
+      lastPropertyId: const obx_int.IdUid(19, 3164564804568723457),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -1509,6 +1553,16 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(17, 2267917642970494992),
             name: 'taxable',
             type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 1728354548119465324),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 3164564804568723457),
+            name: 'deviceCreatedBy',
+            type: 9,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
@@ -1984,7 +2038,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(23, 2455135106501388491),
       name: 'Discount',
-      lastPropertyId: const obx_int.IdUid(22, 4277958190418159704),
+      lastPropertyId: const obx_int.IdUid(24, 145195565844844885),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -2097,6 +2151,16 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(22, 4277958190418159704),
             name: 'categories',
             type: 30,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 6638416067386916460),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 145195565844844885),
+            name: 'deviceCreatedBy',
+            type: 9,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
@@ -3486,13 +3550,6 @@ final _entities = <obx_int.ModelEntity>[
             name: 'callNumber',
             type: 6,
             flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(43, 6294190789633290918),
-            name: 'giftCardId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(67, 350428259539118090),
-            relationTarget: 'SendGiftCard'),
         obx_int.ModelProperty(
             id: const obx_int.IdUid(44, 637423639748244923),
             name: 'paymentStatus',
@@ -5684,7 +5741,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(74, 4161930827695234175),
       name: 'Unit',
-      lastPropertyId: const obx_int.IdUid(13, 2195879703608002373),
+      lastPropertyId: const obx_int.IdUid(15, 1098113963351132208),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -5751,6 +5808,16 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(13, 2195879703608002373),
             name: 'priceType',
             type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 8090398804284737296),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 1098113963351132208),
+            name: 'deviceCreatedBy',
+            type: 9,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
@@ -5939,55 +6006,6 @@ final _entities = <obx_int.ModelEntity>[
             flags: 1)
       ],
       relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(78, 2277506909777593783),
-      name: 'SendGiftCard',
-      lastPropertyId: const obx_int.IdUid(8, 4126026164784121566),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 6370735575789692441),
-            name: 'idSeq',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 17749142688200805),
-            name: 'giftCardId',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 5384918611965139240),
-            name: 'baseAmount',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 6836272797093270817),
-            name: 'percent',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 5611508080575444828),
-            name: 'value',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 435031246789707323),
-            name: 'amount',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 5508217085012687773),
-            name: 'deviceCreatedOn',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 4126026164784121566),
-            name: 'deviceCreatedBy',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -6030,9 +6048,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
       lastIndexId: const obx_int.IdUid(67, 350428259539118090),
       lastRelationId: const obx_int.IdUid(32, 635890591433436266),
       lastSequenceId: const obx_int.IdUid(0, 0),
-      retiredEntityUids: const [],
-      retiredIndexUids: const [],
-      retiredPropertyUids: const [3891698986536151021],
+      retiredEntityUids: const [2277506909777593783],
+      retiredIndexUids: const [350428259539118090],
+      retiredPropertyUids: const [
+        3891698986536151021,
+        6370735575789692441,
+        17749142688200805,
+        5384918611965139240,
+        6836272797093270817,
+        5611508080575444828,
+        435031246789707323,
+        5508217085012687773,
+        4126026164784121566,
+        6294190789633290918
+      ],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -6392,9 +6421,17 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.idSeq = id;
         },
         objectToFB: (AppliedModifer object, fb.Builder fbb) {
-          fbb.startTable(3);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(5);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addInt64(1, object.modifier.targetId);
+          fbb.addOffset(2, deviceCreatedOnOffset);
+          fbb.addOffset(3, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6404,7 +6441,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
 
           final object = AppliedModifer()
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
+            ..deviceCreatedOn = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 8)
+            ..deviceCreatedBy = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 10);
           object.modifier.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.modifier.attach(store);
@@ -6424,7 +6465,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.idSeq = id;
         },
         objectToFB: (AppliedOption object, fb.Builder fbb) {
-          fbb.startTable(8);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(10);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addFloat64(1, object.quantity);
           fbb.addFloat64(2, object.freeQuantity);
@@ -6432,6 +6479,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addBool(4, object.priceWithTax);
           fbb.addInt64(5, object.option.targetId);
           fbb.addInt64(6, object.taxInfo.targetId);
+          fbb.addOffset(7, deviceCreatedOnOffset);
+          fbb.addOffset(8, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6444,10 +6493,18 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Float64Reader().vTableGet(buffer, rootOffset, 8, 0);
           final taxableAmtParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 10);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
           final object = AppliedOption(
               quantity: quantityParam,
               freeQuantity: freeQuantityParam,
-              taxableAmt: taxableAmtParam)
+              taxableAmt: taxableAmtParam,
+              deviceCreatedBy: deviceCreatedByParam,
+              deviceCreatedOn: deviceCreatedOnParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
             ..priceWithTax =
@@ -6489,7 +6546,19 @@ obx_int.ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.giftCardCode!);
           final noteOffset =
               object.note == null ? null : fbb.writeString(object.note!);
-          fbb.startTable(27);
+          final deliveryNoteOffset = object.deliveryNote == null
+              ? null
+              : fbb.writeString(object.deliveryNote!);
+          final reservedNoteOffset = object.reservedNote == null
+              ? null
+              : fbb.writeString(object.reservedNote!);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(32);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addInt64(1, object.product.targetId);
           fbb.addInt64(2, object.unit.targetId);
@@ -6516,6 +6585,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addBool(23, object.canEditQty);
           fbb.addFloat64(24, object.barcodePrice);
           fbb.addOffset(25, noteOffset);
+          fbb.addOffset(26, deliveryNoteOffset);
+          fbb.addOffset(27, reservedNoteOffset);
+          fbb.addOffset(28, deviceCreatedOnOffset);
+          fbb.addOffset(29, deviceCreatedByOffset);
+          fbb.addFloat64(30, object.feeAmount);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6559,6 +6633,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
           final barcodePriceParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 52);
+          final deliveryNoteParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 56);
+          final reservedNoteParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 58);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 60);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 62);
+          final feeAmountParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 64);
           final object = AppliedProduct(
               quantity: quantityParam,
               prodRef: prodRefParam,
@@ -6577,7 +6665,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
               taxableAmt: taxableAmtParam,
               canEditQty: canEditQtyParam,
               isFixedPrice: isFixedPriceParam,
-              barcodePrice: barcodePriceParam)
+              barcodePrice: barcodePriceParam,
+              deliveryNote: deliveryNoteParam,
+              reservedNote: reservedNoteParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam,
+              feeAmount: feeAmountParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           object.product.targetId =
@@ -7688,7 +7781,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final priceListIdOffset = object.priceListId == null
               ? null
               : fbb.writeString(object.priceListId!);
-          fbb.startTable(18);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(20);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -7706,6 +7805,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(14, priceListIdOffset);
           fbb.addBool(15, object.enableHouseAccount);
           fbb.addBool(16, object.taxable);
+          fbb.addOffset(17, deviceCreatedOnOffset);
+          fbb.addOffset(18, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -7746,6 +7847,14 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 32);
           final taxableParam =
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 36);
+          final enableHouseAccountParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
           final object = Customer(
               id: idParam,
               name: nameParam,
@@ -7761,11 +7870,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
               inBlackList: inBlackListParam,
               blackListNote: blackListNoteParam,
               priceListId: priceListIdParam,
-              taxable: taxableParam)
+              taxable: taxableParam,
+              enableHouseAccount: enableHouseAccountParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..enableHouseAccount =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           obx_int.InternalToManyAccess.setRelInfo<Customer>(object.addersses,
               store, obx_int.RelInfo<Customer>.toMany(4, object.idSeq!));
           obx_int.InternalToManyAccess.setRelInfo<Customer>(
@@ -8418,7 +8528,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.categories!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          fbb.startTable(23);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(25);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -8441,6 +8557,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(19, customersOffset);
           fbb.addOffset(20, departmentsOffset);
           fbb.addOffset(21, categoriesOffset);
+          fbb.addOffset(22, deviceCreatedOnOffset);
+          fbb.addOffset(23, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -8501,6 +8619,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
               .vTableGetNullable(buffer, rootOffset, 46);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 50);
           final object = Discount(
               id: idParam,
               name: nameParam,
@@ -8522,7 +8646,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
               priceList: priceListParam,
               customers: customersParam,
               departments: departmentsParam,
-              categories: categoriesParam)
+              categories: categoriesParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
@@ -9860,6 +9986,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 24);
           final taxGroupIdParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 30);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final fnameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 28);
           final object = Option(
               id: idParam,
               costType: costTypeParam,
@@ -9871,13 +10001,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
               inStock: inStockParam,
               isDefault: isDefaultParam,
               displayOrder: displayOrderParam,
-              taxGroupId: taxGroupIdParam)
+              taxGroupId: taxGroupIdParam,
+              name: nameParam,
+              fname: fnameParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..name = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 26)
-            ..fname = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 28);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
         }),
@@ -9888,8 +10016,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.customer,
               object.address,
               object.promotion,
-              object.discount,
-              object.giftCard
+              object.discount
             ],
         toManyRelations: (OrderC object) => {
               obx_int.RelInfo<OrderC>.toMany(15, object.posTransactionType!):
@@ -10020,7 +10147,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(39, priceListIdOffset);
           fbb.addInt64(40, object.posTransactionType ?? 0);
           fbb.addInt64(41, object.callNumber);
-          fbb.addInt64(42, object.giftCard.targetId);
           fbb.addInt64(43, object.paymentStatus);
           fbb.addInt64(44, object.refundStatus);
           fbb.addInt64(45, object.deliveryStatus);
@@ -10169,9 +10295,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.discount.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 48, 0);
           object.discount.attach(store);
-          object.giftCard.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 88, 0);
-          object.giftCard.attach(store);
           obx_int.InternalToManyAccess.setRelInfo<OrderC>(
               object.products,
               store,
@@ -12802,7 +12925,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.fName == null ? null : fbb.writeString(object.fName!);
           final barcodeOffset =
               object.barcode == null ? null : fbb.writeString(object.barcode!);
-          fbb.startTable(14);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(16);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -12816,6 +12945,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addBool(10, object.defaultForStore);
           fbb.addBool(11, object.showAlertPreparationTime);
           fbb.addInt64(12, object.priceType);
+          fbb.addOffset(13, deviceCreatedOnOffset);
+          fbb.addOffset(14, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -12846,6 +12977,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
           final priceTypeParam =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 28);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 30);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
           final object = Unit(
               id: idParam,
               barcode: barcodeParam,
@@ -12858,7 +12995,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
               name: nameParam,
               fName: fNameParam,
               showAlertPreparationTime: showAlertPreparationTimeParam,
-              priceType: priceTypeParam)
+              priceType: priceTypeParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           obx_int.InternalToManyAccess.setRelInfo<Unit>(object.priceList, store,
@@ -13145,68 +13284,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
-        }),
-    SendGiftCard: obx_int.EntityDefinition<SendGiftCard>(
-        model: _entities[77],
-        toOneRelations: (SendGiftCard object) => [],
-        toManyRelations: (SendGiftCard object) => {},
-        getId: (SendGiftCard object) => object.idSeq,
-        setId: (SendGiftCard object, int id) {
-          object.idSeq = id;
-        },
-        objectToFB: (SendGiftCard object, fb.Builder fbb) {
-          final giftCardIdOffset = object.giftCardId == null
-              ? null
-              : fbb.writeString(object.giftCardId!);
-          final deviceCreatedOnOffset = object.deviceCreatedOn == null
-              ? null
-              : fbb.writeString(object.deviceCreatedOn!);
-          final deviceCreatedByOffset = object.deviceCreatedBy == null
-              ? null
-              : fbb.writeString(object.deviceCreatedBy!);
-          fbb.startTable(9);
-          fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, giftCardIdOffset);
-          fbb.addFloat64(2, object.baseAmount);
-          fbb.addFloat64(3, object.percent);
-          fbb.addFloat64(4, object.value);
-          fbb.addFloat64(5, object.amount);
-          fbb.addOffset(6, deviceCreatedOnOffset);
-          fbb.addOffset(7, deviceCreatedByOffset);
-          fbb.finish(fbb.endTable());
-          return object.idSeq ?? 0;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final giftCardIdParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final baseAmountParam =
-              const fb.Float64Reader().vTableGetNullable(buffer, rootOffset, 8);
-          final percentParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final valueParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 12);
-          final amountParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 14);
-          final deviceCreatedOnParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 16);
-          final deviceCreatedByParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 18);
-          final object = SendGiftCard(
-              giftCardId: giftCardIdParam,
-              baseAmount: baseAmountParam,
-              percent: percentParam,
-              value: valueParam,
-              amount: amountParam,
-              deviceCreatedOn: deviceCreatedOnParam,
-              deviceCreatedBy: deviceCreatedByParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-
-          return object;
         })
   };
 
@@ -13413,6 +13490,14 @@ class AppliedModifer_ {
   static final modifier = obx.QueryRelationToOne<AppliedModifer, UnitModifer>(
       _entities[2].properties[1]);
 
+  /// see [AppliedModifer.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<AppliedModifer>(_entities[2].properties[2]);
+
+  /// see [AppliedModifer.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<AppliedModifer>(_entities[2].properties[3]);
+
   /// see [AppliedModifer.options]
   static final options = obx.QueryRelationToMany<AppliedModifer, AppliedOption>(
       _entities[2].relations[0]);
@@ -13447,6 +13532,14 @@ class AppliedOption_ {
   /// see [AppliedOption.taxInfo]
   static final taxInfo = obx.QueryRelationToOne<AppliedOption, TaxInfo>(
       _entities[3].properties[6]);
+
+  /// see [AppliedOption.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<AppliedOption>(_entities[3].properties[7]);
+
+  /// see [AppliedOption.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<AppliedOption>(_entities[3].properties[8]);
 }
 
 /// [AppliedProduct] entity fields to define ObjectBox queries.
@@ -13555,6 +13648,26 @@ class AppliedProduct_ {
   /// see [AppliedProduct.note]
   static final note =
       obx.QueryStringProperty<AppliedProduct>(_entities[4].properties[25]);
+
+  /// see [AppliedProduct.deliveryNote]
+  static final deliveryNote =
+      obx.QueryStringProperty<AppliedProduct>(_entities[4].properties[26]);
+
+  /// see [AppliedProduct.reservedNote]
+  static final reservedNote =
+      obx.QueryStringProperty<AppliedProduct>(_entities[4].properties[27]);
+
+  /// see [AppliedProduct.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<AppliedProduct>(_entities[4].properties[28]);
+
+  /// see [AppliedProduct.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<AppliedProduct>(_entities[4].properties[29]);
+
+  /// see [AppliedProduct.feeAmount]
+  static final feeAmount =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[30]);
 
   /// see [AppliedProduct.appliedModifer]
   static final appliedModifer =
@@ -14270,6 +14383,14 @@ class Customer_ {
   static final taxable =
       obx.QueryBooleanProperty<Customer>(_entities[15].properties[16]);
 
+  /// see [Customer.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<Customer>(_entities[15].properties[17]);
+
+  /// see [Customer.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<Customer>(_entities[15].properties[18]);
+
   /// see [Customer.addersses]
   static final addersses =
       obx.QueryRelationToMany<Customer, Address>(_entities[15].relations[0]);
@@ -14704,6 +14825,14 @@ class Discount_ {
   /// see [Discount.categories]
   static final categories =
       obx.QueryStringVectorProperty<Discount>(_entities[22].properties[21]);
+
+  /// see [Discount.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<Discount>(_entities[22].properties[22]);
+
+  /// see [Discount.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<Discount>(_entities[22].properties[23]);
 }
 
 /// [DiscountSetting] entity fields to define ObjectBox queries.
@@ -15706,73 +15835,69 @@ class OrderC_ {
   static final callNumber =
       obx.QueryIntegerProperty<OrderC>(_entities[43].properties[40]);
 
-  /// see [OrderC.giftCard]
-  static final giftCard = obx.QueryRelationToOne<OrderC, SendGiftCard>(
-      _entities[43].properties[41]);
-
   /// see [OrderC.paymentStatus]
   static final paymentStatus =
-      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[42]);
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[41]);
 
   /// see [OrderC.refundStatus]
   static final refundStatus =
-      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[43]);
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[42]);
 
   /// see [OrderC.deliveryStatus]
   static final deliveryStatus =
-      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[44]);
+      obx.QueryIntegerProperty<OrderC>(_entities[43].properties[43]);
 
   /// see [OrderC.roundingAmount]
   static final roundingAmount =
-      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[45]);
+      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[44]);
 
   /// see [OrderC.tipAmount]
   static final tipAmount =
-      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[46]);
+      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[45]);
 
   /// see [OrderC.donationAmount]
   static final donationAmount =
-      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[47]);
+      obx.QueryDoubleProperty<OrderC>(_entities[43].properties[46]);
 
   /// see [OrderC.donationForId]
   static final donationForId =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[48]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[47]);
 
   /// see [OrderC.supervisorId]
   static final supervisorId =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[49]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[48]);
 
   /// see [OrderC.reference]
   static final reference =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[50]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[49]);
 
   /// see [OrderC.casherNote]
   static final casherNote =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[51]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[50]);
 
   /// see [OrderC.trackingStatusId]
   static final trackingStatusId =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[52]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[51]);
 
   /// see [OrderC.couponId]
   static final couponId =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[53]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[52]);
 
   /// see [OrderC.createdOn]
   static final createdOn =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[54]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[53]);
 
   /// see [OrderC.createdBy]
   static final createdBy =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[55]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[54]);
 
   /// see [OrderC.lastModifiedBy]
   static final lastModifiedBy =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[56]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[55]);
 
   /// see [OrderC.lastModifiedOn]
   static final lastModifiedOn =
-      obx.QueryStringProperty<OrderC>(_entities[43].properties[57]);
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[56]);
 
   /// see [OrderC.products]
   static final products = obx.QueryRelationToMany<OrderC, AppliedProduct>(
@@ -17408,6 +17533,14 @@ class Unit_ {
   static final priceType =
       obx.QueryIntegerProperty<Unit>(_entities[73].properties[12]);
 
+  /// see [Unit.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<Unit>(_entities[73].properties[13]);
+
+  /// see [Unit.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<Unit>(_entities[73].properties[14]);
+
   /// see [Unit.priceList]
   static final priceList =
       obx.QueryRelationToMany<Unit, PriceListValue>(_entities[73].relations[0]);
@@ -17548,39 +17681,4 @@ class ViewSettings_ {
   /// see [ViewSettings.idSeq]
   static final idSeq =
       obx.QueryIntegerProperty<ViewSettings>(_entities[76].properties[0]);
-}
-
-/// [SendGiftCard] entity fields to define ObjectBox queries.
-class SendGiftCard_ {
-  /// see [SendGiftCard.idSeq]
-  static final idSeq =
-      obx.QueryIntegerProperty<SendGiftCard>(_entities[77].properties[0]);
-
-  /// see [SendGiftCard.giftCardId]
-  static final giftCardId =
-      obx.QueryStringProperty<SendGiftCard>(_entities[77].properties[1]);
-
-  /// see [SendGiftCard.baseAmount]
-  static final baseAmount =
-      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[2]);
-
-  /// see [SendGiftCard.percent]
-  static final percent =
-      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[3]);
-
-  /// see [SendGiftCard.value]
-  static final value =
-      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[4]);
-
-  /// see [SendGiftCard.amount]
-  static final amount =
-      obx.QueryDoubleProperty<SendGiftCard>(_entities[77].properties[5]);
-
-  /// see [SendGiftCard.deviceCreatedOn]
-  static final deviceCreatedOn =
-      obx.QueryStringProperty<SendGiftCard>(_entities[77].properties[6]);
-
-  /// see [SendGiftCard.deviceCreatedBy]
-  static final deviceCreatedBy =
-      obx.QueryStringProperty<SendGiftCard>(_entities[77].properties[7]);
 }

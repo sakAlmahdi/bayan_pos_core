@@ -55,7 +55,7 @@ class OrderC {
   final address = ToOne<Address>();
   final promotion = ToOne<Promotion>();
   final discount = ToOne<Discount>();
-  final giftCard = ToOne<SendGiftCard>();
+  SendGiftCard? giftCard;
   final products = ToMany<AppliedProduct>();
   double? priceDiscount;
   double? pricePromotion;
@@ -190,7 +190,7 @@ class OrderC {
       ..address.target = address ?? this.address.target
       ..promotion.target = promotion ?? this.promotion.target
       ..discount.target = discount ?? this.discount.target
-      ..giftCard.target = giftCard ?? this.giftCard.target
+      ..giftCard = giftCard ?? this.giftCard
       ..products
           .addAll(products ?? this.products.map((e) => e.copyWith()).toList())
       ..priceDiscount = priceDiscount ?? this.priceDiscount
@@ -305,6 +305,32 @@ class OrderC {
       currency = Currencies.fromJson(json['currency']);
     }
     callNumber = json['callNumber'];
+
+    if (json['giftCard'] != null) {
+      giftCard = SendGiftCard.fromJson(json['giftCard']);
+    }
+    paymentStatus = json['paymentStatus'];
+    refundStatus = json['refundStatus'];
+    deliveryStatus = json['deliveryStatus'];
+    roundingAmount = json['roundingAmount'];
+    tipAmount = json['tipAmount'];
+    donationAmount = json['donationAmount'];
+    donationForId = json['donationForId'];
+    supervisorId = json['supervisorId'];
+    reference = json['reference'];
+    casherNote = json['casherNote'];
+    trackingStatusId = json['trackingStatusId'];
+    orderStatusTracking = json['orderStatusTracking'];
+    waiters = json['waiters'];
+    couponId = json['couponId'];
+    createdOn = json['createdOn'];
+    createdBy = json['createdBy'];
+    lastModifiedBy = json['lastModifiedBy'];
+    lastModifiedOn = json['lastModifiedOn'];
+    if (json['table'] != null) {
+      table = SendTable.fromJson(json['table']);
+    }
+    delivery = json['delivery'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -370,6 +396,25 @@ class OrderC {
     }
 
     data['callNumber'] = callNumber;
+    data['giftCard'] = giftCard?.toJson().removeNull();
+
+    data['paymentStatus'] = paymentStatus;
+    data['refundStatus'] = refundStatus;
+    data['deliveryStatus'] = deliveryStatus;
+    data['donationAmount'] = donationAmount;
+    data['donationForId'] = donationForId;
+    data['supervisorId'] = supervisorId;
+    data['trackingStatusId'] = trackingStatusId;
+    data['orderStatusTracking'] = orderStatusTracking;
+    data['waiters'] = waiters;
+    data['couponId'] = couponId;
+    data['createdOn'] = createdOn;
+    data['createdBy'] = createdBy;
+    data['lastModifiedBy'] = lastModifiedBy;
+    data['lastModifiedOn'] = lastModifiedOn;
+    if (table != null) {
+      data['table'] = table!.toJson();
+    }
 
     return data;
   }
@@ -435,6 +480,26 @@ class OrderC {
     data['totalCalories'] = totalCalories;
     data['minimumReservationPrice'] = minimumReservationPrice;
     data['currency'] = currency?.toJsonOrder();
+    data['giftCard'] = giftCard?.toJson().removeNull();
+
+    data['paymentStatus'] = paymentStatus;
+    data['refundStatus'] = refundStatus;
+    data['deliveryStatus'] = deliveryStatus;
+    data['donationAmount'] = donationAmount;
+    data['donationForId'] = donationForId;
+    data['supervisorId'] = supervisorId;
+    data['trackingStatusId'] = trackingStatusId;
+    data['orderStatusTracking'] = orderStatusTracking;
+    data['waiters'] = waiters;
+    data['couponId'] = couponId;
+    data['createdOn'] = createdOn;
+    data['createdBy'] = createdBy;
+    data['lastModifiedBy'] = lastModifiedBy;
+    data['lastModifiedOn'] = lastModifiedOn;
+    if (table != null) {
+      data['table'] = table!.toJson();
+    }
+
     return data;
   }
 
