@@ -3273,7 +3273,7 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(4, 5209245123020843078),
             name: 'modifierType',
-            type: 9,
+            type: 6,
             flags: 0),
         obx_int.ModelProperty(
             id: const obx_int.IdUid(5, 5819217396900891663),
@@ -9932,9 +9932,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final costTypeOffset = object.costType == null
               ? null
               : fbb.writeString(object.costType!);
-          final modifierTypeOffset = object.modifierType == null
-              ? null
-              : fbb.writeString(object.modifierType!);
           final nameOffset =
               object.name == null ? null : fbb.writeString(object.name!);
           final fnameOffset =
@@ -9946,7 +9943,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, costTypeOffset);
-          fbb.addOffset(3, modifierTypeOffset);
+          fbb.addInt64(3, object.modifierType);
           fbb.addInt64(4, object.instructionType);
           fbb.addFloat64(5, object.price);
           fbb.addFloat64(6, object.cost);
@@ -9968,8 +9965,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final costTypeParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 8);
           final modifierTypeParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10);
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
           final instructionTypeParam =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
           final priceParam = const fb.Float64Reader()
@@ -15625,7 +15621,7 @@ class Option_ {
 
   /// see [Option.modifierType]
   static final modifierType =
-      obx.QueryStringProperty<Option>(_entities[42].properties[3]);
+      obx.QueryIntegerProperty<Option>(_entities[42].properties[3]);
 
   /// see [Option.instructionType]
   static final instructionType =

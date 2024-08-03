@@ -5,7 +5,6 @@ import 'package:objectbox/objectbox.dart';
 class Option {
   @Id()
   int? idSeq;
-
   String? id;
   String? costType;
   int? modifierType;
@@ -21,8 +20,6 @@ class Option {
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fname;
-
-  ///TODO: taxGroupId add on api
   String? taxGroupId;
 
   Option({
