@@ -329,6 +329,7 @@ class SendOrder {
     deviceOrderNo = 0;
     masterOrderId = "";
     deviceOrderId = "";
+    casherNote = order.note;
     // invoiceNumber= order.invoiceNumber;
     callName = order.callName;
     callNumber = order.callNumber;
@@ -365,12 +366,12 @@ class SendOrder {
     supervisorId = order.supervisorId;
     reference = order.reference;
     parentOrderId = order.parentOrderId;
-    casherNote = order.casherNote;
+    // casherNote = order.casherNote;
     trackingStatusId = order.trackingStatusId;
     orderStatusTracking = order.orderStatusTracking;
     if (order.customer.target != null) {
       customer = SendCustomer.fromOrder(
-          customer: order.customer.target!, address: order.address.target);
+          customer: order.customer.target!, sendAddress: order.address.target);
     }
     table = order.table;
     products = order.products
@@ -410,6 +411,8 @@ class OrderStatusTracking {
   String? notes;
   String? deviceCreatedOn;
   String? deviceCreatedBy;
+  OrderStatusC? get getStatus =>
+      status == null ? null : convertStringToOrderStatus(status!);
 
   OrderStatusTracking(
       {this.status, this.notes, this.deviceCreatedOn, this.deviceCreatedBy});
@@ -498,7 +501,7 @@ class SendCustomer {
     return data;
   }
 
-  SendCustomer.fromOrder({required Customer customer, Address? address}) {
+  SendCustomer.fromOrder({required Customer customer, Address? sendAddress}) {
     name = customer.name;
     fName = customer.fName;
     mobile = customer.mobile;
@@ -509,7 +512,10 @@ class SendCustomer {
     customerId = customer.id;
     deviceCreatedOn = customer.deviceCreatedOn;
     deviceCreatedBy = customer.deviceCreatedBy;
-    address = address;
+
+    if (sendAddress != null) {
+      address = SendAddress.fromOrder(address: sendAddress);
+    }
     // loyaltyPoint = customer.loyaltyPoint;
   }
 }
@@ -588,6 +594,25 @@ class SendAddress {
     data['deviceCreatedOn'] = deviceCreatedOn;
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
+  }
+
+  SendAddress.fromOrder({required Address address}) {
+    addressTypeId = address.addressTypeId;
+    // zoneId = address.zoneId;
+    // countryId = address.countryId;
+    // cityId = address.cityId;
+    // districtId = address.districtId;
+    mainStreet = address.mainStreet;
+    byStreet = address.byStreet;
+    buildingNo = address.buildingNo;
+    floorNo = address.floor;
+    // unitNo = address.unitNo;
+    // additionNo = address.additionNo;
+    popularPlace = address.popularPlace;
+    // postalCode = address.postalCode;
+    zipCode = address.zipCode;
+    deviceCreatedOn = address.deviceCreatedOn;
+    deviceCreatedBy = address.deviceCreatedBy;
   }
 }
 

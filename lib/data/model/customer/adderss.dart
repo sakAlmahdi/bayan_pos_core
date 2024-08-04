@@ -27,24 +27,30 @@ class Address {
   String? get getFullDescription =>
       " ${mainStreet} , ${byStreet} , 🏢 ${buildingNo} , 🚪 ${floor} - ${apartmentNo}";
 
-  Address(
-      {this.idSeq = 0,
-      this.id,
-      this.addressTypeId,
-      this.name,
-      this.fName,
-      this.latitude,
-      this.longitude,
-      this.deliveryZoneId,
-      this.description,
-      this.mainStreet,
-      this.byStreet,
-      this.buildingNo,
-      this.floor,
-      this.apartmentNo,
-      this.phone,
-      this.popularPlace,
-      this.zipCode});
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
+  Address({
+    this.idSeq = 0,
+    this.id,
+    this.addressTypeId,
+    this.name,
+    this.fName,
+    this.latitude,
+    this.longitude,
+    this.deliveryZoneId,
+    this.description,
+    this.mainStreet,
+    this.byStreet,
+    this.buildingNo,
+    this.floor,
+    this.apartmentNo,
+    this.phone,
+    this.popularPlace,
+    this.zipCode,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
+  });
 
   Address.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -63,6 +69,9 @@ class Address {
     phone = json['phone'];
     popularPlace = json['popularPlace'];
     zipCode = json['zipCode'];
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -83,6 +92,8 @@ class Address {
     data['phone'] = phone;
     data['popularPlace'] = popularPlace;
     data['zipCode'] = zipCode;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 }
