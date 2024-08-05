@@ -38,15 +38,23 @@ class PriceListValue {
 class Slaps {
   @Id()
   int? idSeq;
-
+  String? id;
   double? from;
   double? to;
   double? price;
   String? timeEventId;
 
-  Slaps({this.from, this.to, this.price});
+  Slaps({
+    this.from,
+    this.to,
+    this.price,
+    this.timeEventId,
+    this.id,
+    this.idSeq,
+  });
 
   Slaps.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     from = double.tryParse(json['fromQuantity'].toString()) ?? 0.0;
     to = double.tryParse(json['toQuantity'].toString()) ?? 0.0;
     price = double.tryParse(json['price'].toString()) ?? 0.0;
@@ -55,6 +63,7 @@ class Slaps {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
+    data['id'] = id;
     data['fromQuantity'] = from;
     data['toQuantity'] = to;
     data['price'] = price;

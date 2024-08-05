@@ -29,6 +29,9 @@ class Fee {
   double? minAmountPerProduct;
   double? maxAmountPerProduct;
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(valueType);
   @Transient()
@@ -84,6 +87,9 @@ class Fee {
         double.tryParse(json['minAmountPerProduct'].toString()) ?? 0.0;
     maxAmountPerProduct =
         double.tryParse(json['maxAmountPerProduct'].toString()) ?? 0.0;
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -105,6 +111,10 @@ class Fee {
     data['printSeparatelyInTotalInvoice'] = printSeparatelyInTotalInvoice;
     data['applyForProducts'] = amountIncludeInProductPrice;
     data['maxAmountPerProduct'] = maxAmountPerProduct;
+    data['minAmountPerProduct'] = minAmountPerProduct;
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
+
     return data;
   }
 }

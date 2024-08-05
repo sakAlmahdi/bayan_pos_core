@@ -26,6 +26,9 @@ class TimeEvent {
   List<String>? categories;
   int priority = 0;
 
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
   @Transient()
   EventAction get getEventAction => converStringToEventAction(timeEventType);
 
@@ -48,19 +51,26 @@ class TimeEvent {
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
-  TimeEvent(
-      {this.id,
-      this.name,
-      this.fName,
-      this.timeEventType,
-      this.timeEventValue,
-      this.startDate,
-      this.endDate,
-      this.startTime,
-      this.endTime,
-      this.days,
-      this.orderTypes,
-      this.products});
+  TimeEvent({
+    this.id,
+    this.name,
+    this.fName,
+    this.timeEventType,
+    this.timeEventValue,
+    this.startDate,
+    this.endDate,
+    this.startTime,
+    this.endTime,
+    this.days,
+    this.orderTypes,
+    this.products,
+    this.customers,
+    this.departments,
+    this.categories,
+    this.priority = 0,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
+  });
 
   TimeEvent.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -109,6 +119,9 @@ class TimeEvent {
         customers!.add(v.toString().toLowerCase());
       });
     }
+
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
@@ -135,6 +148,14 @@ class TimeEvent {
     if (customers != null) {
       data['customers'] = products!.map((v) => v).toList();
     }
+    if (departments != null) {
+      data['departments'] = products!.map((v) => v).toList();
+    }
+    if (categories != null) {
+      data['categories'] = products!.map((v) => v).toList();
+    }
+    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
 }
