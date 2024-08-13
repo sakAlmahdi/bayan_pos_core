@@ -1,7 +1,9 @@
 import 'package:bayan_pos_core/core/extensions/base_map_extension.dart';
 import 'package:bayan_pos_core/data/enum/price_type_enum.dart';
 import 'package:bayan_pos_core/data/model/order/price_list_value.dart';
+import 'package:bayan_pos_core/data/model/order/unit_mapper.dart';
 import 'package:bayan_pos_core/data/model/order/unit_modifer.dart';
+import 'package:bayan_pos_core/data/model/product/modifer_mapper.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -48,11 +50,13 @@ class Unit {
       this.deviceCreatedOn,
       this.deviceCreatedBy});
 
-  Unit.fromJson(Map<String, dynamic> json) {
+  Unit.fromJson(Map<String, dynamic> json,
+      {Map<String, UnitMapper>? unitsMapper,
+      Map<String, ModifiersMapper>? modifiersMapper}) {
     id = json['id'];
     barcode = json['barcode'];
-    name = json['name'];
-    fName = json['fName'];
+    name = json['name'] ?? unitsMapper?[id]?.name;
+    fName = json['fName'] ?? unitsMapper?[id]?.name;
     showAlertPreparationTime = json['showAlertPreparationTime'];
     priceType = json['priceType'];
     price = double.tryParse(json['price'].toString()) ?? 0.0;
@@ -68,7 +72,9 @@ class Unit {
     }
     if (json['modifiers'] != null) {
       json['modifiers'].forEach((v) {
-        modifiers.add(UnitModifer.fromJson(v));
+        String id = v['id'];
+        modifiers.add(
+            UnitModifer.fromJson(v, modifiersMapper: modifiersMapper?[id]));
       });
     }
 

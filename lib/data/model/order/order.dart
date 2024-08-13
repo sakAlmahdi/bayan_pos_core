@@ -101,6 +101,9 @@ class OrderC {
   SendTable? table;
   SendDelivery? delivery;
 
+  String? customerName;
+  String? customerPhone;
+
   double get total =>
       (subTotal - discountTotal) +
       taxPrice.getZeroIfNull +
@@ -168,6 +171,8 @@ class OrderC {
     double? totalCalories,
     double? minimumReservationPrice,
     SendGiftCard? giftCard,
+    String? customerName,
+    String? customerPhone,
   }) {
     return OrderC()
       ..posTransactionType = posTransactionType ?? this.posTransactionType
@@ -220,7 +225,9 @@ class OrderC {
       ..minimumReservationPrice =
           minimumReservationPrice ?? this.minimumReservationPrice
       ..currency = currency ?? this.currency
-      ..callNumber = callNumber ?? this.callNumber;
+      ..callNumber = callNumber ?? this.callNumber
+      ..customerName = customerName ?? this.customerName
+      ..customerPhone = customerPhone ?? this.customerPhone;
   }
 
   OrderC.fromJson(Map<String, dynamic> json) {
@@ -331,6 +338,10 @@ class OrderC {
       table = SendTable.fromJson(json['table']);
     }
     delivery = json['delivery'];
+    callNumber = json['callNumber'];
+    callName = json['callName'];
+    customerName = json['customerName'];
+    customerPhone = json['customerPhone'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -416,6 +427,12 @@ class OrderC {
       data['table'] = table!.toJson();
     }
 
+    // customerName = json['customerName'];
+    // customerPhone = json['customerPhone'];
+
+    data['customerName'] = customerName;
+    data['customerPhone'] = customerPhone;
+
     return data;
   }
 
@@ -499,6 +516,9 @@ class OrderC {
     if (table != null) {
       data['table'] = table!.toJson();
     }
+
+    data['customerName'] = customerName;
+    data['customerPhone'] = customerPhone;
 
     return data;
   }

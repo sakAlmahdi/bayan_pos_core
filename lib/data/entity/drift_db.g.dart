@@ -441,6 +441,18 @@ class $OrderEntityTable extends OrderEntity
       GeneratedColumn<String>('delivery', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterdelivery);
+  static const VerificationMeta _customerNameMeta =
+      const VerificationMeta('customerName');
+  @override
+  late final GeneratedColumn<String> customerName = GeneratedColumn<String>(
+      'customer_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _customerPhoneMeta =
+      const VerificationMeta('customerPhone');
+  @override
+  late final GeneratedColumn<String> customerPhone = GeneratedColumn<String>(
+      'customer_phone', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         posTransactionType,
@@ -510,7 +522,9 @@ class $OrderEntityTable extends OrderEntity
         lastModifiedBy,
         lastModifiedOn,
         table,
-        delivery
+        delivery,
+        customerName,
+        customerPhone
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -809,6 +823,18 @@ class $OrderEntityTable extends OrderEntity
     }
     context.handle(_tableMeta, const VerificationResult.success());
     context.handle(_deliveryMeta, const VerificationResult.success());
+    if (data.containsKey('customer_name')) {
+      context.handle(
+          _customerNameMeta,
+          customerName.isAcceptableOrUnknown(
+              data['customer_name']!, _customerNameMeta));
+    }
+    if (data.containsKey('customer_phone')) {
+      context.handle(
+          _customerPhoneMeta,
+          customerPhone.isAcceptableOrUnknown(
+              data['customer_phone']!, _customerPhoneMeta));
+    }
     return context;
   }
 
@@ -979,6 +1005,10 @@ class $OrderEntityTable extends OrderEntity
       delivery: $OrderEntityTable.$converterdelivery.fromSql(attachedDatabase
           .typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}delivery'])),
+      customerName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}customer_name']),
+      customerPhone: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}customer_phone']),
     );
   }
 
@@ -1096,6 +1126,8 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final String? lastModifiedOn;
   final dynamic table;
   final dynamic delivery;
+  final String? customerName;
+  final String? customerPhone;
   const OrderEntityData(
       {this.posTransactionType,
       this.idSeq,
@@ -1164,7 +1196,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       this.lastModifiedBy,
       this.lastModifiedOn,
       this.table,
-      this.delivery});
+      this.delivery,
+      this.customerName,
+      this.customerPhone});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -1377,6 +1411,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       map['delivery'] = Variable<String>(
           $OrderEntityTable.$converterdelivery.toSql(delivery));
     }
+    if (!nullToAbsent || customerName != null) {
+      map['customer_name'] = Variable<String>(customerName);
+    }
+    if (!nullToAbsent || customerPhone != null) {
+      map['customer_phone'] = Variable<String>(customerPhone);
+    }
     return map;
   }
 
@@ -1562,6 +1602,12 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       delivery: delivery == null && nullToAbsent
           ? const Value.absent()
           : Value(delivery),
+      customerName: customerName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customerName),
+      customerPhone: customerPhone == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customerPhone),
     );
   }
 
@@ -1641,6 +1687,8 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       lastModifiedOn: serializer.fromJson<String?>(json['lastModifiedOn']),
       table: serializer.fromJson<dynamic>(json['table']),
       delivery: serializer.fromJson<dynamic>(json['delivery']),
+      customerName: serializer.fromJson<String?>(json['customerName']),
+      customerPhone: serializer.fromJson<String?>(json['customerPhone']),
     );
   }
   @override
@@ -1718,6 +1766,8 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'lastModifiedOn': serializer.toJson<String?>(lastModifiedOn),
       'table': serializer.toJson<dynamic>(table),
       'delivery': serializer.toJson<dynamic>(delivery),
+      'customerName': serializer.toJson<String?>(customerName),
+      'customerPhone': serializer.toJson<String?>(customerPhone),
     };
   }
 
@@ -1789,7 +1839,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<String?> lastModifiedBy = const Value.absent(),
           Value<String?> lastModifiedOn = const Value.absent(),
           Value<dynamic> table = const Value.absent(),
-          Value<dynamic> delivery = const Value.absent()}) =>
+          Value<dynamic> delivery = const Value.absent(),
+          Value<String?> customerName = const Value.absent(),
+          Value<String?> customerPhone = const Value.absent()}) =>
       OrderEntityData(
         posTransactionType: posTransactionType.present
             ? posTransactionType.value
@@ -1887,6 +1939,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
             lastModifiedOn.present ? lastModifiedOn.value : this.lastModifiedOn,
         table: table.present ? table.value : this.table,
         delivery: delivery.present ? delivery.value : this.delivery,
+        customerName:
+            customerName.present ? customerName.value : this.customerName,
+        customerPhone:
+            customerPhone.present ? customerPhone.value : this.customerPhone,
       );
   @override
   String toString() {
@@ -1959,7 +2015,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ..write('lastModifiedBy: $lastModifiedBy, ')
           ..write('lastModifiedOn: $lastModifiedOn, ')
           ..write('table: $table, ')
-          ..write('delivery: $delivery')
+          ..write('delivery: $delivery, ')
+          ..write('customerName: $customerName, ')
+          ..write('customerPhone: $customerPhone')
           ..write(')'))
         .toString();
   }
@@ -2033,7 +2091,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         lastModifiedBy,
         lastModifiedOn,
         table,
-        delivery
+        delivery,
+        customerName,
+        customerPhone
       ]);
   @override
   bool operator ==(Object other) =>
@@ -2107,7 +2167,9 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           other.lastModifiedBy == this.lastModifiedBy &&
           other.lastModifiedOn == this.lastModifiedOn &&
           other.table == this.table &&
-          other.delivery == this.delivery);
+          other.delivery == this.delivery &&
+          other.customerName == this.customerName &&
+          other.customerPhone == this.customerPhone);
 }
 
 class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
@@ -2179,6 +2241,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<String?> lastModifiedOn;
   final Value<dynamic> table;
   final Value<dynamic> delivery;
+  final Value<String?> customerName;
+  final Value<String?> customerPhone;
   const OrderEntityCompanion({
     this.posTransactionType = const Value.absent(),
     this.idSeq = const Value.absent(),
@@ -2248,6 +2312,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.lastModifiedOn = const Value.absent(),
     this.table = const Value.absent(),
     this.delivery = const Value.absent(),
+    this.customerName = const Value.absent(),
+    this.customerPhone = const Value.absent(),
   });
   OrderEntityCompanion.insert({
     this.posTransactionType = const Value.absent(),
@@ -2318,6 +2384,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.lastModifiedOn = const Value.absent(),
     this.table = const Value.absent(),
     this.delivery = const Value.absent(),
+    this.customerName = const Value.absent(),
+    this.customerPhone = const Value.absent(),
   })  : startDate = Value(startDate),
         orderRef = Value(orderRef),
         orderType = Value(orderType),
@@ -2395,6 +2463,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<String>? lastModifiedOn,
     Expression<String>? table,
     Expression<String>? delivery,
+    Expression<String>? customerName,
+    Expression<String>? customerPhone,
   }) {
     return RawValuesInsertable({
       if (posTransactionType != null)
@@ -2470,6 +2540,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       if (lastModifiedOn != null) 'last_modified_on': lastModifiedOn,
       if (table != null) 'table': table,
       if (delivery != null) 'delivery': delivery,
+      if (customerName != null) 'customer_name': customerName,
+      if (customerPhone != null) 'customer_phone': customerPhone,
     });
   }
 
@@ -2541,7 +2613,9 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<String?>? lastModifiedBy,
       Value<String?>? lastModifiedOn,
       Value<dynamic>? table,
-      Value<dynamic>? delivery}) {
+      Value<dynamic>? delivery,
+      Value<String?>? customerName,
+      Value<String?>? customerPhone}) {
     return OrderEntityCompanion(
       posTransactionType: posTransactionType ?? this.posTransactionType,
       idSeq: idSeq ?? this.idSeq,
@@ -2614,6 +2688,8 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       lastModifiedOn: lastModifiedOn ?? this.lastModifiedOn,
       table: table ?? this.table,
       delivery: delivery ?? this.delivery,
+      customerName: customerName ?? this.customerName,
+      customerPhone: customerPhone ?? this.customerPhone,
     );
   }
 
@@ -2848,6 +2924,12 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       map['delivery'] = Variable<String>(
           $OrderEntityTable.$converterdelivery.toSql(delivery.value));
     }
+    if (customerName.present) {
+      map['customer_name'] = Variable<String>(customerName.value);
+    }
+    if (customerPhone.present) {
+      map['customer_phone'] = Variable<String>(customerPhone.value);
+    }
     return map;
   }
 
@@ -2922,7 +3004,9 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           ..write('lastModifiedBy: $lastModifiedBy, ')
           ..write('lastModifiedOn: $lastModifiedOn, ')
           ..write('table: $table, ')
-          ..write('delivery: $delivery')
+          ..write('delivery: $delivery, ')
+          ..write('customerName: $customerName, ')
+          ..write('customerPhone: $customerPhone')
           ..write(')'))
         .toString();
   }

@@ -79,6 +79,9 @@ class OrderEntity extends Table {
   TextColumn get lastModifiedOn => text().nullable()();
   TextColumn get table => text().map(const JsonTypeConverter()).nullable()();
   TextColumn get delivery => text().map(const JsonTypeConverter()).nullable()();
+  TextColumn get customerName => text().nullable()();
+  TextColumn get customerPhone => text().nullable()();
+
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [
         {orderRef}

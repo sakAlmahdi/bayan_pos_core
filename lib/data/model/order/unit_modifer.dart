@@ -3,6 +3,7 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/model/order/free_options.dart';
 import 'package:bayan_pos_core/data/model/order/option.dart';
+import 'package:bayan_pos_core/data/model/product/modifer_mapper.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -43,10 +44,11 @@ class UnitModifer {
     this.fName,
   });
 
-  UnitModifer.fromJson(Map<String, dynamic> json) {
+  UnitModifer.fromJson(Map<String, dynamic> json,
+      {ModifiersMapper? modifiersMapper}) {
     id = json['id'];
-    name = json['name'];
-    fName = json['fName'];
+    name = json['name'] ?? modifiersMapper?.name;
+    fName = json['fName'] ?? modifiersMapper?.fName;
     minimumOptions = json['minimumOptions'];
     maximumOptions = json['maximumOptions'];
 
@@ -61,7 +63,9 @@ class UnitModifer {
     exceptOptions = json['exceptOptions']?.cast<String>();
     if (json['options'] != null) {
       json['options'].forEach((v) {
-        options.add(Option.fromJson(v));
+        String id = v['id'];
+        options.add(Option.fromJson(v,
+            optionsMapper: modifiersMapper?.optionsMapper?[id]));
       });
     }
   }

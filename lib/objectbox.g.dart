@@ -236,7 +236,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(2, 3606476828568732083),
       name: 'Address',
-      lastPropertyId: const obx_int.IdUid(17, 7936528330498948338),
+      lastPropertyId: const obx_int.IdUid(19, 7292883903619446333),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -322,6 +322,16 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(17, 7936528330498948338),
             name: 'zipCode',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 7864175708713536449),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 7292883903619446333),
+            name: 'deviceCreatedBy',
             type: 9,
             flags: 0)
       ],
@@ -977,7 +987,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(10, 1060923087034164105),
       name: 'Branch',
-      lastPropertyId: const obx_int.IdUid(17, 811258836577938388),
+      lastPropertyId: const obx_int.IdUid(18, 1951247964942227846),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -1065,6 +1075,11 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(17, 811258836577938388),
             name: 'receiveOnlineOrders',
             type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 1951247964942227846),
+            name: 'orderTypes',
+            type: 27,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
@@ -2590,7 +2605,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(28, 4606616327623200232),
       name: 'Fee',
-      lastPropertyId: const obx_int.IdUid(19, 8245679497649091979),
+      lastPropertyId: const obx_int.IdUid(21, 6533830255038611003),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -2688,6 +2703,16 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(19, 8245679497649091979),
             name: 'maxAmountPerProduct',
             type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 7316475405983654459),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 6533830255038611003),
+            name: 'deviceCreatedBy',
+            type: 9,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
@@ -3331,7 +3356,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(44, 7842135050779151667),
       name: 'OrderC',
-      lastPropertyId: const obx_int.IdUid(59, 7699985157769986675),
+      lastPropertyId: const obx_int.IdUid(61, 1469586939945735797),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -3628,6 +3653,16 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(59, 7699985157769986675),
             name: 'lastModifiedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(60, 6199924457436932577),
+            name: 'customerName',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(61, 1469586939945735797),
+            name: 'customerPhone',
             type: 9,
             flags: 0)
       ],
@@ -5048,7 +5083,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(63, 6441730119704921212),
       name: 'Slaps',
-      lastPropertyId: const obx_int.IdUid(5, 4639928631642040996),
+      lastPropertyId: const obx_int.IdUid(6, 8435977489967516681),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -5074,6 +5109,11 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(5, 4639928631642040996),
             name: 'timeEventId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 8435977489967516681),
+            name: 'id',
             type: 9,
             flags: 0)
       ],
@@ -5602,7 +5642,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(72, 3217800456771791053),
       name: 'TimeEvent',
-      lastPropertyId: const obx_int.IdUid(17, 7098063145550252599),
+      lastPropertyId: const obx_int.IdUid(19, 1278410208538349011),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -5690,6 +5730,16 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(17, 7098063145550252599),
             name: 'priority',
             type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 4416697130290611271),
+            name: 'deviceCreatedOn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 1278410208538349011),
+            name: 'deviceCreatedBy',
+            type: 9,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
@@ -5948,7 +5998,7 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(9, 4188857422947793582),
             name: 'discountPercentageLimit',
-            type: 6,
+            type: 8,
             flags: 0),
         obx_int.ModelProperty(
             id: const obx_int.IdUid(10, 4717594604415776906),
@@ -6325,7 +6375,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.popularPlace!);
           final zipCodeOffset =
               object.zipCode == null ? null : fbb.writeString(object.zipCode!);
-          fbb.startTable(18);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(20);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, addressTypeIdOffset);
@@ -6343,6 +6399,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(14, phoneOffset);
           fbb.addOffset(15, popularPlaceOffset);
           fbb.addOffset(16, zipCodeOffset);
+          fbb.addOffset(17, deviceCreatedOnOffset);
+          fbb.addOffset(18, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6388,6 +6446,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 34);
           final zipCodeParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 36);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
           final object = Address(
               idSeq: idSeqParam,
               id: idParam,
@@ -6405,7 +6469,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
               apartmentNo: apartmentNoParam,
               phone: phoneParam,
               popularPlace: popularPlaceParam,
-              zipCode: zipCodeParam);
+              zipCode: zipCodeParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam);
 
           return object;
         }),
@@ -7207,7 +7273,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final footerInvoiceMsgOffset = object.footerInvoiceMsg == null
               ? null
               : fbb.writeString(object.footerInvoiceMsg!);
-          fbb.startTable(18);
+          final orderTypesOffset = object.orderTypes == null
+              ? null
+              : fbb.writeListInt64(object.orderTypes!);
+          fbb.startTable(19);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -7225,6 +7294,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(14, headerInvoiceMsgOffset);
           fbb.addOffset(15, footerInvoiceMsgOffset);
           fbb.addBool(16, object.receiveOnlineOrders);
+          fbb.addOffset(17, orderTypesOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -7288,7 +7358,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
               headerInvoiceMsg: headerInvoiceMsgParam,
               footerInvoiceMsg: footerInvoiceMsgParam,
               fName: fNameParam,
-              receiveOnlineOrders: receiveOnlineOrdersParam);
+              receiveOnlineOrders: receiveOnlineOrdersParam)
+            ..orderTypes =
+                const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
+                    .vTableGetNullable(buffer, rootOffset, 38);
 
           return object;
         }),
@@ -9154,7 +9227,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final taxGroupIdOffset = object.taxGroupId == null
               ? null
               : fbb.writeString(object.taxGroupId!);
-          fbb.startTable(20);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(22);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -9174,6 +9253,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addBool(16, object.amountIncludeInProductPrice);
           fbb.addFloat64(17, object.minAmountPerProduct);
           fbb.addFloat64(18, object.maxAmountPerProduct);
+          fbb.addOffset(19, deviceCreatedOnOffset);
+          fbb.addOffset(20, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9222,7 +9303,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
             ..minAmountPerProduct = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 38)
             ..maxAmountPerProduct = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 40);
+                .vTableGetNullable(buffer, rootOffset, 40)
+            ..deviceCreatedOn = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 42)
+            ..deviceCreatedBy = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 44);
 
           return object;
         }),
@@ -10101,7 +10186,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final lastModifiedOnOffset = object.lastModifiedOn == null
               ? null
               : fbb.writeString(object.lastModifiedOn!);
-          fbb.startTable(60);
+          final customerNameOffset = object.customerName == null
+              ? null
+              : fbb.writeString(object.customerName!);
+          final customerPhoneOffset = object.customerPhone == null
+              ? null
+              : fbb.writeString(object.customerPhone!);
+          fbb.startTable(62);
           fbb.addInt64(0, object.idSeq);
           fbb.addOffset(1, invoiceNumberOffset);
           fbb.addOffset(2, deviceIdOffset);
@@ -10159,6 +10250,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(56, createdByOffset);
           fbb.addOffset(57, lastModifiedByOffset);
           fbb.addOffset(58, lastModifiedOnOffset);
+          fbb.addOffset(59, customerNameOffset);
+          fbb.addOffset(60, customerPhoneOffset);
           fbb.finish(fbb.endTable());
           return object.posTransactionType ?? 0;
         },
@@ -10275,7 +10368,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
             ..lastModifiedBy = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 118)
             ..lastModifiedOn = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 120);
+                .vTableGetNullable(buffer, rootOffset, 120)
+            ..customerName = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 122)
+            ..customerPhone = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 124);
           object.deliveryCompanyInfo.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
           object.deliveryCompanyInfo.attach(store);
@@ -12002,12 +12099,15 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final timeEventIdOffset = object.timeEventId == null
               ? null
               : fbb.writeString(object.timeEventId!);
-          fbb.startTable(6);
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          fbb.startTable(7);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addFloat64(1, object.from);
           fbb.addFloat64(2, object.to);
           fbb.addFloat64(3, object.price);
           fbb.addOffset(4, timeEventIdOffset);
+          fbb.addOffset(5, idOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -12020,11 +12120,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Float64Reader().vTableGetNullable(buffer, rootOffset, 8);
           final priceParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 10);
-          final object = Slaps(from: fromParam, to: toParam, price: priceParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..timeEventId = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 12);
+          final timeEventIdParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final idSeqParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          final object = Slaps(
+              from: fromParam,
+              to: toParam,
+              price: priceParam,
+              timeEventId: timeEventIdParam,
+              id: idParam,
+              idSeq: idSeqParam);
 
           return object;
         }),
@@ -12758,7 +12867,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.categories!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          fbb.startTable(18);
+          final deviceCreatedOnOffset = object.deviceCreatedOn == null
+              ? null
+              : fbb.writeString(object.deviceCreatedOn!);
+          final deviceCreatedByOffset = object.deviceCreatedBy == null
+              ? null
+              : fbb.writeString(object.deviceCreatedBy!);
+          fbb.startTable(20);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -12776,6 +12891,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(14, departmentsOffset);
           fbb.addOffset(15, categoriesOffset);
           fbb.addInt64(16, object.priority);
+          fbb.addOffset(17, deviceCreatedOnOffset);
+          fbb.addOffset(18, deviceCreatedByOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -12810,6 +12927,26 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
               .vTableGetNullable(buffer, rootOffset, 28);
+          final customersParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final departmentsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 32);
+          final categoriesParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 34);
+          final priorityParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0);
+          final deviceCreatedOnParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final deviceCreatedByParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
           final object = TimeEvent(
               id: idParam,
               name: nameParam,
@@ -12822,23 +12959,15 @@ obx_int.ModelDefinition getObjectBoxModel() {
               endTime: endTimeParam,
               days: daysParam,
               orderTypes: orderTypesParam,
-              products: productsParam)
+              products: productsParam,
+              customers: customersParam,
+              departments: departmentsParam,
+              categories: categoriesParam,
+              priority: priorityParam,
+              deviceCreatedOn: deviceCreatedOnParam,
+              deviceCreatedBy: deviceCreatedByParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..customers = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 30)
-            ..departments = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 32)
-            ..categories = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 34)
-            ..priority =
-                const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
         }),
@@ -13169,7 +13298,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(5, groupIdOffset);
           fbb.addOffset(6, priceListIdOffset);
           fbb.addOffset(7, warehouseIdOffset);
-          fbb.addInt64(8, object.discountPercentageLimit);
+          fbb.addFloat64(8, object.discountPercentageLimit);
           fbb.addOffset(9, orderTypesOffset);
           fbb.addOffset(10, paymentMethodsOffset);
           fbb.addOffset(11, restaurantSectionsOffset);
@@ -13202,8 +13331,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final warehouseIdParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 18);
-          final discountPercentageLimitParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final discountPercentageLimitParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 20);
           final orderTypesParam =
               const fb.ListReader<int>(fb.Int64Reader(), lazy: false)
                   .vTableGetNullable(buffer, rootOffset, 22);
@@ -13474,6 +13603,14 @@ class Address_ {
   /// see [Address.zipCode]
   static final zipCode =
       obx.QueryStringProperty<Address>(_entities[1].properties[16]);
+
+  /// see [Address.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<Address>(_entities[1].properties[17]);
+
+  /// see [Address.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<Address>(_entities[1].properties[18]);
 }
 
 /// [AppliedModifer] entity fields to define ObjectBox queries.
@@ -14016,6 +14153,10 @@ class Branch_ {
   /// see [Branch.receiveOnlineOrders]
   static final receiveOnlineOrders =
       obx.QueryBooleanProperty<Branch>(_entities[9].properties[16]);
+
+  /// see [Branch.orderTypes]
+  static final orderTypes =
+      obx.QueryIntegerVectorProperty<Branch>(_entities[9].properties[17]);
 }
 
 /// [CashierSetting] entity fields to define ObjectBox queries.
@@ -15223,6 +15364,14 @@ class Fee_ {
   /// see [Fee.maxAmountPerProduct]
   static final maxAmountPerProduct =
       obx.QueryDoubleProperty<Fee>(_entities[27].properties[18]);
+
+  /// see [Fee.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<Fee>(_entities[27].properties[19]);
+
+  /// see [Fee.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<Fee>(_entities[27].properties[20]);
 }
 
 /// [FeeValue] entity fields to define ObjectBox queries.
@@ -15894,6 +16043,14 @@ class OrderC_ {
   /// see [OrderC.lastModifiedOn]
   static final lastModifiedOn =
       obx.QueryStringProperty<OrderC>(_entities[43].properties[56]);
+
+  /// see [OrderC.customerName]
+  static final customerName =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[57]);
+
+  /// see [OrderC.customerPhone]
+  static final customerPhone =
+      obx.QueryStringProperty<OrderC>(_entities[43].properties[58]);
 
   /// see [OrderC.products]
   static final products = obx.QueryRelationToMany<OrderC, AppliedProduct>(
@@ -16994,6 +17151,9 @@ class Slaps_ {
   /// see [Slaps.timeEventId]
   static final timeEventId =
       obx.QueryStringProperty<Slaps>(_entities[62].properties[4]);
+
+  /// see [Slaps.id]
+  static final id = obx.QueryStringProperty<Slaps>(_entities[62].properties[5]);
 }
 
 /// [Table] entity fields to define ObjectBox queries.
@@ -17443,6 +17603,14 @@ class TimeEvent_ {
   /// see [TimeEvent.priority]
   static final priority =
       obx.QueryIntegerProperty<TimeEvent>(_entities[71].properties[16]);
+
+  /// see [TimeEvent.deviceCreatedOn]
+  static final deviceCreatedOn =
+      obx.QueryStringProperty<TimeEvent>(_entities[71].properties[17]);
+
+  /// see [TimeEvent.deviceCreatedBy]
+  static final deviceCreatedBy =
+      obx.QueryStringProperty<TimeEvent>(_entities[71].properties[18]);
 }
 
 /// [Transaction] entity fields to define ObjectBox queries.
@@ -17633,7 +17801,7 @@ class UserCashierSetting_ {
 
   /// see [UserCashierSetting.discountPercentageLimit]
   static final discountPercentageLimit =
-      obx.QueryIntegerProperty<UserCashierSetting>(_entities[75].properties[8]);
+      obx.QueryDoubleProperty<UserCashierSetting>(_entities[75].properties[8]);
 
   /// see [UserCashierSetting.orderTypes]
   static final orderTypes = obx.QueryIntegerVectorProperty<UserCashierSetting>(

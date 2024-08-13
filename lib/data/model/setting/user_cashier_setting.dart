@@ -12,7 +12,7 @@ class UserCashierSetting {
   String? groupId;
   String? priceListId;
   String? warehouseId;
-  int? discountPercentageLimit;
+  double? discountPercentageLimit;
   List<int>? orderTypes;
   List<String>? paymentMethods;
   List<String>? restaurantSections;
@@ -52,7 +52,8 @@ class UserCashierSetting {
     groupId = json['groupId'];
     priceListId = json['priceListId'];
     warehouseId = json['warehouseId'];
-    discountPercentageLimit = json['discount_Percentage_Limit'];
+    discountPercentageLimit =
+        double.tryParse(json['discount_Percentage_Limit'].toString());
     if (json['orderTypes'] != null) {
       orderTypes = [];
       json['orderTypes'].forEach((v) {

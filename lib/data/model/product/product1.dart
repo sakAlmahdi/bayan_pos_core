@@ -1,7 +1,9 @@
 import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/data/model/order/group.dart';
 import 'package:bayan_pos_core/data/model/order/unit.dart';
+import 'package:bayan_pos_core/data/model/order/unit_mapper.dart';
 import 'package:bayan_pos_core/data/model/product/Ingredients.dart';
+import 'package:bayan_pos_core/data/model/product/modifer_mapper.dart';
 import 'package:bayan_pos_core/data/model/product/modifier.dart';
 import 'package:objectbox/objectbox.dart';
 
@@ -122,7 +124,9 @@ class Product1 {
     this.showAlertPreparationTime,
   });
 
-  Product1.fromJson(Map<String, dynamic> json) {
+  Product1.fromJson(Map<String, dynamic> json,
+      {Map<String, UnitMapper>? unitsMapper,
+      Map<String, ModifiersMapper>? modifiersMapper}) {
     id = json['id'];
     idSeq = 0;
     name = json['name'];
@@ -174,12 +178,15 @@ class Product1 {
 
     if (json['units'] != null) {
       json['units'].forEach((v) {
-        units.add(Unit.fromJson(v));
+        units.add(Unit.fromJson(v,
+            unitsMapper: unitsMapper, modifiersMapper: modifiersMapper));
       });
     }
     if (json['modifiers'] != null) {
       json['modifiers'].forEach((v) {
-        modifiers.add(Modifier.fromJson(v));
+        String id = v['id'].toString();
+        modifiers
+            .add(Modifier.fromJson(v, modifiersMapper: modifiersMapper?[id]));
       });
     }
 

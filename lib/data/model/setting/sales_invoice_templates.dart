@@ -150,10 +150,12 @@ class SalesInvoiceTemplates {
     printCheckNumber = json['print_Check_Number'];
     hideFreeModifierOptions = json['hide_Free_ModifierOptions'];
     autoPrintOnSave = json['auto_Print_OnSave'];
-    printLanguage = json['print_language'];
-    printerPaperSize = json['printerPaperSize'];
-    printerPaperDirection = json['printerPaperDirection'];
-    invoiceCategory = json['invoiceCategory'];
+
+    /// TODO :: -SSS convert to int
+    // printLanguage = json['print_language'];
+    // printerPaperSize = json['printerPaperSize'];
+    // printerPaperDirection = json['printerPaperDirection'];
+    // invoiceCategory = json['invoiceCategory'];
     defaultLanguage = json['default_Language'];
     secondLanguage = json['second_Language'];
     if (json['orderTypes'] != null) {

@@ -17,13 +17,8 @@ class Coupon {
   String? endTime;
   String? discountId;
   List<int>? days;
-
-  ///TODO couponLevel for coupon  not in api
   int? couponLevel;
-
-  ///TODO numberOFProducts for coupon  not in api
   int numberOFProducts = 1;
-
   @Transient()
   CouponLevel? get getCouponLevel => convetStringToCouponLevel(couponLevel);
 

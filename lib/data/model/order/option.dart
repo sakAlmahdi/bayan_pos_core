@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
+import 'package:bayan_pos_core/data/model/product/modifer_mapper.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -38,10 +39,10 @@ class Option {
     this.fname,
   });
 
-  Option.fromJson(Map<String, dynamic> json) {
+  Option.fromJson(Map<String, dynamic> json, {OptionMapper? optionsMapper}) {
     id = json['id'];
-    name = json['name'];
-    fname = json['fName'];
+    name = json['name'] ?? optionsMapper?.name;
+    fname = json['fName'] ?? optionsMapper?.fName;
     costType = json['costType'].toString();
     modifierType = json['modifierType'];
     instructionType = json['instructionType'];

@@ -40,8 +40,8 @@ class Table {
         double.tryParse(json['minumumReservationPrice'].toString());
     status = json['status'];
     shape = json['shape'];
-    offsetX = json['offsetX'];
-    offsetY = json['offsetY'];
+    offsetX = int.tryParse(json['offsetX'].toString());
+    offsetY = int.tryParse(json['offsetY'].toString());
   }
 
   Map<String, dynamic> toJson() {

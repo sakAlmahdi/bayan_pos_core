@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
+import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -22,6 +23,10 @@ class Branch {
   String? headerInvoiceMsg;
   String? footerInvoiceMsg;
   bool? receiveOnlineOrders;
+  List<int>? orderTypes;
+  @Transient()
+  List<OrderType?>? get getOrderTypes =>
+      orderTypes?.map((e) => convertStringToOrderType(e)).toList();
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
@@ -63,6 +68,12 @@ class Branch {
     footerInvoiceMsg = json['footerInvoiceMsg'];
     receiveOnlineOrders = json['receiveOnlineOrders'];
     fName = json['fName'];
+    if (json['orderTypes'] != null) {
+      orderTypes = [];
+      json['orderTypes'].forEach((v) {
+        orderTypes?.add(int.parse(v.toString()));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -83,6 +94,9 @@ class Branch {
     data['footerInvoiceMsg'] = footerInvoiceMsg;
     data['receiveOnlineOrders'] = receiveOnlineOrders;
     data['fName'] = fName;
+    if (orderTypes != null) {
+      data['orderTypes'] = orderTypes!.map((v) => v).toList();
+    }
     return data;
   }
 }

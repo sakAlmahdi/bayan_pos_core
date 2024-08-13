@@ -154,7 +154,7 @@
     },
     {
       "id": "2:3606476828568732083",
-      "lastPropertyId": "17:7936528330498948338",
+      "lastPropertyId": "19:7292883903619446333",
       "name": "Address",
       "properties": [
         {
@@ -241,6 +241,16 @@
         {
           "id": "17:7936528330498948338",
           "name": "zipCode",
+          "type": 9
+        },
+        {
+          "id": "18:7864175708713536449",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "19:7292883903619446333",
+          "name": "deviceCreatedBy",
           "type": 9
         }
       ],
@@ -911,7 +921,7 @@
     },
     {
       "id": "10:1060923087034164105",
-      "lastPropertyId": "17:811258836577938388",
+      "lastPropertyId": "18:1951247964942227846",
       "name": "Branch",
       "properties": [
         {
@@ -1001,6 +1011,11 @@
           "id": "17:811258836577938388",
           "name": "receiveOnlineOrders",
           "type": 1
+        },
+        {
+          "id": "18:1951247964942227846",
+          "name": "orderTypes",
+          "type": 27
         }
       ],
       "relations": []
@@ -2550,7 +2565,7 @@
     },
     {
       "id": "28:4606616327623200232",
-      "lastPropertyId": "19:8245679497649091979",
+      "lastPropertyId": "21:6533830255038611003",
       "name": "Fee",
       "properties": [
         {
@@ -2650,6 +2665,16 @@
           "id": "19:8245679497649091979",
           "name": "maxAmountPerProduct",
           "type": 8
+        },
+        {
+          "id": "20:7316475405983654459",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "21:6533830255038611003",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": []
@@ -3305,7 +3330,7 @@
     },
     {
       "id": "44:7842135050779151667",
-      "lastPropertyId": "59:7699985157769986675",
+      "lastPropertyId": "61:1469586939945735797",
       "name": "OrderC",
       "properties": [
         {
@@ -3609,6 +3634,16 @@
         {
           "id": "59:7699985157769986675",
           "name": "lastModifiedOn",
+          "type": 9
+        },
+        {
+          "id": "60:6199924457436932577",
+          "name": "customerName",
+          "type": 9
+        },
+        {
+          "id": "61:1469586939945735797",
+          "name": "customerPhone",
           "type": 9
         }
       ],
@@ -5055,7 +5090,7 @@
     },
     {
       "id": "63:6441730119704921212",
-      "lastPropertyId": "5:4639928631642040996",
+      "lastPropertyId": "6:8435977489967516681",
       "name": "Slaps",
       "properties": [
         {
@@ -5082,6 +5117,11 @@
         {
           "id": "5:4639928631642040996",
           "name": "timeEventId",
+          "type": 9
+        },
+        {
+          "id": "6:8435977489967516681",
+          "name": "id",
           "type": 9
         }
       ],
@@ -5613,7 +5653,7 @@
     },
     {
       "id": "72:3217800456771791053",
-      "lastPropertyId": "17:7098063145550252599",
+      "lastPropertyId": "19:1278410208538349011",
       "name": "TimeEvent",
       "properties": [
         {
@@ -5703,6 +5743,16 @@
           "id": "17:7098063145550252599",
           "name": "priority",
           "type": 6
+        },
+        {
+          "id": "18:4416697130290611271",
+          "name": "deviceCreatedOn",
+          "type": 9
+        },
+        {
+          "id": "19:1278410208538349011",
+          "name": "deviceCreatedBy",
+          "type": 9
         }
       ],
       "relations": []
@@ -5965,7 +6015,7 @@
         {
           "id": "9:4188857422947793582",
           "name": "discountPercentageLimit",
-          "type": 6
+          "type": 8
         },
         {
           "id": "10:4717594604415776906",
