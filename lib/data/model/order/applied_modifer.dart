@@ -64,7 +64,8 @@ class AppliedModifer {
       data['modifier'] = modifier.target!.toJson().removeNull();
     }
 
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -76,7 +77,8 @@ class AppliedModifer {
       data['modifier'] = modifier.target!.toJson().removeNull();
     }
 
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -146,7 +148,8 @@ class AppliedOption {
     data['freeQtyUsed'] = freeQtyUsed;
     data['taxableAmt'] = taxableAmt;
     data['priceWithTax'] = priceWithTax;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;
@@ -166,7 +169,8 @@ class AppliedOption {
     data['freeQtyUsed'] = freeQtyUsed;
     data['taxableAmt'] = taxableAmt;
     data['priceWithTax'] = priceWithTax;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;

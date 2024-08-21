@@ -420,6 +420,7 @@ class OrderStatusTracking {
   OrderStatusTracking.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     notes = json['notes'];
+
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
   }
@@ -428,7 +429,8 @@ class OrderStatusTracking {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['status'] = status;
     data['notes'] = notes;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -490,7 +492,8 @@ class SendCustomer {
     data['taxNo'] = taxNo;
     data['crNo'] = crNo;
     data['customerId'] = customerId;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     if (address != null) {
       data['address'] = address!.toJson();
@@ -591,7 +594,8 @@ class SendAddress {
     data['popularPlace'] = popularPlace;
     data['postalCode'] = postalCode;
     data['zipCode'] = zipCode;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -647,7 +651,8 @@ class LoyaltyPoint {
     data['redeemedLoyaltyPoints'] = redeemedLoyaltyPoints;
     data['redeemedLoyaltyPointsAmount'] = redeemedLoyaltyPointsAmount;
     data['calcLoyaltyPoints'] = calcLoyaltyPoints;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -688,7 +693,8 @@ class SendTable {
     data['splitIndex'] = splitIndex;
     data['supervisorId'] = supervisorId;
     data['tableOrderStatus'] = tableOrderStatus;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -910,7 +916,8 @@ class Products {
     data['kitchenNote'] = kitchenNote;
     data['deliveryNote'] = deliveryNote;
     data['reservedNote'] = reservedNote;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1071,7 +1078,8 @@ class SendTaxTypes {
     data['percent'] = percent;
     data['value'] = value;
     data['amount'] = amount;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1152,7 +1160,8 @@ class SendUnit {
     if (modifiers != null) {
       data['modifiers'] = modifiers!.map((v) => v.toJson()).toList();
     }
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1191,7 +1200,8 @@ class SendPriceList {
     if (slap != null) {
       data['slap'] = slap!.toJson();
     }
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1232,7 +1242,8 @@ class SendSlap {
     data['fromQuantity'] = fromQuantity;
     data['toQuantity'] = toQuantity;
     data['timeEventId'] = timeEventId;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1285,7 +1296,8 @@ class SendModifiers {
     if (options != null) {
       data['options'] = options!.map((v) => v.toJson()).toList();
     }
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1338,7 +1350,8 @@ class SendOptions {
     data['freeQuantity'] = freeQuantity;
     data['amount'] = amount;
     data['isDefault'] = isDefault;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1407,7 +1420,8 @@ class SendDiscount {
     data['percent'] = percent;
     data['value'] = value;
     data['amount'] = amount;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1446,7 +1460,8 @@ class SendPromotion {
     data['percent'] = percent;
     data['value'] = value;
     data['amount'] = amount;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1488,7 +1503,8 @@ class SendTimeEvent {
     data['percent'] = percent;
     data['value'] = value;
     data['amount'] = amount;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1546,7 +1562,8 @@ class SendFees {
     if (taxInfo != null) {
       data['taxInfo'] = taxInfo!.toJson();
     }
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1568,7 +1585,8 @@ class Waiters {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['waiterId'] = waiterId;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1637,7 +1655,8 @@ class SendDelivery {
     data['latitude'] = latitude;
     data['longitude'] = longitude;
     data['wayBillId'] = wayBillId;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1683,7 +1702,8 @@ class SendCoupon {
     data['percent'] = percent;
     data['value'] = value;
     data['amount'] = amount;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1724,7 +1744,8 @@ class SendGiftCard {
     data['percent'] = percent;
     data['value'] = value;
     data['amount'] = amount;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }
@@ -1783,7 +1804,8 @@ class SendPayments {
     data['currencyAmount'] = currencyAmount;
     data['paymentStatus'] = paymentStatus;
     data['currencyId'] = currencyId;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }

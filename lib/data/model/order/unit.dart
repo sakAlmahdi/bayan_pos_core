@@ -98,7 +98,8 @@ class Unit {
     data['priceType'] = priceType;
     data['priceLists'] = priceList.map((v) => v.toJson()).toList();
     data['modifiers'] = modifiers.map((v) => v.toJson()).toList();
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }

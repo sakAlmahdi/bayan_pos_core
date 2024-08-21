@@ -193,7 +193,8 @@ class Discount {
       data['categories'] = categories!.map((v) => v).toList();
     }
 
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }

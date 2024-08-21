@@ -154,7 +154,8 @@ class TimeEvent {
     if (categories != null) {
       data['categories'] = products!.map((v) => v).toList();
     }
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }

@@ -857,7 +857,8 @@ class AppliedProduct {
     data['barcodePrice'] = barcodePrice;
     data['deliveryNote'] = deliveryNote;
     data['reservedNote'] = reservedNote;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
     if (fess != null) {
@@ -1024,7 +1025,8 @@ class TaxValue {
     data['isNotApplyForThisCustomer'] = isNotApplyForThisCustomer;
     data['isNotApplyForThisOrderType'] = isNotApplyForThisOrderType;
     data['isNotApplyForThisPeriod'] = isNotApplyForThisPeriod;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }

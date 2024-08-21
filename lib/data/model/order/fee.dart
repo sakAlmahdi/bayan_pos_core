@@ -112,7 +112,8 @@ class Fee {
     data['applyForProducts'] = amountIncludeInProductPrice;
     data['maxAmountPerProduct'] = maxAmountPerProduct;
     data['minAmountPerProduct'] = minAmountPerProduct;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;

@@ -92,7 +92,8 @@ class Address {
     data['phone'] = phone;
     data['popularPlace'] = popularPlace;
     data['zipCode'] = zipCode;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     return data;
   }

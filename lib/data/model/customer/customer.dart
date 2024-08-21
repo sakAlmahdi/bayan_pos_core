@@ -109,7 +109,8 @@ class Customer {
         houseAccountTranscations.map((v) => v.toJson()).toList();
     data['priceListId'] = priceListId;
     data['taxable'] = taxable;
-    data['deviceCreatedOn'] = deviceCreatedOn;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
     return data;
