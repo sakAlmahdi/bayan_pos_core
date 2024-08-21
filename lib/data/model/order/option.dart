@@ -40,6 +40,8 @@ class Option {
   });
 
   Option.fromJson(Map<String, dynamic> json, {OptionMapper? optionsMapper}) {
+    // print(
+    //     "option-id ${json['id']} optionMapper-id ${optionsMapper?.id} ${optionsMapper?.name} -  ${optionsMapper?.fName}");
     id = json['id'];
     name = json['name'] ?? optionsMapper?.name;
     fname = json['fName'] ?? optionsMapper?.fName;

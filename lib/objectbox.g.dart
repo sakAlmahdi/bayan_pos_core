@@ -3843,7 +3843,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(48, 2999850600817306817),
       name: 'PosUser',
-      lastPropertyId: const obx_int.IdUid(13, 2829745844714393290),
+      lastPropertyId: const obx_int.IdUid(14, 775656280),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -3864,21 +3864,6 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(4, 5539539547463628018),
             name: 'phoneNumber',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 6801069914061037293),
-            name: 'passwordHash',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 6447532953644951274),
-            name: 'pin',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 7598445715640819471),
-            name: 'pinMD5',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
@@ -3912,7 +3897,12 @@ final _entities = <obx_int.ModelEntity>[
             type: 11,
             flags: 520,
             indexId: const obx_int.IdUid(51, 8084719929455590064),
-            relationTarget: 'UserCashierSetting')
+            relationTarget: 'UserCashierSetting'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 775656280),
+            name: 'pin',
+            type: 9,
+            flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
         obx_int.ModelRelation(
@@ -6110,7 +6100,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
         435031246789707323,
         5508217085012687773,
         4126026164784121566,
-        6294190789633290918
+        6294190789633290918,
+        7598445715640819471,
+        6801069914061037293,
+        6447532953644951274
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -10602,11 +10595,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final phoneNumberOffset = object.phoneNumber == null
               ? null
               : fbb.writeString(object.phoneNumber!);
-          final passwordHashOffset = object.passwordHash == null
-              ? null
-              : fbb.writeString(object.passwordHash!);
-          final pinMD5Offset =
-              object.pinMD5 == null ? null : fbb.writeString(object.pinMD5!);
           final imageUrlOffset = object.imageUrl == null
               ? null
               : fbb.writeString(object.imageUrl!);
@@ -10623,20 +10611,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.dashboardlanguageCode == null
                   ? null
                   : fbb.writeString(object.dashboardlanguageCode!);
-          fbb.startTable(14);
+          final pinOffset =
+              object.pin == null ? null : fbb.writeString(object.pin!);
+          fbb.startTable(15);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
           fbb.addOffset(3, phoneNumberOffset);
-          fbb.addOffset(4, passwordHashOffset);
-          fbb.addInt64(5, object.pin);
-          fbb.addOffset(6, pinMD5Offset);
           fbb.addOffset(7, imageUrlOffset);
           fbb.addOffset(8, orderTypesOffset);
           fbb.addOffset(9, appslanguageCodeOffset);
           fbb.addOffset(10, appsDataLanguageCodeOffset);
           fbb.addOffset(11, dashboardlanguageCodeOffset);
           fbb.addInt64(12, object.cashierSetting.targetId);
+          fbb.addOffset(13, pinOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -10650,13 +10638,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final phoneNumberParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 10);
-          final passwordHashParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
-          final pinParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
-          final pinMD5Param = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 16);
+          final pinParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 30);
           final imageUrlParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 18);
           final appsDataLanguageCodeParam =
@@ -10675,9 +10658,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
               id: idParam,
               name: nameParam,
               phoneNumber: phoneNumberParam,
-              passwordHash: passwordHashParam,
               pin: pinParam,
-              pinMD5: pinMD5Param,
               imageUrl: imageUrlParam,
               appsDataLanguageCode: appsDataLanguageCodeParam,
               appslanguageCode: appslanguageCodeParam,
@@ -16196,42 +16177,34 @@ class PosUser_ {
   static final phoneNumber =
       obx.QueryStringProperty<PosUser>(_entities[47].properties[3]);
 
-  /// see [PosUser.passwordHash]
-  static final passwordHash =
-      obx.QueryStringProperty<PosUser>(_entities[47].properties[4]);
-
-  /// see [PosUser.pin]
-  static final pin =
-      obx.QueryIntegerProperty<PosUser>(_entities[47].properties[5]);
-
-  /// see [PosUser.pinMD5]
-  static final pinMD5 =
-      obx.QueryStringProperty<PosUser>(_entities[47].properties[6]);
-
   /// see [PosUser.imageUrl]
   static final imageUrl =
-      obx.QueryStringProperty<PosUser>(_entities[47].properties[7]);
+      obx.QueryStringProperty<PosUser>(_entities[47].properties[4]);
 
   /// see [PosUser.orderTypes]
   static final orderTypes =
-      obx.QueryIntegerVectorProperty<PosUser>(_entities[47].properties[8]);
+      obx.QueryIntegerVectorProperty<PosUser>(_entities[47].properties[5]);
 
   /// see [PosUser.appslanguageCode]
   static final appslanguageCode =
-      obx.QueryStringProperty<PosUser>(_entities[47].properties[9]);
+      obx.QueryStringProperty<PosUser>(_entities[47].properties[6]);
 
   /// see [PosUser.appsDataLanguageCode]
   static final appsDataLanguageCode =
-      obx.QueryStringProperty<PosUser>(_entities[47].properties[10]);
+      obx.QueryStringProperty<PosUser>(_entities[47].properties[7]);
 
   /// see [PosUser.dashboardlanguageCode]
   static final dashboardlanguageCode =
-      obx.QueryStringProperty<PosUser>(_entities[47].properties[11]);
+      obx.QueryStringProperty<PosUser>(_entities[47].properties[8]);
 
   /// see [PosUser.cashierSetting]
   static final cashierSetting =
       obx.QueryRelationToOne<PosUser, UserCashierSetting>(
-          _entities[47].properties[12]);
+          _entities[47].properties[9]);
+
+  /// see [PosUser.pin]
+  static final pin =
+      obx.QueryStringProperty<PosUser>(_entities[47].properties[10]);
 
   /// see [PosUser.roles]
   static final roles =

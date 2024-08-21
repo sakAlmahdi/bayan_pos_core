@@ -9,9 +9,8 @@ class PosUser {
   String? id;
   String? name;
   String? phoneNumber;
-  String? passwordHash;
-  int? pin;
-  String? pinMD5;
+  @Property(uid: 775656280)
+  String? pin;
   String? imageUrl;
   List<int>? orderTypes;
   String? appslanguageCode;
@@ -35,9 +34,7 @@ class PosUser {
     this.id,
     this.name,
     this.phoneNumber,
-    this.passwordHash,
     this.pin,
-    this.pinMD5,
     this.imageUrl,
     this.appsDataLanguageCode,
     this.appslanguageCode,
@@ -55,9 +52,9 @@ class PosUser {
     id = json['id'];
     name = json['name'];
     phoneNumber = json['phoneNumber'];
-    passwordHash = json['passwordHash'];
+
     pin = json['pin'];
-    pinMD5 = json['pinMD5'];
+    // pinMD5 = json['pinMD5'];
     imageUrl = json['imageUrl'];
     appsDataLanguageCode = json['appsDataLanguageCode'];
     appslanguageCode = json['appslanguageCode'];
@@ -123,9 +120,9 @@ class PosUser {
     data['id'] = id;
     data['name'] = name;
     data['phoneNumber'] = phoneNumber;
-    data['passwordHash'] = passwordHash;
+
     data['pin'] = pin;
-    data['pinMD5'] = pinMD5;
+
     data['imageUrl'] = imageUrl;
     data['orderTypes'] = orderTypes;
     data['roles'] = roles.map((v) => v.toJson()).toList();

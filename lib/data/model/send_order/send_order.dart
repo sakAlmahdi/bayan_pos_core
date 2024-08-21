@@ -242,9 +242,9 @@ class SendOrder {
     data['invoiceNumber'] = invoiceNumber;
     data['callName'] = callName;
     data['callNumber'] = callNumber;
-    data['openOn'] = openOn;
+    data['openOn'] = DateTime.parse(openOn.toString()).toIso8601String();
     data['openBy'] = openBy;
-    data['closeOn'] = closeOn;
+    data['closeOn'] = DateTime.tryParse(closeOn.toString())?.toIso8601String();
     data['closeBy'] = closeBy;
     data['giftCardId'] = giftCardId;
     data['priceListId'] = priceListId;
@@ -279,40 +279,40 @@ class SendOrder {
     data['trackingStatusId'] = trackingStatusId;
     if (orderStatusTracking != null) {
       data['orderStatusTracking'] =
-          orderStatusTracking!.map((v) => v.toJson()).toList();
+          orderStatusTracking!.map((v) => v.toJson().removeNull()).toList();
     }
     if (customer != null) {
-      data['customer'] = customer!.toJson();
+      data['customer'] = customer!.toJson().removeNull();
     }
     if (table != null) {
-      data['table'] = table!.toJson();
+      data['table'] = table!.toJson().removeNull();
     }
     if (products != null) {
-      data['products'] = products!.map((v) => v.toJson()).toList();
+      data['products'] = products!.map((v) => v.toJson().removeNull()).toList();
     }
     if (waiters != null) {
-      data['waiters'] = waiters!.map((v) => v.toJson()).toList();
+      data['waiters'] = waiters!.map((v) => v.toJson().removeNull()).toList();
     }
     if (delivery != null) {
-      data['delivery'] = delivery!.toJson();
+      data['delivery'] = delivery!.toJson().removeNull();
     }
     if (discount != null) {
-      data['discount'] = discount!.toJson();
+      data['discount'] = discount!.toJson().removeNull();
     }
     if (promotion != null) {
-      data['promotion'] = promotion!.toJson();
+      data['promotion'] = promotion!.toJson().removeNull();
     }
     if (fees != null) {
-      data['fees'] = fees!.map((v) => v.toJson()).toList();
+      data['fees'] = fees!.map((v) => v.toJson().removeNull()).toList();
     }
     if (coupon != null) {
-      data['coupon'] = coupon!.toJson();
+      data['coupon'] = coupon!.toJson().removeNull();
     }
     if (giftCard != null) {
-      data['giftCard'] = giftCard!.toJson();
+      data['giftCard'] = giftCard!.toJson().removeNull();
     }
     if (payments != null) {
-      data['payments'] = payments!.map((v) => v.toJson()).toList();
+      data['payments'] = payments!.map((v) => v.toJson().removeNull()).toList();
     }
     data['createdOn'] = createdOn;
     data['createdBy'] = createdBy;
@@ -327,8 +327,8 @@ class SendOrder {
     orderSource = order.orderSource;
     masterOrderNo = 0;
     deviceOrderNo = 0;
-    masterOrderId = "";
-    deviceOrderId = "";
+    masterOrderId = "00000000-0000-0000-0000-000000000000";
+    deviceOrderId = "00000000-0000-0000-0000-000000000000";
     casherNote = order.note;
     // invoiceNumber= order.invoiceNumber;
     callName = order.callName;

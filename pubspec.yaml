@@ -15,6 +15,7 @@ dependencies:
   drift: ^2.10.0
   flutter:
     sdk: flutter
+  flutter_guid: ^0.3.1
   get: ^4.6.5
   get_storage: ^2.1.1
   intl: ^0.18.0
@@ -25,19 +26,20 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.5
+
   drift_dev: ^2.9.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   objectbox_generator: ^2.1.0
 
-dependency_overrides: null
+dependency_overrides:
+  uuid: ^3.0.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter: null
-
 # To add assets to your package, add an assets section, like this:
 # assets:
 #   - images/a_dot_burr.jpeg

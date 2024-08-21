@@ -15,10 +15,10 @@ class OrderEntity extends Table {
   IntColumn get callNumber => integer().nullable()();
   IntColumn get orderType => integer()();
   IntColumn get status => integer()();
-  IntColumn get paymentStatus => integer()();
-  IntColumn get refundStatus => integer()();
-  IntColumn get deliveryStatus => integer()();
-  IntColumn get orderSource => integer()();
+  IntColumn get paymentStatus => integer().nullable()();
+  IntColumn get refundStatus => integer().nullable()();
+  IntColumn get deliveryStatus => integer().nullable()();
+  IntColumn get orderSource => integer().nullable()();
   DateTimeColumn get endTime => dateTime().nullable()();
   TextColumn get deliveryCompanyInfoId =>
       text().map(const JsonTypeConverter()).nullable()();

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bayan_pos_core/core/extensions/base_num_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_guid/flutter_guid.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:intl/date_symbol_data_local.dart';
@@ -17,6 +18,7 @@ mixin BaseHelpersMethods {
   }
 
   static String createRefId() {
+    return Guid.newGuid.value;
     initializeDateFormatting();
     String id = intl.DateFormat('yyMMddHHmmss', 'en').format(
       DateTime.now(),

@@ -93,26 +93,26 @@ class $OrderEntityTable extends OrderEntity
       const VerificationMeta('paymentStatus');
   @override
   late final GeneratedColumn<int> paymentStatus = GeneratedColumn<int>(
-      'payment_status', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'payment_status', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _refundStatusMeta =
       const VerificationMeta('refundStatus');
   @override
   late final GeneratedColumn<int> refundStatus = GeneratedColumn<int>(
-      'refund_status', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'refund_status', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _deliveryStatusMeta =
       const VerificationMeta('deliveryStatus');
   @override
   late final GeneratedColumn<int> deliveryStatus = GeneratedColumn<int>(
-      'delivery_status', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'delivery_status', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _orderSourceMeta =
       const VerificationMeta('orderSource');
   @override
   late final GeneratedColumn<int> orderSource = GeneratedColumn<int>(
-      'order_source', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'order_source', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _endTimeMeta =
       const VerificationMeta('endTime');
   @override
@@ -613,32 +613,24 @@ class $OrderEntityTable extends OrderEntity
           _paymentStatusMeta,
           paymentStatus.isAcceptableOrUnknown(
               data['payment_status']!, _paymentStatusMeta));
-    } else if (isInserting) {
-      context.missing(_paymentStatusMeta);
     }
     if (data.containsKey('refund_status')) {
       context.handle(
           _refundStatusMeta,
           refundStatus.isAcceptableOrUnknown(
               data['refund_status']!, _refundStatusMeta));
-    } else if (isInserting) {
-      context.missing(_refundStatusMeta);
     }
     if (data.containsKey('delivery_status')) {
       context.handle(
           _deliveryStatusMeta,
           deliveryStatus.isAcceptableOrUnknown(
               data['delivery_status']!, _deliveryStatusMeta));
-    } else if (isInserting) {
-      context.missing(_deliveryStatusMeta);
     }
     if (data.containsKey('order_source')) {
       context.handle(
           _orderSourceMeta,
           orderSource.isAcceptableOrUnknown(
               data['order_source']!, _orderSourceMeta));
-    } else if (isInserting) {
-      context.missing(_orderSourceMeta);
     }
     if (data.containsKey('end_time')) {
       context.handle(_endTimeMeta,
@@ -875,13 +867,13 @@ class $OrderEntityTable extends OrderEntity
       status: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}status'])!,
       paymentStatus: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}payment_status'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}payment_status']),
       refundStatus: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}refund_status'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}refund_status']),
       deliveryStatus: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}delivery_status'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}delivery_status']),
       orderSource: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}order_source'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}order_source']),
       endTime: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}end_time']),
       deliveryCompanyInfoId: $OrderEntityTable.$converterdeliveryCompanyInfoId
@@ -1071,10 +1063,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final int? callNumber;
   final int orderType;
   final int status;
-  final int paymentStatus;
-  final int refundStatus;
-  final int deliveryStatus;
-  final int orderSource;
+  final int? paymentStatus;
+  final int? refundStatus;
+  final int? deliveryStatus;
+  final int? orderSource;
   final DateTime? endTime;
   final dynamic deliveryCompanyInfoId;
   final String? priceListId;
@@ -1142,10 +1134,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       this.callNumber,
       required this.orderType,
       required this.status,
-      required this.paymentStatus,
-      required this.refundStatus,
-      required this.deliveryStatus,
-      required this.orderSource,
+      this.paymentStatus,
+      this.refundStatus,
+      this.deliveryStatus,
+      this.orderSource,
       this.endTime,
       this.deliveryCompanyInfoId,
       this.priceListId,
@@ -1233,10 +1225,18 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
     }
     map['order_type'] = Variable<int>(orderType);
     map['status'] = Variable<int>(status);
-    map['payment_status'] = Variable<int>(paymentStatus);
-    map['refund_status'] = Variable<int>(refundStatus);
-    map['delivery_status'] = Variable<int>(deliveryStatus);
-    map['order_source'] = Variable<int>(orderSource);
+    if (!nullToAbsent || paymentStatus != null) {
+      map['payment_status'] = Variable<int>(paymentStatus);
+    }
+    if (!nullToAbsent || refundStatus != null) {
+      map['refund_status'] = Variable<int>(refundStatus);
+    }
+    if (!nullToAbsent || deliveryStatus != null) {
+      map['delivery_status'] = Variable<int>(deliveryStatus);
+    }
+    if (!nullToAbsent || orderSource != null) {
+      map['order_source'] = Variable<int>(orderSource);
+    }
     if (!nullToAbsent || endTime != null) {
       map['end_time'] = Variable<DateTime>(endTime);
     }
@@ -1452,10 +1452,18 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           : Value(callNumber),
       orderType: Value(orderType),
       status: Value(status),
-      paymentStatus: Value(paymentStatus),
-      refundStatus: Value(refundStatus),
-      deliveryStatus: Value(deliveryStatus),
-      orderSource: Value(orderSource),
+      paymentStatus: paymentStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentStatus),
+      refundStatus: refundStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(refundStatus),
+      deliveryStatus: deliveryStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deliveryStatus),
+      orderSource: orderSource == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderSource),
       endTime: endTime == null && nullToAbsent
           ? const Value.absent()
           : Value(endTime),
@@ -1628,10 +1636,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       callNumber: serializer.fromJson<int?>(json['callNumber']),
       orderType: serializer.fromJson<int>(json['orderType']),
       status: serializer.fromJson<int>(json['status']),
-      paymentStatus: serializer.fromJson<int>(json['paymentStatus']),
-      refundStatus: serializer.fromJson<int>(json['refundStatus']),
-      deliveryStatus: serializer.fromJson<int>(json['deliveryStatus']),
-      orderSource: serializer.fromJson<int>(json['orderSource']),
+      paymentStatus: serializer.fromJson<int?>(json['paymentStatus']),
+      refundStatus: serializer.fromJson<int?>(json['refundStatus']),
+      deliveryStatus: serializer.fromJson<int?>(json['deliveryStatus']),
+      orderSource: serializer.fromJson<int?>(json['orderSource']),
       endTime: serializer.fromJson<DateTime?>(json['endTime']),
       deliveryCompanyInfoId:
           serializer.fromJson<dynamic>(json['deliveryCompanyInfoId']),
@@ -1708,10 +1716,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'callNumber': serializer.toJson<int?>(callNumber),
       'orderType': serializer.toJson<int>(orderType),
       'status': serializer.toJson<int>(status),
-      'paymentStatus': serializer.toJson<int>(paymentStatus),
-      'refundStatus': serializer.toJson<int>(refundStatus),
-      'deliveryStatus': serializer.toJson<int>(deliveryStatus),
-      'orderSource': serializer.toJson<int>(orderSource),
+      'paymentStatus': serializer.toJson<int?>(paymentStatus),
+      'refundStatus': serializer.toJson<int?>(refundStatus),
+      'deliveryStatus': serializer.toJson<int?>(deliveryStatus),
+      'orderSource': serializer.toJson<int?>(orderSource),
       'endTime': serializer.toJson<DateTime?>(endTime),
       'deliveryCompanyInfoId':
           serializer.toJson<dynamic>(deliveryCompanyInfoId),
@@ -1785,10 +1793,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<int?> callNumber = const Value.absent(),
           int? orderType,
           int? status,
-          int? paymentStatus,
-          int? refundStatus,
-          int? deliveryStatus,
-          int? orderSource,
+          Value<int?> paymentStatus = const Value.absent(),
+          Value<int?> refundStatus = const Value.absent(),
+          Value<int?> deliveryStatus = const Value.absent(),
+          Value<int?> orderSource = const Value.absent(),
           Value<DateTime?> endTime = const Value.absent(),
           Value<dynamic> deliveryCompanyInfoId = const Value.absent(),
           Value<String?> priceListId = const Value.absent(),
@@ -1861,10 +1869,13 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         callNumber: callNumber.present ? callNumber.value : this.callNumber,
         orderType: orderType ?? this.orderType,
         status: status ?? this.status,
-        paymentStatus: paymentStatus ?? this.paymentStatus,
-        refundStatus: refundStatus ?? this.refundStatus,
-        deliveryStatus: deliveryStatus ?? this.deliveryStatus,
-        orderSource: orderSource ?? this.orderSource,
+        paymentStatus:
+            paymentStatus.present ? paymentStatus.value : this.paymentStatus,
+        refundStatus:
+            refundStatus.present ? refundStatus.value : this.refundStatus,
+        deliveryStatus:
+            deliveryStatus.present ? deliveryStatus.value : this.deliveryStatus,
+        orderSource: orderSource.present ? orderSource.value : this.orderSource,
         endTime: endTime.present ? endTime.value : this.endTime,
         deliveryCompanyInfoId: deliveryCompanyInfoId.present
             ? deliveryCompanyInfoId.value
@@ -2186,10 +2197,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<int?> callNumber;
   final Value<int> orderType;
   final Value<int> status;
-  final Value<int> paymentStatus;
-  final Value<int> refundStatus;
-  final Value<int> deliveryStatus;
-  final Value<int> orderSource;
+  final Value<int?> paymentStatus;
+  final Value<int?> refundStatus;
+  final Value<int?> deliveryStatus;
+  final Value<int?> orderSource;
   final Value<DateTime?> endTime;
   final Value<dynamic> deliveryCompanyInfoId;
   final Value<String?> priceListId;
@@ -2329,10 +2340,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.callNumber = const Value.absent(),
     required int orderType,
     required int status,
-    required int paymentStatus,
-    required int refundStatus,
-    required int deliveryStatus,
-    required int orderSource,
+    this.paymentStatus = const Value.absent(),
+    this.refundStatus = const Value.absent(),
+    this.deliveryStatus = const Value.absent(),
+    this.orderSource = const Value.absent(),
     this.endTime = const Value.absent(),
     this.deliveryCompanyInfoId = const Value.absent(),
     this.priceListId = const Value.absent(),
@@ -2389,11 +2400,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   })  : startDate = Value(startDate),
         orderRef = Value(orderRef),
         orderType = Value(orderType),
-        status = Value(status),
-        paymentStatus = Value(paymentStatus),
-        refundStatus = Value(refundStatus),
-        deliveryStatus = Value(deliveryStatus),
-        orderSource = Value(orderSource);
+        status = Value(status);
   static Insertable<OrderEntityData> custom({
     Expression<int>? posTransactionType,
     Expression<int>? idSeq,
@@ -2559,10 +2566,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<int?>? callNumber,
       Value<int>? orderType,
       Value<int>? status,
-      Value<int>? paymentStatus,
-      Value<int>? refundStatus,
-      Value<int>? deliveryStatus,
-      Value<int>? orderSource,
+      Value<int?>? paymentStatus,
+      Value<int?>? refundStatus,
+      Value<int?>? deliveryStatus,
+      Value<int?>? orderSource,
       Value<DateTime?>? endTime,
       Value<dynamic>? deliveryCompanyInfoId,
       Value<String?>? priceListId,

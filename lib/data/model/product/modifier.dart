@@ -41,7 +41,6 @@ class Modifier {
 
     if (json['options'] != null) {
       json['options'].forEach((v) {
-        String id = v['id'];
         options.add(Option.fromJson(v,
             optionsMapper: modifiersMapper?.optionsMapper?[id]));
       });

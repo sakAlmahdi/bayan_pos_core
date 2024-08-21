@@ -327,7 +327,13 @@ class OrderC {
     reference = json['reference'];
     casherNote = json['casherNote'];
     trackingStatusId = json['trackingStatusId'];
-    orderStatusTracking = json['orderStatusTracking'];
+    if (json['orderStatusTracking'] != null) {
+      orderStatusTracking = [];
+      json['orderStatusTracking'].forEach((v) {
+        orderStatusTracking?.add(OrderStatusTracking.fromJson(v));
+      });
+    }
+
     waiters = json['waiters'];
     couponId = json['couponId'];
     createdOn = json['createdOn'];
@@ -498,7 +504,6 @@ class OrderC {
     data['minimumReservationPrice'] = minimumReservationPrice;
     data['currency'] = currency?.toJsonOrder();
     data['giftCard'] = giftCard?.toJson().removeNull();
-
     data['paymentStatus'] = paymentStatus;
     data['refundStatus'] = refundStatus;
     data['deliveryStatus'] = deliveryStatus;
