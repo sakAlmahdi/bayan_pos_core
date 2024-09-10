@@ -1,3 +1,4 @@
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/core/extensions/base_date_time_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_map_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_num_extension.dart';
@@ -124,7 +125,9 @@ class OrderC {
   OrderStatusC get getStatus => convertStringToOrderStatus(status);
   OrderSource get getOrderSource =>
       convertStringToOrderSource(orderSource.toString());
-  OrderC();
+  OrderC() {
+    orderRef = BaseHelpersMethods.createRefId();
+  }
   OrderC copyWith({
     int? posTransactionType,
     int? idSeq,
@@ -594,9 +597,9 @@ class AppliedProduct {
           .map((e) => e.taxPercentage!)
           .reduce((value, element) => value + element);
 
-  double get feesPercentage => (fess?.isEmpty ?? true)
+  double get feesPercentage => (fees?.isEmpty ?? true)
       ? 0
-      : fess!.map((e) => e.value!).reduce((value, element) => value + element);
+      : fees!.map((e) => e.value!).reduce((value, element) => value + element);
 
   double get getTotalOptionUnitPrice => appliedModifer.isEmpty
       ? 0
@@ -628,7 +631,7 @@ class AppliedProduct {
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
-  List<Fee>? fess;
+  List<Fee>? fees;
   List<FeeValue>? feeValues;
   double? feeAmount;
   SendPriceList? priceList;
@@ -657,7 +660,7 @@ class AppliedProduct {
     this.reservedNote,
     this.deviceCreatedOn,
     this.deviceCreatedBy,
-    this.fess,
+    this.fees,
     this.feeValues,
     this.feeAmount,
     this.priceList,
@@ -694,7 +697,7 @@ class AppliedProduct {
     String? reservedNote,
     String? deviceCreatedOn,
     String? deviceCreatedBy,
-    List<Fee>? fess,
+    List<Fee>? fees,
     List<FeeValue>? feeValues,
     double? feeAmount,
     SendPriceList? priceList,
@@ -722,7 +725,7 @@ class AppliedProduct {
       reservedNote: reservedNote ?? this.reservedNote,
       deviceCreatedOn: deviceCreatedOn ?? this.deviceCreatedOn,
       deviceCreatedBy: deviceCreatedBy ?? this.deviceCreatedBy,
-      fess: fess ?? this.fess,
+      fees: fees ?? this.fees,
       feeValues: feeValues ?? this.feeValues,
       feeAmount: feeAmount ?? this.feeAmount,
       priceList: priceList ?? this.priceList,
@@ -791,10 +794,10 @@ class AppliedProduct {
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
 
-    if (json['fess'] != null) {
-      fess = [];
-      json['fess'].forEach((v) {
-        fess!.add(Fee.fromJson(v));
+    if (json['fees'] != null) {
+      fees = [];
+      json['fees'].forEach((v) {
+        fees!.add(Fee.fromJson(v));
       });
     }
     if (json['feeValues'] != null) {
@@ -861,8 +864,8 @@ class AppliedProduct {
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
-    if (fess != null) {
-      data['fess'] = fess!.map((v) => v.toJson()).toList();
+    if (fees != null) {
+      data['fees'] = fees!.map((v) => v.toJson()).toList();
     }
     if (feeValues != null) {
       data['feeValues'] = feeValues!.map((v) => v.toJson()).toList();

@@ -28,7 +28,6 @@ class Fee {
   bool? amountIncludeInProductPrice;
   double? minAmountPerProduct;
   double? maxAmountPerProduct;
-
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 

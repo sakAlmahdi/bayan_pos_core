@@ -328,7 +328,7 @@ class SendOrder {
     masterOrderNo = 0;
     deviceOrderNo = 0;
     masterOrderId = "00000000-0000-0000-0000-000000000000";
-    deviceOrderId = "00000000-0000-0000-0000-000000000000";
+    deviceOrderId = order.orderRef;
     casherNote = order.note;
     // invoiceNumber= order.invoiceNumber;
     callName = order.callName;
@@ -390,8 +390,9 @@ class SendOrder {
         promotion: order.promotion.target!,
       );
     }
-    fees =
-        order.fees.map((element) => SendFees.fromOrder(fee: element)).toList();
+    fees = order.fees
+        .map((element) => SendFees.fromOrder(fee: element, feePrice: 0))
+        .toList();
     if (order.couponId != null) {
       coupon = SendCoupon.fromOrder(order: order);
     }
@@ -402,7 +403,8 @@ class SendOrder {
     createdOn = order.createdOn;
     createdBy = order.createdBy;
     lastModifiedBy = order.lastModifiedBy;
-    lastModifiedOn = order.lastModifiedOn;
+    lastModifiedOn =
+        DateTime.tryParse(order.lastModifiedOn.toString())?.toIso8601String();
   }
 }
 
@@ -496,10 +498,10 @@ class SendCustomer {
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     if (address != null) {
-      data['address'] = address!.toJson();
+      data['address'] = address!.toJson().removeNull();
     }
     if (loyaltyPoint != null) {
-      data['loyaltyPoint'] = loyaltyPoint!.toJson();
+      data['loyaltyPoint'] = loyaltyPoint!.toJson().removeNull();
     }
     return data;
   }
@@ -700,12 +702,30 @@ class SendTable {
   }
 }
 
+//// Unit Price as define in product unit
+/// [baseUnitPrice] -> Price
+/// [discountPercentage] total of allowance of type discount  for one unit
+/// [discountAmount] baseUnitPrice * discountPercentage
+/// [feePercentage] total of allowance of type fee  for one unit
+/// [feeAmount] baseUnitPrice * feePercentage
+/// net Unit Price after  apply  allowance for product unit without Tax
+/// [netUnitPrice] [baseUnitPrice] +[feeAmount] - [discountAmount]
+/// [taxPercentage]  total TaxPercentage that apply to product unit
+/// [taxAmount] = [unitPriceExclTax] * [taxPercentage]
+/// [unitPriceInclTax] = [taxAmount] + [unitPriceExclTax]
+/// [totalPriceAmount] = [netUnitPrice] * [quantity]
+/// [totalDiscountAmount] = [discountAmount] * [quantity]
+/// [totalFeeAmount] = [feeAmount] * [quantity]
+/// [totalNetPriceAmount] = [totalPriceAmount]+ [totalFeeAmount] - [totalDiscountAmount]
+/// [totalTaxAmount] = [unitTaxAmount] * [quantity]
+/// [lineTotalAmount] = [totalNetPriceAmount]+ [totalTaxAmount]
+
 class Products {
   int? deviceLineSequence;
   String? productId;
   String? productName;
   bool? priceIncludesTax;
-  SendTaxGroup? taxGroup;
+  List<SendTaxType>? taxInfo;
   SendUnit? unit;
   double? stockQuantity;
   double? quantity;
@@ -753,7 +773,6 @@ class Products {
       this.productId,
       this.productName,
       this.priceIncludesTax,
-      this.taxGroup,
       this.unit,
       this.stockQuantity,
       this.quantity,
@@ -801,9 +820,10 @@ class Products {
     productId = json['productId'];
     productName = json['productName'];
     priceIncludesTax = json['priceIncludesTax'];
-    taxGroup = json['taxGroup'] != null
-        ? SendTaxGroup.fromJson(json['taxGroup'])
-        : null;
+    if (json['taxInfo'] != null) {
+      taxInfo = [];
+      json['taxInfo'].forEach((e) => SendTaxType.fromJson(e));
+    }
     unit = json['unit'] != null ? SendUnit.fromJson(json['unit']) : null;
     stockQuantity = json['stockQuantity'];
     quantity = json['quantity'];
@@ -864,11 +884,11 @@ class Products {
     data['productId'] = productId;
     data['productName'] = productName;
     data['priceIncludesTax'] = priceIncludesTax;
-    if (taxGroup != null) {
-      data['taxGroup'] = taxGroup!.toJson();
+    if (taxInfo != null) {
+      data['taxInfo'] = taxInfo!.map((e) => e.toJson().removeNull()).toList();
     }
     if (unit != null) {
-      data['unit'] = unit!.toJson();
+      data['unit'] = unit!.toJson().removeNull();
     }
     data['stockQuantity'] = stockQuantity;
     data['quantity'] = quantity;
@@ -889,16 +909,16 @@ class Products {
     data['totalTaxAmount'] = totalTaxAmount;
     data['lineTotalAmount'] = lineTotalAmount;
     if (discount != null) {
-      data['discount'] = discount!.toJson();
+      data['discount'] = discount!.toJson().removeNull();
     }
     if (promotion != null) {
-      data['promotion'] = promotion!.toJson();
+      data['promotion'] = promotion!.toJson().removeNull();
     }
     if (timeEvent != null) {
-      data['timeEvent'] = timeEvent!.toJson();
+      data['timeEvent'] = timeEvent!.toJson().removeNull();
     }
     if (fees != null) {
-      data['fees'] = fees!.map((v) => v.toJson()).toList();
+      data['fees'] = fees!.map((v) => v.toJson().removeNull()).toList();
     }
     data['unitCost'] = unitCost;
     data['totalCost'] = totalCost;
@@ -931,7 +951,10 @@ class Products {
     productName = product.product.target?.getName;
     priceIncludesTax = product.priceWithTax;
     if (product.taxInfo.target != null) {
-      taxGroup = SendTaxGroup.fromOrder(taxInfo: product.taxInfo.target!);
+      taxInfo = product.taxInfo.target?.values
+          ?.map((e) => SendTaxType.fromOrder(
+              taxValue: e, taxAmount: product.taxableAmt ?? 0))
+          .toList();
     }
     if (product.unit.target != null) {
       unit = SendUnit.fromOrder(
@@ -940,10 +963,11 @@ class Products {
     }
     stockQuantity = 0;
     quantity = product.quantity;
-    freeQuantity = 0;
-    baseUnitPrice = 0;
+    freeQuantity = product.freeQuantity;
+    baseUnitPrice = product.price;
     if (discount != null) {
-      discountAmount = product.priceDiscount;
+      discountAmount =
+          (product.priceDiscount ?? 0) + (product.pricePromotion ?? 0);
       discountPercentage = product.discount.target!.discountPercentage;
     }
 
@@ -951,15 +975,16 @@ class Products {
     ///
     feePercentage = product.feesPercentage;
     feeAmount = product.feeAmount;
-    unitNetPrice = product.price;
+    unitNetPrice =
+        (product.price ?? 0) + (feeAmount ?? 0) - (discountAmount ?? 0);
     unitTaxPercentage = product.taxPercentage;
     unitTaxAmount = product.getUnitPrice;
     unitPriceInclTax = (product.price ?? 0) + (product.taxPrice ?? 0);
-    totalPriceAmount = 0;
+    totalPriceAmount = product.getUnitPrice * product.quantity;
     totalDiscountAmount = product.totalDiscount;
-    totalFeeAmount = 0;
-    totalNetPriceAmount = 0;
-    totalTaxAmount = 0;
+    totalFeeAmount = (product.feeAmount ?? 0) * product.quantity;
+    totalNetPriceAmount = unitNetPrice! * product.quantity;
+    totalTaxAmount = product.taxPrice;
     lineTotalAmount = product.subTotal;
 
     if (discount != null) {
@@ -981,6 +1006,7 @@ class Products {
     inventoryTotalCost = 0;
     receivedQuantity = 0;
     refundedQuantity = 0;
+
     canceled = false;
     canceledNote = product.msgCansel;
     productionReference = product.prodRef;
@@ -998,92 +1024,92 @@ class Products {
   }
 }
 
-class SendTaxGroup {
-  String? id;
-  List<SendTaxTypes>? taxTypes;
+// class SendTaxGroup {
+//   String? id;
+//   List<SendTaxTypes>? taxTypes;
 
-  SendTaxGroup({this.id, this.taxTypes});
+//   SendTaxGroup({this.id, this.taxTypes});
 
-  SendTaxGroup.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    if (json['taxTypes'] != null) {
-      taxTypes = <SendTaxTypes>[];
-      json['taxTypes'].forEach((v) {
-        taxTypes!.add(SendTaxTypes.fromJson(v));
-      });
-    }
-  }
-  SendTaxGroup.fromOrder({required TaxInfo taxInfo}) {
-    id = taxInfo.taxGroupId;
-    if (taxInfo.values != null) {
-      taxTypes = <SendTaxTypes>[];
-      taxInfo.values!.forEach((element) {
-        taxTypes!.add(SendTaxTypes.fromOrder(tax: element));
-      });
-    }
-  }
+//   SendTaxGroup.fromJson(Map<String, dynamic> json) {
+//     id = json['id'];
+//     if (json['taxTypes'] != null) {
+//       taxTypes = <SendTaxTypes>[];
+//       json['taxTypes'].forEach((v) {
+//         taxTypes!.add(SendTaxTypes.fromJson(v));
+//       });
+//     }
+//   }
+//   SendTaxGroup.fromOrder({required TaxInfo taxInfo}) {
+//     id = taxInfo.taxGroupId;
+//     if (taxInfo.values != null) {
+//       taxTypes = <SendTaxTypes>[];
+//       taxInfo.values!.forEach((element) {
+//         taxTypes!.add(SendTaxTypes.fromOrder(tax: element));
+//       });
+//     }
+//   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    if (taxTypes != null) {
-      data['taxTypes'] = taxTypes!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = <String, dynamic>{};
+//     data['id'] = id;
+//     if (taxTypes != null) {
+//       data['taxTypes'] = taxTypes!.map((v) => v.toJson().removeNull()).toList();
+//     }
+//     return data;
+//   }
+// }
 
-class SendTaxTypes {
-  String? id;
-  double? taxableAmount;
-  double? percent;
-  double? value;
-  double? amount;
-  String? deviceCreatedOn;
-  String? deviceCreatedBy;
+// class SendTaxTypes {
+//   String? id;
+//   double? taxableAmount;
+//   double? percent;
+//   double? value;
+//   double? amount;
+//   String? deviceCreatedOn;
+//   String? deviceCreatedBy;
 
-  SendTaxTypes(
-      {this.id,
-      this.taxableAmount,
-      this.percent,
-      this.value,
-      this.amount,
-      this.deviceCreatedOn,
-      this.deviceCreatedBy});
+//   SendTaxTypes(
+//       {this.id,
+//       this.taxableAmount,
+//       this.percent,
+//       this.value,
+//       this.amount,
+//       this.deviceCreatedOn,
+//       this.deviceCreatedBy});
 
-  SendTaxTypes.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    taxableAmount = json['taxableAmount'];
-    percent = json['percent'];
-    value = json['value'];
-    amount = json['amount'];
-    deviceCreatedOn = json['deviceCreatedOn'];
-    deviceCreatedBy = json['deviceCreatedBy'];
-  }
+//   SendTaxTypes.fromJson(Map<String, dynamic> json) {
+//     id = json['id'];
+//     taxableAmount = json['taxableAmount'];
+//     percent = json['percent'];
+//     value = json['value'];
+//     amount = json['amount'];
+//     deviceCreatedOn = json['deviceCreatedOn'];
+//     deviceCreatedBy = json['deviceCreatedBy'];
+//   }
 
-  SendTaxTypes.fromOrder({required TaxValue tax}) {
-    id = tax.taxId;
-    // taxableAmount = value.;
-    percent = tax.taxPercentage;
-    value = tax.taxPercentage;
-    amount = tax.value;
-    deviceCreatedOn = tax.deviceCreatedOn;
-    deviceCreatedBy = tax.deviceCreatedBy;
-  }
+//   SendTaxTypes.fromOrder({required TaxValue tax}) {
+//     id = tax.taxId;
+//     // taxableAmount = value.;
+//     percent = tax.taxPercentage;
+//     value = tax.taxPercentage;
+//     amount = tax.value;
+//     deviceCreatedOn = tax.deviceCreatedOn;
+//     deviceCreatedBy = tax.deviceCreatedBy;
+//   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['taxableAmount'] = taxableAmount;
-    data['percent'] = percent;
-    data['value'] = value;
-    data['amount'] = amount;
-    data['deviceCreatedOn'] =
-        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
-    data['deviceCreatedBy'] = deviceCreatedBy;
-    return data;
-  }
-}
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = <String, dynamic>{};
+//     data['id'] = id;
+//     data['taxableAmount'] = taxableAmount;
+//     data['percent'] = percent;
+//     data['value'] = value;
+//     data['amount'] = amount;
+//     data['deviceCreatedOn'] =
+//         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
+//     data['deviceCreatedBy'] = deviceCreatedBy;
+//     return data;
+//   }
+// }
 
 class SendUnit {
   String? unitId;
@@ -1150,15 +1176,16 @@ class SendUnit {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['unitId'] = unitId;
-    data['price'] = price;
+    data['price'] = price.toString();
     data['barcode'] = barcode;
     data['factor'] = factor;
     data['cost'] = cost;
     if (priceList != null) {
-      data['priceList'] = priceList!.toJson();
+      data['priceList'] = priceList!.toJson().removeNull();
     }
     if (modifiers != null) {
-      data['modifiers'] = modifiers!.map((v) => v.toJson()).toList();
+      data['modifiers'] =
+          modifiers!.map((v) => v.toJson().removeNull()).toList();
     }
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
@@ -1198,7 +1225,7 @@ class SendPriceList {
     data['priceListId'] = priceListId;
     data['price'] = price;
     if (slap != null) {
-      data['slap'] = slap!.toJson();
+      data['slap'] = slap!.toJson().removeNull();
     }
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
@@ -1294,7 +1321,7 @@ class SendModifiers {
     data['modifierId'] = modifierId;
     data['unique'] = unique;
     if (options != null) {
-      data['options'] = options!.map((v) => v.toJson()).toList();
+      data['options'] = options!.map((v) => v.toJson().removeNull()).toList();
     }
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
@@ -1309,6 +1336,7 @@ class SendOptions {
   double? freeQuantity;
   double? amount;
   bool? isDefault;
+  List<SendTaxType>? taxInfo;
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
@@ -1318,6 +1346,7 @@ class SendOptions {
       this.freeQuantity,
       this.amount,
       this.isDefault,
+      this.taxInfo,
       this.deviceCreatedOn,
       this.deviceCreatedBy});
 
@@ -1327,6 +1356,10 @@ class SendOptions {
     freeQuantity = json['freeQuantity'];
     amount = json['amount'];
     isDefault = json['isDefault'];
+    if (json['taxInfo'] != null) {
+      taxInfo = [];
+      json['taxInfo'].forEach((e) => SendTaxType.fromJson(e));
+    }
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
   }
@@ -1339,6 +1372,12 @@ class SendOptions {
     freeQuantity = option.freeQuantity;
     amount = option.quantity;
     isDefault = option.option.target?.isDefault;
+    if (option.taxInfo.target != null) {
+      taxInfo = option.taxInfo.target?.values
+          ?.map((e) => SendTaxType.fromOrder(
+              taxValue: e, taxAmount: option.taxableAmt ?? 0))
+          .toList();
+    }
     deviceCreatedOn = option.deviceCreatedOn;
     deviceCreatedBy = option.deviceCreatedBy;
   }
@@ -1518,7 +1557,7 @@ class SendFees {
   double? amount;
   double? taxAmount;
   double? amountIncludeTax;
-  SendTaxGroup? taxInfo;
+  List<SendTaxType>? taxInfo;
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
@@ -1542,13 +1581,33 @@ class SendFees {
     amount = json['amount'];
     taxAmount = json['taxAmount'];
     amountIncludeTax = json['amountIncludeTax'];
-    taxInfo =
-        json['taxInfo'] != null ? SendTaxGroup.fromJson(json['taxInfo']) : null;
+
+    if (json['taxInfo'] != null) {
+      taxInfo = [];
+      json['taxInfo'].forEach((e) => SendTaxType.fromJson(e));
+    }
+
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
   }
 
-  SendFees.fromOrder({required Fee fee}) {}
+  SendFees.fromOrder({required Fee fee, required double feePrice}) {
+    feeId = fee.id;
+    // baseAmount = fee.;
+    percent = fee.percentage;
+    value = fee.value;
+    // amount = fee.;
+    // taxAmount = json['taxAmount'];
+    // amountIncludeTax = json['amountIncludeTax'];
+
+    // if (json['taxInfo'] != null) {
+    //   taxInfo = [];
+    //   json['taxInfo'].forEach((e) => SendTaxType.fromJson(e));
+    // }
+
+    // deviceCreatedOn = json['deviceCreatedOn'];
+    // deviceCreatedBy = json['deviceCreatedBy'];
+  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1560,7 +1619,7 @@ class SendFees {
     data['taxAmount'] = taxAmount;
     data['amountIncludeTax'] = amountIncludeTax;
     if (taxInfo != null) {
-      data['taxInfo'] = taxInfo!.toJson();
+      data['taxInfo'] = taxInfo!.map((e) => e.toJson().removeNull()).toList();
     }
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
@@ -1804,6 +1863,59 @@ class SendPayments {
     data['currencyAmount'] = currencyAmount;
     data['paymentStatus'] = paymentStatus;
     data['currencyId'] = currencyId;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
+    data['deviceCreatedBy'] = deviceCreatedBy;
+    return data;
+  }
+}
+
+class SendTaxType {
+  String? taxTypeId;
+  double? taxableAmount;
+  double? taxPercentage;
+  double? taxAmount;
+  String? taxExemptionReasonId;
+  String? deviceCreatedOn;
+  String? deviceCreatedBy;
+
+  SendTaxType({
+    this.taxTypeId,
+    this.taxableAmount,
+    this.taxPercentage,
+    this.taxAmount,
+    this.taxExemptionReasonId,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
+  });
+
+  SendTaxType.fromJson(Map<String, dynamic> json) {
+    taxTypeId = json['taxTypeId'];
+    taxableAmount = double.tryParse(json['taxableAmount']);
+    taxPercentage = double.tryParse(json['taxPercentage']);
+    taxAmount = double.tryParse(json['taxAmount']);
+    taxExemptionReasonId = json['taxExemptionReasonId'];
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
+  }
+
+  SendTaxType.fromOrder(
+      {required TaxValue taxValue, required double taxAmount}) {
+    taxTypeId = taxValue.taxId;
+    taxableAmount = taxValue.value;
+    taxPercentage = taxValue.taxPercentage;
+    taxAmount = taxAmount;
+    deviceCreatedOn = taxValue.deviceCreatedOn;
+    deviceCreatedBy = taxValue.deviceCreatedBy;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['taxTypeId'] = taxTypeId;
+    data['taxableAmount'] = taxableAmount;
+    data['taxPercentage'] = taxPercentage;
+    data['taxAmount'] = taxAmount;
+    data['taxExemptionReasonId'] = taxExemptionReasonId;
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
