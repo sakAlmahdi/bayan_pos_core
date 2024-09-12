@@ -72,7 +72,7 @@ class Fee {
     if (json['products'] != null) {
       products = <String>[];
       json['products'].forEach((v) {
-        products!.add(v);
+        products!.add(v.toString().toLowerCase());
       });
     }
     taxGroupId = json['taxGroupId'];

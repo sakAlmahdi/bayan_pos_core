@@ -564,6 +564,7 @@ class AppliedProduct {
   double? optionPrice = 0;
   double? priceDiscount = 0;
   double? pricePromotion = 0;
+  double? feeTax;
   double? taxPrice;
   double? taxableAmt = 0;
   double? freeQuantity;
@@ -664,6 +665,7 @@ class AppliedProduct {
     this.feeValues,
     this.feeAmount,
     this.priceList,
+    this.feeTax,
   });
   AppliedProduct copyWith({
     ExtractProduct? product,
