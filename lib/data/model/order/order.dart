@@ -635,6 +635,7 @@ class AppliedProduct {
   List<Fee>? fees;
   List<FeeValue>? feeValues;
   double? feeAmount;
+  double? totalFees;
   SendPriceList? priceList;
 
   AppliedProduct({
@@ -666,6 +667,7 @@ class AppliedProduct {
     this.feeAmount,
     this.priceList,
     this.feeTax,
+    this.totalFees,
   });
   AppliedProduct copyWith({
     ExtractProduct? product,
@@ -703,6 +705,7 @@ class AppliedProduct {
     List<FeeValue>? feeValues,
     double? feeAmount,
     SendPriceList? priceList,
+    double? totalFees,
   }) {
     return AppliedProduct(
       quantity: quantity ?? this.quantity,
@@ -731,6 +734,7 @@ class AppliedProduct {
       feeValues: feeValues ?? this.feeValues,
       feeAmount: feeAmount ?? this.feeAmount,
       priceList: priceList ?? this.priceList,
+      totalFees: totalFees ?? this.totalFees,
     )
           ..product.target = product ?? this.product.target
           ..unit.target = unit ?? this.unit.target
@@ -813,6 +817,7 @@ class AppliedProduct {
     if (json['priceList'] != null) {
       priceList = SendPriceList.fromJson(json['priceList']);
     }
+    json['totalFees'] = double.tryParse(json['totalFees'].toString());
   }
 
   Map<String, dynamic> toJson() {
@@ -879,6 +884,8 @@ class AppliedProduct {
       data['priceList'] = priceList!.toJson().removeNull();
     }
 
+    data['totalFees'] = totalFees;
+
     return data;
   }
 
@@ -928,6 +935,7 @@ class AppliedProduct {
     data['canEditQty'] = canEditQty;
     data['isFixedPrice'] = isFixedPrice;
     data['barcodePrice'] = barcodePrice;
+    data['totalFees'] = totalFees;
     return data;
   }
 
