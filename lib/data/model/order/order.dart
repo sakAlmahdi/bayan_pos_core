@@ -537,6 +537,42 @@ class OrderC {
   SendOrder convertToSendOrder() => SendOrder.fromOrder(this);
 }
 
+///  -------  unit Price -----
+///  [unitPrice] as define in product unit
+///  Unit Price before apply discount and before apply fee and before apply tax
+///  1***if app option [priceIncludeTax] =true ,thats mean UnitPrice include tax
+///  [unitPriceExclTax]=[unitPrice]/(1+([unitTaxPercentage]/100))
+///  2***if app option PriceIncludeTax =false ,thats mean [unitPrice] exclude tax
+///  [unitPriceExclTax]=[unitPrice]
+///
+///   -------  total Price --------
+//// [totalPrice] = [unitPrice] * [quantity]
+///  [totalPriceExclTax] = [unitPriceExclTax] * [quantity]
+///
+///   -------  Fees -----
+///  [feePercentage]= total of fees percentage apply  for product
+///  [feeAmount] apply for 1 quantity of product before apply tax
+///  [feeUnitAmount]=total amount of fees apply for products  for 1 quantity of product
+///  [feeUnitTaxAmount]=total taxamount of fees apply for products  for 1 quantity of product
+///  [feeTotalAmount]=total of fees apply  for product the must be amount before apply tax
+///  [feeTotalTaxAmount]=total of fees taxamount apply  for product
+///
+///    -------  Modifier -----
+/// [modifierOptions] amount apply for 1 quantity of product  before apply tax
+/// modifier option TotalPrice  before apply tax of modifier options apply on product
+/// [taxAmount] of modifier options apply for 1 quantity of  product
+/// sum of  TotalPriceExclTax
+/// modifier option TotalPrice  before apply tax of modifier options apply on product
+/// sum of   TaxAmount of modifier options apply on product
+///
+
+///<<<<<<<<<<<<<<****Discount*****>>>>>>>>>>>>>>>>>>
+/// total of Discount Percentage apply on product
+/// Discount amount apply for 1 quantity of product
+/// DiscountUnitAmount=UnitPriceExclTax * DiscountTotalPercentage
+/// total of Discount amount apply on product
+/// DiscountAmount=TotalPriceExclTax * DiscountTotalPercentage
+
 @Entity()
 class AppliedProduct {
   @Id()
@@ -637,6 +673,45 @@ class AppliedProduct {
   double? feeAmount;
   double? totalFees;
   SendPriceList? priceList;
+
+  ///  NEW
+
+  double? receivedQuantity;
+  double? refundedQuantity;
+  double? stockQuantity;
+
+  double get realQty =>
+      quantity - (freeQuantity ?? 0) > 0 ? quantity - (freeQuantity ?? 0) : 0;
+
+  double? unitPrice;
+  double? unitPriceExclTax;
+  double? get totalPrice => (unitPrice ?? 0) * realQty;
+  double? get totalPriceExclTax => (unitPriceExclTax ?? 0) * realQty;
+  double? get feeTotalPercentage => feesPercentage;
+  double? feeUnitAmount;
+  double? feeUnitTaxAmount;
+  double? get feeTotalAmount => feeAmount.getZeroIfNull * realQty;
+  double? get feeTotalTaxAmount => feeUnitTaxAmount.getZeroIfNull * realQty;
+  double? modifierOptionsUnitAmountExclTax;
+  double? modifierOptionsUnitTaxAmount;
+  double? modifierOptionsTotalPriceExclTax;
+  double? modifierOptionsTotalTaxAmount;
+  double? discountTotalPercentage;
+  double? discountUnitAmount;
+  double? discountTotalAmount;
+  double? promotionTotalPercentage;
+  double? promotionUnitAmount;
+  double? promotionTotalAmount;
+  double? timeEventTotalPercentage;
+  double? timeEventUnitAmount;
+  double? timeEventTotalAmount;
+  double? netUnitPrice;
+  double? netTotalPriceExclTax;
+  double? unitPriceTaxAmount;
+  double? totalPriceTaxAmount;
+  double? unitPriceInclTax;
+  double? totalPriceInclTax;
+  bool? priceIncludesTax;
 
   AppliedProduct({
     required this.quantity,
