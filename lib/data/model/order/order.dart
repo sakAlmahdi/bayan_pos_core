@@ -680,37 +680,70 @@ class AppliedProduct {
   double? refundedQuantity;
   double? stockQuantity;
 
-  double get realQty =>
-      quantity - (freeQuantity ?? 0) > 0 ? quantity - (freeQuantity ?? 0) : 0;
+  double get realQty => quantity - freeQuantity.getZeroIfNull > 0
+      ? quantity - freeQuantity.getZeroIfNull
+      : 0;
 
   double? unitPrice;
   double? unitPriceExclTax;
-  double? get totalPrice => (unitPrice ?? 0) * realQty;
-  double? get totalPriceExclTax => (unitPriceExclTax ?? 0) * realQty;
+  double? get totalPrice => (unitPrice ?? 0) * quantity;
+  double? get totalPriceExclTax => (unitPriceExclTax ?? 0) * quantity;
   double? get feeTotalPercentage => feesPercentage;
   double? feeUnitAmount;
   double? feeUnitTaxAmount;
-  double? get feeTotalAmount => feeAmount.getZeroIfNull * realQty;
-  double? get feeTotalTaxAmount => feeUnitTaxAmount.getZeroIfNull * realQty;
+  double? get feeTotalAmount => feeAmount.getZeroIfNull * quantity;
+  double? get feeTotalTaxAmount => feeUnitTaxAmount.getZeroIfNull * quantity;
   double? modifierOptionsUnitAmountExclTax;
   double? modifierOptionsUnitTaxAmount;
-  double? modifierOptionsTotalPriceExclTax;
-  double? modifierOptionsTotalTaxAmount;
-  double? discountTotalPercentage;
-  double? discountUnitAmount;
-  double? discountTotalAmount;
-  double? promotionTotalPercentage;
-  double? promotionUnitAmount;
-  double? promotionTotalAmount;
+  double? get modifierOptionsTotalPriceExclTax =>
+      modifierOptionsUnitAmountExclTax.getZeroIfNull * quantity;
+  double? get modifierOptionsTotalTaxAmount =>
+      modifierOptionsUnitTaxAmount.getZeroIfNull * quantity;
+
+  double? get discountTotalPercentage => discount.target == null
+      ? null
+      : discount.target?.getDiscountType == DiscountType.percentage
+          ? discount.target?.discountPercentage
+          : 0;
+  double? get discountUnitAmount => discount.target == null
+      ? null
+      : discount.target?.getDiscountType == DiscountType.percentage
+          ? unitPriceExclTax.getZeroIfNull *
+              discountTotalPercentage.getZeroIfNull
+          : discount.target?.discountAmount;
+  double? get discountTotalAmount =>
+      discountUnitAmount.getZeroIfNull * quantity;
+  double? get promotionTotalPercentage => promotion.target == null
+      ? null
+      : promotion.target?.getDiscountType == DiscountType.percentage
+          ? promotion.target?.discountPercentage
+          : 0;
+  double? get promotionUnitAmount => promotion.target == null
+      ? null
+      : promotion.target?.getDiscountType == DiscountType.percentage
+          ? unitPriceExclTax.getZeroIfNull *
+              discountTotalPercentage.getZeroIfNull
+          : promotion.target?.discountAmount;
+  double? get promotionTotalAmount =>
+      promotionUnitAmount.getZeroIfNull * quantity;
   double? timeEventTotalPercentage;
   double? timeEventUnitAmount;
-  double? timeEventTotalAmount;
-  double? netUnitPrice;
-  double? netTotalPriceExclTax;
+  double? get timeEventTotalAmount =>
+      timeEventUnitAmount.getZeroIfNull * quantity;
+  double get netUnitPrice =>
+      unitPriceExclTax.getZeroIfNull +
+      modifierOptionsUnitAmountExclTax.getZeroIfNull +
+      feeUnitAmount.getZeroIfNull -
+      timeEventUnitAmount.getZeroIfNull -
+      discountUnitAmount.getZeroIfNull -
+      promotionUnitAmount.getZeroIfNull;
+  double? get netTotalPriceExclTax => netUnitPrice * quantity;
   double? unitPriceTaxAmount;
-  double? totalPriceTaxAmount;
-  double? unitPriceInclTax;
-  double? totalPriceInclTax;
+  double? get totalPriceTaxAmount =>
+      unitPriceTaxAmount == null ? null : unitPriceTaxAmount! * quantity;
+  double get unitPriceInclTax =>
+      netUnitPrice + unitPriceTaxAmount.getZeroIfNull;
+  double get totalPriceInclTax => unitPriceInclTax * quantity;
   bool? priceIncludesTax;
 
   AppliedProduct({

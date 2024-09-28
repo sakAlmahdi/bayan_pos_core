@@ -52,7 +52,7 @@ class Fee {
   Fee.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    type = int.tryParse(json['feeType'].toString());
+    type = int.tryParse(json['type'].toString());
     valueType = json['valueType'];
     value = double.tryParse(json['value'].toString()) ?? 0.0;
     percentage = double.tryParse(json['percentage'].toString()) ?? 0.0;
@@ -95,7 +95,7 @@ class Fee {
     final Map<String, dynamic> data = {};
     data['id'] = id;
     data['name'] = name;
-    data['feeType'] = type;
+    data['type'] = type;
     data['valueType'] = valueType;
     data['value'] = value;
     data['percentage'] = value;
