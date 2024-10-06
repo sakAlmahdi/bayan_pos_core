@@ -25,9 +25,11 @@ class Printer {
   int? printTo;
   int? port;
   PrinterSetting? setting;
-  List<String>? products;
-  List<String>? departments;
-  List<String>? categories;
+  List<PrintInSeparate>? products;
+  List<PrintInSeparate>? departments;
+  List<PrintInSeparate>? categories;
+  List<PrintInSeparate>? menus;
+
   List<int>? orderTypes;
   final settings = ToMany<PrinterSetting>();
   PrinterType get getPrinterType => convertStringToPrinterType(printerType);
@@ -57,6 +59,7 @@ class Printer {
     this.printerType,
     this.printTo,
     this.orderTypes,
+    this.menus,
   });
 
   Printer.fromJson(Map<String, dynamic> json) {
@@ -74,21 +77,27 @@ class Printer {
         ? PrinterSetting.fromJson(json['setting'])
         : null;
     if (json['products'] != null) {
-      products = <String>[];
+      products = <PrintInSeparate>[];
       json['products'].forEach((v) {
-        products!.add(v);
+        products!.add(PrintInSeparate.fromJson(v));
       });
     }
     if (json['departments'] != null) {
-      departments = <String>[];
+      departments = <PrintInSeparate>[];
       json['departments'].forEach((v) {
-        departments!.add(v);
+        departments!.add(PrintInSeparate.fromJson(v));
       });
     }
     if (json['categoeries'] != null) {
-      categories = <String>[];
+      categories = <PrintInSeparate>[];
       json['categoeries'].forEach((v) {
-        categories!.add(v);
+        categories!.add(PrintInSeparate.fromJson(v));
+      });
+    }
+    if (json['menus'] != null) {
+      menus = <PrintInSeparate>[];
+      json['menus'].forEach((v) {
+        menus!.add(PrintInSeparate.fromJson(v));
       });
     }
     if (json['orderTypes'] != null) {
@@ -132,4 +141,26 @@ class Printer {
 
   static List<Printer> fromList(List<dynamic> data) =>
       data.map((e) => Printer.fromJson(e)).toList();
+}
+
+@Entity()
+class PrintInSeparate {
+  @Id()
+  int? idSeq;
+  String? id;
+  bool? printInSeparate;
+
+  PrintInSeparate({this.id, this.printInSeparate});
+
+  PrintInSeparate.fromJson(Map<String, dynamic> json) {
+    id = json['id'].toString().toLowerCase();
+    printInSeparate = json['printInSeparate'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['printInSeparate'] = this.printInSeparate;
+    return data;
+  }
 }

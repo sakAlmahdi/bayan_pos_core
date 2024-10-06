@@ -434,7 +434,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(5, 4194445702919768664),
       name: 'AppliedProduct',
-      lastPropertyId: const obx_int.IdUid(31, 2856282157778801997),
+      lastPropertyId: const obx_int.IdUid(45, 3851536559451463432),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -605,6 +605,76 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(31, 2856282157778801997),
             name: 'feeAmount',
             type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(32, 6394182358473969023),
+            name: 'feeTax',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(33, 6983236051386160541),
+            name: 'totalFees',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(34, 5118340580713966828),
+            name: 'receivedQuantity',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(35, 861319840554898111),
+            name: 'refundedQuantity',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(36, 2058153239652795198),
+            name: 'stockQuantity',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(37, 8724994115768755850),
+            name: 'unitPrice',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(38, 4941579518350773422),
+            name: 'unitPriceExclTax',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(39, 3720234071784545387),
+            name: 'feeUnitAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(40, 1744705913664022699),
+            name: 'modifierOptionsUnitAmountExclTax',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(41, 4395727115549180491),
+            name: 'modifierOptionsUnitTaxAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(42, 1420469566102858275),
+            name: 'timeEventTotalPercentage',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(43, 5572300286097039058),
+            name: 'timeEventUnitAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(44, 5128076499662040777),
+            name: 'unitPriceTaxAmount',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(45, 3851536559451463432),
+            name: 'priceIncludesTax',
+            type: 1,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
@@ -4038,21 +4108,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 6,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 4599283722762352873),
-            name: 'products',
-            type: 30,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 4530343960409734314),
-            name: 'departments',
-            type: 30,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 1011346000562234378),
-            name: 'categories',
-            type: 30,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(15, 9181390543887291499),
             name: 'orderTypes',
             type: 27,
@@ -6046,6 +6101,30 @@ final _entities = <obx_int.ModelEntity>[
             flags: 1)
       ],
       relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(79, 634385656437886036),
+      name: 'PrintInSeparate',
+      lastPropertyId: const obx_int.IdUid(3, 7739598041368060151),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 579345993657261828),
+            name: 'idSeq',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 7135948873588760944),
+            name: 'id',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 7739598041368060151),
+            name: 'printInSeparate',
+            type: 1,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -6084,7 +6163,7 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(78, 2277506909777593783),
+      lastEntityId: const obx_int.IdUid(79, 634385656437886036),
       lastIndexId: const obx_int.IdUid(67, 350428259539118090),
       lastRelationId: const obx_int.IdUid(32, 635890591433436266),
       lastSequenceId: const obx_int.IdUid(0, 0),
@@ -6103,7 +6182,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
         6294190789633290918,
         7598445715640819471,
         6801069914061037293,
-        6447532953644951274
+        6447532953644951274,
+        4599283722762352873,
+        4530343960409734314,
+        1011346000562234378
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -6617,7 +6699,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final deviceCreatedByOffset = object.deviceCreatedBy == null
               ? null
               : fbb.writeString(object.deviceCreatedBy!);
-          fbb.startTable(32);
+          fbb.startTable(46);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addInt64(1, object.product.targetId);
           fbb.addInt64(2, object.unit.targetId);
@@ -6649,6 +6731,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(28, deviceCreatedOnOffset);
           fbb.addOffset(29, deviceCreatedByOffset);
           fbb.addFloat64(30, object.feeAmount);
+          fbb.addFloat64(31, object.feeTax);
+          fbb.addFloat64(32, object.totalFees);
+          fbb.addFloat64(33, object.receivedQuantity);
+          fbb.addFloat64(34, object.refundedQuantity);
+          fbb.addFloat64(35, object.stockQuantity);
+          fbb.addFloat64(36, object.unitPrice);
+          fbb.addFloat64(37, object.unitPriceExclTax);
+          fbb.addFloat64(38, object.feeUnitAmount);
+          fbb.addFloat64(39, object.modifierOptionsUnitAmountExclTax);
+          fbb.addFloat64(40, object.modifierOptionsUnitTaxAmount);
+          fbb.addFloat64(41, object.timeEventTotalPercentage);
+          fbb.addFloat64(42, object.timeEventUnitAmount);
+          fbb.addFloat64(43, object.unitPriceTaxAmount);
+          fbb.addBool(44, object.priceIncludesTax);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -6706,6 +6802,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 62);
           final feeAmountParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 64);
+          final feeTaxParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 66);
+          final totalFeesParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 68);
           final object = AppliedProduct(
               quantity: quantityParam,
               prodRef: prodRefParam,
@@ -6729,9 +6829,35 @@ obx_int.ModelDefinition getObjectBoxModel() {
               reservedNote: reservedNoteParam,
               deviceCreatedOn: deviceCreatedOnParam,
               deviceCreatedBy: deviceCreatedByParam,
-              feeAmount: feeAmountParam)
+              feeAmount: feeAmountParam,
+              feeTax: feeTaxParam,
+              totalFees: totalFeesParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
+            ..receivedQuantity = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 70)
+            ..refundedQuantity = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 72)
+            ..stockQuantity = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 74)
+            ..unitPrice = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 76)
+            ..unitPriceExclTax = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 78)
+            ..feeUnitAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 80)
+            ..modifierOptionsUnitAmountExclTax = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 82)
+            ..modifierOptionsUnitTaxAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 84)
+            ..timeEventTotalPercentage = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 86)
+            ..timeEventUnitAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 88)
+            ..unitPriceTaxAmount = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 90)
+            ..priceIncludesTax =
+                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 92);
           object.product.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.product.attach(store);
@@ -10782,21 +10908,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final ipAddressOffset = object.ipAddress == null
               ? null
               : fbb.writeString(object.ipAddress!);
-          final productsOffset = object.products == null
-              ? null
-              : fbb.writeList(object.products!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final departmentsOffset = object.departments == null
-              ? null
-              : fbb.writeList(object.departments!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
-          final categoriesOffset = object.categories == null
-              ? null
-              : fbb.writeList(object.categories!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
           final orderTypesOffset = object.orderTypes == null
               ? null
               : fbb.writeListInt64(object.orderTypes!);
@@ -10812,9 +10923,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addInt64(8, object.printerType);
           fbb.addInt64(9, object.printTo);
           fbb.addInt64(10, object.port);
-          fbb.addOffset(11, productsOffset);
-          fbb.addOffset(12, departmentsOffset);
-          fbb.addOffset(13, categoriesOffset);
           fbb.addOffset(14, orderTypesOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
@@ -10859,19 +10967,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
               printTo: printToParam,
               orderTypes: orderTypesParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..products = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 26)
-            ..departments = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 28)
-            ..categories = const fb.ListReader<String>(
-                    fb.StringReader(asciiOptimization: true),
-                    lazy: false)
-                .vTableGetNullable(buffer, rootOffset, 30);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           obx_int.InternalToManyAccess.setRelInfo<Printer>(object.settings,
               store, obx_int.RelInfo<Printer>.toMany(21, object.idSeq!));
           return object;
@@ -13390,6 +13486,38 @@ obx_int.ModelDefinition getObjectBoxModel() {
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
+        }),
+    PrintInSeparate: obx_int.EntityDefinition<PrintInSeparate>(
+        model: _entities[77],
+        toOneRelations: (PrintInSeparate object) => [],
+        toManyRelations: (PrintInSeparate object) => {},
+        getId: (PrintInSeparate object) => object.idSeq,
+        setId: (PrintInSeparate object, int id) {
+          object.idSeq = id;
+        },
+        objectToFB: (PrintInSeparate object, fb.Builder fbb) {
+          final idOffset =
+              object.id == null ? null : fbb.writeString(object.id!);
+          fbb.startTable(4);
+          fbb.addInt64(0, object.idSeq ?? 0);
+          fbb.addOffset(1, idOffset);
+          fbb.addBool(2, object.printInSeparate);
+          fbb.finish(fbb.endTable());
+          return object.idSeq ?? 0;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final printInSeparateParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
+          final object = PrintInSeparate(
+              id: idParam, printInSeparate: printInSeparateParam)
+            ..idSeq =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+
+          return object;
         })
   };
 
@@ -13782,6 +13910,62 @@ class AppliedProduct_ {
   /// see [AppliedProduct.feeAmount]
   static final feeAmount =
       obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[30]);
+
+  /// see [AppliedProduct.feeTax]
+  static final feeTax =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[31]);
+
+  /// see [AppliedProduct.totalFees]
+  static final totalFees =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[32]);
+
+  /// see [AppliedProduct.receivedQuantity]
+  static final receivedQuantity =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[33]);
+
+  /// see [AppliedProduct.refundedQuantity]
+  static final refundedQuantity =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[34]);
+
+  /// see [AppliedProduct.stockQuantity]
+  static final stockQuantity =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[35]);
+
+  /// see [AppliedProduct.unitPrice]
+  static final unitPrice =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[36]);
+
+  /// see [AppliedProduct.unitPriceExclTax]
+  static final unitPriceExclTax =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[37]);
+
+  /// see [AppliedProduct.feeUnitAmount]
+  static final feeUnitAmount =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[38]);
+
+  /// see [AppliedProduct.modifierOptionsUnitAmountExclTax]
+  static final modifierOptionsUnitAmountExclTax =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[39]);
+
+  /// see [AppliedProduct.modifierOptionsUnitTaxAmount]
+  static final modifierOptionsUnitTaxAmount =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[40]);
+
+  /// see [AppliedProduct.timeEventTotalPercentage]
+  static final timeEventTotalPercentage =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[41]);
+
+  /// see [AppliedProduct.timeEventUnitAmount]
+  static final timeEventUnitAmount =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[42]);
+
+  /// see [AppliedProduct.unitPriceTaxAmount]
+  static final unitPriceTaxAmount =
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[43]);
+
+  /// see [AppliedProduct.priceIncludesTax]
+  static final priceIncludesTax =
+      obx.QueryBooleanProperty<AppliedProduct>(_entities[4].properties[44]);
 
   /// see [AppliedProduct.appliedModifer]
   static final appliedModifer =
@@ -16299,21 +16483,9 @@ class Printer_ {
   static final port =
       obx.QueryIntegerProperty<Printer>(_entities[50].properties[10]);
 
-  /// see [Printer.products]
-  static final products =
-      obx.QueryStringVectorProperty<Printer>(_entities[50].properties[11]);
-
-  /// see [Printer.departments]
-  static final departments =
-      obx.QueryStringVectorProperty<Printer>(_entities[50].properties[12]);
-
-  /// see [Printer.categories]
-  static final categories =
-      obx.QueryStringVectorProperty<Printer>(_entities[50].properties[13]);
-
   /// see [Printer.orderTypes]
   static final orderTypes =
-      obx.QueryIntegerVectorProperty<Printer>(_entities[50].properties[14]);
+      obx.QueryIntegerVectorProperty<Printer>(_entities[50].properties[11]);
 
   /// see [Printer.settings]
   static final settings = obx.QueryRelationToMany<Printer, PrinterSetting>(
@@ -17818,4 +17990,19 @@ class ViewSettings_ {
   /// see [ViewSettings.idSeq]
   static final idSeq =
       obx.QueryIntegerProperty<ViewSettings>(_entities[76].properties[0]);
+}
+
+/// [PrintInSeparate] entity fields to define ObjectBox queries.
+class PrintInSeparate_ {
+  /// see [PrintInSeparate.idSeq]
+  static final idSeq =
+      obx.QueryIntegerProperty<PrintInSeparate>(_entities[77].properties[0]);
+
+  /// see [PrintInSeparate.id]
+  static final id =
+      obx.QueryStringProperty<PrintInSeparate>(_entities[77].properties[1]);
+
+  /// see [PrintInSeparate.printInSeparate]
+  static final printInSeparate =
+      obx.QueryBooleanProperty<PrintInSeparate>(_entities[77].properties[2]);
 }

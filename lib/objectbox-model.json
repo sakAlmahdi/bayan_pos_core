@@ -356,7 +356,7 @@
     },
     {
       "id": "5:4194445702919768664",
-      "lastPropertyId": "31:2856282157778801997",
+      "lastPropertyId": "45:3851536559451463432",
       "name": "AppliedProduct",
       "properties": [
         {
@@ -535,6 +535,76 @@
           "id": "31:2856282157778801997",
           "name": "feeAmount",
           "type": 8
+        },
+        {
+          "id": "32:6394182358473969023",
+          "name": "feeTax",
+          "type": 8
+        },
+        {
+          "id": "33:6983236051386160541",
+          "name": "totalFees",
+          "type": 8
+        },
+        {
+          "id": "34:5118340580713966828",
+          "name": "receivedQuantity",
+          "type": 8
+        },
+        {
+          "id": "35:861319840554898111",
+          "name": "refundedQuantity",
+          "type": 8
+        },
+        {
+          "id": "36:2058153239652795198",
+          "name": "stockQuantity",
+          "type": 8
+        },
+        {
+          "id": "37:8724994115768755850",
+          "name": "unitPrice",
+          "type": 8
+        },
+        {
+          "id": "38:4941579518350773422",
+          "name": "unitPriceExclTax",
+          "type": 8
+        },
+        {
+          "id": "39:3720234071784545387",
+          "name": "feeUnitAmount",
+          "type": 8
+        },
+        {
+          "id": "40:1744705913664022699",
+          "name": "modifierOptionsUnitAmountExclTax",
+          "type": 8
+        },
+        {
+          "id": "41:4395727115549180491",
+          "name": "modifierOptionsUnitTaxAmount",
+          "type": 8
+        },
+        {
+          "id": "42:1420469566102858275",
+          "name": "timeEventTotalPercentage",
+          "type": 8
+        },
+        {
+          "id": "43:5572300286097039058",
+          "name": "timeEventUnitAmount",
+          "type": 8
+        },
+        {
+          "id": "44:5128076499662040777",
+          "name": "unitPriceTaxAmount",
+          "type": 8
+        },
+        {
+          "id": "45:3851536559451463432",
+          "name": "priceIncludesTax",
+          "type": 1
         }
       ],
       "relations": [
@@ -4030,21 +4100,6 @@
           "type": 6
         },
         {
-          "id": "12:4599283722762352873",
-          "name": "products",
-          "type": 30
-        },
-        {
-          "id": "13:4530343960409734314",
-          "name": "departments",
-          "type": 30
-        },
-        {
-          "id": "14:1011346000562234378",
-          "name": "categories",
-          "type": 30
-        },
-        {
           "id": "15:9181390543887291499",
           "name": "orderTypes",
           "type": 27
@@ -6063,9 +6118,33 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "79:634385656437886036",
+      "lastPropertyId": "3:7739598041368060151",
+      "name": "PrintInSeparate",
+      "properties": [
+        {
+          "id": "1:579345993657261828",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7135948873588760944",
+          "name": "id",
+          "type": 9
+        },
+        {
+          "id": "3:7739598041368060151",
+          "name": "printInSeparate",
+          "type": 1
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "78:2277506909777593783",
+  "lastEntityId": "79:634385656437886036",
   "lastIndexId": "67:350428259539118090",
   "lastRelationId": "32:635890591433436266",
   "lastSequenceId": "0:0",
@@ -6090,7 +6169,10 @@
     6294190789633290918,
     7598445715640819471,
     6801069914061037293,
-    6447532953644951274
+    6447532953644951274,
+    4599283722762352873,
+    4530343960409734314,
+    1011346000562234378
   ],
   "retiredRelationUids": [],
   "version": 1

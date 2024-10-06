@@ -391,7 +391,9 @@ class SendOrder {
       );
     }
     fees = order.fees
-        .map((element) => SendFees.fromOrder(fee: element, feePrice: 0))
+        .map((element) => SendFees.fromOrder(
+              fee: element,
+            ))
         .toList();
     if (order.couponId != null) {
       coupon = SendCoupon.fromOrder(order: order);
@@ -721,105 +723,210 @@ class SendTable {
 /// [lineTotalAmount] = [totalNetPriceAmount]+ [totalTaxAmount]
 
 class Products {
+  // new
+  int? masterLineSequence;
   int? deviceLineSequence;
+  String? masterLineId;
+  String? deviceLineId;
   String? productId;
   String? productName;
-  bool? priceIncludesTax;
-  List<SendTaxType>? taxInfo;
-  SendUnit? unit;
-  double? stockQuantity;
+  String? taxGroupId;
   double? quantity;
   double? freeQuantity;
-  double? baseUnitPrice;
-  double? discountPercentage;
-  double? discountAmount;
-  double? feePercentage;
-  double? feeAmount;
-  double? unitNetPrice;
-  double? unitTaxPercentage;
-  double? unitTaxAmount;
-  double? unitPriceInclTax;
-  double? totalPriceAmount;
-  double? totalDiscountAmount;
-  double? totalFeeAmount;
-  double? totalNetPriceAmount;
-  double? totalTaxAmount;
-  double? lineTotalAmount;
-  SendDiscount? discount;
-  SendPromotion? promotion;
-  SendTimeEvent? timeEvent;
-  List<SendFees>? fees;
-  double? unitCost;
-  double? totalCost;
-  double? inventoryUnitCost;
-  double? inventoryTotalCost;
   double? receivedQuantity;
   double? refundedQuantity;
+  double? stockQuantity;
+  double? unitPrice;
+  double? unitPriceExclTax;
+  double? totalPrice;
+  double? totalPriceExclTax;
+  double? feeTotalPercentage;
+  double? feeUnitAmount;
+  double? feeUnitTaxAmount;
+  double? feeTotalAmount;
+  double? feeTotalTaxAmount;
+  double? modifierOptionsUnitAmountExclTax;
+  double? modifierOptionsUnitTaxAmount;
+  double? modifierOptionsTotalPriceExclTax;
+  double? modifierOptionsTotalTaxAmount;
+  double? discountTotalPercentage;
+  double? discountUnitAmount;
+  double? discountTotalAmount;
+  double? promotionTotalPercentage;
+  double? promotionUnitAmount;
+  double? promotionTotalAmount;
+  double? timeEventTotalPercentage;
+  double? timeEventUnitAmount;
+  double? timeEventTotalAmount;
+  double? netUnitPrice;
+  double? netTotalPriceExclTax;
+  double? taxPercentage;
+  double? unitPriceTaxAmount;
+  double? totalPriceTaxAmount;
+  double? unitPriceInclTax;
+  double? totalPriceInclTax;
+  bool? priceIncludesTax;
   bool? canceled;
   String? canceledNote;
   String? productionReference;
   String? giftCardCode;
-  String? parentOrderLineId;
-  String? description;
   String? casherNote;
   String? kitchenNote;
   String? deliveryNote;
   String? reservedNote;
   String? deviceCreatedOn;
   String? deviceCreatedBy;
+  String? deviceId;
+  String? branchId;
+  SendUnit? unit;
+  List<SendFees>? fees;
+  List<SendTaxType>? taxInfo;
+  SendDiscount? discount;
+  SendPromotion? promotion;
+  SendTimeEvent? timeEvent;
+
+  // double? baseUnitPrice;
+  // double? discountPercentage;
+  // double? discountAmount;
+  // double? feePercentage;
+  // double? feeAmount;
+  // double? unitNetPrice;
+  // double? unitTaxPercentage;
+  // double? unitTaxAmount;
+
+  // double? totalPriceAmount;
+  // double? totalDiscountAmount;
+  // double? totalFeeAmount;
+  // double? totalNetPriceAmount;
+  // double? totalTaxAmount;
+  // double? lineTotalAmount;
+
+  // double? unitCost;
+  // double? totalCost;
+  // double? inventoryUnitCost;
+  // double? inventoryTotalCost;
+
+  // String? parentOrderLineId;
+  // String? description;
 
   Products(
-      {this.deviceLineSequence,
+      {this.masterLineSequence,
+      this.deviceLineSequence,
+      this.masterLineId,
+      this.deviceLineId,
       this.productId,
       this.productName,
-      this.priceIncludesTax,
-      this.unit,
-      this.stockQuantity,
+      this.taxGroupId,
       this.quantity,
       this.freeQuantity,
-      this.baseUnitPrice,
-      this.discountPercentage,
-      this.discountAmount,
-      this.feePercentage,
-      this.feeAmount,
-      this.unitNetPrice,
-      this.unitTaxPercentage,
-      this.unitTaxAmount,
-      this.unitPriceInclTax,
-      this.totalPriceAmount,
-      this.totalDiscountAmount,
-      this.totalFeeAmount,
-      this.totalNetPriceAmount,
-      this.totalTaxAmount,
-      this.lineTotalAmount,
-      this.discount,
-      this.promotion,
-      this.timeEvent,
-      this.fees,
-      this.unitCost,
-      this.totalCost,
-      this.inventoryUnitCost,
-      this.inventoryTotalCost,
       this.receivedQuantity,
       this.refundedQuantity,
+      this.stockQuantity,
+      this.unitPrice,
+      this.unitPriceExclTax,
+      this.totalPrice,
+      this.totalPriceExclTax,
+      this.feeTotalPercentage,
+      this.feeUnitAmount,
+      this.feeUnitTaxAmount,
+      this.feeTotalAmount,
+      this.feeTotalTaxAmount,
+      this.modifierOptionsUnitAmountExclTax,
+      this.modifierOptionsUnitTaxAmount,
+      this.modifierOptionsTotalPriceExclTax,
+      this.modifierOptionsTotalTaxAmount,
+      this.discountTotalPercentage,
+      this.discountUnitAmount,
+      this.discountTotalAmount,
+      this.promotionTotalPercentage,
+      this.promotionUnitAmount,
+      this.promotionTotalAmount,
+      this.timeEventTotalPercentage,
+      this.timeEventUnitAmount,
+      this.timeEventTotalAmount,
+      this.netUnitPrice,
+      this.netTotalPriceExclTax,
+      this.taxPercentage,
+      this.unitPriceTaxAmount,
+      this.totalPriceTaxAmount,
+      this.unitPriceInclTax,
+      this.totalPriceInclTax,
+      this.priceIncludesTax,
       this.canceled,
       this.canceledNote,
       this.productionReference,
       this.giftCardCode,
-      this.parentOrderLineId,
-      this.description,
       this.casherNote,
       this.kitchenNote,
       this.deliveryNote,
       this.reservedNote,
       this.deviceCreatedOn,
-      this.deviceCreatedBy});
+      this.deviceCreatedBy,
+      this.deviceId,
+      this.branchId,
+      this.unit,
+      this.fees,
+      this.taxInfo,
+      this.discount,
+      this.promotion,
+      this.timeEvent});
 
   Products.fromJson(Map<String, dynamic> json) {
+    masterLineSequence = json['masterLineSequence'];
     deviceLineSequence = json['deviceLineSequence'];
+    masterLineId = json['masterLineId'];
+    deviceLineId = json['deviceLineId'];
     productId = json['productId'];
     productName = json['productName'];
+    taxGroupId = json['taxGroupId'];
+    quantity = json['quantity'];
+    freeQuantity = json['freeQuantity'];
+    receivedQuantity = json['receivedQuantity'];
     priceIncludesTax = json['priceIncludesTax'];
+    refundedQuantity = json['refundedQuantity'];
+    stockQuantity = json['stockQuantity'];
+    unitPrice = json['unitPrice'];
+    unitPriceExclTax = json['unitPriceExclTax'];
+    totalPrice = json['totalPrice'];
+    totalPriceExclTax = json['totalPriceExclTax'];
+    feeTotalPercentage = json['feeTotalPercentage'];
+    feeUnitAmount = json['feeUnitAmount'];
+    feeUnitTaxAmount = json['feeUnitTaxAmount'];
+    feeTotalAmount = json['feeTotalAmount'];
+    feeTotalTaxAmount = json['feeTotalTaxAmount'];
+    modifierOptionsUnitAmountExclTax = json['modifierOptionsUnitAmountExclTax'];
+    modifierOptionsUnitTaxAmount = json['modifierOptionsUnitTaxAmount'];
+    modifierOptionsTotalPriceExclTax = json['modifierOptionsTotalPriceExclTax'];
+    modifierOptionsTotalTaxAmount = json['modifierOptionsTotalTaxAmount'];
+    discountTotalPercentage = json['discountTotalPercentage'];
+    discountUnitAmount = json['discountUnitAmount'];
+    discountTotalAmount = json['discountTotalAmount'];
+    promotionTotalPercentage = json['promotionTotalPercentage'];
+    promotionUnitAmount = json['promotionUnitAmount'];
+    promotionTotalAmount = json['promotionTotalAmount'];
+    timeEventTotalPercentage = json['timeEventTotalPercentage'];
+    timeEventUnitAmount = json['timeEventUnitAmount'];
+    timeEventTotalAmount = json['timeEventTotalAmount'];
+    netUnitPrice = json['netUnitPrice'];
+    netTotalPriceExclTax = json['netTotalPriceExclTax'];
+    taxPercentage = json['taxPercentage'];
+    unitPriceTaxAmount = json['unitPriceTaxAmount'];
+    totalPriceTaxAmount = json['totalPriceTaxAmount'];
+    unitPriceInclTax = json['unitPriceInclTax'];
+    totalPriceInclTax = json['totalPriceInclTax'];
+    priceIncludesTax = json['priceIncludesTax'];
+    canceled = json['canceled'];
+    canceledNote = json['canceledNote'];
+    productionReference = json['productionReference'];
+    giftCardCode = json['giftCardCode'];
+    casherNote = json['casherNote'];
+    kitchenNote = json['kitchenNote'];
+    deliveryNote = json['deliveryNote'];
+    reservedNote = json['reservedNote'];
+    deviceCreatedOn = json['deviceCreatedOn'];
+    deviceCreatedBy = json['deviceCreatedBy'];
+    deviceId = json['deviceId'];
+    branchId = json['branchId'];
     if (json['taxInfo'] != null) {
       taxInfo = [];
       json['taxInfo'].forEach((e) => SendTaxType.fromJson(e));
@@ -828,21 +935,7 @@ class Products {
     stockQuantity = json['stockQuantity'];
     quantity = json['quantity'];
     freeQuantity = json['freeQuantity'];
-    baseUnitPrice = json['baseUnitPrice'];
-    discountPercentage = json['discountPercentage'];
-    discountAmount = json['discountAmount'];
-    feePercentage = json['feePercentage'];
-    feeAmount = json['feeAmount'];
-    unitNetPrice = json['unitNetPrice'];
-    unitTaxPercentage = json['unitTaxPercentage'];
-    unitTaxAmount = json['unitTaxAmount'];
     unitPriceInclTax = json['unitPriceInclTax'];
-    totalPriceAmount = json['totalPriceAmount'];
-    totalDiscountAmount = json['totalDiscountAmount'];
-    totalFeeAmount = json['totalFeeAmount'];
-    totalNetPriceAmount = json['totalNetPriceAmount'];
-    totalTaxAmount = json['totalTaxAmount'];
-    lineTotalAmount = json['lineTotalAmount'];
     discount = json['discount'] != null
         ? SendDiscount.fromJson(json['discount'])
         : null;
@@ -858,56 +951,74 @@ class Products {
         fees!.add(SendFees.fromJson(v));
       });
     }
-    unitCost = json['unitCost'];
-    totalCost = json['totalCost'];
-    inventoryUnitCost = json['inventoryUnitCost'];
-    inventoryTotalCost = json['inventoryTotalCost'];
-    receivedQuantity = json['receivedQuantity'];
-    refundedQuantity = json['refundedQuantity'];
-    canceled = json['canceled'];
-    canceledNote = json['canceledNote'];
-    productionReference = json['productionReference'];
-    giftCardCode = json['giftCardCode'];
-    parentOrderLineId = json['parentOrderLineId'];
-    description = json['description'];
-    casherNote = json['casherNote'];
-    kitchenNote = json['kitchenNote'];
-    deliveryNote = json['deliveryNote'];
-    reservedNote = json['reservedNote'];
-    deviceCreatedOn = json['deviceCreatedOn'];
-    deviceCreatedBy = json['deviceCreatedBy'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+
+    data['masterLineSequence'] = masterLineSequence;
     data['deviceLineSequence'] = deviceLineSequence;
+    data['masterLineId'] = masterLineId;
+    data['deviceLineId'] = deviceLineId;
     data['productId'] = productId;
     data['productName'] = productName;
+    data['taxGroupId'] = taxGroupId;
+    data['quantity'] = quantity;
+    data['freeQuantity'] = freeQuantity;
+    data['receivedQuantity'] = receivedQuantity;
+    data['refundedQuantity'] = refundedQuantity;
+    data['stockQuantity'] = stockQuantity;
+    data['unitPrice'] = unitPrice;
+    data['unitPriceExclTax'] = unitPriceExclTax;
+    data['totalPrice'] = totalPrice;
+    data['totalPriceExclTax'] = totalPriceExclTax;
+    data['feeTotalPercentage'] = feeTotalPercentage;
+    data['feeUnitAmount'] = feeUnitAmount;
+    data['feeUnitTaxAmount'] = feeUnitTaxAmount;
+    data['feeTotalAmount'] = feeTotalAmount;
+    data['feeTotalTaxAmount'] = feeTotalTaxAmount;
+    data['modifierOptionsUnitAmountExclTax'] = modifierOptionsUnitAmountExclTax;
+    data['modifierOptionsUnitTaxAmount'] = modifierOptionsUnitTaxAmount;
+    data['modifierOptionsTotalPriceExclTax'] = modifierOptionsTotalPriceExclTax;
+    data['modifierOptionsTotalTaxAmount'] = modifierOptionsTotalTaxAmount;
+    data['discountTotalPercentage'] = discountTotalPercentage;
+    data['discountUnitAmount'] = discountUnitAmount;
+    data['discountTotalAmount'] = discountTotalAmount;
+    data['promotionTotalPercentage'] = promotionTotalPercentage;
+    data['promotionUnitAmount'] = promotionUnitAmount;
+    data['promotionTotalAmount'] = promotionTotalAmount;
+    data['timeEventTotalPercentage'] = timeEventTotalPercentage;
+    data['timeEventUnitAmount'] = timeEventUnitAmount;
+    data['timeEventTotalAmount'] = timeEventTotalAmount;
+    data['netUnitPrice'] = netUnitPrice;
+    data['netTotalPriceExclTax'] = netTotalPriceExclTax;
+    data['taxPercentage'] = taxPercentage;
+    data['unitPriceTaxAmount'] = unitPriceTaxAmount;
+    data['totalPriceTaxAmount'] = totalPriceTaxAmount;
+    data['unitPriceInclTax'] = unitPriceInclTax;
+    data['totalPriceInclTax'] = totalPriceInclTax;
     data['priceIncludesTax'] = priceIncludesTax;
+    data['canceled'] = canceled;
+    data['canceledNote'] = canceledNote;
+    data['productionReference'] = productionReference;
+    data['giftCardCode'] = giftCardCode;
+    data['casherNote'] = casherNote;
+    data['kitchenNote'] = kitchenNote;
+    data['deliveryNote'] = deliveryNote;
+    data['reservedNote'] = reservedNote;
+    data['deviceCreatedOn'] =
+        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
+    data['deviceCreatedBy'] = deviceCreatedBy;
+    data['deviceId'] = deviceId;
+    data['branchId'] = branchId;
+
+    ///
     if (taxInfo != null) {
       data['taxInfo'] = taxInfo!.map((e) => e.toJson().removeNull()).toList();
     }
     if (unit != null) {
       data['unit'] = unit!.toJson().removeNull();
     }
-    data['stockQuantity'] = stockQuantity;
-    data['quantity'] = quantity;
-    data['freeQuantity'] = freeQuantity;
-    data['baseUnitPrice'] = baseUnitPrice;
-    data['discountPercentage'] = discountPercentage;
-    data['discountAmount'] = discountAmount;
-    data['feePercentage'] = feePercentage;
-    data['feeAmount'] = feeAmount;
-    data['unitNetPrice'] = unitNetPrice;
-    data['unitTaxPercentage'] = unitTaxPercentage;
-    data['unitTaxAmount'] = unitTaxAmount;
-    data['unitPriceInclTax'] = unitPriceInclTax;
-    data['totalPriceAmount'] = totalPriceAmount;
-    data['totalDiscountAmount'] = totalDiscountAmount;
-    data['totalFeeAmount'] = totalFeeAmount;
-    data['totalNetPriceAmount'] = totalNetPriceAmount;
-    data['totalTaxAmount'] = totalTaxAmount;
-    data['lineTotalAmount'] = lineTotalAmount;
     if (discount != null) {
       data['discount'] = discount!.toJson().removeNull();
     }
@@ -920,25 +1031,7 @@ class Products {
     if (fees != null) {
       data['fees'] = fees!.map((v) => v.toJson().removeNull()).toList();
     }
-    data['unitCost'] = unitCost;
-    data['totalCost'] = totalCost;
-    data['inventoryUnitCost'] = inventoryUnitCost;
-    data['inventoryTotalCost'] = inventoryTotalCost;
-    data['receivedQuantity'] = receivedQuantity;
-    data['refundedQuantity'] = refundedQuantity;
-    data['canceled'] = canceled;
-    data['canceledNote'] = canceledNote;
-    data['productionReference'] = productionReference;
-    data['giftCardCode'] = giftCardCode;
-    data['parentOrderLineId'] = parentOrderLineId;
-    data['description'] = description;
-    data['casherNote'] = casherNote;
-    data['kitchenNote'] = kitchenNote;
-    data['deliveryNote'] = deliveryNote;
-    data['reservedNote'] = reservedNote;
-    data['deviceCreatedOn'] =
-        DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
-    data['deviceCreatedBy'] = deviceCreatedBy;
+
     return data;
   }
 
@@ -946,9 +1039,50 @@ class Products {
     required AppliedProduct product,
   }) {
     /// TODO :: deviceLineSequence
+    /// masterLineSequence
+    /// deviceLineSequence
     deviceLineSequence = 0;
+    masterLineSequence = 0;
+    masterLineId = product.prodRef;
+    deviceLineId = product.prodRef;
     productId = product.product.target?.id;
     productName = product.product.target?.getName;
+    taxGroupId = product.taxInfo.target?.taxGroupId;
+    quantity = product.quantity;
+    freeQuantity = product.freeQuantity;
+    receivedQuantity = product.receivedQuantity;
+    refundedQuantity = product.refundedQuantity;
+    unitPrice = product.unitPrice;
+    unitPriceExclTax = product.unitPriceExclTax;
+    totalPrice = product.totalPrice;
+    totalPriceExclTax = product.totalPriceExclTax;
+    feeTotalPercentage = product.feeTotalPercentage;
+    feeUnitAmount = product.feeUnitAmount;
+    feeUnitTaxAmount = product.feeUnitTaxAmount;
+    feeTotalAmount = product.feeTotalAmount;
+    feeTotalTaxAmount = product.feeTotalTaxAmount;
+    modifierOptionsUnitAmountExclTax = product.modifierOptionsUnitAmountExclTax;
+    modifierOptionsUnitTaxAmount = product.modifierOptionsUnitTaxAmount;
+    modifierOptionsTotalPriceExclTax = product.modifierOptionsTotalPriceExclTax;
+    modifierOptionsTotalTaxAmount = product.modifierOptionsTotalTaxAmount;
+    discountTotalPercentage = product.discountTotalPercentage;
+    discountUnitAmount = product.discountUnitAmount;
+    discountTotalAmount = product.discountTotalAmount;
+    promotionTotalPercentage = product.promotionTotalPercentage;
+    promotionUnitAmount = product.promotionUnitAmount;
+    promotionTotalAmount = product.promotionTotalAmount;
+    timeEventTotalPercentage = product.timeEventTotalPercentage;
+    timeEventUnitAmount = product.timeEventUnitAmount;
+    timeEventTotalAmount = product.timeEventTotalAmount;
+    netUnitPrice = product.netUnitPrice;
+    netTotalPriceExclTax = product.netTotalPriceExclTax;
+    taxPercentage = product.taxPercentage;
+    unitPriceTaxAmount = product.unitPriceTaxAmount;
+    totalPriceTaxAmount = product.totalPriceTaxAmount;
+    unitPriceInclTax = product.unitPriceInclTax;
+    totalPriceInclTax = product.totalPriceInclTax;
+    priceIncludesTax = product.priceIncludesTax;
+
     priceIncludesTax = product.priceWithTax;
     if (product.taxInfo.target != null) {
       taxInfo = product.taxInfo.target?.values
@@ -961,31 +1095,19 @@ class Products {
         product: product,
       );
     }
-    stockQuantity = 0;
-    quantity = product.quantity;
-    freeQuantity = product.freeQuantity;
-    baseUnitPrice = product.price;
+
     if (discount != null) {
-      discountAmount =
-          (product.priceDiscount ?? 0) + (product.pricePromotion ?? 0);
-      discountPercentage = product.discount.target!.discountPercentage;
+      // discountAmount =
+      //     (product.priceDiscount ?? 0) + (product.pricePromotion ?? 0);
+      // discountPercentage = product.discount.target!.discountPercentage;
     }
 
     //// Todo :: Add fee
     ///
-    feePercentage = product.feesPercentage;
-    feeAmount = product.feeAmount;
-    unitNetPrice =
-        (product.price ?? 0) + (feeAmount ?? 0) - (discountAmount ?? 0);
-    unitTaxPercentage = product.taxPercentage;
-    unitTaxAmount = product.getUnitPrice;
-    unitPriceInclTax = (product.price ?? 0) + (product.taxPrice ?? 0);
-    totalPriceAmount = product.getUnitPrice * product.quantity;
-    totalDiscountAmount = product.totalDiscount;
-    totalFeeAmount = (product.feeAmount ?? 0) * product.quantity;
-    totalNetPriceAmount = unitNetPrice! * product.quantity;
-    totalTaxAmount = product.taxPrice;
-    lineTotalAmount = product.subTotal;
+    ///
+    if (product.fees != null) {
+      fees = product.fees!.map((e) => SendFees.fromOrder(fee: e)).toList();
+    }
 
     if (discount != null) {
       discount = SendDiscount.fromOrderProduct(
@@ -999,22 +1121,12 @@ class Products {
     if (timeEvent != null) {
       timeEvent = SendTimeEvent.fromOrder(event: product.event.target!);
     }
-
-    unitCost = product.unit.target?.cost;
-    totalCost = 0;
-    inventoryUnitCost = 0;
-    inventoryTotalCost = 0;
-    receivedQuantity = 0;
-    refundedQuantity = 0;
-
     canceled = false;
     canceledNote = product.msgCansel;
     productionReference = product.prodRef;
     if (product.product.target?.getProductType == ProductType.giftCard) {
       giftCardCode = product.giftCardCode;
     }
-    parentOrderLineId = product.prodRef;
-    description = "";
     casherNote = product.note;
     kitchenNote = product.kitchenInfo?.reason;
     deliveryNote = product.deliveryNote;
@@ -1591,7 +1703,9 @@ class SendFees {
     deviceCreatedBy = json['deviceCreatedBy'];
   }
 
-  SendFees.fromOrder({required Fee fee, required double feePrice}) {
+  SendFees.fromOrder({
+    required Fee fee,
+  }) {
     feeId = fee.id;
     // baseAmount = fee.;
     percent = fee.percentage;

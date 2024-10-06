@@ -425,7 +425,8 @@ class OrderC {
     data['donationForId'] = donationForId;
     data['supervisorId'] = supervisorId;
     data['trackingStatusId'] = trackingStatusId;
-    data['orderStatusTracking'] = orderStatusTracking;
+    data['orderStatusTracking'] =
+        orderStatusTracking?.map((e) => e.toJson()).toList();
     data['waiters'] = waiters;
     data['couponId'] = couponId;
     data['createdOn'] = createdOn;
@@ -690,7 +691,7 @@ class AppliedProduct {
   double? get totalPriceExclTax => (unitPriceExclTax ?? 0) * quantity;
   double? get feeTotalPercentage => feesPercentage;
   double? feeUnitAmount;
-  double? feeUnitTaxAmount;
+  double? get feeUnitTaxAmount => feeTax;
   double? get feeTotalAmount => feeAmount.getZeroIfNull * quantity;
   double? get feeTotalTaxAmount => feeUnitTaxAmount.getZeroIfNull * quantity;
   double? modifierOptionsUnitAmountExclTax;
@@ -869,6 +870,12 @@ class AppliedProduct {
         appliedModifer.add(AppliedModifer.fromJson(v));
       });
     }
+    quantity = double.tryParse(json['quantity'].toString()) ?? 0.0;
+    prodRef = json['prodRef'];
+    priceWithTax = json['priceWithTax'];
+    isCansel = json['isCansel'];
+    msgCansel = json['msgCansel'];
+    priceLevel = json['priceLevel'];
 
     event.target =
         json['event'] != null ? TimeEvent.fromJson(json['event']) : null;
@@ -882,32 +889,28 @@ class AppliedProduct {
     throwbackInfo.target = json['throwbackInfo'] != null
         ? ThrowbackInfo.fromJson(json['throwbackInfo'])
         : null;
-    quantity = double.tryParse(json['quantity'].toString()) ?? 0.0;
-    prodRef = json['prodRef'];
-    priceWithTax = json['priceWithTax'];
-    isCansel = json['isCansel'];
-    msgCansel = json['msgCansel'];
-    priceLevel = json['priceLevel'];
+
     giftCardCode = json['giftCardCode'];
     price = double.tryParse(json['price'].toString()) ?? 0.0;
     optionPrice = double.tryParse(json['optionPrice'].toString()) ?? 0.0;
     priceDiscount = double.tryParse(json['priceDiscount'].toString()) ?? 0.0;
     pricePromotion = double.tryParse(json['pricePromotion'].toString()) ?? 0.0;
+    feeTax = json['feeTax'];
     taxPrice = double.tryParse(json['taxPrice'].toString()) ?? 0.0;
+    taxableAmt = json['taxableAmt'];
     freeQuantity = double.tryParse(json['freeQuantity'].toString()) ?? 0.0;
+    isFixedPrice = json['isFixedPrice'];
+    canEditQty = json['canEditQty'];
     note = json['note'];
     if (json['kitchenInfo'] != null) {
       kitchenInfo = KitchenInfo.fromJson(json['kitchenInfo']);
     }
-    taxableAmt = json['taxableAmt'];
-    canEditQty = json['canEditQty'];
-    isFixedPrice = json['isFixedPrice'];
-    barcodePrice = json['barcodePrice'];
+
     deliveryNote = json['deliveryNote'];
+    barcodePrice = json['barcodePrice'];
     reservedNote = json['reservedNote'];
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
-
     if (json['fees'] != null) {
       fees = [];
       json['fees'].forEach((v) {
@@ -921,15 +924,31 @@ class AppliedProduct {
       });
     }
     feeAmount = double.tryParse(json['feeAmount'].toString()) ?? 0.0;
-
+    json['totalFees'] = double.tryParse(json['totalFees'].toString());
     if (json['priceList'] != null) {
       priceList = SendPriceList.fromJson(json['priceList']);
     }
-    json['totalFees'] = double.tryParse(json['totalFees'].toString());
+    receivedQuantity = double.tryParse(json['receivedQuantity'].toString());
+    refundedQuantity = double.tryParse(json['refundedQuantity'].toString());
+    stockQuantity = double.tryParse(json['stockQuantity'].toString());
+    unitPrice = double.tryParse(json['unitPrice'].toString());
+    unitPriceExclTax = double.tryParse(json['unitPriceExclTax'].toString());
+    feeUnitAmount = double.tryParse(json['feeUnitAmount'].toString());
+    modifierOptionsUnitAmountExclTax =
+        double.tryParse(json['modifierOptionsUnitAmountExclTax'].toString());
+    modifierOptionsUnitTaxAmount =
+        double.tryParse(json['modifierOptionsUnitTaxAmount'].toString());
+    timeEventTotalPercentage =
+        double.tryParse(json['timeEventTotalPercentage'].toString());
+    timeEventUnitAmount =
+        double.tryParse(json['timeEventUnitAmount'].toString());
+    unitPriceTaxAmount = double.tryParse(json['unitPriceTaxAmount'].toString());
+    priceIncludesTax = json['priceIncludesTax'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
+
     if (product.target != null) {
       data['product'] = product.target!.toJson().removeNull();
     }
@@ -938,6 +957,12 @@ class AppliedProduct {
     }
     data['appliedModifer'] =
         appliedModifer.map((element) => element.toJson().removeNull()).toList();
+    data['quantity'] = quantity;
+    data['prodRef'] = prodRef;
+    data['priceWithTax'] = priceWithTax;
+    data['isCansel'] = isCansel;
+    data['msgCansel'] = msgCansel;
+    data['priceLevel'] = priceLevel;
     if (event.target != null) {
       data['event'] = event.target!.toJson().removeNull();
     }
@@ -953,26 +978,22 @@ class AppliedProduct {
     if (throwbackInfo.target != null) {
       data['throwbackInfo'] = throwbackInfo.target!.toJson().removeNull();
     }
-    data['quantity'] = quantity;
-    data['prodRef'] = prodRef;
-    data['priceWithTax'] = priceWithTax;
-    data['isCansel'] = isCansel;
-    data['msgCansel'] = msgCansel;
-    data['priceLevel'] = priceLevel;
+
     data['giftCardCode'] = giftCardCode;
     data['price'] = price;
     data['optionPrice'] = optionPrice;
     data['priceDiscount'] = priceDiscount ?? 0.0;
     data['pricePromotion'] = pricePromotion;
+    data['feeTax'] = feeTax;
     data['taxPrice'] = taxPrice;
+    data['taxableAmt'] = taxableAmt;
     data['freeQuantity'] = freeQuantity;
+    data['isFixedPrice'] = isFixedPrice;
+    data['canEditQty'] = canEditQty;
+    data['barcodePrice'] = barcodePrice;
     data['note'] = note;
     data['subTotal'] = subTotal;
     data['kitchenInfo'] = kitchenInfo?.toJson();
-    data['taxableAmt'] = taxableAmt;
-    data['canEditQty'] = canEditQty;
-    data['isFixedPrice'] = isFixedPrice;
-    data['barcodePrice'] = barcodePrice;
     data['deliveryNote'] = deliveryNote;
     data['reservedNote'] = reservedNote;
     data['deviceCreatedOn'] =
@@ -993,12 +1014,25 @@ class AppliedProduct {
     }
 
     data['totalFees'] = totalFees;
+    data['receivedQuantity'] = receivedQuantity;
+    data['refundedQuantity'] = refundedQuantity;
+    data['stockQuantity'] = stockQuantity;
+    data['unitPrice'] = unitPrice;
+    data['unitPriceExclTax'] = unitPriceExclTax;
+    data['feeUnitAmount'] = feeUnitAmount;
+    data['modifierOptionsUnitAmountExclTax'] = modifierOptionsUnitAmountExclTax;
+    data['modifierOptionsUnitTaxAmount'] = modifierOptionsUnitTaxAmount;
+    data['timeEventTotalPercentage'] = timeEventTotalPercentage;
+    data['timeEventUnitAmount'] = timeEventUnitAmount;
+    data['unitPriceTaxAmount'] = unitPriceTaxAmount;
+    data['priceIncludesTax'] = priceIncludesTax;
 
     return data;
   }
 
   Map<String, dynamic> toJsonOrder() {
     final Map<String, dynamic> data = {};
+    return toJson();
     if (product.target != null) {
       data['product'] = product.target!.toJsonOrder().removeNull();
     }
@@ -1023,17 +1057,17 @@ class AppliedProduct {
     if (throwbackInfo.target != null) {
       data['throwbackInfo'] = throwbackInfo.target!.toJson().removeNull();
     }
+    data['giftCardCode'] = giftCardCode;
     data['quantity'] = quantity;
+    data['price'] = price ?? 0.0;
+    data['optionPrice'] = optionPrice ?? 0.0;
+    data['priceDiscount'] = priceDiscount ?? 0.0;
+    data['pricePromotion'] = pricePromotion ?? 0.0;
     data['prodRef'] = prodRef;
     data['priceWithTax'] = priceWithTax;
     data['isCansel'] = isCansel;
     data['msgCansel'] = msgCansel;
     data['priceLevel'] = priceLevel;
-    data['giftCardCode'] = giftCardCode;
-    data['price'] = price ?? 0.0;
-    data['optionPrice'] = optionPrice ?? 0.0;
-    data['priceDiscount'] = priceDiscount ?? 0.0;
-    data['pricePromotion'] = pricePromotion ?? 0.0;
     data['taxPrice'] = taxPrice ?? 0.0;
     data['freeQuantity'] = freeQuantity ?? 0.0;
     data['note'] = note;
@@ -1044,6 +1078,18 @@ class AppliedProduct {
     data['isFixedPrice'] = isFixedPrice;
     data['barcodePrice'] = barcodePrice;
     data['totalFees'] = totalFees;
+    data['receivedQuantity'] = receivedQuantity;
+    data['refundedQuantity'] = refundedQuantity;
+    data['stockQuantity'] = stockQuantity;
+    data['unitPrice'] = unitPrice;
+    data['unitPriceExclTax'] = unitPriceExclTax;
+    data['feeUnitAmount'] = feeUnitAmount;
+    data['modifierOptionsUnitAmountExclTax'] = modifierOptionsUnitAmountExclTax;
+    data['modifierOptionsUnitTaxAmount'] = modifierOptionsUnitTaxAmount;
+    data['timeEventTotalPercentage'] = timeEventTotalPercentage;
+    data['timeEventUnitAmount'] = timeEventUnitAmount;
+    data['unitPriceTaxAmount'] = unitPriceTaxAmount;
+    data['priceIncludesTax'] = priceIncludesTax;
     return data;
   }
 
