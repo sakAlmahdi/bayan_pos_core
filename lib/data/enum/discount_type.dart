@@ -33,4 +33,17 @@ extension DiscountTypeEx on DiscountType {
         return 2;
     }
   }
+
+  String get name {
+    switch (this) {
+      case DiscountType.percentage:
+        return 'نسبة';
+      case DiscountType.price:
+        return 'مبلغ';
+      case DiscountType.payFixedPrice:
+        return 'يدفع مبلغ ثابت';
+      default:
+        return 'مبلغ';
+    }
+  }
 }

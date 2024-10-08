@@ -24,7 +24,8 @@ class Discount {
   double? maximumDiscountAmount;
   double? minimalOrderAmount;
   bool? taxable;
-  List<String>? productIDs;
+
+  final products = ToMany<ProductsOnDiscount>();
   List<int>? days;
   List<int>? orderTypes;
   List<String>? priceList;
@@ -78,7 +79,6 @@ class Discount {
     this.maximumDiscountAmount,
     this.minimalOrderAmount,
     this.taxable,
-    this.productIDs,
     this.days,
     this.orderTypes,
     this.priceList,
@@ -108,9 +108,8 @@ class Discount {
         double.tryParse(json['minimal_Order_Amount'].toString()) ?? 0.0;
     taxable = json['taxable'];
     if (json['products'] != null) {
-      productIDs = <String>[];
       json['products'].forEach((v) {
-        productIDs!.add(v.toString().toLowerCase());
+        products.add(ProductsOnDiscount.fromJson(v));
       });
     }
     if (json['days'] != null) {
@@ -183,8 +182,8 @@ class Discount {
     if (customers != null) {
       data['customers'] = customers!.map((v) => v).toList();
     }
-    if (productIDs != null) {
-      data['products'] = productIDs!.map((v) => v).toList();
+    if (products != null) {
+      data['products'] = products!.map((v) => v.toJson()).toList();
     }
     if (departments != null) {
       data['departments'] = departments!.map((v) => v).toList();
@@ -196,6 +195,33 @@ class Discount {
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
+    return data;
+  }
+}
+
+@Entity()
+class ProductsOnDiscount {
+  @Id()
+  int? idSeq;
+  String? id;
+  List<String>? units;
+
+  ProductsOnDiscount({this.id, this.units});
+
+  ProductsOnDiscount.fromJson(Map<String, dynamic> json) {
+    id = json['id'].toString().toLowerCase();
+    if (json['units'] != null) {
+      units = <String>[];
+      json['units'].forEach((v) {
+        units!.add(v.toString().toLowerCase());
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['units'] = units;
     return data;
   }
 }

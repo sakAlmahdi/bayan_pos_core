@@ -5,6 +5,7 @@ import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/enum/promotion_apply_to_enum.dart';
 import 'package:bayan_pos_core/data/enum/promotion_apply_type_enum.dart';
 import 'package:bayan_pos_core/data/enum/promotion_type_enum.dart';
+import 'package:bayan_pos_core/data/model/discount/discount.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -30,8 +31,8 @@ class Promotion {
   int? promotionApplyToType;
   List<int>? days;
   List<int>? orderTypes;
-  List<String>? purchaseProducts;
-  List<String>? discountProducts;
+  final purchaseProducts = ToMany<ProductsOnDiscount>();
+  final discountProducts = ToMany<ProductsOnDiscount>();
 
   int? priority = 0;
 
@@ -96,8 +97,6 @@ class Promotion {
     this.promotionApplyToType,
     this.days,
     this.orderTypes,
-    this.purchaseProducts,
-    this.discountProducts,
     this.priority,
   });
 
@@ -135,15 +134,13 @@ class Promotion {
       });
     }
     if (json['purchaseProducts'] != null) {
-      purchaseProducts = <String>[];
       json['purchaseProducts'].forEach((v) {
-        purchaseProducts!.add(v!.toString().toLowerCase());
+        purchaseProducts.add(ProductsOnDiscount.fromJson(v));
       });
     }
     if (json['discountProducts'] != null) {
-      discountProducts = <String>[];
       json['discountProducts'].forEach((v) {
-        discountProducts!.add(v!.toString().toLowerCase());
+        discountProducts.add(ProductsOnDiscount.fromJson(v));
       });
     }
   }
