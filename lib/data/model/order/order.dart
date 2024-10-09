@@ -671,7 +671,7 @@ class AppliedProduct {
 
   List<Fee>? fees;
   List<FeeValue>? feeValues;
-  double? feeAmount;
+  // double? feeAmount;
   double? totalFees;
   SendPriceList? priceList;
 
@@ -692,7 +692,7 @@ class AppliedProduct {
   double? get feeTotalPercentage => feesPercentage;
   double? feeUnitAmount;
   double? get feeUnitTaxAmount => feeTax;
-  double? get feeTotalAmount => feeAmount.getZeroIfNull * quantity;
+  double? get feeTotalAmount => feeUnitAmount.getZeroIfNull * quantity;
   double? get feeTotalTaxAmount => feeUnitTaxAmount.getZeroIfNull * quantity;
   double? modifierOptionsUnitAmountExclTax;
   double? modifierOptionsUnitTaxAmount;
@@ -773,7 +773,7 @@ class AppliedProduct {
     this.deviceCreatedBy,
     this.fees,
     this.feeValues,
-    this.feeAmount,
+    this.feeUnitAmount,
     this.priceList,
     this.feeTax,
     this.totalFees,
@@ -841,7 +841,7 @@ class AppliedProduct {
       deviceCreatedBy: deviceCreatedBy ?? this.deviceCreatedBy,
       fees: fees ?? this.fees,
       feeValues: feeValues ?? this.feeValues,
-      feeAmount: feeAmount ?? this.feeAmount,
+      feeUnitAmount: feeAmount ?? feeUnitAmount,
       priceList: priceList ?? this.priceList,
       totalFees: totalFees ?? this.totalFees,
     )
@@ -923,7 +923,7 @@ class AppliedProduct {
         feeValues!.add(FeeValue.fromJson(v));
       });
     }
-    feeAmount = double.tryParse(json['feeAmount'].toString()) ?? 0.0;
+
     json['totalFees'] = double.tryParse(json['totalFees'].toString());
     if (json['priceList'] != null) {
       priceList = SendPriceList.fromJson(json['priceList']);
@@ -1006,9 +1006,6 @@ class AppliedProduct {
     if (feeValues != null) {
       data['feeValues'] = feeValues!.map((v) => v.toJson()).toList();
     }
-
-    data['feeAmount'] = feeAmount;
-
     if (priceList != null) {
       data['priceList'] = priceList!.toJson().removeNull();
     }

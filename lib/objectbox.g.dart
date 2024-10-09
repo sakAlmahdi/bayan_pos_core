@@ -602,11 +602,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(31, 2856282157778801997),
-            name: 'feeAmount',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(32, 6394182358473969023),
             name: 'feeTax',
             type: 8,
@@ -6231,7 +6226,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
         2117922794690103357,
         557478408839449831,
         5078221134130793930,
-        429164694286334845
+        429164694286334845,
+        2856282157778801997
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -6776,7 +6772,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(27, reservedNoteOffset);
           fbb.addOffset(28, deviceCreatedOnOffset);
           fbb.addOffset(29, deviceCreatedByOffset);
-          fbb.addFloat64(30, object.feeAmount);
           fbb.addFloat64(31, object.feeTax);
           fbb.addFloat64(32, object.totalFees);
           fbb.addFloat64(33, object.receivedQuantity);
@@ -6846,8 +6841,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final deviceCreatedByParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 62);
-          final feeAmountParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 64);
+          final feeUnitAmountParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 80);
           final feeTaxParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 66);
           final totalFeesParam = const fb.Float64Reader()
@@ -6875,7 +6870,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
               reservedNote: reservedNoteParam,
               deviceCreatedOn: deviceCreatedOnParam,
               deviceCreatedBy: deviceCreatedByParam,
-              feeAmount: feeAmountParam,
+              feeUnitAmount: feeUnitAmountParam,
               feeTax: feeTaxParam,
               totalFees: totalFeesParam)
             ..idSeq =
@@ -6890,8 +6885,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 76)
             ..unitPriceExclTax = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 78)
-            ..feeUnitAmount = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 80)
             ..modifierOptionsUnitAmountExclTax = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 82)
             ..modifierOptionsUnitTaxAmount = const fb.Float64Reader()
@@ -13973,65 +13966,61 @@ class AppliedProduct_ {
   static final deviceCreatedBy =
       obx.QueryStringProperty<AppliedProduct>(_entities[4].properties[29]);
 
-  /// see [AppliedProduct.feeAmount]
-  static final feeAmount =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[30]);
-
   /// see [AppliedProduct.feeTax]
   static final feeTax =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[31]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[30]);
 
   /// see [AppliedProduct.totalFees]
   static final totalFees =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[32]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[31]);
 
   /// see [AppliedProduct.receivedQuantity]
   static final receivedQuantity =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[33]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[32]);
 
   /// see [AppliedProduct.refundedQuantity]
   static final refundedQuantity =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[34]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[33]);
 
   /// see [AppliedProduct.stockQuantity]
   static final stockQuantity =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[35]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[34]);
 
   /// see [AppliedProduct.unitPrice]
   static final unitPrice =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[36]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[35]);
 
   /// see [AppliedProduct.unitPriceExclTax]
   static final unitPriceExclTax =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[37]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[36]);
 
   /// see [AppliedProduct.feeUnitAmount]
   static final feeUnitAmount =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[38]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[37]);
 
   /// see [AppliedProduct.modifierOptionsUnitAmountExclTax]
   static final modifierOptionsUnitAmountExclTax =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[39]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[38]);
 
   /// see [AppliedProduct.modifierOptionsUnitTaxAmount]
   static final modifierOptionsUnitTaxAmount =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[40]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[39]);
 
   /// see [AppliedProduct.timeEventTotalPercentage]
   static final timeEventTotalPercentage =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[41]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[40]);
 
   /// see [AppliedProduct.timeEventUnitAmount]
   static final timeEventUnitAmount =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[42]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[41]);
 
   /// see [AppliedProduct.unitPriceTaxAmount]
   static final unitPriceTaxAmount =
-      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[43]);
+      obx.QueryDoubleProperty<AppliedProduct>(_entities[4].properties[42]);
 
   /// see [AppliedProduct.priceIncludesTax]
   static final priceIncludesTax =
-      obx.QueryBooleanProperty<AppliedProduct>(_entities[4].properties[44]);
+      obx.QueryBooleanProperty<AppliedProduct>(_entities[4].properties[43]);
 
   /// see [AppliedProduct.appliedModifer]
   static final appliedModifer =
