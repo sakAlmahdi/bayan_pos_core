@@ -18,10 +18,13 @@ class Option {
   int? displayOrder;
   String? name;
   String? fname;
+  double? freeQuantity;
+  bool? isFree;
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fname;
   String? taxGroupId;
+  String? imageUrl;
 
   Option({
     this.id,
@@ -37,6 +40,10 @@ class Option {
     this.taxGroupId,
     this.name,
     this.fname,
+    this.freeQuantity,
+    this.idSeq,
+    this.isFree,
+    this.imageUrl,
   });
 
   Option.fromJson(Map<String, dynamic> json, {OptionMapper? optionsMapper}) {
@@ -55,6 +62,9 @@ class Option {
     isDefault = json['isDefault'];
     displayOrder = json['displayOrder'];
     taxGroupId = json['taxGroupId'];
+    isFree = json['isFree'];
+    freeQuantity = double.tryParse(json['freeQuantity'].toString());
+    imageUrl = json['imageUrl'];
   }
 
   Map<String, dynamic> toJson() {
@@ -72,6 +82,9 @@ class Option {
     data['isDefault'] = isDefault;
     data['displayOrder'] = displayOrder;
     data['taxGroupId'] = taxGroupId;
+    data['freeQuantity'] = freeQuantity;
+    data['isFree'] = isFree;
+    data['imageUrl'] = imageUrl;
 
     return data;
   }
@@ -91,6 +104,9 @@ class Option {
     // data['isDefault9'] = isDefault;
     // data['displayOrder10'] = displayOrder;
     data['taxGroupId'] = taxGroupId;
+    data['freeQuantity'] = freeQuantity;
+    data['isFree'] = isFree;
+    data['imageUrl'] = imageUrl;
 
     return data;
   }

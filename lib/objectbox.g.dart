@@ -3342,7 +3342,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(43, 8514080205124919641),
       name: 'Option',
-      lastPropertyId: const obx_int.IdUid(14, 7950708980344987702),
+      lastPropertyId: const obx_int.IdUid(17, 1966574248437110677),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -3413,6 +3413,21 @@ final _entities = <obx_int.ModelEntity>[
         obx_int.ModelProperty(
             id: const obx_int.IdUid(14, 7950708980344987702),
             name: 'taxGroupId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 6607516786124696647),
+            name: 'freeQuantity',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 5281813836867449668),
+            name: 'isFree',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 1966574248437110677),
+            name: 'imageUrl',
             type: 9,
             flags: 0)
       ],
@@ -5711,7 +5726,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(74, 4161930827695234175),
       name: 'Unit',
-      lastPropertyId: const obx_int.IdUid(15, 1098113963351132208),
+      lastPropertyId: const obx_int.IdUid(16, 4735042269118717778),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -5788,6 +5803,11 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(15, 1098113963351132208),
             name: 'deviceCreatedBy',
             type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 4735042269118717778),
+            name: 'imageUrl',
+            type: 9,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
@@ -5804,7 +5824,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(75, 317024596804405287),
       name: 'UnitModifer',
-      lastPropertyId: const obx_int.IdUid(10, 8452951150075928177),
+      lastPropertyId: const obx_int.IdUid(11, 1185865004508766052),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -5838,11 +5858,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 1,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 3326194513783711166),
-            name: 'defulatOptions',
-            type: 30,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(8, 6916746966216462232),
             name: 'exceptOptions',
             type: 30,
@@ -5856,13 +5871,14 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(10, 8452951150075928177),
             name: 'fName',
             type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 1185865004508766052),
+            name: 'equalToProductQuantity',
+            type: 1,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(31, 9100000052568182061),
-            name: 'freeOptions',
-            targetId: const obx_int.IdUid(30, 395527205777665075)),
         obx_int.ModelRelation(
             id: const obx_int.IdUid(32, 635890591433436266),
             name: 'options',
@@ -6227,9 +6243,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
         557478408839449831,
         5078221134130793930,
         429164694286334845,
-        2856282157778801997
+        2856282157778801997,
+        3326194513783711166
       ],
-      retiredRelationUids: const [],
+      retiredRelationUids: const [9100000052568182061],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
       version: 1);
@@ -10175,7 +10192,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final taxGroupIdOffset = object.taxGroupId == null
               ? null
               : fbb.writeString(object.taxGroupId!);
-          fbb.startTable(15);
+          final imageUrlOffset = object.imageUrl == null
+              ? null
+              : fbb.writeString(object.imageUrl!);
+          fbb.startTable(18);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, costTypeOffset);
@@ -10190,6 +10210,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(11, nameOffset);
           fbb.addOffset(12, fnameOffset);
           fbb.addOffset(13, taxGroupIdOffset);
+          fbb.addFloat64(14, object.freeQuantity);
+          fbb.addBool(15, object.isFree);
+          fbb.addOffset(16, imageUrlOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -10222,6 +10245,14 @@ obx_int.ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 26);
           final fnameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 28);
+          final freeQuantityParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 32);
+          final idSeqParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          final isFreeParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+          final imageUrlParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 36);
           final object = Option(
               id: idParam,
               costType: costTypeParam,
@@ -10235,9 +10266,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
               displayOrder: displayOrderParam,
               taxGroupId: taxGroupIdParam,
               name: nameParam,
-              fname: fnameParam)
-            ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+              fname: fnameParam,
+              freeQuantity: freeQuantityParam,
+              idSeq: idSeqParam,
+              isFree: isFreeParam,
+              imageUrl: imageUrlParam);
 
           return object;
         }),
@@ -13021,7 +13054,10 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final deviceCreatedByOffset = object.deviceCreatedBy == null
               ? null
               : fbb.writeString(object.deviceCreatedBy!);
-          fbb.startTable(16);
+          final imageUrlOffset = object.imageUrl == null
+              ? null
+              : fbb.writeString(object.imageUrl!);
+          fbb.startTable(17);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -13037,6 +13073,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addInt64(12, object.priceType);
           fbb.addOffset(13, deviceCreatedOnOffset);
           fbb.addOffset(14, deviceCreatedByOffset);
+          fbb.addOffset(15, imageUrlOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -13067,6 +13104,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
           final priceTypeParam =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 28);
+          final imageUrlParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 34);
           final deviceCreatedOnParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 30);
@@ -13086,6 +13125,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
               fName: fNameParam,
               showAlertPreparationTime: showAlertPreparationTimeParam,
               priceType: priceTypeParam,
+              imageUrl: imageUrlParam,
               deviceCreatedOn: deviceCreatedOnParam,
               deviceCreatedBy: deviceCreatedByParam)
             ..idSeq =
@@ -13100,8 +13140,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
         model: _entities[73],
         toOneRelations: (UnitModifer object) => [],
         toManyRelations: (UnitModifer object) => {
-              obx_int.RelInfo<UnitModifer>.toMany(31, object.idSeq!):
-                  object.freeOptions,
               obx_int.RelInfo<UnitModifer>.toMany(32, object.idSeq!):
                   object.options
             },
@@ -13112,11 +13150,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
         objectToFB: (UnitModifer object, fb.Builder fbb) {
           final idOffset =
               object.id == null ? null : fbb.writeString(object.id!);
-          final defulatOptionsOffset = object.defulatOptions == null
-              ? null
-              : fbb.writeList(object.defulatOptions!
-                  .map(fbb.writeString)
-                  .toList(growable: false));
           final exceptOptionsOffset = object.exceptOptions == null
               ? null
               : fbb.writeList(object.exceptOptions!
@@ -13126,17 +13159,17 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.name == null ? null : fbb.writeString(object.name!);
           final fNameOffset =
               object.fName == null ? null : fbb.writeString(object.fName!);
-          fbb.startTable(11);
+          fbb.startTable(12);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addInt64(2, object.minimumOptions);
           fbb.addInt64(3, object.maximumOptions);
           fbb.addBool(4, object.isUnique);
           fbb.addBool(5, object.isRequired);
-          fbb.addOffset(6, defulatOptionsOffset);
           fbb.addOffset(7, exceptOptionsOffset);
           fbb.addOffset(8, nameOffset);
           fbb.addOffset(9, fNameOffset);
+          fbb.addBool(10, object.equalToProductQuantity);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -13153,10 +13186,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
           final isRequiredParam =
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
-          final defulatOptionsParam = const fb.ListReader<String>(
-                  fb.StringReader(asciiOptimization: true),
-                  lazy: false)
-              .vTableGetNullable(buffer, rootOffset, 16);
           final exceptOptionsParam = const fb.ListReader<String>(
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
@@ -13165,22 +13194,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 20);
           final fNameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 22);
+          final equalToProductQuantityParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
           final object = UnitModifer(
               id: idParam,
               minimumOptions: minimumOptionsParam,
               maximumOptions: maximumOptionsParam,
               isUnique: isUniqueParam,
               isRequired: isRequiredParam,
-              defulatOptions: defulatOptionsParam,
               exceptOptions: exceptOptionsParam,
               name: nameParam,
-              fName: fNameParam)
+              fName: fNameParam,
+              equalToProductQuantity: equalToProductQuantityParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
-          obx_int.InternalToManyAccess.setRelInfo<UnitModifer>(
-              object.freeOptions,
-              store,
-              obx_int.RelInfo<UnitModifer>.toMany(31, object.idSeq!));
           obx_int.InternalToManyAccess.setRelInfo<UnitModifer>(object.options,
               store, obx_int.RelInfo<UnitModifer>.toMany(32, object.idSeq!));
           return object;
@@ -16031,6 +16058,18 @@ class Option_ {
   /// see [Option.taxGroupId]
   static final taxGroupId =
       obx.QueryStringProperty<Option>(_entities[42].properties[13]);
+
+  /// see [Option.freeQuantity]
+  static final freeQuantity =
+      obx.QueryDoubleProperty<Option>(_entities[42].properties[14]);
+
+  /// see [Option.isFree]
+  static final isFree =
+      obx.QueryBooleanProperty<Option>(_entities[42].properties[15]);
+
+  /// see [Option.imageUrl]
+  static final imageUrl =
+      obx.QueryStringProperty<Option>(_entities[42].properties[16]);
 }
 
 /// [OrderC] entity fields to define ObjectBox queries.
@@ -17814,6 +17853,10 @@ class Unit_ {
   static final deviceCreatedBy =
       obx.QueryStringProperty<Unit>(_entities[72].properties[14]);
 
+  /// see [Unit.imageUrl]
+  static final imageUrl =
+      obx.QueryStringProperty<Unit>(_entities[72].properties[15]);
+
   /// see [Unit.priceList]
   static final priceList =
       obx.QueryRelationToMany<Unit, PriceListValue>(_entities[72].relations[0]);
@@ -17849,29 +17892,25 @@ class UnitModifer_ {
   static final isRequired =
       obx.QueryBooleanProperty<UnitModifer>(_entities[73].properties[5]);
 
-  /// see [UnitModifer.defulatOptions]
-  static final defulatOptions =
-      obx.QueryStringVectorProperty<UnitModifer>(_entities[73].properties[6]);
-
   /// see [UnitModifer.exceptOptions]
   static final exceptOptions =
-      obx.QueryStringVectorProperty<UnitModifer>(_entities[73].properties[7]);
+      obx.QueryStringVectorProperty<UnitModifer>(_entities[73].properties[6]);
 
   /// see [UnitModifer.name]
   static final name =
-      obx.QueryStringProperty<UnitModifer>(_entities[73].properties[8]);
+      obx.QueryStringProperty<UnitModifer>(_entities[73].properties[7]);
 
   /// see [UnitModifer.fName]
   static final fName =
-      obx.QueryStringProperty<UnitModifer>(_entities[73].properties[9]);
+      obx.QueryStringProperty<UnitModifer>(_entities[73].properties[8]);
 
-  /// see [UnitModifer.freeOptions]
-  static final freeOptions = obx.QueryRelationToMany<UnitModifer, FreeOption>(
-      _entities[73].relations[0]);
+  /// see [UnitModifer.equalToProductQuantity]
+  static final equalToProductQuantity =
+      obx.QueryBooleanProperty<UnitModifer>(_entities[73].properties[9]);
 
   /// see [UnitModifer.options]
   static final options =
-      obx.QueryRelationToMany<UnitModifer, Option>(_entities[73].relations[1]);
+      obx.QueryRelationToMany<UnitModifer, Option>(_entities[73].relations[0]);
 }
 
 /// [UserCashierSetting] entity fields to define ObjectBox queries.

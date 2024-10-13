@@ -25,6 +25,7 @@ class Unit {
 
   String? deviceCreatedOn;
   String? deviceCreatedBy;
+  String? imageUrl;
 
   final priceList = ToMany<PriceListValue>();
   final modifiers = ToMany<UnitModifer>();
@@ -34,21 +35,23 @@ class Unit {
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(priceType);
 
-  Unit(
-      {this.id,
-      this.barcode,
-      this.price,
-      this.cost,
-      this.factor,
-      this.defaultForSales,
-      this.defaultForPurchase,
-      this.defaultForStore,
-      this.name,
-      this.fName,
-      this.showAlertPreparationTime,
-      this.priceType,
-      this.deviceCreatedOn,
-      this.deviceCreatedBy});
+  Unit({
+    this.id,
+    this.barcode,
+    this.price,
+    this.cost,
+    this.factor,
+    this.defaultForSales,
+    this.defaultForPurchase,
+    this.defaultForStore,
+    this.name,
+    this.fName,
+    this.showAlertPreparationTime,
+    this.priceType,
+    this.imageUrl,
+    this.deviceCreatedOn,
+    this.deviceCreatedBy,
+  });
 
   Unit.fromJson(Map<String, dynamic> json,
       {Map<String, UnitMapper>? unitsMapper,
@@ -78,6 +81,7 @@ class Unit {
       });
     }
 
+    imageUrl = json['imageUrl'];
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
   }
@@ -101,6 +105,7 @@ class Unit {
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
+    data['imageUrl'] = imageUrl;
     return data;
   }
 
@@ -113,6 +118,7 @@ class Unit {
     data['price'] = price;
     data['cost'] = cost;
     data['factor'] = factor;
+    data['imageUrl'] = imageUrl;
     // data['defaultForSales'] = defaultForSales;
     // data['defaultForPurchase'] = defaultForPurchase;
     // data['defaultForStore'] = defaultForStore;

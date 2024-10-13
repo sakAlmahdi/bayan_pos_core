@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison
 
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/model/order/free_options.dart';
 import 'package:bayan_pos_core/data/model/order/option.dart';
@@ -15,13 +16,15 @@ class UnitModifer {
   int? maximumOptions;
   bool? isUnique;
   bool? isRequired;
-
-  // List<FreeOption>? freeOptions;
-  final freeOptions = ToMany<FreeOption>();
-  List<String>? defulatOptions;
+  List<FreeOption> get freeOptions => extractFreeQty();
+  List<String>? get defaultOptions => options
+      .where((element) => element.isDefault == true)
+      .map((e) => e.id!)
+      .toList();
   List<String>? exceptOptions;
   String? name;
   String? fName;
+  bool? equalToProductQuantity;
 
   final options = ToMany<Option>();
   @Transient()
@@ -37,11 +40,10 @@ class UnitModifer {
     this.maximumOptions,
     this.isUnique,
     this.isRequired,
-    // this.freeOptions,
-    this.defulatOptions,
     this.exceptOptions,
     this.name,
     this.fName,
+    this.equalToProductQuantity,
   });
 
   UnitModifer.fromJson(Map<String, dynamic> json,
@@ -59,7 +61,7 @@ class UnitModifer {
         freeOptions.add(FreeOption.fromJson(v));
       });
     }
-    defulatOptions = json['defulatOptions']?.cast<String>();
+
     exceptOptions = json['exceptOptions']?.cast<String>();
     if (json['options'] != null) {
       json['options'].forEach((v) {
@@ -68,6 +70,10 @@ class UnitModifer {
             optionsMapper: modifiersMapper?.optionsMapper?[id]));
       });
     }
+
+    equalToProductQuantity = json['equalToProductQuantity'];
+
+    extractFreeQty();
   }
 
   Map<String, dynamic> toJson() {
@@ -82,10 +88,14 @@ class UnitModifer {
     if (freeOptions != null) {
       data['freeOption'] = freeOptions.map((v) => v.toJson()).toList();
     }
-    data['defulatOptions'] = defulatOptions;
     data['exceptOptions'] = exceptOptions;
     data['options'] = options.map((v) => v.toJson()).toList();
-
+    data['equalToProductQuantity'] = equalToProductQuantity;
     return data;
   }
+
+  List<FreeOption> extractFreeQty() => options
+      .where((op) => op.freeQuantity.getZeroIfNull > 0)
+      .map((e) => FreeOption(freeQuantity: e.freeQuantity, optionId: e.id))
+      .toList();
 }
