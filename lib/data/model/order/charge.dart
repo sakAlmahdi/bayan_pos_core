@@ -1,12 +1,12 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/enum/days_enum.dart';
-import 'package:bayan_pos_core/data/enum/fee_enum_type.dart';
+import 'package:bayan_pos_core/data/enum/charge_enum_type.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/enum/price_type_enum.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
-class Fee {
+class Charge {
   @Id()
   int? idSeq;
   @Unique(onConflict: ConflictStrategy.replace)
@@ -34,7 +34,7 @@ class Fee {
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(valueType);
   @Transient()
-  FeeType get getFeeType => convertStringToFeeType(type);
+  ChargeType get getChargeType => convertStringToChargeType(type);
   @Transient()
   List<OrderType> get getOrderTypes =>
       orderTypes
@@ -47,9 +47,9 @@ class Fee {
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
-  Fee();
+  Charge();
 
-  Fee.fromJson(Map<String, dynamic> json) {
+  Charge.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     type = int.tryParse(json['type'].toString());

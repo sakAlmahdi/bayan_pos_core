@@ -28,13 +28,17 @@ class Promotion {
   int? promotionApplyType;
   double? customerQuantity;
   double? customerAmount;
-  int? promotionApplyToType;
+  int? rewardType;
   List<int>? days;
   List<int>? orderTypes;
   final purchaseProducts = ToMany<ProductsOnDiscount>();
   final discountProducts = ToMany<ProductsOnDiscount>();
 
+  List<String>? customers;
+
   int? priority = 0;
+  int? numberOfProducts;
+  int? referenceNumber;
 
   @Transient()
   List<OrderType> get getOrderTypes =>
@@ -62,7 +66,7 @@ class Promotion {
       convertStringToPromotionApplyType(promotionApplyType);
   @Transient()
   PromotionApplyTo get getPromotionApplyTo =>
-      convertStringToPromotionApplyTo(promotionApplyToType);
+      convertStringToPromotionApplyTo(rewardType);
 
   @Transient()
   DiscountType get getDiscountType => convertToDiscontType(discountType);
@@ -76,7 +80,10 @@ class Promotion {
   DateTime? get endCompainDate => BaseHelpersMethods.compainDateAndTime(
       date: endDate ?? '', time: endTime ?? '');
 
-  bool get withModifer => true;
+  bool get withModifier => false;
+
+  bool? applyForAllBranches;
+  bool? applyForAllCustomers;
 
   Promotion({
     this.id,
@@ -94,10 +101,16 @@ class Promotion {
     this.promotionApplyType,
     this.customerQuantity,
     this.customerAmount,
-    this.promotionApplyToType,
+    this.rewardType,
     this.days,
     this.orderTypes,
     this.priority,
+    this.applyForAllBranches,
+    this.customers,
+    this.numberOfProducts,
+    this.referenceNumber,
+    this.applyForAllCustomers,
+    this.idSeq,
   });
 
   Promotion.fromJson(Map<String, dynamic> json) {
@@ -109,7 +122,7 @@ class Promotion {
     startTime = json['start_Time'];
     endTime = json['end_Time'];
     promotionType = json['promotionType'];
-    discountType = json['discount_Type'];
+    discountType = json['discountType'];
     priority = json['priority'];
     discountPercentage =
         double.tryParse(json['discount_Percentage'].toString()) ?? 0.0;
@@ -120,7 +133,7 @@ class Promotion {
     customerQuantity =
         double.tryParse(json['customer_Quantity'].toString()) ?? 0.0;
     customerAmount = double.tryParse(json['customer_Amount'].toString()) ?? 0.0;
-    promotionApplyToType = json['promotionApplyToType'];
+    rewardType = json['rewardType'];
     if (json['days'] != null) {
       days = <int>[];
       json['days'].forEach((v) {
@@ -143,6 +156,17 @@ class Promotion {
         discountProducts.add(ProductsOnDiscount.fromJson(v));
       });
     }
+    if (json['customers'] != null) {
+      customers = [];
+      json['customers'].forEach((v) {
+        customers?.add(v.toString().toLowerCase());
+      });
+    }
+
+    applyForAllBranches = json['applyForAllBranches'];
+    numberOfProducts = json['number_Of_Products'];
+    referenceNumber = json['referenceNumber'];
+    applyForAllCustomers = json['applyForAllCustomers'];
   }
 
   Map<String, dynamic> toJson() {
@@ -155,14 +179,14 @@ class Promotion {
     data['start_Time'] = startTime;
     data['end_Time'] = endTime;
     data['promotionType'] = promotionType;
-    data['discount_Type'] = discountType;
+    data['discountType'] = discountType;
     data['discount_Percentage'] = discountPercentage;
     data['discount_Amount'] = discountAmount;
     data['maximum_Discount_Amount'] = maximumDiscountAmount;
     data['promotionApplyType'] = promotionApplyType;
     data['customer_Quantity'] = customerQuantity;
     data['customer_Amount'] = customerAmount;
-    data['promotionApplyToType'] = promotionApplyToType;
+    data['rewardType'] = rewardType;
     data['priority'] = priority;
     if (days != null) {
       data['days'] = days!.map((v) => v).toList();
@@ -176,6 +200,11 @@ class Promotion {
     if (discountProducts != null) {
       data['discountProducts'] = discountProducts!.map((v) => v).toList();
     }
+    data['applyForAllBranches'] = applyForAllBranches;
+    data['customers'] = customers?.map((e) => e.toString()).toList();
+    data['number_Of_Products'] = numberOfProducts;
+    data['referenceNumber'] = referenceNumber;
+    data['applyForAllCustomers'] = applyForAllCustomers;
     return data;
   }
 

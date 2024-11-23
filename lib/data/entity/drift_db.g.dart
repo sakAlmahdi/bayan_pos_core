@@ -232,19 +232,20 @@ class $OrderEntityTable extends OrderEntity
       type: DriftSqlType.double,
       requiredDuringInsert: false,
       defaultValue: const Constant(0));
-  static const VerificationMeta _feesMeta = const VerificationMeta('fees');
+  static const VerificationMeta _chargesMeta =
+      const VerificationMeta('charges');
   @override
-  late final GeneratedColumnWithTypeConverter<dynamic, String> fees =
-      GeneratedColumn<String>('fees', aliasedName, true,
+  late final GeneratedColumnWithTypeConverter<dynamic, String> charges =
+      GeneratedColumn<String>('charges', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
-          .withConverter<dynamic>($OrderEntityTable.$converterfees);
-  static const VerificationMeta _feeValuesMeta =
-      const VerificationMeta('feeValues');
+          .withConverter<dynamic>($OrderEntityTable.$convertercharges);
+  static const VerificationMeta _chargeValuesMeta =
+      const VerificationMeta('chargeValues');
   @override
-  late final GeneratedColumnWithTypeConverter<dynamic, String> feeValues =
-      GeneratedColumn<String>('fee_values', aliasedName, true,
+  late final GeneratedColumnWithTypeConverter<dynamic, String> chargeValues =
+      GeneratedColumn<String>('charge_values', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
-          .withConverter<dynamic>($OrderEntityTable.$converterfeeValues);
+          .withConverter<dynamic>($OrderEntityTable.$converterchargeValues);
   static const VerificationMeta _paymentsMeta =
       const VerificationMeta('payments');
   @override
@@ -252,11 +253,11 @@ class $OrderEntityTable extends OrderEntity
       GeneratedColumn<String>('payments', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterpayments);
-  static const VerificationMeta _totalFeeMeta =
-      const VerificationMeta('totalFee');
+  static const VerificationMeta _totalChargeMeta =
+      const VerificationMeta('totalCharge');
   @override
-  late final GeneratedColumn<double> totalFee = GeneratedColumn<double>(
-      'total_fee', aliasedName, true,
+  late final GeneratedColumn<double> totalCharge = GeneratedColumn<double>(
+      'total_charge', aliasedName, true,
       type: DriftSqlType.double, requiredDuringInsert: false);
   static const VerificationMeta _taxPriceMeta =
       const VerificationMeta('taxPrice');
@@ -490,10 +491,10 @@ class $OrderEntityTable extends OrderEntity
         kitchenNote,
         msgCansel,
         subTotal,
-        fees,
-        feeValues,
+        charges,
+        chargeValues,
         payments,
-        totalFee,
+        totalCharge,
         taxPrice,
         totalPaid,
         checksum,
@@ -691,12 +692,14 @@ class $OrderEntityTable extends OrderEntity
       context.handle(_subTotalMeta,
           subTotal.isAcceptableOrUnknown(data['sub_total']!, _subTotalMeta));
     }
-    context.handle(_feesMeta, const VerificationResult.success());
-    context.handle(_feeValuesMeta, const VerificationResult.success());
+    context.handle(_chargesMeta, const VerificationResult.success());
+    context.handle(_chargeValuesMeta, const VerificationResult.success());
     context.handle(_paymentsMeta, const VerificationResult.success());
-    if (data.containsKey('total_fee')) {
-      context.handle(_totalFeeMeta,
-          totalFee.isAcceptableOrUnknown(data['total_fee']!, _totalFeeMeta));
+    if (data.containsKey('total_charge')) {
+      context.handle(
+          _totalChargeMeta,
+          totalCharge.isAcceptableOrUnknown(
+              data['total_charge']!, _totalChargeMeta));
     }
     if (data.containsKey('tax_price')) {
       context.handle(_taxPriceMeta,
@@ -918,17 +921,17 @@ class $OrderEntityTable extends OrderEntity
           .read(DriftSqlType.string, data['${effectivePrefix}msg_cansel']),
       subTotal: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}sub_total'])!,
-      fees: $OrderEntityTable.$converterfees.fromSql(attachedDatabase
+      charges: $OrderEntityTable.$convertercharges.fromSql(attachedDatabase
           .typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}fees'])),
-      feeValues: $OrderEntityTable.$converterfeeValues.fromSql(attachedDatabase
-          .typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}fee_values'])),
+          .read(DriftSqlType.string, data['${effectivePrefix}charges'])),
+      chargeValues: $OrderEntityTable.$converterchargeValues.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.string, data['${effectivePrefix}charge_values'])),
       payments: $OrderEntityTable.$converterpayments.fromSql(attachedDatabase
           .typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}payments'])),
-      totalFee: attachedDatabase.typeMapping
-          .read(DriftSqlType.double, data['${effectivePrefix}total_fee']),
+      totalCharge: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}total_charge']),
       taxPrice: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}tax_price']),
       totalPaid: attachedDatabase.typeMapping
@@ -1025,9 +1028,9 @@ class $OrderEntityTable extends OrderEntity
       const JsonTypeConverter();
   static TypeConverter<dynamic, String?> $converterproducts =
       const JsonTypeConverter();
-  static TypeConverter<dynamic, String?> $converterfees =
+  static TypeConverter<dynamic, String?> $convertercharges =
       const JsonTypeConverter();
-  static TypeConverter<dynamic, String?> $converterfeeValues =
+  static TypeConverter<dynamic, String?> $converterchargeValues =
       const JsonTypeConverter();
   static TypeConverter<dynamic, String?> $converterpayments =
       const JsonTypeConverter();
@@ -1085,10 +1088,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final String? kitchenNote;
   final String? msgCansel;
   final double subTotal;
-  final dynamic fees;
-  final dynamic feeValues;
+  final dynamic charges;
+  final dynamic chargeValues;
   final dynamic payments;
-  final double? totalFee;
+  final double? totalCharge;
   final double? taxPrice;
   final double? totalPaid;
   final String? checksum;
@@ -1156,10 +1159,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       this.kitchenNote,
       this.msgCansel,
       required this.subTotal,
-      this.fees,
-      this.feeValues,
+      this.charges,
+      this.chargeValues,
       this.payments,
-      this.totalFee,
+      this.totalCharge,
       this.taxPrice,
       this.totalPaid,
       this.checksum,
@@ -1298,20 +1301,20 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       map['msg_cansel'] = Variable<String>(msgCansel);
     }
     map['sub_total'] = Variable<double>(subTotal);
-    if (!nullToAbsent || fees != null) {
-      map['fees'] =
-          Variable<String>($OrderEntityTable.$converterfees.toSql(fees));
+    if (!nullToAbsent || charges != null) {
+      map['charges'] =
+          Variable<String>($OrderEntityTable.$convertercharges.toSql(charges));
     }
-    if (!nullToAbsent || feeValues != null) {
-      map['fee_values'] = Variable<String>(
-          $OrderEntityTable.$converterfeeValues.toSql(feeValues));
+    if (!nullToAbsent || chargeValues != null) {
+      map['charge_values'] = Variable<String>(
+          $OrderEntityTable.$converterchargeValues.toSql(chargeValues));
     }
     if (!nullToAbsent || payments != null) {
       map['payments'] = Variable<String>(
           $OrderEntityTable.$converterpayments.toSql(payments));
     }
-    if (!nullToAbsent || totalFee != null) {
-      map['total_fee'] = Variable<double>(totalFee);
+    if (!nullToAbsent || totalCharge != null) {
+      map['total_charge'] = Variable<double>(totalCharge);
     }
     if (!nullToAbsent || taxPrice != null) {
       map['tax_price'] = Variable<double>(taxPrice);
@@ -1514,16 +1517,18 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ? const Value.absent()
           : Value(msgCansel),
       subTotal: Value(subTotal),
-      fees: fees == null && nullToAbsent ? const Value.absent() : Value(fees),
-      feeValues: feeValues == null && nullToAbsent
+      charges: charges == null && nullToAbsent
           ? const Value.absent()
-          : Value(feeValues),
+          : Value(charges),
+      chargeValues: chargeValues == null && nullToAbsent
+          ? const Value.absent()
+          : Value(chargeValues),
       payments: payments == null && nullToAbsent
           ? const Value.absent()
           : Value(payments),
-      totalFee: totalFee == null && nullToAbsent
+      totalCharge: totalCharge == null && nullToAbsent
           ? const Value.absent()
-          : Value(totalFee),
+          : Value(totalCharge),
       taxPrice: taxPrice == null && nullToAbsent
           ? const Value.absent()
           : Value(taxPrice),
@@ -1659,10 +1664,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       kitchenNote: serializer.fromJson<String?>(json['kitchenNote']),
       msgCansel: serializer.fromJson<String?>(json['msgCansel']),
       subTotal: serializer.fromJson<double>(json['subTotal']),
-      fees: serializer.fromJson<dynamic>(json['fees']),
-      feeValues: serializer.fromJson<dynamic>(json['feeValues']),
+      charges: serializer.fromJson<dynamic>(json['charges']),
+      chargeValues: serializer.fromJson<dynamic>(json['chargeValues']),
       payments: serializer.fromJson<dynamic>(json['payments']),
-      totalFee: serializer.fromJson<double?>(json['totalFee']),
+      totalCharge: serializer.fromJson<double?>(json['totalCharge']),
       taxPrice: serializer.fromJson<double?>(json['taxPrice']),
       totalPaid: serializer.fromJson<double?>(json['totalPaid']),
       checksum: serializer.fromJson<String?>(json['checksum']),
@@ -1739,10 +1744,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'kitchenNote': serializer.toJson<String?>(kitchenNote),
       'msgCansel': serializer.toJson<String?>(msgCansel),
       'subTotal': serializer.toJson<double>(subTotal),
-      'fees': serializer.toJson<dynamic>(fees),
-      'feeValues': serializer.toJson<dynamic>(feeValues),
+      'charges': serializer.toJson<dynamic>(charges),
+      'chargeValues': serializer.toJson<dynamic>(chargeValues),
       'payments': serializer.toJson<dynamic>(payments),
-      'totalFee': serializer.toJson<double?>(totalFee),
+      'totalCharge': serializer.toJson<double?>(totalCharge),
       'taxPrice': serializer.toJson<double?>(taxPrice),
       'totalPaid': serializer.toJson<double?>(totalPaid),
       'checksum': serializer.toJson<String?>(checksum),
@@ -1815,10 +1820,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<String?> kitchenNote = const Value.absent(),
           Value<String?> msgCansel = const Value.absent(),
           double? subTotal,
-          Value<dynamic> fees = const Value.absent(),
-          Value<dynamic> feeValues = const Value.absent(),
+          Value<dynamic> charges = const Value.absent(),
+          Value<dynamic> chargeValues = const Value.absent(),
           Value<dynamic> payments = const Value.absent(),
-          Value<double?> totalFee = const Value.absent(),
+          Value<double?> totalCharge = const Value.absent(),
           Value<double?> taxPrice = const Value.absent(),
           Value<double?> totalPaid = const Value.absent(),
           Value<String?> checksum = const Value.absent(),
@@ -1899,10 +1904,11 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         kitchenNote: kitchenNote.present ? kitchenNote.value : this.kitchenNote,
         msgCansel: msgCansel.present ? msgCansel.value : this.msgCansel,
         subTotal: subTotal ?? this.subTotal,
-        fees: fees.present ? fees.value : this.fees,
-        feeValues: feeValues.present ? feeValues.value : this.feeValues,
+        charges: charges.present ? charges.value : this.charges,
+        chargeValues:
+            chargeValues.present ? chargeValues.value : this.chargeValues,
         payments: payments.present ? payments.value : this.payments,
-        totalFee: totalFee.present ? totalFee.value : this.totalFee,
+        totalCharge: totalCharge.present ? totalCharge.value : this.totalCharge,
         taxPrice: taxPrice.present ? taxPrice.value : this.taxPrice,
         totalPaid: totalPaid.present ? totalPaid.value : this.totalPaid,
         checksum: checksum.present ? checksum.value : this.checksum,
@@ -1993,10 +1999,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           ..write('kitchenNote: $kitchenNote, ')
           ..write('msgCansel: $msgCansel, ')
           ..write('subTotal: $subTotal, ')
-          ..write('fees: $fees, ')
-          ..write('feeValues: $feeValues, ')
+          ..write('charges: $charges, ')
+          ..write('chargeValues: $chargeValues, ')
           ..write('payments: $payments, ')
-          ..write('totalFee: $totalFee, ')
+          ..write('totalCharge: $totalCharge, ')
           ..write('taxPrice: $taxPrice, ')
           ..write('totalPaid: $totalPaid, ')
           ..write('checksum: $checksum, ')
@@ -2070,10 +2076,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         kitchenNote,
         msgCansel,
         subTotal,
-        fees,
-        feeValues,
+        charges,
+        chargeValues,
         payments,
-        totalFee,
+        totalCharge,
         taxPrice,
         totalPaid,
         checksum,
@@ -2145,10 +2151,10 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           other.kitchenNote == this.kitchenNote &&
           other.msgCansel == this.msgCansel &&
           other.subTotal == this.subTotal &&
-          other.fees == this.fees &&
-          other.feeValues == this.feeValues &&
+          other.charges == this.charges &&
+          other.chargeValues == this.chargeValues &&
           other.payments == this.payments &&
-          other.totalFee == this.totalFee &&
+          other.totalCharge == this.totalCharge &&
           other.taxPrice == this.taxPrice &&
           other.totalPaid == this.totalPaid &&
           other.checksum == this.checksum &&
@@ -2219,10 +2225,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<String?> kitchenNote;
   final Value<String?> msgCansel;
   final Value<double> subTotal;
-  final Value<dynamic> fees;
-  final Value<dynamic> feeValues;
+  final Value<dynamic> charges;
+  final Value<dynamic> chargeValues;
   final Value<dynamic> payments;
-  final Value<double?> totalFee;
+  final Value<double?> totalCharge;
   final Value<double?> taxPrice;
   final Value<double?> totalPaid;
   final Value<String?> checksum;
@@ -2290,10 +2296,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.kitchenNote = const Value.absent(),
     this.msgCansel = const Value.absent(),
     this.subTotal = const Value.absent(),
-    this.fees = const Value.absent(),
-    this.feeValues = const Value.absent(),
+    this.charges = const Value.absent(),
+    this.chargeValues = const Value.absent(),
     this.payments = const Value.absent(),
-    this.totalFee = const Value.absent(),
+    this.totalCharge = const Value.absent(),
     this.taxPrice = const Value.absent(),
     this.totalPaid = const Value.absent(),
     this.checksum = const Value.absent(),
@@ -2362,10 +2368,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     this.kitchenNote = const Value.absent(),
     this.msgCansel = const Value.absent(),
     this.subTotal = const Value.absent(),
-    this.fees = const Value.absent(),
-    this.feeValues = const Value.absent(),
+    this.charges = const Value.absent(),
+    this.chargeValues = const Value.absent(),
     this.payments = const Value.absent(),
-    this.totalFee = const Value.absent(),
+    this.totalCharge = const Value.absent(),
     this.taxPrice = const Value.absent(),
     this.totalPaid = const Value.absent(),
     this.checksum = const Value.absent(),
@@ -2437,10 +2443,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<String>? kitchenNote,
     Expression<String>? msgCansel,
     Expression<double>? subTotal,
-    Expression<String>? fees,
-    Expression<String>? feeValues,
+    Expression<String>? charges,
+    Expression<String>? chargeValues,
     Expression<String>? payments,
-    Expression<double>? totalFee,
+    Expression<double>? totalCharge,
     Expression<double>? taxPrice,
     Expression<double>? totalPaid,
     Expression<String>? checksum,
@@ -2511,10 +2517,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       if (kitchenNote != null) 'kitchen_note': kitchenNote,
       if (msgCansel != null) 'msg_cansel': msgCansel,
       if (subTotal != null) 'sub_total': subTotal,
-      if (fees != null) 'fees': fees,
-      if (feeValues != null) 'fee_values': feeValues,
+      if (charges != null) 'charges': charges,
+      if (chargeValues != null) 'charge_values': chargeValues,
       if (payments != null) 'payments': payments,
-      if (totalFee != null) 'total_fee': totalFee,
+      if (totalCharge != null) 'total_charge': totalCharge,
       if (taxPrice != null) 'tax_price': taxPrice,
       if (totalPaid != null) 'total_paid': totalPaid,
       if (checksum != null) 'checksum': checksum,
@@ -2588,10 +2594,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<String?>? kitchenNote,
       Value<String?>? msgCansel,
       Value<double>? subTotal,
-      Value<dynamic>? fees,
-      Value<dynamic>? feeValues,
+      Value<dynamic>? charges,
+      Value<dynamic>? chargeValues,
       Value<dynamic>? payments,
-      Value<double?>? totalFee,
+      Value<double?>? totalCharge,
       Value<double?>? taxPrice,
       Value<double?>? totalPaid,
       Value<String?>? checksum,
@@ -2660,10 +2666,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       kitchenNote: kitchenNote ?? this.kitchenNote,
       msgCansel: msgCansel ?? this.msgCansel,
       subTotal: subTotal ?? this.subTotal,
-      fees: fees ?? this.fees,
-      feeValues: feeValues ?? this.feeValues,
+      charges: charges ?? this.charges,
+      chargeValues: chargeValues ?? this.chargeValues,
       payments: payments ?? this.payments,
-      totalFee: totalFee ?? this.totalFee,
+      totalCharge: totalCharge ?? this.totalCharge,
       taxPrice: taxPrice ?? this.taxPrice,
       totalPaid: totalPaid ?? this.totalPaid,
       checksum: checksum ?? this.checksum,
@@ -2817,20 +2823,20 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     if (subTotal.present) {
       map['sub_total'] = Variable<double>(subTotal.value);
     }
-    if (fees.present) {
-      map['fees'] =
-          Variable<String>($OrderEntityTable.$converterfees.toSql(fees.value));
+    if (charges.present) {
+      map['charges'] = Variable<String>(
+          $OrderEntityTable.$convertercharges.toSql(charges.value));
     }
-    if (feeValues.present) {
-      map['fee_values'] = Variable<String>(
-          $OrderEntityTable.$converterfeeValues.toSql(feeValues.value));
+    if (chargeValues.present) {
+      map['charge_values'] = Variable<String>(
+          $OrderEntityTable.$converterchargeValues.toSql(chargeValues.value));
     }
     if (payments.present) {
       map['payments'] = Variable<String>(
           $OrderEntityTable.$converterpayments.toSql(payments.value));
     }
-    if (totalFee.present) {
-      map['total_fee'] = Variable<double>(totalFee.value);
+    if (totalCharge.present) {
+      map['total_charge'] = Variable<double>(totalCharge.value);
     }
     if (taxPrice.present) {
       map['tax_price'] = Variable<double>(taxPrice.value);
@@ -2978,10 +2984,10 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
           ..write('kitchenNote: $kitchenNote, ')
           ..write('msgCansel: $msgCansel, ')
           ..write('subTotal: $subTotal, ')
-          ..write('fees: $fees, ')
-          ..write('feeValues: $feeValues, ')
+          ..write('charges: $charges, ')
+          ..write('chargeValues: $chargeValues, ')
           ..write('payments: $payments, ')
-          ..write('totalFee: $totalFee, ')
+          ..write('totalCharge: $totalCharge, ')
           ..write('taxPrice: $taxPrice, ')
           ..write('totalPaid: $totalPaid, ')
           ..write('checksum: $checksum, ')

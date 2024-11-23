@@ -13,13 +13,11 @@ import 'package:bayan_pos_core/data/model/discount/promotion.dart';
 import 'package:bayan_pos_core/data/model/discount/time_event.dart';
 import 'package:bayan_pos_core/data/model/order/applied_modifer.dart';
 import 'package:bayan_pos_core/data/model/order/extract_product.dart';
-import 'package:bayan_pos_core/data/model/order/fee.dart';
 import 'package:bayan_pos_core/data/model/order/kitchen_info.dart';
 import 'package:bayan_pos_core/data/model/order/order_source.dart';
 import 'package:bayan_pos_core/data/model/order/payment_method.dart';
 import 'package:bayan_pos_core/data/model/order/unit.dart';
 import 'package:bayan_pos_core/data/model/send_order/send_order.dart';
-
 import 'package:bayan_pos_core/data/model/setting/currency.dart';
 import 'package:objectbox/objectbox.dart';
 import '../delivery/delivery_company.dart';
@@ -58,19 +56,20 @@ class OrderC {
   final discount = ToOne<Discount>();
   SendGiftCard? giftCard;
   final products = ToMany<AppliedProduct>();
+
   double? priceDiscount;
   double? pricePromotion;
   String? note;
   String? kitchenNote;
   String? msgCansel;
   double subTotal = 0;
-  final fees = ToMany<Fee>();
-  final feeValues = ToMany<FeeValue>();
+  final charges = ToMany<Charge>();
+  final chargeValues = ToMany<ChargeValue>();
   final payments = ToMany<PaymentValue>();
   String? checksum;
   String? masterChecksum;
   String? serverChecksum;
-  double? totalFee = 0;
+  double? totalCharge = 0;
   double? taxPrice = 0;
   double? totalPaid;
   String? shiftId;
@@ -105,10 +104,12 @@ class OrderC {
   String? customerName;
   String? customerPhone;
 
+  bool priceIncludeTax = false;
+
   double get total =>
       (subTotal - discountTotal) +
       taxPrice.getZeroIfNull +
-      totalFee.getZeroIfNull;
+      totalCharge.getZeroIfNull;
   double get discountTotal =>
       priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull;
   double? totalDiscountForOrderAndProduct;
@@ -154,9 +155,9 @@ class OrderC {
     String? kitchenNote,
     String? msgCansel,
     double? subTotal,
-    List<Fee>? fees,
-    List<FeeValue>? feeValues,
-    double? totalFee,
+    List<Charge>? charges,
+    List<ChargeValue>? chargeValues,
+    double? totalCharge,
     double? taxPrice,
     List<PaymentValue>? payments,
     double? totalPaid,
@@ -176,6 +177,7 @@ class OrderC {
     SendGiftCard? giftCard,
     String? customerName,
     String? customerPhone,
+    bool? priceIncludeTax,
   }) {
     return OrderC()
       ..posTransactionType = posTransactionType ?? this.posTransactionType
@@ -207,9 +209,9 @@ class OrderC {
       ..kitchenNote = kitchenNote ?? this.kitchenNote
       ..msgCansel = msgCansel ?? this.msgCansel
       ..subTotal = subTotal ?? this.subTotal
-      ..fees.addAll(fees ?? List.of(this.fees))
-      ..feeValues.addAll(feeValues ?? List.of(this.feeValues))
-      ..totalFee = totalFee ?? this.totalFee
+      ..charges.addAll(charges ?? List.of(this.charges))
+      ..chargeValues.addAll(chargeValues ?? List.of(this.chargeValues))
+      ..totalCharge = totalCharge ?? this.totalCharge
       ..taxPrice = taxPrice ?? this.taxPrice
       ..payments.addAll(payments ?? List.of(this.payments))
       ..totalPaid = totalPaid ?? this.totalPaid
@@ -230,7 +232,8 @@ class OrderC {
       ..currency = currency ?? this.currency
       ..callNumber = callNumber ?? this.callNumber
       ..customerName = customerName ?? this.customerName
-      ..customerPhone = customerPhone ?? this.customerPhone;
+      ..customerPhone = customerPhone ?? this.customerPhone
+      ..priceIncludeTax = priceIncludeTax ?? this.priceIncludeTax;
   }
 
   OrderC.fromJson(Map<String, dynamic> json) {
@@ -281,14 +284,14 @@ class OrderC {
     kitchenNote = json['kitchenNote'];
     msgCansel = json['msgCansel'];
     subTotal = double.tryParse(json['subTotal'].toString()) ?? 0.0;
-    if (json['fees'] != null) {
-      json['fees'].forEach((v) {
-        fees.add(Fee.fromJson(v));
+    if (json['charges'] != null) {
+      json['charges'].forEach((v) {
+        charges.add(Charge.fromJson(v));
       });
     }
-    if (json['feeValues'] != null) {
-      json['feeValues'].forEach((v) {
-        feeValues.add(FeeValue.fromJson(v));
+    if (json['chargeValues'] != null) {
+      json['chargeValues'].forEach((v) {
+        chargeValues.add(ChargeValue.fromJson(v));
       });
     }
     if (json['payments'] != null) {
@@ -299,7 +302,7 @@ class OrderC {
     if (json['kitchenInfo'] != null) {
       kitchenInfo = KitchenInfo.fromJson(json['kitchenInfo']);
     }
-    totalFee = double.tryParse(json['totalFee'].toString()) ?? 0.0;
+    totalCharge = double.tryParse(json['totalCharge'].toString()) ?? 0.0;
     taxPrice = double.tryParse(json['taxPrice'].toString()) ?? 0.0;
     checksum = json['checksum'];
     masterChecksum = json['masterChecksum'];
@@ -351,6 +354,7 @@ class OrderC {
     callName = json['callName'];
     customerName = json['customerName'];
     customerPhone = json['customerPhone'];
+    priceIncludeTax = json['priceIncludeTax'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
@@ -395,10 +399,11 @@ class OrderC {
     data['kitchenNote'] = kitchenNote;
     data['msgCansel'] = msgCansel;
     data['subTotal'] = subTotal;
-    data['fees'] = fees.map((v) => v.toJson().removeNull()).toList();
-    data['feeValues'] = feeValues.map((v) => v.toJson().removeNull()).toList();
+    data['charges'] = charges.map((v) => v.toJson().removeNull()).toList();
+    data['chargeValues'] =
+        chargeValues.map((v) => v.toJson().removeNull()).toList();
     data['payments'] = payments.map((v) => v.toJson().removeNull()).toList();
-    data['totalFee'] = totalFee ?? 0.0;
+    data['totalCharge'] = totalCharge ?? 0.0;
     data['taxPrice'] = taxPrice ?? 0.0;
     data['checksum'] = checksum;
     data['masterChecksum'] = masterChecksum;
@@ -442,6 +447,7 @@ class OrderC {
 
     data['customerName'] = customerName;
     data['customerPhone'] = customerPhone;
+    data['priceIncludeTax'] = priceIncludeTax;
 
     return data;
   }
@@ -490,10 +496,11 @@ class OrderC {
     data['kitchenNote'] = kitchenNote;
     data['msgCansel'] = msgCansel;
     data['subTotal'] = subTotal;
-    data['fees'] = fees.map((v) => v.toJson().removeNull()).toList();
-    data['feeValues'] = feeValues.map((v) => v.toJson().removeNull()).toList();
+    data['charges'] = charges.map((v) => v.toJson().removeNull()).toList();
+    data['chargeValues'] =
+        chargeValues.map((v) => v.toJson().removeNull()).toList();
     data['payments'] = payments.map((v) => v.toJson().removeNull()).toList();
-    data['totalFee'] = totalFee ?? 0.0;
+    data['totalCharge'] = totalCharge ?? 0.0;
     data['totalPaid'] = totalPaid ?? 0.0;
     data['taxPrice'] = taxPrice ?? 0.0;
     data['checksum'] = checksum;
@@ -528,6 +535,7 @@ class OrderC {
 
     data['customerName'] = customerName;
     data['customerPhone'] = customerPhone;
+    data['priceIncludeTax'] = priceIncludeTax;
 
     return data;
   }
@@ -540,7 +548,7 @@ class OrderC {
 
 ///  -------  unit Price -----
 ///  [unitPrice] as define in product unit
-///  Unit Price before apply discount and before apply fee and before apply tax
+///  Unit Price before apply discount and before apply charge and before apply tax
 ///  1***if app option [priceIncludeTax] =true ,thats mean UnitPrice include tax
 ///  [unitPriceExclTax]=[unitPrice]/(1+([unitTaxPercentage]/100))
 ///  2***if app option PriceIncludeTax =false ,thats mean [unitPrice] exclude tax
@@ -550,13 +558,13 @@ class OrderC {
 //// [totalPrice] = [unitPrice] * [quantity]
 ///  [totalPriceExclTax] = [unitPriceExclTax] * [quantity]
 ///
-///   -------  Fees -----
-///  [feePercentage]= total of fees percentage apply  for product
-///  [feeAmount] apply for 1 quantity of product before apply tax
-///  [feeUnitAmount]=total amount of fees apply for products  for 1 quantity of product
-///  [feeUnitTaxAmount]=total taxamount of fees apply for products  for 1 quantity of product
-///  [feeTotalAmount]=total of fees apply  for product the must be amount before apply tax
-///  [feeTotalTaxAmount]=total of fees taxamount apply  for product
+///   -------  charges -----
+///  [chargePercentage]= total of charges percentage apply  for product
+///  [chargeAmount] apply for 1 quantity of product before apply tax
+///  [chargeUnitAmount]=total amount of charges apply for products  for 1 quantity of product
+///  [chargeUnitTaxAmount]=total taxamount of charges apply for products  for 1 quantity of product
+///  [chargeTotalAmount]=total of charges apply  for product the must be amount before apply tax
+///  [chargeTotalTaxAmount]=total of charges taxamount apply  for product
 ///
 ///    -------  Modifier -----
 /// [modifierOptions] amount apply for 1 quantity of product  before apply tax
@@ -601,7 +609,8 @@ class AppliedProduct {
   double? optionPrice = 0;
   double? priceDiscount = 0;
   double? pricePromotion = 0;
-  double? feeTax;
+  double? numberOfProductsInPromotion;
+  double? chargeTax;
   double? taxPrice;
   double? taxableAmt = 0;
   double? freeQuantity;
@@ -635,9 +644,11 @@ class AppliedProduct {
           .map((e) => e.taxPercentage!)
           .reduce((value, element) => value + element);
 
-  double get feesPercentage => (fees?.isEmpty ?? true)
+  double get chargePercentage => (charges?.isEmpty ?? true)
       ? 0
-      : fees!.map((e) => e.value!).reduce((value, element) => value + element);
+      : charges!
+          .map((e) => e.value!)
+          .reduce((value, element) => value + element);
 
   double get getTotalOptionUnitPrice => appliedModifer.isEmpty
       ? 0
@@ -649,9 +660,16 @@ class AppliedProduct {
 
   KitchenInfo? kitchenInfo;
 
-  double get subTotal =>
-      (price.getZeroIfNull + optionPrice.getZeroIfNull) -
-      (priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull);
+  double get subTotal => (priceIncludesTax ?? false) == false
+      ? totalPrice! +
+          totalPriceTaxAmount.getZeroIfNull +
+          totalCharges.getZeroIfNull
+      : (totalPrice.getZeroIfNull) +
+          totalCharges.getZeroIfNull +
+          chargeTotalTaxAmount.getZeroIfNull;
+
+  // (price.getZeroIfNull + optionPrice.getZeroIfNull) -
+  // (priceDiscount.getZeroIfNull + pricePromotion.getZeroIfNull);
 
   double get subTotalWithTax => subTotal + taxPrice.getZeroIfNull;
 
@@ -669,10 +687,10 @@ class AppliedProduct {
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
-  List<Fee>? fees;
-  List<FeeValue>? feeValues;
-  // double? feeAmount;
-  double? totalFees;
+  List<Charge>? charges;
+  List<ChargeValue>? chargeValues;
+  // double? chargeAmount;
+  double? totalCharges;
   SendPriceList? priceList;
 
   ///  NEW
@@ -689,11 +707,12 @@ class AppliedProduct {
   double? unitPriceExclTax;
   double? get totalPrice => (unitPrice ?? 0) * quantity;
   double? get totalPriceExclTax => (unitPriceExclTax ?? 0) * quantity;
-  double? get feeTotalPercentage => feesPercentage;
-  double? feeUnitAmount;
-  double? get feeUnitTaxAmount => feeTax;
-  double? get feeTotalAmount => feeUnitAmount.getZeroIfNull * quantity;
-  double? get feeTotalTaxAmount => feeUnitTaxAmount.getZeroIfNull * quantity;
+  double? get chargeTotalPercentage => chargePercentage;
+  double? chargeUnitAmount;
+  double? get chargeUnitTaxAmount => chargeTax;
+  double? get chargeTotalAmount => chargeUnitAmount.getZeroIfNull * quantity;
+  double? get chargeTotalTaxAmount =>
+      chargeUnitTaxAmount.getZeroIfNull * quantity;
   double? modifierOptionsUnitAmountExclTax;
   double? modifierOptionsUnitTaxAmount;
   double? get modifierOptionsTotalPriceExclTax =>
@@ -734,7 +753,7 @@ class AppliedProduct {
   double get netUnitPrice =>
       unitPriceExclTax.getZeroIfNull +
       modifierOptionsUnitAmountExclTax.getZeroIfNull +
-      feeUnitAmount.getZeroIfNull -
+      chargeUnitAmount.getZeroIfNull -
       timeEventUnitAmount.getZeroIfNull -
       discountUnitAmount.getZeroIfNull -
       promotionUnitAmount.getZeroIfNull;
@@ -771,12 +790,13 @@ class AppliedProduct {
     this.reservedNote,
     this.deviceCreatedOn,
     this.deviceCreatedBy,
-    this.fees,
-    this.feeValues,
-    this.feeUnitAmount,
+    this.charges,
+    this.chargeValues,
+    this.chargeUnitAmount,
     this.priceList,
-    this.feeTax,
-    this.totalFees,
+    this.chargeTax,
+    this.totalCharges,
+    this.numberOfProductsInPromotion,
   });
   AppliedProduct copyWith({
     ExtractProduct? product,
@@ -810,11 +830,12 @@ class AppliedProduct {
     String? reservedNote,
     String? deviceCreatedOn,
     String? deviceCreatedBy,
-    List<Fee>? fees,
-    List<FeeValue>? feeValues,
-    double? feeAmount,
+    List<Charge>? charges,
+    List<ChargeValue>? chargeValues,
+    double? chargeAmount,
     SendPriceList? priceList,
-    double? totalFees,
+    double? totalCharges,
+    double? numberOfProductsInPromotion,
   }) {
     return AppliedProduct(
       quantity: quantity ?? this.quantity,
@@ -839,11 +860,13 @@ class AppliedProduct {
       reservedNote: reservedNote ?? this.reservedNote,
       deviceCreatedOn: deviceCreatedOn ?? this.deviceCreatedOn,
       deviceCreatedBy: deviceCreatedBy ?? this.deviceCreatedBy,
-      fees: fees ?? this.fees,
-      feeValues: feeValues ?? this.feeValues,
-      feeUnitAmount: feeAmount ?? feeUnitAmount,
+      charges: charges ?? this.charges,
+      chargeValues: chargeValues ?? this.chargeValues,
+      chargeUnitAmount: chargeAmount ?? chargeUnitAmount,
       priceList: priceList ?? this.priceList,
-      totalFees: totalFees ?? this.totalFees,
+      totalCharges: totalCharges ?? this.totalCharges,
+      numberOfProductsInPromotion:
+          numberOfProductsInPromotion ?? this.numberOfProductsInPromotion,
     )
           ..product.target = product ?? this.product.target
           ..unit.target = unit ?? this.unit.target
@@ -895,7 +918,7 @@ class AppliedProduct {
     optionPrice = double.tryParse(json['optionPrice'].toString()) ?? 0.0;
     priceDiscount = double.tryParse(json['priceDiscount'].toString()) ?? 0.0;
     pricePromotion = double.tryParse(json['pricePromotion'].toString()) ?? 0.0;
-    feeTax = json['feeTax'];
+    chargeTax = json['chargeTax'];
     taxPrice = double.tryParse(json['taxPrice'].toString()) ?? 0.0;
     taxableAmt = json['taxableAmt'];
     freeQuantity = double.tryParse(json['freeQuantity'].toString()) ?? 0.0;
@@ -911,20 +934,20 @@ class AppliedProduct {
     reservedNote = json['reservedNote'];
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
-    if (json['fees'] != null) {
-      fees = [];
-      json['fees'].forEach((v) {
-        fees!.add(Fee.fromJson(v));
+    if (json['charges'] != null) {
+      charges = [];
+      json['charges'].forEach((v) {
+        charges!.add(Charge.fromJson(v));
       });
     }
-    if (json['feeValues'] != null) {
-      feeValues = [];
-      json['feeValues'].forEach((v) {
-        feeValues!.add(FeeValue.fromJson(v));
+    if (json['chargeValues'] != null) {
+      chargeValues = [];
+      json['chargeValues'].forEach((v) {
+        chargeValues!.add(ChargeValue.fromJson(v));
       });
     }
 
-    json['totalFees'] = double.tryParse(json['totalFees'].toString());
+    json['totalCharges'] = double.tryParse(json['totalCharges'].toString());
     if (json['priceList'] != null) {
       priceList = SendPriceList.fromJson(json['priceList']);
     }
@@ -933,7 +956,7 @@ class AppliedProduct {
     stockQuantity = double.tryParse(json['stockQuantity'].toString());
     unitPrice = double.tryParse(json['unitPrice'].toString());
     unitPriceExclTax = double.tryParse(json['unitPriceExclTax'].toString());
-    feeUnitAmount = double.tryParse(json['feeUnitAmount'].toString());
+    chargeUnitAmount = double.tryParse(json['chargeUnitAmount'].toString());
     modifierOptionsUnitAmountExclTax =
         double.tryParse(json['modifierOptionsUnitAmountExclTax'].toString());
     modifierOptionsUnitTaxAmount =
@@ -944,6 +967,7 @@ class AppliedProduct {
         double.tryParse(json['timeEventUnitAmount'].toString());
     unitPriceTaxAmount = double.tryParse(json['unitPriceTaxAmount'].toString());
     priceIncludesTax = json['priceIncludesTax'];
+    numberOfProductsInPromotion = json['numberOfProductsInPromotion'];
   }
 
   Map<String, dynamic> toJson() {
@@ -984,7 +1008,7 @@ class AppliedProduct {
     data['optionPrice'] = optionPrice;
     data['priceDiscount'] = priceDiscount ?? 0.0;
     data['pricePromotion'] = pricePromotion;
-    data['feeTax'] = feeTax;
+    data['chargeTax'] = chargeTax;
     data['taxPrice'] = taxPrice;
     data['taxableAmt'] = taxableAmt;
     data['freeQuantity'] = freeQuantity;
@@ -1000,29 +1024,30 @@ class AppliedProduct {
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
 
-    if (fees != null) {
-      data['fees'] = fees!.map((v) => v.toJson()).toList();
+    if (charges != null) {
+      data['charges'] = charges!.map((v) => v.toJson()).toList();
     }
-    if (feeValues != null) {
-      data['feeValues'] = feeValues!.map((v) => v.toJson()).toList();
+    if (chargeValues != null) {
+      data['chargeValues'] = chargeValues!.map((v) => v.toJson()).toList();
     }
     if (priceList != null) {
       data['priceList'] = priceList!.toJson().removeNull();
     }
 
-    data['totalFees'] = totalFees;
+    data['totalCharges'] = totalCharges;
     data['receivedQuantity'] = receivedQuantity;
     data['refundedQuantity'] = refundedQuantity;
     data['stockQuantity'] = stockQuantity;
     data['unitPrice'] = unitPrice;
     data['unitPriceExclTax'] = unitPriceExclTax;
-    data['feeUnitAmount'] = feeUnitAmount;
+    data['chargeUnitAmount'] = chargeUnitAmount;
     data['modifierOptionsUnitAmountExclTax'] = modifierOptionsUnitAmountExclTax;
     data['modifierOptionsUnitTaxAmount'] = modifierOptionsUnitTaxAmount;
     data['timeEventTotalPercentage'] = timeEventTotalPercentage;
     data['timeEventUnitAmount'] = timeEventUnitAmount;
     data['unitPriceTaxAmount'] = unitPriceTaxAmount;
     data['priceIncludesTax'] = priceIncludesTax;
+    data['numberOfProductsInPromotion'] = numberOfProductsInPromotion;
 
     return data;
   }
@@ -1074,13 +1099,13 @@ class AppliedProduct {
     data['canEditQty'] = canEditQty;
     data['isFixedPrice'] = isFixedPrice;
     data['barcodePrice'] = barcodePrice;
-    data['totalFees'] = totalFees;
+    data['totalCharges'] = totalCharges;
     data['receivedQuantity'] = receivedQuantity;
     data['refundedQuantity'] = refundedQuantity;
     data['stockQuantity'] = stockQuantity;
     data['unitPrice'] = unitPrice;
     data['unitPriceExclTax'] = unitPriceExclTax;
-    data['feeUnitAmount'] = feeUnitAmount;
+    data['chargeUnitAmount'] = chargeUnitAmount;
     data['modifierOptionsUnitAmountExclTax'] = modifierOptionsUnitAmountExclTax;
     data['modifierOptionsUnitTaxAmount'] = modifierOptionsUnitTaxAmount;
     data['timeEventTotalPercentage'] = timeEventTotalPercentage;
@@ -1204,23 +1229,23 @@ class TaxValue {
 // }
 
 @Entity()
-class FeeValue {
+class ChargeValue {
   @Id()
   int? idSeq;
-  String? feeId;
+  String? chargeId;
   double? value;
   bool? applyAuto;
 
   final taxInfo = ToOne<TaxInfo>();
 
-  FeeValue({
-    this.feeId,
+  ChargeValue({
+    this.chargeId,
     this.value,
     this.applyAuto,
   });
 
-  FeeValue.fromJson(Map<String, dynamic> json) {
-    feeId = json['feeId'];
+  ChargeValue.fromJson(Map<String, dynamic> json) {
+    chargeId = json['chargeId'];
     value = double.tryParse(json['value'].toString()) ?? 0.0;
     applyAuto = json['applyAuto'];
     taxInfo.target =
@@ -1229,7 +1254,7 @@ class FeeValue {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['feeId'] = feeId;
+    data['chargeId'] = chargeId;
     data['value'] = value;
     data['applyAuto'] = applyAuto;
     if (taxInfo.target != null) {

@@ -5,7 +5,7 @@ class OrderSumary {
   int? count;
   int? guest;
   double? subTotal;
-  double? totalFee;
+  double? totalCharges;
   double? totalDiscount;
   double? totalTax;
   double? total;
@@ -19,7 +19,7 @@ class OrderSumary {
       this.count,
       this.guest,
       this.subTotal,
-      this.totalFee,
+      this.totalCharges,
       this.totalDiscount,
       this.totalTax,
       this.total,
@@ -32,7 +32,7 @@ class OrderSumary {
     count = json['count'];
     guest = json['guest'];
     subTotal = json['sub_total'];
-    totalFee = json['totalFee'];
+    totalCharges = json['totalCharges'];
     totalDiscount = json['totalDiscount'];
     totalTax = json['totalTax'];
     total = json['total'];
@@ -54,7 +54,7 @@ class OrderSumary {
     data['count'] = count;
     data['guest'] = guest;
     data['sub_total'] = subTotal;
-    data['totalFee'] = totalFee;
+    data['totalCharges'] = totalCharges;
     data['totalDiscount'] = totalDiscount;
     data['totalTax'] = totalTax;
     data['total'] = total;

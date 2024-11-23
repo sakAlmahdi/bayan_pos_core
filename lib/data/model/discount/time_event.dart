@@ -2,6 +2,7 @@ import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/enum/days_enum.dart';
 import 'package:bayan_pos_core/data/enum/event_action_enum.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/discount/discount.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -20,10 +21,19 @@ class TimeEvent {
   String? endTime;
   List<int>? days;
   List<int>? orderTypes;
-  List<String>? products;
+
   List<String>? customers;
   List<String>? departments;
   List<String>? categories;
+  List<String>? groups;
+
+  final products = ToMany<ProductsOnDiscount>();
+
+  bool? applyForProductMenu;
+  bool? applyForAllProducts;
+  bool? applyForAllCustomers;
+  bool? applyForAllBranches;
+
   int priority = 0;
 
   String? deviceCreatedOn;
@@ -63,7 +73,6 @@ class TimeEvent {
     this.endTime,
     this.days,
     this.orderTypes,
-    this.products,
     this.customers,
     this.departments,
     this.categories,
@@ -96,9 +105,8 @@ class TimeEvent {
       });
     }
     if (json['products'] != null) {
-      products = <String>[];
       json['products'].forEach((v) {
-        products!.add(v.toString().toLowerCase());
+        products.add(ProductsOnDiscount.fromJson(v));
       });
     }
     if (json['departments'] != null) {
@@ -116,6 +124,18 @@ class TimeEvent {
     if (json['customers'] != null) {
       customers = <String>[];
       json['customers'].forEach((v) {
+        customers!.add(v.toString().toLowerCase());
+      });
+    }
+
+    applyForProductMenu = json['applyForProductMenu'];
+    applyForAllProducts = json['applyForAllProducts'];
+    applyForAllCustomers = json['applyForAllCustomers'];
+    applyForAllBranches = json['applyForAllBranches'];
+
+    if (json['groups'] != null) {
+      groups = <String>[];
+      json['groups'].forEach((v) {
         customers!.add(v.toString().toLowerCase());
       });
     }
@@ -157,6 +177,11 @@ class TimeEvent {
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
+    data['applyForProductMenu'] = applyForProductMenu;
+    data['applyForAllProducts'] = applyForAllProducts;
+    data['applyForAllCustomers'] = applyForAllCustomers;
+    data['applyForAllBranches'] = applyForAllBranches;
+    data['groups'] = groups;
     return data;
   }
 }

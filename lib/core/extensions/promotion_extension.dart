@@ -7,15 +7,16 @@ extension PromotionExtension on Promotion {
   String tralingInfoPromotion() {
     switch (getDiscountType) {
       case DiscountType.percentage:
-        return "- ${discountPercentage?.removeTrailingZeros} %";
+        return " ${discountPercentage?.removeTrailingZeros} %";
       case DiscountType.price:
-        return "- ${discountPercentage.removeTrailingZeros} ";
+        return " ${discountPercentage.removeTrailingZeros} ";
       case DiscountType.payFixedPrice:
-        return "- ${discountPercentage.removeTrailingZeros} ";
+        return " ${discountPercentage.removeTrailingZeros} ";
     }
   }
 
   Color colorByType() {
+    return Colors.green;
     switch (getDiscountType) {
       case DiscountType.percentage:
         return Colors.red;

@@ -64,6 +64,9 @@ class Discount {
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
+  bool? applyForAllProducts;
+  bool? applyForAllCustomers;
+
   Discount({
     this.id,
     this.name,
@@ -98,7 +101,7 @@ class Discount {
     startTime = json['start_Time'];
     endTime = json['end_Time'];
     discountAppliedTo = json['discountAppliedTo'];
-    discountType = int.tryParse(json['discount_Type'].toString());
+    discountType = int.tryParse(json['discountType'].toString());
     discountPercentage =
         double.tryParse(json['discount_Percentage'].toString()) ?? 0.0;
     discountAmount = double.tryParse(json['discount_Amount'].toString()) ?? 0.0;
@@ -151,6 +154,8 @@ class Discount {
 
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
+    applyForAllProducts = json['applyForAllProducts'];
+    applyForAllCustomers = json['applyForAllCustomers'];
   }
 
   Map<String, dynamic> toJson() {
@@ -163,7 +168,7 @@ class Discount {
     data['start_Time'] = startTime;
     data['end_Time'] = endTime;
     data['discountAppliedTo'] = discountAppliedTo;
-    data['discount_Type'] = discountType;
+    data['discountType'] = discountType;
     data['discount_Percentage'] = discountPercentage;
     data['discount_Amount'] = discountAmount;
     data['maximum_Discount_Amount'] = maximumDiscountAmount;
@@ -195,6 +200,8 @@ class Discount {
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
+    data['applyForAllProducts'] = applyForAllProducts;
+    data['applyForAllCustomers'] = applyForAllCustomers;
     return data;
   }
 }

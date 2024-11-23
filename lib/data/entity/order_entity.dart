@@ -40,11 +40,11 @@ class OrderEntity extends Table {
   TextColumn get kitchenNote => text().nullable()();
   TextColumn get msgCansel => text().nullable()();
   RealColumn get subTotal => real().withDefault(const Constant(0))();
-  TextColumn get fees => text().map(const JsonTypeConverter()).nullable()();
-  TextColumn get feeValues =>
+  TextColumn get charges => text().map(const JsonTypeConverter()).nullable()();
+  TextColumn get chargeValues =>
       text().map(const JsonTypeConverter()).nullable()();
   TextColumn get payments => text().map(const JsonTypeConverter()).nullable()();
-  RealColumn get totalFee => real().nullable()();
+  RealColumn get totalCharge => real().nullable()();
   RealColumn get taxPrice => real().nullable()();
   RealColumn get totalPaid => real().nullable()();
   TextColumn get checksum => text().nullable()();

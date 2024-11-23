@@ -240,4 +240,6 @@ class SalesInvoiceTemplates {
 
     return data;
   }
+
+  String? convertEnumPrintLanguageToName(int? key) {}
 }

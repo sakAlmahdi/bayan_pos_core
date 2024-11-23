@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/model/product/modifer_mapper.dart';
 import 'package:objectbox/objectbox.dart';
@@ -20,6 +22,8 @@ class Option {
   String? fname;
   double? freeQuantity;
   bool? isFree;
+  double? quantity;
+  bool? isEqualProductQty;
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fname;
@@ -44,6 +48,8 @@ class Option {
     this.idSeq,
     this.isFree,
     this.imageUrl,
+    this.quantity,
+    this.isEqualProductQty,
   });
 
   Option.fromJson(Map<String, dynamic> json, {OptionMapper? optionsMapper}) {
@@ -65,6 +71,8 @@ class Option {
     isFree = json['isFree'];
     freeQuantity = double.tryParse(json['freeQuantity'].toString());
     imageUrl = json['imageUrl'];
+    quantity = double.tryParse(json['quantity'].toString());
+    isEqualProductQty = Random().nextBool();
   }
 
   Map<String, dynamic> toJson() {
@@ -85,6 +93,7 @@ class Option {
     data['freeQuantity'] = freeQuantity;
     data['isFree'] = isFree;
     data['imageUrl'] = imageUrl;
+    data['quantity'] = quantity;
 
     return data;
   }
@@ -107,6 +116,7 @@ class Option {
     data['freeQuantity'] = freeQuantity;
     data['isFree'] = isFree;
     data['imageUrl'] = imageUrl;
+    data['quantity'] = quantity;
 
     return data;
   }

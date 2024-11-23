@@ -34,7 +34,7 @@ class SendOrder {
   String? currencyId;
   double? currencyRate;
   double? amount;
-  double? feeAmount;
+  double? chargeAmount;
   double? discountAmount;
   double? promotionAmount;
   double? totalAmount;
@@ -58,7 +58,7 @@ class SendOrder {
   SendDelivery? delivery;
   SendDiscount? discount;
   SendPromotion? promotion;
-  List<SendFees>? fees;
+  List<Sendcharges>? charges;
   SendCoupon? coupon;
   SendGiftCard? giftCard;
   List<SendPayments>? payments;
@@ -97,7 +97,7 @@ class SendOrder {
       this.currencyId,
       this.currencyRate,
       this.amount,
-      this.feeAmount,
+      this.chargeAmount,
       this.discountAmount,
       this.promotionAmount,
       this.totalAmount,
@@ -121,7 +121,7 @@ class SendOrder {
       this.delivery,
       this.discount,
       this.promotion,
-      this.fees,
+      this.charges,
       this.coupon,
       this.giftCard,
       this.payments,
@@ -160,7 +160,7 @@ class SendOrder {
     currencyId = json['currencyId'];
     currencyRate = json['currencyRate'];
     amount = json['amount'];
-    feeAmount = json['feeAmount'];
+    chargeAmount = json['chargeAmount'];
     discountAmount = json['discountAmount'];
     promotionAmount = json['promotionAmount'];
     totalAmount = json['totalAmount'];
@@ -207,10 +207,10 @@ class SendOrder {
     promotion = json['promotion'] != null
         ? SendPromotion.fromJson(json['promotion'])
         : null;
-    if (json['fees'] != null) {
-      fees = <SendFees>[];
-      json['fees'].forEach((v) {
-        fees!.add(SendFees.fromJson(v));
+    if (json['charges'] != null) {
+      charges = <Sendcharges>[];
+      json['charges'].forEach((v) {
+        charges!.add(Sendcharges.fromJson(v));
       });
     }
     coupon =
@@ -261,7 +261,7 @@ class SendOrder {
     data['currencyId'] = currencyId;
     data['currencyRate'] = currencyRate;
     data['amount'] = amount;
-    data['feeAmount'] = feeAmount;
+    data['chargeAmount'] = chargeAmount;
     data['discountAmount'] = discountAmount;
     data['promotionAmount'] = promotionAmount;
     data['totalAmount'] = totalAmount;
@@ -302,8 +302,8 @@ class SendOrder {
     if (promotion != null) {
       data['promotion'] = promotion!.toJson().removeNull();
     }
-    if (fees != null) {
-      data['fees'] = fees!.map((v) => v.toJson().removeNull()).toList();
+    if (charges != null) {
+      data['charges'] = charges!.map((v) => v.toJson().removeNull()).toList();
     }
     if (coupon != null) {
       data['coupon'] = coupon!.toJson().removeNull();
@@ -352,7 +352,7 @@ class SendOrder {
     currencyId = order.currency?.id;
     currencyRate = order.currency?.exchangeRate;
     amount = order.subTotal;
-    feeAmount = order.totalFee;
+    chargeAmount = order.totalCharge;
     discountAmount = order.priceDiscount;
     promotionAmount = order.pricePromotion;
     totalAmount = order.total;
@@ -390,9 +390,9 @@ class SendOrder {
         promotion: order.promotion.target!,
       );
     }
-    fees = order.fees
-        .map((element) => SendFees.fromOrder(
-              fee: element,
+    charges = order.charges
+        .map((element) => Sendcharges.fromOrder(
+              charge: element,
             ))
         .toList();
     if (order.couponId != null) {
@@ -708,17 +708,17 @@ class SendTable {
 /// [baseUnitPrice] -> Price
 /// [discountPercentage] total of allowance of type discount  for one unit
 /// [discountAmount] baseUnitPrice * discountPercentage
-/// [feePercentage] total of allowance of type fee  for one unit
-/// [feeAmount] baseUnitPrice * feePercentage
+/// [chargePercentage] total of allowance of type charge  for one unit
+/// [chargeAmount] baseUnitPrice * chargePercentage
 /// net Unit Price after  apply  allowance for product unit without Tax
-/// [netUnitPrice] [baseUnitPrice] +[feeAmount] - [discountAmount]
+/// [netUnitPrice] [baseUnitPrice] +[chargeAmount] - [discountAmount]
 /// [taxPercentage]  total TaxPercentage that apply to product unit
 /// [taxAmount] = [unitPriceExclTax] * [taxPercentage]
 /// [unitPriceInclTax] = [taxAmount] + [unitPriceExclTax]
 /// [totalPriceAmount] = [netUnitPrice] * [quantity]
 /// [totalDiscountAmount] = [discountAmount] * [quantity]
-/// [totalFeeAmount] = [feeAmount] * [quantity]
-/// [totalNetPriceAmount] = [totalPriceAmount]+ [totalFeeAmount] - [totalDiscountAmount]
+/// [totalchargeAmount] = [chargeAmount] * [quantity]
+/// [totalNetPriceAmount] = [totalPriceAmount]+ [totalchargeAmount] - [totalDiscountAmount]
 /// [totalTaxAmount] = [unitTaxAmount] * [quantity]
 /// [lineTotalAmount] = [totalNetPriceAmount]+ [totalTaxAmount]
 
@@ -740,11 +740,11 @@ class Products {
   double? unitPriceExclTax;
   double? totalPrice;
   double? totalPriceExclTax;
-  double? feeTotalPercentage;
-  double? feeUnitAmount;
-  double? feeUnitTaxAmount;
-  double? feeTotalAmount;
-  double? feeTotalTaxAmount;
+  double? chargeTotalPercentage;
+  double? chargeUnitAmount;
+  double? chargeUnitTaxAmount;
+  double? chargeTotalAmount;
+  double? chargeTotalTaxAmount;
   double? modifierOptionsUnitAmountExclTax;
   double? modifierOptionsUnitTaxAmount;
   double? modifierOptionsTotalPriceExclTax;
@@ -779,7 +779,7 @@ class Products {
   String? deviceId;
   String? branchId;
   SendUnit? unit;
-  List<SendFees>? fees;
+  List<Sendcharges>? charges;
   List<SendTaxType>? taxInfo;
   SendDiscount? discount;
   SendPromotion? promotion;
@@ -788,15 +788,15 @@ class Products {
   // double? baseUnitPrice;
   // double? discountPercentage;
   // double? discountAmount;
-  // double? feePercentage;
-  // double? feeAmount;
+  // double? chargePercentage;
+  // double? chargeAmount;
   // double? unitNetPrice;
   // double? unitTaxPercentage;
   // double? unitTaxAmount;
 
   // double? totalPriceAmount;
   // double? totalDiscountAmount;
-  // double? totalFeeAmount;
+  // double? totalchargeAmount;
   // double? totalNetPriceAmount;
   // double? totalTaxAmount;
   // double? lineTotalAmount;
@@ -826,11 +826,11 @@ class Products {
       this.unitPriceExclTax,
       this.totalPrice,
       this.totalPriceExclTax,
-      this.feeTotalPercentage,
-      this.feeUnitAmount,
-      this.feeUnitTaxAmount,
-      this.feeTotalAmount,
-      this.feeTotalTaxAmount,
+      this.chargeTotalPercentage,
+      this.chargeUnitAmount,
+      this.chargeUnitTaxAmount,
+      this.chargeTotalAmount,
+      this.chargeTotalTaxAmount,
       this.modifierOptionsUnitAmountExclTax,
       this.modifierOptionsUnitTaxAmount,
       this.modifierOptionsTotalPriceExclTax,
@@ -865,7 +865,7 @@ class Products {
       this.deviceId,
       this.branchId,
       this.unit,
-      this.fees,
+      this.charges,
       this.taxInfo,
       this.discount,
       this.promotion,
@@ -889,11 +889,11 @@ class Products {
     unitPriceExclTax = json['unitPriceExclTax'];
     totalPrice = json['totalPrice'];
     totalPriceExclTax = json['totalPriceExclTax'];
-    feeTotalPercentage = json['feeTotalPercentage'];
-    feeUnitAmount = json['feeUnitAmount'];
-    feeUnitTaxAmount = json['feeUnitTaxAmount'];
-    feeTotalAmount = json['feeTotalAmount'];
-    feeTotalTaxAmount = json['feeTotalTaxAmount'];
+    chargeTotalPercentage = json['chargeTotalPercentage'];
+    chargeUnitAmount = json['chargeUnitAmount'];
+    chargeUnitTaxAmount = json['chargeUnitTaxAmount'];
+    chargeTotalAmount = json['chargeTotalAmount'];
+    chargeTotalTaxAmount = json['chargeTotalTaxAmount'];
     modifierOptionsUnitAmountExclTax = json['modifierOptionsUnitAmountExclTax'];
     modifierOptionsUnitTaxAmount = json['modifierOptionsUnitTaxAmount'];
     modifierOptionsTotalPriceExclTax = json['modifierOptionsTotalPriceExclTax'];
@@ -945,10 +945,10 @@ class Products {
     timeEvent = json['timeEvent'] != null
         ? SendTimeEvent.fromJson(json['timeEvent'])
         : null;
-    if (json['fees'] != null) {
-      fees = <SendFees>[];
-      json['fees'].forEach((v) {
-        fees!.add(SendFees.fromJson(v));
+    if (json['charges'] != null) {
+      charges = <Sendcharges>[];
+      json['charges'].forEach((v) {
+        charges!.add(Sendcharges.fromJson(v));
       });
     }
   }
@@ -972,11 +972,11 @@ class Products {
     data['unitPriceExclTax'] = unitPriceExclTax;
     data['totalPrice'] = totalPrice;
     data['totalPriceExclTax'] = totalPriceExclTax;
-    data['feeTotalPercentage'] = feeTotalPercentage;
-    data['feeUnitAmount'] = feeUnitAmount;
-    data['feeUnitTaxAmount'] = feeUnitTaxAmount;
-    data['feeTotalAmount'] = feeTotalAmount;
-    data['feeTotalTaxAmount'] = feeTotalTaxAmount;
+    data['chargeTotalPercentage'] = chargeTotalPercentage;
+    data['chargeUnitAmount'] = chargeUnitAmount;
+    data['chargeUnitTaxAmount'] = chargeUnitTaxAmount;
+    data['chargeTotalAmount'] = chargeTotalAmount;
+    data['chargeTotalTaxAmount'] = chargeTotalTaxAmount;
     data['modifierOptionsUnitAmountExclTax'] = modifierOptionsUnitAmountExclTax;
     data['modifierOptionsUnitTaxAmount'] = modifierOptionsUnitTaxAmount;
     data['modifierOptionsTotalPriceExclTax'] = modifierOptionsTotalPriceExclTax;
@@ -1028,8 +1028,8 @@ class Products {
     if (timeEvent != null) {
       data['timeEvent'] = timeEvent!.toJson().removeNull();
     }
-    if (fees != null) {
-      data['fees'] = fees!.map((v) => v.toJson().removeNull()).toList();
+    if (charges != null) {
+      data['charges'] = charges!.map((v) => v.toJson().removeNull()).toList();
     }
 
     return data;
@@ -1056,11 +1056,11 @@ class Products {
     unitPriceExclTax = product.unitPriceExclTax;
     totalPrice = product.totalPrice;
     totalPriceExclTax = product.totalPriceExclTax;
-    feeTotalPercentage = product.feeTotalPercentage;
-    feeUnitAmount = product.feeUnitAmount;
-    feeUnitTaxAmount = product.feeUnitTaxAmount;
-    feeTotalAmount = product.feeTotalAmount;
-    feeTotalTaxAmount = product.feeTotalTaxAmount;
+    chargeTotalPercentage = product.chargeTotalPercentage;
+    chargeUnitAmount = product.chargeUnitAmount;
+    chargeUnitTaxAmount = product.chargeUnitTaxAmount;
+    chargeTotalAmount = product.chargeTotalAmount;
+    chargeTotalTaxAmount = product.chargeTotalTaxAmount;
     modifierOptionsUnitAmountExclTax = product.modifierOptionsUnitAmountExclTax;
     modifierOptionsUnitTaxAmount = product.modifierOptionsUnitTaxAmount;
     modifierOptionsTotalPriceExclTax = product.modifierOptionsTotalPriceExclTax;
@@ -1102,11 +1102,13 @@ class Products {
       // discountPercentage = product.discount.target!.discountPercentage;
     }
 
-    //// Todo :: Add fee
+    //// Todo :: Add charge
     ///
     ///
-    if (product.fees != null) {
-      fees = product.fees!.map((e) => SendFees.fromOrder(fee: e)).toList();
+    if (product.charges != null) {
+      charges = product.charges!
+          .map((e) => Sendcharges.fromOrder(charge: e))
+          .toList();
     }
 
     if (discount != null) {
@@ -1661,8 +1663,8 @@ class SendTimeEvent {
   }
 }
 
-class SendFees {
-  String? feeId;
+class Sendcharges {
+  String? chargeId;
   double? baseAmount;
   double? percent;
   double? value;
@@ -1673,8 +1675,8 @@ class SendFees {
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
-  SendFees(
-      {this.feeId,
+  Sendcharges(
+      {this.chargeId,
       this.baseAmount,
       this.percent,
       this.value,
@@ -1685,8 +1687,8 @@ class SendFees {
       this.deviceCreatedOn,
       this.deviceCreatedBy});
 
-  SendFees.fromJson(Map<String, dynamic> json) {
-    feeId = json['feeId'];
+  Sendcharges.fromJson(Map<String, dynamic> json) {
+    chargeId = json['chargeId'];
     baseAmount = json['baseAmount'];
     percent = json['percent'];
     value = json['value'];
@@ -1703,14 +1705,14 @@ class SendFees {
     deviceCreatedBy = json['deviceCreatedBy'];
   }
 
-  SendFees.fromOrder({
-    required Fee fee,
+  Sendcharges.fromOrder({
+    required Charge charge,
   }) {
-    feeId = fee.id;
-    // baseAmount = fee.;
-    percent = fee.percentage;
-    value = fee.value;
-    // amount = fee.;
+    chargeId = charge.id;
+    // baseAmount = charge.;
+    percent = charge.percentage;
+    value = charge.value;
+    // amount = charge.;
     // taxAmount = json['taxAmount'];
     // amountIncludeTax = json['amountIncludeTax'];
 
@@ -1725,7 +1727,7 @@ class SendFees {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['feeId'] = feeId;
+    data['chargeId'] = chargeId;
     data['baseAmount'] = baseAmount;
     data['percent'] = percent;
     data['value'] = value;
@@ -1769,7 +1771,7 @@ class SendDelivery {
   String? deliveryCompanyId;
   String? externalReference;
   String? driverId;
-  double? fee;
+  double? charge;
   double? discount;
   double? netAmount;
   String? expectedDeliveryDate;
@@ -1785,7 +1787,7 @@ class SendDelivery {
       {this.deliveryCompanyId,
       this.externalReference,
       this.driverId,
-      this.fee,
+      this.charge,
       this.discount,
       this.netAmount,
       this.expectedDeliveryDate,
@@ -1801,7 +1803,7 @@ class SendDelivery {
     deliveryCompanyId = json['deliveryCompanyId'];
     externalReference = json['externalReference'];
     driverId = json['driverId'];
-    fee = json['fee'];
+    charge = json['charge'];
     discount = json['discount'];
     netAmount = json['netAmount'];
     expectedDeliveryDate = json['expectedDeliveryDate'];
@@ -1819,7 +1821,7 @@ class SendDelivery {
     data['deliveryCompanyId'] = deliveryCompanyId;
     data['externalReference'] = externalReference;
     data['driverId'] = driverId;
-    data['fee'] = fee;
+    data['charge'] = charge;
     data['discount'] = discount;
     data['netAmount'] = netAmount;
     data['expectedDeliveryDate'] = expectedDeliveryDate;

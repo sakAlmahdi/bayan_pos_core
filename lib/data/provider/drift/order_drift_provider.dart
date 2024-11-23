@@ -304,21 +304,21 @@ class BaseOrderDriftProvider extends OrderRepo {
       COUNT(*) AS count,
       SUM(number_vistor) AS guest,
       SUM(sub_total) AS sub_total,
-      SUM(total_fee) AS totalFee,
+      SUM(total_charge) AS totalCharges,
       SUM(price_discount + price_promotion) AS totalDiscount,
       SUM(tax_price) AS totalTax,
-      SUM((sub_total + total_fee + tax_price) - price_discount - price_promotion) AS total,
-      AVG((sub_total + total_fee + tax_price) - price_discount - price_promotion) AS avgPerOrder,
+      SUM((sub_total + total_charge + tax_price) - price_discount - price_promotion) AS total,
+      AVG((sub_total + total_charge + tax_price) - price_discount - price_promotion) AS avgPerOrder,
       (
-        SELECT AVG((sub_total + total_fee + tax_price) - price_discount - price_promotion) AS avgPerGuest
+        SELECT AVG((sub_total + total_charge + tax_price) - price_discount - price_promotion) AS avgPerGuest
         FROM order_entity
         WHERE number_vistor IS NOT NULL AND DATE(start_date,'unixepoch') ='${date.toString().formateDateOnly}'
       ) AS avg,
       (
         SELECT JSON_OBJECT(
-          'grossSalesWithOutTax', SUM((sub_total + total_fee + tax_price) - price_discount - price_promotion),
+          'grossSalesWithOutTax', SUM((sub_total + total_charge + tax_price) - price_discount - price_promotion),
           'grossSalesCount', COUNT(*),
-          'netSalesTotal', SUM((sub_total + total_fee + tax_price) - price_discount - price_promotion),
+          'netSalesTotal', SUM((sub_total + total_charge + tax_price) - price_discount - price_promotion),
           'netSalesCount', COUNT(*)
         )
         FROM order_entity
