@@ -1488,7 +1488,7 @@
     },
     {
       "id": "16:7031224378041322061",
-      "lastPropertyId": "19:3164564804568723457",
+      "lastPropertyId": "25:1682698521955452009",
       "name": "Customer",
       "properties": [
         {
@@ -1570,11 +1570,6 @@
           "type": 9
         },
         {
-          "id": "16:2800025843417485165",
-          "name": "enableHouseAccount",
-          "type": 1
-        },
-        {
           "id": "17:2267917642970494992",
           "name": "taxable",
           "type": 1
@@ -1588,6 +1583,36 @@
           "id": "19:3164564804568723457",
           "name": "deviceCreatedBy",
           "type": 9
+        },
+        {
+          "id": "20:4979251834004963677",
+          "name": "customerTypeId",
+          "type": 9
+        },
+        {
+          "id": "21:3537043575094930144",
+          "name": "isHouseAccountEnabled",
+          "type": 1
+        },
+        {
+          "id": "22:8718386743059447216",
+          "name": "isLoyaltyProgramEnabled",
+          "type": 1
+        },
+        {
+          "id": "23:2893426299418668067",
+          "name": "imageUrl",
+          "type": 9
+        },
+        {
+          "id": "24:3014451412309947279",
+          "name": "crNo",
+          "type": 9
+        },
+        {
+          "id": "25:1682698521955452009",
+          "name": "isTaxExempt",
+          "type": 1
         }
       ],
       "relations": [
@@ -1600,6 +1625,11 @@
           "id": "5:8839286626918092936",
           "name": "houseAccountTranscations",
           "targetId": "73:7021566717734900592"
+        },
+        {
+          "id": "39:6371099780897562458",
+          "name": "taxTypesExempt",
+          "targetId": "84:2801789998048505632"
         }
       ]
     },
@@ -6109,7 +6139,7 @@
     },
     {
       "id": "82:3227993512951134283",
-      "lastPropertyId": "21:2671672443659726299",
+      "lastPropertyId": "29:6628640849273978866",
       "name": "Charge",
       "properties": [
         {
@@ -6176,11 +6206,6 @@
           "type": 9
         },
         {
-          "id": "13:3316913573284104737",
-          "name": "applyAuto",
-          "type": 1
-        },
-        {
           "id": "14:8071171503190592094",
           "name": "applyToSubtotal",
           "type": 1
@@ -6218,6 +6243,46 @@
         {
           "id": "21:2671672443659726299",
           "name": "deviceCreatedBy",
+          "type": 9
+        },
+        {
+          "id": "22:3931881715794770336",
+          "name": "autoApplyOnOrders",
+          "type": 1
+        },
+        {
+          "id": "23:706984918904340200",
+          "name": "autoApplyOnProducts",
+          "type": 1
+        },
+        {
+          "id": "24:7706715708431004092",
+          "name": "openPeriod",
+          "type": 1
+        },
+        {
+          "id": "25:8355129952020441591",
+          "name": "applyLevel",
+          "type": 6
+        },
+        {
+          "id": "26:1569090976031404690",
+          "name": "startDate",
+          "type": 9
+        },
+        {
+          "id": "27:1076864917466526995",
+          "name": "endDate",
+          "type": 9
+        },
+        {
+          "id": "28:6474322345313098263",
+          "name": "startTime",
+          "type": 9
+        },
+        {
+          "id": "29:6628640849273978866",
+          "name": "endTime",
           "type": 9
         }
       ],
@@ -6259,11 +6324,40 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "84:2801789998048505632",
+      "lastPropertyId": "4:2260009758421022205",
+      "name": "TaxTypesExempt",
+      "properties": [
+        {
+          "id": "1:3609926137441716457",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:535444225272367070",
+          "name": "id",
+          "type": 9
+        },
+        {
+          "id": "3:4682325671842799110",
+          "name": "startDate",
+          "type": 9
+        },
+        {
+          "id": "4:2260009758421022205",
+          "name": "endDate",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "83:8697241001091666329",
+  "lastEntityId": "84:2801789998048505632",
   "lastIndexId": "70:1874121366016942003",
-  "lastRelationId": "38:6278719258232621766",
+  "lastRelationId": "39:6371099780897562458",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
@@ -6349,7 +6443,9 @@
     6954661098709187957,
     985418742834968633,
     7995223131590561901,
-    4921033890581147827
+    4921033890581147827,
+    2800025843417485165,
+    3316913573284104737
   ],
   "retiredRelationUids": [
     9100000052568182061,

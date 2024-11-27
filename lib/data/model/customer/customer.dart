@@ -1,6 +1,7 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/enum/to_account_enum.dart';
 import 'package:bayan_pos_core/data/model/customer/adderss.dart';
+import 'package:bayan_pos_core/data/model/customer/tax_types_exempt.dart';
 
 import 'package:objectbox/objectbox.dart';
 
@@ -16,18 +17,24 @@ class Customer {
   String? email;
   double? debitLimit;
   double? balance;
+  String? customerTypeId;
   String? paymentMethodId;
   String? currencyId;
   String? taxNumber;
   String? taxRegisterationName;
+  bool? isHouseAccountEnabled;
+  bool? isLoyaltyProgramEnabled;
   bool? inBlackList;
   String? blackListNote;
   String? priceListId;
-  bool? enableHouseAccount;
+  String? imageUrl;
   bool? taxable;
-
   String? deviceCreatedOn;
   String? deviceCreatedBy;
+  String? crNo;
+  bool? isTaxExempt;
+
+  final taxTypesExempt = ToMany<TaxTypesExempt>();
 
   final addersses = ToMany<Address>();
   final houseAccountTranscations = ToMany<Transaction>();
@@ -51,9 +58,14 @@ class Customer {
     this.blackListNote,
     this.priceListId,
     this.taxable,
-    this.enableHouseAccount,
+    this.isHouseAccountEnabled,
+    this.isLoyaltyProgramEnabled,
     this.deviceCreatedOn,
     this.deviceCreatedBy,
+    this.customerTypeId,
+    this.imageUrl,
+    this.crNo,
+    this.isTaxExempt,
   });
 
   Customer.fromJson(Map<String, dynamic> json) {
@@ -64,25 +76,36 @@ class Customer {
     email = json['email'];
     debitLimit = double.tryParse(json['debit_Limit'].toString()) ?? 0.0;
     balance = double.tryParse(json['balance'].toString()) ?? 0.0;
+    customerTypeId = json['customerTypeId'];
     paymentMethodId = json['paymentMethodId'];
     currencyId = json['currencyId'];
     taxNumber = json['taxNumber'];
     taxRegisterationName = json['taxRegisterationName'];
     inBlackList = json['inBlackList'];
     blackListNote = json['blackListNote'];
-    enableHouseAccount = json['enableHouseAccount'];
+    isHouseAccountEnabled = json['isHouseAccountEnabled'];
+    isLoyaltyProgramEnabled = json['isLoyaltyProgramEnabled'];
+    isTaxExempt = json['is_TaxExempt'];
     if (json['addresses'] != null) {
       json['addresses'].forEach((v) {
         addersses.add(Address.fromJson(v));
       });
     }
+
     if (json['transactions'] != null) {
       json['transactions'].forEach((v) {
         houseAccountTranscations.add(Transaction.fromJson(v));
       });
     }
+
+    if (json['taxTypesExempt'] != null) {
+      json['taxTypesExempt'].forEach((v) {
+        taxTypesExempt.add(TaxTypesExempt.fromJson(v));
+      });
+    }
     priceListId = json['priceListId'];
     taxable = json['taxable'];
+    crNo = json['crNo'];
 
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
@@ -97,14 +120,18 @@ class Customer {
     data['email'] = email;
     data['debit_Limit'] = debitLimit;
     data['balance'] = balance;
+    data['customerTypeId'] = customerTypeId;
     data['paymentMethodId'] = paymentMethodId;
     data['currencyId'] = currencyId;
     data['taxNumber'] = taxNumber;
     data['taxRegisterationName'] = taxRegisterationName;
     data['inBlackList'] = inBlackList;
     data['blackListNote'] = blackListNote;
-    data['enableHouseAccount'] = enableHouseAccount;
+    data['isHouseAccountEnabled'] = isHouseAccountEnabled;
+    data['crNo'] = crNo;
+    data['isLoyaltyProgramEnabled'] = isLoyaltyProgramEnabled;
     data['addresses'] = addersses.map((v) => v.toJson()).toList();
+    data['taxTypesExempt'] = taxTypesExempt.map((v) => v.toJson()).toList();
     data['transactions'] =
         houseAccountTranscations.map((v) => v.toJson()).toList();
     data['priceListId'] = priceListId;
@@ -112,7 +139,7 @@ class Customer {
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
-
+    data['is_TaxExempt'] = isTaxExempt;
     return data;
   }
 
@@ -125,18 +152,20 @@ class Customer {
     // data['email'] = email;
     data['debit_Limit'] = debitLimit;
     data['balance'] = balance;
+    data['customerTypeId'] = customerTypeId;
     data['paymentMethodId'] = paymentMethodId;
     data['currencyId'] = currencyId;
     data['taxNumber'] = taxNumber;
     data['taxRegisterationName'] = taxRegisterationName;
     data['inBlackList'] = inBlackList;
     data['blackListNote'] = blackListNote;
-    data['enableHouseAccount'] = enableHouseAccount;
-    // data['addresses'] = addersses.map((v) => v.toJson()).toList();
-    // data['transactions'] =
-    //     houseAccountTranscations.map((v) => v.toJson()).toList();
+    data['isHouseAccountEnabled'] = isHouseAccountEnabled;
+    data['isLoyaltyProgramEnabled'] = isLoyaltyProgramEnabled;
+    data['taxTypesExempt'] = taxTypesExempt.map((v) => v.toJson()).toList();
+
     data['priceListId'] = priceListId;
     data['taxable'] = taxable;
+    data['is_TaxExempt'] = isTaxExempt;
 
     return data;
   }

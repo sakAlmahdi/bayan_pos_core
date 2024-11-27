@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
+import 'package:bayan_pos_core/data/enum/charge_level_enum.dart';
 import 'package:bayan_pos_core/data/enum/days_enum.dart';
 import 'package:bayan_pos_core/data/enum/charge_enum_type.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
@@ -17,11 +18,14 @@ class Charge {
   int? valueType;
   double? value;
   double? percentage;
+  int? applyLevel;
   List<int>? orderTypes;
   List<int>? days;
   List<String>? products;
   String? taxGroupId;
-  bool? applyAuto;
+  bool? autoApplyOnOrders;
+  bool? autoApplyOnProducts;
+  bool? openPeriod;
   bool? applyToSubtotal;
   bool? applyForProducts;
   bool? printSeparatelyInTotalInvoice;
@@ -30,11 +34,17 @@ class Charge {
   double? maxAmountPerProduct;
   String? deviceCreatedOn;
   String? deviceCreatedBy;
+  String? startDate;
+  String? endDate;
+  String? startTime;
+  String? endTime;
 
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(valueType);
   @Transient()
   ChargeType get getChargeType => convertStringToChargeType(type);
+  @Transient()
+  ChargeLevel get getChargeLevel => convertKeyToChargeLevel(applyLevel);
   @Transient()
   List<OrderType> get getOrderTypes =>
       orderTypes
@@ -47,6 +57,16 @@ class Charge {
 
   @Transient()
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
+
+  @Transient()
+  DateTime? get getStartDateAndTime => startDate == null
+      ? null
+      : BaseHelpersMethods.compainDateAndTime(
+          date: startDate!, time: startTime!);
+  @Transient()
+  DateTime? get getEndDateAndTime => endDate == null
+      ? null
+      : BaseHelpersMethods.compainDateAndTime(date: endDate!, time: endTime!);
   Charge();
 
   Charge.fromJson(Map<String, dynamic> json) {
@@ -75,8 +95,10 @@ class Charge {
         products!.add(v.toString().toLowerCase());
       });
     }
+    applyLevel = json['applyLevel'];
     taxGroupId = json['taxGroupId'];
-    applyAuto = json['applyAuto'];
+    autoApplyOnOrders = json['autoApplyOnOrders'];
+    autoApplyOnProducts = json['autoApplyOnProducts'];
     applyToSubtotal = json['applyToSubtotal'];
     fName = json['fName'];
     applyForProducts = json['applyForProducts'];
@@ -89,6 +111,7 @@ class Charge {
 
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
+    openPeriod = json['openPeriod'];
   }
 
   Map<String, dynamic> toJson() {
@@ -102,7 +125,8 @@ class Charge {
     data['orderTypes'] = orderTypes;
     data['days'] = days;
     data['taxGroupId'] = taxGroupId;
-    data['applyAuto'] = applyAuto;
+    data['autoApplyOnOrders'] = autoApplyOnOrders;
+    data['autoApplyOnProducts'] = autoApplyOnProducts;
     data['applyToSubtotal'] = applyToSubtotal;
     data['fName'] = fName;
     data['products'] = products;
@@ -114,6 +138,8 @@ class Charge {
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
+    data['openPeriod'] = openPeriod;
+    data['applyLevel'] = applyLevel;
 
     return data;
   }
