@@ -32,9 +32,9 @@ Day convertStringToDay(int key) {
   }
 }
 
-Day dayNow() {
+Day dayNow({int? day}) {
   DateTime now = DateTime.now();
-  switch (now.weekday) {
+  switch (day ?? now.weekday) {
     case 1:
       return Day.monday;
     case 2:

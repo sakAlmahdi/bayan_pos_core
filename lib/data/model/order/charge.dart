@@ -39,6 +39,10 @@ class Charge {
   String? startTime;
   String? endTime;
 
+  bool? applyOnNetTotalPriceIncludeTax;
+  bool? applyOnNetTotalPriceIncludeOrderDiscount;
+  bool? applyOnNetTotalPriceIncludeProductDiscount;
+
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(valueType);
   @Transient()
@@ -76,6 +80,11 @@ class Charge {
     valueType = json['valueType'];
     value = double.tryParse(json['value'].toString()) ?? 0.0;
     percentage = double.tryParse(json['percentage'].toString()) ?? 0.0;
+    applyOnNetTotalPriceIncludeTax = json['applyOnNetTotalPriceIncludeTax'];
+    applyOnNetTotalPriceIncludeOrderDiscount =
+        json['applyOnNetTotalPriceIncludeOrderDiscount'];
+    applyOnNetTotalPriceIncludeProductDiscount =
+        json['applyOnNetTotalPriceIncludeProductDiscount'];
     if (json['orderTypes'] != null) {
       orderTypes = <int>[];
       json['orderTypes'].forEach((v) {
@@ -140,6 +149,11 @@ class Charge {
     data['deviceCreatedBy'] = deviceCreatedBy;
     data['openPeriod'] = openPeriod;
     data['applyLevel'] = applyLevel;
+    data['applyOnNetTotalPriceIncludeTax'] = applyOnNetTotalPriceIncludeTax;
+    data['applyOnNetTotalPriceIncludeOrderDiscount'] =
+        applyOnNetTotalPriceIncludeOrderDiscount;
+    data['applyOnNetTotalPriceIncludeProductDiscount'] =
+        applyOnNetTotalPriceIncludeProductDiscount;
 
     return data;
   }

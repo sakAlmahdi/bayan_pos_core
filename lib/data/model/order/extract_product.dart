@@ -61,6 +61,8 @@ class ExtractProduct {
   String? fPromotionalName;
   String? tags;
   String? fTags;
+  String? reference;
+
   // bool? showAlertPreparationTime;
 
   final units = ToMany<Unit>();
@@ -129,6 +131,7 @@ class ExtractProduct {
     this.fPromotionalName,
     this.tags,
     this.fTags,
+    this.reference,
     // this.showAlertPreparationTime,
   });
 
@@ -197,6 +200,7 @@ class ExtractProduct {
     fPromotionalName = json['fPromotionalName'];
     tags = json['tags'];
     fTags = json['fTags'];
+    reference = json['reference'];
   }
 
   Map<String, dynamic> toJson() {
@@ -258,6 +262,7 @@ class ExtractProduct {
     data['fPromotionalName'] = fPromotionalName;
     data['tags'] = tags;
     data['fTags'] = fTags;
+    data['reference'] = reference;
 
     return data;
   }
@@ -283,64 +288,67 @@ class ExtractProduct {
     data['calories'] = calories;
     data['productNature'] = productNature;
     data['taxGroupId'] = taxGroupId;
+    data['reference'] = reference;
 
     return data;
   }
 
-  ExtractProduct copyWith(
-      {int? idSeq,
-      String? id,
-      String? name,
-      String? fName,
-      String? sku,
-      String? barcode,
-      String? productTypeId,
-      String? costType,
-      int? priceType,
-      String? salesMethod,
-      double? price,
-      double? cost,
-      String? defaultSalesUnit,
-      int? preparationTime,
-      bool? activeQRScan,
-      bool? qrScanOnSameDate,
-      bool? enableSalesDiscount,
-      double? discountPercentageLimit,
-      bool? enableFreeQuantity,
-      bool? enableDateExpire,
-      bool? enableIMEISerial,
-      bool? enableWeights,
-      bool? scanPriceFromScale,
-      bool? scalePriceIncludeTax,
-      bool? independentPrinting,
-      bool? calculateQuantityFromTotalPrice,
-      bool? reservationRequired,
-      int? scaleBarcodeDigits,
-      int? scaleProductCodeDigits,
-      int? scaleIntDigits,
-      int? scaledecimalDigits,
-      bool? scaleProductCodeFirstInBracode,
-      String? availableStartDateTime,
-      String? availableEndDateTime,
-      String? description,
-      String? fDescription,
-      String? imageUrl,
-      int? calories,
-      int? minimumLevel,
-      int? maximumLevel,
-      String? categoryId,
-      String? departmentId,
-      int? productNature,
-      bool? active = true,
-      String? taxGroupId,
-      bool? separateWhenPrinting,
-      String? subName,
-      String? fSubName,
-      String? promotionalName,
-      String? fPromotionalName,
-      String? tags,
-      String? fTags,
-      bool? showAlertPreparationTime}) {
+  ExtractProduct copyWith({
+    int? idSeq,
+    String? id,
+    String? name,
+    String? fName,
+    String? sku,
+    String? barcode,
+    String? productTypeId,
+    String? costType,
+    int? priceType,
+    String? salesMethod,
+    double? price,
+    double? cost,
+    String? defaultSalesUnit,
+    int? preparationTime,
+    bool? activeQRScan,
+    bool? qrScanOnSameDate,
+    bool? enableSalesDiscount,
+    double? discountPercentageLimit,
+    bool? enableFreeQuantity,
+    bool? enableDateExpire,
+    bool? enableIMEISerial,
+    bool? enableWeights,
+    bool? scanPriceFromScale,
+    bool? scalePriceIncludeTax,
+    bool? independentPrinting,
+    bool? calculateQuantityFromTotalPrice,
+    bool? reservationRequired,
+    int? scaleBarcodeDigits,
+    int? scaleProductCodeDigits,
+    int? scaleIntDigits,
+    int? scaledecimalDigits,
+    bool? scaleProductCodeFirstInBracode,
+    String? availableStartDateTime,
+    String? availableEndDateTime,
+    String? description,
+    String? fDescription,
+    String? imageUrl,
+    int? calories,
+    int? minimumLevel,
+    int? maximumLevel,
+    String? categoryId,
+    String? departmentId,
+    int? productNature,
+    bool? active = true,
+    String? taxGroupId,
+    bool? separateWhenPrinting,
+    String? subName,
+    String? fSubName,
+    String? promotionalName,
+    String? fPromotionalName,
+    String? tags,
+    String? fTags,
+    bool? showAlertPreparationTime,
+    String? reference,
+  }) {
     return ExtractProduct(
       idSeq: idSeq ?? this.idSeq,
       id: id ?? this.id,
@@ -397,6 +405,7 @@ class ExtractProduct {
       fPromotionalName: fPromotionalName ?? this.fPromotionalName,
       tags: tags ?? this.tags,
       fTags: fTags ?? this.fTags,
+      reference: reference ?? this.reference,
       // showAlertPreparationTime:
       //     showAlertPreparationTime ?? this.showAlertPreparationTime,
     );

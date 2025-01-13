@@ -22,7 +22,10 @@ class Discount {
   double? discountPercentage;
   double? discountAmount;
   double? maximumDiscountAmount;
+  double? maximumDiscountAmountProduct;
   double? minimalOrderAmount;
+  double? minimalProductPrice;
+
   bool? taxable;
 
   final products = ToMany<ProductsOnDiscount>();
@@ -32,6 +35,8 @@ class Discount {
   List<String>? customers;
   List<String>? departments;
   List<String>? categories;
+  List<String>? groups;
+
   @Transient()
   DiscountType get getDiscountType => convertToDiscontType(discountType);
   @Transient()
@@ -90,6 +95,9 @@ class Discount {
     this.categories,
     this.deviceCreatedOn,
     this.deviceCreatedBy,
+    this.minimalProductPrice,
+    this.groups,
+    this.maximumDiscountAmountProduct,
   });
 
   Discount.fromJson(Map<String, dynamic> json) {
@@ -110,6 +118,7 @@ class Discount {
     minimalOrderAmount =
         double.tryParse(json['minimal_Order_Amount'].toString()) ?? 0.0;
     taxable = json['taxable'];
+    maximumDiscountAmountProduct = json['maximum_Discount_Amount_Product'];
     if (json['products'] != null) {
       json['products'].forEach((v) {
         products.add(ProductsOnDiscount.fromJson(v));
@@ -151,6 +160,14 @@ class Discount {
         categories!.add(v!.toString().toLowerCase());
       });
     }
+    if (json['groups'] != null) {
+      groups = <String>[];
+      json['groups'].forEach((v) {
+        customers!.add(v.toString().toLowerCase());
+      });
+    }
+
+    minimalProductPrice = json['minimal_Product_Price'];
 
     deviceCreatedOn = json['deviceCreatedOn'];
     deviceCreatedBy = json['deviceCreatedBy'];
@@ -174,6 +191,7 @@ class Discount {
     data['maximum_Discount_Amount'] = maximumDiscountAmount;
     data['minimal_Order_Amount'] = minimalOrderAmount;
     data['taxable'] = taxable;
+    data['maximum_Discount_Amount_Product'] = maximumDiscountAmountProduct;
 
     if (days != null) {
       data['days'] = days!.map((v) => v).toList();
@@ -196,12 +214,16 @@ class Discount {
     if (categories != null) {
       data['categories'] = categories!.map((v) => v).toList();
     }
+    if (groups != null) {
+      data['groups'] = groups!.map((v) => v).toList();
+    }
 
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;
     data['applyForAllProducts'] = applyForAllProducts;
     data['applyForAllCustomers'] = applyForAllCustomers;
+    data['minimal_Product_Price'] = minimalProductPrice;
     return data;
   }
 }

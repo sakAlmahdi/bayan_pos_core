@@ -61,6 +61,7 @@ class Product1 {
   String? fPromotionalName;
   String? tags;
   String? fTags;
+  String? reference;
 
   bool? showAlertPreparationTime;
 
@@ -122,6 +123,7 @@ class Product1 {
     this.tags,
     this.fTags,
     this.showAlertPreparationTime,
+    this.reference,
   });
 
   Product1.fromJson(Map<String, dynamic> json,
@@ -206,6 +208,7 @@ class Product1 {
     fPromotionalName = json['fPromotionalName'];
     tags = json['tags'];
     fTags = json['fTags'];
+    reference = json['reference'];
   }
 
   Map<String, dynamic> toJson() {
@@ -267,6 +270,7 @@ class Product1 {
     data['fPromotionalName'] = fPromotionalName;
     data['tags'] = tags;
     data['fTags'] = fTags;
+    data['reference'] = reference;
 
     return data;
   }

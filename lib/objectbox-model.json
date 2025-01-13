@@ -2102,7 +2102,7 @@
     },
     {
       "id": "23:2455135106501388491",
-      "lastPropertyId": "26:6287559964058250555",
+      "lastPropertyId": "29:1022147776982552268",
       "name": "Discount",
       "properties": [
         {
@@ -2232,6 +2232,21 @@
           "id": "26:6287559964058250555",
           "name": "applyForAllCustomers",
           "type": 1
+        },
+        {
+          "id": "27:4192821518219969131",
+          "name": "minimalProductPrice",
+          "type": 8
+        },
+        {
+          "id": "28:5197248842368791167",
+          "name": "groups",
+          "type": 30
+        },
+        {
+          "id": "29:1022147776982552268",
+          "name": "maximumDiscountAmountProduct",
+          "type": 8
         }
       ],
       "relations": [
@@ -2400,7 +2415,7 @@
     },
     {
       "id": "27:7374566766039686698",
-      "lastPropertyId": "50:4043521233026226237",
+      "lastPropertyId": "51:7609089684938617128",
       "name": "ExtractProduct",
       "properties": [
         {
@@ -2658,6 +2673,11 @@
         {
           "id": "50:4043521233026226237",
           "name": "fTags",
+          "type": 9
+        },
+        {
+          "id": "51:7609089684938617128",
+          "name": "reference",
           "type": 9
         }
       ],
@@ -4089,7 +4109,7 @@
     },
     {
       "id": "53:5087168898656921036",
-      "lastPropertyId": "51:7083268133013744879",
+      "lastPropertyId": "52:7804754931596608795",
       "name": "Product1",
       "properties": [
         {
@@ -4349,6 +4369,11 @@
           "id": "51:7083268133013744879",
           "name": "showAlertPreparationTime",
           "type": 1
+        },
+        {
+          "id": "52:7804754931596608795",
+          "name": "reference",
+          "type": 9
         }
       ],
       "relations": [
@@ -5495,7 +5520,7 @@
     },
     {
       "id": "72:3217800456771791053",
-      "lastPropertyId": "24:2317384160632233409",
+      "lastPropertyId": "25:529567737766425884",
       "name": "TimeEvent",
       "properties": [
         {
@@ -5615,6 +5640,11 @@
           "id": "24:2317384160632233409",
           "name": "applyForAllBranches",
           "type": 1
+        },
+        {
+          "id": "25:529567737766425884",
+          "name": "referenceNumber",
+          "type": 6
         }
       ],
       "relations": [
@@ -5992,7 +6022,7 @@
     },
     {
       "id": "81:6241035647181002605",
-      "lastPropertyId": "26:3986720517449706290",
+      "lastPropertyId": "29:6593745626609446782",
       "name": "Promotion",
       "properties": [
         {
@@ -6122,6 +6152,21 @@
           "id": "26:3986720517449706290",
           "name": "applyForAllCustomers",
           "type": 1
+        },
+        {
+          "id": "27:3487214327303940898",
+          "name": "priceList",
+          "type": 30
+        },
+        {
+          "id": "28:1871096055642552745",
+          "name": "customerTypes",
+          "type": 30
+        },
+        {
+          "id": "29:6593745626609446782",
+          "name": "giftCardId",
+          "type": 9
         }
       ],
       "relations": [
@@ -6139,7 +6184,7 @@
     },
     {
       "id": "82:3227993512951134283",
-      "lastPropertyId": "29:6628640849273978866",
+      "lastPropertyId": "32:4257440075252090337",
       "name": "Charge",
       "properties": [
         {
@@ -6284,6 +6329,21 @@
           "id": "29:6628640849273978866",
           "name": "endTime",
           "type": 9
+        },
+        {
+          "id": "30:508537808854129029",
+          "name": "applyOnNetTotalPriceIncludeTax",
+          "type": 1
+        },
+        {
+          "id": "31:1784661380716898696",
+          "name": "applyOnNetTotalPriceIncludeOrderDiscount",
+          "type": 1
+        },
+        {
+          "id": "32:4257440075252090337",
+          "name": "applyOnNetTotalPriceIncludeProductDiscount",
+          "type": 1
         }
       ],
       "relations": []
@@ -6353,11 +6413,165 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "85:5228517269822162732",
+      "lastPropertyId": "14:1052743122361071319",
+      "name": "TieredPricing",
+      "properties": [
+        {
+          "id": "1:6308435913033126996",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:460826164063252794",
+          "name": "id",
+          "type": 9
+        },
+        {
+          "id": "3:1817145263036034496",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:4273890876025395053",
+          "name": "fName",
+          "type": 9
+        },
+        {
+          "id": "5:532274798482507093",
+          "name": "startDate",
+          "type": 10
+        },
+        {
+          "id": "6:816905535449927904",
+          "name": "endDate",
+          "type": 10
+        },
+        {
+          "id": "7:1972433243986033362",
+          "name": "startTime",
+          "type": 9
+        },
+        {
+          "id": "8:7889119692695349165",
+          "name": "endTime",
+          "type": 9
+        },
+        {
+          "id": "9:2852063811762244059",
+          "name": "days",
+          "type": 27
+        },
+        {
+          "id": "10:6051429532673773714",
+          "name": "orderTypes",
+          "type": 27
+        },
+        {
+          "id": "11:5883166181688022318",
+          "name": "customers",
+          "type": 30
+        },
+        {
+          "id": "12:6494897242038813627",
+          "name": "customerTypes",
+          "type": 30
+        },
+        {
+          "id": "13:6804772984292600873",
+          "name": "applyForAllCustomers",
+          "type": 1
+        },
+        {
+          "id": "14:1052743122361071319",
+          "name": "applyForAllBranches",
+          "type": 1
+        }
+      ],
+      "relations": [
+        {
+          "id": "40:3559379048397231561",
+          "name": "products",
+          "targetId": "86:7586805171323379013"
+        }
+      ]
+    },
+    {
+      "id": "86:7586805171323379013",
+      "lastPropertyId": "2:3585295751220994421",
+      "name": "TieredPricingProduct",
+      "properties": [
+        {
+          "id": "1:5145706602432814408",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3585295751220994421",
+          "name": "id",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "41:3896521785299789554",
+          "name": "units",
+          "targetId": "87:8693139306819422573"
+        }
+      ]
+    },
+    {
+      "id": "87:8693139306819422573",
+      "lastPropertyId": "7:8640333239307113045",
+      "name": "TieredPricingProductUnit",
+      "properties": [
+        {
+          "id": "1:7788307526417979525",
+          "name": "idSeq",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8118007373244889639",
+          "name": "id",
+          "type": 9
+        },
+        {
+          "id": "3:3888808185533452417",
+          "name": "unitOfMeasureId",
+          "type": 9
+        },
+        {
+          "id": "4:8314193579889315838",
+          "name": "priceListId",
+          "type": 9
+        },
+        {
+          "id": "5:3773180057297031804",
+          "name": "minQuantity",
+          "type": 8
+        },
+        {
+          "id": "6:1179270519764564002",
+          "name": "maxQuantity",
+          "type": 8
+        },
+        {
+          "id": "7:8640333239307113045",
+          "name": "price",
+          "type": 8
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "84:2801789998048505632",
+  "lastEntityId": "87:8693139306819422573",
   "lastIndexId": "70:1874121366016942003",
-  "lastRelationId": "39:6371099780897562458",
+  "lastRelationId": "41:3896521785299789554",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,

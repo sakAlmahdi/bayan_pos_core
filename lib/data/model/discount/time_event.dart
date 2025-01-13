@@ -38,6 +38,7 @@ class TimeEvent {
 
   String? deviceCreatedOn;
   String? deviceCreatedBy;
+  late int referenceNumber;
 
   @Transient()
   EventAction get getEventAction => converStringToEventAction(timeEventType);
@@ -62,6 +63,7 @@ class TimeEvent {
   String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   TimeEvent({
+    required this.referenceNumber,
     this.id,
     this.name,
     this.fName,
@@ -79,9 +81,11 @@ class TimeEvent {
     this.priority = 0,
     this.deviceCreatedOn,
     this.deviceCreatedBy,
+    this.groups,
   });
 
   TimeEvent.fromJson(Map<String, dynamic> json) {
+    referenceNumber = 1;
     id = json['id'];
     name = json['name'];
     fName = json['fName'];
@@ -173,6 +177,9 @@ class TimeEvent {
     }
     if (categories != null) {
       data['categories'] = products!.map((v) => v).toList();
+    }
+    if (groups != null) {
+      data['groups'] = groups!.map((v) => v).toList();
     }
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();

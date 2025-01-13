@@ -6,6 +6,7 @@ import 'package:bayan_pos_core/data/enum/promotion_apply_to_enum.dart';
 import 'package:bayan_pos_core/data/enum/promotion_apply_type_enum.dart';
 import 'package:bayan_pos_core/data/enum/promotion_type_enum.dart';
 import 'package:bayan_pos_core/data/model/discount/discount.dart';
+import 'package:bayan_pos_core/data/model/new/enums/promotion_reward_type_enum.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -29,12 +30,16 @@ class Promotion {
   double? customerQuantity;
   double? customerAmount;
   int? rewardType;
+  String? giftCardId;
   List<int>? days;
   List<int>? orderTypes;
+
+  List<String>? priceList;
   final purchaseProducts = ToMany<ProductsOnDiscount>();
   final discountProducts = ToMany<ProductsOnDiscount>();
 
   List<String>? customers;
+  List<String>? customerTypes;
 
   int? priority = 0;
   int? numberOfProducts;
@@ -67,6 +72,9 @@ class Promotion {
   @Transient()
   PromotionApplyTo get getPromotionApplyTo =>
       convertStringToPromotionApplyTo(rewardType);
+
+  PromotionRewardType get getRewardType =>
+      PromotionRewardType.fromKey(rewardType);
 
   @Transient()
   DiscountType get getDiscountType => convertToDiscontType(discountType);
@@ -111,6 +119,9 @@ class Promotion {
     this.referenceNumber,
     this.applyForAllCustomers,
     this.idSeq,
+    this.priceList,
+    this.giftCardId,
+    this.customerTypes,
   });
 
   Promotion.fromJson(Map<String, dynamic> json) {
@@ -162,11 +173,24 @@ class Promotion {
         customers?.add(v.toString().toLowerCase());
       });
     }
+    if (json['customerTypes'] != null) {
+      customerTypes = [];
+      json['customerTypes'].forEach((v) {
+        customerTypes?.add(v.toString());
+      });
+    }
+    if (json['priceList'] != null) {
+      priceList = [];
+      json['priceList'].forEach((v) {
+        priceList?.add(v.toString().toLowerCase());
+      });
+    }
 
     applyForAllBranches = json['applyForAllBranches'];
     numberOfProducts = json['number_Of_Products'];
     referenceNumber = json['referenceNumber'];
     applyForAllCustomers = json['applyForAllCustomers'];
+    giftCardId = json['giftCardId'];
   }
 
   Map<String, dynamic> toJson() {
@@ -194,17 +218,23 @@ class Promotion {
     if (orderTypes != null) {
       data['orderTypes'] = orderTypes!.map((v) => v).toList();
     }
-    if (purchaseProducts != null) {
-      data['purchaseProducts'] = purchaseProducts!.map((v) => v).toList();
+    data['purchaseProducts'] = purchaseProducts!.map((v) => v).toList();
+    data['discountProducts'] = discountProducts!.map((v) => v).toList();
+    if (customers != null) {
+      data['customers'] = customers!.map((v) => v).toList();
     }
-    if (discountProducts != null) {
-      data['discountProducts'] = discountProducts!.map((v) => v).toList();
+    if (customerTypes != null) {
+      data['customerTypes'] = customerTypes!.map((v) => v).toList();
+    }
+    if (priceList != null) {
+      data['priceList'] = priceList!.map((v) => v).toList();
     }
     data['applyForAllBranches'] = applyForAllBranches;
     data['customers'] = customers?.map((e) => e.toString()).toList();
     data['number_Of_Products'] = numberOfProducts;
     data['referenceNumber'] = referenceNumber;
     data['applyForAllCustomers'] = applyForAllCustomers;
+    data['giftCardId'] = giftCardId;
     return data;
   }
 
