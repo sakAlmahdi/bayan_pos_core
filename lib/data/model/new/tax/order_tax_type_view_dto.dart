@@ -1,7 +1,7 @@
 class OrderTaxTypeViewDto {
-  final String type;
-  final String name;
-  final double amount;
+  String type;
+  String name;
+  double amount;
 
   // Constructor
   OrderTaxTypeViewDto({
