@@ -47,7 +47,7 @@ class Currencies {
     if (json['dens'] != null) {
       dens = <int>[];
       json['dens'].forEach((v) {
-        dens!.add(int.parse(v.toString()));
+        dens!.add((double.tryParse(v.toString()) ?? 0).toInt());
       });
     }
     exchangeRate = double.tryParse(json['exchangeRate'].toString()) ?? 0.0;

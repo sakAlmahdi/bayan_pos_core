@@ -15,10 +15,10 @@ class OrderProductTieredPricingAppliesDto {
   factory OrderProductTieredPricingAppliesDto.fromJson(
       Map<String, dynamic> json) {
     return OrderProductTieredPricingAppliesDto(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      unitPrice: (json['unitPrice'] as num).toDouble(),
-      netUnitPrice: (json['netUnitPrice'] as num).toDouble(),
+      id: json['id'] as String?,
+      name: json['name'] as String?,
+      unitPrice: (json['unitPrice'] as num?)?.toDouble(),
+      netUnitPrice: (json['netUnitPrice'] as num?)?.toDouble(),
     );
   }
 

@@ -1,16 +1,16 @@
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductRequestDto {
-  final int tableRowIndex;
-  final Guid productId;
-  final Guid unitId;
-  final double quantity;
-  final double? freeQuantity;
-  final double unitPrice;
-  final double totalPrice;
-  final double discountAmount;
-  final double discountPercentage;
-  final Guid? discountId;
+  int tableRowIndex;
+  Guid productId;
+  Guid unitId;
+  double quantity;
+  double? freeQuantity;
+  double unitPrice;
+  double totalPrice;
+  double discountAmount;
+  double discountPercentage;
+  Guid? discountId;
   Guid? taxGroupId;
 
   OrderProductRequestDto({

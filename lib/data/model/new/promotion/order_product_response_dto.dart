@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
 import 'package:bayan_pos_core/data/model/new/discount/order_product_discount_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/order_product_unit_price.dart';
@@ -80,21 +79,26 @@ class OrderProductResponseDto {
       name: json['name'],
       productId: json['productId'],
       unitId: json['unitId'],
-      quantity: json['quantity'],
-      freeQuantity: json['freeQuantity'],
-      unitPrice: json['unitPrice'],
-      totalPrice: json['totalPrice'],
-      discountAmount: json['discountAmount'],
-      discountPercentage: json['discountPercentage'],
-      netUnitPrice: json['netUnitPrice'],
-      netTotalPrice: json['netTotalPrice'],
-      netUnitPriceExcludeTax: json['netUnitPriceExcludeTax'],
-      netTotalPriceExcludeTax: json['netTotalPriceExcludeTax'],
-      orderDiscountAmount: json['orderDiscountAmount'],
-      taxableAmount: json['taxableAmount'],
-      taxAmount: json['taxAmount'],
-      finalAmount: json['finalAmount'],
-      roundingDecimalAmount: json['roundingDecimalAmount'],
+      quantity: double.tryParse(json['quantity'].toString()) ?? 0.0,
+      freeQuantity: double.tryParse(json['freeQuantity'].toString()),
+      unitPrice: double.tryParse(json['unitPrice'].toString()) ?? 0.0,
+      totalPrice: double.tryParse(json['totalPrice'].toString()) ?? 0.0,
+      discountAmount: double.tryParse(json['discountAmount'].toString()),
+      discountPercentage:
+          double.tryParse(json['discountPercentage'].toString()),
+      netUnitPrice: double.tryParse(json['netUnitPrice'].toString()) ?? 0.0,
+      netTotalPrice: double.tryParse(json['netTotalPrice'].toString()) ?? 0.0,
+      netUnitPriceExcludeTax:
+          double.tryParse(json['netUnitPriceExcludeTax'].toString()),
+      netTotalPriceExcludeTax:
+          double.tryParse(json['netTotalPriceExcludeTax'].toString()),
+      orderDiscountAmount:
+          double.tryParse(json['orderDiscountAmount'].toString()),
+      taxableAmount: double.tryParse(json['taxableAmount'].toString()),
+      taxAmount: double.tryParse(json['taxAmount'].toString()),
+      finalAmount: double.tryParse(json['finalAmount'].toString()) ?? 0.0,
+      roundingDecimalAmount:
+          double.tryParse(json['roundingDecimalAmount'].toString()),
       productUnitPrice: json['productUnitPrice'] != null
           ? OrderProductUnitPriceDto.fromJson(json['productUnitPrice'])
           : null,
