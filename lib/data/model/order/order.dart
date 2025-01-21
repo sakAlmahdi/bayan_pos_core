@@ -660,6 +660,8 @@ class AppliedProduct {
 
   KitchenInfo? kitchenInfo;
 
+  PriceType get priceType => unit.target?.getPriceType ?? PriceType.fixed;
+
   double get subTotal => (priceIncludesTax ?? false) == false
       ? totalPrice! +
           totalPriceTaxAmount.getZeroIfNull +

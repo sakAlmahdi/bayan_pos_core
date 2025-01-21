@@ -21,6 +21,23 @@ class TieredPricing {
   bool? applyForAllCustomers;
   bool? applyForAllBranches;
 
+  @Transient()
+  DateTime get getStartDateAndTime => BaseHelpersMethods.compainDateAndTime(
+      date: startDate!.toString(), time: startTime!);
+  @Transient()
+  DateTime get getEndDateAndTime => BaseHelpersMethods.compainDateAndTime(
+      date: endDate!.toString(), time: endTime!);
+
+  @Transient()
+  List<OrderType> get getOrderTypes =>
+      orderTypes
+          ?.map((e) => convertStringToOrderType(e) ?? OrderType.dineIn)
+          .toList() ??
+      [];
+  @Transient()
+  List<Day> get getOrderDays =>
+      days?.map((e) => convertStringToDay(e)).toList() ?? [];
+
   TieredPricing({
     this.id,
     this.name,
