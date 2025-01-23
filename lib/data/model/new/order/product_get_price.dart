@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:bayan_pos_core/data/model/new/enums/order_type.dart';
+import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/new/order/product_in_document.dart';
 
 class ProductGetPriceDto {

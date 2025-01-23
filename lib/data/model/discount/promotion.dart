@@ -229,6 +229,8 @@ class Promotion {
     if (priceList != null) {
       data['priceList'] = priceList!.map((v) => v).toList();
     }
+    data['getOrderTypes'] = getOrderTypes.map((e) => e.toName()).toList();
+    data['getDays'] = getOrderDays.map((e) => e.name).toList();
     data['applyForAllBranches'] = applyForAllBranches;
     data['customers'] = customers?.map((e) => e.toString()).toList();
     data['number_Of_Products'] = numberOfProducts;

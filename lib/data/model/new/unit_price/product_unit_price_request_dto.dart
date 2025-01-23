@@ -1,4 +1,4 @@
-import 'package:bayan_pos_core/data/model/new/enums/order_type.dart';
+import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 // Represents the product unit price request data.
@@ -12,7 +12,8 @@ class ProductUnitPriceRequestDto {
   Guid productId; // Product GUID.
   Guid unitId; // Unit GUID.
   double quantity; // Product quantity.
-  double unitPrice; // Product unit price.
+  double unitPrice;
+  String? customerType; // Product unit price.
 
   ProductUnitPriceRequestDto({
     this.branchId,
@@ -24,6 +25,7 @@ class ProductUnitPriceRequestDto {
     required this.unitId,
     required this.quantity,
     required this.unitPrice,
+    this.customerType,
   });
 
   // Creates an instance from a JSON map.

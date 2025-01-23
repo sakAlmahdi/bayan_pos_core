@@ -105,6 +105,8 @@ class TieredPricing {
       'customerTypes': customerTypes,
       'applyForAllCustomers': applyForAllCustomers,
       'applyForAllBranches': applyForAllBranches,
+      'getOrderTypes': getOrderTypes.map((e) => e.toName()).toList(),
+      'getDays': getOrderDays.map((e) => e.name).toList(),
     };
   }
 }

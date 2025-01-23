@@ -1,6 +1,6 @@
 class OrderProductTimeEventAppliesDto {
   String id;
-  String name;
+  String? name;
   double unitPrice;
   double netUnitPrice;
 
@@ -15,7 +15,7 @@ class OrderProductTimeEventAppliesDto {
   factory OrderProductTimeEventAppliesDto.fromJson(Map<String, dynamic> json) {
     return OrderProductTimeEventAppliesDto(
       id: json['id'] as String,
-      name: json['name'] as String,
+      name: json['name'] as String?,
       unitPrice: (json['unitPrice'] as num).toDouble(),
       netUnitPrice: (json['netUnitPrice'] as num).toDouble(),
     );

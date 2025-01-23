@@ -57,8 +57,8 @@ class Address {
     addressTypeId = json['addressTypeId'];
     name = json['name'];
     fName = json['fName'];
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    latitude = double.tryParse(json['latitude'].toString());
+    longitude = double.tryParse(json['longitude'].toString());
     deliveryZoneId = json['deliveryZoneId'];
     description = json['description'];
     mainStreet = json['mainStreet'];

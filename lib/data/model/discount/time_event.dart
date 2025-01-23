@@ -181,6 +181,8 @@ class TimeEvent {
     if (groups != null) {
       data['groups'] = groups!.map((v) => v).toList();
     }
+    data['getOrderTypes'] = getOrderTypes.map((e) => e.toName()).toList();
+    data['getDays'] = getOrderDays.map((e) => e.name).toList();
     data['deviceCreatedOn'] =
         DateTime.tryParse(deviceCreatedOn.toString())?.toIso8601String();
     data['deviceCreatedBy'] = deviceCreatedBy;

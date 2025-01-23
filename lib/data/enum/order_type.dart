@@ -6,6 +6,8 @@
 /// Car=4,
 /// TableOrder = 5
 ///
+///
+///
 
 enum OrderType {
   dineIn,

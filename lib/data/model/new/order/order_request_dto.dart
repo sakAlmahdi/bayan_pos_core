@@ -1,4 +1,4 @@
-import 'package:bayan_pos_core/data/model/new/enums/order_type.dart';
+import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/new/product/order_product_request_dto.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
