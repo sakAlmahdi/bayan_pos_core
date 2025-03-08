@@ -47,6 +47,7 @@ class Product1 {
   String? description;
   String? fDescription;
   String? imageUrl;
+  String? defaultSalesUnit;
   int? calories;
   int? minimumLevel;
   int? maximumLevel;
@@ -124,6 +125,7 @@ class Product1 {
     this.fTags,
     this.showAlertPreparationTime,
     this.reference,
+    this.defaultSalesUnit,
   });
 
   Product1.fromJson(Map<String, dynamic> json,
@@ -209,6 +211,7 @@ class Product1 {
     tags = json['tags'];
     fTags = json['fTags'];
     reference = json['reference'];
+    defaultSalesUnit = json['defaultSalesUnit'];
   }
 
   Map<String, dynamic> toJson() {
@@ -225,6 +228,7 @@ class Product1 {
     data['salesMethod'] = salesMethod;
     data['price'] = price;
     data['cost'] = cost;
+    data['defaultSalesUnit'] = defaultSalesUnit;
 
     data['preparation_Time'] = preparationTime;
     data['showAlertPreparationTime'] = showAlertPreparationTime;

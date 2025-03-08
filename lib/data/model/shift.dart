@@ -14,6 +14,7 @@ class Shift {
   String? clockedOutTimeAt;
   bool? isClockedOut;
   bool? isSync;
+  bool? isExist;
 
   Shift({
     this.id,
@@ -28,6 +29,7 @@ class Shift {
     this.clockedOutTimeAt,
     this.isClockedOut,
     this.isSync = false,
+    this.isExist,
   });
 
   Shift.fromJson(Map<String, dynamic> json) {
@@ -42,6 +44,7 @@ class Shift {
     clockedOutTimeAt = json['clockedOutTimeAt'];
     isClockedOut = json['isClockedOut'];
     isSync = json['isSync'];
+    isExist = json['isExist'];
   }
 
   Map<String, dynamic> toJson() {
@@ -57,6 +60,7 @@ class Shift {
     data['clockedOutTimeAt'] = clockedOutTimeAt;
     data['isClockedOut'] = isClockedOut;
     data['isSync'] = isSync;
+    data['isExist'] = isExist;
     return data;
   }
 
@@ -73,6 +77,7 @@ class Shift {
     String? clockedOutTimeAt,
     bool? isClockedOut,
     bool? isSync,
+    bool? isExist,
   }) {
     return Shift(
       id: id ?? this.id,
@@ -87,6 +92,7 @@ class Shift {
       clockedOutTimeAt: clockedOutTimeAt ?? this.clockedOutTimeAt,
       isClockedOut: isClockedOut ?? this.isClockedOut,
       isSync: isSync ?? this.isSync,
+      isExist: isExist ?? this.isExist,
     );
   }
 

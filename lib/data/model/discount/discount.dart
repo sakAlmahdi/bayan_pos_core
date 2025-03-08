@@ -109,7 +109,7 @@ class Discount {
     startTime = json['start_Time'];
     endTime = json['end_Time'];
     discountAppliedTo = json['discountAppliedTo'];
-    discountType = int.tryParse(json['discountType'].toString());
+    discountType = int.tryParse(json['discount_Type'].toString());
     discountPercentage =
         double.tryParse(json['discount_Percentage'].toString()) ?? 0.0;
     discountAmount = double.tryParse(json['discount_Amount'].toString()) ?? 0.0;
@@ -185,7 +185,7 @@ class Discount {
     data['start_Time'] = startTime;
     data['end_Time'] = endTime;
     data['discountAppliedTo'] = discountAppliedTo;
-    data['discountType'] = discountType;
+    data['discount_Type'] = discountType;
     data['discount_Percentage'] = discountPercentage;
     data['discount_Amount'] = discountAmount;
     data['maximum_Discount_Amount'] = maximumDiscountAmount;

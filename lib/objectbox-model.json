@@ -2415,7 +2415,7 @@
     },
     {
       "id": "27:7374566766039686698",
-      "lastPropertyId": "51:7609089684938617128",
+      "lastPropertyId": "52:6753983687058417720",
       "name": "ExtractProduct",
       "properties": [
         {
@@ -2678,6 +2678,11 @@
         {
           "id": "51:7609089684938617128",
           "name": "reference",
+          "type": 9
+        },
+        {
+          "id": "52:6753983687058417720",
+          "name": "defaultSalesUnit",
           "type": 9
         }
       ],
@@ -4109,7 +4114,7 @@
     },
     {
       "id": "53:5087168898656921036",
-      "lastPropertyId": "52:7804754931596608795",
+      "lastPropertyId": "53:8047778395868824205",
       "name": "Product1",
       "properties": [
         {
@@ -4373,6 +4378,11 @@
         {
           "id": "52:7804754931596608795",
           "name": "reference",
+          "type": 9
+        },
+        {
+          "id": "53:8047778395868824205",
+          "name": "defaultSalesUnit",
           "type": 9
         }
       ],

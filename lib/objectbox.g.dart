@@ -2458,7 +2458,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(27, 7374566766039686698),
       name: 'ExtractProduct',
-      lastPropertyId: const IdUid(51, 7609089684938617128),
+      lastPropertyId: const IdUid(52, 6753983687058417720),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -2717,6 +2717,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(51, 7609089684938617128),
             name: 'reference',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(52, 6753983687058417720),
+            name: 'defaultSalesUnit',
             type: 9,
             flags: 0)
       ],
@@ -4113,7 +4118,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(53, 5087168898656921036),
       name: 'Product1',
-      lastPropertyId: const IdUid(52, 7804754931596608795),
+      lastPropertyId: const IdUid(53, 8047778395868824205),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -4375,6 +4380,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(52, 7804754931596608795),
             name: 'reference',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(53, 8047778395868824205),
+            name: 'defaultSalesUnit',
             type: 9,
             flags: 0)
       ],
@@ -9602,7 +9612,10 @@ ModelDefinition getObjectBoxModel() {
           final referenceOffset = object.reference == null
               ? null
               : fbb.writeString(object.reference!);
-          fbb.startTable(52);
+          final defaultSalesUnitOffset = object.defaultSalesUnit == null
+              ? null
+              : fbb.writeString(object.defaultSalesUnit!);
+          fbb.startTable(53);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -9654,6 +9667,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(48, tagsOffset);
           fbb.addOffset(49, fTagsOffset);
           fbb.addOffset(50, referenceOffset);
+          fbb.addOffset(51, defaultSalesUnitOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9771,6 +9785,9 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 102);
           final referenceParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 104);
+          final defaultSalesUnitParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 106);
           final object = ExtractProduct(
               idSeq: idSeqParam,
               id: idParam,
@@ -9824,7 +9841,8 @@ ModelDefinition getObjectBoxModel() {
               fPromotionalName: fPromotionalNameParam,
               tags: tagsParam,
               fTags: fTagsParam,
-              reference: referenceParam);
+              reference: referenceParam,
+              defaultSalesUnit: defaultSalesUnitParam);
           InternalToManyAccess.setRelInfo<ExtractProduct>(object.units, store,
               RelInfo<ExtractProduct>.toMany(8, object.idSeq!));
           InternalToManyAccess.setRelInfo<ExtractProduct>(object.groups, store,
@@ -11491,7 +11509,10 @@ ModelDefinition getObjectBoxModel() {
           final referenceOffset = object.reference == null
               ? null
               : fbb.writeString(object.reference!);
-          fbb.startTable(53);
+          final defaultSalesUnitOffset = object.defaultSalesUnit == null
+              ? null
+              : fbb.writeString(object.defaultSalesUnit!);
+          fbb.startTable(54);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -11544,6 +11565,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(49, fTagsOffset);
           fbb.addBool(50, object.showAlertPreparationTime);
           fbb.addOffset(51, referenceOffset);
+          fbb.addOffset(52, defaultSalesUnitOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -11656,6 +11678,9 @@ ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
           final referenceParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 106);
+          final defaultSalesUnitParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 108);
           final object = Product1(
               id: idParam,
               name: nameParam,
@@ -11707,7 +11732,8 @@ ModelDefinition getObjectBoxModel() {
               tags: tagsParam,
               fTags: fTagsParam,
               showAlertPreparationTime: showAlertPreparationTimeParam,
-              reference: referenceParam)
+              reference: referenceParam,
+              defaultSalesUnit: defaultSalesUnitParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
             ..categoryId = const fb.StringReader(asciiOptimization: true)
@@ -16372,6 +16398,10 @@ class ExtractProduct_ {
   static final reference =
       QueryStringProperty<ExtractProduct>(_entities[26].properties[50]);
 
+  /// see [ExtractProduct.defaultSalesUnit]
+  static final defaultSalesUnit =
+      QueryStringProperty<ExtractProduct>(_entities[26].properties[51]);
+
   /// see [ExtractProduct.units]
   static final units =
       QueryRelationToMany<ExtractProduct, Unit>(_entities[26].relations[0]);
@@ -17563,6 +17593,10 @@ class Product1_ {
   /// see [Product1.reference]
   static final reference =
       QueryStringProperty<Product1>(_entities[50].properties[51]);
+
+  /// see [Product1.defaultSalesUnit]
+  static final defaultSalesUnit =
+      QueryStringProperty<Product1>(_entities[50].properties[52]);
 
   /// see [Product1.units]
   static final units =

@@ -17,10 +17,10 @@ class PromotionGiftCardDto {
   // From JSON factory method
   factory PromotionGiftCardDto.fromJson(Map<String, dynamic> json) {
     return PromotionGiftCardDto(
-      name: json['name'] as String,
-      fName: json['fName'] as String,
-      barcode: json['barcode'] as String,
-      reference: json['reference'] as String,
+      name: json['name'] as String?,
+      fName: json['fName'] as String?,
+      barcode: json['barcode'] as String?,
+      reference: json['reference'] as String?,
       price: (json['price'] as num).toDouble(),
     );
   }

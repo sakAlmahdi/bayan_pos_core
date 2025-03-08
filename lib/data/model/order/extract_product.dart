@@ -21,6 +21,7 @@ class ExtractProduct {
   String? salesMethod;
   double? price;
   double? cost;
+  String? defaultSalesUnit;
   int? preparationTime;
   bool? activeQRScan;
   bool? qrScanOnSameDate;
@@ -132,6 +133,7 @@ class ExtractProduct {
     this.tags,
     this.fTags,
     this.reference,
+    this.defaultSalesUnit,
     // this.showAlertPreparationTime,
   });
 
@@ -194,6 +196,8 @@ class ExtractProduct {
         groups.add(Group.fromJson(v));
       });
     }
+    defaultSalesUnit = json['defaultSalesUnit'];
+
     subName = json['subName'];
     fSubName = json['fSubName'];
     promotionalName = json['promotionalName'];
@@ -263,6 +267,7 @@ class ExtractProduct {
     data['tags'] = tags;
     data['fTags'] = fTags;
     data['reference'] = reference;
+    data['defaultSalesUnit'] = defaultSalesUnit;
 
     return data;
   }
