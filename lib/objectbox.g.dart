@@ -1376,7 +1376,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(13, 8585561905080688956),
       name: 'Claims',
-      lastPropertyId: const IdUid(3, 9148480257443814828),
+      lastPropertyId: const IdUid(5, 4677251341610270007),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -1385,14 +1385,14 @@ final _entities = <ModelEntity>[
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 3219645466667045008),
-            name: 'id',
+            id: const IdUid(4, 6977566836883498284),
+            name: 'controller',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 9148480257443814828),
-            name: 'name',
-            type: 9,
+            id: const IdUid(5, 4677251341610270007),
+            name: 'actions',
+            type: 30,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -4530,7 +4530,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(59, 6689772507841115089),
       name: 'Roles',
-      lastPropertyId: const IdUid(3, 688837265492678017),
+      lastPropertyId: const IdUid(4, 7397699568503079283),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -4546,6 +4546,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(3, 688837265492678017),
             name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 7397699568503079283),
+            name: 'code',
             type: 9,
             flags: 0)
       ],
@@ -4889,7 +4894,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(62, 6722515357439315689),
       name: 'Shift',
-      lastPropertyId: const IdUid(12, 2829773864321057306),
+      lastPropertyId: const IdUid(13, 1742094766053207021),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -4950,6 +4955,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(12, 2829773864321057306),
             name: 'isSync',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 1742094766053207021),
+            name: 'isExist',
             type: 1,
             flags: 0)
       ],
@@ -6667,7 +6677,9 @@ ModelDefinition getObjectBoxModel() {
         7995223131590561901,
         4921033890581147827,
         2800025843417485165,
-        3316913573284104737
+        3316913573284104737,
+        3219645466667045008,
+        9148480257443814828
       ],
       retiredRelationUids: const [
         9100000052568182061,
@@ -8203,25 +8215,31 @@ ModelDefinition getObjectBoxModel() {
           object.idSeq = id;
         },
         objectToFB: (Claims object, fb.Builder fbb) {
-          final idOffset =
-              object.id == null ? null : fbb.writeString(object.id!);
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          fbb.startTable(4);
+          final controllerOffset = object.controller == null
+              ? null
+              : fbb.writeString(object.controller!);
+          final actionsOffset = object.actions == null
+              ? null
+              : fbb.writeList(
+                  object.actions!.map(fbb.writeString).toList(growable: false));
+          fbb.startTable(6);
           fbb.addInt64(0, object.idSeq ?? 0);
-          fbb.addOffset(1, idOffset);
-          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, controllerOffset);
+          fbb.addOffset(4, actionsOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
         objectFromFB: (Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
-          final idParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final nameParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final object = Claims(id: idParam, name: nameParam)
+          final controllerParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final actionsParam = const fb.ListReader<String>(
+                  fb.StringReader(asciiOptimization: true),
+                  lazy: false)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final object = Claims(
+              controller: controllerParam, actions: actionsParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
@@ -11915,10 +11933,13 @@ ModelDefinition getObjectBoxModel() {
               object.id == null ? null : fbb.writeString(object.id!);
           final nameOffset =
               object.name == null ? null : fbb.writeString(object.name!);
-          fbb.startTable(4);
+          final codeOffset =
+              object.code == null ? null : fbb.writeString(object.code!);
+          fbb.startTable(5);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, codeOffset);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -11929,7 +11950,9 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 6);
           final nameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 8);
-          final object = Roles(id: idParam, name: nameParam)
+          final codeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final object = Roles(id: idParam, name: nameParam, code: codeParam)
             ..idSeq =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           InternalToManyAccess.setRelInfo<Roles>(
@@ -12361,7 +12384,7 @@ ModelDefinition getObjectBoxModel() {
           final clockedOutTimeAtOffset = object.clockedOutTimeAt == null
               ? null
               : fbb.writeString(object.clockedOutTimeAt!);
-          fbb.startTable(13);
+          fbb.startTable(14);
           fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, shiftIdOffset);
           fbb.addOffset(2, referenceOffset);
@@ -12374,6 +12397,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(9, clockedOutTimeAtOffset);
           fbb.addBool(10, object.isClockedOut);
           fbb.addBool(11, object.isSync);
+          fbb.addBool(12, object.isExist);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -12408,6 +12432,8 @@ ModelDefinition getObjectBoxModel() {
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
           final isSyncParam =
               const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
+          final isExistParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
           final object = Shift(
               id: idParam,
               reference: referenceParam,
@@ -12420,7 +12446,8 @@ ModelDefinition getObjectBoxModel() {
               clockedOutDateAt: clockedOutDateAtParam,
               clockedOutTimeAt: clockedOutTimeAtParam,
               isClockedOut: isClockedOutParam,
-              isSync: isSyncParam);
+              isSync: isSyncParam,
+              isExist: isExistParam);
 
           return object;
         }),
@@ -15412,11 +15439,13 @@ class Claims_ {
   static final idSeq =
       QueryIntegerProperty<Claims>(_entities[12].properties[0]);
 
-  /// see [Claims.id]
-  static final id = QueryStringProperty<Claims>(_entities[12].properties[1]);
+  /// see [Claims.controller]
+  static final controller =
+      QueryStringProperty<Claims>(_entities[12].properties[1]);
 
-  /// see [Claims.name]
-  static final name = QueryStringProperty<Claims>(_entities[12].properties[2]);
+  /// see [Claims.actions]
+  static final actions =
+      QueryStringVectorProperty<Claims>(_entities[12].properties[2]);
 }
 
 /// [Coupon] entity fields to define ObjectBox queries.
@@ -17702,6 +17731,9 @@ class Roles_ {
   /// see [Roles.name]
   static final name = QueryStringProperty<Roles>(_entities[55].properties[2]);
 
+  /// see [Roles.code]
+  static final code = QueryStringProperty<Roles>(_entities[55].properties[3]);
+
   /// see [Roles.claims]
   static final claims =
       QueryRelationToMany<Roles, Claims>(_entities[55].relations[0]);
@@ -18008,6 +18040,10 @@ class Shift_ {
   /// see [Shift.isSync]
   static final isSync =
       QueryBooleanProperty<Shift>(_entities[58].properties[11]);
+
+  /// see [Shift.isExist]
+  static final isExist =
+      QueryBooleanProperty<Shift>(_entities[58].properties[12]);
 }
 
 /// [Slaps] entity fields to define ObjectBox queries.

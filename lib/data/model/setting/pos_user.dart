@@ -152,12 +152,14 @@ class Roles {
   int? idSeq;
   String? id;
   String? name;
+  String? code;
 
   final claims = ToMany<Claims>();
 
   Roles({
     this.id,
     this.name,
+    this.code,
   });
 
   Roles.fromJson(Map<String, dynamic> json) {
@@ -168,6 +170,7 @@ class Roles {
         claims.add(Claims.fromJson(v));
       });
     }
+    code = json['code'];
   }
 
   Map<String, dynamic> toJson() {
@@ -175,6 +178,7 @@ class Roles {
     data['id'] = id;
     data['name'] = name;
     data['claims'] = claims.map((v) => v.toJson()).toList();
+    data['code'] = code;
     return data;
   }
 }
@@ -183,20 +187,26 @@ class Roles {
 class Claims {
   @Id()
   int? idSeq;
-  String? id;
-  String? name;
+  String? controller;
+  List<String>? actions = [];
 
-  Claims({this.id, this.name});
+  Claims({this.controller, this.actions});
 
   Claims.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
+    controller = json['controller'];
+    if (json['actions'] != null) {
+      actions = <String>[];
+      json['actions'].forEach((v) {
+        actions!.add(v);
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
+    final Map<String, dynamic> data = <String, dynamic>{};
+
+    data['controller'] = controller;
+    data['actions'] = actions;
     return data;
   }
 }
