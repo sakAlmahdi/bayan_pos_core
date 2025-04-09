@@ -37,6 +37,7 @@ class MyDatabase extends _$MyDatabase {
         },
         onUpgrade: (Migrator m, int from, int to) async {
           await m.createTable(tillEntity);
+
           // await customStatement(
           //   """
           //     DELETE FROM order_entity

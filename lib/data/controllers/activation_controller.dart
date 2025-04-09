@@ -34,7 +34,7 @@ class ActivationController extends GetxController {
   late TextEditingController pin;
 
   TextEditingController accountNo = TextEditingController(
-    text: '220230',
+    text: '000111',
   );
   List<Device> devices = [];
 
@@ -103,7 +103,7 @@ class ActivationController extends GetxController {
       imei: devId ?? '',
       isActive: true,
       displayOrder: 0,
-      accountNo: int.tryParse(accountNo.text) ?? 0,
+      accountNo: accountNo.text,
       appVersion: info.applicationVersion,
       build: info.osVersion,
       deviceNo: int.parse(code),

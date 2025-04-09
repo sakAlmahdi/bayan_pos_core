@@ -2,7 +2,7 @@ class Activation {
   late String imei;
   bool? isActive;
   int? displayOrder;
-  int? accountNo;
+  String? accountNo;
   int? deviceNo;
   String? reference;
   String? model;
