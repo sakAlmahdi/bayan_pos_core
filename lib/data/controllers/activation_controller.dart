@@ -102,11 +102,11 @@ class ActivationController extends GetxController {
     var a = Activation(
       imei: devId ?? '',
       isActive: true,
-      displayOrder: 0,
+      // displayOrder: 0,
       accountNo: accountNo.text,
       appVersion: info.applicationVersion,
       build: info.osVersion,
-      deviceNo: int.parse(code),
+      deviceNo: code,
       // deviceNo: 123456,
       latitude: "99.99",
       longitude: "99.99",

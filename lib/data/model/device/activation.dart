@@ -3,7 +3,7 @@ class Activation {
   bool? isActive;
   int? displayOrder;
   String? accountNo;
-  int? deviceNo;
+  String? deviceNo;
   String? reference;
   String? model;
   String? systemVersion;
