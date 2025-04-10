@@ -101,7 +101,7 @@ class ActivationController extends GetxController {
     // if (position == null) return null;
     var a = Activation(
       imei: devId ?? '',
-      isActive: true,
+      // isActive: true,
       // displayOrder: 0,
       accountNo: accountNo.text,
       appVersion: info.applicationVersion,

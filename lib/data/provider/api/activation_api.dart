@@ -1,3 +1,4 @@
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/data/model/device/activation.dart';
 import 'package:bayan_pos_core/data/model/device/activation_info.dart';
 import 'package:bayan_pos_core/data/repository/activation_repository.dart';
@@ -31,7 +32,12 @@ class ActivationApiProvider extends ActivationRepository {
     try {
       Response response = await dio.put(
         pathActiveDevice,
-        data: activation.toJson(),
+        data: activation.toJson().removeNull(),
+        options: Options(
+          headers: {
+            'TenantId': activation.accountNo,
+          },
+        ),
       );
 
       final json = response.data;
