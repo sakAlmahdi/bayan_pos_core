@@ -1,3 +1,4 @@
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/enum/days_enum.dart';
 import 'package:bayan_pos_core/data/enum/discount_scpoe.dart';
@@ -173,6 +174,15 @@ class Discount {
     deviceCreatedBy = json['deviceCreatedBy'];
     applyForAllProducts = json['applyForAllProducts'];
     applyForAllCustomers = json['applyForAllCustomers'];
+
+    if (startTime == null && startDate != null) {
+      DateTime date = DateTime.parse(startDate!);
+      startTime = date.formateTimeSystem;
+    }
+    if (endTime == null && endDate != null) {
+      DateTime date = DateTime.parse(endDate!);
+      endTime = date.formateTimeSystem;
+    }
   }
 
   Map<String, dynamic> toJson() {

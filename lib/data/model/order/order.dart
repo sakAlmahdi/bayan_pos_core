@@ -354,7 +354,7 @@ class OrderC {
     callName = json['callName'];
     customerName = json['customerName'];
     customerPhone = json['customerPhone'];
-    priceIncludeTax = json['priceIncludeTax'];
+    priceIncludeTax = json['priceIncludeTax'] ?? false;
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
