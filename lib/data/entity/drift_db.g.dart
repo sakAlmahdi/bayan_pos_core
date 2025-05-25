@@ -5034,6 +5034,42 @@ class $TillAmountsEntityTable extends TillAmountsEntity
   late final GeneratedColumn<String> currencyCode = GeneratedColumn<String>(
       'currency_code', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _currencyIdMeta =
+      const VerificationMeta('currencyId');
+  @override
+  late final GeneratedColumn<String> currencyId = GeneratedColumn<String>(
+      'currency_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _currencyNameMeta =
+      const VerificationMeta('currencyName');
+  @override
+  late final GeneratedColumn<String> currencyName = GeneratedColumn<String>(
+      'currency_name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _currencyFNameMeta =
+      const VerificationMeta('currencyFName');
+  @override
+  late final GeneratedColumn<String> currencyFName = GeneratedColumn<String>(
+      'currency_f_name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _paymentMethodIdMeta =
+      const VerificationMeta('paymentMethodId');
+  @override
+  late final GeneratedColumn<String> paymentMethodId = GeneratedColumn<String>(
+      'payment_method_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _paymentMethodNameMeta =
+      const VerificationMeta('paymentMethodName');
+  @override
+  late final GeneratedColumn<String> paymentMethodName =
+      GeneratedColumn<String>('payment_method_name', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _paymentMethodFNameMeta =
+      const VerificationMeta('paymentMethodFName');
+  @override
+  late final GeneratedColumn<String> paymentMethodFName =
+      GeneratedColumn<String>('payment_method_f_name', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
   static const VerificationMeta _amountMeta = const VerificationMeta('amount');
   @override
   late final GeneratedColumn<double> amount = GeneratedColumn<double>(
@@ -5042,7 +5078,18 @@ class $TillAmountsEntityTable extends TillAmountsEntity
       requiredDuringInsert: false,
       defaultValue: const Constant(0));
   @override
-  List<GeneratedColumn> get $columns => [id, idTill, currencyCode, amount];
+  List<GeneratedColumn> get $columns => [
+        id,
+        idTill,
+        currencyCode,
+        currencyId,
+        currencyName,
+        currencyFName,
+        paymentMethodId,
+        paymentMethodName,
+        paymentMethodFName,
+        amount
+      ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -5071,6 +5118,54 @@ class $TillAmountsEntityTable extends TillAmountsEntity
     } else if (isInserting) {
       context.missing(_currencyCodeMeta);
     }
+    if (data.containsKey('currency_id')) {
+      context.handle(
+          _currencyIdMeta,
+          currencyId.isAcceptableOrUnknown(
+              data['currency_id']!, _currencyIdMeta));
+    } else if (isInserting) {
+      context.missing(_currencyIdMeta);
+    }
+    if (data.containsKey('currency_name')) {
+      context.handle(
+          _currencyNameMeta,
+          currencyName.isAcceptableOrUnknown(
+              data['currency_name']!, _currencyNameMeta));
+    } else if (isInserting) {
+      context.missing(_currencyNameMeta);
+    }
+    if (data.containsKey('currency_f_name')) {
+      context.handle(
+          _currencyFNameMeta,
+          currencyFName.isAcceptableOrUnknown(
+              data['currency_f_name']!, _currencyFNameMeta));
+    } else if (isInserting) {
+      context.missing(_currencyFNameMeta);
+    }
+    if (data.containsKey('payment_method_id')) {
+      context.handle(
+          _paymentMethodIdMeta,
+          paymentMethodId.isAcceptableOrUnknown(
+              data['payment_method_id']!, _paymentMethodIdMeta));
+    } else if (isInserting) {
+      context.missing(_paymentMethodIdMeta);
+    }
+    if (data.containsKey('payment_method_name')) {
+      context.handle(
+          _paymentMethodNameMeta,
+          paymentMethodName.isAcceptableOrUnknown(
+              data['payment_method_name']!, _paymentMethodNameMeta));
+    } else if (isInserting) {
+      context.missing(_paymentMethodNameMeta);
+    }
+    if (data.containsKey('payment_method_f_name')) {
+      context.handle(
+          _paymentMethodFNameMeta,
+          paymentMethodFName.isAcceptableOrUnknown(
+              data['payment_method_f_name']!, _paymentMethodFNameMeta));
+    } else if (isInserting) {
+      context.missing(_paymentMethodFNameMeta);
+    }
     if (data.containsKey('amount')) {
       context.handle(_amountMeta,
           amount.isAcceptableOrUnknown(data['amount']!, _amountMeta));
@@ -5082,7 +5177,7 @@ class $TillAmountsEntityTable extends TillAmountsEntity
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
   List<Set<GeneratedColumn>> get uniqueKeys => [
-        {idTill, currencyCode, amount},
+        {idTill, currencyCode, paymentMethodId, amount},
       ];
   @override
   TillAmountsEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
@@ -5094,6 +5189,18 @@ class $TillAmountsEntityTable extends TillAmountsEntity
           .read(DriftSqlType.string, data['${effectivePrefix}id_till'])!,
       currencyCode: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}currency_code'])!,
+      currencyId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}currency_id'])!,
+      currencyName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}currency_name'])!,
+      currencyFName: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}currency_f_name'])!,
+      paymentMethodId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}payment_method_id'])!,
+      paymentMethodName: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}payment_method_name'])!,
+      paymentMethodFName: attachedDatabase.typeMapping.read(DriftSqlType.string,
+          data['${effectivePrefix}payment_method_f_name'])!,
       amount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}amount'])!,
     );
@@ -5110,11 +5217,23 @@ class TillAmountsEntityData extends DataClass
   final int? id;
   final String idTill;
   final String currencyCode;
+  final String currencyId;
+  final String currencyName;
+  final String currencyFName;
+  final String paymentMethodId;
+  final String paymentMethodName;
+  final String paymentMethodFName;
   final double amount;
   const TillAmountsEntityData(
       {this.id,
       required this.idTill,
       required this.currencyCode,
+      required this.currencyId,
+      required this.currencyName,
+      required this.currencyFName,
+      required this.paymentMethodId,
+      required this.paymentMethodName,
+      required this.paymentMethodFName,
       required this.amount});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -5124,6 +5243,12 @@ class TillAmountsEntityData extends DataClass
     }
     map['id_till'] = Variable<String>(idTill);
     map['currency_code'] = Variable<String>(currencyCode);
+    map['currency_id'] = Variable<String>(currencyId);
+    map['currency_name'] = Variable<String>(currencyName);
+    map['currency_f_name'] = Variable<String>(currencyFName);
+    map['payment_method_id'] = Variable<String>(paymentMethodId);
+    map['payment_method_name'] = Variable<String>(paymentMethodName);
+    map['payment_method_f_name'] = Variable<String>(paymentMethodFName);
     map['amount'] = Variable<double>(amount);
     return map;
   }
@@ -5133,6 +5258,12 @@ class TillAmountsEntityData extends DataClass
       id: id == null && nullToAbsent ? const Value.absent() : Value(id),
       idTill: Value(idTill),
       currencyCode: Value(currencyCode),
+      currencyId: Value(currencyId),
+      currencyName: Value(currencyName),
+      currencyFName: Value(currencyFName),
+      paymentMethodId: Value(paymentMethodId),
+      paymentMethodName: Value(paymentMethodName),
+      paymentMethodFName: Value(paymentMethodFName),
       amount: Value(amount),
     );
   }
@@ -5144,6 +5275,13 @@ class TillAmountsEntityData extends DataClass
       id: serializer.fromJson<int?>(json['id']),
       idTill: serializer.fromJson<String>(json['idTill']),
       currencyCode: serializer.fromJson<String>(json['currencyCode']),
+      currencyId: serializer.fromJson<String>(json['currencyId']),
+      currencyName: serializer.fromJson<String>(json['currencyName']),
+      currencyFName: serializer.fromJson<String>(json['currencyFName']),
+      paymentMethodId: serializer.fromJson<String>(json['paymentMethodId']),
+      paymentMethodName: serializer.fromJson<String>(json['paymentMethodName']),
+      paymentMethodFName:
+          serializer.fromJson<String>(json['paymentMethodFName']),
       amount: serializer.fromJson<double>(json['amount']),
     );
   }
@@ -5154,6 +5292,12 @@ class TillAmountsEntityData extends DataClass
       'id': serializer.toJson<int?>(id),
       'idTill': serializer.toJson<String>(idTill),
       'currencyCode': serializer.toJson<String>(currencyCode),
+      'currencyId': serializer.toJson<String>(currencyId),
+      'currencyName': serializer.toJson<String>(currencyName),
+      'currencyFName': serializer.toJson<String>(currencyFName),
+      'paymentMethodId': serializer.toJson<String>(paymentMethodId),
+      'paymentMethodName': serializer.toJson<String>(paymentMethodName),
+      'paymentMethodFName': serializer.toJson<String>(paymentMethodFName),
       'amount': serializer.toJson<double>(amount),
     };
   }
@@ -5162,11 +5306,23 @@ class TillAmountsEntityData extends DataClass
           {Value<int?> id = const Value.absent(),
           String? idTill,
           String? currencyCode,
+          String? currencyId,
+          String? currencyName,
+          String? currencyFName,
+          String? paymentMethodId,
+          String? paymentMethodName,
+          String? paymentMethodFName,
           double? amount}) =>
       TillAmountsEntityData(
         id: id.present ? id.value : this.id,
         idTill: idTill ?? this.idTill,
         currencyCode: currencyCode ?? this.currencyCode,
+        currencyId: currencyId ?? this.currencyId,
+        currencyName: currencyName ?? this.currencyName,
+        currencyFName: currencyFName ?? this.currencyFName,
+        paymentMethodId: paymentMethodId ?? this.paymentMethodId,
+        paymentMethodName: paymentMethodName ?? this.paymentMethodName,
+        paymentMethodFName: paymentMethodFName ?? this.paymentMethodFName,
         amount: amount ?? this.amount,
       );
   @override
@@ -5175,13 +5331,29 @@ class TillAmountsEntityData extends DataClass
           ..write('id: $id, ')
           ..write('idTill: $idTill, ')
           ..write('currencyCode: $currencyCode, ')
+          ..write('currencyId: $currencyId, ')
+          ..write('currencyName: $currencyName, ')
+          ..write('currencyFName: $currencyFName, ')
+          ..write('paymentMethodId: $paymentMethodId, ')
+          ..write('paymentMethodName: $paymentMethodName, ')
+          ..write('paymentMethodFName: $paymentMethodFName, ')
           ..write('amount: $amount')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, idTill, currencyCode, amount);
+  int get hashCode => Object.hash(
+      id,
+      idTill,
+      currencyCode,
+      currencyId,
+      currencyName,
+      currencyFName,
+      paymentMethodId,
+      paymentMethodName,
+      paymentMethodFName,
+      amount);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -5189,6 +5361,12 @@ class TillAmountsEntityData extends DataClass
           other.id == this.id &&
           other.idTill == this.idTill &&
           other.currencyCode == this.currencyCode &&
+          other.currencyId == this.currencyId &&
+          other.currencyName == this.currencyName &&
+          other.currencyFName == this.currencyFName &&
+          other.paymentMethodId == this.paymentMethodId &&
+          other.paymentMethodName == this.paymentMethodName &&
+          other.paymentMethodFName == this.paymentMethodFName &&
           other.amount == this.amount);
 }
 
@@ -5197,30 +5375,67 @@ class TillAmountsEntityCompanion
   final Value<int?> id;
   final Value<String> idTill;
   final Value<String> currencyCode;
+  final Value<String> currencyId;
+  final Value<String> currencyName;
+  final Value<String> currencyFName;
+  final Value<String> paymentMethodId;
+  final Value<String> paymentMethodName;
+  final Value<String> paymentMethodFName;
   final Value<double> amount;
   const TillAmountsEntityCompanion({
     this.id = const Value.absent(),
     this.idTill = const Value.absent(),
     this.currencyCode = const Value.absent(),
+    this.currencyId = const Value.absent(),
+    this.currencyName = const Value.absent(),
+    this.currencyFName = const Value.absent(),
+    this.paymentMethodId = const Value.absent(),
+    this.paymentMethodName = const Value.absent(),
+    this.paymentMethodFName = const Value.absent(),
     this.amount = const Value.absent(),
   });
   TillAmountsEntityCompanion.insert({
     this.id = const Value.absent(),
     required String idTill,
     required String currencyCode,
+    required String currencyId,
+    required String currencyName,
+    required String currencyFName,
+    required String paymentMethodId,
+    required String paymentMethodName,
+    required String paymentMethodFName,
     this.amount = const Value.absent(),
   })  : idTill = Value(idTill),
-        currencyCode = Value(currencyCode);
+        currencyCode = Value(currencyCode),
+        currencyId = Value(currencyId),
+        currencyName = Value(currencyName),
+        currencyFName = Value(currencyFName),
+        paymentMethodId = Value(paymentMethodId),
+        paymentMethodName = Value(paymentMethodName),
+        paymentMethodFName = Value(paymentMethodFName);
   static Insertable<TillAmountsEntityData> custom({
     Expression<int>? id,
     Expression<String>? idTill,
     Expression<String>? currencyCode,
+    Expression<String>? currencyId,
+    Expression<String>? currencyName,
+    Expression<String>? currencyFName,
+    Expression<String>? paymentMethodId,
+    Expression<String>? paymentMethodName,
+    Expression<String>? paymentMethodFName,
     Expression<double>? amount,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (idTill != null) 'id_till': idTill,
       if (currencyCode != null) 'currency_code': currencyCode,
+      if (currencyId != null) 'currency_id': currencyId,
+      if (currencyName != null) 'currency_name': currencyName,
+      if (currencyFName != null) 'currency_f_name': currencyFName,
+      if (paymentMethodId != null) 'payment_method_id': paymentMethodId,
+      if (paymentMethodName != null) 'payment_method_name': paymentMethodName,
+      if (paymentMethodFName != null)
+        'payment_method_f_name': paymentMethodFName,
       if (amount != null) 'amount': amount,
     });
   }
@@ -5229,11 +5444,23 @@ class TillAmountsEntityCompanion
       {Value<int?>? id,
       Value<String>? idTill,
       Value<String>? currencyCode,
+      Value<String>? currencyId,
+      Value<String>? currencyName,
+      Value<String>? currencyFName,
+      Value<String>? paymentMethodId,
+      Value<String>? paymentMethodName,
+      Value<String>? paymentMethodFName,
       Value<double>? amount}) {
     return TillAmountsEntityCompanion(
       id: id ?? this.id,
       idTill: idTill ?? this.idTill,
       currencyCode: currencyCode ?? this.currencyCode,
+      currencyId: currencyId ?? this.currencyId,
+      currencyName: currencyName ?? this.currencyName,
+      currencyFName: currencyFName ?? this.currencyFName,
+      paymentMethodId: paymentMethodId ?? this.paymentMethodId,
+      paymentMethodName: paymentMethodName ?? this.paymentMethodName,
+      paymentMethodFName: paymentMethodFName ?? this.paymentMethodFName,
       amount: amount ?? this.amount,
     );
   }
@@ -5250,6 +5477,24 @@ class TillAmountsEntityCompanion
     if (currencyCode.present) {
       map['currency_code'] = Variable<String>(currencyCode.value);
     }
+    if (currencyId.present) {
+      map['currency_id'] = Variable<String>(currencyId.value);
+    }
+    if (currencyName.present) {
+      map['currency_name'] = Variable<String>(currencyName.value);
+    }
+    if (currencyFName.present) {
+      map['currency_f_name'] = Variable<String>(currencyFName.value);
+    }
+    if (paymentMethodId.present) {
+      map['payment_method_id'] = Variable<String>(paymentMethodId.value);
+    }
+    if (paymentMethodName.present) {
+      map['payment_method_name'] = Variable<String>(paymentMethodName.value);
+    }
+    if (paymentMethodFName.present) {
+      map['payment_method_f_name'] = Variable<String>(paymentMethodFName.value);
+    }
     if (amount.present) {
       map['amount'] = Variable<double>(amount.value);
     }
@@ -5262,6 +5507,12 @@ class TillAmountsEntityCompanion
           ..write('id: $id, ')
           ..write('idTill: $idTill, ')
           ..write('currencyCode: $currencyCode, ')
+          ..write('currencyId: $currencyId, ')
+          ..write('currencyName: $currencyName, ')
+          ..write('currencyFName: $currencyFName, ')
+          ..write('paymentMethodId: $paymentMethodId, ')
+          ..write('paymentMethodName: $paymentMethodName, ')
+          ..write('paymentMethodFName: $paymentMethodFName, ')
           ..write('amount: $amount')
           ..write(')'))
         .toString();
@@ -8649,6 +8900,506 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
   }
 }
 
+class $SyncQueueEntityTable extends SyncQueueEntity
+    with TableInfo<$SyncQueueEntityTable, SyncQueueEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SyncQueueEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _entityMeta = const VerificationMeta('entity');
+  @override
+  late final GeneratedColumn<String> entity = GeneratedColumn<String>(
+      'entity', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _entityIdMeta =
+      const VerificationMeta('entityId');
+  @override
+  late final GeneratedColumn<String> entityId = GeneratedColumn<String>(
+      'entity_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _processMeta =
+      const VerificationMeta('process');
+  @override
+  late final GeneratedColumn<String> process = GeneratedColumn<String>(
+      'process', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+      'user_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _syncedMeta = const VerificationMeta('synced');
+  @override
+  late final GeneratedColumn<bool> synced = GeneratedColumn<bool>(
+      'synced', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("synced" IN (0, 1))'),
+      defaultValue: Constant(false));
+  static const VerificationMeta _checksumLocalMeta =
+      const VerificationMeta('checksumLocal');
+  @override
+  late final GeneratedColumn<String> checksumLocal = GeneratedColumn<String>(
+      'checksum_local', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _checksumBaseCashierMeta =
+      const VerificationMeta('checksumBaseCashier');
+  @override
+  late final GeneratedColumn<String> checksumBaseCashier =
+      GeneratedColumn<String>('checksum_base_cashier', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _checksumCloudMeta =
+      const VerificationMeta('checksumCloud');
+  @override
+  late final GeneratedColumn<String> checksumCloud = GeneratedColumn<String>(
+      'checksum_cloud', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        entity,
+        entityId,
+        process,
+        createdAt,
+        userId,
+        synced,
+        checksumLocal,
+        checksumBaseCashier,
+        checksumCloud
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'sync_queue_entity';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<SyncQueueEntityData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('entity')) {
+      context.handle(_entityMeta,
+          entity.isAcceptableOrUnknown(data['entity']!, _entityMeta));
+    } else if (isInserting) {
+      context.missing(_entityMeta);
+    }
+    if (data.containsKey('entity_id')) {
+      context.handle(_entityIdMeta,
+          entityId.isAcceptableOrUnknown(data['entity_id']!, _entityIdMeta));
+    } else if (isInserting) {
+      context.missing(_entityIdMeta);
+    }
+    if (data.containsKey('process')) {
+      context.handle(_processMeta,
+          process.isAcceptableOrUnknown(data['process']!, _processMeta));
+    } else if (isInserting) {
+      context.missing(_processMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(_userIdMeta,
+          userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta));
+    }
+    if (data.containsKey('synced')) {
+      context.handle(_syncedMeta,
+          synced.isAcceptableOrUnknown(data['synced']!, _syncedMeta));
+    }
+    if (data.containsKey('checksum_local')) {
+      context.handle(
+          _checksumLocalMeta,
+          checksumLocal.isAcceptableOrUnknown(
+              data['checksum_local']!, _checksumLocalMeta));
+    }
+    if (data.containsKey('checksum_base_cashier')) {
+      context.handle(
+          _checksumBaseCashierMeta,
+          checksumBaseCashier.isAcceptableOrUnknown(
+              data['checksum_base_cashier']!, _checksumBaseCashierMeta));
+    }
+    if (data.containsKey('checksum_cloud')) {
+      context.handle(
+          _checksumCloudMeta,
+          checksumCloud.isAcceptableOrUnknown(
+              data['checksum_cloud']!, _checksumCloudMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+        {entity, entityId},
+      ];
+  @override
+  SyncQueueEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SyncQueueEntityData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      entity: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}entity'])!,
+      entityId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}entity_id'])!,
+      process: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}process'])!,
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+      userId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}user_id']),
+      synced: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}synced'])!,
+      checksumLocal: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}checksum_local']),
+      checksumBaseCashier: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}checksum_base_cashier']),
+      checksumCloud: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}checksum_cloud']),
+    );
+  }
+
+  @override
+  $SyncQueueEntityTable createAlias(String alias) {
+    return $SyncQueueEntityTable(attachedDatabase, alias);
+  }
+}
+
+class SyncQueueEntityData extends DataClass
+    implements Insertable<SyncQueueEntityData> {
+  final int id;
+  final String entity;
+  final String entityId;
+  final String process;
+  final DateTime createdAt;
+  final String? userId;
+  final bool synced;
+  final String? checksumLocal;
+  final String? checksumBaseCashier;
+  final String? checksumCloud;
+  const SyncQueueEntityData(
+      {required this.id,
+      required this.entity,
+      required this.entityId,
+      required this.process,
+      required this.createdAt,
+      this.userId,
+      required this.synced,
+      this.checksumLocal,
+      this.checksumBaseCashier,
+      this.checksumCloud});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['entity'] = Variable<String>(entity);
+    map['entity_id'] = Variable<String>(entityId);
+    map['process'] = Variable<String>(process);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || userId != null) {
+      map['user_id'] = Variable<String>(userId);
+    }
+    map['synced'] = Variable<bool>(synced);
+    if (!nullToAbsent || checksumLocal != null) {
+      map['checksum_local'] = Variable<String>(checksumLocal);
+    }
+    if (!nullToAbsent || checksumBaseCashier != null) {
+      map['checksum_base_cashier'] = Variable<String>(checksumBaseCashier);
+    }
+    if (!nullToAbsent || checksumCloud != null) {
+      map['checksum_cloud'] = Variable<String>(checksumCloud);
+    }
+    return map;
+  }
+
+  SyncQueueEntityCompanion toCompanion(bool nullToAbsent) {
+    return SyncQueueEntityCompanion(
+      id: Value(id),
+      entity: Value(entity),
+      entityId: Value(entityId),
+      process: Value(process),
+      createdAt: Value(createdAt),
+      userId:
+          userId == null && nullToAbsent ? const Value.absent() : Value(userId),
+      synced: Value(synced),
+      checksumLocal: checksumLocal == null && nullToAbsent
+          ? const Value.absent()
+          : Value(checksumLocal),
+      checksumBaseCashier: checksumBaseCashier == null && nullToAbsent
+          ? const Value.absent()
+          : Value(checksumBaseCashier),
+      checksumCloud: checksumCloud == null && nullToAbsent
+          ? const Value.absent()
+          : Value(checksumCloud),
+    );
+  }
+
+  factory SyncQueueEntityData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SyncQueueEntityData(
+      id: serializer.fromJson<int>(json['id']),
+      entity: serializer.fromJson<String>(json['entity']),
+      entityId: serializer.fromJson<String>(json['entityId']),
+      process: serializer.fromJson<String>(json['process']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      userId: serializer.fromJson<String?>(json['userId']),
+      synced: serializer.fromJson<bool>(json['synced']),
+      checksumLocal: serializer.fromJson<String?>(json['checksumLocal']),
+      checksumBaseCashier:
+          serializer.fromJson<String?>(json['checksumBaseCashier']),
+      checksumCloud: serializer.fromJson<String?>(json['checksumCloud']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'entity': serializer.toJson<String>(entity),
+      'entityId': serializer.toJson<String>(entityId),
+      'process': serializer.toJson<String>(process),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'userId': serializer.toJson<String?>(userId),
+      'synced': serializer.toJson<bool>(synced),
+      'checksumLocal': serializer.toJson<String?>(checksumLocal),
+      'checksumBaseCashier': serializer.toJson<String?>(checksumBaseCashier),
+      'checksumCloud': serializer.toJson<String?>(checksumCloud),
+    };
+  }
+
+  SyncQueueEntityData copyWith(
+          {int? id,
+          String? entity,
+          String? entityId,
+          String? process,
+          DateTime? createdAt,
+          Value<String?> userId = const Value.absent(),
+          bool? synced,
+          Value<String?> checksumLocal = const Value.absent(),
+          Value<String?> checksumBaseCashier = const Value.absent(),
+          Value<String?> checksumCloud = const Value.absent()}) =>
+      SyncQueueEntityData(
+        id: id ?? this.id,
+        entity: entity ?? this.entity,
+        entityId: entityId ?? this.entityId,
+        process: process ?? this.process,
+        createdAt: createdAt ?? this.createdAt,
+        userId: userId.present ? userId.value : this.userId,
+        synced: synced ?? this.synced,
+        checksumLocal:
+            checksumLocal.present ? checksumLocal.value : this.checksumLocal,
+        checksumBaseCashier: checksumBaseCashier.present
+            ? checksumBaseCashier.value
+            : this.checksumBaseCashier,
+        checksumCloud:
+            checksumCloud.present ? checksumCloud.value : this.checksumCloud,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('SyncQueueEntityData(')
+          ..write('id: $id, ')
+          ..write('entity: $entity, ')
+          ..write('entityId: $entityId, ')
+          ..write('process: $process, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('userId: $userId, ')
+          ..write('synced: $synced, ')
+          ..write('checksumLocal: $checksumLocal, ')
+          ..write('checksumBaseCashier: $checksumBaseCashier, ')
+          ..write('checksumCloud: $checksumCloud')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, entity, entityId, process, createdAt,
+      userId, synced, checksumLocal, checksumBaseCashier, checksumCloud);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SyncQueueEntityData &&
+          other.id == this.id &&
+          other.entity == this.entity &&
+          other.entityId == this.entityId &&
+          other.process == this.process &&
+          other.createdAt == this.createdAt &&
+          other.userId == this.userId &&
+          other.synced == this.synced &&
+          other.checksumLocal == this.checksumLocal &&
+          other.checksumBaseCashier == this.checksumBaseCashier &&
+          other.checksumCloud == this.checksumCloud);
+}
+
+class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
+  final Value<int> id;
+  final Value<String> entity;
+  final Value<String> entityId;
+  final Value<String> process;
+  final Value<DateTime> createdAt;
+  final Value<String?> userId;
+  final Value<bool> synced;
+  final Value<String?> checksumLocal;
+  final Value<String?> checksumBaseCashier;
+  final Value<String?> checksumCloud;
+  const SyncQueueEntityCompanion({
+    this.id = const Value.absent(),
+    this.entity = const Value.absent(),
+    this.entityId = const Value.absent(),
+    this.process = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.synced = const Value.absent(),
+    this.checksumLocal = const Value.absent(),
+    this.checksumBaseCashier = const Value.absent(),
+    this.checksumCloud = const Value.absent(),
+  });
+  SyncQueueEntityCompanion.insert({
+    this.id = const Value.absent(),
+    required String entity,
+    required String entityId,
+    required String process,
+    required DateTime createdAt,
+    this.userId = const Value.absent(),
+    this.synced = const Value.absent(),
+    this.checksumLocal = const Value.absent(),
+    this.checksumBaseCashier = const Value.absent(),
+    this.checksumCloud = const Value.absent(),
+  })  : entity = Value(entity),
+        entityId = Value(entityId),
+        process = Value(process),
+        createdAt = Value(createdAt);
+  static Insertable<SyncQueueEntityData> custom({
+    Expression<int>? id,
+    Expression<String>? entity,
+    Expression<String>? entityId,
+    Expression<String>? process,
+    Expression<DateTime>? createdAt,
+    Expression<String>? userId,
+    Expression<bool>? synced,
+    Expression<String>? checksumLocal,
+    Expression<String>? checksumBaseCashier,
+    Expression<String>? checksumCloud,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (entity != null) 'entity': entity,
+      if (entityId != null) 'entity_id': entityId,
+      if (process != null) 'process': process,
+      if (createdAt != null) 'created_at': createdAt,
+      if (userId != null) 'user_id': userId,
+      if (synced != null) 'synced': synced,
+      if (checksumLocal != null) 'checksum_local': checksumLocal,
+      if (checksumBaseCashier != null)
+        'checksum_base_cashier': checksumBaseCashier,
+      if (checksumCloud != null) 'checksum_cloud': checksumCloud,
+    });
+  }
+
+  SyncQueueEntityCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? entity,
+      Value<String>? entityId,
+      Value<String>? process,
+      Value<DateTime>? createdAt,
+      Value<String?>? userId,
+      Value<bool>? synced,
+      Value<String?>? checksumLocal,
+      Value<String?>? checksumBaseCashier,
+      Value<String?>? checksumCloud}) {
+    return SyncQueueEntityCompanion(
+      id: id ?? this.id,
+      entity: entity ?? this.entity,
+      entityId: entityId ?? this.entityId,
+      process: process ?? this.process,
+      createdAt: createdAt ?? this.createdAt,
+      userId: userId ?? this.userId,
+      synced: synced ?? this.synced,
+      checksumLocal: checksumLocal ?? this.checksumLocal,
+      checksumBaseCashier: checksumBaseCashier ?? this.checksumBaseCashier,
+      checksumCloud: checksumCloud ?? this.checksumCloud,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (entity.present) {
+      map['entity'] = Variable<String>(entity.value);
+    }
+    if (entityId.present) {
+      map['entity_id'] = Variable<String>(entityId.value);
+    }
+    if (process.present) {
+      map['process'] = Variable<String>(process.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (synced.present) {
+      map['synced'] = Variable<bool>(synced.value);
+    }
+    if (checksumLocal.present) {
+      map['checksum_local'] = Variable<String>(checksumLocal.value);
+    }
+    if (checksumBaseCashier.present) {
+      map['checksum_base_cashier'] =
+          Variable<String>(checksumBaseCashier.value);
+    }
+    if (checksumCloud.present) {
+      map['checksum_cloud'] = Variable<String>(checksumCloud.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SyncQueueEntityCompanion(')
+          ..write('id: $id, ')
+          ..write('entity: $entity, ')
+          ..write('entityId: $entityId, ')
+          ..write('process: $process, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('userId: $userId, ')
+          ..write('synced: $synced, ')
+          ..write('checksumLocal: $checksumLocal, ')
+          ..write('checksumBaseCashier: $checksumBaseCashier, ')
+          ..write('checksumCloud: $checksumCloud')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   late final $OrderEntityTable orderEntity = $OrderEntityTable(this);
@@ -8669,6 +9420,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
       $ActivationInfoEntityTable(this);
   late final $ProductQtyEntityTable productQtyEntity =
       $ProductQtyEntityTable(this);
+  late final $SyncQueueEntityTable syncQueueEntity =
+      $SyncQueueEntityTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -8685,6 +9438,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         orderPayments,
         drawerOperationEntity,
         activationInfoEntity,
-        productQtyEntity
+        productQtyEntity,
+        syncQueueEntity
       ];
 }

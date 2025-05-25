@@ -129,6 +129,7 @@ class OrderC {
   OrderC() {
     orderRef = BaseHelpersMethods.createRefId();
   }
+
   OrderC copyWith({
     int? posTransactionType,
     int? idSeq,

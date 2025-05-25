@@ -26,11 +26,18 @@ class TillAmountsEntity extends Table {
   IntColumn get id => integer().nullable().autoIncrement()();
   TextColumn get idTill => text().references(TillEntity, #reference)();
   TextColumn get currencyCode => text()();
+  TextColumn get currencyId => text()();
+  TextColumn get currencyName => text()();
+  TextColumn get currencyFName => text()();
+  TextColumn get paymentMethodId => text()();
+  TextColumn get paymentMethodName => text()();
+  TextColumn get paymentMethodFName => text()();
+
   RealColumn get amount => real().withDefault(const Constant(0))();
 
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [
-        {idTill, currencyCode, amount}
+        {idTill, currencyCode, paymentMethodId, amount}
       ];
 }
 

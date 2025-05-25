@@ -11,6 +11,7 @@ import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import 'order_entity.dart';
+import 'sync_queue_entity.dart';
 part 'drift_db.g.dart';
 
 @DriftDatabase(tables: [
@@ -26,6 +27,7 @@ part 'drift_db.g.dart';
   DrawerOperationEntity,
   ActivationInfoEntity,
   ProductQtyEntity,
+  SyncQueueEntity,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -209,11 +211,35 @@ class MyDatabase extends _$MyDatabase {
             await m.addColumn(
                 paymentMethodEntity, paymentMethodEntity.imageUrl);
           }
+          if (from <= 26) {
+            await m.addColumn(tillAmountsEntity, tillAmountsEntity.currencyId);
+            await m.addColumn(
+                tillAmountsEntity, tillAmountsEntity.currencyName);
+            await m.addColumn(
+                tillAmountsEntity, tillAmountsEntity.currencyFName);
+            await m.addColumn(
+                tillAmountsEntity, tillAmountsEntity.paymentMethodId);
+            await m.addColumn(
+                tillAmountsEntity, tillAmountsEntity.paymentMethodName);
+            await m.addColumn(
+                tillAmountsEntity, tillAmountsEntity.paymentMethodFName);
+          }
+          if (from <= 27) {
+            await m.createTable(syncQueueEntity);
+          }
         },
       );
 
   @override
-  int get schemaVersion => 25;
+  int get schemaVersion => 28;
+
+  @override
+  void notifyUpdates(Set<TableUpdate> updates) {
+    // TODO: implement notifyUpdates
+    super.notifyUpdates(updates);
+  }
+
+  // <-- Add this
 }
 
 LazyDatabase _openConnection() {
