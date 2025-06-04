@@ -8970,6 +8970,12 @@ class $SyncQueueEntityTable extends SyncQueueEntity
   late final GeneratedColumn<String> checksumCloud = GeneratedColumn<String>(
       'checksum_cloud', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _dataMeta = const VerificationMeta('data');
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String> data =
+      GeneratedColumn<String>('data', aliasedName, false,
+              type: DriftSqlType.string, requiredDuringInsert: true)
+          .withConverter<dynamic>($SyncQueueEntityTable.$converterdata);
   @override
   List<GeneratedColumn> get $columns => [
         id,
@@ -8981,7 +8987,8 @@ class $SyncQueueEntityTable extends SyncQueueEntity
         synced,
         checksumLocal,
         checksumBaseCashier,
-        checksumCloud
+        checksumCloud,
+        data
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -9047,6 +9054,7 @@ class $SyncQueueEntityTable extends SyncQueueEntity
           checksumCloud.isAcceptableOrUnknown(
               data['checksum_cloud']!, _checksumCloudMeta));
     }
+    context.handle(_dataMeta, const VerificationResult.success());
     return context;
   }
 
@@ -9080,6 +9088,9 @@ class $SyncQueueEntityTable extends SyncQueueEntity
           DriftSqlType.string, data['${effectivePrefix}checksum_base_cashier']),
       checksumCloud: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}checksum_cloud']),
+      data: $SyncQueueEntityTable.$converterdata.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}data'])!),
     );
   }
 
@@ -9087,6 +9098,9 @@ class $SyncQueueEntityTable extends SyncQueueEntity
   $SyncQueueEntityTable createAlias(String alias) {
     return $SyncQueueEntityTable(attachedDatabase, alias);
   }
+
+  static TypeConverter<dynamic, String?> $converterdata =
+      const JsonTypeConverter();
 }
 
 class SyncQueueEntityData extends DataClass
@@ -9101,6 +9115,7 @@ class SyncQueueEntityData extends DataClass
   final String? checksumLocal;
   final String? checksumBaseCashier;
   final String? checksumCloud;
+  final dynamic data;
   const SyncQueueEntityData(
       {required this.id,
       required this.entity,
@@ -9111,7 +9126,8 @@ class SyncQueueEntityData extends DataClass
       required this.synced,
       this.checksumLocal,
       this.checksumBaseCashier,
-      this.checksumCloud});
+      this.checksumCloud,
+      this.data});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -9132,6 +9148,10 @@ class SyncQueueEntityData extends DataClass
     }
     if (!nullToAbsent || checksumCloud != null) {
       map['checksum_cloud'] = Variable<String>(checksumCloud);
+    }
+    if (!nullToAbsent || data != null) {
+      map['data'] =
+          Variable<String>($SyncQueueEntityTable.$converterdata.toSql(data));
     }
     return map;
   }
@@ -9155,6 +9175,7 @@ class SyncQueueEntityData extends DataClass
       checksumCloud: checksumCloud == null && nullToAbsent
           ? const Value.absent()
           : Value(checksumCloud),
+      data: data == null && nullToAbsent ? const Value.absent() : Value(data),
     );
   }
 
@@ -9173,6 +9194,7 @@ class SyncQueueEntityData extends DataClass
       checksumBaseCashier:
           serializer.fromJson<String?>(json['checksumBaseCashier']),
       checksumCloud: serializer.fromJson<String?>(json['checksumCloud']),
+      data: serializer.fromJson<dynamic>(json['data']),
     );
   }
   @override
@@ -9189,6 +9211,7 @@ class SyncQueueEntityData extends DataClass
       'checksumLocal': serializer.toJson<String?>(checksumLocal),
       'checksumBaseCashier': serializer.toJson<String?>(checksumBaseCashier),
       'checksumCloud': serializer.toJson<String?>(checksumCloud),
+      'data': serializer.toJson<dynamic>(data),
     };
   }
 
@@ -9202,7 +9225,8 @@ class SyncQueueEntityData extends DataClass
           bool? synced,
           Value<String?> checksumLocal = const Value.absent(),
           Value<String?> checksumBaseCashier = const Value.absent(),
-          Value<String?> checksumCloud = const Value.absent()}) =>
+          Value<String?> checksumCloud = const Value.absent(),
+          Value<dynamic> data = const Value.absent()}) =>
       SyncQueueEntityData(
         id: id ?? this.id,
         entity: entity ?? this.entity,
@@ -9218,6 +9242,7 @@ class SyncQueueEntityData extends DataClass
             : this.checksumBaseCashier,
         checksumCloud:
             checksumCloud.present ? checksumCloud.value : this.checksumCloud,
+        data: data.present ? data.value : this.data,
       );
   @override
   String toString() {
@@ -9231,14 +9256,15 @@ class SyncQueueEntityData extends DataClass
           ..write('synced: $synced, ')
           ..write('checksumLocal: $checksumLocal, ')
           ..write('checksumBaseCashier: $checksumBaseCashier, ')
-          ..write('checksumCloud: $checksumCloud')
+          ..write('checksumCloud: $checksumCloud, ')
+          ..write('data: $data')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode => Object.hash(id, entity, entityId, process, createdAt,
-      userId, synced, checksumLocal, checksumBaseCashier, checksumCloud);
+      userId, synced, checksumLocal, checksumBaseCashier, checksumCloud, data);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -9252,7 +9278,8 @@ class SyncQueueEntityData extends DataClass
           other.synced == this.synced &&
           other.checksumLocal == this.checksumLocal &&
           other.checksumBaseCashier == this.checksumBaseCashier &&
-          other.checksumCloud == this.checksumCloud);
+          other.checksumCloud == this.checksumCloud &&
+          other.data == this.data);
 }
 
 class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
@@ -9266,6 +9293,7 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
   final Value<String?> checksumLocal;
   final Value<String?> checksumBaseCashier;
   final Value<String?> checksumCloud;
+  final Value<dynamic> data;
   const SyncQueueEntityCompanion({
     this.id = const Value.absent(),
     this.entity = const Value.absent(),
@@ -9277,6 +9305,7 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
     this.checksumLocal = const Value.absent(),
     this.checksumBaseCashier = const Value.absent(),
     this.checksumCloud = const Value.absent(),
+    this.data = const Value.absent(),
   });
   SyncQueueEntityCompanion.insert({
     this.id = const Value.absent(),
@@ -9289,10 +9318,12 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
     this.checksumLocal = const Value.absent(),
     this.checksumBaseCashier = const Value.absent(),
     this.checksumCloud = const Value.absent(),
+    required dynamic data,
   })  : entity = Value(entity),
         entityId = Value(entityId),
         process = Value(process),
-        createdAt = Value(createdAt);
+        createdAt = Value(createdAt),
+        data = Value(data);
   static Insertable<SyncQueueEntityData> custom({
     Expression<int>? id,
     Expression<String>? entity,
@@ -9304,6 +9335,7 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
     Expression<String>? checksumLocal,
     Expression<String>? checksumBaseCashier,
     Expression<String>? checksumCloud,
+    Expression<String>? data,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -9317,6 +9349,7 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
       if (checksumBaseCashier != null)
         'checksum_base_cashier': checksumBaseCashier,
       if (checksumCloud != null) 'checksum_cloud': checksumCloud,
+      if (data != null) 'data': data,
     });
   }
 
@@ -9330,7 +9363,8 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
       Value<bool>? synced,
       Value<String?>? checksumLocal,
       Value<String?>? checksumBaseCashier,
-      Value<String?>? checksumCloud}) {
+      Value<String?>? checksumCloud,
+      Value<dynamic>? data}) {
     return SyncQueueEntityCompanion(
       id: id ?? this.id,
       entity: entity ?? this.entity,
@@ -9342,6 +9376,7 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
       checksumLocal: checksumLocal ?? this.checksumLocal,
       checksumBaseCashier: checksumBaseCashier ?? this.checksumBaseCashier,
       checksumCloud: checksumCloud ?? this.checksumCloud,
+      data: data ?? this.data,
     );
   }
 
@@ -9379,6 +9414,10 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
     if (checksumCloud.present) {
       map['checksum_cloud'] = Variable<String>(checksumCloud.value);
     }
+    if (data.present) {
+      map['data'] = Variable<String>(
+          $SyncQueueEntityTable.$converterdata.toSql(data.value));
+    }
     return map;
   }
 
@@ -9394,7 +9433,8 @@ class SyncQueueEntityCompanion extends UpdateCompanion<SyncQueueEntityData> {
           ..write('synced: $synced, ')
           ..write('checksumLocal: $checksumLocal, ')
           ..write('checksumBaseCashier: $checksumBaseCashier, ')
-          ..write('checksumCloud: $checksumCloud')
+          ..write('checksumCloud: $checksumCloud, ')
+          ..write('data: $data')
           ..write(')'))
         .toString();
   }

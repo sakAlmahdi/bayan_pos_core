@@ -6,10 +6,12 @@ import 'package:bayan_pos_core/core/extensions/base_num_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_order_entity_data_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_string_extension.dart';
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
+import 'package:bayan_pos_core/data/controllers/activation_controller.dart';
 import 'package:bayan_pos_core/data/entity/drift_db.dart';
 import 'package:bayan_pos_core/data/enum/drawer_opertion_enum.dart';
 import 'package:bayan_pos_core/data/enum/order_satate.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/device/device.dart';
 import 'package:bayan_pos_core/data/model/order/order.dart';
 import 'package:bayan_pos_core/data/model/order_dashbord/order_statistics.dart';
 import 'package:bayan_pos_core/data/model/report/currency_total_pay.dart';
@@ -190,9 +192,25 @@ class BaseOrderDriftProvider extends OrderRepo {
   }
 
   @override
-  Future<String?> createOrderInvoiceNumber({required OrderC order}) {
-    // TODO: implement createOrderInvoiceNumber
-    throw UnimplementedError();
+  Future<String?> createOrderInvoiceNumber({required OrderC order}) async {
+    Device? curentDevice = Get.find<ActivationController>().currentDevice;
+    if (curentDevice == null) throw 'لم يتم اكتشاف الجهاز الحالي';
+    var query = db.select(db.orderNumbers);
+    query.where((tbl) => tbl.orderRef.equals(order.orderRef));
+    OrderNumber? orderInfo = await query.getSingleOrNull();
+    String? orderNumber = orderInfo?.idSeq.toString();
+    if (orderInfo == null) {
+      int id = await db.into(db.orderNumbers).insert(
+            OrderNumber(
+              orderRef: order.orderRef,
+              invoiceNumberPerfix: curentDevice.invoiceNumberPrefix ?? '0',
+              prefix: curentDevice.invoiceNumberPrefixSymbol,
+            ),
+          );
+      orderNumber = id.toString();
+    }
+    // return "${curentDevice.invoiceNumberPrefix ?? ''}${(curentDevice.invoiceNumberPrefix ?? 0) + int.parse(orderNumber ?? '0')}";
+    return "${curentDevice.invoiceNumberPrefix ?? ''}${int.parse(orderNumber ?? '0')}";
   }
 
   @override

@@ -32,6 +32,7 @@ class SyncQueueDriftProvider {
   Future<int> addToQueue({
     required String entityId,
     required String entityName,
+    required Map<String, dynamic> data,
   }) async {
     int id = await db.into(db.syncQueueEntity).insert(
           SyncQueueEntityCompanion(
@@ -39,6 +40,7 @@ class SyncQueueDriftProvider {
             synced: const Value(false),
             entityId: Value(entityId),
             process: Value(''),
+            data: Value(data),
             createdAt: Value(DateTime.now().toUtc()),
           ),
           mode: InsertMode.insertOrReplace,

@@ -1,4 +1,5 @@
-import 'package:drift/drift.dart';
+import 'package:drift/drift.dart' hide JsonTypeConverter;
+import 'drift_db.dart';
 
 class SyncQueueEntity extends Table {
   IntColumn get id => integer().autoIncrement()();
@@ -11,6 +12,7 @@ class SyncQueueEntity extends Table {
   TextColumn get checksumLocal => text().nullable()();
   TextColumn get checksumBaseCashier => text().nullable()();
   TextColumn get checksumCloud => text().nullable()();
+  TextColumn get data => text().map(const JsonTypeConverter())();
 
   @override
   Set<Column> get primaryKey => {id};
