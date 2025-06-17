@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bayan_pos_core/bayan_pos_core.dart';
+import 'package:bayan_pos_core/core/extensions/drift_database_ex.dart';
 import 'package:bayan_pos_core/core/keys.dart';
 import 'package:bayan_pos_core/data/repository/base_till_repo.dart';
 import 'package:drift/drift.dart';
@@ -48,9 +49,14 @@ class BaseTillDriftProvider extends BaseTillRepo {
               paymentMethodFName: tillAmounts[i].paymentMethodFName!,
               amount: tillAmounts[i].amt,
             );
-            await db
-                .into(db.tillAmountsEntity)
-                .insert(entityData, mode: InsertMode.insertOrReplace);
+            await db.into(db.tillAmountsEntity).insertWithSyncQueue(
+                  entityData,
+                  mode: InsertMode.insertOrReplace,
+                  data: entityData.toJson(),
+                  db: db,
+                  entityId: entityData.idTill,
+                  table: db.tillEntity,
+                );
           }
         } catch (e) {
           print(e.toString());
@@ -181,9 +187,14 @@ class BaseTillDriftProvider extends BaseTillRepo {
         isClosed: false,
         amount: amount,
       );
-      await db
-          .into(db.tillEntity)
-          .insert(till.toTillEntityData, mode: InsertMode.insertOrReplace);
+      await db.into(db.tillEntity).insertWithSyncQueue(
+            till.toTillEntityData,
+            mode: InsertMode.insertOrReplace,
+            data: till.toTillEntityData.toJson(),
+            db: db,
+            entityId: till.reference!,
+            table: db.tillEntity,
+          );
       return till;
     } catch (e) {
       throw e.toString();

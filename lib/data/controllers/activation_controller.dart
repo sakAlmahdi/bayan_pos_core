@@ -71,7 +71,7 @@ class ActivationController extends GetxController {
     deviceCode = deviceCode ?? this.deviceCode;
     String? imei = await getDeviecId();
     currentDevice = activationInfoData?.devices.firstWhereOrNull((element) =>
-        // element.imei == imei &&
+        element.imei == imei &&
         (deviceCode == null || element.deviceTypeCode == deviceCode));
     if (currentDevice != null) {
       activationInfoData?.currentDeviceId = currentDevice?.deviceId;

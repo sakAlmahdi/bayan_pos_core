@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/bayan_pos_core.dart';
+import 'package:bayan_pos_core/core/extensions/drift_database_ex.dart';
 import 'package:bayan_pos_core/data/controllers/activation_controller.dart';
 // import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:drift/drift.dart';
@@ -28,32 +29,47 @@ class BaseOrderDriftProvider extends OrderRepo {
           order.masterChecksum = order.checksum;
           OrderEntityData data = order.toOrderEntityData;
 
-          id = await db
-              .into(db.orderEntity)
-              .insert(data, mode: InsertMode.insertOrReplace);
+          id = await db.into(db.orderEntity).insertWithSyncQueue(
+                data,
+                mode: InsertMode.insertOrReplace,
+                data: data.toJson(),
+                db: db,
+                entityId: data.orderRef,
+                table: db.orderEntity,
+              );
 
           for (var i = 0; i < order.payments.length; i++) {
             if (order.payments[i].method.target != null) {
-              await db.into(db.paymentMethodEntity).insert(
+              await db.into(db.paymentMethodEntity).insertWithSyncQueue(
                     order.payments[i].method.target!.toEntityData,
                     mode: InsertMode.insertOrReplace,
+                    data:
+                        order.payments[i].method.target!.toEntityData.toJson(),
+                    db: db,
+                    entityId: order.payments[i].method.target!.id!,
+                    table: db.paymentMethodEntity,
                   );
             }
-
-            await db.into(db.orderPayments).insert(
-                OrderPayment(
-                  refreance: order.payments[i].refreance,
-                  orderId: order.invoiceNumber,
-                  orderRef: order.orderRef,
-                  paymentMehtodId: order.payments[i].method.target?.id ?? '',
-                  tillId: order.tillId ?? '',
-                  amount: order.payments[i].amt,
-                  remainAmt: order.payments[i].remainAmt,
-                  amountCurecny: order.payments[i].amountCurecny ?? 0,
-                  currencyCode: order.payments[i].currencyCode,
-                  exchangeRate: order.payments[i].exchangeRate,
-                ),
-                mode: InsertMode.insertOrReplace);
+            var dataPay = OrderPayment(
+              refreance: order.payments[i].refreance,
+              orderId: order.invoiceNumber,
+              orderRef: order.orderRef,
+              paymentMehtodId: order.payments[i].method.target?.id ?? '',
+              tillId: order.tillId ?? '',
+              amount: order.payments[i].amt,
+              remainAmt: order.payments[i].remainAmt,
+              amountCurecny: order.payments[i].amountCurecny ?? 0,
+              currencyCode: order.payments[i].currencyCode,
+              exchangeRate: order.payments[i].exchangeRate,
+            );
+            await db.into(db.orderPayments).insertWithSyncQueue(
+                  dataPay,
+                  mode: InsertMode.insertOrReplace,
+                  data: dataPay.toJson(),
+                  db: db,
+                  entityId: dataPay.refreance,
+                  table: db.orderPayments,
+                );
           }
         } catch (e) {
           print("object");

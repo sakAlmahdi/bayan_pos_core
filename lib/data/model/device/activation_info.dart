@@ -1,5 +1,7 @@
 import 'package:bayan_pos_core/bayan_pos_core.dart';
+import 'package:bayan_pos_core/data/controllers/activation_controller.dart';
 import 'package:bayan_pos_core/data/model/device/device.dart';
+import 'package:get/get.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -115,6 +117,9 @@ class ActivationInfo {
     fCompany = json['fCompany'];
     branch = json['branch'];
     fBranch = json['fBranch'];
+
+    currentDeviceId ??=
+        Get.find<ActivationController>().currentDevice?.deviceId;
   }
 
   Map<String, dynamic> toJson() {

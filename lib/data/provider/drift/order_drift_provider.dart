@@ -5,6 +5,7 @@ import 'package:bayan_pos_core/core/extensions/base_date_time_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_num_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_order_entity_data_extension.dart';
 import 'package:bayan_pos_core/core/extensions/base_string_extension.dart';
+import 'package:bayan_pos_core/core/extensions/drift_database_ex.dart';
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/controllers/activation_controller.dart';
 import 'package:bayan_pos_core/data/entity/drift_db.dart';
@@ -46,9 +47,14 @@ class BaseOrderDriftProvider extends OrderRepo {
           var dd = order.toJsonOrder();
           OrderEntityData data = order.toOrderEntityData;
 
-          id = await db
-              .into(db.orderEntity)
-              .insert(data, mode: InsertMode.insertOrReplace);
+          id = await db.into(db.orderEntity).insertWithSyncQueue(
+                data,
+                mode: InsertMode.insertOrReplace,
+                data: dd,
+                db: db,
+                entityId: order.orderRef,
+                table: db.orderEntity,
+              );
           print("id : $id");
 
           if (order.payments.isNotEmpty) {
@@ -58,20 +64,25 @@ class BaseOrderDriftProvider extends OrderRepo {
           }
 
           for (var i = 0; i < order.payments.length; i++) {
-            await db.into(db.orderPayments).insert(
-                  OrderPayment(
-                    refreance: order.payments[i].refreance,
-                    orderId: order.invoiceNumber,
-                    orderRef: order.orderRef,
-                    paymentMehtodId: order.payments[i].method.target?.id ?? '',
-                    tillId: order.tillId ?? '',
-                    amount: order.payments[i].amt,
-                    remainAmt: order.payments[i].remainAmt,
-                    amountCurecny: order.payments[i].amountCurecny ?? 0,
-                    currencyCode: order.payments[i].currencyCode,
-                    exchangeRate: order.payments[i].exchangeRate,
-                  ),
+            var dataPay = OrderPayment(
+              refreance: order.payments[i].refreance,
+              orderId: order.invoiceNumber,
+              orderRef: order.orderRef,
+              paymentMehtodId: order.payments[i].method.target?.id ?? '',
+              tillId: order.tillId ?? '',
+              amount: order.payments[i].amt,
+              remainAmt: order.payments[i].remainAmt,
+              amountCurecny: order.payments[i].amountCurecny ?? 0,
+              currencyCode: order.payments[i].currencyCode,
+              exchangeRate: order.payments[i].exchangeRate,
+            );
+            await db.into(db.orderPayments).insertWithSyncQueue(
+                  dataPay,
                   mode: InsertMode.insertOrReplace,
+                  data: dataPay.toJson(),
+                  db: db,
+                  entityId: dataPay.refreance,
+                  table: db.orderPayments,
                 );
           }
         } catch (e) {
@@ -156,9 +167,14 @@ class BaseOrderDriftProvider extends OrderRepo {
       checkSumHash: orderHash,
     );
 
-    int id = await db
-        .into(db.orderHistoryEntity)
-        .insert(orderHistoryEntity, mode: InsertMode.insertOrReplace);
+    int id = await db.into(db.orderHistoryEntity).insertWithSyncQueue(
+          orderHistoryEntity,
+          mode: InsertMode.insertOrReplace,
+          data: orderHistoryEntity.toJson(),
+          db: db,
+          entityId: orderHistoryEntity.orderRef,
+          table: db.orderHistoryEntity,
+        );
     print("id : $id");
   }
 

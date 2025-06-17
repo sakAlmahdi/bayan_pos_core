@@ -1,5 +1,6 @@
 import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/core/extensions/base_shift_entity_extension.dart';
+import 'package:bayan_pos_core/core/extensions/drift_database_ex.dart';
 import 'package:bayan_pos_core/data/repository/base_shift_repo.dart';
 import 'package:drift/drift.dart';
 
@@ -19,9 +20,13 @@ class BaseShiftDriftProvider extends BaseShiftRepo {
     );
     var d = shift.toShiftEntityData;
 
-    int id = await db.into(db.shiftEntity).insert(
+    int id = await db.into(db.shiftEntity).insertWithSyncQueue(
           d,
           mode: InsertMode.insertOrReplace,
+          entityId: shift.reference!,
+          table: db.shiftEntity,
+          data: d.toJson(),
+          db: db,
         );
     // int id = await db.into(db.shiftEntity).insertOnConflictUpdate(d);
 
@@ -62,9 +67,13 @@ class BaseShiftDriftProvider extends BaseShiftRepo {
         userName: userName,
         isClockedOut: false,
       );
-      int id = await db.into(db.shiftEntity).insert(
+      int id = await db.into(db.shiftEntity).insertWithSyncQueue(
             shift.toShiftEntityData,
             mode: InsertMode.insertOrReplace,
+            data: shift.toShiftEntityData.toJson(),
+            db: db,
+            entityId: shift.reference!,
+            table: db.settingEntity,
           );
       return shift.copyWith(id: id);
     } catch (e) {
