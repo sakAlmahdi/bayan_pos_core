@@ -61,4 +61,7 @@ class DeliveryCompany {
     data['imageUrl'] = imageUrl;
     return data;
   }
+
+  static List<DeliveryCompany> fromList(List<dynamic> data) =>
+      data.map((e) => DeliveryCompany.fromJson(e)).toList();
 }
