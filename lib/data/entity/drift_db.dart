@@ -12,6 +12,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import 'order_entity.dart';
 import 'sync_queue_entity.dart';
+import 'order_v2_entity.dart';
 part 'drift_db.g.dart';
 
 @DriftDatabase(tables: [
@@ -28,6 +29,24 @@ part 'drift_db.g.dart';
   ActivationInfoEntity,
   ProductQtyEntity,
   SyncQueueEntity,
+  OrderEntityV2,
+  OrderProductEntityV2,
+  OrderProductUnitPriceV2,
+  OrderProductTieredPricingV2,
+  OrderProductTimeEventV2,
+  OrderProductDiscountV2,
+  OrderProductPromotionInfoV2,
+  OrderProductChargeV2,
+  OrderProductTaxInfoV2,
+  OrderProductChargeTaxV2,
+  OrderProductChargeTaxInfoV2,
+  OrderProductTaxTypeV2,
+  OrderDiscountV2,
+  OrderPromotionAppliesV2,
+  OrderPromotionGiftCardV2,
+  OrderChargeV2,
+  OrderChargeForTotalV2,
+  OrderTaxTypeV2,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -39,147 +58,6 @@ class MyDatabase extends _$MyDatabase {
         },
         onUpgrade: (Migrator m, int from, int to) async {
           await m.createTable(tillEntity);
-
-          // await customStatement(
-          //   """
-          //     DELETE FROM order_entity
-          //     WHERE id_seq NOT IN (
-          //       SELECT max(id_seq)
-          //       FROM order_entity
-          //       GROUP BY order_ref
-          //     )
-          //     """,
-          // );
-
-          // await customStatement("""
-          //     PRAGMA foreign_keys=OFF;
-
-          //     BEGIN;
-
-          //     CREATE TABLE _order_entity_new (
-          //         id_seq INTEGER PRIMARY KEY AUTOINCREMENT
-          //       , start_date INTEGER NOT NULL
-          //       , time_of_receipt INTEGER
-          //       , parent_order_id TEXT
-          //       , split_index INTEGER
-          //       , order_ref TEXT NOT NULL
-          //       , call_name TEXT
-          //       , order_type INTEGER NOT NULL
-          //       , status INTEGER NOT NULL
-          //       , order_source INTEGER NOT NULL
-          //       , end_time INTEGER
-          //       , delivery_company_info_id INTEGER
-          //       , selected_price_list_id TEXT
-          //       , creator_by TEXT
-          //       , close_by TEXT
-          //       , table_id TEXT
-          //       , number_vistor INTEGER
-          //       , customer TEXT
-          //       , address TEXT
-          //       , promotion TEXT
-          //       , discount TEXT
-          //       , products TEXT
-          //       , price_discount REAL
-          //       , price_promotion REAL
-          //       , note TEXT
-          //       , kitchen_note TEXT
-          //       , msg_cansel TEXT
-          //       , sub_total REAL NOT NULL DEFAULT(0.0)
-          //       , fees TEXT
-          //       , fee_values TEXT
-          //       , payments TEXT
-          //       , total_fee REAL
-          //       , tax_price REAL
-          //       , total_paid REAL
-          //       , UNIQUE(order_ref)
-          //     );
-
-          //     INSERT INTO _order_entity_new (
-          //         id_seq
-          //       , start_date
-          //       , time_of_receipt
-          //       , parent_order_id
-          //       , split_index
-          //       , order_ref
-          //       , call_name
-          //       , order_type
-          //       , status
-          //       , order_source
-          //       , end_time
-          //       , delivery_company_info_id
-          //       , selected_price_list_id
-          //       , creator_by
-          //       , close_by
-          //       , table_id
-          //       , number_vistor
-          //       , customer
-          //       , address
-          //       , promotion
-          //       , discount
-          //       , products
-          //       , price_discount
-          //       , price_promotion
-          //       , note
-          //       , kitchen_note
-          //       , msg_cansel
-          //       , sub_total
-          //       , fees
-          //       , fee_values
-          //       , payments
-          //       , total_fee
-          //       , tax_price
-          //       , total_paid
-          //     )
-          //     SELECT
-          //         id_seq
-          //       , start_date
-          //       , time_of_receipt
-          //       , parent_order_id
-          //       , split_index
-          //       , order_ref
-          //       , call_name
-          //       , order_type
-          //       , status
-          //       , order_source
-          //       , end_time
-          //       , delivery_company_info_id
-          //       , selected_price_list_id
-          //       , creator_by
-          //       , close_by
-          //       , table_id
-          //       , number_vistor
-          //       , customer
-          //       , address
-          //       , promotion
-          //       , discount
-          //       , products
-          //       , price_discount
-          //       , price_promotion
-          //       , note
-          //       , kitchen_note
-          //       , msg_cansel
-          //       , sub_total
-          //       , fees
-          //       , fee_values
-          //       , payments
-          //       , total_fee
-          //       , tax_price
-          //       , total_paid
-          //     FROM order_entity;
-
-          //     DROP TABLE order_entity;
-
-          //     PRAGMA legacy_alter_table = ON;
-
-          //     ALTER TABLE _order_entity_new RENAME TO order_entity;
-
-          //     PRAGMA legacy_alter_table = OFF;
-
-          //     COMMIT;
-
-          //     PRAGMA foreign_keys=ON;
-
-//""");
 
           if (from < 15) {
             await m.addColumn(orderEntity, orderEntity.shiftId);
@@ -227,11 +105,32 @@ class MyDatabase extends _$MyDatabase {
           if (from <= 27) {
             await m.createTable(syncQueueEntity);
           }
+          // Migration for v2 order tables (version 29)
+          if (from < 29) {
+            await m.createTable(orderEntityV2);
+            await m.createTable(orderProductEntityV2);
+            await m.createTable(orderProductUnitPriceV2);
+            await m.createTable(orderProductTieredPricingV2);
+            await m.createTable(orderProductTimeEventV2);
+            await m.createTable(orderProductDiscountV2);
+            await m.createTable(orderProductPromotionInfoV2);
+            await m.createTable(orderProductChargeV2);
+            await m.createTable(orderProductTaxInfoV2);
+            await m.createTable(orderProductChargeTaxV2);
+            await m.createTable(orderProductChargeTaxInfoV2);
+            await m.createTable(orderProductTaxTypeV2);
+            await m.createTable(orderDiscountV2);
+            await m.createTable(orderPromotionAppliesV2);
+            await m.createTable(orderPromotionGiftCardV2);
+            await m.createTable(orderChargeV2);
+            await m.createTable(orderChargeForTotalV2);
+            await m.createTable(orderTaxTypeV2);
+          }
         },
       );
 
   @override
-  int get schemaVersion => 28;
+  int get schemaVersion => 29;
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {
