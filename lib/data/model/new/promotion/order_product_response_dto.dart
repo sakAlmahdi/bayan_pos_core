@@ -8,6 +8,7 @@ import 'package:bayan_pos_core/data/model/new/tiered_pricings/order_product_tier
 import 'package:bayan_pos_core/data/model/new/time_event/order_product_time_event_applies_dto.dart';
 
 class OrderProductResponseDto {
+  String productRef;
   int tableRowIndex;
   String name;
   String productId;
@@ -42,6 +43,7 @@ class OrderProductResponseDto {
   String? categoryId;
 
   OrderProductResponseDto({
+    required this.productRef,
     required this.tableRowIndex,
     required this.name,
     required this.productId,
@@ -75,6 +77,7 @@ class OrderProductResponseDto {
 
   factory OrderProductResponseDto.fromJson(Map<String, dynamic> json) {
     return OrderProductResponseDto(
+      productRef: json['productRef'],
       tableRowIndex: json['tableRowIndex'],
       name: json['name'],
       productId: json['productId'],
@@ -128,6 +131,7 @@ class OrderProductResponseDto {
 
   Map<String, dynamic> toJson() {
     return {
+      'productRef': productRef,
       'tableRowIndex': tableRowIndex,
       'name': name,
       'productId': productId,
@@ -186,8 +190,10 @@ class OrderProductResponseDto {
     List<OrderProductChargeDto>? charges,
     OrderProductTaxInfoDto? taxInfo,
     String? notes,
+    String? productRef,
   }) {
     return OrderProductResponseDto(
+      productRef: productRef ?? this.productRef,
       tableRowIndex: tableRowIndex ?? this.tableRowIndex,
       name: name ?? this.name,
       productId: productId ?? this.productId,
