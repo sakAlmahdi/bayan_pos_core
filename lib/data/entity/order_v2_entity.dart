@@ -37,7 +37,7 @@ import 'drift_db.dart';
 /// - سهل الربط مع API أو ORM
 
 class OrderEntityV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
 
   // Common fields
   RealColumn get totalPrice => real()();
@@ -115,9 +115,9 @@ class OrderEntityV2 extends Table {
 /// جدول منتجات الطلبات الموحد OrderProductEntityV2
 /// يمثل كل منتج في الطلب مع ارتباطه بـ OrderEntityV2 عبر orderId
 class OrderProductEntityV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get productRef => text()();
   IntColumn get tableRowIndex => integer()();
   TextColumn get name => text()();
   TextColumn get productId => text()();
@@ -140,11 +140,14 @@ class OrderProductEntityV2 extends Table {
   TextColumn get notes => text().nullable()();
   TextColumn get departmentId => text().nullable()();
   TextColumn get categoryId => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول سعر الوحدة للمنتج في الطلب
 class OrderProductUnitPriceV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -159,7 +162,7 @@ class OrderProductUnitPriceV2 extends Table {
 
 // جدول التسعير المتدرج
 class OrderProductTieredPricingV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -172,7 +175,7 @@ class OrderProductTieredPricingV2 extends Table {
 
 // جدول أحداث الوقت
 class OrderProductTimeEventV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -185,7 +188,7 @@ class OrderProductTimeEventV2 extends Table {
 
 // جدول الخصومات
 class OrderProductDiscountV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -198,7 +201,7 @@ class OrderProductDiscountV2 extends Table {
 
 // جدول معلومات العروض الترويجية
 class OrderProductPromotionInfoV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -215,7 +218,7 @@ class OrderProductPromotionInfoV2 extends Table {
 
 // جدول الرسوم
 class OrderProductChargeV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -228,7 +231,7 @@ class OrderProductChargeV2 extends Table {
 
 // جدول الضرائب
 class OrderProductTaxInfoV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductId => integer().customConstraint(
       'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -241,7 +244,7 @@ class OrderProductTaxInfoV2 extends Table {
 
 // جدول ضرائب رسوم المنتج في الطلب
 class OrderProductChargeTaxV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductChargeId => integer().customConstraint(
       'REFERENCES order_product_charge_v2(id) ON DELETE CASCADE')();
   TextColumn get orderRef => text().customConstraint(
@@ -254,7 +257,7 @@ class OrderProductChargeTaxV2 extends Table {
 
 // جدول تفاصيل أنواع الضرائب لكل رسم على منتج الطلب
 class OrderProductChargeTaxInfoV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductChargeTaxId => integer().customConstraint(
       'REFERENCES order_product_charge_tax_v2(id) ON DELETE CASCADE')();
   IntColumn get orderProductChargeId => integer().customConstraint(
@@ -272,7 +275,7 @@ class OrderProductChargeTaxInfoV2 extends Table {
 
 // جدول أنواع الضرائب المطبقة على منتج الطلب
 class OrderProductTaxTypeV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   IntColumn get orderProductTaxInfoId => integer().customConstraint(
       'REFERENCES order_product_tax_info_v2(id) ON DELETE CASCADE')();
   IntColumn get orderProductId => integer().customConstraint(
@@ -288,7 +291,7 @@ class OrderProductTaxTypeV2 extends Table {
 
 // جدول خصومات الطلب
 class OrderDiscountV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
   TextColumn get discountId => text().nullable()();
@@ -304,7 +307,7 @@ class OrderDiscountV2 extends Table {
 
 // جدول العروض الترويجية للطلب
 class OrderPromotionAppliesV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
   TextColumn get promotionId => text().nullable()();
@@ -316,7 +319,7 @@ class OrderPromotionAppliesV2 extends Table {
 
 // جدول بطاقات الهدايا للطلب
 class OrderPromotionGiftCardV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
   TextColumn get name => text().nullable()();
@@ -328,7 +331,7 @@ class OrderPromotionGiftCardV2 extends Table {
 
 // جدول رسوم الطلب
 class OrderChargeV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
   TextColumn get chargeId => text().nullable()();
@@ -343,7 +346,7 @@ class OrderChargeV2 extends Table {
 
 // جدول رسوم الإجمالي للطلب
 class OrderChargeForTotalV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
   TextColumn get chargeId => text().nullable()();
@@ -354,7 +357,7 @@ class OrderChargeForTotalV2 extends Table {
 
 // جدول أنواع الضرائب للطلب
 class OrderTaxTypeV2 extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  IntColumn get idSeq => integer().autoIncrement().nullable()();
   TextColumn get orderRef => text().customConstraint(
       'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
   TextColumn get taxTypeId => text().nullable()();

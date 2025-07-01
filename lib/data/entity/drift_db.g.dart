@@ -9446,10 +9446,10 @@ class $OrderEntityV2Table extends OrderEntityV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderEntityV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -9821,7 +9821,7 @@ class $OrderEntityV2Table extends OrderEntityV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         totalPrice,
         discountAmount,
         netTotalPrice,
@@ -9893,8 +9893,9 @@ class $OrderEntityV2Table extends OrderEntityV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('total_price')) {
       context.handle(
@@ -10216,13 +10217,13 @@ class $OrderEntityV2Table extends OrderEntityV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderEntityV2Data map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderEntityV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       totalPrice: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}total_price'])!,
       discountAmount: attachedDatabase.typeMapping
@@ -10375,7 +10376,7 @@ class $OrderEntityV2Table extends OrderEntityV2
 
 class OrderEntityV2Data extends DataClass
     implements Insertable<OrderEntityV2Data> {
-  final int id;
+  final int? idSeq;
   final double totalPrice;
   final double? discountAmount;
   final double netTotalPrice;
@@ -10437,7 +10438,7 @@ class OrderEntityV2Data extends DataClass
   final String? lastModifiedOn;
   final String? lastModifiedBy;
   const OrderEntityV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.totalPrice,
       this.discountAmount,
       required this.netTotalPrice,
@@ -10501,7 +10502,9 @@ class OrderEntityV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['total_price'] = Variable<double>(totalPrice);
     if (!nullToAbsent || discountAmount != null) {
       map['discount_amount'] = Variable<double>(discountAmount);
@@ -10690,7 +10693,8 @@ class OrderEntityV2Data extends DataClass
 
   OrderEntityV2Companion toCompanion(bool nullToAbsent) {
     return OrderEntityV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       totalPrice: Value(totalPrice),
       discountAmount: discountAmount == null && nullToAbsent
           ? const Value.absent()
@@ -10869,7 +10873,7 @@ class OrderEntityV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderEntityV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       totalPrice: serializer.fromJson<double>(json['totalPrice']),
       discountAmount: serializer.fromJson<double?>(json['discountAmount']),
       netTotalPrice: serializer.fromJson<double>(json['netTotalPrice']),
@@ -10946,7 +10950,7 @@ class OrderEntityV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'totalPrice': serializer.toJson<double>(totalPrice),
       'discountAmount': serializer.toJson<double?>(discountAmount),
       'netTotalPrice': serializer.toJson<double>(netTotalPrice),
@@ -11019,7 +11023,7 @@ class OrderEntityV2Data extends DataClass
   }
 
   OrderEntityV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           double? totalPrice,
           Value<double?> discountAmount = const Value.absent(),
           double? netTotalPrice,
@@ -11081,7 +11085,7 @@ class OrderEntityV2Data extends DataClass
           Value<String?> lastModifiedOn = const Value.absent(),
           Value<String?> lastModifiedBy = const Value.absent()}) =>
       OrderEntityV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         totalPrice: totalPrice ?? this.totalPrice,
         discountAmount:
             discountAmount.present ? discountAmount.value : this.discountAmount,
@@ -11189,7 +11193,7 @@ class OrderEntityV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderEntityV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('totalPrice: $totalPrice, ')
           ..write('discountAmount: $discountAmount, ')
           ..write('netTotalPrice: $netTotalPrice, ')
@@ -11256,7 +11260,7 @@ class OrderEntityV2Data extends DataClass
 
   @override
   int get hashCode => Object.hashAll([
-        id,
+        idSeq,
         totalPrice,
         discountAmount,
         netTotalPrice,
@@ -11322,7 +11326,7 @@ class OrderEntityV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderEntityV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.totalPrice == this.totalPrice &&
           other.discountAmount == this.discountAmount &&
           other.netTotalPrice == this.netTotalPrice &&
@@ -11386,7 +11390,7 @@ class OrderEntityV2Data extends DataClass
 }
 
 class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<double> totalPrice;
   final Value<double?> discountAmount;
   final Value<double> netTotalPrice;
@@ -11448,7 +11452,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<String?> lastModifiedOn;
   final Value<String?> lastModifiedBy;
   const OrderEntityV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.totalPrice = const Value.absent(),
     this.discountAmount = const Value.absent(),
     this.netTotalPrice = const Value.absent(),
@@ -11511,7 +11515,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.lastModifiedBy = const Value.absent(),
   });
   OrderEntityV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required double totalPrice,
     this.discountAmount = const Value.absent(),
     required double netTotalPrice,
@@ -11576,7 +11580,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
         netTotalPrice = Value(netTotalPrice),
         finalAmount = Value(finalAmount);
   static Insertable<OrderEntityV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<double>? totalPrice,
     Expression<double>? discountAmount,
     Expression<double>? netTotalPrice,
@@ -11639,7 +11643,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<String>? lastModifiedBy,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (totalPrice != null) 'total_price': totalPrice,
       if (discountAmount != null) 'discount_amount': discountAmount,
       if (netTotalPrice != null) 'net_total_price': netTotalPrice,
@@ -11713,7 +11717,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   }
 
   OrderEntityV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<double>? totalPrice,
       Value<double?>? discountAmount,
       Value<double>? netTotalPrice,
@@ -11775,7 +11779,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<String?>? lastModifiedOn,
       Value<String?>? lastModifiedBy}) {
     return OrderEntityV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       totalPrice: totalPrice ?? this.totalPrice,
       discountAmount: discountAmount ?? this.discountAmount,
       netTotalPrice: netTotalPrice ?? this.netTotalPrice,
@@ -11850,8 +11854,8 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (totalPrice.present) {
       map['total_price'] = Variable<double>(totalPrice.value);
@@ -12053,7 +12057,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   @override
   String toString() {
     return (StringBuffer('OrderEntityV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('totalPrice: $totalPrice, ')
           ..write('discountAmount: $discountAmount, ')
           ..write('netTotalPrice: $netTotalPrice, ')
@@ -12125,15 +12129,6 @@ class $OrderProductEntityV2Table extends OrderProductEntityV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductEntityV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
-  @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
   static const VerificationMeta _orderRefMeta =
       const VerificationMeta('orderRef');
   @override
@@ -12143,6 +12138,12 @@ class $OrderProductEntityV2Table extends OrderProductEntityV2
       requiredDuringInsert: true,
       $customConstraints:
           'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE');
+  static const VerificationMeta _productRefMeta =
+      const VerificationMeta('productRef');
+  @override
+  late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
+      'product_ref', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
   static const VerificationMeta _tableRowIndexMeta =
       const VerificationMeta('tableRowIndex');
   @override
@@ -12274,8 +12275,8 @@ class $OrderProductEntityV2Table extends OrderProductEntityV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
         orderRef,
+        productRef,
         tableRowIndex,
         name,
         productId,
@@ -12310,14 +12311,19 @@ class $OrderProductEntityV2Table extends OrderProductEntityV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
-    }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
           orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
     } else if (isInserting) {
       context.missing(_orderRefMeta);
+    }
+    if (data.containsKey('product_ref')) {
+      context.handle(
+          _productRefMeta,
+          productRef.isAcceptableOrUnknown(
+              data['product_ref']!, _productRefMeta));
+    } else if (isInserting) {
+      context.missing(_productRefMeta);
     }
     if (data.containsKey('table_row_index')) {
       context.handle(
@@ -12463,16 +12469,16 @@ class $OrderProductEntityV2Table extends OrderProductEntityV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {orderRef, productRef};
   @override
   OrderProductEntityV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductEntityV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
+      productRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}product_ref'])!,
       tableRowIndex: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}table_row_index'])!,
       name: attachedDatabase.typeMapping
@@ -12531,8 +12537,8 @@ class $OrderProductEntityV2Table extends OrderProductEntityV2
 
 class OrderProductEntityV2Data extends DataClass
     implements Insertable<OrderProductEntityV2Data> {
-  final int id;
   final String orderRef;
+  final String productRef;
   final int tableRowIndex;
   final String name;
   final String productId;
@@ -12556,8 +12562,8 @@ class OrderProductEntityV2Data extends DataClass
   final String? departmentId;
   final String? categoryId;
   const OrderProductEntityV2Data(
-      {required this.id,
-      required this.orderRef,
+      {required this.orderRef,
+      required this.productRef,
       required this.tableRowIndex,
       required this.name,
       required this.productId,
@@ -12583,8 +12589,8 @@ class OrderProductEntityV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
     map['order_ref'] = Variable<String>(orderRef);
+    map['product_ref'] = Variable<String>(productRef);
     map['table_row_index'] = Variable<int>(tableRowIndex);
     map['name'] = Variable<String>(name);
     map['product_id'] = Variable<String>(productId);
@@ -12638,8 +12644,8 @@ class OrderProductEntityV2Data extends DataClass
 
   OrderProductEntityV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductEntityV2Companion(
-      id: Value(id),
       orderRef: Value(orderRef),
+      productRef: Value(productRef),
       tableRowIndex: Value(tableRowIndex),
       name: Value(name),
       productId: Value(productId),
@@ -12692,8 +12698,8 @@ class OrderProductEntityV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductEntityV2Data(
-      id: serializer.fromJson<int>(json['id']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
+      productRef: serializer.fromJson<String>(json['productRef']),
       tableRowIndex: serializer.fromJson<int>(json['tableRowIndex']),
       name: serializer.fromJson<String>(json['name']),
       productId: serializer.fromJson<String>(json['productId']),
@@ -12727,8 +12733,8 @@ class OrderProductEntityV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
       'orderRef': serializer.toJson<String>(orderRef),
+      'productRef': serializer.toJson<String>(productRef),
       'tableRowIndex': serializer.toJson<int>(tableRowIndex),
       'name': serializer.toJson<String>(name),
       'productId': serializer.toJson<String>(productId),
@@ -12758,8 +12764,8 @@ class OrderProductEntityV2Data extends DataClass
   }
 
   OrderProductEntityV2Data copyWith(
-          {int? id,
-          String? orderRef,
+          {String? orderRef,
+          String? productRef,
           int? tableRowIndex,
           String? name,
           String? productId,
@@ -12783,8 +12789,8 @@ class OrderProductEntityV2Data extends DataClass
           Value<String?> departmentId = const Value.absent(),
           Value<String?> categoryId = const Value.absent()}) =>
       OrderProductEntityV2Data(
-        id: id ?? this.id,
         orderRef: orderRef ?? this.orderRef,
+        productRef: productRef ?? this.productRef,
         tableRowIndex: tableRowIndex ?? this.tableRowIndex,
         name: name ?? this.name,
         productId: productId ?? this.productId,
@@ -12825,8 +12831,8 @@ class OrderProductEntityV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductEntityV2Data(')
-          ..write('id: $id, ')
           ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
           ..write('tableRowIndex: $tableRowIndex, ')
           ..write('name: $name, ')
           ..write('productId: $productId, ')
@@ -12855,8 +12861,8 @@ class OrderProductEntityV2Data extends DataClass
 
   @override
   int get hashCode => Object.hashAll([
-        id,
         orderRef,
+        productRef,
         tableRowIndex,
         name,
         productId,
@@ -12884,8 +12890,8 @@ class OrderProductEntityV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductEntityV2Data &&
-          other.id == this.id &&
           other.orderRef == this.orderRef &&
+          other.productRef == this.productRef &&
           other.tableRowIndex == this.tableRowIndex &&
           other.name == this.name &&
           other.productId == this.productId &&
@@ -12912,8 +12918,8 @@ class OrderProductEntityV2Data extends DataClass
 
 class OrderProductEntityV2Companion
     extends UpdateCompanion<OrderProductEntityV2Data> {
-  final Value<int> id;
   final Value<String> orderRef;
+  final Value<String> productRef;
   final Value<int> tableRowIndex;
   final Value<String> name;
   final Value<String> productId;
@@ -12936,9 +12942,10 @@ class OrderProductEntityV2Companion
   final Value<String?> notes;
   final Value<String?> departmentId;
   final Value<String?> categoryId;
+  final Value<int> rowid;
   const OrderProductEntityV2Companion({
-    this.id = const Value.absent(),
     this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
     this.tableRowIndex = const Value.absent(),
     this.name = const Value.absent(),
     this.productId = const Value.absent(),
@@ -12961,10 +12968,11 @@ class OrderProductEntityV2Companion
     this.notes = const Value.absent(),
     this.departmentId = const Value.absent(),
     this.categoryId = const Value.absent(),
+    this.rowid = const Value.absent(),
   });
   OrderProductEntityV2Companion.insert({
-    this.id = const Value.absent(),
     required String orderRef,
+    required String productRef,
     required int tableRowIndex,
     required String name,
     required String productId,
@@ -12987,7 +12995,9 @@ class OrderProductEntityV2Companion
     this.notes = const Value.absent(),
     this.departmentId = const Value.absent(),
     this.categoryId = const Value.absent(),
+    this.rowid = const Value.absent(),
   })  : orderRef = Value(orderRef),
+        productRef = Value(productRef),
         tableRowIndex = Value(tableRowIndex),
         name = Value(name),
         productId = Value(productId),
@@ -12999,8 +13009,8 @@ class OrderProductEntityV2Companion
         netTotalPrice = Value(netTotalPrice),
         finalAmount = Value(finalAmount);
   static Insertable<OrderProductEntityV2Data> custom({
-    Expression<int>? id,
     Expression<String>? orderRef,
+    Expression<String>? productRef,
     Expression<int>? tableRowIndex,
     Expression<String>? name,
     Expression<String>? productId,
@@ -13023,10 +13033,11 @@ class OrderProductEntityV2Companion
     Expression<String>? notes,
     Expression<String>? departmentId,
     Expression<String>? categoryId,
+    Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
       if (orderRef != null) 'order_ref': orderRef,
+      if (productRef != null) 'product_ref': productRef,
       if (tableRowIndex != null) 'table_row_index': tableRowIndex,
       if (name != null) 'name': name,
       if (productId != null) 'product_id': productId,
@@ -13053,12 +13064,13 @@ class OrderProductEntityV2Companion
       if (notes != null) 'notes': notes,
       if (departmentId != null) 'department_id': departmentId,
       if (categoryId != null) 'category_id': categoryId,
+      if (rowid != null) 'rowid': rowid,
     });
   }
 
   OrderProductEntityV2Companion copyWith(
-      {Value<int>? id,
-      Value<String>? orderRef,
+      {Value<String>? orderRef,
+      Value<String>? productRef,
       Value<int>? tableRowIndex,
       Value<String>? name,
       Value<String>? productId,
@@ -13080,10 +13092,11 @@ class OrderProductEntityV2Companion
       Value<double?>? roundingDecimalAmount,
       Value<String?>? notes,
       Value<String?>? departmentId,
-      Value<String?>? categoryId}) {
+      Value<String?>? categoryId,
+      Value<int>? rowid}) {
     return OrderProductEntityV2Companion(
-      id: id ?? this.id,
       orderRef: orderRef ?? this.orderRef,
+      productRef: productRef ?? this.productRef,
       tableRowIndex: tableRowIndex ?? this.tableRowIndex,
       name: name ?? this.name,
       productId: productId ?? this.productId,
@@ -13109,17 +13122,18 @@ class OrderProductEntityV2Companion
       notes: notes ?? this.notes,
       departmentId: departmentId ?? this.departmentId,
       categoryId: categoryId ?? this.categoryId,
+      rowid: rowid ?? this.rowid,
     );
   }
 
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
-    }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
+    }
+    if (productRef.present) {
+      map['product_ref'] = Variable<String>(productRef.value);
     }
     if (tableRowIndex.present) {
       map['table_row_index'] = Variable<int>(tableRowIndex.value);
@@ -13191,14 +13205,17 @@ class OrderProductEntityV2Companion
     if (categoryId.present) {
       map['category_id'] = Variable<String>(categoryId.value);
     }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
     return map;
   }
 
   @override
   String toString() {
     return (StringBuffer('OrderProductEntityV2Companion(')
-          ..write('id: $id, ')
           ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
           ..write('tableRowIndex: $tableRowIndex, ')
           ..write('name: $name, ')
           ..write('productId: $productId, ')
@@ -13220,7 +13237,8 @@ class OrderProductEntityV2Companion
           ..write('roundingDecimalAmount: $roundingDecimalAmount, ')
           ..write('notes: $notes, ')
           ..write('departmentId: $departmentId, ')
-          ..write('categoryId: $categoryId')
+          ..write('categoryId: $categoryId, ')
+          ..write('rowid: $rowid')
           ..write(')'))
         .toString();
   }
@@ -13232,10 +13250,10 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductUnitPriceV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -13297,7 +13315,7 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
           type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductId,
         orderRef,
         unitPrice,
@@ -13318,8 +13336,9 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -13373,14 +13392,14 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductUnitPriceV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductUnitPriceV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -13410,7 +13429,7 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
 
 class OrderProductUnitPriceV2Data extends DataClass
     implements Insertable<OrderProductUnitPriceV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final double? unitPrice;
@@ -13420,7 +13439,7 @@ class OrderProductUnitPriceV2Data extends DataClass
   final String? productUnitPriceListId;
   final String? productUnitPriceListSlapId;
   const OrderProductUnitPriceV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       this.unitPrice,
@@ -13432,7 +13451,9 @@ class OrderProductUnitPriceV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || unitPrice != null) {
@@ -13460,7 +13481,8 @@ class OrderProductUnitPriceV2Data extends DataClass
 
   OrderProductUnitPriceV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductUnitPriceV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       unitPrice: unitPrice == null && nullToAbsent
@@ -13488,7 +13510,7 @@ class OrderProductUnitPriceV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductUnitPriceV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       unitPrice: serializer.fromJson<double?>(json['unitPrice']),
@@ -13505,7 +13527,7 @@ class OrderProductUnitPriceV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'unitPrice': serializer.toJson<double?>(unitPrice),
@@ -13520,7 +13542,7 @@ class OrderProductUnitPriceV2Data extends DataClass
   }
 
   OrderProductUnitPriceV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           Value<double?> unitPrice = const Value.absent(),
@@ -13530,7 +13552,7 @@ class OrderProductUnitPriceV2Data extends DataClass
           Value<String?> productUnitPriceListId = const Value.absent(),
           Value<String?> productUnitPriceListSlapId = const Value.absent()}) =>
       OrderProductUnitPriceV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         unitPrice: unitPrice.present ? unitPrice.value : this.unitPrice,
@@ -13548,7 +13570,7 @@ class OrderProductUnitPriceV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductUnitPriceV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('unitPrice: $unitPrice, ')
@@ -13563,7 +13585,7 @@ class OrderProductUnitPriceV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id,
+      idSeq,
       orderProductId,
       orderRef,
       unitPrice,
@@ -13576,7 +13598,7 @@ class OrderProductUnitPriceV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductUnitPriceV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.unitPrice == this.unitPrice &&
@@ -13589,7 +13611,7 @@ class OrderProductUnitPriceV2Data extends DataClass
 
 class OrderProductUnitPriceV2Companion
     extends UpdateCompanion<OrderProductUnitPriceV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<double?> unitPrice;
@@ -13599,7 +13621,7 @@ class OrderProductUnitPriceV2Companion
   final Value<String?> productUnitPriceListId;
   final Value<String?> productUnitPriceListSlapId;
   const OrderProductUnitPriceV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.unitPrice = const Value.absent(),
@@ -13610,7 +13632,7 @@ class OrderProductUnitPriceV2Companion
     this.productUnitPriceListSlapId = const Value.absent(),
   });
   OrderProductUnitPriceV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     this.unitPrice = const Value.absent(),
@@ -13622,7 +13644,7 @@ class OrderProductUnitPriceV2Companion
   })  : orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductUnitPriceV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<double>? unitPrice,
@@ -13633,7 +13655,7 @@ class OrderProductUnitPriceV2Companion
     Expression<String>? productUnitPriceListSlapId,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (unitPrice != null) 'unit_price': unitPrice,
@@ -13648,7 +13670,7 @@ class OrderProductUnitPriceV2Companion
   }
 
   OrderProductUnitPriceV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<double?>? unitPrice,
@@ -13658,7 +13680,7 @@ class OrderProductUnitPriceV2Companion
       Value<String?>? productUnitPriceListId,
       Value<String?>? productUnitPriceListSlapId}) {
     return OrderProductUnitPriceV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       unitPrice: unitPrice ?? this.unitPrice,
@@ -13675,8 +13697,8 @@ class OrderProductUnitPriceV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -13710,7 +13732,7 @@ class OrderProductUnitPriceV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductUnitPriceV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('unitPrice: $unitPrice, ')
@@ -13732,10 +13754,10 @@ class $OrderProductTieredPricingV2Table extends OrderProductTieredPricingV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductTieredPricingV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -13784,7 +13806,7 @@ class $OrderProductTieredPricingV2Table extends OrderProductTieredPricingV2
       type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductId,
         orderRef,
         tieredPricingId,
@@ -13803,8 +13825,9 @@ class $OrderProductTieredPricingV2Table extends OrderProductTieredPricingV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -13844,14 +13867,14 @@ class $OrderProductTieredPricingV2Table extends OrderProductTieredPricingV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductTieredPricingV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductTieredPricingV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -13875,7 +13898,7 @@ class $OrderProductTieredPricingV2Table extends OrderProductTieredPricingV2
 
 class OrderProductTieredPricingV2Data extends DataClass
     implements Insertable<OrderProductTieredPricingV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final String? tieredPricingId;
@@ -13883,7 +13906,7 @@ class OrderProductTieredPricingV2Data extends DataClass
   final double? unitPrice;
   final double? netUnitPrice;
   const OrderProductTieredPricingV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       this.tieredPricingId,
@@ -13893,7 +13916,9 @@ class OrderProductTieredPricingV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || tieredPricingId != null) {
@@ -13913,7 +13938,8 @@ class OrderProductTieredPricingV2Data extends DataClass
 
   OrderProductTieredPricingV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductTieredPricingV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       tieredPricingId: tieredPricingId == null && nullToAbsent
@@ -13933,7 +13959,7 @@ class OrderProductTieredPricingV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTieredPricingV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       tieredPricingId: serializer.fromJson<String?>(json['tieredPricingId']),
@@ -13946,7 +13972,7 @@ class OrderProductTieredPricingV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'tieredPricingId': serializer.toJson<String?>(tieredPricingId),
@@ -13957,7 +13983,7 @@ class OrderProductTieredPricingV2Data extends DataClass
   }
 
   OrderProductTieredPricingV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           Value<String?> tieredPricingId = const Value.absent(),
@@ -13965,7 +13991,7 @@ class OrderProductTieredPricingV2Data extends DataClass
           Value<double?> unitPrice = const Value.absent(),
           Value<double?> netUnitPrice = const Value.absent()}) =>
       OrderProductTieredPricingV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         tieredPricingId: tieredPricingId.present
@@ -13979,7 +14005,7 @@ class OrderProductTieredPricingV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductTieredPricingV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('tieredPricingId: $tieredPricingId, ')
@@ -13991,13 +14017,13 @@ class OrderProductTieredPricingV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderProductId, orderRef, tieredPricingId,
-      name, unitPrice, netUnitPrice);
+  int get hashCode => Object.hash(idSeq, orderProductId, orderRef,
+      tieredPricingId, name, unitPrice, netUnitPrice);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductTieredPricingV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.tieredPricingId == this.tieredPricingId &&
@@ -14008,7 +14034,7 @@ class OrderProductTieredPricingV2Data extends DataClass
 
 class OrderProductTieredPricingV2Companion
     extends UpdateCompanion<OrderProductTieredPricingV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<String?> tieredPricingId;
@@ -14016,7 +14042,7 @@ class OrderProductTieredPricingV2Companion
   final Value<double?> unitPrice;
   final Value<double?> netUnitPrice;
   const OrderProductTieredPricingV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.tieredPricingId = const Value.absent(),
@@ -14025,7 +14051,7 @@ class OrderProductTieredPricingV2Companion
     this.netUnitPrice = const Value.absent(),
   });
   OrderProductTieredPricingV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     this.tieredPricingId = const Value.absent(),
@@ -14035,7 +14061,7 @@ class OrderProductTieredPricingV2Companion
   })  : orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductTieredPricingV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<String>? tieredPricingId,
@@ -14044,7 +14070,7 @@ class OrderProductTieredPricingV2Companion
     Expression<double>? netUnitPrice,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (tieredPricingId != null) 'tiered_pricing_id': tieredPricingId,
@@ -14055,7 +14081,7 @@ class OrderProductTieredPricingV2Companion
   }
 
   OrderProductTieredPricingV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<String?>? tieredPricingId,
@@ -14063,7 +14089,7 @@ class OrderProductTieredPricingV2Companion
       Value<double?>? unitPrice,
       Value<double?>? netUnitPrice}) {
     return OrderProductTieredPricingV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       tieredPricingId: tieredPricingId ?? this.tieredPricingId,
@@ -14076,8 +14102,8 @@ class OrderProductTieredPricingV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -14103,7 +14129,7 @@ class OrderProductTieredPricingV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductTieredPricingV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('tieredPricingId: $tieredPricingId, ')
@@ -14121,10 +14147,10 @@ class $OrderProductTimeEventV2Table extends OrderProductTimeEventV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductTimeEventV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -14173,7 +14199,7 @@ class $OrderProductTimeEventV2Table extends OrderProductTimeEventV2
       type: DriftSqlType.double, requiredDuringInsert: true);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductId,
         orderRef,
         timeEventId,
@@ -14192,8 +14218,9 @@ class $OrderProductTimeEventV2Table extends OrderProductTimeEventV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -14239,14 +14266,14 @@ class $OrderProductTimeEventV2Table extends OrderProductTimeEventV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductTimeEventV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductTimeEventV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -14270,7 +14297,7 @@ class $OrderProductTimeEventV2Table extends OrderProductTimeEventV2
 
 class OrderProductTimeEventV2Data extends DataClass
     implements Insertable<OrderProductTimeEventV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final String timeEventId;
@@ -14278,7 +14305,7 @@ class OrderProductTimeEventV2Data extends DataClass
   final double unitPrice;
   final double netUnitPrice;
   const OrderProductTimeEventV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       required this.timeEventId,
@@ -14288,7 +14315,9 @@ class OrderProductTimeEventV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     map['time_event_id'] = Variable<String>(timeEventId);
@@ -14302,7 +14331,8 @@ class OrderProductTimeEventV2Data extends DataClass
 
   OrderProductTimeEventV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductTimeEventV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       timeEventId: Value(timeEventId),
@@ -14316,7 +14346,7 @@ class OrderProductTimeEventV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTimeEventV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       timeEventId: serializer.fromJson<String>(json['timeEventId']),
@@ -14329,7 +14359,7 @@ class OrderProductTimeEventV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'timeEventId': serializer.toJson<String>(timeEventId),
@@ -14340,7 +14370,7 @@ class OrderProductTimeEventV2Data extends DataClass
   }
 
   OrderProductTimeEventV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           String? timeEventId,
@@ -14348,7 +14378,7 @@ class OrderProductTimeEventV2Data extends DataClass
           double? unitPrice,
           double? netUnitPrice}) =>
       OrderProductTimeEventV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         timeEventId: timeEventId ?? this.timeEventId,
@@ -14359,7 +14389,7 @@ class OrderProductTimeEventV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductTimeEventV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('timeEventId: $timeEventId, ')
@@ -14371,13 +14401,13 @@ class OrderProductTimeEventV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(
-      id, orderProductId, orderRef, timeEventId, name, unitPrice, netUnitPrice);
+  int get hashCode => Object.hash(idSeq, orderProductId, orderRef, timeEventId,
+      name, unitPrice, netUnitPrice);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductTimeEventV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.timeEventId == this.timeEventId &&
@@ -14388,7 +14418,7 @@ class OrderProductTimeEventV2Data extends DataClass
 
 class OrderProductTimeEventV2Companion
     extends UpdateCompanion<OrderProductTimeEventV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<String> timeEventId;
@@ -14396,7 +14426,7 @@ class OrderProductTimeEventV2Companion
   final Value<double> unitPrice;
   final Value<double> netUnitPrice;
   const OrderProductTimeEventV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.timeEventId = const Value.absent(),
@@ -14405,7 +14435,7 @@ class OrderProductTimeEventV2Companion
     this.netUnitPrice = const Value.absent(),
   });
   OrderProductTimeEventV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     required String timeEventId,
@@ -14418,7 +14448,7 @@ class OrderProductTimeEventV2Companion
         unitPrice = Value(unitPrice),
         netUnitPrice = Value(netUnitPrice);
   static Insertable<OrderProductTimeEventV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<String>? timeEventId,
@@ -14427,7 +14457,7 @@ class OrderProductTimeEventV2Companion
     Expression<double>? netUnitPrice,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (timeEventId != null) 'time_event_id': timeEventId,
@@ -14438,7 +14468,7 @@ class OrderProductTimeEventV2Companion
   }
 
   OrderProductTimeEventV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<String>? timeEventId,
@@ -14446,7 +14476,7 @@ class OrderProductTimeEventV2Companion
       Value<double>? unitPrice,
       Value<double>? netUnitPrice}) {
     return OrderProductTimeEventV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       timeEventId: timeEventId ?? this.timeEventId,
@@ -14459,8 +14489,8 @@ class OrderProductTimeEventV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -14486,7 +14516,7 @@ class OrderProductTimeEventV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductTimeEventV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('timeEventId: $timeEventId, ')
@@ -14504,10 +14534,10 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductDiscountV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -14557,7 +14587,7 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductId,
         orderRef,
         discountAmount,
@@ -14576,8 +14606,9 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -14621,14 +14652,14 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductDiscountV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductDiscountV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -14652,7 +14683,7 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
 
 class OrderProductDiscountV2Data extends DataClass
     implements Insertable<OrderProductDiscountV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final double? discountAmount;
@@ -14660,7 +14691,7 @@ class OrderProductDiscountV2Data extends DataClass
   final String? discountType;
   final String? discountId;
   const OrderProductDiscountV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       this.discountAmount,
@@ -14670,7 +14701,9 @@ class OrderProductDiscountV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || discountAmount != null) {
@@ -14690,7 +14723,8 @@ class OrderProductDiscountV2Data extends DataClass
 
   OrderProductDiscountV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductDiscountV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       discountAmount: discountAmount == null && nullToAbsent
@@ -14712,7 +14746,7 @@ class OrderProductDiscountV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductDiscountV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       discountAmount: serializer.fromJson<double?>(json['discountAmount']),
@@ -14726,7 +14760,7 @@ class OrderProductDiscountV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'discountAmount': serializer.toJson<double?>(discountAmount),
@@ -14737,7 +14771,7 @@ class OrderProductDiscountV2Data extends DataClass
   }
 
   OrderProductDiscountV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           Value<double?> discountAmount = const Value.absent(),
@@ -14745,7 +14779,7 @@ class OrderProductDiscountV2Data extends DataClass
           Value<String?> discountType = const Value.absent(),
           Value<String?> discountId = const Value.absent()}) =>
       OrderProductDiscountV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         discountAmount:
@@ -14760,7 +14794,7 @@ class OrderProductDiscountV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductDiscountV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('discountAmount: $discountAmount, ')
@@ -14772,13 +14806,13 @@ class OrderProductDiscountV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderProductId, orderRef, discountAmount,
-      discountPercentage, discountType, discountId);
+  int get hashCode => Object.hash(idSeq, orderProductId, orderRef,
+      discountAmount, discountPercentage, discountType, discountId);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductDiscountV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.discountAmount == this.discountAmount &&
@@ -14789,7 +14823,7 @@ class OrderProductDiscountV2Data extends DataClass
 
 class OrderProductDiscountV2Companion
     extends UpdateCompanion<OrderProductDiscountV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<double?> discountAmount;
@@ -14797,7 +14831,7 @@ class OrderProductDiscountV2Companion
   final Value<String?> discountType;
   final Value<String?> discountId;
   const OrderProductDiscountV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.discountAmount = const Value.absent(),
@@ -14806,7 +14840,7 @@ class OrderProductDiscountV2Companion
     this.discountId = const Value.absent(),
   });
   OrderProductDiscountV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     this.discountAmount = const Value.absent(),
@@ -14816,7 +14850,7 @@ class OrderProductDiscountV2Companion
   })  : orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductDiscountV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<double>? discountAmount,
@@ -14825,7 +14859,7 @@ class OrderProductDiscountV2Companion
     Expression<String>? discountId,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (discountAmount != null) 'discount_amount': discountAmount,
@@ -14836,7 +14870,7 @@ class OrderProductDiscountV2Companion
   }
 
   OrderProductDiscountV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<double?>? discountAmount,
@@ -14844,7 +14878,7 @@ class OrderProductDiscountV2Companion
       Value<String?>? discountType,
       Value<String?>? discountId}) {
     return OrderProductDiscountV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       discountAmount: discountAmount ?? this.discountAmount,
@@ -14857,8 +14891,8 @@ class OrderProductDiscountV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -14884,7 +14918,7 @@ class OrderProductDiscountV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductDiscountV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('discountAmount: $discountAmount, ')
@@ -14904,10 +14938,10 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductPromotionInfoV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -14972,7 +15006,7 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
               $OrderProductPromotionInfoV2Table.$converterpromotionsJson);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductId,
         orderRef,
         notAppliesQuantity,
@@ -14993,8 +15027,9 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -15049,14 +15084,14 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductPromotionInfoV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductPromotionInfoV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -15092,7 +15127,7 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
 
 class OrderProductPromotionInfoV2Data extends DataClass
     implements Insertable<OrderProductPromotionInfoV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final double? notAppliesQuantity;
@@ -15102,7 +15137,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
   final double? promotionDiscountPercentage;
   final dynamic promotionsJson;
   const OrderProductPromotionInfoV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       this.notAppliesQuantity,
@@ -15114,7 +15149,9 @@ class OrderProductPromotionInfoV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || notAppliesQuantity != null) {
@@ -15146,7 +15183,8 @@ class OrderProductPromotionInfoV2Data extends DataClass
 
   OrderProductPromotionInfoV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductPromotionInfoV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       notAppliesQuantity: notAppliesQuantity == null && nullToAbsent
@@ -15177,7 +15215,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductPromotionInfoV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       notAppliesQuantity:
@@ -15197,7 +15235,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'notAppliesQuantity': serializer.toJson<double?>(notAppliesQuantity),
@@ -15214,7 +15252,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
   }
 
   OrderProductPromotionInfoV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           Value<double?> notAppliesQuantity = const Value.absent(),
@@ -15224,7 +15262,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
           Value<double?> promotionDiscountPercentage = const Value.absent(),
           Value<dynamic> promotionsJson = const Value.absent()}) =>
       OrderProductPromotionInfoV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         notAppliesQuantity: notAppliesQuantity.present
@@ -15248,7 +15286,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductPromotionInfoV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('notAppliesQuantity: $notAppliesQuantity, ')
@@ -15263,7 +15301,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id,
+      idSeq,
       orderProductId,
       orderRef,
       notAppliesQuantity,
@@ -15276,7 +15314,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductPromotionInfoV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.notAppliesQuantity == this.notAppliesQuantity &&
@@ -15290,7 +15328,7 @@ class OrderProductPromotionInfoV2Data extends DataClass
 
 class OrderProductPromotionInfoV2Companion
     extends UpdateCompanion<OrderProductPromotionInfoV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<double?> notAppliesQuantity;
@@ -15300,7 +15338,7 @@ class OrderProductPromotionInfoV2Companion
   final Value<double?> promotionDiscountPercentage;
   final Value<dynamic> promotionsJson;
   const OrderProductPromotionInfoV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.notAppliesQuantity = const Value.absent(),
@@ -15311,7 +15349,7 @@ class OrderProductPromotionInfoV2Companion
     this.promotionsJson = const Value.absent(),
   });
   OrderProductPromotionInfoV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     this.notAppliesQuantity = const Value.absent(),
@@ -15323,7 +15361,7 @@ class OrderProductPromotionInfoV2Companion
   })  : orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductPromotionInfoV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<double>? notAppliesQuantity,
@@ -15334,7 +15372,7 @@ class OrderProductPromotionInfoV2Companion
     Expression<String>? promotionsJson,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (notAppliesQuantity != null)
@@ -15352,7 +15390,7 @@ class OrderProductPromotionInfoV2Companion
   }
 
   OrderProductPromotionInfoV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<double?>? notAppliesQuantity,
@@ -15362,7 +15400,7 @@ class OrderProductPromotionInfoV2Companion
       Value<double?>? promotionDiscountPercentage,
       Value<dynamic>? promotionsJson}) {
     return OrderProductPromotionInfoV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       notAppliesQuantity: notAppliesQuantity ?? this.notAppliesQuantity,
@@ -15381,8 +15419,8 @@ class OrderProductPromotionInfoV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -15420,7 +15458,7 @@ class OrderProductPromotionInfoV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductPromotionInfoV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('notAppliesQuantity: $notAppliesQuantity, ')
@@ -15440,10 +15478,10 @@ class $OrderProductChargeV2Table extends OrderProductChargeV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductChargeV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -15491,7 +15529,7 @@ class $OrderProductChargeV2Table extends OrderProductChargeV2
       type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns =>
-      [id, orderProductId, orderRef, chargeId, name, amount, percentage];
+      [idSeq, orderProductId, orderRef, chargeId, name, amount, percentage];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -15503,8 +15541,9 @@ class $OrderProductChargeV2Table extends OrderProductChargeV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -15542,14 +15581,14 @@ class $OrderProductChargeV2Table extends OrderProductChargeV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductChargeV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductChargeV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -15573,7 +15612,7 @@ class $OrderProductChargeV2Table extends OrderProductChargeV2
 
 class OrderProductChargeV2Data extends DataClass
     implements Insertable<OrderProductChargeV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final String? chargeId;
@@ -15581,7 +15620,7 @@ class OrderProductChargeV2Data extends DataClass
   final double? amount;
   final double? percentage;
   const OrderProductChargeV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       this.chargeId,
@@ -15591,7 +15630,9 @@ class OrderProductChargeV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || chargeId != null) {
@@ -15611,7 +15652,8 @@ class OrderProductChargeV2Data extends DataClass
 
   OrderProductChargeV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductChargeV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       chargeId: chargeId == null && nullToAbsent
@@ -15630,7 +15672,7 @@ class OrderProductChargeV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductChargeV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       chargeId: serializer.fromJson<String?>(json['chargeId']),
@@ -15643,7 +15685,7 @@ class OrderProductChargeV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'chargeId': serializer.toJson<String?>(chargeId),
@@ -15654,7 +15696,7 @@ class OrderProductChargeV2Data extends DataClass
   }
 
   OrderProductChargeV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           Value<String?> chargeId = const Value.absent(),
@@ -15662,7 +15704,7 @@ class OrderProductChargeV2Data extends DataClass
           Value<double?> amount = const Value.absent(),
           Value<double?> percentage = const Value.absent()}) =>
       OrderProductChargeV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         chargeId: chargeId.present ? chargeId.value : this.chargeId,
@@ -15673,7 +15715,7 @@ class OrderProductChargeV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('chargeId: $chargeId, ')
@@ -15686,12 +15728,12 @@ class OrderProductChargeV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id, orderProductId, orderRef, chargeId, name, amount, percentage);
+      idSeq, orderProductId, orderRef, chargeId, name, amount, percentage);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductChargeV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.chargeId == this.chargeId &&
@@ -15702,7 +15744,7 @@ class OrderProductChargeV2Data extends DataClass
 
 class OrderProductChargeV2Companion
     extends UpdateCompanion<OrderProductChargeV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<String?> chargeId;
@@ -15710,7 +15752,7 @@ class OrderProductChargeV2Companion
   final Value<double?> amount;
   final Value<double?> percentage;
   const OrderProductChargeV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.chargeId = const Value.absent(),
@@ -15719,7 +15761,7 @@ class OrderProductChargeV2Companion
     this.percentage = const Value.absent(),
   });
   OrderProductChargeV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     this.chargeId = const Value.absent(),
@@ -15729,7 +15771,7 @@ class OrderProductChargeV2Companion
   })  : orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductChargeV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<String>? chargeId,
@@ -15738,7 +15780,7 @@ class OrderProductChargeV2Companion
     Expression<double>? percentage,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (chargeId != null) 'charge_id': chargeId,
@@ -15749,7 +15791,7 @@ class OrderProductChargeV2Companion
   }
 
   OrderProductChargeV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<String?>? chargeId,
@@ -15757,7 +15799,7 @@ class OrderProductChargeV2Companion
       Value<double?>? amount,
       Value<double?>? percentage}) {
     return OrderProductChargeV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       chargeId: chargeId ?? this.chargeId,
@@ -15770,8 +15812,8 @@ class OrderProductChargeV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -15797,7 +15839,7 @@ class OrderProductChargeV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('chargeId: $chargeId, ')
@@ -15815,10 +15857,10 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductTaxInfoV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -15868,7 +15910,7 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductId,
         orderRef,
         taxableAmount,
@@ -15887,8 +15929,9 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_id')) {
       context.handle(
@@ -15930,14 +15973,14 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductTaxInfoV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductTaxInfoV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_product_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -15961,7 +16004,7 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
 
 class OrderProductTaxInfoV2Data extends DataClass
     implements Insertable<OrderProductTaxInfoV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductId;
   final String orderRef;
   final double? taxableAmount;
@@ -15969,7 +16012,7 @@ class OrderProductTaxInfoV2Data extends DataClass
   final double? taxPercentage;
   final String? taxGroupId;
   const OrderProductTaxInfoV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductId,
       required this.orderRef,
       this.taxableAmount,
@@ -15979,7 +16022,9 @@ class OrderProductTaxInfoV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || taxableAmount != null) {
@@ -15999,7 +16044,8 @@ class OrderProductTaxInfoV2Data extends DataClass
 
   OrderProductTaxInfoV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductTaxInfoV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
       taxableAmount: taxableAmount == null && nullToAbsent
@@ -16021,7 +16067,7 @@ class OrderProductTaxInfoV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTaxInfoV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       taxableAmount: serializer.fromJson<double?>(json['taxableAmount']),
@@ -16034,7 +16080,7 @@ class OrderProductTaxInfoV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
       'taxableAmount': serializer.toJson<double?>(taxableAmount),
@@ -16045,7 +16091,7 @@ class OrderProductTaxInfoV2Data extends DataClass
   }
 
   OrderProductTaxInfoV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductId,
           String? orderRef,
           Value<double?> taxableAmount = const Value.absent(),
@@ -16053,7 +16099,7 @@ class OrderProductTaxInfoV2Data extends DataClass
           Value<double?> taxPercentage = const Value.absent(),
           Value<String?> taxGroupId = const Value.absent()}) =>
       OrderProductTaxInfoV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductId: orderProductId ?? this.orderProductId,
         orderRef: orderRef ?? this.orderRef,
         taxableAmount:
@@ -16066,7 +16112,7 @@ class OrderProductTaxInfoV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxInfoV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('taxableAmount: $taxableAmount, ')
@@ -16078,13 +16124,13 @@ class OrderProductTaxInfoV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderProductId, orderRef, taxableAmount,
-      taxAmount, taxPercentage, taxGroupId);
+  int get hashCode => Object.hash(idSeq, orderProductId, orderRef,
+      taxableAmount, taxAmount, taxPercentage, taxGroupId);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductTaxInfoV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
           other.taxableAmount == this.taxableAmount &&
@@ -16095,7 +16141,7 @@ class OrderProductTaxInfoV2Data extends DataClass
 
 class OrderProductTaxInfoV2Companion
     extends UpdateCompanion<OrderProductTaxInfoV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductId;
   final Value<String> orderRef;
   final Value<double?> taxableAmount;
@@ -16103,7 +16149,7 @@ class OrderProductTaxInfoV2Companion
   final Value<double?> taxPercentage;
   final Value<String?> taxGroupId;
   const OrderProductTaxInfoV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.taxableAmount = const Value.absent(),
@@ -16112,7 +16158,7 @@ class OrderProductTaxInfoV2Companion
     this.taxGroupId = const Value.absent(),
   });
   OrderProductTaxInfoV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductId,
     required String orderRef,
     this.taxableAmount = const Value.absent(),
@@ -16122,7 +16168,7 @@ class OrderProductTaxInfoV2Companion
   })  : orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductTaxInfoV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
     Expression<double>? taxableAmount,
@@ -16131,7 +16177,7 @@ class OrderProductTaxInfoV2Companion
     Expression<String>? taxGroupId,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductId != null) 'order_product_id': orderProductId,
       if (orderRef != null) 'order_ref': orderRef,
       if (taxableAmount != null) 'taxable_amount': taxableAmount,
@@ -16142,7 +16188,7 @@ class OrderProductTaxInfoV2Companion
   }
 
   OrderProductTaxInfoV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductId,
       Value<String>? orderRef,
       Value<double?>? taxableAmount,
@@ -16150,7 +16196,7 @@ class OrderProductTaxInfoV2Companion
       Value<double?>? taxPercentage,
       Value<String?>? taxGroupId}) {
     return OrderProductTaxInfoV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductId: orderProductId ?? this.orderProductId,
       orderRef: orderRef ?? this.orderRef,
       taxableAmount: taxableAmount ?? this.taxableAmount,
@@ -16163,8 +16209,8 @@ class OrderProductTaxInfoV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductId.present) {
       map['order_product_id'] = Variable<int>(orderProductId.value);
@@ -16190,7 +16236,7 @@ class OrderProductTaxInfoV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxInfoV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
           ..write('taxableAmount: $taxableAmount, ')
@@ -16208,10 +16254,10 @@ class $OrderProductChargeTaxV2Table extends OrderProductChargeTaxV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductChargeTaxV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -16258,7 +16304,7 @@ class $OrderProductChargeTaxV2Table extends OrderProductChargeTaxV2
       type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns =>
-      [id, orderProductChargeId, orderRef, taxId, name, amount, percentage];
+      [idSeq, orderProductChargeId, orderRef, taxId, name, amount, percentage];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -16270,8 +16316,9 @@ class $OrderProductChargeTaxV2Table extends OrderProductChargeTaxV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_charge_id')) {
       context.handle(
@@ -16309,14 +16356,14 @@ class $OrderProductChargeTaxV2Table extends OrderProductChargeTaxV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductChargeTaxV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductChargeTaxV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductChargeId: attachedDatabase.typeMapping.read(
           DriftSqlType.int, data['${effectivePrefix}order_product_charge_id'])!,
       orderRef: attachedDatabase.typeMapping
@@ -16340,7 +16387,7 @@ class $OrderProductChargeTaxV2Table extends OrderProductChargeTaxV2
 
 class OrderProductChargeTaxV2Data extends DataClass
     implements Insertable<OrderProductChargeTaxV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductChargeId;
   final String orderRef;
   final String? taxId;
@@ -16348,7 +16395,7 @@ class OrderProductChargeTaxV2Data extends DataClass
   final double? amount;
   final double? percentage;
   const OrderProductChargeTaxV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductChargeId,
       required this.orderRef,
       this.taxId,
@@ -16358,7 +16405,9 @@ class OrderProductChargeTaxV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_charge_id'] = Variable<int>(orderProductChargeId);
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || taxId != null) {
@@ -16378,7 +16427,8 @@ class OrderProductChargeTaxV2Data extends DataClass
 
   OrderProductChargeTaxV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductChargeTaxV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductChargeId: Value(orderProductChargeId),
       orderRef: Value(orderRef),
       taxId:
@@ -16396,7 +16446,7 @@ class OrderProductChargeTaxV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductChargeTaxV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductChargeId:
           serializer.fromJson<int>(json['orderProductChargeId']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
@@ -16410,7 +16460,7 @@ class OrderProductChargeTaxV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductChargeId': serializer.toJson<int>(orderProductChargeId),
       'orderRef': serializer.toJson<String>(orderRef),
       'taxId': serializer.toJson<String?>(taxId),
@@ -16421,7 +16471,7 @@ class OrderProductChargeTaxV2Data extends DataClass
   }
 
   OrderProductChargeTaxV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductChargeId,
           String? orderRef,
           Value<String?> taxId = const Value.absent(),
@@ -16429,7 +16479,7 @@ class OrderProductChargeTaxV2Data extends DataClass
           Value<double?> amount = const Value.absent(),
           Value<double?> percentage = const Value.absent()}) =>
       OrderProductChargeTaxV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductChargeId: orderProductChargeId ?? this.orderProductChargeId,
         orderRef: orderRef ?? this.orderRef,
         taxId: taxId.present ? taxId.value : this.taxId,
@@ -16440,7 +16490,7 @@ class OrderProductChargeTaxV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeTaxV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductChargeId: $orderProductChargeId, ')
           ..write('orderRef: $orderRef, ')
           ..write('taxId: $taxId, ')
@@ -16453,12 +16503,12 @@ class OrderProductChargeTaxV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id, orderProductChargeId, orderRef, taxId, name, amount, percentage);
+      idSeq, orderProductChargeId, orderRef, taxId, name, amount, percentage);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductChargeTaxV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductChargeId == this.orderProductChargeId &&
           other.orderRef == this.orderRef &&
           other.taxId == this.taxId &&
@@ -16469,7 +16519,7 @@ class OrderProductChargeTaxV2Data extends DataClass
 
 class OrderProductChargeTaxV2Companion
     extends UpdateCompanion<OrderProductChargeTaxV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductChargeId;
   final Value<String> orderRef;
   final Value<String?> taxId;
@@ -16477,7 +16527,7 @@ class OrderProductChargeTaxV2Companion
   final Value<double?> amount;
   final Value<double?> percentage;
   const OrderProductChargeTaxV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductChargeId = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.taxId = const Value.absent(),
@@ -16486,7 +16536,7 @@ class OrderProductChargeTaxV2Companion
     this.percentage = const Value.absent(),
   });
   OrderProductChargeTaxV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductChargeId,
     required String orderRef,
     this.taxId = const Value.absent(),
@@ -16496,7 +16546,7 @@ class OrderProductChargeTaxV2Companion
   })  : orderProductChargeId = Value(orderProductChargeId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductChargeTaxV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductChargeId,
     Expression<String>? orderRef,
     Expression<String>? taxId,
@@ -16505,7 +16555,7 @@ class OrderProductChargeTaxV2Companion
     Expression<double>? percentage,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductChargeId != null)
         'order_product_charge_id': orderProductChargeId,
       if (orderRef != null) 'order_ref': orderRef,
@@ -16517,7 +16567,7 @@ class OrderProductChargeTaxV2Companion
   }
 
   OrderProductChargeTaxV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductChargeId,
       Value<String>? orderRef,
       Value<String?>? taxId,
@@ -16525,7 +16575,7 @@ class OrderProductChargeTaxV2Companion
       Value<double?>? amount,
       Value<double?>? percentage}) {
     return OrderProductChargeTaxV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductChargeId: orderProductChargeId ?? this.orderProductChargeId,
       orderRef: orderRef ?? this.orderRef,
       taxId: taxId ?? this.taxId,
@@ -16538,8 +16588,8 @@ class OrderProductChargeTaxV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductChargeId.present) {
       map['order_product_charge_id'] =
@@ -16566,7 +16616,7 @@ class OrderProductChargeTaxV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeTaxV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductChargeId: $orderProductChargeId, ')
           ..write('orderRef: $orderRef, ')
           ..write('taxId: $taxId, ')
@@ -16586,10 +16636,10 @@ class $OrderProductChargeTaxInfoV2Table extends OrderProductChargeTaxInfoV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductChargeTaxInfoV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -16663,7 +16713,7 @@ class $OrderProductChargeTaxInfoV2Table extends OrderProductChargeTaxInfoV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductChargeTaxId,
         orderProductChargeId,
         orderProductId,
@@ -16685,8 +16735,9 @@ class $OrderProductChargeTaxInfoV2Table extends OrderProductChargeTaxInfoV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_charge_tax_id')) {
       context.handle(
@@ -16751,14 +16802,14 @@ class $OrderProductChargeTaxInfoV2Table extends OrderProductChargeTaxInfoV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductChargeTaxInfoV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductChargeTaxInfoV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductChargeTaxId: attachedDatabase.typeMapping.read(
           DriftSqlType.int,
           data['${effectivePrefix}order_product_charge_tax_id'])!,
@@ -16789,7 +16840,7 @@ class $OrderProductChargeTaxInfoV2Table extends OrderProductChargeTaxInfoV2
 
 class OrderProductChargeTaxInfoV2Data extends DataClass
     implements Insertable<OrderProductChargeTaxInfoV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductChargeTaxId;
   final int orderProductChargeId;
   final int orderProductId;
@@ -16800,7 +16851,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
   final double? taxPercentage;
   final String? taxGroupId;
   const OrderProductChargeTaxInfoV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductChargeTaxId,
       required this.orderProductChargeId,
       required this.orderProductId,
@@ -16813,7 +16864,9 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_charge_tax_id'] = Variable<int>(orderProductChargeTaxId);
     map['order_product_charge_id'] = Variable<int>(orderProductChargeId);
     map['order_product_id'] = Variable<int>(orderProductId);
@@ -16838,7 +16891,8 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
 
   OrderProductChargeTaxInfoV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductChargeTaxInfoV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductChargeTaxId: Value(orderProductChargeTaxId),
       orderProductChargeId: Value(orderProductChargeId),
       orderProductId: Value(orderProductId),
@@ -16865,7 +16919,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductChargeTaxInfoV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductChargeTaxId:
           serializer.fromJson<int>(json['orderProductChargeTaxId']),
       orderProductChargeId:
@@ -16883,7 +16937,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductChargeTaxId':
           serializer.toJson<int>(orderProductChargeTaxId),
       'orderProductChargeId': serializer.toJson<int>(orderProductChargeId),
@@ -16898,7 +16952,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
   }
 
   OrderProductChargeTaxInfoV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductChargeTaxId,
           int? orderProductChargeId,
           int? orderProductId,
@@ -16909,7 +16963,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
           Value<double?> taxPercentage = const Value.absent(),
           Value<String?> taxGroupId = const Value.absent()}) =>
       OrderProductChargeTaxInfoV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductChargeTaxId:
             orderProductChargeTaxId ?? this.orderProductChargeTaxId,
         orderProductChargeId: orderProductChargeId ?? this.orderProductChargeId,
@@ -16925,7 +16979,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeTaxInfoV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductChargeTaxId: $orderProductChargeTaxId, ')
           ..write('orderProductChargeId: $orderProductChargeId, ')
           ..write('orderProductId: $orderProductId, ')
@@ -16941,7 +16995,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id,
+      idSeq,
       orderProductChargeTaxId,
       orderProductChargeId,
       orderProductId,
@@ -16955,7 +17009,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductChargeTaxInfoV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductChargeTaxId == this.orderProductChargeTaxId &&
           other.orderProductChargeId == this.orderProductChargeId &&
           other.orderProductId == this.orderProductId &&
@@ -16969,7 +17023,7 @@ class OrderProductChargeTaxInfoV2Data extends DataClass
 
 class OrderProductChargeTaxInfoV2Companion
     extends UpdateCompanion<OrderProductChargeTaxInfoV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductChargeTaxId;
   final Value<int> orderProductChargeId;
   final Value<int> orderProductId;
@@ -16980,7 +17034,7 @@ class OrderProductChargeTaxInfoV2Companion
   final Value<double?> taxPercentage;
   final Value<String?> taxGroupId;
   const OrderProductChargeTaxInfoV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductChargeTaxId = const Value.absent(),
     this.orderProductChargeId = const Value.absent(),
     this.orderProductId = const Value.absent(),
@@ -16992,7 +17046,7 @@ class OrderProductChargeTaxInfoV2Companion
     this.taxGroupId = const Value.absent(),
   });
   OrderProductChargeTaxInfoV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductChargeTaxId,
     required int orderProductChargeId,
     required int orderProductId,
@@ -17007,7 +17061,7 @@ class OrderProductChargeTaxInfoV2Companion
         orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductChargeTaxInfoV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductChargeTaxId,
     Expression<int>? orderProductChargeId,
     Expression<int>? orderProductId,
@@ -17019,7 +17073,7 @@ class OrderProductChargeTaxInfoV2Companion
     Expression<String>? taxGroupId,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductChargeTaxId != null)
         'order_product_charge_tax_id': orderProductChargeTaxId,
       if (orderProductChargeId != null)
@@ -17035,7 +17089,7 @@ class OrderProductChargeTaxInfoV2Companion
   }
 
   OrderProductChargeTaxInfoV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductChargeTaxId,
       Value<int>? orderProductChargeId,
       Value<int>? orderProductId,
@@ -17046,7 +17100,7 @@ class OrderProductChargeTaxInfoV2Companion
       Value<double?>? taxPercentage,
       Value<String?>? taxGroupId}) {
     return OrderProductChargeTaxInfoV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductChargeTaxId:
           orderProductChargeTaxId ?? this.orderProductChargeTaxId,
       orderProductChargeId: orderProductChargeId ?? this.orderProductChargeId,
@@ -17063,8 +17117,8 @@ class OrderProductChargeTaxInfoV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductChargeTaxId.present) {
       map['order_product_charge_tax_id'] =
@@ -17101,7 +17155,7 @@ class OrderProductChargeTaxInfoV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeTaxInfoV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductChargeTaxId: $orderProductChargeTaxId, ')
           ..write('orderProductChargeId: $orderProductChargeId, ')
           ..write('orderProductId: $orderProductId, ')
@@ -17122,10 +17176,10 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductTaxTypeV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -17190,7 +17244,7 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderProductTaxInfoId,
         orderProductId,
         orderRef,
@@ -17211,8 +17265,9 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_product_tax_info_id')) {
       context.handle(
@@ -17268,14 +17323,14 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderProductTaxTypeV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductTaxTypeV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderProductTaxInfoId: attachedDatabase.typeMapping.read(DriftSqlType.int,
           data['${effectivePrefix}order_product_tax_info_id'])!,
       orderProductId: attachedDatabase.typeMapping
@@ -17303,7 +17358,7 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
 
 class OrderProductTaxTypeV2Data extends DataClass
     implements Insertable<OrderProductTaxTypeV2Data> {
-  final int id;
+  final int? idSeq;
   final int orderProductTaxInfoId;
   final int orderProductId;
   final String orderRef;
@@ -17313,7 +17368,7 @@ class OrderProductTaxTypeV2Data extends DataClass
   final double? taxPercentage;
   final String? taxGroupId;
   const OrderProductTaxTypeV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderProductTaxInfoId,
       required this.orderProductId,
       required this.orderRef,
@@ -17325,7 +17380,9 @@ class OrderProductTaxTypeV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_product_tax_info_id'] = Variable<int>(orderProductTaxInfoId);
     map['order_product_id'] = Variable<int>(orderProductId);
     map['order_ref'] = Variable<String>(orderRef);
@@ -17349,7 +17406,8 @@ class OrderProductTaxTypeV2Data extends DataClass
 
   OrderProductTaxTypeV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductTaxTypeV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderProductTaxInfoId: Value(orderProductTaxInfoId),
       orderProductId: Value(orderProductId),
       orderRef: Value(orderRef),
@@ -17375,7 +17433,7 @@ class OrderProductTaxTypeV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTaxTypeV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderProductTaxInfoId:
           serializer.fromJson<int>(json['orderProductTaxInfoId']),
       orderProductId: serializer.fromJson<int>(json['orderProductId']),
@@ -17391,7 +17449,7 @@ class OrderProductTaxTypeV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderProductTaxInfoId': serializer.toJson<int>(orderProductTaxInfoId),
       'orderProductId': serializer.toJson<int>(orderProductId),
       'orderRef': serializer.toJson<String>(orderRef),
@@ -17404,7 +17462,7 @@ class OrderProductTaxTypeV2Data extends DataClass
   }
 
   OrderProductTaxTypeV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           int? orderProductTaxInfoId,
           int? orderProductId,
           String? orderRef,
@@ -17414,7 +17472,7 @@ class OrderProductTaxTypeV2Data extends DataClass
           Value<double?> taxPercentage = const Value.absent(),
           Value<String?> taxGroupId = const Value.absent()}) =>
       OrderProductTaxTypeV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderProductTaxInfoId:
             orderProductTaxInfoId ?? this.orderProductTaxInfoId,
         orderProductId: orderProductId ?? this.orderProductId,
@@ -17429,7 +17487,7 @@ class OrderProductTaxTypeV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductTaxInfoId: $orderProductTaxInfoId, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
@@ -17443,13 +17501,13 @@ class OrderProductTaxTypeV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderProductTaxInfoId, orderProductId,
+  int get hashCode => Object.hash(idSeq, orderProductTaxInfoId, orderProductId,
       orderRef, taxTypeId, taxTypeName, taxAmount, taxPercentage, taxGroupId);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductTaxTypeV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderProductTaxInfoId == this.orderProductTaxInfoId &&
           other.orderProductId == this.orderProductId &&
           other.orderRef == this.orderRef &&
@@ -17462,7 +17520,7 @@ class OrderProductTaxTypeV2Data extends DataClass
 
 class OrderProductTaxTypeV2Companion
     extends UpdateCompanion<OrderProductTaxTypeV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<int> orderProductTaxInfoId;
   final Value<int> orderProductId;
   final Value<String> orderRef;
@@ -17472,7 +17530,7 @@ class OrderProductTaxTypeV2Companion
   final Value<double?> taxPercentage;
   final Value<String?> taxGroupId;
   const OrderProductTaxTypeV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderProductTaxInfoId = const Value.absent(),
     this.orderProductId = const Value.absent(),
     this.orderRef = const Value.absent(),
@@ -17483,7 +17541,7 @@ class OrderProductTaxTypeV2Companion
     this.taxGroupId = const Value.absent(),
   });
   OrderProductTaxTypeV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required int orderProductTaxInfoId,
     required int orderProductId,
     required String orderRef,
@@ -17496,7 +17554,7 @@ class OrderProductTaxTypeV2Companion
         orderProductId = Value(orderProductId),
         orderRef = Value(orderRef);
   static Insertable<OrderProductTaxTypeV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<int>? orderProductTaxInfoId,
     Expression<int>? orderProductId,
     Expression<String>? orderRef,
@@ -17507,7 +17565,7 @@ class OrderProductTaxTypeV2Companion
     Expression<String>? taxGroupId,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderProductTaxInfoId != null)
         'order_product_tax_info_id': orderProductTaxInfoId,
       if (orderProductId != null) 'order_product_id': orderProductId,
@@ -17521,7 +17579,7 @@ class OrderProductTaxTypeV2Companion
   }
 
   OrderProductTaxTypeV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<int>? orderProductTaxInfoId,
       Value<int>? orderProductId,
       Value<String>? orderRef,
@@ -17531,7 +17589,7 @@ class OrderProductTaxTypeV2Companion
       Value<double?>? taxPercentage,
       Value<String?>? taxGroupId}) {
     return OrderProductTaxTypeV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderProductTaxInfoId:
           orderProductTaxInfoId ?? this.orderProductTaxInfoId,
       orderProductId: orderProductId ?? this.orderProductId,
@@ -17547,8 +17605,8 @@ class OrderProductTaxTypeV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderProductTaxInfoId.present) {
       map['order_product_tax_info_id'] =
@@ -17581,7 +17639,7 @@ class OrderProductTaxTypeV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderProductTaxInfoId: $orderProductTaxInfoId, ')
           ..write('orderProductId: $orderProductId, ')
           ..write('orderRef: $orderRef, ')
@@ -17601,10 +17659,10 @@ class $OrderDiscountV2Table extends OrderDiscountV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderDiscountV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -17676,7 +17734,7 @@ class $OrderDiscountV2Table extends OrderDiscountV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderRef,
         discountId,
         name,
@@ -17699,8 +17757,9 @@ class $OrderDiscountV2Table extends OrderDiscountV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
@@ -17760,13 +17819,13 @@ class $OrderDiscountV2Table extends OrderDiscountV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderDiscountV2Data map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderDiscountV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       discountId: attachedDatabase.typeMapping
@@ -17799,7 +17858,7 @@ class $OrderDiscountV2Table extends OrderDiscountV2
 
 class OrderDiscountV2Data extends DataClass
     implements Insertable<OrderDiscountV2Data> {
-  final int id;
+  final int? idSeq;
   final String orderRef;
   final String? discountId;
   final String? name;
@@ -17811,7 +17870,7 @@ class OrderDiscountV2Data extends DataClass
   final bool? taxable;
   final String? notes;
   const OrderDiscountV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderRef,
       this.discountId,
       this.name,
@@ -17825,7 +17884,9 @@ class OrderDiscountV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || discountId != null) {
       map['discount_id'] = Variable<String>(discountId);
@@ -17859,7 +17920,8 @@ class OrderDiscountV2Data extends DataClass
 
   OrderDiscountV2Companion toCompanion(bool nullToAbsent) {
     return OrderDiscountV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderRef: Value(orderRef),
       discountId: discountId == null && nullToAbsent
           ? const Value.absent()
@@ -17892,7 +17954,7 @@ class OrderDiscountV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderDiscountV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       discountId: serializer.fromJson<String?>(json['discountId']),
       name: serializer.fromJson<String?>(json['name']),
@@ -17911,7 +17973,7 @@ class OrderDiscountV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderRef': serializer.toJson<String>(orderRef),
       'discountId': serializer.toJson<String?>(discountId),
       'name': serializer.toJson<String?>(name),
@@ -17927,7 +17989,7 @@ class OrderDiscountV2Data extends DataClass
   }
 
   OrderDiscountV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           String? orderRef,
           Value<String?> discountId = const Value.absent(),
           Value<String?> name = const Value.absent(),
@@ -17939,7 +18001,7 @@ class OrderDiscountV2Data extends DataClass
           Value<bool?> taxable = const Value.absent(),
           Value<String?> notes = const Value.absent()}) =>
       OrderDiscountV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderRef: orderRef ?? this.orderRef,
         discountId: discountId.present ? discountId.value : this.discountId,
         name: name.present ? name.value : this.name,
@@ -17960,7 +18022,7 @@ class OrderDiscountV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderDiscountV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('discountId: $discountId, ')
           ..write('name: $name, ')
@@ -17977,7 +18039,7 @@ class OrderDiscountV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id,
+      idSeq,
       orderRef,
       discountId,
       name,
@@ -17992,7 +18054,7 @@ class OrderDiscountV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderDiscountV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderRef == this.orderRef &&
           other.discountId == this.discountId &&
           other.name == this.name &&
@@ -18006,7 +18068,7 @@ class OrderDiscountV2Data extends DataClass
 }
 
 class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<String> orderRef;
   final Value<String?> discountId;
   final Value<String?> name;
@@ -18018,7 +18080,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
   final Value<bool?> taxable;
   final Value<String?> notes;
   const OrderDiscountV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.discountId = const Value.absent(),
     this.name = const Value.absent(),
@@ -18031,7 +18093,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     this.notes = const Value.absent(),
   });
   OrderDiscountV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required String orderRef,
     this.discountId = const Value.absent(),
     this.name = const Value.absent(),
@@ -18044,7 +18106,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     this.notes = const Value.absent(),
   }) : orderRef = Value(orderRef);
   static Insertable<OrderDiscountV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<String>? orderRef,
     Expression<String>? discountId,
     Expression<String>? name,
@@ -18057,7 +18119,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     Expression<String>? notes,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderRef != null) 'order_ref': orderRef,
       if (discountId != null) 'discount_id': discountId,
       if (name != null) 'name': name,
@@ -18073,7 +18135,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
   }
 
   OrderDiscountV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<String>? orderRef,
       Value<String?>? discountId,
       Value<String?>? name,
@@ -18085,7 +18147,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
       Value<bool?>? taxable,
       Value<String?>? notes}) {
     return OrderDiscountV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderRef: orderRef ?? this.orderRef,
       discountId: discountId ?? this.discountId,
       name: name ?? this.name,
@@ -18103,8 +18165,8 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
@@ -18143,7 +18205,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
   @override
   String toString() {
     return (StringBuffer('OrderDiscountV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('discountId: $discountId, ')
           ..write('name: $name, ')
@@ -18165,10 +18227,10 @@ class $OrderPromotionAppliesV2Table extends OrderPromotionAppliesV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderPromotionAppliesV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -18214,7 +18276,7 @@ class $OrderPromotionAppliesV2Table extends OrderPromotionAppliesV2
           type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderRef,
         promotionId,
         name,
@@ -18233,8 +18295,9 @@ class $OrderPromotionAppliesV2Table extends OrderPromotionAppliesV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
@@ -18274,14 +18337,14 @@ class $OrderPromotionAppliesV2Table extends OrderPromotionAppliesV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderPromotionAppliesV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderPromotionAppliesV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       promotionId: attachedDatabase.typeMapping
@@ -18305,7 +18368,7 @@ class $OrderPromotionAppliesV2Table extends OrderPromotionAppliesV2
 
 class OrderPromotionAppliesV2Data extends DataClass
     implements Insertable<OrderPromotionAppliesV2Data> {
-  final int id;
+  final int? idSeq;
   final String orderRef;
   final String? promotionId;
   final String? name;
@@ -18313,7 +18376,7 @@ class OrderPromotionAppliesV2Data extends DataClass
   final double? discountAmount;
   final double? discountPercentage;
   const OrderPromotionAppliesV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderRef,
       this.promotionId,
       this.name,
@@ -18323,7 +18386,9 @@ class OrderPromotionAppliesV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || promotionId != null) {
       map['promotion_id'] = Variable<String>(promotionId);
@@ -18345,7 +18410,8 @@ class OrderPromotionAppliesV2Data extends DataClass
 
   OrderPromotionAppliesV2Companion toCompanion(bool nullToAbsent) {
     return OrderPromotionAppliesV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderRef: Value(orderRef),
       promotionId: promotionId == null && nullToAbsent
           ? const Value.absent()
@@ -18367,7 +18433,7 @@ class OrderPromotionAppliesV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderPromotionAppliesV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       promotionId: serializer.fromJson<String?>(json['promotionId']),
       name: serializer.fromJson<String?>(json['name']),
@@ -18381,7 +18447,7 @@ class OrderPromotionAppliesV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderRef': serializer.toJson<String>(orderRef),
       'promotionId': serializer.toJson<String?>(promotionId),
       'name': serializer.toJson<String?>(name),
@@ -18392,7 +18458,7 @@ class OrderPromotionAppliesV2Data extends DataClass
   }
 
   OrderPromotionAppliesV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           String? orderRef,
           Value<String?> promotionId = const Value.absent(),
           Value<String?> name = const Value.absent(),
@@ -18400,7 +18466,7 @@ class OrderPromotionAppliesV2Data extends DataClass
           Value<double?> discountAmount = const Value.absent(),
           Value<double?> discountPercentage = const Value.absent()}) =>
       OrderPromotionAppliesV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderRef: orderRef ?? this.orderRef,
         promotionId: promotionId.present ? promotionId.value : this.promotionId,
         name: name.present ? name.value : this.name,
@@ -18414,7 +18480,7 @@ class OrderPromotionAppliesV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderPromotionAppliesV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('promotionId: $promotionId, ')
           ..write('name: $name, ')
@@ -18426,13 +18492,13 @@ class OrderPromotionAppliesV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderRef, promotionId, name, totalPrice,
-      discountAmount, discountPercentage);
+  int get hashCode => Object.hash(idSeq, orderRef, promotionId, name,
+      totalPrice, discountAmount, discountPercentage);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderPromotionAppliesV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderRef == this.orderRef &&
           other.promotionId == this.promotionId &&
           other.name == this.name &&
@@ -18443,7 +18509,7 @@ class OrderPromotionAppliesV2Data extends DataClass
 
 class OrderPromotionAppliesV2Companion
     extends UpdateCompanion<OrderPromotionAppliesV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<String> orderRef;
   final Value<String?> promotionId;
   final Value<String?> name;
@@ -18451,7 +18517,7 @@ class OrderPromotionAppliesV2Companion
   final Value<double?> discountAmount;
   final Value<double?> discountPercentage;
   const OrderPromotionAppliesV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.promotionId = const Value.absent(),
     this.name = const Value.absent(),
@@ -18460,7 +18526,7 @@ class OrderPromotionAppliesV2Companion
     this.discountPercentage = const Value.absent(),
   });
   OrderPromotionAppliesV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required String orderRef,
     this.promotionId = const Value.absent(),
     this.name = const Value.absent(),
@@ -18469,7 +18535,7 @@ class OrderPromotionAppliesV2Companion
     this.discountPercentage = const Value.absent(),
   }) : orderRef = Value(orderRef);
   static Insertable<OrderPromotionAppliesV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<String>? orderRef,
     Expression<String>? promotionId,
     Expression<String>? name,
@@ -18478,7 +18544,7 @@ class OrderPromotionAppliesV2Companion
     Expression<double>? discountPercentage,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderRef != null) 'order_ref': orderRef,
       if (promotionId != null) 'promotion_id': promotionId,
       if (name != null) 'name': name,
@@ -18489,7 +18555,7 @@ class OrderPromotionAppliesV2Companion
   }
 
   OrderPromotionAppliesV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<String>? orderRef,
       Value<String?>? promotionId,
       Value<String?>? name,
@@ -18497,7 +18563,7 @@ class OrderPromotionAppliesV2Companion
       Value<double?>? discountAmount,
       Value<double?>? discountPercentage}) {
     return OrderPromotionAppliesV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderRef: orderRef ?? this.orderRef,
       promotionId: promotionId ?? this.promotionId,
       name: name ?? this.name,
@@ -18510,8 +18576,8 @@ class OrderPromotionAppliesV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
@@ -18537,7 +18603,7 @@ class OrderPromotionAppliesV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderPromotionAppliesV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('promotionId: $promotionId, ')
           ..write('name: $name, ')
@@ -18557,10 +18623,10 @@ class $OrderPromotionGiftCardV2Table extends OrderPromotionGiftCardV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderPromotionGiftCardV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -18604,7 +18670,7 @@ class $OrderPromotionGiftCardV2Table extends OrderPromotionGiftCardV2
       type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns =>
-      [id, orderRef, name, fName, barcode, reference, price];
+      [idSeq, orderRef, name, fName, barcode, reference, price];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -18616,8 +18682,9 @@ class $OrderPromotionGiftCardV2Table extends OrderPromotionGiftCardV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
@@ -18649,14 +18716,14 @@ class $OrderPromotionGiftCardV2Table extends OrderPromotionGiftCardV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderPromotionGiftCardV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderPromotionGiftCardV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       name: attachedDatabase.typeMapping
@@ -18680,7 +18747,7 @@ class $OrderPromotionGiftCardV2Table extends OrderPromotionGiftCardV2
 
 class OrderPromotionGiftCardV2Data extends DataClass
     implements Insertable<OrderPromotionGiftCardV2Data> {
-  final int id;
+  final int? idSeq;
   final String orderRef;
   final String? name;
   final String? fName;
@@ -18688,7 +18755,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
   final String? reference;
   final double? price;
   const OrderPromotionGiftCardV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderRef,
       this.name,
       this.fName,
@@ -18698,7 +18765,9 @@ class OrderPromotionGiftCardV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || name != null) {
       map['name'] = Variable<String>(name);
@@ -18720,7 +18789,8 @@ class OrderPromotionGiftCardV2Data extends DataClass
 
   OrderPromotionGiftCardV2Companion toCompanion(bool nullToAbsent) {
     return OrderPromotionGiftCardV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderRef: Value(orderRef),
       name: name == null && nullToAbsent ? const Value.absent() : Value(name),
       fName:
@@ -18740,7 +18810,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderPromotionGiftCardV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       name: serializer.fromJson<String?>(json['name']),
       fName: serializer.fromJson<String?>(json['fName']),
@@ -18753,7 +18823,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderRef': serializer.toJson<String>(orderRef),
       'name': serializer.toJson<String?>(name),
       'fName': serializer.toJson<String?>(fName),
@@ -18764,7 +18834,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
   }
 
   OrderPromotionGiftCardV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           String? orderRef,
           Value<String?> name = const Value.absent(),
           Value<String?> fName = const Value.absent(),
@@ -18772,7 +18842,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
           Value<String?> reference = const Value.absent(),
           Value<double?> price = const Value.absent()}) =>
       OrderPromotionGiftCardV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderRef: orderRef ?? this.orderRef,
         name: name.present ? name.value : this.name,
         fName: fName.present ? fName.value : this.fName,
@@ -18783,7 +18853,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderPromotionGiftCardV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('name: $name, ')
           ..write('fName: $fName, ')
@@ -18796,12 +18866,12 @@ class OrderPromotionGiftCardV2Data extends DataClass
 
   @override
   int get hashCode =>
-      Object.hash(id, orderRef, name, fName, barcode, reference, price);
+      Object.hash(idSeq, orderRef, name, fName, barcode, reference, price);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderPromotionGiftCardV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderRef == this.orderRef &&
           other.name == this.name &&
           other.fName == this.fName &&
@@ -18812,7 +18882,7 @@ class OrderPromotionGiftCardV2Data extends DataClass
 
 class OrderPromotionGiftCardV2Companion
     extends UpdateCompanion<OrderPromotionGiftCardV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<String> orderRef;
   final Value<String?> name;
   final Value<String?> fName;
@@ -18820,7 +18890,7 @@ class OrderPromotionGiftCardV2Companion
   final Value<String?> reference;
   final Value<double?> price;
   const OrderPromotionGiftCardV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.name = const Value.absent(),
     this.fName = const Value.absent(),
@@ -18829,7 +18899,7 @@ class OrderPromotionGiftCardV2Companion
     this.price = const Value.absent(),
   });
   OrderPromotionGiftCardV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required String orderRef,
     this.name = const Value.absent(),
     this.fName = const Value.absent(),
@@ -18838,7 +18908,7 @@ class OrderPromotionGiftCardV2Companion
     this.price = const Value.absent(),
   }) : orderRef = Value(orderRef);
   static Insertable<OrderPromotionGiftCardV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<String>? orderRef,
     Expression<String>? name,
     Expression<String>? fName,
@@ -18847,7 +18917,7 @@ class OrderPromotionGiftCardV2Companion
     Expression<double>? price,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderRef != null) 'order_ref': orderRef,
       if (name != null) 'name': name,
       if (fName != null) 'f_name': fName,
@@ -18858,7 +18928,7 @@ class OrderPromotionGiftCardV2Companion
   }
 
   OrderPromotionGiftCardV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<String>? orderRef,
       Value<String?>? name,
       Value<String?>? fName,
@@ -18866,7 +18936,7 @@ class OrderPromotionGiftCardV2Companion
       Value<String?>? reference,
       Value<double?>? price}) {
     return OrderPromotionGiftCardV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderRef: orderRef ?? this.orderRef,
       name: name ?? this.name,
       fName: fName ?? this.fName,
@@ -18879,8 +18949,8 @@ class OrderPromotionGiftCardV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
@@ -18906,7 +18976,7 @@ class OrderPromotionGiftCardV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderPromotionGiftCardV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('name: $name, ')
           ..write('fName: $fName, ')
@@ -18924,10 +18994,10 @@ class $OrderChargeV2Table extends OrderChargeV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderChargeV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -18989,7 +19059,7 @@ class $OrderChargeV2Table extends OrderChargeV2
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderRef,
         chargeId,
         name,
@@ -19010,8 +19080,9 @@ class $OrderChargeV2Table extends OrderChargeV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
@@ -19063,13 +19134,13 @@ class $OrderChargeV2Table extends OrderChargeV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderChargeV2Data map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderChargeV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       chargeId: attachedDatabase.typeMapping
@@ -19099,7 +19170,7 @@ class $OrderChargeV2Table extends OrderChargeV2
 
 class OrderChargeV2Data extends DataClass
     implements Insertable<OrderChargeV2Data> {
-  final int id;
+  final int? idSeq;
   final String orderRef;
   final String? chargeId;
   final String? name;
@@ -19110,7 +19181,7 @@ class OrderChargeV2Data extends DataClass
   final double? chargeAmount;
   final String? description;
   const OrderChargeV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderRef,
       this.chargeId,
       this.name,
@@ -19123,7 +19194,9 @@ class OrderChargeV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || chargeId != null) {
       map['charge_id'] = Variable<String>(chargeId);
@@ -19154,7 +19227,8 @@ class OrderChargeV2Data extends DataClass
 
   OrderChargeV2Companion toCompanion(bool nullToAbsent) {
     return OrderChargeV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderRef: Value(orderRef),
       chargeId: chargeId == null && nullToAbsent
           ? const Value.absent()
@@ -19182,7 +19256,7 @@ class OrderChargeV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderChargeV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       chargeId: serializer.fromJson<String?>(json['chargeId']),
       name: serializer.fromJson<String?>(json['name']),
@@ -19198,7 +19272,7 @@ class OrderChargeV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderRef': serializer.toJson<String>(orderRef),
       'chargeId': serializer.toJson<String?>(chargeId),
       'name': serializer.toJson<String?>(name),
@@ -19212,7 +19286,7 @@ class OrderChargeV2Data extends DataClass
   }
 
   OrderChargeV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           String? orderRef,
           Value<String?> chargeId = const Value.absent(),
           Value<String?> name = const Value.absent(),
@@ -19223,7 +19297,7 @@ class OrderChargeV2Data extends DataClass
           Value<double?> chargeAmount = const Value.absent(),
           Value<String?> description = const Value.absent()}) =>
       OrderChargeV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderRef: orderRef ?? this.orderRef,
         chargeId: chargeId.present ? chargeId.value : this.chargeId,
         name: name.present ? name.value : this.name,
@@ -19240,7 +19314,7 @@ class OrderChargeV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderChargeV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('chargeId: $chargeId, ')
           ..write('name: $name, ')
@@ -19255,13 +19329,13 @@ class OrderChargeV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderRef, chargeId, name, type,
+  int get hashCode => Object.hash(idSeq, orderRef, chargeId, name, type,
       chargableAmount, value, percentage, chargeAmount, description);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderChargeV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderRef == this.orderRef &&
           other.chargeId == this.chargeId &&
           other.name == this.name &&
@@ -19274,7 +19348,7 @@ class OrderChargeV2Data extends DataClass
 }
 
 class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<String> orderRef;
   final Value<String?> chargeId;
   final Value<String?> name;
@@ -19285,7 +19359,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
   final Value<double?> chargeAmount;
   final Value<String?> description;
   const OrderChargeV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.chargeId = const Value.absent(),
     this.name = const Value.absent(),
@@ -19297,7 +19371,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
     this.description = const Value.absent(),
   });
   OrderChargeV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required String orderRef,
     this.chargeId = const Value.absent(),
     this.name = const Value.absent(),
@@ -19309,7 +19383,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
     this.description = const Value.absent(),
   }) : orderRef = Value(orderRef);
   static Insertable<OrderChargeV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<String>? orderRef,
     Expression<String>? chargeId,
     Expression<String>? name,
@@ -19321,7 +19395,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
     Expression<String>? description,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderRef != null) 'order_ref': orderRef,
       if (chargeId != null) 'charge_id': chargeId,
       if (name != null) 'name': name,
@@ -19335,7 +19409,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
   }
 
   OrderChargeV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<String>? orderRef,
       Value<String?>? chargeId,
       Value<String?>? name,
@@ -19346,7 +19420,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
       Value<double?>? chargeAmount,
       Value<String?>? description}) {
     return OrderChargeV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderRef: orderRef ?? this.orderRef,
       chargeId: chargeId ?? this.chargeId,
       name: name ?? this.name,
@@ -19362,8 +19436,8 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
@@ -19398,7 +19472,7 @@ class OrderChargeV2Companion extends UpdateCompanion<OrderChargeV2Data> {
   @override
   String toString() {
     return (StringBuffer('OrderChargeV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('chargeId: $chargeId, ')
           ..write('name: $name, ')
@@ -19419,10 +19493,10 @@ class $OrderChargeForTotalV2Table extends OrderChargeForTotalV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderChargeForTotalV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -19461,7 +19535,7 @@ class $OrderChargeForTotalV2Table extends OrderChargeForTotalV2
       type: DriftSqlType.double, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns =>
-      [id, orderRef, chargeId, name, amount, taxAmount];
+      [idSeq, orderRef, chargeId, name, amount, taxAmount];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -19473,8 +19547,9 @@ class $OrderChargeForTotalV2Table extends OrderChargeForTotalV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
@@ -19502,14 +19577,14 @@ class $OrderChargeForTotalV2Table extends OrderChargeForTotalV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderChargeForTotalV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderChargeForTotalV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       chargeId: attachedDatabase.typeMapping
@@ -19531,14 +19606,14 @@ class $OrderChargeForTotalV2Table extends OrderChargeForTotalV2
 
 class OrderChargeForTotalV2Data extends DataClass
     implements Insertable<OrderChargeForTotalV2Data> {
-  final int id;
+  final int? idSeq;
   final String orderRef;
   final String? chargeId;
   final String? name;
   final double? amount;
   final double? taxAmount;
   const OrderChargeForTotalV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderRef,
       this.chargeId,
       this.name,
@@ -19547,7 +19622,9 @@ class OrderChargeForTotalV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || chargeId != null) {
       map['charge_id'] = Variable<String>(chargeId);
@@ -19566,7 +19643,8 @@ class OrderChargeForTotalV2Data extends DataClass
 
   OrderChargeForTotalV2Companion toCompanion(bool nullToAbsent) {
     return OrderChargeForTotalV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderRef: Value(orderRef),
       chargeId: chargeId == null && nullToAbsent
           ? const Value.absent()
@@ -19584,7 +19662,7 @@ class OrderChargeForTotalV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderChargeForTotalV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       chargeId: serializer.fromJson<String?>(json['chargeId']),
       name: serializer.fromJson<String?>(json['name']),
@@ -19596,7 +19674,7 @@ class OrderChargeForTotalV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderRef': serializer.toJson<String>(orderRef),
       'chargeId': serializer.toJson<String?>(chargeId),
       'name': serializer.toJson<String?>(name),
@@ -19606,14 +19684,14 @@ class OrderChargeForTotalV2Data extends DataClass
   }
 
   OrderChargeForTotalV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           String? orderRef,
           Value<String?> chargeId = const Value.absent(),
           Value<String?> name = const Value.absent(),
           Value<double?> amount = const Value.absent(),
           Value<double?> taxAmount = const Value.absent()}) =>
       OrderChargeForTotalV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderRef: orderRef ?? this.orderRef,
         chargeId: chargeId.present ? chargeId.value : this.chargeId,
         name: name.present ? name.value : this.name,
@@ -19623,7 +19701,7 @@ class OrderChargeForTotalV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderChargeForTotalV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('chargeId: $chargeId, ')
           ..write('name: $name, ')
@@ -19635,12 +19713,12 @@ class OrderChargeForTotalV2Data extends DataClass
 
   @override
   int get hashCode =>
-      Object.hash(id, orderRef, chargeId, name, amount, taxAmount);
+      Object.hash(idSeq, orderRef, chargeId, name, amount, taxAmount);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderChargeForTotalV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderRef == this.orderRef &&
           other.chargeId == this.chargeId &&
           other.name == this.name &&
@@ -19650,14 +19728,14 @@ class OrderChargeForTotalV2Data extends DataClass
 
 class OrderChargeForTotalV2Companion
     extends UpdateCompanion<OrderChargeForTotalV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<String> orderRef;
   final Value<String?> chargeId;
   final Value<String?> name;
   final Value<double?> amount;
   final Value<double?> taxAmount;
   const OrderChargeForTotalV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.chargeId = const Value.absent(),
     this.name = const Value.absent(),
@@ -19665,7 +19743,7 @@ class OrderChargeForTotalV2Companion
     this.taxAmount = const Value.absent(),
   });
   OrderChargeForTotalV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required String orderRef,
     this.chargeId = const Value.absent(),
     this.name = const Value.absent(),
@@ -19673,7 +19751,7 @@ class OrderChargeForTotalV2Companion
     this.taxAmount = const Value.absent(),
   }) : orderRef = Value(orderRef);
   static Insertable<OrderChargeForTotalV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<String>? orderRef,
     Expression<String>? chargeId,
     Expression<String>? name,
@@ -19681,7 +19759,7 @@ class OrderChargeForTotalV2Companion
     Expression<double>? taxAmount,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderRef != null) 'order_ref': orderRef,
       if (chargeId != null) 'charge_id': chargeId,
       if (name != null) 'name': name,
@@ -19691,14 +19769,14 @@ class OrderChargeForTotalV2Companion
   }
 
   OrderChargeForTotalV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<String>? orderRef,
       Value<String?>? chargeId,
       Value<String?>? name,
       Value<double?>? amount,
       Value<double?>? taxAmount}) {
     return OrderChargeForTotalV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderRef: orderRef ?? this.orderRef,
       chargeId: chargeId ?? this.chargeId,
       name: name ?? this.name,
@@ -19710,8 +19788,8 @@ class OrderChargeForTotalV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
@@ -19734,7 +19812,7 @@ class OrderChargeForTotalV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderChargeForTotalV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('chargeId: $chargeId, ')
           ..write('name: $name, ')
@@ -19751,10 +19829,10 @@ class $OrderTaxTypeV2Table extends OrderTaxTypeV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderTaxTypeV2Table(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
   @override
-  late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, true,
       hasAutoIncrement: true,
       type: DriftSqlType.int,
       requiredDuringInsert: false,
@@ -19821,7 +19899,7 @@ class $OrderTaxTypeV2Table extends OrderTaxTypeV2
           GeneratedColumn.constraintIsAlways('CHECK ("zero_tax" IN (0, 1))'));
   @override
   List<GeneratedColumn> get $columns => [
-        id,
+        idSeq,
         orderRef,
         taxTypeId,
         taxTypeName,
@@ -19842,8 +19920,9 @@ class $OrderTaxTypeV2Table extends OrderTaxTypeV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('id')) {
-      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
     }
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
@@ -19895,13 +19974,13 @@ class $OrderTaxTypeV2Table extends OrderTaxTypeV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {id};
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
   @override
   OrderTaxTypeV2Data map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderTaxTypeV2Data(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq']),
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       taxTypeId: attachedDatabase.typeMapping
@@ -19931,7 +20010,7 @@ class $OrderTaxTypeV2Table extends OrderTaxTypeV2
 
 class OrderTaxTypeV2Data extends DataClass
     implements Insertable<OrderTaxTypeV2Data> {
-  final int id;
+  final int? idSeq;
   final String orderRef;
   final String? taxTypeId;
   final String? taxTypeName;
@@ -19942,7 +20021,7 @@ class OrderTaxTypeV2Data extends DataClass
   final String? taxAccount;
   final bool? zeroTax;
   const OrderTaxTypeV2Data(
-      {required this.id,
+      {this.idSeq,
       required this.orderRef,
       this.taxTypeId,
       this.taxTypeName,
@@ -19955,7 +20034,9 @@ class OrderTaxTypeV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || idSeq != null) {
+      map['id_seq'] = Variable<int>(idSeq);
+    }
     map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || taxTypeId != null) {
       map['tax_type_id'] = Variable<String>(taxTypeId);
@@ -19986,7 +20067,8 @@ class OrderTaxTypeV2Data extends DataClass
 
   OrderTaxTypeV2Companion toCompanion(bool nullToAbsent) {
     return OrderTaxTypeV2Companion(
-      id: Value(id),
+      idSeq:
+          idSeq == null && nullToAbsent ? const Value.absent() : Value(idSeq),
       orderRef: Value(orderRef),
       taxTypeId: taxTypeId == null && nullToAbsent
           ? const Value.absent()
@@ -20018,7 +20100,7 @@ class OrderTaxTypeV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderTaxTypeV2Data(
-      id: serializer.fromJson<int>(json['id']),
+      idSeq: serializer.fromJson<int?>(json['idSeq']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       taxTypeId: serializer.fromJson<String?>(json['taxTypeId']),
       taxTypeName: serializer.fromJson<String?>(json['taxTypeName']),
@@ -20034,7 +20116,7 @@ class OrderTaxTypeV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'id': serializer.toJson<int>(id),
+      'idSeq': serializer.toJson<int?>(idSeq),
       'orderRef': serializer.toJson<String>(orderRef),
       'taxTypeId': serializer.toJson<String?>(taxTypeId),
       'taxTypeName': serializer.toJson<String?>(taxTypeName),
@@ -20048,7 +20130,7 @@ class OrderTaxTypeV2Data extends DataClass
   }
 
   OrderTaxTypeV2Data copyWith(
-          {int? id,
+          {Value<int?> idSeq = const Value.absent(),
           String? orderRef,
           Value<String?> taxTypeId = const Value.absent(),
           Value<String?> taxTypeName = const Value.absent(),
@@ -20059,7 +20141,7 @@ class OrderTaxTypeV2Data extends DataClass
           Value<String?> taxAccount = const Value.absent(),
           Value<bool?> zeroTax = const Value.absent()}) =>
       OrderTaxTypeV2Data(
-        id: id ?? this.id,
+        idSeq: idSeq.present ? idSeq.value : this.idSeq,
         orderRef: orderRef ?? this.orderRef,
         taxTypeId: taxTypeId.present ? taxTypeId.value : this.taxTypeId,
         taxTypeName: taxTypeName.present ? taxTypeName.value : this.taxTypeName,
@@ -20074,7 +20156,7 @@ class OrderTaxTypeV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderTaxTypeV2Data(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('taxTypeId: $taxTypeId, ')
           ..write('taxTypeName: $taxTypeName, ')
@@ -20089,13 +20171,13 @@ class OrderTaxTypeV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, orderRef, taxTypeId, taxTypeName,
+  int get hashCode => Object.hash(idSeq, orderRef, taxTypeId, taxTypeName,
       taxableAmount, percent, amount, taxCode, taxAccount, zeroTax);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderTaxTypeV2Data &&
-          other.id == this.id &&
+          other.idSeq == this.idSeq &&
           other.orderRef == this.orderRef &&
           other.taxTypeId == this.taxTypeId &&
           other.taxTypeName == this.taxTypeName &&
@@ -20108,7 +20190,7 @@ class OrderTaxTypeV2Data extends DataClass
 }
 
 class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
-  final Value<int> id;
+  final Value<int?> idSeq;
   final Value<String> orderRef;
   final Value<String?> taxTypeId;
   final Value<String?> taxTypeName;
@@ -20119,7 +20201,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
   final Value<String?> taxAccount;
   final Value<bool?> zeroTax;
   const OrderTaxTypeV2Companion({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     this.orderRef = const Value.absent(),
     this.taxTypeId = const Value.absent(),
     this.taxTypeName = const Value.absent(),
@@ -20131,7 +20213,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
     this.zeroTax = const Value.absent(),
   });
   OrderTaxTypeV2Companion.insert({
-    this.id = const Value.absent(),
+    this.idSeq = const Value.absent(),
     required String orderRef,
     this.taxTypeId = const Value.absent(),
     this.taxTypeName = const Value.absent(),
@@ -20143,7 +20225,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
     this.zeroTax = const Value.absent(),
   }) : orderRef = Value(orderRef);
   static Insertable<OrderTaxTypeV2Data> custom({
-    Expression<int>? id,
+    Expression<int>? idSeq,
     Expression<String>? orderRef,
     Expression<String>? taxTypeId,
     Expression<String>? taxTypeName,
@@ -20155,7 +20237,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
     Expression<bool>? zeroTax,
   }) {
     return RawValuesInsertable({
-      if (id != null) 'id': id,
+      if (idSeq != null) 'id_seq': idSeq,
       if (orderRef != null) 'order_ref': orderRef,
       if (taxTypeId != null) 'tax_type_id': taxTypeId,
       if (taxTypeName != null) 'tax_type_name': taxTypeName,
@@ -20169,7 +20251,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
   }
 
   OrderTaxTypeV2Companion copyWith(
-      {Value<int>? id,
+      {Value<int?>? idSeq,
       Value<String>? orderRef,
       Value<String?>? taxTypeId,
       Value<String?>? taxTypeName,
@@ -20180,7 +20262,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
       Value<String?>? taxAccount,
       Value<bool?>? zeroTax}) {
     return OrderTaxTypeV2Companion(
-      id: id ?? this.id,
+      idSeq: idSeq ?? this.idSeq,
       orderRef: orderRef ?? this.orderRef,
       taxTypeId: taxTypeId ?? this.taxTypeId,
       taxTypeName: taxTypeName ?? this.taxTypeName,
@@ -20196,8 +20278,8 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (id.present) {
-      map['id'] = Variable<int>(id.value);
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
     }
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
@@ -20232,7 +20314,7 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
   @override
   String toString() {
     return (StringBuffer('OrderTaxTypeV2Companion(')
-          ..write('id: $id, ')
+          ..write('idSeq: $idSeq, ')
           ..write('orderRef: $orderRef, ')
           ..write('taxTypeId: $taxTypeId, ')
           ..write('taxTypeName: $taxTypeName, ')
@@ -20350,26 +20432,10 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             ],
           ),
           WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_unit_price_v2',
-                  kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
             on: TableUpdateQuery.onTableName('order_entity_v2',
                 limitUpdateKind: UpdateKind.delete),
             result: [
               TableUpdate('order_product_unit_price_v2',
-                  kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_tiered_pricing_v2',
                   kind: UpdateKind.delete),
             ],
           ),
@@ -20382,7 +20448,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             ],
           ),
           WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
+            on: TableUpdateQuery.onTableName('order_entity_v2',
                 limitUpdateKind: UpdateKind.delete),
             result: [
               TableUpdate('order_product_time_event_v2',
@@ -20393,30 +20459,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             on: TableUpdateQuery.onTableName('order_entity_v2',
                 limitUpdateKind: UpdateKind.delete),
             result: [
-              TableUpdate('order_product_time_event_v2',
-                  kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
               TableUpdate('order_product_discount_v2', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_discount_v2', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_promotion_info_v2',
-                  kind: UpdateKind.delete),
             ],
           ),
           WritePropagation(
@@ -20428,7 +20471,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             ],
           ),
           WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
+            on: TableUpdateQuery.onTableName('order_entity_v2',
                 limitUpdateKind: UpdateKind.delete),
             result: [
               TableUpdate('order_product_charge_v2', kind: UpdateKind.delete),
@@ -20438,29 +20481,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             on: TableUpdateQuery.onTableName('order_entity_v2',
                 limitUpdateKind: UpdateKind.delete),
             result: [
-              TableUpdate('order_product_charge_v2', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
               TableUpdate('order_product_tax_info_v2', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_tax_info_v2', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_charge_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_charge_tax_v2',
-                  kind: UpdateKind.delete),
             ],
           ),
           WritePropagation(
@@ -20472,49 +20493,11 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             ],
           ),
           WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_charge_tax_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_charge_tax_info_v2',
-                  kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_charge_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_charge_tax_info_v2',
-                  kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_charge_tax_info_v2',
-                  kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
             on: TableUpdateQuery.onTableName('order_entity_v2',
                 limitUpdateKind: UpdateKind.delete),
             result: [
               TableUpdate('order_product_charge_tax_info_v2',
                   kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_tax_info_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_tax_type_v2', kind: UpdateKind.delete),
-            ],
-          ),
-          WritePropagation(
-            on: TableUpdateQuery.onTableName('order_product_entity_v2',
-                limitUpdateKind: UpdateKind.delete),
-            result: [
-              TableUpdate('order_product_tax_type_v2', kind: UpdateKind.delete),
             ],
           ),
           WritePropagation(
