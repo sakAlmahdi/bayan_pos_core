@@ -27,7 +27,7 @@ class Charge {
   bool? autoApplyOnProducts;
   bool? openPeriod;
   bool? applyToSubtotal;
-  bool? applyForProducts;
+  bool? applyForAllProducts;
   bool? printSeparatelyInTotalInvoice;
   bool? amountIncludeInProductPrice;
   double? minAmountPerProduct;
@@ -71,6 +71,7 @@ class Charge {
   DateTime? get getEndDateAndTime => endDate == null
       ? null
       : BaseHelpersMethods.compainDateAndTime(date: endDate!, time: endTime!);
+  bool get applyForProducts => getChargeLevel == ChargeLevel.product;
   Charge();
 
   Charge.fromJson(Map<String, dynamic> json) {
@@ -110,7 +111,7 @@ class Charge {
     autoApplyOnProducts = json['autoApplyOnProducts'];
     applyToSubtotal = json['applyToSubtotal'];
     fName = json['fName'];
-    applyForProducts = json['applyForProducts'];
+    applyForAllProducts = json['applyForAllProducts'];
     printSeparatelyInTotalInvoice = json['printSeparatelyInTotalInvoice'];
     amountIncludeInProductPrice = json['amountIncludeInProductPrice'];
     minAmountPerProduct =
@@ -139,9 +140,9 @@ class Charge {
     data['applyToSubtotal'] = applyToSubtotal;
     data['fName'] = fName;
     data['products'] = products;
-    data['applyForProducts'] = applyForProducts;
+    data['applyForAllProducts'] = applyForAllProducts;
     data['printSeparatelyInTotalInvoice'] = printSeparatelyInTotalInvoice;
-    data['applyForProducts'] = amountIncludeInProductPrice;
+    data['amountIncludeInProductPrice'] = amountIncludeInProductPrice;
     data['maxAmountPerProduct'] = maxAmountPerProduct;
     data['minAmountPerProduct'] = minAmountPerProduct;
     data['deviceCreatedOn'] =

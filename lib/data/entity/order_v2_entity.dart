@@ -37,8 +37,6 @@ import 'drift_db.dart';
 /// - سهل الربط مع API أو ORM
 
 class OrderEntityV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-
   // Common fields
   RealColumn get totalPrice => real()();
   RealColumn get discountAmount => real().nullable()();
@@ -110,14 +108,18 @@ class OrderEntityV2 extends Table {
   TextColumn get createdBy => text().nullable()();
   TextColumn get lastModifiedOn => text().nullable()();
   TextColumn get lastModifiedBy => text().nullable()();
+
+  @override
+  Set<Column<Object>>? get primaryKey => {orderRef};
 }
 
 /// جدول منتجات الطلبات الموحد OrderProductEntityV2
 /// يمثل كل منتج في الطلب مع ارتباطه بـ OrderEntityV2 عبر orderId
 class OrderProductEntityV2 extends Table {
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
-  TextColumn get productRef => text()();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   IntColumn get tableRowIndex => integer()();
   TextColumn get name => text()();
   TextColumn get productId => text()();
@@ -147,65 +149,72 @@ class OrderProductEntityV2 extends Table {
 
 // جدول سعر الوحدة للمنتج في الطلب
 class OrderProductUnitPriceV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   RealColumn get unitPrice => real().nullable()();
   TextColumn get description => text().nullable()();
   TextColumn get unitId => text().nullable()();
   TextColumn get productUnitId => text().nullable()();
   TextColumn get productUnitPriceListId => text().nullable()();
   TextColumn get productUnitPriceListSlapId => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول التسعير المتدرج
 class OrderProductTieredPricingV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   TextColumn get tieredPricingId => text().nullable()();
   TextColumn get name => text().nullable()();
   RealColumn get unitPrice => real().nullable()();
   RealColumn get netUnitPrice => real().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول أحداث الوقت
 class OrderProductTimeEventV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   TextColumn get timeEventId => text()();
   TextColumn get name => text().nullable()();
   RealColumn get unitPrice => real()();
   RealColumn get netUnitPrice => real()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول الخصومات
 class OrderProductDiscountV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   RealColumn get discountAmount => real().nullable()();
   RealColumn get discountPercentage => real().nullable()();
   TextColumn get discountType => text().nullable()();
   TextColumn get discountId => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول معلومات العروض الترويجية
 class OrderProductPromotionInfoV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   RealColumn get notAppliesQuantity => real().nullable()();
   RealColumn get appliesAsPurchaseQuantity => real().nullable()();
   RealColumn get appliesAsDiscountQuantity => real().nullable()();
@@ -214,86 +223,98 @@ class OrderProductPromotionInfoV2 extends Table {
   TextColumn get promotionsJson => text()
       .map(const JsonTypeConverter())
       .nullable()(); // يمكن لاحقاً فصلها لجداول
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول الرسوم
 class OrderProductChargeV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   TextColumn get chargeId => text().nullable()();
   TextColumn get name => text().nullable()();
   RealColumn get amount => real().nullable()();
   RealColumn get percentage => real().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef, chargeId};
 }
 
 // جدول الضرائب
 class OrderProductTaxInfoV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   RealColumn get taxableAmount => real().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get taxPercentage => real().nullable()();
   TextColumn get taxGroupId => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef};
 }
 
 // جدول ضرائب رسوم المنتج في الطلب
 class OrderProductChargeTaxV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductChargeId => integer().customConstraint(
-      'REFERENCES order_product_charge_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   TextColumn get taxId => text().nullable()();
   TextColumn get name => text().nullable()();
   RealColumn get amount => real().nullable()();
   RealColumn get percentage => real().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef, taxId};
 }
 
 // جدول تفاصيل أنواع الضرائب لكل رسم على منتج الطلب
 class OrderProductChargeTaxInfoV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductChargeTaxId => integer().customConstraint(
-      'REFERENCES order_product_charge_tax_v2(id) ON DELETE CASCADE')();
-  IntColumn get orderProductChargeId => integer().customConstraint(
-      'REFERENCES order_product_charge_v2(id) ON DELETE CASCADE')();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   TextColumn get taxTypeId => text().nullable()();
   TextColumn get taxTypeName => text().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get taxPercentage => real().nullable()();
   TextColumn get taxGroupId => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef, taxTypeId};
 }
 
 // جدول أنواع الضرائب المطبقة على منتج الطلب
 class OrderProductTaxTypeV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  IntColumn get orderProductTaxInfoId => integer().customConstraint(
-      'REFERENCES order_product_tax_info_v2(id) ON DELETE CASCADE')();
-  IntColumn get orderProductId => integer().customConstraint(
-      'REFERENCES order_product_entity_v2(id) ON DELETE CASCADE')();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get taxTypeId => text().nullable()();
   TextColumn get taxTypeName => text().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get taxPercentage => real().nullable()();
+  RealColumn get taxableAmount => real()();
   TextColumn get taxGroupId => text().nullable()();
+  BoolColumn get isTaxExempt => boolean().nullable()();
+  BoolColumn get isZeroTax => boolean().nullable()();
+  BoolColumn get isNotApplyForThisCustomer => boolean().nullable()();
+  BoolColumn get isNotApplyForThisOrderType => boolean().nullable()();
+  BoolColumn get isNotApplyForThisPeriod => boolean().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, taxTypeId};
 }
 
 // جدول خصومات الطلب
 class OrderDiscountV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get discountId => text().nullable()();
   TextColumn get name => text().nullable()();
   RealColumn get totalPrice => real().nullable()();
@@ -303,37 +324,46 @@ class OrderDiscountV2 extends Table {
   TextColumn get discountType => text().nullable()();
   BoolColumn get taxable => boolean().nullable()();
   TextColumn get notes => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, discountId};
 }
 
 // جدول العروض الترويجية للطلب
 class OrderPromotionAppliesV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get promotionId => text().nullable()();
   TextColumn get name => text().nullable()();
   RealColumn get totalPrice => real().nullable()();
   RealColumn get discountAmount => real().nullable()();
   RealColumn get discountPercentage => real().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, promotionId};
 }
 
 // جدول بطاقات الهدايا للطلب
 class OrderPromotionGiftCardV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get name => text().nullable()();
   TextColumn get fName => text().nullable()();
   TextColumn get barcode => text().nullable()();
   TextColumn get reference => text().nullable()();
   RealColumn get price => real().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, reference};
 }
 
 // جدول رسوم الطلب
 class OrderChargeV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get chargeId => text().nullable()();
   TextColumn get name => text().nullable()();
   TextColumn get type => text().nullable()();
@@ -342,24 +372,29 @@ class OrderChargeV2 extends Table {
   RealColumn get percentage => real().nullable()();
   RealColumn get chargeAmount => real().nullable()();
   TextColumn get description => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, chargeId};
 }
 
 // جدول رسوم الإجمالي للطلب
 class OrderChargeForTotalV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get chargeId => text().nullable()();
   TextColumn get name => text().nullable()();
   RealColumn get amount => real().nullable()();
   RealColumn get taxAmount => real().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, chargeId};
 }
 
 // جدول أنواع الضرائب للطلب
 class OrderTaxTypeV2 extends Table {
-  IntColumn get idSeq => integer().autoIncrement().nullable()();
-  TextColumn get orderRef => text().customConstraint(
-      'REFERENCES order_entity_v2(order_ref) ON DELETE CASCADE')();
+  TextColumn get orderRef => text()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get taxTypeId => text().nullable()();
   TextColumn get taxTypeName => text().nullable()();
   RealColumn get taxableAmount => real().nullable()();
@@ -368,4 +403,7 @@ class OrderTaxTypeV2 extends Table {
   TextColumn get taxCode => text().nullable()();
   TextColumn get taxAccount => text().nullable()();
   BoolColumn get zeroTax => boolean().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, taxTypeId};
 }

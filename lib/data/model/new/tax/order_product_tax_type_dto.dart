@@ -38,7 +38,7 @@ class OrderProductTaxTypeDto {
   /// Method to convert the instance to a JSON map
   Map<String, dynamic> toJson() {
     return {
-      'Id': id,
+      'Id': id.value,
       'Name': name,
       'TaxableAmount': taxableAmount,
       'Percent': percent,

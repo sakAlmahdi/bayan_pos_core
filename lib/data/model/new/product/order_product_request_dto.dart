@@ -1,6 +1,7 @@
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductRequestDto {
+  String prodRef;
   int tableRowIndex;
   Guid productId;
   Guid unitId;
@@ -14,6 +15,7 @@ class OrderProductRequestDto {
   Guid? taxGroupId;
 
   OrderProductRequestDto({
+    required this.prodRef,
     required this.tableRowIndex,
     required this.productId,
     required this.unitId,
@@ -30,6 +32,7 @@ class OrderProductRequestDto {
   /// Factory constructor to create an instance from JSON
   factory OrderProductRequestDto.fromJson(Map<String, dynamic> json) {
     return OrderProductRequestDto(
+      prodRef: json['prodRef'] as String,
       tableRowIndex: json['tableRowIndex'] as int,
       productId: Guid(json['productId'] as String),
       unitId: Guid(json['unitId'] as String),
@@ -53,6 +56,7 @@ class OrderProductRequestDto {
   /// Convert the instance to JSON
   Map<String, dynamic> toJson() {
     return {
+      'prodRef': prodRef,
       'tableRowIndex': tableRowIndex,
       'productId': productId.toString(),
       'unitId': unitId.toString(),
@@ -80,8 +84,10 @@ class OrderProductRequestDto {
     double? discountPercentage,
     Guid? discountId,
     Guid? taxGroupId,
+    String? prodRef,
   }) {
     return OrderProductRequestDto(
+      prodRef: prodRef ?? this.prodRef,
       tableRowIndex: tableRowIndex ?? this.tableRowIndex,
       productId: productId ?? this.productId,
       unitId: unitId ?? this.unitId,

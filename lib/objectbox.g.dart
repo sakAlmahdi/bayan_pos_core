@@ -6183,7 +6183,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(82, 3227993512951134283),
       name: 'Charge',
-      lastPropertyId: const IdUid(32, 4257440075252090337),
+      lastPropertyId: const IdUid(33, 1864873020513913250),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -6250,11 +6250,6 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(14, 8071171503190592094),
             name: 'applyToSubtotal',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 8507960200784712821),
-            name: 'applyForProducts',
             type: 1,
             flags: 0),
         ModelProperty(
@@ -6340,6 +6335,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(32, 4257440075252090337),
             name: 'applyOnNetTotalPriceIncludeProductDiscount',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(33, 1864873020513913250),
+            name: 'applyForAllProducts',
             type: 1,
             flags: 0)
       ],
@@ -6679,7 +6679,8 @@ ModelDefinition getObjectBoxModel() {
         2800025843417485165,
         3316913573284104737,
         3219645466667045008,
-        9148480257443814828
+        9148480257443814828,
+        8507960200784712821
       ],
       retiredRelationUids: const [
         9100000052568182061,
@@ -14083,7 +14084,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.startTime!);
           final endTimeOffset =
               object.endTime == null ? null : fbb.writeString(object.endTime!);
-          fbb.startTable(33);
+          fbb.startTable(34);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -14097,7 +14098,6 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(10, productsOffset);
           fbb.addOffset(11, taxGroupIdOffset);
           fbb.addBool(13, object.applyToSubtotal);
-          fbb.addBool(14, object.applyForProducts);
           fbb.addBool(15, object.printSeparatelyInTotalInvoice);
           fbb.addBool(16, object.amountIncludeInProductPrice);
           fbb.addFloat64(17, object.minAmountPerProduct);
@@ -14115,6 +14115,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addBool(29, object.applyOnNetTotalPriceIncludeTax);
           fbb.addBool(30, object.applyOnNetTotalPriceIncludeOrderDiscount);
           fbb.addBool(31, object.applyOnNetTotalPriceIncludeProductDiscount);
+          fbb.addBool(32, object.applyForAllProducts);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -14152,8 +14153,6 @@ ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 26)
             ..applyToSubtotal =
                 const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30)
-            ..applyForProducts =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32)
             ..printSeparatelyInTotalInvoice =
                 const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34)
             ..amountIncludeInProductPrice =
@@ -14187,7 +14186,9 @@ ModelDefinition getObjectBoxModel() {
             ..applyOnNetTotalPriceIncludeOrderDiscount =
                 const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 64)
             ..applyOnNetTotalPriceIncludeProductDiscount =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66);
+                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66)
+            ..applyForAllProducts =
+                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 68);
 
           return object;
         }),
@@ -18968,76 +18969,76 @@ class Charge_ {
   static final applyToSubtotal =
       QueryBooleanProperty<Charge>(_entities[77].properties[12]);
 
-  /// see [Charge.applyForProducts]
-  static final applyForProducts =
-      QueryBooleanProperty<Charge>(_entities[77].properties[13]);
-
   /// see [Charge.printSeparatelyInTotalInvoice]
   static final printSeparatelyInTotalInvoice =
-      QueryBooleanProperty<Charge>(_entities[77].properties[14]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[13]);
 
   /// see [Charge.amountIncludeInProductPrice]
   static final amountIncludeInProductPrice =
-      QueryBooleanProperty<Charge>(_entities[77].properties[15]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[14]);
 
   /// see [Charge.minAmountPerProduct]
   static final minAmountPerProduct =
-      QueryDoubleProperty<Charge>(_entities[77].properties[16]);
+      QueryDoubleProperty<Charge>(_entities[77].properties[15]);
 
   /// see [Charge.maxAmountPerProduct]
   static final maxAmountPerProduct =
-      QueryDoubleProperty<Charge>(_entities[77].properties[17]);
+      QueryDoubleProperty<Charge>(_entities[77].properties[16]);
 
   /// see [Charge.deviceCreatedOn]
   static final deviceCreatedOn =
-      QueryStringProperty<Charge>(_entities[77].properties[18]);
+      QueryStringProperty<Charge>(_entities[77].properties[17]);
 
   /// see [Charge.deviceCreatedBy]
   static final deviceCreatedBy =
-      QueryStringProperty<Charge>(_entities[77].properties[19]);
+      QueryStringProperty<Charge>(_entities[77].properties[18]);
 
   /// see [Charge.autoApplyOnOrders]
   static final autoApplyOnOrders =
-      QueryBooleanProperty<Charge>(_entities[77].properties[20]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[19]);
 
   /// see [Charge.autoApplyOnProducts]
   static final autoApplyOnProducts =
-      QueryBooleanProperty<Charge>(_entities[77].properties[21]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[20]);
 
   /// see [Charge.openPeriod]
   static final openPeriod =
-      QueryBooleanProperty<Charge>(_entities[77].properties[22]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[21]);
 
   /// see [Charge.applyLevel]
   static final applyLevel =
-      QueryIntegerProperty<Charge>(_entities[77].properties[23]);
+      QueryIntegerProperty<Charge>(_entities[77].properties[22]);
 
   /// see [Charge.startDate]
   static final startDate =
-      QueryStringProperty<Charge>(_entities[77].properties[24]);
+      QueryStringProperty<Charge>(_entities[77].properties[23]);
 
   /// see [Charge.endDate]
   static final endDate =
-      QueryStringProperty<Charge>(_entities[77].properties[25]);
+      QueryStringProperty<Charge>(_entities[77].properties[24]);
 
   /// see [Charge.startTime]
   static final startTime =
-      QueryStringProperty<Charge>(_entities[77].properties[26]);
+      QueryStringProperty<Charge>(_entities[77].properties[25]);
 
   /// see [Charge.endTime]
   static final endTime =
-      QueryStringProperty<Charge>(_entities[77].properties[27]);
+      QueryStringProperty<Charge>(_entities[77].properties[26]);
 
   /// see [Charge.applyOnNetTotalPriceIncludeTax]
   static final applyOnNetTotalPriceIncludeTax =
-      QueryBooleanProperty<Charge>(_entities[77].properties[28]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[27]);
 
   /// see [Charge.applyOnNetTotalPriceIncludeOrderDiscount]
   static final applyOnNetTotalPriceIncludeOrderDiscount =
-      QueryBooleanProperty<Charge>(_entities[77].properties[29]);
+      QueryBooleanProperty<Charge>(_entities[77].properties[28]);
 
   /// see [Charge.applyOnNetTotalPriceIncludeProductDiscount]
   static final applyOnNetTotalPriceIncludeProductDiscount =
+      QueryBooleanProperty<Charge>(_entities[77].properties[29]);
+
+  /// see [Charge.applyForAllProducts]
+  static final applyForAllProducts =
       QueryBooleanProperty<Charge>(_entities[77].properties[30]);
 }
 
