@@ -19,14 +19,12 @@ class OrderProductTaxInfoDto {
   // Factory constructor for creating an instance from JSON
   factory OrderProductTaxInfoDto.fromJson(Map<String, dynamic> json) {
     return OrderProductTaxInfoDto(
-      taxableAmount: (json['TaxableAmount'] as num).toDouble(),
-      taxAmount: json['TaxAmount'] != null
-          ? (json['TaxAmount'] as num).toDouble()
-          : null,
-      taxPercentage: (json['TaxPercentage'] as num).toDouble(),
-      taxGroupId: json['TaxGroupId'] as String,
-      appliesTaxTypes: (json['AppliesTaxTypes'] as List<dynamic>)
-          .map(
+      taxableAmount: (json['taxableAmount'] as num?)?.toDouble(),
+      taxAmount: (json['taxAmount'] as num?)?.toDouble(),
+      taxPercentage: (json['taxPercentage'] as num?)?.toDouble(),
+      taxGroupId: json['taxGroupId'] as String?,
+      appliesTaxTypes: (json['appliesTaxTypes'] as List<dynamic>?)
+          ?.map(
               (e) => OrderProductTaxTypeDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -35,11 +33,11 @@ class OrderProductTaxInfoDto {
   // Convert the object to JSON format
   Map<String, dynamic> toJson() {
     return {
-      'TaxableAmount': taxableAmount,
-      'TaxAmount': taxAmount,
-      'TaxPercentage': taxPercentage,
-      'TaxGroupId': taxGroupId,
-      'AppliesTaxTypes': appliesTaxTypes?.map((e) => e.toJson()).toList(),
+      'taxableAmount': taxableAmount,
+      'taxAmount': taxAmount,
+      'taxPercentage': taxPercentage,
+      'taxGroupId': taxGroupId,
+      'appliesTaxTypes': appliesTaxTypes?.map((e) => e.toJson()).toList(),
     };
   }
 

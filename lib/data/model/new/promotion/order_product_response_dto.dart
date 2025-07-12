@@ -6,6 +6,7 @@ import 'package:bayan_pos_core/data/model/new/promotion/order_product_promotion_
 import 'package:bayan_pos_core/data/model/new/tax/order_product_tax_info_dto.dart';
 import 'package:bayan_pos_core/data/model/new/tiered_pricings/order_product_tiered_pricing_applies_dto.dart';
 import 'package:bayan_pos_core/data/model/new/time_event/order_product_time_event_applies_dto.dart';
+import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductResponseDto {
   String productRef;
@@ -77,7 +78,7 @@ class OrderProductResponseDto {
 
   factory OrderProductResponseDto.fromJson(Map<String, dynamic> json) {
     return OrderProductResponseDto(
-      productRef: json['productRef'],
+      productRef: Guid(json['productRef']).value,
       tableRowIndex: json['tableRowIndex'],
       name: json['name'],
       productId: json['productId'],

@@ -1,7 +1,7 @@
 class OrderTaxTypeViewDto {
-  String type;
-  String name;
-  double amount;
+  String? type;
+  String? name;
+  double? amount;
 
   // Constructor
   OrderTaxTypeViewDto({
@@ -13,9 +13,9 @@ class OrderTaxTypeViewDto {
   // fromJson method
   factory OrderTaxTypeViewDto.fromJson(Map<String, dynamic> json) {
     return OrderTaxTypeViewDto(
-      type: json['Type'] as String,
-      name: json['Name'] as String,
-      amount: (json['Amount'] as num).toDouble(),
+      type: json['Type'] as String?,
+      name: json['Name'] as String?,
+      amount: (json['Amount'] as num?)?.toDouble(),
     );
   }
 

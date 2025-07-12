@@ -2,7 +2,7 @@ import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductTaxTypeDto {
   Guid id;
-  String name;
+  String? name;
   double taxableAmount;
   double percent;
   double amount;
@@ -24,28 +24,28 @@ class OrderProductTaxTypeDto {
   /// Factory method to create an instance from a JSON map
   factory OrderProductTaxTypeDto.fromJson(Map<String, dynamic> json) {
     return OrderProductTaxTypeDto(
-      id: Guid(json['Id'] as String),
-      name: json['Name'] as String,
-      taxableAmount: (json['TaxableAmount'] as num).toDouble(),
-      percent: (json['Percent'] as num).toDouble(),
-      amount: (json['Amount'] as num).toDouble(),
-      taxCode: json['Tax_Code'] as String?,
-      taxAccount: json['Tax_Account'] as String?,
-      zeroTax: json['Zero_Tax'] as bool?,
+      id: Guid(json['id'] as String?),
+      name: json['name'] as String?,
+      taxableAmount: (json['taxableAmount'] as num).toDouble(),
+      percent: (json['percent'] as num).toDouble(),
+      amount: (json['amount'] as num).toDouble(),
+      taxCode: json['tax_Code'] as String?,
+      taxAccount: json['tax_Account'] as String?,
+      zeroTax: json['zero_Tax'] as bool?,
     );
   }
 
   /// Method to convert the instance to a JSON map
   Map<String, dynamic> toJson() {
     return {
-      'Id': id.value,
-      'Name': name,
-      'TaxableAmount': taxableAmount,
-      'Percent': percent,
-      'Amount': amount,
-      'Tax_Code': taxCode,
-      'Tax_Account': taxAccount,
-      'Zero_Tax': zeroTax,
+      'id': id.value,
+      'name': name,
+      'taxableAmount': taxableAmount,
+      'percent': percent,
+      'amount': amount,
+      'tax_Code': taxCode,
+      'tax_Account': taxAccount,
+      'zero_Tax': zeroTax,
     };
   }
 
