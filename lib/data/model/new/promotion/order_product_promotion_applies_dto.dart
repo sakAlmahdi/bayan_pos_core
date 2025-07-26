@@ -39,8 +39,9 @@ class OrderProductPromotionAppliesDto {
       discountAmount: (json['discountAmount'] as num).toDouble(),
       discountPercentage: (json['discountPercentage'] as num).toDouble(),
       netTotalPrice: (json['netTotalPrice'] as num).toDouble(),
-      productType: PromotionProductType.values.firstWhere(
-          (e) => e.toString() == 'PromotionProductType.${json['productType']}'),
+      productType: json['productType'].toString().contains('Discount')
+          ? PromotionProductType.discount
+          : PromotionProductType.purchase,
     );
   }
 

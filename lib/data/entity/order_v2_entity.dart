@@ -294,12 +294,15 @@ class OrderProductTaxTypeV2 extends Table {
   TextColumn get orderRef => text()
       .nullable()
       .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
   TextColumn get taxTypeId => text().nullable()();
   TextColumn get taxTypeName => text().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get taxPercentage => real().nullable()();
   RealColumn get taxableAmount => real()();
   TextColumn get taxGroupId => text().nullable()();
+  TextColumn get taxAccount => text().nullable()();
+  TextColumn get taxCode => text().nullable()();
   BoolColumn get isTaxExempt => boolean().nullable()();
   BoolColumn get isZeroTax => boolean().nullable()();
   BoolColumn get isNotApplyForThisCustomer => boolean().nullable()();

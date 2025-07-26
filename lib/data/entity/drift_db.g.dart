@@ -16367,6 +16367,12 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
       requiredDuringInsert: false,
       defaultConstraints: GeneratedColumn.constraintIsAlways(
           'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
+  static const VerificationMeta _productRefMeta =
+      const VerificationMeta('productRef');
+  @override
+  late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
+      'product_ref', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _taxTypeIdMeta =
       const VerificationMeta('taxTypeId');
   @override
@@ -16402,6 +16408,18 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   @override
   late final GeneratedColumn<String> taxGroupId = GeneratedColumn<String>(
       'tax_group_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _taxAccountMeta =
+      const VerificationMeta('taxAccount');
+  @override
+  late final GeneratedColumn<String> taxAccount = GeneratedColumn<String>(
+      'tax_account', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _taxCodeMeta =
+      const VerificationMeta('taxCode');
+  @override
+  late final GeneratedColumn<String> taxCode = GeneratedColumn<String>(
+      'tax_code', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _isTaxExemptMeta =
       const VerificationMeta('isTaxExempt');
@@ -16452,12 +16470,15 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   @override
   List<GeneratedColumn> get $columns => [
         orderRef,
+        productRef,
         taxTypeId,
         taxTypeName,
         taxAmount,
         taxPercentage,
         taxableAmount,
         taxGroupId,
+        taxAccount,
+        taxCode,
         isTaxExempt,
         isZeroTax,
         isNotApplyForThisCustomer,
@@ -16478,6 +16499,12 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
           orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    }
+    if (data.containsKey('product_ref')) {
+      context.handle(
+          _productRefMeta,
+          productRef.isAcceptableOrUnknown(
+              data['product_ref']!, _productRefMeta));
     }
     if (data.containsKey('tax_type_id')) {
       context.handle(
@@ -16514,6 +16541,16 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
           _taxGroupIdMeta,
           taxGroupId.isAcceptableOrUnknown(
               data['tax_group_id']!, _taxGroupIdMeta));
+    }
+    if (data.containsKey('tax_account')) {
+      context.handle(
+          _taxAccountMeta,
+          taxAccount.isAcceptableOrUnknown(
+              data['tax_account']!, _taxAccountMeta));
+    }
+    if (data.containsKey('tax_code')) {
+      context.handle(_taxCodeMeta,
+          taxCode.isAcceptableOrUnknown(data['tax_code']!, _taxCodeMeta));
     }
     if (data.containsKey('is_tax_exempt')) {
       context.handle(
@@ -16560,6 +16597,8 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
     return OrderProductTaxTypeV2Data(
       orderRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+      productRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
       taxTypeId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}tax_type_id']),
       taxTypeName: attachedDatabase.typeMapping
@@ -16572,6 +16611,10 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
           .read(DriftSqlType.double, data['${effectivePrefix}taxable_amount'])!,
       taxGroupId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}tax_group_id']),
+      taxAccount: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_account']),
+      taxCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_code']),
       isTaxExempt: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_tax_exempt']),
       isZeroTax: attachedDatabase.typeMapping
@@ -16597,12 +16640,15 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
 class OrderProductTaxTypeV2Data extends DataClass
     implements Insertable<OrderProductTaxTypeV2Data> {
   final String? orderRef;
+  final String? productRef;
   final String? taxTypeId;
   final String? taxTypeName;
   final double? taxAmount;
   final double? taxPercentage;
   final double taxableAmount;
   final String? taxGroupId;
+  final String? taxAccount;
+  final String? taxCode;
   final bool? isTaxExempt;
   final bool? isZeroTax;
   final bool? isNotApplyForThisCustomer;
@@ -16610,12 +16656,15 @@ class OrderProductTaxTypeV2Data extends DataClass
   final bool? isNotApplyForThisPeriod;
   const OrderProductTaxTypeV2Data(
       {this.orderRef,
+      this.productRef,
       this.taxTypeId,
       this.taxTypeName,
       this.taxAmount,
       this.taxPercentage,
       required this.taxableAmount,
       this.taxGroupId,
+      this.taxAccount,
+      this.taxCode,
       this.isTaxExempt,
       this.isZeroTax,
       this.isNotApplyForThisCustomer,
@@ -16626,6 +16675,9 @@ class OrderProductTaxTypeV2Data extends DataClass
     final map = <String, Expression>{};
     if (!nullToAbsent || orderRef != null) {
       map['order_ref'] = Variable<String>(orderRef);
+    }
+    if (!nullToAbsent || productRef != null) {
+      map['product_ref'] = Variable<String>(productRef);
     }
     if (!nullToAbsent || taxTypeId != null) {
       map['tax_type_id'] = Variable<String>(taxTypeId);
@@ -16642,6 +16694,12 @@ class OrderProductTaxTypeV2Data extends DataClass
     map['taxable_amount'] = Variable<double>(taxableAmount);
     if (!nullToAbsent || taxGroupId != null) {
       map['tax_group_id'] = Variable<String>(taxGroupId);
+    }
+    if (!nullToAbsent || taxAccount != null) {
+      map['tax_account'] = Variable<String>(taxAccount);
+    }
+    if (!nullToAbsent || taxCode != null) {
+      map['tax_code'] = Variable<String>(taxCode);
     }
     if (!nullToAbsent || isTaxExempt != null) {
       map['is_tax_exempt'] = Variable<bool>(isTaxExempt);
@@ -16669,6 +16727,9 @@ class OrderProductTaxTypeV2Data extends DataClass
       orderRef: orderRef == null && nullToAbsent
           ? const Value.absent()
           : Value(orderRef),
+      productRef: productRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(productRef),
       taxTypeId: taxTypeId == null && nullToAbsent
           ? const Value.absent()
           : Value(taxTypeId),
@@ -16685,6 +16746,12 @@ class OrderProductTaxTypeV2Data extends DataClass
       taxGroupId: taxGroupId == null && nullToAbsent
           ? const Value.absent()
           : Value(taxGroupId),
+      taxAccount: taxAccount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxAccount),
+      taxCode: taxCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxCode),
       isTaxExempt: isTaxExempt == null && nullToAbsent
           ? const Value.absent()
           : Value(isTaxExempt),
@@ -16710,12 +16777,15 @@ class OrderProductTaxTypeV2Data extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTaxTypeV2Data(
       orderRef: serializer.fromJson<String?>(json['orderRef']),
+      productRef: serializer.fromJson<String?>(json['productRef']),
       taxTypeId: serializer.fromJson<String?>(json['taxTypeId']),
       taxTypeName: serializer.fromJson<String?>(json['taxTypeName']),
       taxAmount: serializer.fromJson<double?>(json['taxAmount']),
       taxPercentage: serializer.fromJson<double?>(json['taxPercentage']),
       taxableAmount: serializer.fromJson<double>(json['taxableAmount']),
       taxGroupId: serializer.fromJson<String?>(json['taxGroupId']),
+      taxAccount: serializer.fromJson<String?>(json['taxAccount']),
+      taxCode: serializer.fromJson<String?>(json['taxCode']),
       isTaxExempt: serializer.fromJson<bool?>(json['isTaxExempt']),
       isZeroTax: serializer.fromJson<bool?>(json['isZeroTax']),
       isNotApplyForThisCustomer:
@@ -16731,12 +16801,15 @@ class OrderProductTaxTypeV2Data extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'orderRef': serializer.toJson<String?>(orderRef),
+      'productRef': serializer.toJson<String?>(productRef),
       'taxTypeId': serializer.toJson<String?>(taxTypeId),
       'taxTypeName': serializer.toJson<String?>(taxTypeName),
       'taxAmount': serializer.toJson<double?>(taxAmount),
       'taxPercentage': serializer.toJson<double?>(taxPercentage),
       'taxableAmount': serializer.toJson<double>(taxableAmount),
       'taxGroupId': serializer.toJson<String?>(taxGroupId),
+      'taxAccount': serializer.toJson<String?>(taxAccount),
+      'taxCode': serializer.toJson<String?>(taxCode),
       'isTaxExempt': serializer.toJson<bool?>(isTaxExempt),
       'isZeroTax': serializer.toJson<bool?>(isZeroTax),
       'isNotApplyForThisCustomer':
@@ -16750,12 +16823,15 @@ class OrderProductTaxTypeV2Data extends DataClass
 
   OrderProductTaxTypeV2Data copyWith(
           {Value<String?> orderRef = const Value.absent(),
+          Value<String?> productRef = const Value.absent(),
           Value<String?> taxTypeId = const Value.absent(),
           Value<String?> taxTypeName = const Value.absent(),
           Value<double?> taxAmount = const Value.absent(),
           Value<double?> taxPercentage = const Value.absent(),
           double? taxableAmount,
           Value<String?> taxGroupId = const Value.absent(),
+          Value<String?> taxAccount = const Value.absent(),
+          Value<String?> taxCode = const Value.absent(),
           Value<bool?> isTaxExempt = const Value.absent(),
           Value<bool?> isZeroTax = const Value.absent(),
           Value<bool?> isNotApplyForThisCustomer = const Value.absent(),
@@ -16763,6 +16839,7 @@ class OrderProductTaxTypeV2Data extends DataClass
           Value<bool?> isNotApplyForThisPeriod = const Value.absent()}) =>
       OrderProductTaxTypeV2Data(
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        productRef: productRef.present ? productRef.value : this.productRef,
         taxTypeId: taxTypeId.present ? taxTypeId.value : this.taxTypeId,
         taxTypeName: taxTypeName.present ? taxTypeName.value : this.taxTypeName,
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
@@ -16770,6 +16847,8 @@ class OrderProductTaxTypeV2Data extends DataClass
             taxPercentage.present ? taxPercentage.value : this.taxPercentage,
         taxableAmount: taxableAmount ?? this.taxableAmount,
         taxGroupId: taxGroupId.present ? taxGroupId.value : this.taxGroupId,
+        taxAccount: taxAccount.present ? taxAccount.value : this.taxAccount,
+        taxCode: taxCode.present ? taxCode.value : this.taxCode,
         isTaxExempt: isTaxExempt.present ? isTaxExempt.value : this.isTaxExempt,
         isZeroTax: isZeroTax.present ? isZeroTax.value : this.isZeroTax,
         isNotApplyForThisCustomer: isNotApplyForThisCustomer.present
@@ -16786,12 +16865,15 @@ class OrderProductTaxTypeV2Data extends DataClass
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Data(')
           ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
           ..write('taxTypeId: $taxTypeId, ')
           ..write('taxTypeName: $taxTypeName, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('taxPercentage: $taxPercentage, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxGroupId: $taxGroupId, ')
+          ..write('taxAccount: $taxAccount, ')
+          ..write('taxCode: $taxCode, ')
           ..write('isTaxExempt: $isTaxExempt, ')
           ..write('isZeroTax: $isZeroTax, ')
           ..write('isNotApplyForThisCustomer: $isNotApplyForThisCustomer, ')
@@ -16804,12 +16886,15 @@ class OrderProductTaxTypeV2Data extends DataClass
   @override
   int get hashCode => Object.hash(
       orderRef,
+      productRef,
       taxTypeId,
       taxTypeName,
       taxAmount,
       taxPercentage,
       taxableAmount,
       taxGroupId,
+      taxAccount,
+      taxCode,
       isTaxExempt,
       isZeroTax,
       isNotApplyForThisCustomer,
@@ -16820,12 +16905,15 @@ class OrderProductTaxTypeV2Data extends DataClass
       identical(this, other) ||
       (other is OrderProductTaxTypeV2Data &&
           other.orderRef == this.orderRef &&
+          other.productRef == this.productRef &&
           other.taxTypeId == this.taxTypeId &&
           other.taxTypeName == this.taxTypeName &&
           other.taxAmount == this.taxAmount &&
           other.taxPercentage == this.taxPercentage &&
           other.taxableAmount == this.taxableAmount &&
           other.taxGroupId == this.taxGroupId &&
+          other.taxAccount == this.taxAccount &&
+          other.taxCode == this.taxCode &&
           other.isTaxExempt == this.isTaxExempt &&
           other.isZeroTax == this.isZeroTax &&
           other.isNotApplyForThisCustomer == this.isNotApplyForThisCustomer &&
@@ -16836,12 +16924,15 @@ class OrderProductTaxTypeV2Data extends DataClass
 class OrderProductTaxTypeV2Companion
     extends UpdateCompanion<OrderProductTaxTypeV2Data> {
   final Value<String?> orderRef;
+  final Value<String?> productRef;
   final Value<String?> taxTypeId;
   final Value<String?> taxTypeName;
   final Value<double?> taxAmount;
   final Value<double?> taxPercentage;
   final Value<double> taxableAmount;
   final Value<String?> taxGroupId;
+  final Value<String?> taxAccount;
+  final Value<String?> taxCode;
   final Value<bool?> isTaxExempt;
   final Value<bool?> isZeroTax;
   final Value<bool?> isNotApplyForThisCustomer;
@@ -16850,12 +16941,15 @@ class OrderProductTaxTypeV2Companion
   final Value<int> rowid;
   const OrderProductTaxTypeV2Companion({
     this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
     this.taxTypeId = const Value.absent(),
     this.taxTypeName = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.taxPercentage = const Value.absent(),
     this.taxableAmount = const Value.absent(),
     this.taxGroupId = const Value.absent(),
+    this.taxAccount = const Value.absent(),
+    this.taxCode = const Value.absent(),
     this.isTaxExempt = const Value.absent(),
     this.isZeroTax = const Value.absent(),
     this.isNotApplyForThisCustomer = const Value.absent(),
@@ -16865,12 +16959,15 @@ class OrderProductTaxTypeV2Companion
   });
   OrderProductTaxTypeV2Companion.insert({
     this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
     this.taxTypeId = const Value.absent(),
     this.taxTypeName = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.taxPercentage = const Value.absent(),
     required double taxableAmount,
     this.taxGroupId = const Value.absent(),
+    this.taxAccount = const Value.absent(),
+    this.taxCode = const Value.absent(),
     this.isTaxExempt = const Value.absent(),
     this.isZeroTax = const Value.absent(),
     this.isNotApplyForThisCustomer = const Value.absent(),
@@ -16880,12 +16977,15 @@ class OrderProductTaxTypeV2Companion
   }) : taxableAmount = Value(taxableAmount);
   static Insertable<OrderProductTaxTypeV2Data> custom({
     Expression<String>? orderRef,
+    Expression<String>? productRef,
     Expression<String>? taxTypeId,
     Expression<String>? taxTypeName,
     Expression<double>? taxAmount,
     Expression<double>? taxPercentage,
     Expression<double>? taxableAmount,
     Expression<String>? taxGroupId,
+    Expression<String>? taxAccount,
+    Expression<String>? taxCode,
     Expression<bool>? isTaxExempt,
     Expression<bool>? isZeroTax,
     Expression<bool>? isNotApplyForThisCustomer,
@@ -16895,12 +16995,15 @@ class OrderProductTaxTypeV2Companion
   }) {
     return RawValuesInsertable({
       if (orderRef != null) 'order_ref': orderRef,
+      if (productRef != null) 'product_ref': productRef,
       if (taxTypeId != null) 'tax_type_id': taxTypeId,
       if (taxTypeName != null) 'tax_type_name': taxTypeName,
       if (taxAmount != null) 'tax_amount': taxAmount,
       if (taxPercentage != null) 'tax_percentage': taxPercentage,
       if (taxableAmount != null) 'taxable_amount': taxableAmount,
       if (taxGroupId != null) 'tax_group_id': taxGroupId,
+      if (taxAccount != null) 'tax_account': taxAccount,
+      if (taxCode != null) 'tax_code': taxCode,
       if (isTaxExempt != null) 'is_tax_exempt': isTaxExempt,
       if (isZeroTax != null) 'is_zero_tax': isZeroTax,
       if (isNotApplyForThisCustomer != null)
@@ -16915,12 +17018,15 @@ class OrderProductTaxTypeV2Companion
 
   OrderProductTaxTypeV2Companion copyWith(
       {Value<String?>? orderRef,
+      Value<String?>? productRef,
       Value<String?>? taxTypeId,
       Value<String?>? taxTypeName,
       Value<double?>? taxAmount,
       Value<double?>? taxPercentage,
       Value<double>? taxableAmount,
       Value<String?>? taxGroupId,
+      Value<String?>? taxAccount,
+      Value<String?>? taxCode,
       Value<bool?>? isTaxExempt,
       Value<bool?>? isZeroTax,
       Value<bool?>? isNotApplyForThisCustomer,
@@ -16929,12 +17035,15 @@ class OrderProductTaxTypeV2Companion
       Value<int>? rowid}) {
     return OrderProductTaxTypeV2Companion(
       orderRef: orderRef ?? this.orderRef,
+      productRef: productRef ?? this.productRef,
       taxTypeId: taxTypeId ?? this.taxTypeId,
       taxTypeName: taxTypeName ?? this.taxTypeName,
       taxAmount: taxAmount ?? this.taxAmount,
       taxPercentage: taxPercentage ?? this.taxPercentage,
       taxableAmount: taxableAmount ?? this.taxableAmount,
       taxGroupId: taxGroupId ?? this.taxGroupId,
+      taxAccount: taxAccount ?? this.taxAccount,
+      taxCode: taxCode ?? this.taxCode,
       isTaxExempt: isTaxExempt ?? this.isTaxExempt,
       isZeroTax: isZeroTax ?? this.isZeroTax,
       isNotApplyForThisCustomer:
@@ -16953,6 +17062,9 @@ class OrderProductTaxTypeV2Companion
     if (orderRef.present) {
       map['order_ref'] = Variable<String>(orderRef.value);
     }
+    if (productRef.present) {
+      map['product_ref'] = Variable<String>(productRef.value);
+    }
     if (taxTypeId.present) {
       map['tax_type_id'] = Variable<String>(taxTypeId.value);
     }
@@ -16970,6 +17082,12 @@ class OrderProductTaxTypeV2Companion
     }
     if (taxGroupId.present) {
       map['tax_group_id'] = Variable<String>(taxGroupId.value);
+    }
+    if (taxAccount.present) {
+      map['tax_account'] = Variable<String>(taxAccount.value);
+    }
+    if (taxCode.present) {
+      map['tax_code'] = Variable<String>(taxCode.value);
     }
     if (isTaxExempt.present) {
       map['is_tax_exempt'] = Variable<bool>(isTaxExempt.value);
@@ -16999,12 +17117,15 @@ class OrderProductTaxTypeV2Companion
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Companion(')
           ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
           ..write('taxTypeId: $taxTypeId, ')
           ..write('taxTypeName: $taxTypeName, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('taxPercentage: $taxPercentage, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxGroupId: $taxGroupId, ')
+          ..write('taxAccount: $taxAccount, ')
+          ..write('taxCode: $taxCode, ')
           ..write('isTaxExempt: $isTaxExempt, ')
           ..write('isZeroTax: $isZeroTax, ')
           ..write('isNotApplyForThisCustomer: $isNotApplyForThisCustomer, ')
