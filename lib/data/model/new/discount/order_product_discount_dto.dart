@@ -35,7 +35,7 @@ class OrderProductDiscountDto {
       discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
       discountAmountPerUnit:
           (json['discountAmountPerUnit'] as num?)?.toDouble(),
-      discountType: convertToDiscontType(json['discountType']),
+      discountType: convertToDiscountTypeByName(json['discountType']),
       taxable: json['taxable'] as bool?,
       notes: json['notes'] as String?,
     );

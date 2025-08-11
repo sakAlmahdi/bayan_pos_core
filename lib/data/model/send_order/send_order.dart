@@ -14,7 +14,7 @@ class SendOrder {
   String? deviceOrderId;
   int? invoiceNumber;
   String? callName;
-  int? callNumber;
+  String? callNumber;
   String? openOn;
   String? openBy;
   String? closeOn;

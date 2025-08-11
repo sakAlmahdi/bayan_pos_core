@@ -36,7 +36,7 @@ class OrderC {
   @Unique(onConflict: ConflictStrategy.replace)
   late String orderRef;
   String? callName;
-  int? callNumber;
+  String? callNumber;
   late int orderType;
   late int status;
   late int orderSource;

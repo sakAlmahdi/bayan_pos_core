@@ -1,3 +1,4 @@
+import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_charge_for_total_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
 import 'package:bayan_pos_core/data/model/new/discount/order_product_discount_dto.dart';
@@ -8,6 +9,7 @@ import 'package:bayan_pos_core/data/model/new/tax/order_tax_type_view_dto.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderResponseDto {
+  // الحقول المالية الأساسية
   double totalPrice;
   double? discountAmount;
   double netTotalPrice;
@@ -26,6 +28,58 @@ class OrderResponseDto {
   double? timeEventChargeAmount;
   double? roundingDecimalAmount;
   String? note;
+
+  // الحقول التشغيلية من OrderEntityV2
+  String? orderRef;
+  String? deviceId;
+  DateTime? startDate;
+  DateTime? endTime;
+  DateTime? timeOfReceipt;
+  int? orderType;
+  int? orderSource;
+  int? status;
+  int? deliveryStatus;
+  int? paymentStatus;
+  int? refundStatus;
+  String? shiftId;
+  String? tillId;
+  String? tableId;
+  String? tableCaption;
+  int? numberVisitor;
+  double? minimumReservationPrice;
+  String? callName;
+  String? callNumber;
+  String? cancelReasonId;
+  String? msgCancel;
+  String? kitchenNote;
+  String? casherNote;
+  String? supervisorId;
+  String? parentOrderId;
+  int? splitIndex;
+  String? checksum;
+  String? masterChecksum;
+  String? serverChecksum;
+  double? totalCalories;
+  bool? priceIncludeTax;
+
+  // الحقول المرتبطة بالعملاء والعناوين
+  String? customerId;
+  Map<String, dynamic>? customerJson;
+  String? addressId;
+  Map<String, dynamic>? addressJson;
+
+  // الحقول المرتبطة بالعروض الترويجية
+  String? promotionId;
+  Map<String, dynamic>? promotionJson;
+  Map<String, dynamic>? giftCardJson;
+
+  // الحقول الوصفية
+  String? createdOn;
+  String? createdBy;
+  String? lastModifiedOn;
+  String? lastModifiedBy;
+
+  // الحقول المرتبطة بالمنتجات والخصومات
   OrderProductDiscountDto? discount;
   List<OrderProductResponseDto>? products;
   OrderPromotionAppliesDto? promotion;
@@ -34,33 +88,77 @@ class OrderResponseDto {
   List<OrderChargeForTotalDto>? chargesForTotals;
   List<OrderTaxTypeViewDto>? taxInfo;
 
-  OrderResponseDto({
-    required this.totalPrice,
-    this.discountAmount,
-    required this.netTotalPrice,
-    this.chargeAmount,
-    this.taxableAmount,
-    this.taxAmount,
-    required this.finalAmount,
-    this.shippingAmount,
-    this.shippingDiscountAmount,
-    this.shippingDiscountPercentage,
-    this.productDiscountAmount,
-    this.discountPercentage,
-    this.totalDiscountAmount,
-    this.promotionDiscountAmount,
-    this.timeEventDiscountAmount,
-    this.timeEventChargeAmount,
-    this.roundingDecimalAmount,
-    this.note,
-    this.discount,
-    this.products,
-    this.promotion,
-    this.giftCard,
-    this.charges,
-    this.chargesForTotals,
-    this.taxInfo,
-  });
+  OrderType get getOrderType =>
+      convertStringToOrderType(orderType) ?? OrderType.dineIn;
+
+  OrderResponseDto(
+      {required this.totalPrice,
+      required this.netTotalPrice,
+      required this.finalAmount,
+      this.discountAmount,
+      this.chargeAmount,
+      this.taxableAmount,
+      this.taxAmount,
+      this.shippingAmount,
+      this.shippingDiscountAmount,
+      this.shippingDiscountPercentage,
+      this.productDiscountAmount,
+      this.discountPercentage,
+      this.totalDiscountAmount,
+      this.promotionDiscountAmount,
+      this.timeEventDiscountAmount,
+      this.timeEventChargeAmount,
+      this.roundingDecimalAmount,
+      this.note,
+      this.orderRef,
+      this.deviceId,
+      this.startDate,
+      this.endTime,
+      this.timeOfReceipt,
+      this.orderType,
+      this.orderSource,
+      this.status,
+      this.deliveryStatus,
+      this.paymentStatus,
+      this.refundStatus,
+      this.shiftId,
+      this.tillId,
+      this.tableId,
+      this.tableCaption,
+      this.numberVisitor,
+      this.minimumReservationPrice,
+      this.callName,
+      this.callNumber,
+      this.cancelReasonId,
+      this.msgCancel,
+      this.kitchenNote,
+      this.casherNote,
+      this.supervisorId,
+      this.parentOrderId,
+      this.splitIndex,
+      this.checksum,
+      this.masterChecksum,
+      this.serverChecksum,
+      this.totalCalories,
+      this.priceIncludeTax,
+      this.customerId,
+      this.customerJson,
+      this.addressId,
+      this.addressJson,
+      this.promotionId,
+      this.promotionJson,
+      this.giftCardJson,
+      this.createdOn,
+      this.createdBy,
+      this.lastModifiedOn,
+      this.lastModifiedBy,
+      this.discount,
+      this.products,
+      this.promotion,
+      this.giftCard,
+      this.charges,
+      this.chargesForTotals,
+      this.taxInfo});
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
     return OrderResponseDto(
@@ -82,6 +180,51 @@ class OrderResponseDto {
       timeEventChargeAmount: json['timeEventChargeAmount'],
       roundingDecimalAmount: json['roundingDecimalAmount'],
       note: json['note'],
+      orderRef: json['orderRef'],
+      deviceId: json['deviceId'],
+      startDate:
+          json['startDate'] != null ? DateTime.parse(json['startDate']) : null,
+      endTime: json['endTime'] != null ? DateTime.parse(json['endTime']) : null,
+      timeOfReceipt: json['timeOfReceipt'] != null
+          ? DateTime.parse(json['timeOfReceipt'])
+          : null,
+      orderType: json['orderType'],
+      orderSource: json['orderSource'],
+      status: json['status'],
+      deliveryStatus: json['deliveryStatus'],
+      paymentStatus: json['paymentStatus'],
+      refundStatus: json['refundStatus'],
+      shiftId: json['shiftId'],
+      tillId: json['tillId'],
+      tableId: json['tableId'],
+      tableCaption: json['tableCaption'],
+      numberVisitor: json['numberVisitor'],
+      minimumReservationPrice: json['minimumReservationPrice'],
+      callName: json['callName'],
+      callNumber: json['callNumber'],
+      cancelReasonId: json['cancelReasonId'],
+      msgCancel: json['msgCancel'],
+      kitchenNote: json['kitchenNote'],
+      casherNote: json['casherNote'],
+      supervisorId: json['supervisorId'],
+      parentOrderId: json['parentOrderId'],
+      splitIndex: json['splitIndex'],
+      checksum: json['checksum'],
+      masterChecksum: json['masterChecksum'],
+      serverChecksum: json['serverChecksum'],
+      totalCalories: json['totalCalories'],
+      priceIncludeTax: json['priceIncludeTax'],
+      customerId: json['customerId'],
+      customerJson: json['customerJson'],
+      addressId: json['addressId'],
+      addressJson: json['addressJson'],
+      promotionId: json['promotionId'],
+      promotionJson: json['promotionJson'],
+      giftCardJson: json['giftCardJson'],
+      createdOn: json['createdOn'],
+      createdBy: json['createdBy'],
+      lastModifiedOn: json['lastModifiedOn'],
+      lastModifiedBy: json['lastModifiedBy'],
       discount: json['discount'] != null
           ? OrderProductDiscountDto.fromJson(json['discount'])
           : null,
@@ -134,6 +277,48 @@ class OrderResponseDto {
       'timeEventChargeAmount': timeEventChargeAmount,
       'roundingDecimalAmount': roundingDecimalAmount,
       'note': note,
+      'orderRef': orderRef,
+      'deviceId': deviceId,
+      'startDate': startDate?.toIso8601String(),
+      'endTime': endTime?.toIso8601String(),
+      'timeOfReceipt': timeOfReceipt?.toIso8601String(),
+      'orderType': orderType,
+      'orderSource': orderSource,
+      'status': status,
+      'deliveryStatus': deliveryStatus,
+      'paymentStatus': paymentStatus,
+      'refundStatus': refundStatus,
+      'shiftId': shiftId,
+      'tillId': tillId,
+      'tableId': tableId,
+      'tableCaption': tableCaption,
+      'numberVisitor': numberVisitor,
+      'minimumReservationPrice': minimumReservationPrice,
+      'callName': callName,
+      'callNumber': callNumber,
+      'cancelReasonId': cancelReasonId,
+      'msgCancel': msgCancel,
+      'kitchenNote': kitchenNote,
+      'casherNote': casherNote,
+      'supervisorId': supervisorId,
+      'parentOrderId': parentOrderId,
+      'splitIndex': splitIndex,
+      'checksum': checksum,
+      'masterChecksum': masterChecksum,
+      'serverChecksum': serverChecksum,
+      'totalCalories': totalCalories,
+      'priceIncludeTax': priceIncludeTax,
+      'customerId': customerId,
+      'customerJson': customerJson,
+      'addressId': addressId,
+      'addressJson': addressJson,
+      'promotionId': promotionId,
+      'promotionJson': promotionJson,
+      'giftCardJson': giftCardJson,
+      'createdOn': createdOn,
+      'createdBy': createdBy,
+      'lastModifiedOn': lastModifiedOn,
+      'lastModifiedBy': lastModifiedBy,
       'discount': discount?.toJson(),
       'products': products?.map((e) => e.toJson()).toList(),
       'promotion': promotion?.toJson(),
@@ -163,6 +348,48 @@ class OrderResponseDto {
     double? timeEventChargeAmount,
     double? roundingDecimalAmount,
     String? note,
+    String? orderRef,
+    String? deviceId,
+    DateTime? startDate,
+    DateTime? endTime,
+    DateTime? timeOfReceipt,
+    int? orderType,
+    int? orderSource,
+    int? status,
+    int? deliveryStatus,
+    int? paymentStatus,
+    int? refundStatus,
+    String? shiftId,
+    String? tillId,
+    String? tableId,
+    String? tableCaption,
+    int? numberVisitor,
+    double? minimumReservationPrice,
+    String? callName,
+    String? callNumber,
+    String? cancelReasonId,
+    String? msgCancel,
+    String? kitchenNote,
+    String? casherNote,
+    String? supervisorId,
+    String? parentOrderId,
+    int? splitIndex,
+    String? checksum,
+    String? masterChecksum,
+    String? serverChecksum,
+    double? totalCalories,
+    bool? priceIncludeTax,
+    String? customerId,
+    Map<String, dynamic>? customerJson,
+    String? addressId,
+    Map<String, dynamic>? addressJson,
+    String? promotionId,
+    Map<String, dynamic>? promotionJson,
+    Map<String, dynamic>? giftCardJson,
+    String? createdOn,
+    String? createdBy,
+    String? lastModifiedOn,
+    String? lastModifiedBy,
     OrderProductDiscountDto? discount,
     List<OrderProductResponseDto>? products,
     OrderPromotionAppliesDto? promotion,
@@ -197,6 +424,49 @@ class OrderResponseDto {
       roundingDecimalAmount:
           roundingDecimalAmount ?? this.roundingDecimalAmount,
       note: note ?? this.note,
+      orderRef: orderRef ?? this.orderRef,
+      deviceId: deviceId ?? this.deviceId,
+      startDate: startDate ?? this.startDate,
+      endTime: endTime ?? this.endTime,
+      timeOfReceipt: timeOfReceipt ?? this.timeOfReceipt,
+      orderType: orderType ?? this.orderType,
+      orderSource: orderSource ?? this.orderSource,
+      status: status ?? this.status,
+      deliveryStatus: deliveryStatus ?? this.deliveryStatus,
+      paymentStatus: paymentStatus ?? this.paymentStatus,
+      refundStatus: refundStatus ?? this.refundStatus,
+      shiftId: shiftId ?? this.shiftId,
+      tillId: tillId ?? this.tillId,
+      tableId: tableId ?? this.tableId,
+      tableCaption: tableCaption ?? this.tableCaption,
+      numberVisitor: numberVisitor ?? this.numberVisitor,
+      minimumReservationPrice:
+          minimumReservationPrice ?? this.minimumReservationPrice,
+      callName: callName ?? this.callName,
+      callNumber: callNumber ?? this.callNumber,
+      cancelReasonId: cancelReasonId ?? this.cancelReasonId,
+      msgCancel: msgCancel ?? this.msgCancel,
+      kitchenNote: kitchenNote ?? this.kitchenNote,
+      casherNote: casherNote ?? this.casherNote,
+      supervisorId: supervisorId ?? this.supervisorId,
+      parentOrderId: parentOrderId ?? this.parentOrderId,
+      splitIndex: splitIndex ?? this.splitIndex,
+      checksum: checksum ?? this.checksum,
+      masterChecksum: masterChecksum ?? this.masterChecksum,
+      serverChecksum: serverChecksum ?? this.serverChecksum,
+      totalCalories: totalCalories ?? this.totalCalories,
+      priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
+      customerId: customerId ?? this.customerId,
+      customerJson: customerJson ?? this.customerJson,
+      addressId: addressId ?? this.addressId,
+      addressJson: addressJson ?? this.addressJson,
+      promotionId: promotionId ?? this.promotionId,
+      promotionJson: promotionJson ?? this.promotionJson,
+      giftCardJson: giftCardJson ?? this.giftCardJson,
+      createdOn: createdOn ?? this.createdOn,
+      createdBy: createdBy ?? this.createdBy,
+      lastModifiedOn: lastModifiedOn ?? this.lastModifiedOn,
+      lastModifiedBy: lastModifiedBy ?? this.lastModifiedBy,
       discount: discount ?? this.discount,
       products: products ?? this.products,
       promotion: promotion ?? this.promotion,

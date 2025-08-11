@@ -76,7 +76,7 @@ class OrderEntityV2 extends Table {
   IntColumn get numberVisitor => integer().nullable()();
   RealColumn get minimumReservationPrice => real().nullable()();
   TextColumn get callName => text().nullable()();
-  IntColumn get callNumber => integer().nullable()();
+  TextColumn get callNumber => text().nullable()();
   TextColumn get cancelReasonId => text().nullable()();
   TextColumn get msgCancel => text().nullable()();
   TextColumn get kitchenNote => text().nullable()();
@@ -159,6 +159,8 @@ class OrderProductUnitPriceV2 extends Table {
   TextColumn get productUnitId => text().nullable()();
   TextColumn get productUnitPriceListId => text().nullable()();
   TextColumn get productUnitPriceListSlapId => text().nullable()();
+  TextColumn get name => text().nullable()();
+  TextColumn get fName => text().nullable()();
 
   @override
   Set<Column> get primaryKey => {orderRef, productRef};
@@ -291,18 +293,18 @@ class OrderProductChargeTaxInfoV2 extends Table {
 
 // جدول أنواع الضرائب المطبقة على منتج الطلب
 class OrderProductTaxTypeV2 extends Table {
+  TextColumn get productRef => text().nullable()();
+  TextColumn get taxAccount => text().nullable()();
+  TextColumn get taxCode => text().nullable()();
   TextColumn get orderRef => text()
       .nullable()
       .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
-  TextColumn get productRef => text().nullable()();
   TextColumn get taxTypeId => text().nullable()();
   TextColumn get taxTypeName => text().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get taxPercentage => real().nullable()();
   RealColumn get taxableAmount => real()();
   TextColumn get taxGroupId => text().nullable()();
-  TextColumn get taxAccount => text().nullable()();
-  TextColumn get taxCode => text().nullable()();
   BoolColumn get isTaxExempt => boolean().nullable()();
   BoolColumn get isZeroTax => boolean().nullable()();
   BoolColumn get isNotApplyForThisCustomer => boolean().nullable()();
@@ -409,4 +411,46 @@ class OrderTaxTypeV2 extends Table {
 
   @override
   Set<Column> get primaryKey => {orderRef, taxTypeId};
+}
+
+/// جدول الإضافات (modifiers) للمنتج في الطلب
+class OrderProductModifierV2 extends Table {
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
+  TextColumn get modifierId => text().nullable()();
+  TextColumn get name => text().nullable()();
+  TextColumn get fName => text().nullable()();
+  TextColumn get notes => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef, modifierId};
+}
+
+/// جدول خيارات الإضافة (options) المرتبطة بكل modifier
+class OrderProductModifierOptionV2 extends Table {
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get productRef => text().nullable()();
+  TextColumn get modifierId => text().nullable()();
+  TextColumn get optionId => text().nullable()();
+  TextColumn get name => text().nullable()();
+  TextColumn get fName => text().nullable()();
+  RealColumn get quantity => real()();
+  RealColumn get freeQuantity => real().nullable()();
+  RealColumn get unitPrice => real()();
+  RealColumn get totalPrice => real()();
+  RealColumn get discountAmount => real().nullable()();
+  RealColumn get discountPercentage => real().nullable()();
+  RealColumn get netUnitPrice => real()();
+  RealColumn get netTotalPrice => real()();
+  RealColumn get taxableAmount => real().nullable()();
+  RealColumn get taxAmount => real().nullable()();
+  RealColumn get finalAmount => real()();
+  TextColumn get notes => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, productRef, modifierId, optionId};
 }

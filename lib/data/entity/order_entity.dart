@@ -12,7 +12,7 @@ class OrderEntity extends Table {
   IntColumn get splitIndex => integer().nullable()();
   TextColumn get orderRef => text()();
   TextColumn get callName => text().nullable()();
-  IntColumn get callNumber => integer().nullable()();
+  TextColumn get callNumber => text().nullable()();
   IntColumn get orderType => integer()();
   IntColumn get status => integer()();
   IntColumn get paymentStatus => integer().nullable()();

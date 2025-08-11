@@ -20,6 +20,19 @@ DiscountType convertToDiscontType(int? key) {
   }
 }
 
+DiscountType convertToDiscountTypeByName(String? key) {
+  switch (key) {
+    case 'percentage':
+      return DiscountType.percentage;
+    case 'price':
+      return DiscountType.price;
+    case 'payFixedPrice':
+      return DiscountType.payFixedPrice;
+    default:
+      return DiscountType.price;
+  }
+}
+
 extension DiscountTypeEx on DiscountType {
   int get toKey {
     switch (this) {

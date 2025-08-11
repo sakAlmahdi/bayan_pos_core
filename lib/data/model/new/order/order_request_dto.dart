@@ -20,6 +20,26 @@ class OrderRequestDto {
   bool? applyCharges;
   bool? customerTaxable;
 
+  String? orderRef;
+  String? deviceId;
+  DateTime? startDate;
+  DateTime? endTime;
+  DateTime? timeOfReceipt;
+  int? orderSource;
+
+  String? shiftId;
+  String? tillId;
+  String? tableId;
+
+  int? numberVisitor;
+
+  String? callNumber;
+
+  String? parentOrderId;
+  int? splitIndex;
+
+  bool? priceIncludeTax;
+
   OrderRequestDto({
     this.branchId,
     this.priceListId,
@@ -37,9 +57,22 @@ class OrderRequestDto {
     this.applyCharges,
     this.customerType,
     this.customerTaxable,
+    this.orderRef,
+    this.deviceId,
+    this.startDate,
+    this.endTime,
+    this.timeOfReceipt,
+    this.orderSource,
+    this.shiftId,
+    this.tillId,
+    this.tableId,
+    this.numberVisitor,
+    this.callNumber,
+    this.parentOrderId,
+    this.splitIndex,
+    this.priceIncludeTax,
   });
 
-  // fromJson factory constructor
   factory OrderRequestDto.fromJson(Map<String, dynamic> json) {
     return OrderRequestDto(
       branchId: json['branchId'] != null ? Guid(json['branchId']) : null,
@@ -70,7 +103,6 @@ class OrderRequestDto {
     );
   }
 
-  // toJson method
   Map<String, dynamic> toJson() {
     return {
       'branchId': branchId?.toString(),
@@ -89,10 +121,10 @@ class OrderRequestDto {
       'applyCharges': applyCharges,
       'customerType': customerType,
       'customerTaxable': customerTaxable,
+      'priceIncludeTax': priceIncludeTax,
     };
   }
 
-  // copyWith method
   OrderRequestDto copyWith({
     Guid? branchId,
     Guid? priceListId,
@@ -110,6 +142,7 @@ class OrderRequestDto {
     bool? applyCharges,
     String? customerType,
     bool? customerTaxable,
+    bool? priceIncludeTax,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -128,6 +161,7 @@ class OrderRequestDto {
       applyCharges: applyCharges ?? this.applyCharges,
       customerType: customerType ?? this.customerType,
       customerTaxable: customerTaxable ?? this.customerTaxable,
+      priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:bayan_pos_core/core/halper/helpers_method.dart';
+
 class OrderProductUnitPriceDto {
   double? unitPrice;
   String? description;
@@ -7,6 +9,11 @@ class OrderProductUnitPriceDto {
   String? productUnitId;
   String? productUnitPriceListId;
   String? productUnitPriceListSlapId;
+  // TODO:: ADD ON API
+  String? name;
+  String? fName;
+
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
 
   OrderProductUnitPriceDto({
     this.unitPrice,
@@ -15,6 +22,8 @@ class OrderProductUnitPriceDto {
     this.productUnitId,
     this.productUnitPriceListId,
     this.productUnitPriceListSlapId,
+    this.name,
+    this.fName,
   });
 
   // Factory constructor for creating an instance from JSON
@@ -26,6 +35,8 @@ class OrderProductUnitPriceDto {
       productUnitId: json['productUnitId'] as String?,
       productUnitPriceListId: json['productUnitPriceListId'] as String?,
       productUnitPriceListSlapId: json['productUnitPriceListSlapId'] as String?,
+      name: json['name'] as String?,
+      fName: json['fName'] as String?,
     );
   }
 
@@ -38,6 +49,8 @@ class OrderProductUnitPriceDto {
       'productUnitId': productUnitId,
       'productUnitPriceListId': productUnitPriceListId,
       'productUnitPriceListSlapId': productUnitPriceListSlapId,
+      'name': name,
+      'fName': fName,
     };
   }
 
@@ -49,6 +62,8 @@ class OrderProductUnitPriceDto {
     String? productUnitId,
     String? productUnitPriceListId,
     String? productUnitPriceListSlapId,
+    String? name,
+    String? fName,
   }) {
     return OrderProductUnitPriceDto(
       unitPrice: unitPrice ?? this.unitPrice,
@@ -59,6 +74,8 @@ class OrderProductUnitPriceDto {
           productUnitPriceListId ?? this.productUnitPriceListId,
       productUnitPriceListSlapId:
           productUnitPriceListSlapId ?? this.productUnitPriceListSlapId,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
     );
   }
 

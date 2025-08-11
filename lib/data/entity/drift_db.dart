@@ -46,6 +46,8 @@ part 'drift_db.g.dart';
   OrderChargeV2,
   OrderChargeForTotalV2,
   OrderTaxTypeV2,
+  OrderProductModifierV2,
+  OrderProductModifierOptionV2,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());

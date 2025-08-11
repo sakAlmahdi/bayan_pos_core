@@ -75,9 +75,9 @@ class $OrderEntityTable extends OrderEntity
   static const VerificationMeta _callNumberMeta =
       const VerificationMeta('callNumber');
   @override
-  late final GeneratedColumn<int> callNumber = GeneratedColumn<int>(
+  late final GeneratedColumn<String> callNumber = GeneratedColumn<String>(
       'call_number', aliasedName, true,
-      type: DriftSqlType.int, requiredDuringInsert: false);
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _orderTypeMeta =
       const VerificationMeta('orderType');
   @override
@@ -864,7 +864,7 @@ class $OrderEntityTable extends OrderEntity
       callName: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}call_name']),
       callNumber: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}call_number']),
+          .read(DriftSqlType.string, data['${effectivePrefix}call_number']),
       orderType: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}order_type'])!,
       status: attachedDatabase.typeMapping
@@ -1063,7 +1063,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
   final int? splitIndex;
   final String orderRef;
   final String? callName;
-  final int? callNumber;
+  final String? callNumber;
   final int orderType;
   final int status;
   final int? paymentStatus;
@@ -1224,7 +1224,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       map['call_name'] = Variable<String>(callName);
     }
     if (!nullToAbsent || callNumber != null) {
-      map['call_number'] = Variable<int>(callNumber);
+      map['call_number'] = Variable<String>(callNumber);
     }
     map['order_type'] = Variable<int>(orderType);
     map['status'] = Variable<int>(status);
@@ -1638,7 +1638,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       splitIndex: serializer.fromJson<int?>(json['splitIndex']),
       orderRef: serializer.fromJson<String>(json['orderRef']),
       callName: serializer.fromJson<String?>(json['callName']),
-      callNumber: serializer.fromJson<int?>(json['callNumber']),
+      callNumber: serializer.fromJson<String?>(json['callNumber']),
       orderType: serializer.fromJson<int>(json['orderType']),
       status: serializer.fromJson<int>(json['status']),
       paymentStatus: serializer.fromJson<int?>(json['paymentStatus']),
@@ -1718,7 +1718,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
       'splitIndex': serializer.toJson<int?>(splitIndex),
       'orderRef': serializer.toJson<String>(orderRef),
       'callName': serializer.toJson<String?>(callName),
-      'callNumber': serializer.toJson<int?>(callNumber),
+      'callNumber': serializer.toJson<String?>(callNumber),
       'orderType': serializer.toJson<int>(orderType),
       'status': serializer.toJson<int>(status),
       'paymentStatus': serializer.toJson<int?>(paymentStatus),
@@ -1795,7 +1795,7 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
           Value<int?> splitIndex = const Value.absent(),
           String? orderRef,
           Value<String?> callName = const Value.absent(),
-          Value<int?> callNumber = const Value.absent(),
+          Value<String?> callNumber = const Value.absent(),
           int? orderType,
           int? status,
           Value<int?> paymentStatus = const Value.absent(),
@@ -2200,7 +2200,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
   final Value<int?> splitIndex;
   final Value<String> orderRef;
   final Value<String?> callName;
-  final Value<int?> callNumber;
+  final Value<String?> callNumber;
   final Value<int> orderType;
   final Value<int> status;
   final Value<int?> paymentStatus;
@@ -2418,7 +2418,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
     Expression<int>? splitIndex,
     Expression<String>? orderRef,
     Expression<String>? callName,
-    Expression<int>? callNumber,
+    Expression<String>? callNumber,
     Expression<int>? orderType,
     Expression<int>? status,
     Expression<int>? paymentStatus,
@@ -2569,7 +2569,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       Value<int?>? splitIndex,
       Value<String>? orderRef,
       Value<String?>? callName,
-      Value<int?>? callNumber,
+      Value<String?>? callNumber,
       Value<int>? orderType,
       Value<int>? status,
       Value<int?>? paymentStatus,
@@ -2740,7 +2740,7 @@ class OrderEntityCompanion extends UpdateCompanion<OrderEntityData> {
       map['call_name'] = Variable<String>(callName.value);
     }
     if (callNumber.present) {
-      map['call_number'] = Variable<int>(callNumber.value);
+      map['call_number'] = Variable<String>(callNumber.value);
     }
     if (orderType.present) {
       map['order_type'] = Variable<int>(orderType.value);
@@ -9662,9 +9662,9 @@ class $OrderEntityV2Table extends OrderEntityV2
   static const VerificationMeta _callNumberMeta =
       const VerificationMeta('callNumber');
   @override
-  late final GeneratedColumn<int> callNumber = GeneratedColumn<int>(
+  late final GeneratedColumn<String> callNumber = GeneratedColumn<String>(
       'call_number', aliasedName, true,
-      type: DriftSqlType.int, requiredDuringInsert: false);
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _cancelReasonIdMeta =
       const VerificationMeta('cancelReasonId');
   @override
@@ -10289,7 +10289,7 @@ class $OrderEntityV2Table extends OrderEntityV2
       callName: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}call_name']),
       callNumber: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}call_number']),
+          .read(DriftSqlType.string, data['${effectivePrefix}call_number']),
       cancelReasonId: attachedDatabase.typeMapping.read(
           DriftSqlType.string, data['${effectivePrefix}cancel_reason_id']),
       msgCancel: attachedDatabase.typeMapping
@@ -10396,7 +10396,7 @@ class OrderEntityV2Data extends DataClass
   final int? numberVisitor;
   final double? minimumReservationPrice;
   final String? callName;
-  final int? callNumber;
+  final String? callNumber;
   final String? cancelReasonId;
   final String? msgCancel;
   final String? kitchenNote;
@@ -10592,7 +10592,7 @@ class OrderEntityV2Data extends DataClass
       map['call_name'] = Variable<String>(callName);
     }
     if (!nullToAbsent || callNumber != null) {
-      map['call_number'] = Variable<int>(callNumber);
+      map['call_number'] = Variable<String>(callNumber);
     }
     if (!nullToAbsent || cancelReasonId != null) {
       map['cancel_reason_id'] = Variable<String>(cancelReasonId);
@@ -10896,7 +10896,7 @@ class OrderEntityV2Data extends DataClass
       minimumReservationPrice:
           serializer.fromJson<double?>(json['minimumReservationPrice']),
       callName: serializer.fromJson<String?>(json['callName']),
-      callNumber: serializer.fromJson<int?>(json['callNumber']),
+      callNumber: serializer.fromJson<String?>(json['callNumber']),
       cancelReasonId: serializer.fromJson<String?>(json['cancelReasonId']),
       msgCancel: serializer.fromJson<String?>(json['msgCancel']),
       kitchenNote: serializer.fromJson<String?>(json['kitchenNote']),
@@ -10970,7 +10970,7 @@ class OrderEntityV2Data extends DataClass
       'minimumReservationPrice':
           serializer.toJson<double?>(minimumReservationPrice),
       'callName': serializer.toJson<String?>(callName),
-      'callNumber': serializer.toJson<int?>(callNumber),
+      'callNumber': serializer.toJson<String?>(callNumber),
       'cancelReasonId': serializer.toJson<String?>(cancelReasonId),
       'msgCancel': serializer.toJson<String?>(msgCancel),
       'kitchenNote': serializer.toJson<String?>(kitchenNote),
@@ -11034,7 +11034,7 @@ class OrderEntityV2Data extends DataClass
           Value<int?> numberVisitor = const Value.absent(),
           Value<double?> minimumReservationPrice = const Value.absent(),
           Value<String?> callName = const Value.absent(),
-          Value<int?> callNumber = const Value.absent(),
+          Value<String?> callNumber = const Value.absent(),
           Value<String?> cancelReasonId = const Value.absent(),
           Value<String?> msgCancel = const Value.absent(),
           Value<String?> kitchenNote = const Value.absent(),
@@ -11396,7 +11396,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<int?> numberVisitor;
   final Value<double?> minimumReservationPrice;
   final Value<String?> callName;
-  final Value<int?> callNumber;
+  final Value<String?> callNumber;
   final Value<String?> cancelReasonId;
   final Value<String?> msgCancel;
   final Value<String?> kitchenNote;
@@ -11586,7 +11586,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<int>? numberVisitor,
     Expression<double>? minimumReservationPrice,
     Expression<String>? callName,
-    Expression<int>? callNumber,
+    Expression<String>? callNumber,
     Expression<String>? cancelReasonId,
     Expression<String>? msgCancel,
     Expression<String>? kitchenNote,
@@ -11723,7 +11723,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<int?>? numberVisitor,
       Value<double?>? minimumReservationPrice,
       Value<String?>? callName,
-      Value<int?>? callNumber,
+      Value<String?>? callNumber,
       Value<String?>? cancelReasonId,
       Value<String?>? msgCancel,
       Value<String?>? kitchenNote,
@@ -11942,7 +11942,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       map['call_name'] = Variable<String>(callName.value);
     }
     if (callNumber.present) {
-      map['call_number'] = Variable<int>(callNumber.value);
+      map['call_number'] = Variable<String>(callNumber.value);
     }
     if (cancelReasonId.present) {
       map['cancel_reason_id'] = Variable<String>(cancelReasonId.value);
@@ -13273,6 +13273,16 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
       GeneratedColumn<String>(
           'product_unit_price_list_slap_id', aliasedName, true,
           type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         orderRef,
@@ -13282,7 +13292,9 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
         unitId,
         productUnitId,
         productUnitPriceListId,
-        productUnitPriceListSlapId
+        productUnitPriceListSlapId,
+        name,
+        fName
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -13339,6 +13351,14 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
               data['product_unit_price_list_slap_id']!,
               _productUnitPriceListSlapIdMeta));
     }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
+    }
     return context;
   }
 
@@ -13367,6 +13387,10 @@ class $OrderProductUnitPriceV2Table extends OrderProductUnitPriceV2
       productUnitPriceListSlapId: attachedDatabase.typeMapping.read(
           DriftSqlType.string,
           data['${effectivePrefix}product_unit_price_list_slap_id']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
     );
   }
 
@@ -13386,6 +13410,8 @@ class OrderProductUnitPriceV2Data extends DataClass
   final String? productUnitId;
   final String? productUnitPriceListId;
   final String? productUnitPriceListSlapId;
+  final String? name;
+  final String? fName;
   const OrderProductUnitPriceV2Data(
       {this.orderRef,
       this.productRef,
@@ -13394,7 +13420,9 @@ class OrderProductUnitPriceV2Data extends DataClass
       this.unitId,
       this.productUnitId,
       this.productUnitPriceListId,
-      this.productUnitPriceListSlapId});
+      this.productUnitPriceListSlapId,
+      this.name,
+      this.fName});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -13423,6 +13451,12 @@ class OrderProductUnitPriceV2Data extends DataClass
     if (!nullToAbsent || productUnitPriceListSlapId != null) {
       map['product_unit_price_list_slap_id'] =
           Variable<String>(productUnitPriceListSlapId);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
     }
     return map;
   }
@@ -13453,6 +13487,9 @@ class OrderProductUnitPriceV2Data extends DataClass
           productUnitPriceListSlapId == null && nullToAbsent
               ? const Value.absent()
               : Value(productUnitPriceListSlapId),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
     );
   }
 
@@ -13470,6 +13507,8 @@ class OrderProductUnitPriceV2Data extends DataClass
           serializer.fromJson<String?>(json['productUnitPriceListId']),
       productUnitPriceListSlapId:
           serializer.fromJson<String?>(json['productUnitPriceListSlapId']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
     );
   }
   @override
@@ -13486,6 +13525,8 @@ class OrderProductUnitPriceV2Data extends DataClass
           serializer.toJson<String?>(productUnitPriceListId),
       'productUnitPriceListSlapId':
           serializer.toJson<String?>(productUnitPriceListSlapId),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
     };
   }
 
@@ -13497,7 +13538,9 @@ class OrderProductUnitPriceV2Data extends DataClass
           Value<String?> unitId = const Value.absent(),
           Value<String?> productUnitId = const Value.absent(),
           Value<String?> productUnitPriceListId = const Value.absent(),
-          Value<String?> productUnitPriceListSlapId = const Value.absent()}) =>
+          Value<String?> productUnitPriceListSlapId = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent()}) =>
       OrderProductUnitPriceV2Data(
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
         productRef: productRef.present ? productRef.value : this.productRef,
@@ -13512,6 +13555,8 @@ class OrderProductUnitPriceV2Data extends DataClass
         productUnitPriceListSlapId: productUnitPriceListSlapId.present
             ? productUnitPriceListSlapId.value
             : this.productUnitPriceListSlapId,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
       );
   @override
   String toString() {
@@ -13523,7 +13568,9 @@ class OrderProductUnitPriceV2Data extends DataClass
           ..write('unitId: $unitId, ')
           ..write('productUnitId: $productUnitId, ')
           ..write('productUnitPriceListId: $productUnitPriceListId, ')
-          ..write('productUnitPriceListSlapId: $productUnitPriceListSlapId')
+          ..write('productUnitPriceListSlapId: $productUnitPriceListSlapId, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName')
           ..write(')'))
         .toString();
   }
@@ -13537,7 +13584,9 @@ class OrderProductUnitPriceV2Data extends DataClass
       unitId,
       productUnitId,
       productUnitPriceListId,
-      productUnitPriceListSlapId);
+      productUnitPriceListSlapId,
+      name,
+      fName);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -13549,7 +13598,9 @@ class OrderProductUnitPriceV2Data extends DataClass
           other.unitId == this.unitId &&
           other.productUnitId == this.productUnitId &&
           other.productUnitPriceListId == this.productUnitPriceListId &&
-          other.productUnitPriceListSlapId == this.productUnitPriceListSlapId);
+          other.productUnitPriceListSlapId == this.productUnitPriceListSlapId &&
+          other.name == this.name &&
+          other.fName == this.fName);
 }
 
 class OrderProductUnitPriceV2Companion
@@ -13562,6 +13613,8 @@ class OrderProductUnitPriceV2Companion
   final Value<String?> productUnitId;
   final Value<String?> productUnitPriceListId;
   final Value<String?> productUnitPriceListSlapId;
+  final Value<String?> name;
+  final Value<String?> fName;
   final Value<int> rowid;
   const OrderProductUnitPriceV2Companion({
     this.orderRef = const Value.absent(),
@@ -13572,6 +13625,8 @@ class OrderProductUnitPriceV2Companion
     this.productUnitId = const Value.absent(),
     this.productUnitPriceListId = const Value.absent(),
     this.productUnitPriceListSlapId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   OrderProductUnitPriceV2Companion.insert({
@@ -13583,6 +13638,8 @@ class OrderProductUnitPriceV2Companion
     this.productUnitId = const Value.absent(),
     this.productUnitPriceListId = const Value.absent(),
     this.productUnitPriceListSlapId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   static Insertable<OrderProductUnitPriceV2Data> custom({
@@ -13594,6 +13651,8 @@ class OrderProductUnitPriceV2Companion
     Expression<String>? productUnitId,
     Expression<String>? productUnitPriceListId,
     Expression<String>? productUnitPriceListSlapId,
+    Expression<String>? name,
+    Expression<String>? fName,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -13607,6 +13666,8 @@ class OrderProductUnitPriceV2Companion
         'product_unit_price_list_id': productUnitPriceListId,
       if (productUnitPriceListSlapId != null)
         'product_unit_price_list_slap_id': productUnitPriceListSlapId,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -13620,6 +13681,8 @@ class OrderProductUnitPriceV2Companion
       Value<String?>? productUnitId,
       Value<String?>? productUnitPriceListId,
       Value<String?>? productUnitPriceListSlapId,
+      Value<String?>? name,
+      Value<String?>? fName,
       Value<int>? rowid}) {
     return OrderProductUnitPriceV2Companion(
       orderRef: orderRef ?? this.orderRef,
@@ -13632,6 +13695,8 @@ class OrderProductUnitPriceV2Companion
           productUnitPriceListId ?? this.productUnitPriceListId,
       productUnitPriceListSlapId:
           productUnitPriceListSlapId ?? this.productUnitPriceListSlapId,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -13665,6 +13730,12 @@ class OrderProductUnitPriceV2Companion
       map['product_unit_price_list_slap_id'] =
           Variable<String>(productUnitPriceListSlapId.value);
     }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -13682,6 +13753,8 @@ class OrderProductUnitPriceV2Companion
           ..write('productUnitId: $productUnitId, ')
           ..write('productUnitPriceListId: $productUnitPriceListId, ')
           ..write('productUnitPriceListSlapId: $productUnitPriceListSlapId, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -16358,6 +16431,24 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $OrderProductTaxTypeV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _productRefMeta =
+      const VerificationMeta('productRef');
+  @override
+  late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
+      'product_ref', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _taxAccountMeta =
+      const VerificationMeta('taxAccount');
+  @override
+  late final GeneratedColumn<String> taxAccount = GeneratedColumn<String>(
+      'tax_account', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _taxCodeMeta =
+      const VerificationMeta('taxCode');
+  @override
+  late final GeneratedColumn<String> taxCode = GeneratedColumn<String>(
+      'tax_code', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _orderRefMeta =
       const VerificationMeta('orderRef');
   @override
@@ -16367,12 +16458,6 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
       requiredDuringInsert: false,
       defaultConstraints: GeneratedColumn.constraintIsAlways(
           'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
-  static const VerificationMeta _productRefMeta =
-      const VerificationMeta('productRef');
-  @override
-  late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
-      'product_ref', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _taxTypeIdMeta =
       const VerificationMeta('taxTypeId');
   @override
@@ -16408,18 +16493,6 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   @override
   late final GeneratedColumn<String> taxGroupId = GeneratedColumn<String>(
       'tax_group_id', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _taxAccountMeta =
-      const VerificationMeta('taxAccount');
-  @override
-  late final GeneratedColumn<String> taxAccount = GeneratedColumn<String>(
-      'tax_account', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _taxCodeMeta =
-      const VerificationMeta('taxCode');
-  @override
-  late final GeneratedColumn<String> taxCode = GeneratedColumn<String>(
-      'tax_code', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _isTaxExemptMeta =
       const VerificationMeta('isTaxExempt');
@@ -16469,16 +16542,16 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
               'CHECK ("is_not_apply_for_this_period" IN (0, 1))'));
   @override
   List<GeneratedColumn> get $columns => [
-        orderRef,
         productRef,
+        taxAccount,
+        taxCode,
+        orderRef,
         taxTypeId,
         taxTypeName,
         taxAmount,
         taxPercentage,
         taxableAmount,
         taxGroupId,
-        taxAccount,
-        taxCode,
         isTaxExempt,
         isZeroTax,
         isNotApplyForThisCustomer,
@@ -16496,15 +16569,25 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('order_ref')) {
-      context.handle(_orderRefMeta,
-          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
-    }
     if (data.containsKey('product_ref')) {
       context.handle(
           _productRefMeta,
           productRef.isAcceptableOrUnknown(
               data['product_ref']!, _productRefMeta));
+    }
+    if (data.containsKey('tax_account')) {
+      context.handle(
+          _taxAccountMeta,
+          taxAccount.isAcceptableOrUnknown(
+              data['tax_account']!, _taxAccountMeta));
+    }
+    if (data.containsKey('tax_code')) {
+      context.handle(_taxCodeMeta,
+          taxCode.isAcceptableOrUnknown(data['tax_code']!, _taxCodeMeta));
+    }
+    if (data.containsKey('order_ref')) {
+      context.handle(_orderRefMeta,
+          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
     }
     if (data.containsKey('tax_type_id')) {
       context.handle(
@@ -16541,16 +16624,6 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
           _taxGroupIdMeta,
           taxGroupId.isAcceptableOrUnknown(
               data['tax_group_id']!, _taxGroupIdMeta));
-    }
-    if (data.containsKey('tax_account')) {
-      context.handle(
-          _taxAccountMeta,
-          taxAccount.isAcceptableOrUnknown(
-              data['tax_account']!, _taxAccountMeta));
-    }
-    if (data.containsKey('tax_code')) {
-      context.handle(_taxCodeMeta,
-          taxCode.isAcceptableOrUnknown(data['tax_code']!, _taxCodeMeta));
     }
     if (data.containsKey('is_tax_exempt')) {
       context.handle(
@@ -16595,10 +16668,14 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
       {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return OrderProductTaxTypeV2Data(
-      orderRef: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
       productRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
+      taxAccount: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_account']),
+      taxCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_code']),
+      orderRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
       taxTypeId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}tax_type_id']),
       taxTypeName: attachedDatabase.typeMapping
@@ -16611,10 +16688,6 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
           .read(DriftSqlType.double, data['${effectivePrefix}taxable_amount'])!,
       taxGroupId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}tax_group_id']),
-      taxAccount: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}tax_account']),
-      taxCode: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}tax_code']),
       isTaxExempt: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_tax_exempt']),
       isZeroTax: attachedDatabase.typeMapping
@@ -16639,32 +16712,32 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
 
 class OrderProductTaxTypeV2Data extends DataClass
     implements Insertable<OrderProductTaxTypeV2Data> {
-  final String? orderRef;
   final String? productRef;
+  final String? taxAccount;
+  final String? taxCode;
+  final String? orderRef;
   final String? taxTypeId;
   final String? taxTypeName;
   final double? taxAmount;
   final double? taxPercentage;
   final double taxableAmount;
   final String? taxGroupId;
-  final String? taxAccount;
-  final String? taxCode;
   final bool? isTaxExempt;
   final bool? isZeroTax;
   final bool? isNotApplyForThisCustomer;
   final bool? isNotApplyForThisOrderType;
   final bool? isNotApplyForThisPeriod;
   const OrderProductTaxTypeV2Data(
-      {this.orderRef,
-      this.productRef,
+      {this.productRef,
+      this.taxAccount,
+      this.taxCode,
+      this.orderRef,
       this.taxTypeId,
       this.taxTypeName,
       this.taxAmount,
       this.taxPercentage,
       required this.taxableAmount,
       this.taxGroupId,
-      this.taxAccount,
-      this.taxCode,
       this.isTaxExempt,
       this.isZeroTax,
       this.isNotApplyForThisCustomer,
@@ -16673,11 +16746,17 @@ class OrderProductTaxTypeV2Data extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (!nullToAbsent || orderRef != null) {
-      map['order_ref'] = Variable<String>(orderRef);
-    }
     if (!nullToAbsent || productRef != null) {
       map['product_ref'] = Variable<String>(productRef);
+    }
+    if (!nullToAbsent || taxAccount != null) {
+      map['tax_account'] = Variable<String>(taxAccount);
+    }
+    if (!nullToAbsent || taxCode != null) {
+      map['tax_code'] = Variable<String>(taxCode);
+    }
+    if (!nullToAbsent || orderRef != null) {
+      map['order_ref'] = Variable<String>(orderRef);
     }
     if (!nullToAbsent || taxTypeId != null) {
       map['tax_type_id'] = Variable<String>(taxTypeId);
@@ -16694,12 +16773,6 @@ class OrderProductTaxTypeV2Data extends DataClass
     map['taxable_amount'] = Variable<double>(taxableAmount);
     if (!nullToAbsent || taxGroupId != null) {
       map['tax_group_id'] = Variable<String>(taxGroupId);
-    }
-    if (!nullToAbsent || taxAccount != null) {
-      map['tax_account'] = Variable<String>(taxAccount);
-    }
-    if (!nullToAbsent || taxCode != null) {
-      map['tax_code'] = Variable<String>(taxCode);
     }
     if (!nullToAbsent || isTaxExempt != null) {
       map['is_tax_exempt'] = Variable<bool>(isTaxExempt);
@@ -16724,12 +16797,18 @@ class OrderProductTaxTypeV2Data extends DataClass
 
   OrderProductTaxTypeV2Companion toCompanion(bool nullToAbsent) {
     return OrderProductTaxTypeV2Companion(
-      orderRef: orderRef == null && nullToAbsent
-          ? const Value.absent()
-          : Value(orderRef),
       productRef: productRef == null && nullToAbsent
           ? const Value.absent()
           : Value(productRef),
+      taxAccount: taxAccount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxAccount),
+      taxCode: taxCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxCode),
+      orderRef: orderRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderRef),
       taxTypeId: taxTypeId == null && nullToAbsent
           ? const Value.absent()
           : Value(taxTypeId),
@@ -16746,12 +16825,6 @@ class OrderProductTaxTypeV2Data extends DataClass
       taxGroupId: taxGroupId == null && nullToAbsent
           ? const Value.absent()
           : Value(taxGroupId),
-      taxAccount: taxAccount == null && nullToAbsent
-          ? const Value.absent()
-          : Value(taxAccount),
-      taxCode: taxCode == null && nullToAbsent
-          ? const Value.absent()
-          : Value(taxCode),
       isTaxExempt: isTaxExempt == null && nullToAbsent
           ? const Value.absent()
           : Value(isTaxExempt),
@@ -16776,16 +16849,16 @@ class OrderProductTaxTypeV2Data extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTaxTypeV2Data(
-      orderRef: serializer.fromJson<String?>(json['orderRef']),
       productRef: serializer.fromJson<String?>(json['productRef']),
+      taxAccount: serializer.fromJson<String?>(json['taxAccount']),
+      taxCode: serializer.fromJson<String?>(json['taxCode']),
+      orderRef: serializer.fromJson<String?>(json['orderRef']),
       taxTypeId: serializer.fromJson<String?>(json['taxTypeId']),
       taxTypeName: serializer.fromJson<String?>(json['taxTypeName']),
       taxAmount: serializer.fromJson<double?>(json['taxAmount']),
       taxPercentage: serializer.fromJson<double?>(json['taxPercentage']),
       taxableAmount: serializer.fromJson<double>(json['taxableAmount']),
       taxGroupId: serializer.fromJson<String?>(json['taxGroupId']),
-      taxAccount: serializer.fromJson<String?>(json['taxAccount']),
-      taxCode: serializer.fromJson<String?>(json['taxCode']),
       isTaxExempt: serializer.fromJson<bool?>(json['isTaxExempt']),
       isZeroTax: serializer.fromJson<bool?>(json['isZeroTax']),
       isNotApplyForThisCustomer:
@@ -16800,16 +16873,16 @@ class OrderProductTaxTypeV2Data extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'orderRef': serializer.toJson<String?>(orderRef),
       'productRef': serializer.toJson<String?>(productRef),
+      'taxAccount': serializer.toJson<String?>(taxAccount),
+      'taxCode': serializer.toJson<String?>(taxCode),
+      'orderRef': serializer.toJson<String?>(orderRef),
       'taxTypeId': serializer.toJson<String?>(taxTypeId),
       'taxTypeName': serializer.toJson<String?>(taxTypeName),
       'taxAmount': serializer.toJson<double?>(taxAmount),
       'taxPercentage': serializer.toJson<double?>(taxPercentage),
       'taxableAmount': serializer.toJson<double>(taxableAmount),
       'taxGroupId': serializer.toJson<String?>(taxGroupId),
-      'taxAccount': serializer.toJson<String?>(taxAccount),
-      'taxCode': serializer.toJson<String?>(taxCode),
       'isTaxExempt': serializer.toJson<bool?>(isTaxExempt),
       'isZeroTax': serializer.toJson<bool?>(isZeroTax),
       'isNotApplyForThisCustomer':
@@ -16822,24 +16895,26 @@ class OrderProductTaxTypeV2Data extends DataClass
   }
 
   OrderProductTaxTypeV2Data copyWith(
-          {Value<String?> orderRef = const Value.absent(),
-          Value<String?> productRef = const Value.absent(),
+          {Value<String?> productRef = const Value.absent(),
+          Value<String?> taxAccount = const Value.absent(),
+          Value<String?> taxCode = const Value.absent(),
+          Value<String?> orderRef = const Value.absent(),
           Value<String?> taxTypeId = const Value.absent(),
           Value<String?> taxTypeName = const Value.absent(),
           Value<double?> taxAmount = const Value.absent(),
           Value<double?> taxPercentage = const Value.absent(),
           double? taxableAmount,
           Value<String?> taxGroupId = const Value.absent(),
-          Value<String?> taxAccount = const Value.absent(),
-          Value<String?> taxCode = const Value.absent(),
           Value<bool?> isTaxExempt = const Value.absent(),
           Value<bool?> isZeroTax = const Value.absent(),
           Value<bool?> isNotApplyForThisCustomer = const Value.absent(),
           Value<bool?> isNotApplyForThisOrderType = const Value.absent(),
           Value<bool?> isNotApplyForThisPeriod = const Value.absent()}) =>
       OrderProductTaxTypeV2Data(
-        orderRef: orderRef.present ? orderRef.value : this.orderRef,
         productRef: productRef.present ? productRef.value : this.productRef,
+        taxAccount: taxAccount.present ? taxAccount.value : this.taxAccount,
+        taxCode: taxCode.present ? taxCode.value : this.taxCode,
+        orderRef: orderRef.present ? orderRef.value : this.orderRef,
         taxTypeId: taxTypeId.present ? taxTypeId.value : this.taxTypeId,
         taxTypeName: taxTypeName.present ? taxTypeName.value : this.taxTypeName,
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
@@ -16847,8 +16922,6 @@ class OrderProductTaxTypeV2Data extends DataClass
             taxPercentage.present ? taxPercentage.value : this.taxPercentage,
         taxableAmount: taxableAmount ?? this.taxableAmount,
         taxGroupId: taxGroupId.present ? taxGroupId.value : this.taxGroupId,
-        taxAccount: taxAccount.present ? taxAccount.value : this.taxAccount,
-        taxCode: taxCode.present ? taxCode.value : this.taxCode,
         isTaxExempt: isTaxExempt.present ? isTaxExempt.value : this.isTaxExempt,
         isZeroTax: isZeroTax.present ? isZeroTax.value : this.isZeroTax,
         isNotApplyForThisCustomer: isNotApplyForThisCustomer.present
@@ -16864,16 +16937,16 @@ class OrderProductTaxTypeV2Data extends DataClass
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Data(')
-          ..write('orderRef: $orderRef, ')
           ..write('productRef: $productRef, ')
+          ..write('taxAccount: $taxAccount, ')
+          ..write('taxCode: $taxCode, ')
+          ..write('orderRef: $orderRef, ')
           ..write('taxTypeId: $taxTypeId, ')
           ..write('taxTypeName: $taxTypeName, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('taxPercentage: $taxPercentage, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxGroupId: $taxGroupId, ')
-          ..write('taxAccount: $taxAccount, ')
-          ..write('taxCode: $taxCode, ')
           ..write('isTaxExempt: $isTaxExempt, ')
           ..write('isZeroTax: $isZeroTax, ')
           ..write('isNotApplyForThisCustomer: $isNotApplyForThisCustomer, ')
@@ -16885,16 +16958,16 @@ class OrderProductTaxTypeV2Data extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      orderRef,
       productRef,
+      taxAccount,
+      taxCode,
+      orderRef,
       taxTypeId,
       taxTypeName,
       taxAmount,
       taxPercentage,
       taxableAmount,
       taxGroupId,
-      taxAccount,
-      taxCode,
       isTaxExempt,
       isZeroTax,
       isNotApplyForThisCustomer,
@@ -16904,16 +16977,16 @@ class OrderProductTaxTypeV2Data extends DataClass
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductTaxTypeV2Data &&
-          other.orderRef == this.orderRef &&
           other.productRef == this.productRef &&
+          other.taxAccount == this.taxAccount &&
+          other.taxCode == this.taxCode &&
+          other.orderRef == this.orderRef &&
           other.taxTypeId == this.taxTypeId &&
           other.taxTypeName == this.taxTypeName &&
           other.taxAmount == this.taxAmount &&
           other.taxPercentage == this.taxPercentage &&
           other.taxableAmount == this.taxableAmount &&
           other.taxGroupId == this.taxGroupId &&
-          other.taxAccount == this.taxAccount &&
-          other.taxCode == this.taxCode &&
           other.isTaxExempt == this.isTaxExempt &&
           other.isZeroTax == this.isZeroTax &&
           other.isNotApplyForThisCustomer == this.isNotApplyForThisCustomer &&
@@ -16923,16 +16996,16 @@ class OrderProductTaxTypeV2Data extends DataClass
 
 class OrderProductTaxTypeV2Companion
     extends UpdateCompanion<OrderProductTaxTypeV2Data> {
-  final Value<String?> orderRef;
   final Value<String?> productRef;
+  final Value<String?> taxAccount;
+  final Value<String?> taxCode;
+  final Value<String?> orderRef;
   final Value<String?> taxTypeId;
   final Value<String?> taxTypeName;
   final Value<double?> taxAmount;
   final Value<double?> taxPercentage;
   final Value<double> taxableAmount;
   final Value<String?> taxGroupId;
-  final Value<String?> taxAccount;
-  final Value<String?> taxCode;
   final Value<bool?> isTaxExempt;
   final Value<bool?> isZeroTax;
   final Value<bool?> isNotApplyForThisCustomer;
@@ -16940,16 +17013,16 @@ class OrderProductTaxTypeV2Companion
   final Value<bool?> isNotApplyForThisPeriod;
   final Value<int> rowid;
   const OrderProductTaxTypeV2Companion({
-    this.orderRef = const Value.absent(),
     this.productRef = const Value.absent(),
+    this.taxAccount = const Value.absent(),
+    this.taxCode = const Value.absent(),
+    this.orderRef = const Value.absent(),
     this.taxTypeId = const Value.absent(),
     this.taxTypeName = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.taxPercentage = const Value.absent(),
     this.taxableAmount = const Value.absent(),
     this.taxGroupId = const Value.absent(),
-    this.taxAccount = const Value.absent(),
-    this.taxCode = const Value.absent(),
     this.isTaxExempt = const Value.absent(),
     this.isZeroTax = const Value.absent(),
     this.isNotApplyForThisCustomer = const Value.absent(),
@@ -16958,16 +17031,16 @@ class OrderProductTaxTypeV2Companion
     this.rowid = const Value.absent(),
   });
   OrderProductTaxTypeV2Companion.insert({
-    this.orderRef = const Value.absent(),
     this.productRef = const Value.absent(),
+    this.taxAccount = const Value.absent(),
+    this.taxCode = const Value.absent(),
+    this.orderRef = const Value.absent(),
     this.taxTypeId = const Value.absent(),
     this.taxTypeName = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.taxPercentage = const Value.absent(),
     required double taxableAmount,
     this.taxGroupId = const Value.absent(),
-    this.taxAccount = const Value.absent(),
-    this.taxCode = const Value.absent(),
     this.isTaxExempt = const Value.absent(),
     this.isZeroTax = const Value.absent(),
     this.isNotApplyForThisCustomer = const Value.absent(),
@@ -16976,16 +17049,16 @@ class OrderProductTaxTypeV2Companion
     this.rowid = const Value.absent(),
   }) : taxableAmount = Value(taxableAmount);
   static Insertable<OrderProductTaxTypeV2Data> custom({
-    Expression<String>? orderRef,
     Expression<String>? productRef,
+    Expression<String>? taxAccount,
+    Expression<String>? taxCode,
+    Expression<String>? orderRef,
     Expression<String>? taxTypeId,
     Expression<String>? taxTypeName,
     Expression<double>? taxAmount,
     Expression<double>? taxPercentage,
     Expression<double>? taxableAmount,
     Expression<String>? taxGroupId,
-    Expression<String>? taxAccount,
-    Expression<String>? taxCode,
     Expression<bool>? isTaxExempt,
     Expression<bool>? isZeroTax,
     Expression<bool>? isNotApplyForThisCustomer,
@@ -16994,16 +17067,16 @@ class OrderProductTaxTypeV2Companion
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
-      if (orderRef != null) 'order_ref': orderRef,
       if (productRef != null) 'product_ref': productRef,
+      if (taxAccount != null) 'tax_account': taxAccount,
+      if (taxCode != null) 'tax_code': taxCode,
+      if (orderRef != null) 'order_ref': orderRef,
       if (taxTypeId != null) 'tax_type_id': taxTypeId,
       if (taxTypeName != null) 'tax_type_name': taxTypeName,
       if (taxAmount != null) 'tax_amount': taxAmount,
       if (taxPercentage != null) 'tax_percentage': taxPercentage,
       if (taxableAmount != null) 'taxable_amount': taxableAmount,
       if (taxGroupId != null) 'tax_group_id': taxGroupId,
-      if (taxAccount != null) 'tax_account': taxAccount,
-      if (taxCode != null) 'tax_code': taxCode,
       if (isTaxExempt != null) 'is_tax_exempt': isTaxExempt,
       if (isZeroTax != null) 'is_zero_tax': isZeroTax,
       if (isNotApplyForThisCustomer != null)
@@ -17017,16 +17090,16 @@ class OrderProductTaxTypeV2Companion
   }
 
   OrderProductTaxTypeV2Companion copyWith(
-      {Value<String?>? orderRef,
-      Value<String?>? productRef,
+      {Value<String?>? productRef,
+      Value<String?>? taxAccount,
+      Value<String?>? taxCode,
+      Value<String?>? orderRef,
       Value<String?>? taxTypeId,
       Value<String?>? taxTypeName,
       Value<double?>? taxAmount,
       Value<double?>? taxPercentage,
       Value<double>? taxableAmount,
       Value<String?>? taxGroupId,
-      Value<String?>? taxAccount,
-      Value<String?>? taxCode,
       Value<bool?>? isTaxExempt,
       Value<bool?>? isZeroTax,
       Value<bool?>? isNotApplyForThisCustomer,
@@ -17034,16 +17107,16 @@ class OrderProductTaxTypeV2Companion
       Value<bool?>? isNotApplyForThisPeriod,
       Value<int>? rowid}) {
     return OrderProductTaxTypeV2Companion(
-      orderRef: orderRef ?? this.orderRef,
       productRef: productRef ?? this.productRef,
+      taxAccount: taxAccount ?? this.taxAccount,
+      taxCode: taxCode ?? this.taxCode,
+      orderRef: orderRef ?? this.orderRef,
       taxTypeId: taxTypeId ?? this.taxTypeId,
       taxTypeName: taxTypeName ?? this.taxTypeName,
       taxAmount: taxAmount ?? this.taxAmount,
       taxPercentage: taxPercentage ?? this.taxPercentage,
       taxableAmount: taxableAmount ?? this.taxableAmount,
       taxGroupId: taxGroupId ?? this.taxGroupId,
-      taxAccount: taxAccount ?? this.taxAccount,
-      taxCode: taxCode ?? this.taxCode,
       isTaxExempt: isTaxExempt ?? this.isTaxExempt,
       isZeroTax: isZeroTax ?? this.isZeroTax,
       isNotApplyForThisCustomer:
@@ -17059,11 +17132,17 @@ class OrderProductTaxTypeV2Companion
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (orderRef.present) {
-      map['order_ref'] = Variable<String>(orderRef.value);
-    }
     if (productRef.present) {
       map['product_ref'] = Variable<String>(productRef.value);
+    }
+    if (taxAccount.present) {
+      map['tax_account'] = Variable<String>(taxAccount.value);
+    }
+    if (taxCode.present) {
+      map['tax_code'] = Variable<String>(taxCode.value);
+    }
+    if (orderRef.present) {
+      map['order_ref'] = Variable<String>(orderRef.value);
     }
     if (taxTypeId.present) {
       map['tax_type_id'] = Variable<String>(taxTypeId.value);
@@ -17082,12 +17161,6 @@ class OrderProductTaxTypeV2Companion
     }
     if (taxGroupId.present) {
       map['tax_group_id'] = Variable<String>(taxGroupId.value);
-    }
-    if (taxAccount.present) {
-      map['tax_account'] = Variable<String>(taxAccount.value);
-    }
-    if (taxCode.present) {
-      map['tax_code'] = Variable<String>(taxCode.value);
     }
     if (isTaxExempt.present) {
       map['is_tax_exempt'] = Variable<bool>(isTaxExempt.value);
@@ -17116,16 +17189,16 @@ class OrderProductTaxTypeV2Companion
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Companion(')
-          ..write('orderRef: $orderRef, ')
           ..write('productRef: $productRef, ')
+          ..write('taxAccount: $taxAccount, ')
+          ..write('taxCode: $taxCode, ')
+          ..write('orderRef: $orderRef, ')
           ..write('taxTypeId: $taxTypeId, ')
           ..write('taxTypeName: $taxTypeName, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('taxPercentage: $taxPercentage, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxGroupId: $taxGroupId, ')
-          ..write('taxAccount: $taxAccount, ')
-          ..write('taxCode: $taxCode, ')
           ..write('isTaxExempt: $isTaxExempt, ')
           ..write('isZeroTax: $isZeroTax, ')
           ..write('isNotApplyForThisCustomer: $isNotApplyForThisCustomer, ')
@@ -19645,6 +19718,1201 @@ class OrderTaxTypeV2Companion extends UpdateCompanion<OrderTaxTypeV2Data> {
   }
 }
 
+class $OrderProductModifierV2Table extends OrderProductModifierV2
+    with TableInfo<$OrderProductModifierV2Table, OrderProductModifierV2Data> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OrderProductModifierV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _orderRefMeta =
+      const VerificationMeta('orderRef');
+  @override
+  late final GeneratedColumn<String> orderRef = GeneratedColumn<String>(
+      'order_ref', aliasedName, true,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
+  static const VerificationMeta _productRefMeta =
+      const VerificationMeta('productRef');
+  @override
+  late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
+      'product_ref', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _modifierIdMeta =
+      const VerificationMeta('modifierId');
+  @override
+  late final GeneratedColumn<String> modifierId = GeneratedColumn<String>(
+      'modifier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [orderRef, productRef, modifierId, name, fName, notes];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'order_product_modifier_v2';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<OrderProductModifierV2Data> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('order_ref')) {
+      context.handle(_orderRefMeta,
+          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    }
+    if (data.containsKey('product_ref')) {
+      context.handle(
+          _productRefMeta,
+          productRef.isAcceptableOrUnknown(
+              data['product_ref']!, _productRefMeta));
+    }
+    if (data.containsKey('modifier_id')) {
+      context.handle(
+          _modifierIdMeta,
+          modifierId.isAcceptableOrUnknown(
+              data['modifier_id']!, _modifierIdMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {orderRef, productRef, modifierId};
+  @override
+  OrderProductModifierV2Data map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OrderProductModifierV2Data(
+      orderRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+      productRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
+      modifierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}modifier_id']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+    );
+  }
+
+  @override
+  $OrderProductModifierV2Table createAlias(String alias) {
+    return $OrderProductModifierV2Table(attachedDatabase, alias);
+  }
+}
+
+class OrderProductModifierV2Data extends DataClass
+    implements Insertable<OrderProductModifierV2Data> {
+  final String? orderRef;
+  final String? productRef;
+  final String? modifierId;
+  final String? name;
+  final String? fName;
+  final String? notes;
+  const OrderProductModifierV2Data(
+      {this.orderRef,
+      this.productRef,
+      this.modifierId,
+      this.name,
+      this.fName,
+      this.notes});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || orderRef != null) {
+      map['order_ref'] = Variable<String>(orderRef);
+    }
+    if (!nullToAbsent || productRef != null) {
+      map['product_ref'] = Variable<String>(productRef);
+    }
+    if (!nullToAbsent || modifierId != null) {
+      map['modifier_id'] = Variable<String>(modifierId);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    return map;
+  }
+
+  OrderProductModifierV2Companion toCompanion(bool nullToAbsent) {
+    return OrderProductModifierV2Companion(
+      orderRef: orderRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderRef),
+      productRef: productRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(productRef),
+      modifierId: modifierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(modifierId),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+    );
+  }
+
+  factory OrderProductModifierV2Data.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OrderProductModifierV2Data(
+      orderRef: serializer.fromJson<String?>(json['orderRef']),
+      productRef: serializer.fromJson<String?>(json['productRef']),
+      modifierId: serializer.fromJson<String?>(json['modifierId']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
+      notes: serializer.fromJson<String?>(json['notes']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'orderRef': serializer.toJson<String?>(orderRef),
+      'productRef': serializer.toJson<String?>(productRef),
+      'modifierId': serializer.toJson<String?>(modifierId),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
+      'notes': serializer.toJson<String?>(notes),
+    };
+  }
+
+  OrderProductModifierV2Data copyWith(
+          {Value<String?> orderRef = const Value.absent(),
+          Value<String?> productRef = const Value.absent(),
+          Value<String?> modifierId = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
+          Value<String?> notes = const Value.absent()}) =>
+      OrderProductModifierV2Data(
+        orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        productRef: productRef.present ? productRef.value : this.productRef,
+        modifierId: modifierId.present ? modifierId.value : this.modifierId,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
+        notes: notes.present ? notes.value : this.notes,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('OrderProductModifierV2Data(')
+          ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('notes: $notes')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(orderRef, productRef, modifierId, name, fName, notes);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OrderProductModifierV2Data &&
+          other.orderRef == this.orderRef &&
+          other.productRef == this.productRef &&
+          other.modifierId == this.modifierId &&
+          other.name == this.name &&
+          other.fName == this.fName &&
+          other.notes == this.notes);
+}
+
+class OrderProductModifierV2Companion
+    extends UpdateCompanion<OrderProductModifierV2Data> {
+  final Value<String?> orderRef;
+  final Value<String?> productRef;
+  final Value<String?> modifierId;
+  final Value<String?> name;
+  final Value<String?> fName;
+  final Value<String?> notes;
+  final Value<int> rowid;
+  const OrderProductModifierV2Companion({
+    this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OrderProductModifierV2Companion.insert({
+    this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  static Insertable<OrderProductModifierV2Data> custom({
+    Expression<String>? orderRef,
+    Expression<String>? productRef,
+    Expression<String>? modifierId,
+    Expression<String>? name,
+    Expression<String>? fName,
+    Expression<String>? notes,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (orderRef != null) 'order_ref': orderRef,
+      if (productRef != null) 'product_ref': productRef,
+      if (modifierId != null) 'modifier_id': modifierId,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
+      if (notes != null) 'notes': notes,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OrderProductModifierV2Companion copyWith(
+      {Value<String?>? orderRef,
+      Value<String?>? productRef,
+      Value<String?>? modifierId,
+      Value<String?>? name,
+      Value<String?>? fName,
+      Value<String?>? notes,
+      Value<int>? rowid}) {
+    return OrderProductModifierV2Companion(
+      orderRef: orderRef ?? this.orderRef,
+      productRef: productRef ?? this.productRef,
+      modifierId: modifierId ?? this.modifierId,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
+      notes: notes ?? this.notes,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (orderRef.present) {
+      map['order_ref'] = Variable<String>(orderRef.value);
+    }
+    if (productRef.present) {
+      map['product_ref'] = Variable<String>(productRef.value);
+    }
+    if (modifierId.present) {
+      map['modifier_id'] = Variable<String>(modifierId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OrderProductModifierV2Companion(')
+          ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('notes: $notes, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
+    with
+        TableInfo<$OrderProductModifierOptionV2Table,
+            OrderProductModifierOptionV2Data> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OrderProductModifierOptionV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _orderRefMeta =
+      const VerificationMeta('orderRef');
+  @override
+  late final GeneratedColumn<String> orderRef = GeneratedColumn<String>(
+      'order_ref', aliasedName, true,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
+  static const VerificationMeta _productRefMeta =
+      const VerificationMeta('productRef');
+  @override
+  late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
+      'product_ref', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _modifierIdMeta =
+      const VerificationMeta('modifierId');
+  @override
+  late final GeneratedColumn<String> modifierId = GeneratedColumn<String>(
+      'modifier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _optionIdMeta =
+      const VerificationMeta('optionId');
+  @override
+  late final GeneratedColumn<String> optionId = GeneratedColumn<String>(
+      'option_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _quantityMeta =
+      const VerificationMeta('quantity');
+  @override
+  late final GeneratedColumn<double> quantity = GeneratedColumn<double>(
+      'quantity', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _freeQuantityMeta =
+      const VerificationMeta('freeQuantity');
+  @override
+  late final GeneratedColumn<double> freeQuantity = GeneratedColumn<double>(
+      'free_quantity', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _unitPriceMeta =
+      const VerificationMeta('unitPrice');
+  @override
+  late final GeneratedColumn<double> unitPrice = GeneratedColumn<double>(
+      'unit_price', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _totalPriceMeta =
+      const VerificationMeta('totalPrice');
+  @override
+  late final GeneratedColumn<double> totalPrice = GeneratedColumn<double>(
+      'total_price', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _discountAmountMeta =
+      const VerificationMeta('discountAmount');
+  @override
+  late final GeneratedColumn<double> discountAmount = GeneratedColumn<double>(
+      'discount_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _discountPercentageMeta =
+      const VerificationMeta('discountPercentage');
+  @override
+  late final GeneratedColumn<double> discountPercentage =
+      GeneratedColumn<double>('discount_percentage', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _netUnitPriceMeta =
+      const VerificationMeta('netUnitPrice');
+  @override
+  late final GeneratedColumn<double> netUnitPrice = GeneratedColumn<double>(
+      'net_unit_price', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _netTotalPriceMeta =
+      const VerificationMeta('netTotalPrice');
+  @override
+  late final GeneratedColumn<double> netTotalPrice = GeneratedColumn<double>(
+      'net_total_price', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _taxableAmountMeta =
+      const VerificationMeta('taxableAmount');
+  @override
+  late final GeneratedColumn<double> taxableAmount = GeneratedColumn<double>(
+      'taxable_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _taxAmountMeta =
+      const VerificationMeta('taxAmount');
+  @override
+  late final GeneratedColumn<double> taxAmount = GeneratedColumn<double>(
+      'tax_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _finalAmountMeta =
+      const VerificationMeta('finalAmount');
+  @override
+  late final GeneratedColumn<double> finalAmount = GeneratedColumn<double>(
+      'final_amount', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        orderRef,
+        productRef,
+        modifierId,
+        optionId,
+        name,
+        fName,
+        quantity,
+        freeQuantity,
+        unitPrice,
+        totalPrice,
+        discountAmount,
+        discountPercentage,
+        netUnitPrice,
+        netTotalPrice,
+        taxableAmount,
+        taxAmount,
+        finalAmount,
+        notes
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'order_product_modifier_option_v2';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<OrderProductModifierOptionV2Data> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('order_ref')) {
+      context.handle(_orderRefMeta,
+          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    }
+    if (data.containsKey('product_ref')) {
+      context.handle(
+          _productRefMeta,
+          productRef.isAcceptableOrUnknown(
+              data['product_ref']!, _productRefMeta));
+    }
+    if (data.containsKey('modifier_id')) {
+      context.handle(
+          _modifierIdMeta,
+          modifierId.isAcceptableOrUnknown(
+              data['modifier_id']!, _modifierIdMeta));
+    }
+    if (data.containsKey('option_id')) {
+      context.handle(_optionIdMeta,
+          optionId.isAcceptableOrUnknown(data['option_id']!, _optionIdMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
+    }
+    if (data.containsKey('quantity')) {
+      context.handle(_quantityMeta,
+          quantity.isAcceptableOrUnknown(data['quantity']!, _quantityMeta));
+    } else if (isInserting) {
+      context.missing(_quantityMeta);
+    }
+    if (data.containsKey('free_quantity')) {
+      context.handle(
+          _freeQuantityMeta,
+          freeQuantity.isAcceptableOrUnknown(
+              data['free_quantity']!, _freeQuantityMeta));
+    }
+    if (data.containsKey('unit_price')) {
+      context.handle(_unitPriceMeta,
+          unitPrice.isAcceptableOrUnknown(data['unit_price']!, _unitPriceMeta));
+    } else if (isInserting) {
+      context.missing(_unitPriceMeta);
+    }
+    if (data.containsKey('total_price')) {
+      context.handle(
+          _totalPriceMeta,
+          totalPrice.isAcceptableOrUnknown(
+              data['total_price']!, _totalPriceMeta));
+    } else if (isInserting) {
+      context.missing(_totalPriceMeta);
+    }
+    if (data.containsKey('discount_amount')) {
+      context.handle(
+          _discountAmountMeta,
+          discountAmount.isAcceptableOrUnknown(
+              data['discount_amount']!, _discountAmountMeta));
+    }
+    if (data.containsKey('discount_percentage')) {
+      context.handle(
+          _discountPercentageMeta,
+          discountPercentage.isAcceptableOrUnknown(
+              data['discount_percentage']!, _discountPercentageMeta));
+    }
+    if (data.containsKey('net_unit_price')) {
+      context.handle(
+          _netUnitPriceMeta,
+          netUnitPrice.isAcceptableOrUnknown(
+              data['net_unit_price']!, _netUnitPriceMeta));
+    } else if (isInserting) {
+      context.missing(_netUnitPriceMeta);
+    }
+    if (data.containsKey('net_total_price')) {
+      context.handle(
+          _netTotalPriceMeta,
+          netTotalPrice.isAcceptableOrUnknown(
+              data['net_total_price']!, _netTotalPriceMeta));
+    } else if (isInserting) {
+      context.missing(_netTotalPriceMeta);
+    }
+    if (data.containsKey('taxable_amount')) {
+      context.handle(
+          _taxableAmountMeta,
+          taxableAmount.isAcceptableOrUnknown(
+              data['taxable_amount']!, _taxableAmountMeta));
+    }
+    if (data.containsKey('tax_amount')) {
+      context.handle(_taxAmountMeta,
+          taxAmount.isAcceptableOrUnknown(data['tax_amount']!, _taxAmountMeta));
+    }
+    if (data.containsKey('final_amount')) {
+      context.handle(
+          _finalAmountMeta,
+          finalAmount.isAcceptableOrUnknown(
+              data['final_amount']!, _finalAmountMeta));
+    } else if (isInserting) {
+      context.missing(_finalAmountMeta);
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey =>
+      {orderRef, productRef, modifierId, optionId};
+  @override
+  OrderProductModifierOptionV2Data map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OrderProductModifierOptionV2Data(
+      orderRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+      productRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
+      modifierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}modifier_id']),
+      optionId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}option_id']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
+      quantity: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}quantity'])!,
+      freeQuantity: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}free_quantity']),
+      unitPrice: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}unit_price'])!,
+      totalPrice: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}total_price'])!,
+      discountAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}discount_amount']),
+      discountPercentage: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}discount_percentage']),
+      netUnitPrice: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}net_unit_price'])!,
+      netTotalPrice: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}net_total_price'])!,
+      taxableAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}taxable_amount']),
+      taxAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}tax_amount']),
+      finalAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}final_amount'])!,
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+    );
+  }
+
+  @override
+  $OrderProductModifierOptionV2Table createAlias(String alias) {
+    return $OrderProductModifierOptionV2Table(attachedDatabase, alias);
+  }
+}
+
+class OrderProductModifierOptionV2Data extends DataClass
+    implements Insertable<OrderProductModifierOptionV2Data> {
+  final String? orderRef;
+  final String? productRef;
+  final String? modifierId;
+  final String? optionId;
+  final String? name;
+  final String? fName;
+  final double quantity;
+  final double? freeQuantity;
+  final double unitPrice;
+  final double totalPrice;
+  final double? discountAmount;
+  final double? discountPercentage;
+  final double netUnitPrice;
+  final double netTotalPrice;
+  final double? taxableAmount;
+  final double? taxAmount;
+  final double finalAmount;
+  final String? notes;
+  const OrderProductModifierOptionV2Data(
+      {this.orderRef,
+      this.productRef,
+      this.modifierId,
+      this.optionId,
+      this.name,
+      this.fName,
+      required this.quantity,
+      this.freeQuantity,
+      required this.unitPrice,
+      required this.totalPrice,
+      this.discountAmount,
+      this.discountPercentage,
+      required this.netUnitPrice,
+      required this.netTotalPrice,
+      this.taxableAmount,
+      this.taxAmount,
+      required this.finalAmount,
+      this.notes});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || orderRef != null) {
+      map['order_ref'] = Variable<String>(orderRef);
+    }
+    if (!nullToAbsent || productRef != null) {
+      map['product_ref'] = Variable<String>(productRef);
+    }
+    if (!nullToAbsent || modifierId != null) {
+      map['modifier_id'] = Variable<String>(modifierId);
+    }
+    if (!nullToAbsent || optionId != null) {
+      map['option_id'] = Variable<String>(optionId);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
+    }
+    map['quantity'] = Variable<double>(quantity);
+    if (!nullToAbsent || freeQuantity != null) {
+      map['free_quantity'] = Variable<double>(freeQuantity);
+    }
+    map['unit_price'] = Variable<double>(unitPrice);
+    map['total_price'] = Variable<double>(totalPrice);
+    if (!nullToAbsent || discountAmount != null) {
+      map['discount_amount'] = Variable<double>(discountAmount);
+    }
+    if (!nullToAbsent || discountPercentage != null) {
+      map['discount_percentage'] = Variable<double>(discountPercentage);
+    }
+    map['net_unit_price'] = Variable<double>(netUnitPrice);
+    map['net_total_price'] = Variable<double>(netTotalPrice);
+    if (!nullToAbsent || taxableAmount != null) {
+      map['taxable_amount'] = Variable<double>(taxableAmount);
+    }
+    if (!nullToAbsent || taxAmount != null) {
+      map['tax_amount'] = Variable<double>(taxAmount);
+    }
+    map['final_amount'] = Variable<double>(finalAmount);
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    return map;
+  }
+
+  OrderProductModifierOptionV2Companion toCompanion(bool nullToAbsent) {
+    return OrderProductModifierOptionV2Companion(
+      orderRef: orderRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderRef),
+      productRef: productRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(productRef),
+      modifierId: modifierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(modifierId),
+      optionId: optionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(optionId),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
+      quantity: Value(quantity),
+      freeQuantity: freeQuantity == null && nullToAbsent
+          ? const Value.absent()
+          : Value(freeQuantity),
+      unitPrice: Value(unitPrice),
+      totalPrice: Value(totalPrice),
+      discountAmount: discountAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(discountAmount),
+      discountPercentage: discountPercentage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(discountPercentage),
+      netUnitPrice: Value(netUnitPrice),
+      netTotalPrice: Value(netTotalPrice),
+      taxableAmount: taxableAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxableAmount),
+      taxAmount: taxAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxAmount),
+      finalAmount: Value(finalAmount),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+    );
+  }
+
+  factory OrderProductModifierOptionV2Data.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OrderProductModifierOptionV2Data(
+      orderRef: serializer.fromJson<String?>(json['orderRef']),
+      productRef: serializer.fromJson<String?>(json['productRef']),
+      modifierId: serializer.fromJson<String?>(json['modifierId']),
+      optionId: serializer.fromJson<String?>(json['optionId']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
+      quantity: serializer.fromJson<double>(json['quantity']),
+      freeQuantity: serializer.fromJson<double?>(json['freeQuantity']),
+      unitPrice: serializer.fromJson<double>(json['unitPrice']),
+      totalPrice: serializer.fromJson<double>(json['totalPrice']),
+      discountAmount: serializer.fromJson<double?>(json['discountAmount']),
+      discountPercentage:
+          serializer.fromJson<double?>(json['discountPercentage']),
+      netUnitPrice: serializer.fromJson<double>(json['netUnitPrice']),
+      netTotalPrice: serializer.fromJson<double>(json['netTotalPrice']),
+      taxableAmount: serializer.fromJson<double?>(json['taxableAmount']),
+      taxAmount: serializer.fromJson<double?>(json['taxAmount']),
+      finalAmount: serializer.fromJson<double>(json['finalAmount']),
+      notes: serializer.fromJson<String?>(json['notes']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'orderRef': serializer.toJson<String?>(orderRef),
+      'productRef': serializer.toJson<String?>(productRef),
+      'modifierId': serializer.toJson<String?>(modifierId),
+      'optionId': serializer.toJson<String?>(optionId),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
+      'quantity': serializer.toJson<double>(quantity),
+      'freeQuantity': serializer.toJson<double?>(freeQuantity),
+      'unitPrice': serializer.toJson<double>(unitPrice),
+      'totalPrice': serializer.toJson<double>(totalPrice),
+      'discountAmount': serializer.toJson<double?>(discountAmount),
+      'discountPercentage': serializer.toJson<double?>(discountPercentage),
+      'netUnitPrice': serializer.toJson<double>(netUnitPrice),
+      'netTotalPrice': serializer.toJson<double>(netTotalPrice),
+      'taxableAmount': serializer.toJson<double?>(taxableAmount),
+      'taxAmount': serializer.toJson<double?>(taxAmount),
+      'finalAmount': serializer.toJson<double>(finalAmount),
+      'notes': serializer.toJson<String?>(notes),
+    };
+  }
+
+  OrderProductModifierOptionV2Data copyWith(
+          {Value<String?> orderRef = const Value.absent(),
+          Value<String?> productRef = const Value.absent(),
+          Value<String?> modifierId = const Value.absent(),
+          Value<String?> optionId = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
+          double? quantity,
+          Value<double?> freeQuantity = const Value.absent(),
+          double? unitPrice,
+          double? totalPrice,
+          Value<double?> discountAmount = const Value.absent(),
+          Value<double?> discountPercentage = const Value.absent(),
+          double? netUnitPrice,
+          double? netTotalPrice,
+          Value<double?> taxableAmount = const Value.absent(),
+          Value<double?> taxAmount = const Value.absent(),
+          double? finalAmount,
+          Value<String?> notes = const Value.absent()}) =>
+      OrderProductModifierOptionV2Data(
+        orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        productRef: productRef.present ? productRef.value : this.productRef,
+        modifierId: modifierId.present ? modifierId.value : this.modifierId,
+        optionId: optionId.present ? optionId.value : this.optionId,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
+        quantity: quantity ?? this.quantity,
+        freeQuantity:
+            freeQuantity.present ? freeQuantity.value : this.freeQuantity,
+        unitPrice: unitPrice ?? this.unitPrice,
+        totalPrice: totalPrice ?? this.totalPrice,
+        discountAmount:
+            discountAmount.present ? discountAmount.value : this.discountAmount,
+        discountPercentage: discountPercentage.present
+            ? discountPercentage.value
+            : this.discountPercentage,
+        netUnitPrice: netUnitPrice ?? this.netUnitPrice,
+        netTotalPrice: netTotalPrice ?? this.netTotalPrice,
+        taxableAmount:
+            taxableAmount.present ? taxableAmount.value : this.taxableAmount,
+        taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
+        finalAmount: finalAmount ?? this.finalAmount,
+        notes: notes.present ? notes.value : this.notes,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('OrderProductModifierOptionV2Data(')
+          ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('optionId: $optionId, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('quantity: $quantity, ')
+          ..write('freeQuantity: $freeQuantity, ')
+          ..write('unitPrice: $unitPrice, ')
+          ..write('totalPrice: $totalPrice, ')
+          ..write('discountAmount: $discountAmount, ')
+          ..write('discountPercentage: $discountPercentage, ')
+          ..write('netUnitPrice: $netUnitPrice, ')
+          ..write('netTotalPrice: $netTotalPrice, ')
+          ..write('taxableAmount: $taxableAmount, ')
+          ..write('taxAmount: $taxAmount, ')
+          ..write('finalAmount: $finalAmount, ')
+          ..write('notes: $notes')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      orderRef,
+      productRef,
+      modifierId,
+      optionId,
+      name,
+      fName,
+      quantity,
+      freeQuantity,
+      unitPrice,
+      totalPrice,
+      discountAmount,
+      discountPercentage,
+      netUnitPrice,
+      netTotalPrice,
+      taxableAmount,
+      taxAmount,
+      finalAmount,
+      notes);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OrderProductModifierOptionV2Data &&
+          other.orderRef == this.orderRef &&
+          other.productRef == this.productRef &&
+          other.modifierId == this.modifierId &&
+          other.optionId == this.optionId &&
+          other.name == this.name &&
+          other.fName == this.fName &&
+          other.quantity == this.quantity &&
+          other.freeQuantity == this.freeQuantity &&
+          other.unitPrice == this.unitPrice &&
+          other.totalPrice == this.totalPrice &&
+          other.discountAmount == this.discountAmount &&
+          other.discountPercentage == this.discountPercentage &&
+          other.netUnitPrice == this.netUnitPrice &&
+          other.netTotalPrice == this.netTotalPrice &&
+          other.taxableAmount == this.taxableAmount &&
+          other.taxAmount == this.taxAmount &&
+          other.finalAmount == this.finalAmount &&
+          other.notes == this.notes);
+}
+
+class OrderProductModifierOptionV2Companion
+    extends UpdateCompanion<OrderProductModifierOptionV2Data> {
+  final Value<String?> orderRef;
+  final Value<String?> productRef;
+  final Value<String?> modifierId;
+  final Value<String?> optionId;
+  final Value<String?> name;
+  final Value<String?> fName;
+  final Value<double> quantity;
+  final Value<double?> freeQuantity;
+  final Value<double> unitPrice;
+  final Value<double> totalPrice;
+  final Value<double?> discountAmount;
+  final Value<double?> discountPercentage;
+  final Value<double> netUnitPrice;
+  final Value<double> netTotalPrice;
+  final Value<double?> taxableAmount;
+  final Value<double?> taxAmount;
+  final Value<double> finalAmount;
+  final Value<String?> notes;
+  final Value<int> rowid;
+  const OrderProductModifierOptionV2Companion({
+    this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.optionId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.quantity = const Value.absent(),
+    this.freeQuantity = const Value.absent(),
+    this.unitPrice = const Value.absent(),
+    this.totalPrice = const Value.absent(),
+    this.discountAmount = const Value.absent(),
+    this.discountPercentage = const Value.absent(),
+    this.netUnitPrice = const Value.absent(),
+    this.netTotalPrice = const Value.absent(),
+    this.taxableAmount = const Value.absent(),
+    this.taxAmount = const Value.absent(),
+    this.finalAmount = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OrderProductModifierOptionV2Companion.insert({
+    this.orderRef = const Value.absent(),
+    this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.optionId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    required double quantity,
+    this.freeQuantity = const Value.absent(),
+    required double unitPrice,
+    required double totalPrice,
+    this.discountAmount = const Value.absent(),
+    this.discountPercentage = const Value.absent(),
+    required double netUnitPrice,
+    required double netTotalPrice,
+    this.taxableAmount = const Value.absent(),
+    this.taxAmount = const Value.absent(),
+    required double finalAmount,
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  })  : quantity = Value(quantity),
+        unitPrice = Value(unitPrice),
+        totalPrice = Value(totalPrice),
+        netUnitPrice = Value(netUnitPrice),
+        netTotalPrice = Value(netTotalPrice),
+        finalAmount = Value(finalAmount);
+  static Insertable<OrderProductModifierOptionV2Data> custom({
+    Expression<String>? orderRef,
+    Expression<String>? productRef,
+    Expression<String>? modifierId,
+    Expression<String>? optionId,
+    Expression<String>? name,
+    Expression<String>? fName,
+    Expression<double>? quantity,
+    Expression<double>? freeQuantity,
+    Expression<double>? unitPrice,
+    Expression<double>? totalPrice,
+    Expression<double>? discountAmount,
+    Expression<double>? discountPercentage,
+    Expression<double>? netUnitPrice,
+    Expression<double>? netTotalPrice,
+    Expression<double>? taxableAmount,
+    Expression<double>? taxAmount,
+    Expression<double>? finalAmount,
+    Expression<String>? notes,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (orderRef != null) 'order_ref': orderRef,
+      if (productRef != null) 'product_ref': productRef,
+      if (modifierId != null) 'modifier_id': modifierId,
+      if (optionId != null) 'option_id': optionId,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
+      if (quantity != null) 'quantity': quantity,
+      if (freeQuantity != null) 'free_quantity': freeQuantity,
+      if (unitPrice != null) 'unit_price': unitPrice,
+      if (totalPrice != null) 'total_price': totalPrice,
+      if (discountAmount != null) 'discount_amount': discountAmount,
+      if (discountPercentage != null) 'discount_percentage': discountPercentage,
+      if (netUnitPrice != null) 'net_unit_price': netUnitPrice,
+      if (netTotalPrice != null) 'net_total_price': netTotalPrice,
+      if (taxableAmount != null) 'taxable_amount': taxableAmount,
+      if (taxAmount != null) 'tax_amount': taxAmount,
+      if (finalAmount != null) 'final_amount': finalAmount,
+      if (notes != null) 'notes': notes,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OrderProductModifierOptionV2Companion copyWith(
+      {Value<String?>? orderRef,
+      Value<String?>? productRef,
+      Value<String?>? modifierId,
+      Value<String?>? optionId,
+      Value<String?>? name,
+      Value<String?>? fName,
+      Value<double>? quantity,
+      Value<double?>? freeQuantity,
+      Value<double>? unitPrice,
+      Value<double>? totalPrice,
+      Value<double?>? discountAmount,
+      Value<double?>? discountPercentage,
+      Value<double>? netUnitPrice,
+      Value<double>? netTotalPrice,
+      Value<double?>? taxableAmount,
+      Value<double?>? taxAmount,
+      Value<double>? finalAmount,
+      Value<String?>? notes,
+      Value<int>? rowid}) {
+    return OrderProductModifierOptionV2Companion(
+      orderRef: orderRef ?? this.orderRef,
+      productRef: productRef ?? this.productRef,
+      modifierId: modifierId ?? this.modifierId,
+      optionId: optionId ?? this.optionId,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
+      quantity: quantity ?? this.quantity,
+      freeQuantity: freeQuantity ?? this.freeQuantity,
+      unitPrice: unitPrice ?? this.unitPrice,
+      totalPrice: totalPrice ?? this.totalPrice,
+      discountAmount: discountAmount ?? this.discountAmount,
+      discountPercentage: discountPercentage ?? this.discountPercentage,
+      netUnitPrice: netUnitPrice ?? this.netUnitPrice,
+      netTotalPrice: netTotalPrice ?? this.netTotalPrice,
+      taxableAmount: taxableAmount ?? this.taxableAmount,
+      taxAmount: taxAmount ?? this.taxAmount,
+      finalAmount: finalAmount ?? this.finalAmount,
+      notes: notes ?? this.notes,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (orderRef.present) {
+      map['order_ref'] = Variable<String>(orderRef.value);
+    }
+    if (productRef.present) {
+      map['product_ref'] = Variable<String>(productRef.value);
+    }
+    if (modifierId.present) {
+      map['modifier_id'] = Variable<String>(modifierId.value);
+    }
+    if (optionId.present) {
+      map['option_id'] = Variable<String>(optionId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
+    }
+    if (quantity.present) {
+      map['quantity'] = Variable<double>(quantity.value);
+    }
+    if (freeQuantity.present) {
+      map['free_quantity'] = Variable<double>(freeQuantity.value);
+    }
+    if (unitPrice.present) {
+      map['unit_price'] = Variable<double>(unitPrice.value);
+    }
+    if (totalPrice.present) {
+      map['total_price'] = Variable<double>(totalPrice.value);
+    }
+    if (discountAmount.present) {
+      map['discount_amount'] = Variable<double>(discountAmount.value);
+    }
+    if (discountPercentage.present) {
+      map['discount_percentage'] = Variable<double>(discountPercentage.value);
+    }
+    if (netUnitPrice.present) {
+      map['net_unit_price'] = Variable<double>(netUnitPrice.value);
+    }
+    if (netTotalPrice.present) {
+      map['net_total_price'] = Variable<double>(netTotalPrice.value);
+    }
+    if (taxableAmount.present) {
+      map['taxable_amount'] = Variable<double>(taxableAmount.value);
+    }
+    if (taxAmount.present) {
+      map['tax_amount'] = Variable<double>(taxAmount.value);
+    }
+    if (finalAmount.present) {
+      map['final_amount'] = Variable<double>(finalAmount.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OrderProductModifierOptionV2Companion(')
+          ..write('orderRef: $orderRef, ')
+          ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('optionId: $optionId, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('quantity: $quantity, ')
+          ..write('freeQuantity: $freeQuantity, ')
+          ..write('unitPrice: $unitPrice, ')
+          ..write('totalPrice: $totalPrice, ')
+          ..write('discountAmount: $discountAmount, ')
+          ..write('discountPercentage: $discountPercentage, ')
+          ..write('netUnitPrice: $netUnitPrice, ')
+          ..write('netTotalPrice: $netTotalPrice, ')
+          ..write('taxableAmount: $taxableAmount, ')
+          ..write('taxAmount: $taxAmount, ')
+          ..write('finalAmount: $finalAmount, ')
+          ..write('notes: $notes, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   late final $OrderEntityTable orderEntity = $OrderEntityTable(this);
@@ -19698,6 +20966,10 @@ abstract class _$MyDatabase extends GeneratedDatabase {
   late final $OrderChargeForTotalV2Table orderChargeForTotalV2 =
       $OrderChargeForTotalV2Table(this);
   late final $OrderTaxTypeV2Table orderTaxTypeV2 = $OrderTaxTypeV2Table(this);
+  late final $OrderProductModifierV2Table orderProductModifierV2 =
+      $OrderProductModifierV2Table(this);
+  late final $OrderProductModifierOptionV2Table orderProductModifierOptionV2 =
+      $OrderProductModifierOptionV2Table(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -19732,7 +21004,9 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         orderPromotionGiftCardV2,
         orderChargeV2,
         orderChargeForTotalV2,
-        orderTaxTypeV2
+        orderTaxTypeV2,
+        orderProductModifierV2,
+        orderProductModifierOptionV2
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -19854,6 +21128,21 @@ abstract class _$MyDatabase extends GeneratedDatabase {
                 limitUpdateKind: UpdateKind.delete),
             result: [
               TableUpdate('order_tax_type_v2', kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('order_entity_v2',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('order_product_modifier_v2', kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('order_entity_v2',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('order_product_modifier_option_v2',
+                  kind: UpdateKind.delete),
             ],
           ),
         ],

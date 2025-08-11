@@ -3576,7 +3576,7 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(42, 7549563512968308700),
             name: 'callNumber',
-            type: 6,
+            type: 9,
             flags: 0),
         ModelProperty(
             id: const IdUid(44, 637423639748244923),
@@ -10695,6 +10695,9 @@ ModelDefinition getObjectBoxModel() {
           final priceListIdOffset = object.priceListId == null
               ? null
               : fbb.writeString(object.priceListId!);
+          final callNumberOffset = object.callNumber == null
+              ? null
+              : fbb.writeString(object.callNumber!);
           final donationForIdOffset = object.donationForId == null
               ? null
               : fbb.writeString(object.donationForId!);
@@ -10771,7 +10774,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(38, object.totalDiscountForOrderAndProduct);
           fbb.addOffset(39, priceListIdOffset);
           fbb.addInt64(40, object.posTransactionType ?? 0);
-          fbb.addInt64(41, object.callNumber);
+          fbb.addOffset(41, callNumberOffset);
           fbb.addInt64(43, object.paymentStatus);
           fbb.addInt64(44, object.refundStatus);
           fbb.addInt64(45, object.deliveryStatus);
@@ -10873,8 +10876,8 @@ ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 82)
             ..posTransactionType =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 84)
-            ..callNumber =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 86)
+            ..callNumber = const fb.StringReader(asciiOptimization: true)
+                .vTableGetNullable(buffer, rootOffset, 86)
             ..paymentStatus =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 90)
             ..refundStatus =
@@ -17027,7 +17030,7 @@ class OrderC_ {
 
   /// see [OrderC.callNumber]
   static final callNumber =
-      QueryIntegerProperty<OrderC>(_entities[41].properties[39]);
+      QueryStringProperty<OrderC>(_entities[41].properties[39]);
 
   /// see [OrderC.paymentStatus]
   static final paymentStatus =
