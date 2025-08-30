@@ -2152,7 +2152,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(23, 2455135106501388491),
       name: 'Discount',
-      lastPropertyId: const IdUid(29, 1022147776982552268),
+      lastPropertyId: const IdUid(30, 7031869474176474867),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -2214,11 +2214,6 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(12, 5203107809999414173),
             name: 'discountAmount',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 6131130926318960694),
-            name: 'maximumDiscountAmount',
             type: 8,
             flags: 0),
         ModelProperty(
@@ -2294,6 +2289,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(29, 1022147776982552268),
             name: 'maximumDiscountAmountProduct',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(30, 7031869474176474867),
+            name: 'maximumDiscountAmountOrder',
             type: 8,
             flags: 0)
       ],
@@ -6680,7 +6680,8 @@ ModelDefinition getObjectBoxModel() {
         3316913573284104737,
         3219645466667045008,
         9148480257443814828,
-        8507960200784712821
+        8507960200784712821,
+        6131130926318960694
       ],
       retiredRelationUids: const [
         9100000052568182061,
@@ -9250,7 +9251,7 @@ ModelDefinition getObjectBoxModel() {
               ? null
               : fbb.writeList(
                   object.groups!.map(fbb.writeString).toList(growable: false));
-          fbb.startTable(30);
+          fbb.startTable(31);
           fbb.addInt64(0, object.idSeq ?? 0);
           fbb.addOffset(1, idOffset);
           fbb.addOffset(2, nameOffset);
@@ -9263,7 +9264,6 @@ ModelDefinition getObjectBoxModel() {
           fbb.addInt64(9, object.discountType);
           fbb.addFloat64(10, object.discountPercentage);
           fbb.addFloat64(11, object.discountAmount);
-          fbb.addFloat64(12, object.maximumDiscountAmount);
           fbb.addFloat64(13, object.minimalOrderAmount);
           fbb.addBool(14, object.taxable);
           fbb.addOffset(16, daysOffset);
@@ -9279,6 +9279,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(26, object.minimalProductPrice);
           fbb.addOffset(27, groupsOffset);
           fbb.addFloat64(28, object.maximumDiscountAmountProduct);
+          fbb.addFloat64(29, object.maximumDiscountAmountOrder);
           fbb.finish(fbb.endTable());
           return object.idSeq ?? 0;
         },
@@ -9307,8 +9308,8 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 24);
           final discountAmountParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 26);
-          final maximumDiscountAmountParam = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 28);
+          final maximumDiscountAmountOrderParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 62);
           final minimalOrderAmountParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 30);
           final taxableParam =
@@ -9361,7 +9362,7 @@ ModelDefinition getObjectBoxModel() {
               discountType: discountTypeParam,
               discountPercentage: discountPercentageParam,
               discountAmount: discountAmountParam,
-              maximumDiscountAmount: maximumDiscountAmountParam,
+              maximumDiscountAmountOrder: maximumDiscountAmountOrderParam,
               minimalOrderAmount: minimalOrderAmountParam,
               taxable: taxableParam,
               days: daysParam,
@@ -16050,68 +16051,68 @@ class Discount_ {
   static final discountAmount =
       QueryDoubleProperty<Discount>(_entities[22].properties[11]);
 
-  /// see [Discount.maximumDiscountAmount]
-  static final maximumDiscountAmount =
-      QueryDoubleProperty<Discount>(_entities[22].properties[12]);
-
   /// see [Discount.minimalOrderAmount]
   static final minimalOrderAmount =
-      QueryDoubleProperty<Discount>(_entities[22].properties[13]);
+      QueryDoubleProperty<Discount>(_entities[22].properties[12]);
 
   /// see [Discount.taxable]
   static final taxable =
-      QueryBooleanProperty<Discount>(_entities[22].properties[14]);
+      QueryBooleanProperty<Discount>(_entities[22].properties[13]);
 
   /// see [Discount.days]
   static final days =
-      QueryIntegerVectorProperty<Discount>(_entities[22].properties[15]);
+      QueryIntegerVectorProperty<Discount>(_entities[22].properties[14]);
 
   /// see [Discount.orderTypes]
   static final orderTypes =
-      QueryIntegerVectorProperty<Discount>(_entities[22].properties[16]);
+      QueryIntegerVectorProperty<Discount>(_entities[22].properties[15]);
 
   /// see [Discount.priceList]
   static final priceList =
-      QueryStringVectorProperty<Discount>(_entities[22].properties[17]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[16]);
 
   /// see [Discount.customers]
   static final customers =
-      QueryStringVectorProperty<Discount>(_entities[22].properties[18]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[17]);
 
   /// see [Discount.departments]
   static final departments =
-      QueryStringVectorProperty<Discount>(_entities[22].properties[19]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[18]);
 
   /// see [Discount.categories]
   static final categories =
-      QueryStringVectorProperty<Discount>(_entities[22].properties[20]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[19]);
 
   /// see [Discount.deviceCreatedOn]
   static final deviceCreatedOn =
-      QueryStringProperty<Discount>(_entities[22].properties[21]);
+      QueryStringProperty<Discount>(_entities[22].properties[20]);
 
   /// see [Discount.deviceCreatedBy]
   static final deviceCreatedBy =
-      QueryStringProperty<Discount>(_entities[22].properties[22]);
+      QueryStringProperty<Discount>(_entities[22].properties[21]);
 
   /// see [Discount.applyForAllProducts]
   static final applyForAllProducts =
-      QueryBooleanProperty<Discount>(_entities[22].properties[23]);
+      QueryBooleanProperty<Discount>(_entities[22].properties[22]);
 
   /// see [Discount.applyForAllCustomers]
   static final applyForAllCustomers =
-      QueryBooleanProperty<Discount>(_entities[22].properties[24]);
+      QueryBooleanProperty<Discount>(_entities[22].properties[23]);
 
   /// see [Discount.minimalProductPrice]
   static final minimalProductPrice =
-      QueryDoubleProperty<Discount>(_entities[22].properties[25]);
+      QueryDoubleProperty<Discount>(_entities[22].properties[24]);
 
   /// see [Discount.groups]
   static final groups =
-      QueryStringVectorProperty<Discount>(_entities[22].properties[26]);
+      QueryStringVectorProperty<Discount>(_entities[22].properties[25]);
 
   /// see [Discount.maximumDiscountAmountProduct]
   static final maximumDiscountAmountProduct =
+      QueryDoubleProperty<Discount>(_entities[22].properties[26]);
+
+  /// see [Discount.maximumDiscountAmountOrder]
+  static final maximumDiscountAmountOrder =
       QueryDoubleProperty<Discount>(_entities[22].properties[27]);
 
   /// see [Discount.products]

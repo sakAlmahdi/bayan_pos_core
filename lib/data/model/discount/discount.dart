@@ -4,6 +4,7 @@ import 'package:bayan_pos_core/data/enum/days_enum.dart';
 import 'package:bayan_pos_core/data/enum/discount_scpoe.dart';
 import 'package:bayan_pos_core/data/enum/discount_type.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:flutter_guid/flutter_guid.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -22,7 +23,7 @@ class Discount {
   int? discountType;
   double? discountPercentage;
   double? discountAmount;
-  double? maximumDiscountAmount;
+  double? maximumDiscountAmountOrder;
   double? maximumDiscountAmountProduct;
   double? minimalOrderAmount;
   double? minimalProductPrice;
@@ -67,6 +68,9 @@ class Discount {
       ? discountPercentage ?? 0
       : discountAmount ?? 0;
 
+  bool get isPreDefined => id != null && id != Guid.defaultValue.value;
+  bool get isNotPreDefined => !isPreDefined;
+
   String? deviceCreatedOn;
   String? deviceCreatedBy;
 
@@ -85,7 +89,7 @@ class Discount {
     this.discountType,
     this.discountPercentage,
     this.discountAmount,
-    this.maximumDiscountAmount,
+    this.maximumDiscountAmountOrder,
     this.minimalOrderAmount,
     this.taxable,
     this.days,
@@ -114,8 +118,9 @@ class Discount {
     discountPercentage =
         double.tryParse(json['discount_Percentage'].toString()) ?? 0.0;
     discountAmount = double.tryParse(json['discount_Amount'].toString()) ?? 0.0;
-    maximumDiscountAmount =
-        double.tryParse(json['maximum_Discount_Amount'].toString()) ?? 0.0;
+    maximumDiscountAmountOrder =
+        double.tryParse(json['maximum_Discount_Amount_Order'].toString()) ??
+            0.0;
     minimalOrderAmount =
         double.tryParse(json['minimal_Order_Amount'].toString()) ?? 0.0;
     taxable = json['taxable'];
@@ -198,7 +203,7 @@ class Discount {
     data['discount_Type'] = discountType;
     data['discount_Percentage'] = discountPercentage;
     data['discount_Amount'] = discountAmount;
-    data['maximum_Discount_Amount'] = maximumDiscountAmount;
+    data['maximum_Discount_Amount_Order'] = maximumDiscountAmountOrder;
     data['minimal_Order_Amount'] = minimalOrderAmount;
     data['taxable'] = taxable;
     data['maximum_Discount_Amount_Product'] = maximumDiscountAmountProduct;

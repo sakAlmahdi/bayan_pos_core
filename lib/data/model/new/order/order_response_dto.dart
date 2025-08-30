@@ -91,6 +91,9 @@ class OrderResponseDto {
   OrderType get getOrderType =>
       convertStringToOrderType(orderType) ?? OrderType.dineIn;
 
+  double get getTotalDiscountAndPromotionAmount =>
+      (productDiscountAmount ?? 0) + (promotionDiscountAmount ?? 0);
+
   OrderResponseDto(
       {required this.totalPrice,
       required this.netTotalPrice,
@@ -162,18 +165,22 @@ class OrderResponseDto {
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
     return OrderResponseDto(
-      totalPrice: json['totalPrice'],
-      discountAmount: json['discountAmount'],
-      netTotalPrice: json['netTotalPrice'],
-      chargeAmount: double.tryParse(json['chargeAmount'].toString()),
-      taxableAmount: double.tryParse(json['taxableAmount'].toString()),
-      taxAmount: double.tryParse(json['taxAmount'].toString()),
+      totalPrice: double.tryParse(json['totalPrice'].toString()) ?? 0,
+      discountAmount: double.tryParse(json['discountAmount'].toString()) ?? 0,
+      netTotalPrice: double.tryParse(json['netTotalPrice'].toString()) ?? 0,
+      chargeAmount: double.tryParse(json['chargeAmount'].toString()) ?? 0,
+      taxableAmount: double.tryParse(json['taxableAmount'].toString()) ?? 0,
+      taxAmount: double.tryParse(json['taxAmount'].toString()) ?? 0,
       finalAmount: double.tryParse(json['finalAmount'].toString()) ?? 0,
-      shippingAmount: json['shippingAmount'],
-      shippingDiscountAmount: json['shippingDiscountAmount'],
-      shippingDiscountPercentage: json['shippingDiscountPercentage'],
-      productDiscountAmount: json['productDiscountAmount'],
-      discountPercentage: json['discountPercentage'],
+      shippingAmount: double.tryParse(json['shippingAmount'].toString()) ?? 0,
+      shippingDiscountAmount:
+          double.tryParse(json['shippingDiscountAmount'].toString()) ?? 0,
+      shippingDiscountPercentage:
+          double.tryParse(json['shippingDiscountPercentage'].toString()) ?? 0,
+      productDiscountAmount:
+          double.tryParse(json['productDiscountAmount'].toString()) ?? 0,
+      discountPercentage:
+          double.tryParse(json['discountPercentage'].toString()) ?? 0,
       totalDiscountAmount: json['totalDiscountAmount'],
       promotionDiscountAmount: json['promotionDiscountAmount'],
       timeEventDiscountAmount: json['timeEventDiscountAmount'],

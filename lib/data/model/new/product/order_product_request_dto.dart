@@ -16,6 +16,7 @@ class OrderProductRequestDto {
   Guid? discountId;
   Guid? taxGroupId;
   List<OrderProductAppliedModifierDto>? appliedModifiers;
+  bool? isCancel;
 
   OrderProductRequestDto({
     required this.prodRef,
@@ -31,6 +32,7 @@ class OrderProductRequestDto {
     this.discountId,
     this.taxGroupId,
     this.appliedModifiers,
+    this.isCancel,
   });
 
   /// Factory constructor to create an instance from JSON
@@ -60,6 +62,7 @@ class OrderProductRequestDto {
                   e as Map<String, dynamic>))
               .toList()
           : null,
+      isCancel: json['isCancel'],
     );
   }
 
@@ -79,6 +82,7 @@ class OrderProductRequestDto {
       'discountId': discountId?.toString(),
       'taxGroupId': taxGroupId?.toString(),
       'appliedModifiers': appliedModifiers?.map((e) => e.toJson()).toList(),
+      'isCancel': isCancel,
     };
   }
 
@@ -97,6 +101,7 @@ class OrderProductRequestDto {
     Guid? taxGroupId,
     String? prodRef,
     List<OrderProductAppliedModifierDto>? appliedModifiers,
+    bool? isCancel,
   }) {
     return OrderProductRequestDto(
       prodRef: prodRef ?? this.prodRef,
@@ -112,6 +117,7 @@ class OrderProductRequestDto {
       discountId: discountId ?? this.discountId,
       taxGroupId: taxGroupId ?? this.taxGroupId,
       appliedModifiers: appliedModifiers ?? this.appliedModifiers,
+      isCancel: isCancel,
     );
   }
 }

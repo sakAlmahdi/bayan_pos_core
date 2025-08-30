@@ -12,6 +12,11 @@ class OrderProductChargeDto {
   double? chargeAmount;
   String? description;
   OrderProductTaxInfoDto? taxInfo;
+  bool? applyOnNetTotalPriceIncludeTax;
+  bool? applyOnNetTotalPriceIncludeOrderDiscount;
+  bool? applyOnNetTotalPriceIncludeProductDiscount;
+  double? minAmountPerProduct;
+  double? maxAmountPerProduct;
 
   OrderProductChargeDto({
     this.chargeId,
@@ -23,6 +28,11 @@ class OrderProductChargeDto {
     this.chargeAmount,
     this.description,
     this.taxInfo,
+    this.applyOnNetTotalPriceIncludeTax,
+    this.applyOnNetTotalPriceIncludeOrderDiscount,
+    this.applyOnNetTotalPriceIncludeProductDiscount,
+    this.minAmountPerProduct,
+    this.maxAmountPerProduct,
   });
 
   // fromJson function
@@ -38,6 +48,13 @@ class OrderProductChargeDto {
       chargeAmount: (json['ChargeAmount'] as num).toDouble(),
       description: json['Description'],
       taxInfo: OrderProductTaxInfoDto.fromJson(json['TaxInfo']),
+      applyOnNetTotalPriceIncludeTax: json['ApplyOnNetTotalPriceIncludeTax'],
+      applyOnNetTotalPriceIncludeOrderDiscount:
+          json['ApplyOnNetTotalPriceIncludeOrderDiscount'],
+      applyOnNetTotalPriceIncludeProductDiscount:
+          json['ApplyOnNetTotalPriceIncludeProductDiscount'],
+      minAmountPerProduct: (json['MinAmountPerProduct'] as num).toDouble(),
+      maxAmountPerProduct: (json['MaxAmountPerProduct'] as num).toDouble(),
     );
   }
 
@@ -53,6 +70,13 @@ class OrderProductChargeDto {
       'ChargeAmount': chargeAmount,
       'Description': description,
       'TaxInfo': taxInfo?.toJson(),
+      'ApplyOnNetTotalPriceIncludeTax': applyOnNetTotalPriceIncludeTax,
+      'ApplyOnNetTotalPriceIncludeOrderDiscount':
+          applyOnNetTotalPriceIncludeOrderDiscount,
+      'ApplyOnNetTotalPriceIncludeProductDiscount':
+          applyOnNetTotalPriceIncludeProductDiscount,
+      'MinAmountPerProduct': minAmountPerProduct,
+      'MaxAmountPerProduct': maxAmountPerProduct,
     };
   }
 
@@ -78,6 +102,16 @@ class OrderProductChargeDto {
       chargeAmount: chargeAmount ?? this.chargeAmount,
       description: description ?? this.description,
       taxInfo: taxInfo ?? this.taxInfo,
+      applyOnNetTotalPriceIncludeTax:
+          applyOnNetTotalPriceIncludeTax ?? applyOnNetTotalPriceIncludeTax,
+      applyOnNetTotalPriceIncludeOrderDiscount:
+          applyOnNetTotalPriceIncludeOrderDiscount ??
+              applyOnNetTotalPriceIncludeOrderDiscount,
+      applyOnNetTotalPriceIncludeProductDiscount:
+          applyOnNetTotalPriceIncludeProductDiscount ??
+              applyOnNetTotalPriceIncludeProductDiscount,
+      minAmountPerProduct: minAmountPerProduct ?? minAmountPerProduct,
+      maxAmountPerProduct: maxAmountPerProduct ?? maxAmountPerProduct,
     );
   }
 }

@@ -42,3 +42,26 @@ EventAction converStringToEventAction(int? key) {
       return EventAction.active;
   }
 }
+
+extension EventActionExtension on EventAction {
+  String get toName {
+    switch (this) {
+      case EventAction.fixedPrice:
+        return 'سعر ثابت';
+      case EventAction.discountPriceFixed:
+        return 'خصم مبلغ ثابت';
+      case EventAction.discountPricePercentage:
+        return 'خصم نسبة مئوية';
+      case EventAction.addFixedPrice:
+        return 'زيادة مبلغ ثابت';
+      case EventAction.addPricePercantage:
+        return 'زيادة نسبة مئوية';
+      case EventAction.active:
+        return 'تفعيل المنتجات';
+      case EventAction.disactive:
+        return 'إلغاء تفعيل المنتجات';
+      default:
+        return 'تفعيل المنتجات';
+    }
+  }
+}

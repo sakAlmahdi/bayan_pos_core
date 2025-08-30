@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:bayan_pos_core/bayan_pos_core.dart';
+import 'package:bayan_pos_core/data/enum/product_price_level.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
 import 'package:bayan_pos_core/data/model/new/discount/order_product_discount_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/order_product_unit_price.dart';
@@ -19,6 +21,8 @@ class OrderProductResponseDto {
   double? freeQuantity;
   double unitPrice;
   double totalPrice;
+  double? unitPriceExcludeTax;
+  double? totalPriceExcludeTax;
   double? discountAmount;
   double? discountPercentage;
   double netUnitPrice;
@@ -70,6 +74,34 @@ class OrderProductResponseDto {
   String? categoryId;
 
   bool isCancel = false;
+  double get totalDiscount =>
+      discountAmount.getZeroIfNull + orderDiscountAmount.getZeroIfNull;
+
+  double get subTotal =>
+      (totalPriceExcludeTax.getZeroIfNull + taxAmount.getZeroIfNull) -
+      discountAmount.getZeroIfNull;
+
+  ProductPriceLevel get getProductPriceLevel {
+    if (timeEvent != null) {
+      return ProductPriceLevel.eventPrice;
+    }
+    if (tieredPricing != null) {
+      return ProductPriceLevel.tieredPricing;
+    }
+
+    if (productUnitPrice != null) {
+      if (productUnitPrice!.productUnitPriceListSlapId != null &&
+          productUnitPrice!.productUnitPriceListSlapId !=
+              Guid.defaultValue.value) {
+        return ProductPriceLevel.priceListSlap;
+      }
+      if (productUnitPrice!.productUnitPriceListId != null &&
+          productUnitPrice!.productUnitPriceListId != Guid.defaultValue.value) {
+        return ProductPriceLevel.priceList;
+      }
+    }
+    return ProductPriceLevel.unitPrice;
+  }
 
   OrderProductResponseDto({
     required this.productRef,
@@ -128,6 +160,8 @@ class OrderProductResponseDto {
     this.taxAmountWithModifiers,
     this.finalAmountWithModifiers,
     this.isCancel = false,
+    this.unitPriceExcludeTax,
+    this.totalPriceExcludeTax,
   });
 
   factory OrderProductResponseDto.fromJson(Map<String, dynamic> json) {
@@ -235,6 +269,10 @@ class OrderProductResponseDto {
       finalAmountWithModifiers:
           double.tryParse(json['finalAmountWithModifiers']?.toString() ?? ''),
       isCancel: json['isCancel'] ?? false,
+      unitPriceExcludeTax:
+          double.tryParse(json['unitPriceExcludeTax']?.toString() ?? ''),
+      totalPriceExcludeTax:
+          double.tryParse(json['totalPriceExcludeTax']?.toString() ?? ''),
     );
   }
 
@@ -296,6 +334,8 @@ class OrderProductResponseDto {
       'taxAmountWithModifiers': taxAmountWithModifiers,
       'finalAmountWithModifiers': finalAmountWithModifiers,
       'isCancel': isCancel,
+      'unitPriceExcludeTax': unitPriceExcludeTax,
+      'totalPriceExcludeTax': totalPriceExcludeTax,
     };
   }
 
@@ -354,6 +394,8 @@ class OrderProductResponseDto {
     double? taxAmountWithModifiers,
     double? finalAmountWithModifiers,
     bool? isCancel,
+    double? unitPriceExcludeTax,
+    double? totalPriceExcludeTax,
   }) {
     return OrderProductResponseDto(
       productRef: productRef ?? this.productRef,
@@ -435,6 +477,8 @@ class OrderProductResponseDto {
       finalAmountWithModifiers:
           finalAmountWithModifiers ?? this.finalAmountWithModifiers,
       isCancel: isCancel ?? this.isCancel,
+      unitPriceExcludeTax: unitPriceExcludeTax ?? this.unitPriceExcludeTax,
+      totalPriceExcludeTax: totalPriceExcludeTax ?? this.totalPriceExcludeTax,
     );
   }
 }
