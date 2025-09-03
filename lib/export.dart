@@ -35,7 +35,6 @@ export 'package:bayan_pos_core/data/enum/printer_type.dart';
 export 'package:bayan_pos_core/data/enum/payment_method_enum.dart';
 export 'package:bayan_pos_core/data/enum/promotion_level.dart';
 export 'package:bayan_pos_core/data/enum/promotion_type_enum.dart';
-export 'package:bayan_pos_core/data/enum/charge_enum_type.dart';
 export 'package:bayan_pos_core/data/enum/price_type_enum.dart';
 export 'package:bayan_pos_core/data/enum/price_level.dart';
 export 'package:bayan_pos_core/data/enum/product_kitchen_status_enum.dart';

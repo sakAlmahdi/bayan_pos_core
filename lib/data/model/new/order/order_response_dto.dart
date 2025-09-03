@@ -1,6 +1,7 @@
 import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_charge_for_total_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
+import 'package:bayan_pos_core/data/model/new/charge/manual_charge_response_dto.dart';
 import 'package:bayan_pos_core/data/model/new/discount/order_product_discount_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/promotion_gift_card_dto.dart';
 import 'package:bayan_pos_core/data/model/new/promotion/order_product_response_dto.dart';
@@ -61,6 +62,11 @@ class OrderResponseDto {
   String? serverChecksum;
   double? totalCalories;
   bool? priceIncludeTax;
+
+  // إضافة الرسوم اليدوية المحسوبة
+  List<ManualChargeResponseDto>? manualCharges;
+  double? manualChargesTotal;
+  double? manualChargesTaxAmount;
 
   // الحقول المرتبطة بالعملاء والعناوين
   String? customerId;
@@ -161,7 +167,10 @@ class OrderResponseDto {
       this.giftCard,
       this.charges,
       this.chargesForTotals,
-      this.taxInfo});
+      this.taxInfo,
+      this.manualCharges,
+      this.manualChargesTotal,
+      this.manualChargesTaxAmount});
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
     return OrderResponseDto(
@@ -261,6 +270,18 @@ class OrderResponseDto {
               .map((e) => OrderTaxTypeViewDto.fromJson(e))
               .toList()
           : null,
+      // إضافة الرسوم اليدوية
+      manualCharges: json['manualCharges'] != null
+          ? (json['manualCharges'] as List)
+              .map((e) => ManualChargeResponseDto.fromJson(e))
+              .toList()
+          : null,
+      manualChargesTotal: json['manualChargesTotal'] != null
+          ? (json['manualChargesTotal'] as num).toDouble()
+          : null,
+      manualChargesTaxAmount: json['manualChargesTaxAmount'] != null
+          ? (json['manualChargesTaxAmount'] as num).toDouble()
+          : null,
     );
   }
 
@@ -333,6 +354,10 @@ class OrderResponseDto {
       'charges': charges?.map((e) => e.toJson()).toList(),
       'chargesForTotals': chargesForTotals?.map((e) => e.toJson()).toList(),
       'taxInfo': taxInfo?.map((e) => e.toJson()).toList(),
+      // إضافة الرسوم اليدوية
+      'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
+      'manualChargesTotal': manualChargesTotal,
+      'manualChargesTaxAmount': manualChargesTaxAmount,
     };
   }
 
@@ -404,6 +429,9 @@ class OrderResponseDto {
     List<OrderProductChargeDto>? charges,
     List<OrderChargeForTotalDto>? chargesForTotals,
     List<OrderTaxTypeViewDto>? taxInfo,
+    List<ManualChargeResponseDto>? manualCharges,
+    double? manualChargesTotal,
+    double? manualChargesTaxAmount,
   }) {
     return OrderResponseDto(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -481,6 +509,11 @@ class OrderResponseDto {
       charges: charges ?? this.charges,
       chargesForTotals: chargesForTotals ?? this.chargesForTotals,
       taxInfo: taxInfo ?? this.taxInfo,
+      // إضافة الرسوم اليدوية
+      manualCharges: manualCharges ?? this.manualCharges,
+      manualChargesTotal: manualChargesTotal ?? this.manualChargesTotal,
+      manualChargesTaxAmount:
+          manualChargesTaxAmount ?? this.manualChargesTaxAmount,
     );
   }
 }

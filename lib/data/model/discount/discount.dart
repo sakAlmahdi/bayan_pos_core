@@ -103,6 +103,8 @@ class Discount {
     this.minimalProductPrice,
     this.groups,
     this.maximumDiscountAmountProduct,
+    this.applyForAllProducts,
+    this.applyForAllCustomers,
   });
 
   Discount.fromJson(Map<String, dynamic> json) {
@@ -125,6 +127,8 @@ class Discount {
         double.tryParse(json['minimal_Order_Amount'].toString()) ?? 0.0;
     taxable = json['taxable'];
     maximumDiscountAmountProduct = json['maximum_Discount_Amount_Product'];
+    applyForAllProducts = json['applyForAllProducts'];
+    applyForAllCustomers = json['applyForAllCustomers'];
     if (json['products'] != null) {
       json['products'].forEach((v) {
         products.add(ProductsOnDiscount.fromJson(v));

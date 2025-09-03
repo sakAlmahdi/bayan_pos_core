@@ -14,9 +14,13 @@ enum ChargeType {
 
   // Method to get ChargeType from value
   static ChargeType fromValue(int? value) {
-    return ChargeType.values.firstWhereOrNull(
-          (e) => e.value == value,
-        ) ??
-        ChargeType.amount;
+    switch (value) {
+      case 1:
+        return ChargeType.percentage;
+      case 2:
+        return ChargeType.amount;
+      default:
+        return ChargeType.amount;
+    }
   }
 }

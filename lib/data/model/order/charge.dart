@@ -1,9 +1,9 @@
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/enum/charge_level_enum.dart';
 import 'package:bayan_pos_core/data/enum/days_enum.dart';
-import 'package:bayan_pos_core/data/enum/charge_enum_type.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/enum/price_type_enum.dart';
+import 'package:bayan_pos_core/data/model/new/enums/charge_type.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -46,7 +46,7 @@ class Charge {
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(valueType);
   @Transient()
-  ChargeType get getChargeType => convertStringToChargeType(type);
+  ChargeType get getChargeType => ChargeType.fromValue(type);
   @Transient()
   ChargeLevel get getChargeLevel => convertKeyToChargeLevel(applyLevel);
   @Transient()

@@ -1,5 +1,6 @@
 import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/new/product/order_product_request_dto.dart';
+import 'package:bayan_pos_core/data/model/new/charge/manual_charge_request_dto.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderRequestDto {
@@ -40,6 +41,9 @@ class OrderRequestDto {
 
   bool? priceIncludeTax;
 
+  // إضافة الرسوم اليدوية
+  List<ManualChargeRequestDto>? manualCharges;
+
   OrderRequestDto({
     this.branchId,
     this.priceListId,
@@ -71,6 +75,7 @@ class OrderRequestDto {
     this.parentOrderId,
     this.splitIndex,
     this.priceIncludeTax,
+    this.manualCharges,
   });
 
   factory OrderRequestDto.fromJson(Map<String, dynamic> json) {
@@ -100,6 +105,29 @@ class OrderRequestDto {
       applyCharges: json['applyCharges'],
       customerType: json['customerType'],
       customerTaxable: json['customerTaxable'],
+      orderRef: json['orderRef'],
+      deviceId: json['deviceId'],
+      startDate:
+          json['startDate'] != null ? DateTime.parse(json['startDate']) : null,
+      endTime: json['endTime'] != null ? DateTime.parse(json['endTime']) : null,
+      timeOfReceipt: json['timeOfReceipt'] != null
+          ? DateTime.parse(json['timeOfReceipt'])
+          : null,
+      orderSource: json['orderSource'],
+      shiftId: json['shiftId'],
+      tillId: json['tillId'],
+      tableId: json['tableId'],
+      numberVisitor: json['numberVisitor'],
+      callNumber: json['callNumber'],
+      parentOrderId: json['parentOrderId'],
+      splitIndex: json['splitIndex'],
+      priceIncludeTax: json['priceIncludeTax'],
+      // إضافة الرسوم اليدوية
+      manualCharges: json['manualCharges'] != null
+          ? (json['manualCharges'] as List)
+              .map((e) => ManualChargeRequestDto.fromJson(e))
+              .toList()
+          : null,
     );
   }
 
@@ -121,7 +149,22 @@ class OrderRequestDto {
       'applyCharges': applyCharges,
       'customerType': customerType,
       'customerTaxable': customerTaxable,
+      'orderRef': orderRef,
+      'deviceId': deviceId,
+      'startDate': startDate?.toIso8601String(),
+      'endTime': endTime?.toIso8601String(),
+      'timeOfReceipt': timeOfReceipt?.toIso8601String(),
+      'orderSource': orderSource,
+      'shiftId': shiftId,
+      'tillId': tillId,
+      'tableId': tableId,
+      'numberVisitor': numberVisitor,
+      'callNumber': callNumber,
+      'parentOrderId': parentOrderId,
+      'splitIndex': splitIndex,
       'priceIncludeTax': priceIncludeTax,
+      // إضافة الرسوم اليدوية
+      'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
     };
   }
 
@@ -143,6 +186,7 @@ class OrderRequestDto {
     String? customerType,
     bool? customerTaxable,
     bool? priceIncludeTax,
+    List<ManualChargeRequestDto>? manualCharges,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -162,6 +206,8 @@ class OrderRequestDto {
       customerType: customerType ?? this.customerType,
       customerTaxable: customerTaxable ?? this.customerTaxable,
       priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
+      // إضافة الرسوم اليدوية
+      manualCharges: manualCharges ?? this.manualCharges,
     );
   }
 }
