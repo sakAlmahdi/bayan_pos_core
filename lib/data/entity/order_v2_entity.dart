@@ -45,6 +45,10 @@ class OrderEntityV2 extends Table {
   RealColumn get taxableAmount => real().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get finalAmount => real()();
+  // Payment summaries (base currency)
+  RealColumn get paidAmount => real().nullable()();
+  RealColumn get dueAmount => real().nullable()();
+  RealColumn get changeAmount => real().nullable()();
   RealColumn get shippingAmount => real().nullable()();
   RealColumn get shippingDiscountAmount => real().nullable()();
   RealColumn get shippingDiscountPercentage => real().nullable()();
@@ -251,6 +255,8 @@ class OrderProductTaxInfoV2 extends Table {
       .nullable()
       .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get productRef => text().nullable()();
+  TextColumn get modifierId => text().nullable()();
+  TextColumn get optionId => text().nullable()();
   RealColumn get taxableAmount => real().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get taxPercentage => real().nullable()();
@@ -294,6 +300,8 @@ class OrderProductChargeTaxInfoV2 extends Table {
 // جدول أنواع الضرائب المطبقة على منتج الطلب
 class OrderProductTaxTypeV2 extends Table {
   TextColumn get productRef => text().nullable()();
+  TextColumn get modifierId => text().nullable()();
+  TextColumn get optionId => text().nullable()();
   TextColumn get taxAccount => text().nullable()();
   TextColumn get taxCode => text().nullable()();
   TextColumn get orderRef => text()
@@ -423,6 +431,16 @@ class OrderProductModifierV2 extends Table {
   TextColumn get name => text().nullable()();
   TextColumn get fName => text().nullable()();
   TextColumn get notes => text().nullable()();
+  RealColumn get discountAmount => real().nullable()();
+  RealColumn get discountPercentage => real().nullable()();
+  RealColumn get netUnitPrice => real().nullable()();
+  RealColumn get netTotalPrice => real().nullable()();
+  RealColumn get netUnitPriceExcludeTax => real().nullable()();
+  RealColumn get netTotalPriceExcludeTax => real().nullable()();
+  RealColumn get orderDiscountAmount => real().nullable()();
+  RealColumn get taxableAmount => real().nullable()();
+  RealColumn get taxAmount => real().nullable()();
+  RealColumn get finalAmount => real().nullable()();
 
   @override
   Set<Column> get primaryKey => {orderRef, productRef, modifierId};
@@ -446,11 +464,63 @@ class OrderProductModifierOptionV2 extends Table {
   RealColumn get discountPercentage => real().nullable()();
   RealColumn get netUnitPrice => real()();
   RealColumn get netTotalPrice => real()();
+  RealColumn get netUnitPriceExcludeTax => real().nullable()();
+  RealColumn get netTotalPriceExcludeTax => real().nullable()();
+  RealColumn get orderDiscountAmount => real().nullable()();
+  RealColumn get orderDiscountPercentage => real().nullable()();
   RealColumn get taxableAmount => real().nullable()();
   RealColumn get taxAmount => real().nullable()();
   RealColumn get finalAmount => real()();
+  TextColumn get taxGroupId => text().nullable()();
   TextColumn get notes => text().nullable()();
 
   @override
   Set<Column> get primaryKey => {orderRef, productRef, modifierId, optionId};
+}
+
+// جدول مدفوعات الطلب (يدعم تعدد المدفوعات وتعدد العملات)
+class OrderPaymentV2 extends Table {
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get paymentId => text().nullable()();
+  TextColumn get paymentMethodId => text().nullable()();
+  IntColumn get paymentMethodType => integer().nullable()();
+  TextColumn get name => text().nullable()();
+  TextColumn get fName => text().nullable()();
+  RealColumn get currencyAmount => real().nullable()();
+  TextColumn get currencyCode => text().nullable()();
+  RealColumn get exchangeRateToBase => real().nullable()();
+  RealColumn get baseAmount => real().nullable()();
+  RealColumn get receivedAmount => real().nullable()();
+  RealColumn get changeAmount => real().nullable()();
+  RealColumn get tipAmount => real().nullable()();
+  RealColumn get feeAmount => real().nullable()();
+  TextColumn get cashierId => text().nullable()();
+  TextColumn get shiftId => text().nullable()();
+  TextColumn get tillId => text().nullable()();
+  TextColumn get deviceId => text().nullable()();
+  TextColumn get externalTransactionId => text().nullable()();
+  TextColumn get reference => text().nullable()();
+  BoolColumn get isVoided => boolean().nullable()();
+  TextColumn get voidReason => text().nullable()();
+  TextColumn get createdOn => text().nullable()();
+  TextColumn get createdBy => text().nullable()();
+  TextColumn get notes => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, paymentId};
+}
+
+// تفاصيل إضافية اختيارية للدفعات (Key/Value أو JSON)
+class OrderPaymentDetailV2 extends Table {
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  TextColumn get paymentId => text().nullable()();
+  TextColumn get key => text().nullable()();
+  TextColumn get value => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {orderRef, paymentId, key};
 }

@@ -1811,7 +1811,7 @@
     },
     {
       "id": "21:2208031943709943172",
-      "lastPropertyId": "30:4091436076607296752",
+      "lastPropertyId": "31:4875146091774157512",
       "name": "Device",
       "properties": [
         {
@@ -1972,6 +1972,11 @@
           "id": "30:4091436076607296752",
           "name": "resturnatSections",
           "type": 30
+        },
+        {
+          "id": "31:4875146091774157512",
+          "name": "deviceNo",
+          "type": 9
         }
       ],
       "relations": []

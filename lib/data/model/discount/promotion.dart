@@ -138,6 +138,7 @@ class Promotion {
     discountPercentage =
         double.tryParse(json['discount_Percentage'].toString()) ?? 0.0;
     discountAmount = double.tryParse(json['discount_Amount'].toString()) ?? 0.0;
+
     maximumDiscountAmount =
         double.tryParse(json['maximum_Discount_Amount'].toString()) ?? 0.0;
     promotionApplyType = json['promotionApplyType'];

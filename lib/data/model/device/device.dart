@@ -12,6 +12,7 @@ class Device {
   String? deviceModelId;
   int? deviceTypeCode;
   int? masterDeviceNo;
+  String? deviceNo;
   String? reference;
   String? name;
   String? fName;
@@ -85,6 +86,7 @@ class Device {
     this.products,
     this.resturnatSections,
     this.users,
+    this.deviceNo,
   });
 
   Device.fromJson(Map<String, dynamic> json) {
@@ -107,6 +109,7 @@ class Device {
     connectionIPAddress = json['connectionIPAddress'];
     connectionPort = json['connectionPort'] ?? 4567;
     connectionType = json['connectionType'];
+    deviceNo = json['deviceNo'];
     // autoIp = json['autoIp'];
     ip = json['ip'];
 
@@ -199,6 +202,7 @@ class Device {
     data["refrencePerfix"] = refrencePrefix;
     data['users'] = users;
     data['resturnatSections'] = resturnatSections;
+    data['deviceNo'] = deviceNo;
     return data;
   }
 

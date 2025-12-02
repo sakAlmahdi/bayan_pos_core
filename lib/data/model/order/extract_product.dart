@@ -3,6 +3,7 @@ import 'package:bayan_pos_core/data/enum/price_type_enum.dart';
 import 'package:bayan_pos_core/data/enum/product_type_enum.dart';
 import 'package:bayan_pos_core/data/model/order/group.dart';
 import 'package:bayan_pos_core/data/model/order/unit.dart';
+import 'package:get/get.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -80,6 +81,27 @@ class ExtractProduct {
 
   @Transient()
   PriceType get getPriceType => convertStringToPriceType(priceType);
+
+  double getPrice(String? priceListId) {
+    String? unitId = defaultSalesUnit ?? units.first.id;
+    Unit? unit = units.firstWhereOrNull((element) => element.id == unitId);
+    double? value;
+    if (unit == null) {
+      return 0;
+    } else {
+      value = unit.price;
+    }
+    if (priceListId != null) {
+      double? valuePriceList = unit.priceList
+              .firstWhereOrNull((element) => element.id == priceListId)
+              ?.price ??
+          0;
+      if (valuePriceList > 0) {
+        value = valuePriceList;
+      }
+    }
+    return value ?? 0;
+  }
 
   ExtractProduct({
     this.idSeq,

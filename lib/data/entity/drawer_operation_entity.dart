@@ -12,6 +12,9 @@ class DrawerOperationEntity extends Table {
   TextColumn get userId => text().nullable()();
   TextColumn get tillId => text().nullable()();
   TextColumn get shiftId => text().nullable()();
+  TextColumn get currencyId => text().nullable()();
+  TextColumn get currencyCode => text().nullable()();
+  DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
 
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [

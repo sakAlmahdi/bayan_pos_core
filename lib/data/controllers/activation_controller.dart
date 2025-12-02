@@ -49,7 +49,7 @@ class ActivationController extends GetxController {
   @override
   Future<void> onInit() async {
     super.onInit();
-    pin = TextEditingController(text: kDebugMode ? "892761" : null);
+    pin = TextEditingController();
     reomteRepo = ActivationApiProvider(
       dio: dio,
       pathActiveDevice: pathActiveDevice,
@@ -61,18 +61,18 @@ class ActivationController extends GetxController {
     await getDeviceFromDb();
   }
 
-  getDeviceFromDb() {
-    getCurentDevice();
+  getDeviceFromDb() async {
+    //  await getCurentDevice(deviceNo: activationInfoData!.code!);
 
     print("${activationInfoData?.devices}");
   }
 
-  getCurentDevice({int? deviceCode}) async {
+  getCurentDevice({required String deviceNo}) async {
     deviceCode = deviceCode ?? this.deviceCode;
     String? imei = await getDeviecId();
-    currentDevice = activationInfoData?.devices.firstWhereOrNull((element) =>
-        element.imei == imei &&
-        (deviceCode == null || element.deviceTypeCode == deviceCode));
+    currentDevice = activationInfoData?.devices
+        .firstWhereOrNull((element) => element.imei == imei);
+    // (deviceCode == null || element.deviceTypeCode == deviceCode));
     if (currentDevice != null) {
       activationInfoData?.currentDeviceId = currentDevice?.deviceId;
     }
@@ -141,10 +141,12 @@ class ActivationController extends GetxController {
   active({
     required Function(ActivationInfo info) onSuccess,
     required Function(dynamic error) onError,
+    bool autoNavigate = true,
   }) async {
     // if (!(pin.text.length == 6)) return;
     try {
       isLoading.value = true;
+      deviceCode = int.tryParse(pin.text);
       Activation? activation = await activationInfo(pin.text);
       if (activation != null) {
         activationInfoData = await reomteRepo.activeDevice(activation);
@@ -152,8 +154,11 @@ class ActivationController extends GetxController {
           // await createToken(code);
 
           activationInfoData!.code = pin.text;
-          saveCode(pin.text);
-          getCurentDevice();
+
+          if (autoNavigate) {
+            saveCode(pin.text);
+          }
+          await getCurentDevice(deviceNo: activationInfoData!.code!);
           ojBoxRepo.saveActivationInfo(activationInfoData!);
           getDeviceFromDb();
           onSuccess.call(activationInfoData!);

@@ -6869,6 +6869,26 @@ class $DrawerOperationEntityTable extends DrawerOperationEntity
   late final GeneratedColumn<String> shiftId = GeneratedColumn<String>(
       'shift_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _currencyIdMeta =
+      const VerificationMeta('currencyId');
+  @override
+  late final GeneratedColumn<String> currencyId = GeneratedColumn<String>(
+      'currency_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _currencyCodeMeta =
+      const VerificationMeta('currencyCode');
+  @override
+  late final GeneratedColumn<String> currencyCode = GeneratedColumn<String>(
+      'currency_code', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime,
+      requiredDuringInsert: false,
+      defaultValue: currentDateAndTime);
   @override
   List<GeneratedColumn> get $columns => [
         idSeq,
@@ -6881,7 +6901,10 @@ class $DrawerOperationEntityTable extends DrawerOperationEntity
         deviceId,
         userId,
         tillId,
-        shiftId
+        shiftId,
+        currencyId,
+        currencyCode,
+        createdAt
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -6942,6 +6965,22 @@ class $DrawerOperationEntityTable extends DrawerOperationEntity
       context.handle(_shiftIdMeta,
           shiftId.isAcceptableOrUnknown(data['shift_id']!, _shiftIdMeta));
     }
+    if (data.containsKey('currency_id')) {
+      context.handle(
+          _currencyIdMeta,
+          currencyId.isAcceptableOrUnknown(
+              data['currency_id']!, _currencyIdMeta));
+    }
+    if (data.containsKey('currency_code')) {
+      context.handle(
+          _currencyCodeMeta,
+          currencyCode.isAcceptableOrUnknown(
+              data['currency_code']!, _currencyCodeMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    }
     return context;
   }
 
@@ -6978,6 +7017,12 @@ class $DrawerOperationEntityTable extends DrawerOperationEntity
           .read(DriftSqlType.string, data['${effectivePrefix}till_id']),
       shiftId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}shift_id']),
+      currencyId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}currency_id']),
+      currencyCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}currency_code']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
     );
   }
 
@@ -7000,6 +7045,9 @@ class DrawerOperationEntityData extends DataClass
   final String? userId;
   final String? tillId;
   final String? shiftId;
+  final String? currencyId;
+  final String? currencyCode;
+  final DateTime createdAt;
   const DrawerOperationEntityData(
       {this.idSeq,
       required this.referance,
@@ -7011,7 +7059,10 @@ class DrawerOperationEntityData extends DataClass
       this.deviceId,
       this.userId,
       this.tillId,
-      this.shiftId});
+      this.shiftId,
+      this.currencyId,
+      this.currencyCode,
+      required this.createdAt});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -7044,6 +7095,13 @@ class DrawerOperationEntityData extends DataClass
     if (!nullToAbsent || shiftId != null) {
       map['shift_id'] = Variable<String>(shiftId);
     }
+    if (!nullToAbsent || currencyId != null) {
+      map['currency_id'] = Variable<String>(currencyId);
+    }
+    if (!nullToAbsent || currencyCode != null) {
+      map['currency_code'] = Variable<String>(currencyCode);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
     return map;
   }
 
@@ -7069,6 +7127,13 @@ class DrawerOperationEntityData extends DataClass
       shiftId: shiftId == null && nullToAbsent
           ? const Value.absent()
           : Value(shiftId),
+      currencyId: currencyId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currencyId),
+      currencyCode: currencyCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currencyCode),
+      createdAt: Value(createdAt),
     );
   }
 
@@ -7087,6 +7152,9 @@ class DrawerOperationEntityData extends DataClass
       userId: serializer.fromJson<String?>(json['userId']),
       tillId: serializer.fromJson<String?>(json['tillId']),
       shiftId: serializer.fromJson<String?>(json['shiftId']),
+      currencyId: serializer.fromJson<String?>(json['currencyId']),
+      currencyCode: serializer.fromJson<String?>(json['currencyCode']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
     );
   }
   @override
@@ -7104,6 +7172,9 @@ class DrawerOperationEntityData extends DataClass
       'userId': serializer.toJson<String?>(userId),
       'tillId': serializer.toJson<String?>(tillId),
       'shiftId': serializer.toJson<String?>(shiftId),
+      'currencyId': serializer.toJson<String?>(currencyId),
+      'currencyCode': serializer.toJson<String?>(currencyCode),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
     };
   }
 
@@ -7118,7 +7189,10 @@ class DrawerOperationEntityData extends DataClass
           Value<String?> deviceId = const Value.absent(),
           Value<String?> userId = const Value.absent(),
           Value<String?> tillId = const Value.absent(),
-          Value<String?> shiftId = const Value.absent()}) =>
+          Value<String?> shiftId = const Value.absent(),
+          Value<String?> currencyId = const Value.absent(),
+          Value<String?> currencyCode = const Value.absent(),
+          DateTime? createdAt}) =>
       DrawerOperationEntityData(
         idSeq: idSeq.present ? idSeq.value : this.idSeq,
         referance: referance ?? this.referance,
@@ -7131,6 +7205,10 @@ class DrawerOperationEntityData extends DataClass
         userId: userId.present ? userId.value : this.userId,
         tillId: tillId.present ? tillId.value : this.tillId,
         shiftId: shiftId.present ? shiftId.value : this.shiftId,
+        currencyId: currencyId.present ? currencyId.value : this.currencyId,
+        currencyCode:
+            currencyCode.present ? currencyCode.value : this.currencyCode,
+        createdAt: createdAt ?? this.createdAt,
       );
   @override
   String toString() {
@@ -7145,14 +7223,30 @@ class DrawerOperationEntityData extends DataClass
           ..write('deviceId: $deviceId, ')
           ..write('userId: $userId, ')
           ..write('tillId: $tillId, ')
-          ..write('shiftId: $shiftId')
+          ..write('shiftId: $shiftId, ')
+          ..write('currencyId: $currencyId, ')
+          ..write('currencyCode: $currencyCode, ')
+          ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(idSeq, referance, dateWork, type, amount,
-      resaon, note, deviceId, userId, tillId, shiftId);
+  int get hashCode => Object.hash(
+      idSeq,
+      referance,
+      dateWork,
+      type,
+      amount,
+      resaon,
+      note,
+      deviceId,
+      userId,
+      tillId,
+      shiftId,
+      currencyId,
+      currencyCode,
+      createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -7167,7 +7261,10 @@ class DrawerOperationEntityData extends DataClass
           other.deviceId == this.deviceId &&
           other.userId == this.userId &&
           other.tillId == this.tillId &&
-          other.shiftId == this.shiftId);
+          other.shiftId == this.shiftId &&
+          other.currencyId == this.currencyId &&
+          other.currencyCode == this.currencyCode &&
+          other.createdAt == this.createdAt);
 }
 
 class DrawerOperationEntityCompanion
@@ -7183,6 +7280,9 @@ class DrawerOperationEntityCompanion
   final Value<String?> userId;
   final Value<String?> tillId;
   final Value<String?> shiftId;
+  final Value<String?> currencyId;
+  final Value<String?> currencyCode;
+  final Value<DateTime> createdAt;
   const DrawerOperationEntityCompanion({
     this.idSeq = const Value.absent(),
     this.referance = const Value.absent(),
@@ -7195,6 +7295,9 @@ class DrawerOperationEntityCompanion
     this.userId = const Value.absent(),
     this.tillId = const Value.absent(),
     this.shiftId = const Value.absent(),
+    this.currencyId = const Value.absent(),
+    this.currencyCode = const Value.absent(),
+    this.createdAt = const Value.absent(),
   });
   DrawerOperationEntityCompanion.insert({
     this.idSeq = const Value.absent(),
@@ -7208,6 +7311,9 @@ class DrawerOperationEntityCompanion
     this.userId = const Value.absent(),
     this.tillId = const Value.absent(),
     this.shiftId = const Value.absent(),
+    this.currencyId = const Value.absent(),
+    this.currencyCode = const Value.absent(),
+    this.createdAt = const Value.absent(),
   })  : referance = Value(referance),
         dateWork = Value(dateWork);
   static Insertable<DrawerOperationEntityData> custom({
@@ -7222,6 +7328,9 @@ class DrawerOperationEntityCompanion
     Expression<String>? userId,
     Expression<String>? tillId,
     Expression<String>? shiftId,
+    Expression<String>? currencyId,
+    Expression<String>? currencyCode,
+    Expression<DateTime>? createdAt,
   }) {
     return RawValuesInsertable({
       if (idSeq != null) 'id_seq': idSeq,
@@ -7235,6 +7344,9 @@ class DrawerOperationEntityCompanion
       if (userId != null) 'user_id': userId,
       if (tillId != null) 'till_id': tillId,
       if (shiftId != null) 'shift_id': shiftId,
+      if (currencyId != null) 'currency_id': currencyId,
+      if (currencyCode != null) 'currency_code': currencyCode,
+      if (createdAt != null) 'created_at': createdAt,
     });
   }
 
@@ -7249,7 +7361,10 @@ class DrawerOperationEntityCompanion
       Value<String?>? deviceId,
       Value<String?>? userId,
       Value<String?>? tillId,
-      Value<String?>? shiftId}) {
+      Value<String?>? shiftId,
+      Value<String?>? currencyId,
+      Value<String?>? currencyCode,
+      Value<DateTime>? createdAt}) {
     return DrawerOperationEntityCompanion(
       idSeq: idSeq ?? this.idSeq,
       referance: referance ?? this.referance,
@@ -7262,6 +7377,9 @@ class DrawerOperationEntityCompanion
       userId: userId ?? this.userId,
       tillId: tillId ?? this.tillId,
       shiftId: shiftId ?? this.shiftId,
+      currencyId: currencyId ?? this.currencyId,
+      currencyCode: currencyCode ?? this.currencyCode,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 
@@ -7301,6 +7419,15 @@ class DrawerOperationEntityCompanion
     if (shiftId.present) {
       map['shift_id'] = Variable<String>(shiftId.value);
     }
+    if (currencyId.present) {
+      map['currency_id'] = Variable<String>(currencyId.value);
+    }
+    if (currencyCode.present) {
+      map['currency_code'] = Variable<String>(currencyCode.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
     return map;
   }
 
@@ -7317,7 +7444,10 @@ class DrawerOperationEntityCompanion
           ..write('deviceId: $deviceId, ')
           ..write('userId: $userId, ')
           ..write('tillId: $tillId, ')
-          ..write('shiftId: $shiftId')
+          ..write('shiftId: $shiftId, ')
+          ..write('currencyId: $currencyId, ')
+          ..write('currencyCode: $currencyCode, ')
+          ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
   }
@@ -9488,6 +9618,24 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<double> finalAmount = GeneratedColumn<double>(
       'final_amount', aliasedName, false,
       type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _paidAmountMeta =
+      const VerificationMeta('paidAmount');
+  @override
+  late final GeneratedColumn<double> paidAmount = GeneratedColumn<double>(
+      'paid_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _dueAmountMeta =
+      const VerificationMeta('dueAmount');
+  @override
+  late final GeneratedColumn<double> dueAmount = GeneratedColumn<double>(
+      'due_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _changeAmountMeta =
+      const VerificationMeta('changeAmount');
+  @override
+  late final GeneratedColumn<double> changeAmount = GeneratedColumn<double>(
+      'change_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
   static const VerificationMeta _shippingAmountMeta =
       const VerificationMeta('shippingAmount');
   @override
@@ -9819,6 +9967,9 @@ class $OrderEntityV2Table extends OrderEntityV2
         taxableAmount,
         taxAmount,
         finalAmount,
+        paidAmount,
+        dueAmount,
+        changeAmount,
         shippingAmount,
         shippingDiscountAmount,
         shippingDiscountPercentage,
@@ -9928,6 +10079,22 @@ class $OrderEntityV2Table extends OrderEntityV2
               data['final_amount']!, _finalAmountMeta));
     } else if (isInserting) {
       context.missing(_finalAmountMeta);
+    }
+    if (data.containsKey('paid_amount')) {
+      context.handle(
+          _paidAmountMeta,
+          paidAmount.isAcceptableOrUnknown(
+              data['paid_amount']!, _paidAmountMeta));
+    }
+    if (data.containsKey('due_amount')) {
+      context.handle(_dueAmountMeta,
+          dueAmount.isAcceptableOrUnknown(data['due_amount']!, _dueAmountMeta));
+    }
+    if (data.containsKey('change_amount')) {
+      context.handle(
+          _changeAmountMeta,
+          changeAmount.isAcceptableOrUnknown(
+              data['change_amount']!, _changeAmountMeta));
     }
     if (data.containsKey('shipping_amount')) {
       context.handle(
@@ -10222,6 +10389,12 @@ class $OrderEntityV2Table extends OrderEntityV2
           .read(DriftSqlType.double, data['${effectivePrefix}tax_amount']),
       finalAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}final_amount'])!,
+      paidAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}paid_amount']),
+      dueAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}due_amount']),
+      changeAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}change_amount']),
       shippingAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}shipping_amount']),
       shippingDiscountAmount: attachedDatabase.typeMapping.read(
@@ -10367,6 +10540,9 @@ class OrderEntityV2Data extends DataClass
   final double? taxableAmount;
   final double? taxAmount;
   final double finalAmount;
+  final double? paidAmount;
+  final double? dueAmount;
+  final double? changeAmount;
   final double? shippingAmount;
   final double? shippingDiscountAmount;
   final double? shippingDiscountPercentage;
@@ -10428,6 +10604,9 @@ class OrderEntityV2Data extends DataClass
       this.taxableAmount,
       this.taxAmount,
       required this.finalAmount,
+      this.paidAmount,
+      this.dueAmount,
+      this.changeAmount,
       this.shippingAmount,
       this.shippingDiscountAmount,
       this.shippingDiscountPercentage,
@@ -10499,6 +10678,15 @@ class OrderEntityV2Data extends DataClass
       map['tax_amount'] = Variable<double>(taxAmount);
     }
     map['final_amount'] = Variable<double>(finalAmount);
+    if (!nullToAbsent || paidAmount != null) {
+      map['paid_amount'] = Variable<double>(paidAmount);
+    }
+    if (!nullToAbsent || dueAmount != null) {
+      map['due_amount'] = Variable<double>(dueAmount);
+    }
+    if (!nullToAbsent || changeAmount != null) {
+      map['change_amount'] = Variable<double>(changeAmount);
+    }
     if (!nullToAbsent || shippingAmount != null) {
       map['shipping_amount'] = Variable<double>(shippingAmount);
     }
@@ -10687,6 +10875,15 @@ class OrderEntityV2Data extends DataClass
           ? const Value.absent()
           : Value(taxAmount),
       finalAmount: Value(finalAmount),
+      paidAmount: paidAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paidAmount),
+      dueAmount: dueAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(dueAmount),
+      changeAmount: changeAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(changeAmount),
       shippingAmount: shippingAmount == null && nullToAbsent
           ? const Value.absent()
           : Value(shippingAmount),
@@ -10857,6 +11054,9 @@ class OrderEntityV2Data extends DataClass
       taxableAmount: serializer.fromJson<double?>(json['taxableAmount']),
       taxAmount: serializer.fromJson<double?>(json['taxAmount']),
       finalAmount: serializer.fromJson<double>(json['finalAmount']),
+      paidAmount: serializer.fromJson<double?>(json['paidAmount']),
+      dueAmount: serializer.fromJson<double?>(json['dueAmount']),
+      changeAmount: serializer.fromJson<double?>(json['changeAmount']),
       shippingAmount: serializer.fromJson<double?>(json['shippingAmount']),
       shippingDiscountAmount:
           serializer.fromJson<double?>(json['shippingDiscountAmount']),
@@ -10933,6 +11133,9 @@ class OrderEntityV2Data extends DataClass
       'taxableAmount': serializer.toJson<double?>(taxableAmount),
       'taxAmount': serializer.toJson<double?>(taxAmount),
       'finalAmount': serializer.toJson<double>(finalAmount),
+      'paidAmount': serializer.toJson<double?>(paidAmount),
+      'dueAmount': serializer.toJson<double?>(dueAmount),
+      'changeAmount': serializer.toJson<double?>(changeAmount),
       'shippingAmount': serializer.toJson<double?>(shippingAmount),
       'shippingDiscountAmount':
           serializer.toJson<double?>(shippingDiscountAmount),
@@ -11005,6 +11208,9 @@ class OrderEntityV2Data extends DataClass
           Value<double?> taxableAmount = const Value.absent(),
           Value<double?> taxAmount = const Value.absent(),
           double? finalAmount,
+          Value<double?> paidAmount = const Value.absent(),
+          Value<double?> dueAmount = const Value.absent(),
+          Value<double?> changeAmount = const Value.absent(),
           Value<double?> shippingAmount = const Value.absent(),
           Value<double?> shippingDiscountAmount = const Value.absent(),
           Value<double?> shippingDiscountPercentage = const Value.absent(),
@@ -11069,6 +11275,10 @@ class OrderEntityV2Data extends DataClass
             taxableAmount.present ? taxableAmount.value : this.taxableAmount,
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
         finalAmount: finalAmount ?? this.finalAmount,
+        paidAmount: paidAmount.present ? paidAmount.value : this.paidAmount,
+        dueAmount: dueAmount.present ? dueAmount.value : this.dueAmount,
+        changeAmount:
+            changeAmount.present ? changeAmount.value : this.changeAmount,
         shippingAmount:
             shippingAmount.present ? shippingAmount.value : this.shippingAmount,
         shippingDiscountAmount: shippingDiscountAmount.present
@@ -11173,6 +11383,9 @@ class OrderEntityV2Data extends DataClass
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('finalAmount: $finalAmount, ')
+          ..write('paidAmount: $paidAmount, ')
+          ..write('dueAmount: $dueAmount, ')
+          ..write('changeAmount: $changeAmount, ')
           ..write('shippingAmount: $shippingAmount, ')
           ..write('shippingDiscountAmount: $shippingDiscountAmount, ')
           ..write('shippingDiscountPercentage: $shippingDiscountPercentage, ')
@@ -11239,6 +11452,9 @@ class OrderEntityV2Data extends DataClass
         taxableAmount,
         taxAmount,
         finalAmount,
+        paidAmount,
+        dueAmount,
+        changeAmount,
         shippingAmount,
         shippingDiscountAmount,
         shippingDiscountPercentage,
@@ -11304,6 +11520,9 @@ class OrderEntityV2Data extends DataClass
           other.taxableAmount == this.taxableAmount &&
           other.taxAmount == this.taxAmount &&
           other.finalAmount == this.finalAmount &&
+          other.paidAmount == this.paidAmount &&
+          other.dueAmount == this.dueAmount &&
+          other.changeAmount == this.changeAmount &&
           other.shippingAmount == this.shippingAmount &&
           other.shippingDiscountAmount == this.shippingDiscountAmount &&
           other.shippingDiscountPercentage == this.shippingDiscountPercentage &&
@@ -11367,6 +11586,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<double?> taxableAmount;
   final Value<double?> taxAmount;
   final Value<double> finalAmount;
+  final Value<double?> paidAmount;
+  final Value<double?> dueAmount;
+  final Value<double?> changeAmount;
   final Value<double?> shippingAmount;
   final Value<double?> shippingDiscountAmount;
   final Value<double?> shippingDiscountPercentage;
@@ -11429,6 +11651,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.taxableAmount = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.finalAmount = const Value.absent(),
+    this.paidAmount = const Value.absent(),
+    this.dueAmount = const Value.absent(),
+    this.changeAmount = const Value.absent(),
     this.shippingAmount = const Value.absent(),
     this.shippingDiscountAmount = const Value.absent(),
     this.shippingDiscountPercentage = const Value.absent(),
@@ -11492,6 +11717,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.taxableAmount = const Value.absent(),
     this.taxAmount = const Value.absent(),
     required double finalAmount,
+    this.paidAmount = const Value.absent(),
+    this.dueAmount = const Value.absent(),
+    this.changeAmount = const Value.absent(),
     this.shippingAmount = const Value.absent(),
     this.shippingDiscountAmount = const Value.absent(),
     this.shippingDiscountPercentage = const Value.absent(),
@@ -11557,6 +11785,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<double>? taxableAmount,
     Expression<double>? taxAmount,
     Expression<double>? finalAmount,
+    Expression<double>? paidAmount,
+    Expression<double>? dueAmount,
+    Expression<double>? changeAmount,
     Expression<double>? shippingAmount,
     Expression<double>? shippingDiscountAmount,
     Expression<double>? shippingDiscountPercentage,
@@ -11620,6 +11851,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       if (taxableAmount != null) 'taxable_amount': taxableAmount,
       if (taxAmount != null) 'tax_amount': taxAmount,
       if (finalAmount != null) 'final_amount': finalAmount,
+      if (paidAmount != null) 'paid_amount': paidAmount,
+      if (dueAmount != null) 'due_amount': dueAmount,
+      if (changeAmount != null) 'change_amount': changeAmount,
       if (shippingAmount != null) 'shipping_amount': shippingAmount,
       if (shippingDiscountAmount != null)
         'shipping_discount_amount': shippingDiscountAmount,
@@ -11694,6 +11928,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<double?>? taxableAmount,
       Value<double?>? taxAmount,
       Value<double>? finalAmount,
+      Value<double?>? paidAmount,
+      Value<double?>? dueAmount,
+      Value<double?>? changeAmount,
       Value<double?>? shippingAmount,
       Value<double?>? shippingDiscountAmount,
       Value<double?>? shippingDiscountPercentage,
@@ -11756,6 +11993,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       taxableAmount: taxableAmount ?? this.taxableAmount,
       taxAmount: taxAmount ?? this.taxAmount,
       finalAmount: finalAmount ?? this.finalAmount,
+      paidAmount: paidAmount ?? this.paidAmount,
+      dueAmount: dueAmount ?? this.dueAmount,
+      changeAmount: changeAmount ?? this.changeAmount,
       shippingAmount: shippingAmount ?? this.shippingAmount,
       shippingDiscountAmount:
           shippingDiscountAmount ?? this.shippingDiscountAmount,
@@ -11844,6 +12084,15 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     }
     if (finalAmount.present) {
       map['final_amount'] = Variable<double>(finalAmount.value);
+    }
+    if (paidAmount.present) {
+      map['paid_amount'] = Variable<double>(paidAmount.value);
+    }
+    if (dueAmount.present) {
+      map['due_amount'] = Variable<double>(dueAmount.value);
+    }
+    if (changeAmount.present) {
+      map['change_amount'] = Variable<double>(changeAmount.value);
     }
     if (shippingAmount.present) {
       map['shipping_amount'] = Variable<double>(shippingAmount.value);
@@ -12034,6 +12283,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('finalAmount: $finalAmount, ')
+          ..write('paidAmount: $paidAmount, ')
+          ..write('dueAmount: $dueAmount, ')
+          ..write('changeAmount: $changeAmount, ')
           ..write('shippingAmount: $shippingAmount, ')
           ..write('shippingDiscountAmount: $shippingDiscountAmount, ')
           ..write('shippingDiscountPercentage: $shippingDiscountPercentage, ')
@@ -15729,6 +15981,18 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
   late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
       'product_ref', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _modifierIdMeta =
+      const VerificationMeta('modifierId');
+  @override
+  late final GeneratedColumn<String> modifierId = GeneratedColumn<String>(
+      'modifier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _optionIdMeta =
+      const VerificationMeta('optionId');
+  @override
+  late final GeneratedColumn<String> optionId = GeneratedColumn<String>(
+      'option_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _taxableAmountMeta =
       const VerificationMeta('taxableAmount');
   @override
@@ -15757,6 +16021,8 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
   List<GeneratedColumn> get $columns => [
         orderRef,
         productRef,
+        modifierId,
+        optionId,
         taxableAmount,
         taxAmount,
         taxPercentage,
@@ -15782,6 +16048,16 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
           _productRefMeta,
           productRef.isAcceptableOrUnknown(
               data['product_ref']!, _productRefMeta));
+    }
+    if (data.containsKey('modifier_id')) {
+      context.handle(
+          _modifierIdMeta,
+          modifierId.isAcceptableOrUnknown(
+              data['modifier_id']!, _modifierIdMeta));
+    }
+    if (data.containsKey('option_id')) {
+      context.handle(_optionIdMeta,
+          optionId.isAcceptableOrUnknown(data['option_id']!, _optionIdMeta));
     }
     if (data.containsKey('taxable_amount')) {
       context.handle(
@@ -15819,6 +16095,10 @@ class $OrderProductTaxInfoV2Table extends OrderProductTaxInfoV2
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
       productRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
+      modifierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}modifier_id']),
+      optionId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}option_id']),
       taxableAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}taxable_amount']),
       taxAmount: attachedDatabase.typeMapping
@@ -15840,6 +16120,8 @@ class OrderProductTaxInfoV2Data extends DataClass
     implements Insertable<OrderProductTaxInfoV2Data> {
   final String? orderRef;
   final String? productRef;
+  final String? modifierId;
+  final String? optionId;
   final double? taxableAmount;
   final double? taxAmount;
   final double? taxPercentage;
@@ -15847,6 +16129,8 @@ class OrderProductTaxInfoV2Data extends DataClass
   const OrderProductTaxInfoV2Data(
       {this.orderRef,
       this.productRef,
+      this.modifierId,
+      this.optionId,
       this.taxableAmount,
       this.taxAmount,
       this.taxPercentage,
@@ -15859,6 +16143,12 @@ class OrderProductTaxInfoV2Data extends DataClass
     }
     if (!nullToAbsent || productRef != null) {
       map['product_ref'] = Variable<String>(productRef);
+    }
+    if (!nullToAbsent || modifierId != null) {
+      map['modifier_id'] = Variable<String>(modifierId);
+    }
+    if (!nullToAbsent || optionId != null) {
+      map['option_id'] = Variable<String>(optionId);
     }
     if (!nullToAbsent || taxableAmount != null) {
       map['taxable_amount'] = Variable<double>(taxableAmount);
@@ -15883,6 +16173,12 @@ class OrderProductTaxInfoV2Data extends DataClass
       productRef: productRef == null && nullToAbsent
           ? const Value.absent()
           : Value(productRef),
+      modifierId: modifierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(modifierId),
+      optionId: optionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(optionId),
       taxableAmount: taxableAmount == null && nullToAbsent
           ? const Value.absent()
           : Value(taxableAmount),
@@ -15904,6 +16200,8 @@ class OrderProductTaxInfoV2Data extends DataClass
     return OrderProductTaxInfoV2Data(
       orderRef: serializer.fromJson<String?>(json['orderRef']),
       productRef: serializer.fromJson<String?>(json['productRef']),
+      modifierId: serializer.fromJson<String?>(json['modifierId']),
+      optionId: serializer.fromJson<String?>(json['optionId']),
       taxableAmount: serializer.fromJson<double?>(json['taxableAmount']),
       taxAmount: serializer.fromJson<double?>(json['taxAmount']),
       taxPercentage: serializer.fromJson<double?>(json['taxPercentage']),
@@ -15916,6 +16214,8 @@ class OrderProductTaxInfoV2Data extends DataClass
     return <String, dynamic>{
       'orderRef': serializer.toJson<String?>(orderRef),
       'productRef': serializer.toJson<String?>(productRef),
+      'modifierId': serializer.toJson<String?>(modifierId),
+      'optionId': serializer.toJson<String?>(optionId),
       'taxableAmount': serializer.toJson<double?>(taxableAmount),
       'taxAmount': serializer.toJson<double?>(taxAmount),
       'taxPercentage': serializer.toJson<double?>(taxPercentage),
@@ -15926,6 +16226,8 @@ class OrderProductTaxInfoV2Data extends DataClass
   OrderProductTaxInfoV2Data copyWith(
           {Value<String?> orderRef = const Value.absent(),
           Value<String?> productRef = const Value.absent(),
+          Value<String?> modifierId = const Value.absent(),
+          Value<String?> optionId = const Value.absent(),
           Value<double?> taxableAmount = const Value.absent(),
           Value<double?> taxAmount = const Value.absent(),
           Value<double?> taxPercentage = const Value.absent(),
@@ -15933,6 +16235,8 @@ class OrderProductTaxInfoV2Data extends DataClass
       OrderProductTaxInfoV2Data(
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
         productRef: productRef.present ? productRef.value : this.productRef,
+        modifierId: modifierId.present ? modifierId.value : this.modifierId,
+        optionId: optionId.present ? optionId.value : this.optionId,
         taxableAmount:
             taxableAmount.present ? taxableAmount.value : this.taxableAmount,
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
@@ -15945,6 +16249,8 @@ class OrderProductTaxInfoV2Data extends DataClass
     return (StringBuffer('OrderProductTaxInfoV2Data(')
           ..write('orderRef: $orderRef, ')
           ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('optionId: $optionId, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('taxPercentage: $taxPercentage, ')
@@ -15954,14 +16260,16 @@ class OrderProductTaxInfoV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(orderRef, productRef, taxableAmount,
-      taxAmount, taxPercentage, taxGroupId);
+  int get hashCode => Object.hash(orderRef, productRef, modifierId, optionId,
+      taxableAmount, taxAmount, taxPercentage, taxGroupId);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductTaxInfoV2Data &&
           other.orderRef == this.orderRef &&
           other.productRef == this.productRef &&
+          other.modifierId == this.modifierId &&
+          other.optionId == this.optionId &&
           other.taxableAmount == this.taxableAmount &&
           other.taxAmount == this.taxAmount &&
           other.taxPercentage == this.taxPercentage &&
@@ -15972,6 +16280,8 @@ class OrderProductTaxInfoV2Companion
     extends UpdateCompanion<OrderProductTaxInfoV2Data> {
   final Value<String?> orderRef;
   final Value<String?> productRef;
+  final Value<String?> modifierId;
+  final Value<String?> optionId;
   final Value<double?> taxableAmount;
   final Value<double?> taxAmount;
   final Value<double?> taxPercentage;
@@ -15980,6 +16290,8 @@ class OrderProductTaxInfoV2Companion
   const OrderProductTaxInfoV2Companion({
     this.orderRef = const Value.absent(),
     this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.optionId = const Value.absent(),
     this.taxableAmount = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.taxPercentage = const Value.absent(),
@@ -15989,6 +16301,8 @@ class OrderProductTaxInfoV2Companion
   OrderProductTaxInfoV2Companion.insert({
     this.orderRef = const Value.absent(),
     this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.optionId = const Value.absent(),
     this.taxableAmount = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.taxPercentage = const Value.absent(),
@@ -15998,6 +16312,8 @@ class OrderProductTaxInfoV2Companion
   static Insertable<OrderProductTaxInfoV2Data> custom({
     Expression<String>? orderRef,
     Expression<String>? productRef,
+    Expression<String>? modifierId,
+    Expression<String>? optionId,
     Expression<double>? taxableAmount,
     Expression<double>? taxAmount,
     Expression<double>? taxPercentage,
@@ -16007,6 +16323,8 @@ class OrderProductTaxInfoV2Companion
     return RawValuesInsertable({
       if (orderRef != null) 'order_ref': orderRef,
       if (productRef != null) 'product_ref': productRef,
+      if (modifierId != null) 'modifier_id': modifierId,
+      if (optionId != null) 'option_id': optionId,
       if (taxableAmount != null) 'taxable_amount': taxableAmount,
       if (taxAmount != null) 'tax_amount': taxAmount,
       if (taxPercentage != null) 'tax_percentage': taxPercentage,
@@ -16018,6 +16336,8 @@ class OrderProductTaxInfoV2Companion
   OrderProductTaxInfoV2Companion copyWith(
       {Value<String?>? orderRef,
       Value<String?>? productRef,
+      Value<String?>? modifierId,
+      Value<String?>? optionId,
       Value<double?>? taxableAmount,
       Value<double?>? taxAmount,
       Value<double?>? taxPercentage,
@@ -16026,6 +16346,8 @@ class OrderProductTaxInfoV2Companion
     return OrderProductTaxInfoV2Companion(
       orderRef: orderRef ?? this.orderRef,
       productRef: productRef ?? this.productRef,
+      modifierId: modifierId ?? this.modifierId,
+      optionId: optionId ?? this.optionId,
       taxableAmount: taxableAmount ?? this.taxableAmount,
       taxAmount: taxAmount ?? this.taxAmount,
       taxPercentage: taxPercentage ?? this.taxPercentage,
@@ -16042,6 +16364,12 @@ class OrderProductTaxInfoV2Companion
     }
     if (productRef.present) {
       map['product_ref'] = Variable<String>(productRef.value);
+    }
+    if (modifierId.present) {
+      map['modifier_id'] = Variable<String>(modifierId.value);
+    }
+    if (optionId.present) {
+      map['option_id'] = Variable<String>(optionId.value);
     }
     if (taxableAmount.present) {
       map['taxable_amount'] = Variable<double>(taxableAmount.value);
@@ -16066,6 +16394,8 @@ class OrderProductTaxInfoV2Companion
     return (StringBuffer('OrderProductTaxInfoV2Companion(')
           ..write('orderRef: $orderRef, ')
           ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('optionId: $optionId, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('taxPercentage: $taxPercentage, ')
@@ -16437,6 +16767,18 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
       'product_ref', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _modifierIdMeta =
+      const VerificationMeta('modifierId');
+  @override
+  late final GeneratedColumn<String> modifierId = GeneratedColumn<String>(
+      'modifier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _optionIdMeta =
+      const VerificationMeta('optionId');
+  @override
+  late final GeneratedColumn<String> optionId = GeneratedColumn<String>(
+      'option_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _taxAccountMeta =
       const VerificationMeta('taxAccount');
   @override
@@ -16543,6 +16885,8 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   @override
   List<GeneratedColumn> get $columns => [
         productRef,
+        modifierId,
+        optionId,
         taxAccount,
         taxCode,
         orderRef,
@@ -16574,6 +16918,16 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
           _productRefMeta,
           productRef.isAcceptableOrUnknown(
               data['product_ref']!, _productRefMeta));
+    }
+    if (data.containsKey('modifier_id')) {
+      context.handle(
+          _modifierIdMeta,
+          modifierId.isAcceptableOrUnknown(
+              data['modifier_id']!, _modifierIdMeta));
+    }
+    if (data.containsKey('option_id')) {
+      context.handle(_optionIdMeta,
+          optionId.isAcceptableOrUnknown(data['option_id']!, _optionIdMeta));
     }
     if (data.containsKey('tax_account')) {
       context.handle(
@@ -16670,6 +17024,10 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
     return OrderProductTaxTypeV2Data(
       productRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
+      modifierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}modifier_id']),
+      optionId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}option_id']),
       taxAccount: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}tax_account']),
       taxCode: attachedDatabase.typeMapping
@@ -16713,6 +17071,8 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
 class OrderProductTaxTypeV2Data extends DataClass
     implements Insertable<OrderProductTaxTypeV2Data> {
   final String? productRef;
+  final String? modifierId;
+  final String? optionId;
   final String? taxAccount;
   final String? taxCode;
   final String? orderRef;
@@ -16729,6 +17089,8 @@ class OrderProductTaxTypeV2Data extends DataClass
   final bool? isNotApplyForThisPeriod;
   const OrderProductTaxTypeV2Data(
       {this.productRef,
+      this.modifierId,
+      this.optionId,
       this.taxAccount,
       this.taxCode,
       this.orderRef,
@@ -16748,6 +17110,12 @@ class OrderProductTaxTypeV2Data extends DataClass
     final map = <String, Expression>{};
     if (!nullToAbsent || productRef != null) {
       map['product_ref'] = Variable<String>(productRef);
+    }
+    if (!nullToAbsent || modifierId != null) {
+      map['modifier_id'] = Variable<String>(modifierId);
+    }
+    if (!nullToAbsent || optionId != null) {
+      map['option_id'] = Variable<String>(optionId);
     }
     if (!nullToAbsent || taxAccount != null) {
       map['tax_account'] = Variable<String>(taxAccount);
@@ -16800,6 +17168,12 @@ class OrderProductTaxTypeV2Data extends DataClass
       productRef: productRef == null && nullToAbsent
           ? const Value.absent()
           : Value(productRef),
+      modifierId: modifierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(modifierId),
+      optionId: optionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(optionId),
       taxAccount: taxAccount == null && nullToAbsent
           ? const Value.absent()
           : Value(taxAccount),
@@ -16850,6 +17224,8 @@ class OrderProductTaxTypeV2Data extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return OrderProductTaxTypeV2Data(
       productRef: serializer.fromJson<String?>(json['productRef']),
+      modifierId: serializer.fromJson<String?>(json['modifierId']),
+      optionId: serializer.fromJson<String?>(json['optionId']),
       taxAccount: serializer.fromJson<String?>(json['taxAccount']),
       taxCode: serializer.fromJson<String?>(json['taxCode']),
       orderRef: serializer.fromJson<String?>(json['orderRef']),
@@ -16874,6 +17250,8 @@ class OrderProductTaxTypeV2Data extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'productRef': serializer.toJson<String?>(productRef),
+      'modifierId': serializer.toJson<String?>(modifierId),
+      'optionId': serializer.toJson<String?>(optionId),
       'taxAccount': serializer.toJson<String?>(taxAccount),
       'taxCode': serializer.toJson<String?>(taxCode),
       'orderRef': serializer.toJson<String?>(orderRef),
@@ -16896,6 +17274,8 @@ class OrderProductTaxTypeV2Data extends DataClass
 
   OrderProductTaxTypeV2Data copyWith(
           {Value<String?> productRef = const Value.absent(),
+          Value<String?> modifierId = const Value.absent(),
+          Value<String?> optionId = const Value.absent(),
           Value<String?> taxAccount = const Value.absent(),
           Value<String?> taxCode = const Value.absent(),
           Value<String?> orderRef = const Value.absent(),
@@ -16912,6 +17292,8 @@ class OrderProductTaxTypeV2Data extends DataClass
           Value<bool?> isNotApplyForThisPeriod = const Value.absent()}) =>
       OrderProductTaxTypeV2Data(
         productRef: productRef.present ? productRef.value : this.productRef,
+        modifierId: modifierId.present ? modifierId.value : this.modifierId,
+        optionId: optionId.present ? optionId.value : this.optionId,
         taxAccount: taxAccount.present ? taxAccount.value : this.taxAccount,
         taxCode: taxCode.present ? taxCode.value : this.taxCode,
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
@@ -16938,6 +17320,8 @@ class OrderProductTaxTypeV2Data extends DataClass
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Data(')
           ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('optionId: $optionId, ')
           ..write('taxAccount: $taxAccount, ')
           ..write('taxCode: $taxCode, ')
           ..write('orderRef: $orderRef, ')
@@ -16959,6 +17343,8 @@ class OrderProductTaxTypeV2Data extends DataClass
   @override
   int get hashCode => Object.hash(
       productRef,
+      modifierId,
+      optionId,
       taxAccount,
       taxCode,
       orderRef,
@@ -16978,6 +17364,8 @@ class OrderProductTaxTypeV2Data extends DataClass
       identical(this, other) ||
       (other is OrderProductTaxTypeV2Data &&
           other.productRef == this.productRef &&
+          other.modifierId == this.modifierId &&
+          other.optionId == this.optionId &&
           other.taxAccount == this.taxAccount &&
           other.taxCode == this.taxCode &&
           other.orderRef == this.orderRef &&
@@ -16997,6 +17385,8 @@ class OrderProductTaxTypeV2Data extends DataClass
 class OrderProductTaxTypeV2Companion
     extends UpdateCompanion<OrderProductTaxTypeV2Data> {
   final Value<String?> productRef;
+  final Value<String?> modifierId;
+  final Value<String?> optionId;
   final Value<String?> taxAccount;
   final Value<String?> taxCode;
   final Value<String?> orderRef;
@@ -17014,6 +17404,8 @@ class OrderProductTaxTypeV2Companion
   final Value<int> rowid;
   const OrderProductTaxTypeV2Companion({
     this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.optionId = const Value.absent(),
     this.taxAccount = const Value.absent(),
     this.taxCode = const Value.absent(),
     this.orderRef = const Value.absent(),
@@ -17032,6 +17424,8 @@ class OrderProductTaxTypeV2Companion
   });
   OrderProductTaxTypeV2Companion.insert({
     this.productRef = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.optionId = const Value.absent(),
     this.taxAccount = const Value.absent(),
     this.taxCode = const Value.absent(),
     this.orderRef = const Value.absent(),
@@ -17050,6 +17444,8 @@ class OrderProductTaxTypeV2Companion
   }) : taxableAmount = Value(taxableAmount);
   static Insertable<OrderProductTaxTypeV2Data> custom({
     Expression<String>? productRef,
+    Expression<String>? modifierId,
+    Expression<String>? optionId,
     Expression<String>? taxAccount,
     Expression<String>? taxCode,
     Expression<String>? orderRef,
@@ -17068,6 +17464,8 @@ class OrderProductTaxTypeV2Companion
   }) {
     return RawValuesInsertable({
       if (productRef != null) 'product_ref': productRef,
+      if (modifierId != null) 'modifier_id': modifierId,
+      if (optionId != null) 'option_id': optionId,
       if (taxAccount != null) 'tax_account': taxAccount,
       if (taxCode != null) 'tax_code': taxCode,
       if (orderRef != null) 'order_ref': orderRef,
@@ -17091,6 +17489,8 @@ class OrderProductTaxTypeV2Companion
 
   OrderProductTaxTypeV2Companion copyWith(
       {Value<String?>? productRef,
+      Value<String?>? modifierId,
+      Value<String?>? optionId,
       Value<String?>? taxAccount,
       Value<String?>? taxCode,
       Value<String?>? orderRef,
@@ -17108,6 +17508,8 @@ class OrderProductTaxTypeV2Companion
       Value<int>? rowid}) {
     return OrderProductTaxTypeV2Companion(
       productRef: productRef ?? this.productRef,
+      modifierId: modifierId ?? this.modifierId,
+      optionId: optionId ?? this.optionId,
       taxAccount: taxAccount ?? this.taxAccount,
       taxCode: taxCode ?? this.taxCode,
       orderRef: orderRef ?? this.orderRef,
@@ -17134,6 +17536,12 @@ class OrderProductTaxTypeV2Companion
     final map = <String, Expression>{};
     if (productRef.present) {
       map['product_ref'] = Variable<String>(productRef.value);
+    }
+    if (modifierId.present) {
+      map['modifier_id'] = Variable<String>(modifierId.value);
+    }
+    if (optionId.present) {
+      map['option_id'] = Variable<String>(optionId.value);
     }
     if (taxAccount.present) {
       map['tax_account'] = Variable<String>(taxAccount.value);
@@ -17190,6 +17598,8 @@ class OrderProductTaxTypeV2Companion
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Companion(')
           ..write('productRef: $productRef, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('optionId: $optionId, ')
           ..write('taxAccount: $taxAccount, ')
           ..write('taxCode: $taxCode, ')
           ..write('orderRef: $orderRef, ')
@@ -19760,9 +20170,85 @@ class $OrderProductModifierV2Table extends OrderProductModifierV2
   late final GeneratedColumn<String> notes = GeneratedColumn<String>(
       'notes', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _discountAmountMeta =
+      const VerificationMeta('discountAmount');
   @override
-  List<GeneratedColumn> get $columns =>
-      [orderRef, productRef, modifierId, name, fName, notes];
+  late final GeneratedColumn<double> discountAmount = GeneratedColumn<double>(
+      'discount_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _discountPercentageMeta =
+      const VerificationMeta('discountPercentage');
+  @override
+  late final GeneratedColumn<double> discountPercentage =
+      GeneratedColumn<double>('discount_percentage', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _netUnitPriceMeta =
+      const VerificationMeta('netUnitPrice');
+  @override
+  late final GeneratedColumn<double> netUnitPrice = GeneratedColumn<double>(
+      'net_unit_price', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _netTotalPriceMeta =
+      const VerificationMeta('netTotalPrice');
+  @override
+  late final GeneratedColumn<double> netTotalPrice = GeneratedColumn<double>(
+      'net_total_price', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _netUnitPriceExcludeTaxMeta =
+      const VerificationMeta('netUnitPriceExcludeTax');
+  @override
+  late final GeneratedColumn<double> netUnitPriceExcludeTax =
+      GeneratedColumn<double>('net_unit_price_exclude_tax', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _netTotalPriceExcludeTaxMeta =
+      const VerificationMeta('netTotalPriceExcludeTax');
+  @override
+  late final GeneratedColumn<double> netTotalPriceExcludeTax =
+      GeneratedColumn<double>('net_total_price_exclude_tax', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _orderDiscountAmountMeta =
+      const VerificationMeta('orderDiscountAmount');
+  @override
+  late final GeneratedColumn<double> orderDiscountAmount =
+      GeneratedColumn<double>('order_discount_amount', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _taxableAmountMeta =
+      const VerificationMeta('taxableAmount');
+  @override
+  late final GeneratedColumn<double> taxableAmount = GeneratedColumn<double>(
+      'taxable_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _taxAmountMeta =
+      const VerificationMeta('taxAmount');
+  @override
+  late final GeneratedColumn<double> taxAmount = GeneratedColumn<double>(
+      'tax_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _finalAmountMeta =
+      const VerificationMeta('finalAmount');
+  @override
+  late final GeneratedColumn<double> finalAmount = GeneratedColumn<double>(
+      'final_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        orderRef,
+        productRef,
+        modifierId,
+        name,
+        fName,
+        notes,
+        discountAmount,
+        discountPercentage,
+        netUnitPrice,
+        netTotalPrice,
+        netUnitPriceExcludeTax,
+        netTotalPriceExcludeTax,
+        orderDiscountAmount,
+        taxableAmount,
+        taxAmount,
+        finalAmount
+      ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -19802,6 +20288,66 @@ class $OrderProductModifierV2Table extends OrderProductModifierV2
       context.handle(
           _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
     }
+    if (data.containsKey('discount_amount')) {
+      context.handle(
+          _discountAmountMeta,
+          discountAmount.isAcceptableOrUnknown(
+              data['discount_amount']!, _discountAmountMeta));
+    }
+    if (data.containsKey('discount_percentage')) {
+      context.handle(
+          _discountPercentageMeta,
+          discountPercentage.isAcceptableOrUnknown(
+              data['discount_percentage']!, _discountPercentageMeta));
+    }
+    if (data.containsKey('net_unit_price')) {
+      context.handle(
+          _netUnitPriceMeta,
+          netUnitPrice.isAcceptableOrUnknown(
+              data['net_unit_price']!, _netUnitPriceMeta));
+    }
+    if (data.containsKey('net_total_price')) {
+      context.handle(
+          _netTotalPriceMeta,
+          netTotalPrice.isAcceptableOrUnknown(
+              data['net_total_price']!, _netTotalPriceMeta));
+    }
+    if (data.containsKey('net_unit_price_exclude_tax')) {
+      context.handle(
+          _netUnitPriceExcludeTaxMeta,
+          netUnitPriceExcludeTax.isAcceptableOrUnknown(
+              data['net_unit_price_exclude_tax']!,
+              _netUnitPriceExcludeTaxMeta));
+    }
+    if (data.containsKey('net_total_price_exclude_tax')) {
+      context.handle(
+          _netTotalPriceExcludeTaxMeta,
+          netTotalPriceExcludeTax.isAcceptableOrUnknown(
+              data['net_total_price_exclude_tax']!,
+              _netTotalPriceExcludeTaxMeta));
+    }
+    if (data.containsKey('order_discount_amount')) {
+      context.handle(
+          _orderDiscountAmountMeta,
+          orderDiscountAmount.isAcceptableOrUnknown(
+              data['order_discount_amount']!, _orderDiscountAmountMeta));
+    }
+    if (data.containsKey('taxable_amount')) {
+      context.handle(
+          _taxableAmountMeta,
+          taxableAmount.isAcceptableOrUnknown(
+              data['taxable_amount']!, _taxableAmountMeta));
+    }
+    if (data.containsKey('tax_amount')) {
+      context.handle(_taxAmountMeta,
+          taxAmount.isAcceptableOrUnknown(data['tax_amount']!, _taxAmountMeta));
+    }
+    if (data.containsKey('final_amount')) {
+      context.handle(
+          _finalAmountMeta,
+          finalAmount.isAcceptableOrUnknown(
+              data['final_amount']!, _finalAmountMeta));
+    }
     return context;
   }
 
@@ -19824,6 +20370,28 @@ class $OrderProductModifierV2Table extends OrderProductModifierV2
           .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
       notes: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+      discountAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}discount_amount']),
+      discountPercentage: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}discount_percentage']),
+      netUnitPrice: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}net_unit_price']),
+      netTotalPrice: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}net_total_price']),
+      netUnitPriceExcludeTax: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}net_unit_price_exclude_tax']),
+      netTotalPriceExcludeTax: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}net_total_price_exclude_tax']),
+      orderDiscountAmount: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}order_discount_amount']),
+      taxableAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}taxable_amount']),
+      taxAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}tax_amount']),
+      finalAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}final_amount']),
     );
   }
 
@@ -19841,13 +20409,33 @@ class OrderProductModifierV2Data extends DataClass
   final String? name;
   final String? fName;
   final String? notes;
+  final double? discountAmount;
+  final double? discountPercentage;
+  final double? netUnitPrice;
+  final double? netTotalPrice;
+  final double? netUnitPriceExcludeTax;
+  final double? netTotalPriceExcludeTax;
+  final double? orderDiscountAmount;
+  final double? taxableAmount;
+  final double? taxAmount;
+  final double? finalAmount;
   const OrderProductModifierV2Data(
       {this.orderRef,
       this.productRef,
       this.modifierId,
       this.name,
       this.fName,
-      this.notes});
+      this.notes,
+      this.discountAmount,
+      this.discountPercentage,
+      this.netUnitPrice,
+      this.netTotalPrice,
+      this.netUnitPriceExcludeTax,
+      this.netTotalPriceExcludeTax,
+      this.orderDiscountAmount,
+      this.taxableAmount,
+      this.taxAmount,
+      this.finalAmount});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -19869,6 +20457,38 @@ class OrderProductModifierV2Data extends DataClass
     if (!nullToAbsent || notes != null) {
       map['notes'] = Variable<String>(notes);
     }
+    if (!nullToAbsent || discountAmount != null) {
+      map['discount_amount'] = Variable<double>(discountAmount);
+    }
+    if (!nullToAbsent || discountPercentage != null) {
+      map['discount_percentage'] = Variable<double>(discountPercentage);
+    }
+    if (!nullToAbsent || netUnitPrice != null) {
+      map['net_unit_price'] = Variable<double>(netUnitPrice);
+    }
+    if (!nullToAbsent || netTotalPrice != null) {
+      map['net_total_price'] = Variable<double>(netTotalPrice);
+    }
+    if (!nullToAbsent || netUnitPriceExcludeTax != null) {
+      map['net_unit_price_exclude_tax'] =
+          Variable<double>(netUnitPriceExcludeTax);
+    }
+    if (!nullToAbsent || netTotalPriceExcludeTax != null) {
+      map['net_total_price_exclude_tax'] =
+          Variable<double>(netTotalPriceExcludeTax);
+    }
+    if (!nullToAbsent || orderDiscountAmount != null) {
+      map['order_discount_amount'] = Variable<double>(orderDiscountAmount);
+    }
+    if (!nullToAbsent || taxableAmount != null) {
+      map['taxable_amount'] = Variable<double>(taxableAmount);
+    }
+    if (!nullToAbsent || taxAmount != null) {
+      map['tax_amount'] = Variable<double>(taxAmount);
+    }
+    if (!nullToAbsent || finalAmount != null) {
+      map['final_amount'] = Variable<double>(finalAmount);
+    }
     return map;
   }
 
@@ -19888,6 +20508,36 @@ class OrderProductModifierV2Data extends DataClass
           fName == null && nullToAbsent ? const Value.absent() : Value(fName),
       notes:
           notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+      discountAmount: discountAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(discountAmount),
+      discountPercentage: discountPercentage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(discountPercentage),
+      netUnitPrice: netUnitPrice == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netUnitPrice),
+      netTotalPrice: netTotalPrice == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netTotalPrice),
+      netUnitPriceExcludeTax: netUnitPriceExcludeTax == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netUnitPriceExcludeTax),
+      netTotalPriceExcludeTax: netTotalPriceExcludeTax == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netTotalPriceExcludeTax),
+      orderDiscountAmount: orderDiscountAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderDiscountAmount),
+      taxableAmount: taxableAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxableAmount),
+      taxAmount: taxAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxAmount),
+      finalAmount: finalAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(finalAmount),
     );
   }
 
@@ -19901,6 +20551,20 @@ class OrderProductModifierV2Data extends DataClass
       name: serializer.fromJson<String?>(json['name']),
       fName: serializer.fromJson<String?>(json['fName']),
       notes: serializer.fromJson<String?>(json['notes']),
+      discountAmount: serializer.fromJson<double?>(json['discountAmount']),
+      discountPercentage:
+          serializer.fromJson<double?>(json['discountPercentage']),
+      netUnitPrice: serializer.fromJson<double?>(json['netUnitPrice']),
+      netTotalPrice: serializer.fromJson<double?>(json['netTotalPrice']),
+      netUnitPriceExcludeTax:
+          serializer.fromJson<double?>(json['netUnitPriceExcludeTax']),
+      netTotalPriceExcludeTax:
+          serializer.fromJson<double?>(json['netTotalPriceExcludeTax']),
+      orderDiscountAmount:
+          serializer.fromJson<double?>(json['orderDiscountAmount']),
+      taxableAmount: serializer.fromJson<double?>(json['taxableAmount']),
+      taxAmount: serializer.fromJson<double?>(json['taxAmount']),
+      finalAmount: serializer.fromJson<double?>(json['finalAmount']),
     );
   }
   @override
@@ -19913,6 +20577,18 @@ class OrderProductModifierV2Data extends DataClass
       'name': serializer.toJson<String?>(name),
       'fName': serializer.toJson<String?>(fName),
       'notes': serializer.toJson<String?>(notes),
+      'discountAmount': serializer.toJson<double?>(discountAmount),
+      'discountPercentage': serializer.toJson<double?>(discountPercentage),
+      'netUnitPrice': serializer.toJson<double?>(netUnitPrice),
+      'netTotalPrice': serializer.toJson<double?>(netTotalPrice),
+      'netUnitPriceExcludeTax':
+          serializer.toJson<double?>(netUnitPriceExcludeTax),
+      'netTotalPriceExcludeTax':
+          serializer.toJson<double?>(netTotalPriceExcludeTax),
+      'orderDiscountAmount': serializer.toJson<double?>(orderDiscountAmount),
+      'taxableAmount': serializer.toJson<double?>(taxableAmount),
+      'taxAmount': serializer.toJson<double?>(taxAmount),
+      'finalAmount': serializer.toJson<double?>(finalAmount),
     };
   }
 
@@ -19922,7 +20598,17 @@ class OrderProductModifierV2Data extends DataClass
           Value<String?> modifierId = const Value.absent(),
           Value<String?> name = const Value.absent(),
           Value<String?> fName = const Value.absent(),
-          Value<String?> notes = const Value.absent()}) =>
+          Value<String?> notes = const Value.absent(),
+          Value<double?> discountAmount = const Value.absent(),
+          Value<double?> discountPercentage = const Value.absent(),
+          Value<double?> netUnitPrice = const Value.absent(),
+          Value<double?> netTotalPrice = const Value.absent(),
+          Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+          Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+          Value<double?> orderDiscountAmount = const Value.absent(),
+          Value<double?> taxableAmount = const Value.absent(),
+          Value<double?> taxAmount = const Value.absent(),
+          Value<double?> finalAmount = const Value.absent()}) =>
       OrderProductModifierV2Data(
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
         productRef: productRef.present ? productRef.value : this.productRef,
@@ -19930,6 +20616,28 @@ class OrderProductModifierV2Data extends DataClass
         name: name.present ? name.value : this.name,
         fName: fName.present ? fName.value : this.fName,
         notes: notes.present ? notes.value : this.notes,
+        discountAmount:
+            discountAmount.present ? discountAmount.value : this.discountAmount,
+        discountPercentage: discountPercentage.present
+            ? discountPercentage.value
+            : this.discountPercentage,
+        netUnitPrice:
+            netUnitPrice.present ? netUnitPrice.value : this.netUnitPrice,
+        netTotalPrice:
+            netTotalPrice.present ? netTotalPrice.value : this.netTotalPrice,
+        netUnitPriceExcludeTax: netUnitPriceExcludeTax.present
+            ? netUnitPriceExcludeTax.value
+            : this.netUnitPriceExcludeTax,
+        netTotalPriceExcludeTax: netTotalPriceExcludeTax.present
+            ? netTotalPriceExcludeTax.value
+            : this.netTotalPriceExcludeTax,
+        orderDiscountAmount: orderDiscountAmount.present
+            ? orderDiscountAmount.value
+            : this.orderDiscountAmount,
+        taxableAmount:
+            taxableAmount.present ? taxableAmount.value : this.taxableAmount,
+        taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
+        finalAmount: finalAmount.present ? finalAmount.value : this.finalAmount,
       );
   @override
   String toString() {
@@ -19939,14 +20647,39 @@ class OrderProductModifierV2Data extends DataClass
           ..write('modifierId: $modifierId, ')
           ..write('name: $name, ')
           ..write('fName: $fName, ')
-          ..write('notes: $notes')
+          ..write('notes: $notes, ')
+          ..write('discountAmount: $discountAmount, ')
+          ..write('discountPercentage: $discountPercentage, ')
+          ..write('netUnitPrice: $netUnitPrice, ')
+          ..write('netTotalPrice: $netTotalPrice, ')
+          ..write('netUnitPriceExcludeTax: $netUnitPriceExcludeTax, ')
+          ..write('netTotalPriceExcludeTax: $netTotalPriceExcludeTax, ')
+          ..write('orderDiscountAmount: $orderDiscountAmount, ')
+          ..write('taxableAmount: $taxableAmount, ')
+          ..write('taxAmount: $taxAmount, ')
+          ..write('finalAmount: $finalAmount')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode =>
-      Object.hash(orderRef, productRef, modifierId, name, fName, notes);
+  int get hashCode => Object.hash(
+      orderRef,
+      productRef,
+      modifierId,
+      name,
+      fName,
+      notes,
+      discountAmount,
+      discountPercentage,
+      netUnitPrice,
+      netTotalPrice,
+      netUnitPriceExcludeTax,
+      netTotalPriceExcludeTax,
+      orderDiscountAmount,
+      taxableAmount,
+      taxAmount,
+      finalAmount);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -19956,7 +20689,17 @@ class OrderProductModifierV2Data extends DataClass
           other.modifierId == this.modifierId &&
           other.name == this.name &&
           other.fName == this.fName &&
-          other.notes == this.notes);
+          other.notes == this.notes &&
+          other.discountAmount == this.discountAmount &&
+          other.discountPercentage == this.discountPercentage &&
+          other.netUnitPrice == this.netUnitPrice &&
+          other.netTotalPrice == this.netTotalPrice &&
+          other.netUnitPriceExcludeTax == this.netUnitPriceExcludeTax &&
+          other.netTotalPriceExcludeTax == this.netTotalPriceExcludeTax &&
+          other.orderDiscountAmount == this.orderDiscountAmount &&
+          other.taxableAmount == this.taxableAmount &&
+          other.taxAmount == this.taxAmount &&
+          other.finalAmount == this.finalAmount);
 }
 
 class OrderProductModifierV2Companion
@@ -19967,6 +20710,16 @@ class OrderProductModifierV2Companion
   final Value<String?> name;
   final Value<String?> fName;
   final Value<String?> notes;
+  final Value<double?> discountAmount;
+  final Value<double?> discountPercentage;
+  final Value<double?> netUnitPrice;
+  final Value<double?> netTotalPrice;
+  final Value<double?> netUnitPriceExcludeTax;
+  final Value<double?> netTotalPriceExcludeTax;
+  final Value<double?> orderDiscountAmount;
+  final Value<double?> taxableAmount;
+  final Value<double?> taxAmount;
+  final Value<double?> finalAmount;
   final Value<int> rowid;
   const OrderProductModifierV2Companion({
     this.orderRef = const Value.absent(),
@@ -19975,6 +20728,16 @@ class OrderProductModifierV2Companion
     this.name = const Value.absent(),
     this.fName = const Value.absent(),
     this.notes = const Value.absent(),
+    this.discountAmount = const Value.absent(),
+    this.discountPercentage = const Value.absent(),
+    this.netUnitPrice = const Value.absent(),
+    this.netTotalPrice = const Value.absent(),
+    this.netUnitPriceExcludeTax = const Value.absent(),
+    this.netTotalPriceExcludeTax = const Value.absent(),
+    this.orderDiscountAmount = const Value.absent(),
+    this.taxableAmount = const Value.absent(),
+    this.taxAmount = const Value.absent(),
+    this.finalAmount = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   OrderProductModifierV2Companion.insert({
@@ -19984,6 +20747,16 @@ class OrderProductModifierV2Companion
     this.name = const Value.absent(),
     this.fName = const Value.absent(),
     this.notes = const Value.absent(),
+    this.discountAmount = const Value.absent(),
+    this.discountPercentage = const Value.absent(),
+    this.netUnitPrice = const Value.absent(),
+    this.netTotalPrice = const Value.absent(),
+    this.netUnitPriceExcludeTax = const Value.absent(),
+    this.netTotalPriceExcludeTax = const Value.absent(),
+    this.orderDiscountAmount = const Value.absent(),
+    this.taxableAmount = const Value.absent(),
+    this.taxAmount = const Value.absent(),
+    this.finalAmount = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   static Insertable<OrderProductModifierV2Data> custom({
@@ -19993,6 +20766,16 @@ class OrderProductModifierV2Companion
     Expression<String>? name,
     Expression<String>? fName,
     Expression<String>? notes,
+    Expression<double>? discountAmount,
+    Expression<double>? discountPercentage,
+    Expression<double>? netUnitPrice,
+    Expression<double>? netTotalPrice,
+    Expression<double>? netUnitPriceExcludeTax,
+    Expression<double>? netTotalPriceExcludeTax,
+    Expression<double>? orderDiscountAmount,
+    Expression<double>? taxableAmount,
+    Expression<double>? taxAmount,
+    Expression<double>? finalAmount,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -20002,6 +20785,19 @@ class OrderProductModifierV2Companion
       if (name != null) 'name': name,
       if (fName != null) 'f_name': fName,
       if (notes != null) 'notes': notes,
+      if (discountAmount != null) 'discount_amount': discountAmount,
+      if (discountPercentage != null) 'discount_percentage': discountPercentage,
+      if (netUnitPrice != null) 'net_unit_price': netUnitPrice,
+      if (netTotalPrice != null) 'net_total_price': netTotalPrice,
+      if (netUnitPriceExcludeTax != null)
+        'net_unit_price_exclude_tax': netUnitPriceExcludeTax,
+      if (netTotalPriceExcludeTax != null)
+        'net_total_price_exclude_tax': netTotalPriceExcludeTax,
+      if (orderDiscountAmount != null)
+        'order_discount_amount': orderDiscountAmount,
+      if (taxableAmount != null) 'taxable_amount': taxableAmount,
+      if (taxAmount != null) 'tax_amount': taxAmount,
+      if (finalAmount != null) 'final_amount': finalAmount,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -20013,6 +20809,16 @@ class OrderProductModifierV2Companion
       Value<String?>? name,
       Value<String?>? fName,
       Value<String?>? notes,
+      Value<double?>? discountAmount,
+      Value<double?>? discountPercentage,
+      Value<double?>? netUnitPrice,
+      Value<double?>? netTotalPrice,
+      Value<double?>? netUnitPriceExcludeTax,
+      Value<double?>? netTotalPriceExcludeTax,
+      Value<double?>? orderDiscountAmount,
+      Value<double?>? taxableAmount,
+      Value<double?>? taxAmount,
+      Value<double?>? finalAmount,
       Value<int>? rowid}) {
     return OrderProductModifierV2Companion(
       orderRef: orderRef ?? this.orderRef,
@@ -20021,6 +20827,18 @@ class OrderProductModifierV2Companion
       name: name ?? this.name,
       fName: fName ?? this.fName,
       notes: notes ?? this.notes,
+      discountAmount: discountAmount ?? this.discountAmount,
+      discountPercentage: discountPercentage ?? this.discountPercentage,
+      netUnitPrice: netUnitPrice ?? this.netUnitPrice,
+      netTotalPrice: netTotalPrice ?? this.netTotalPrice,
+      netUnitPriceExcludeTax:
+          netUnitPriceExcludeTax ?? this.netUnitPriceExcludeTax,
+      netTotalPriceExcludeTax:
+          netTotalPriceExcludeTax ?? this.netTotalPriceExcludeTax,
+      orderDiscountAmount: orderDiscountAmount ?? this.orderDiscountAmount,
+      taxableAmount: taxableAmount ?? this.taxableAmount,
+      taxAmount: taxAmount ?? this.taxAmount,
+      finalAmount: finalAmount ?? this.finalAmount,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -20046,6 +20864,39 @@ class OrderProductModifierV2Companion
     if (notes.present) {
       map['notes'] = Variable<String>(notes.value);
     }
+    if (discountAmount.present) {
+      map['discount_amount'] = Variable<double>(discountAmount.value);
+    }
+    if (discountPercentage.present) {
+      map['discount_percentage'] = Variable<double>(discountPercentage.value);
+    }
+    if (netUnitPrice.present) {
+      map['net_unit_price'] = Variable<double>(netUnitPrice.value);
+    }
+    if (netTotalPrice.present) {
+      map['net_total_price'] = Variable<double>(netTotalPrice.value);
+    }
+    if (netUnitPriceExcludeTax.present) {
+      map['net_unit_price_exclude_tax'] =
+          Variable<double>(netUnitPriceExcludeTax.value);
+    }
+    if (netTotalPriceExcludeTax.present) {
+      map['net_total_price_exclude_tax'] =
+          Variable<double>(netTotalPriceExcludeTax.value);
+    }
+    if (orderDiscountAmount.present) {
+      map['order_discount_amount'] =
+          Variable<double>(orderDiscountAmount.value);
+    }
+    if (taxableAmount.present) {
+      map['taxable_amount'] = Variable<double>(taxableAmount.value);
+    }
+    if (taxAmount.present) {
+      map['tax_amount'] = Variable<double>(taxAmount.value);
+    }
+    if (finalAmount.present) {
+      map['final_amount'] = Variable<double>(finalAmount.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -20061,6 +20912,16 @@ class OrderProductModifierV2Companion
           ..write('name: $name, ')
           ..write('fName: $fName, ')
           ..write('notes: $notes, ')
+          ..write('discountAmount: $discountAmount, ')
+          ..write('discountPercentage: $discountPercentage, ')
+          ..write('netUnitPrice: $netUnitPrice, ')
+          ..write('netTotalPrice: $netTotalPrice, ')
+          ..write('netUnitPriceExcludeTax: $netUnitPriceExcludeTax, ')
+          ..write('netTotalPriceExcludeTax: $netTotalPriceExcludeTax, ')
+          ..write('orderDiscountAmount: $orderDiscountAmount, ')
+          ..write('taxableAmount: $taxableAmount, ')
+          ..write('taxAmount: $taxAmount, ')
+          ..write('finalAmount: $finalAmount, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -20160,6 +21021,30 @@ class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
   late final GeneratedColumn<double> netTotalPrice = GeneratedColumn<double>(
       'net_total_price', aliasedName, false,
       type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _netUnitPriceExcludeTaxMeta =
+      const VerificationMeta('netUnitPriceExcludeTax');
+  @override
+  late final GeneratedColumn<double> netUnitPriceExcludeTax =
+      GeneratedColumn<double>('net_unit_price_exclude_tax', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _netTotalPriceExcludeTaxMeta =
+      const VerificationMeta('netTotalPriceExcludeTax');
+  @override
+  late final GeneratedColumn<double> netTotalPriceExcludeTax =
+      GeneratedColumn<double>('net_total_price_exclude_tax', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _orderDiscountAmountMeta =
+      const VerificationMeta('orderDiscountAmount');
+  @override
+  late final GeneratedColumn<double> orderDiscountAmount =
+      GeneratedColumn<double>('order_discount_amount', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _orderDiscountPercentageMeta =
+      const VerificationMeta('orderDiscountPercentage');
+  @override
+  late final GeneratedColumn<double> orderDiscountPercentage =
+      GeneratedColumn<double>('order_discount_percentage', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
   static const VerificationMeta _taxableAmountMeta =
       const VerificationMeta('taxableAmount');
   @override
@@ -20178,6 +21063,12 @@ class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
   late final GeneratedColumn<double> finalAmount = GeneratedColumn<double>(
       'final_amount', aliasedName, false,
       type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _taxGroupIdMeta =
+      const VerificationMeta('taxGroupId');
+  @override
+  late final GeneratedColumn<String> taxGroupId = GeneratedColumn<String>(
+      'tax_group_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _notesMeta = const VerificationMeta('notes');
   @override
   late final GeneratedColumn<String> notes = GeneratedColumn<String>(
@@ -20199,9 +21090,14 @@ class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
         discountPercentage,
         netUnitPrice,
         netTotalPrice,
+        netUnitPriceExcludeTax,
+        netTotalPriceExcludeTax,
+        orderDiscountAmount,
+        orderDiscountPercentage,
         taxableAmount,
         taxAmount,
         finalAmount,
+        taxGroupId,
         notes
       ];
   @override
@@ -20297,6 +21193,33 @@ class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
     } else if (isInserting) {
       context.missing(_netTotalPriceMeta);
     }
+    if (data.containsKey('net_unit_price_exclude_tax')) {
+      context.handle(
+          _netUnitPriceExcludeTaxMeta,
+          netUnitPriceExcludeTax.isAcceptableOrUnknown(
+              data['net_unit_price_exclude_tax']!,
+              _netUnitPriceExcludeTaxMeta));
+    }
+    if (data.containsKey('net_total_price_exclude_tax')) {
+      context.handle(
+          _netTotalPriceExcludeTaxMeta,
+          netTotalPriceExcludeTax.isAcceptableOrUnknown(
+              data['net_total_price_exclude_tax']!,
+              _netTotalPriceExcludeTaxMeta));
+    }
+    if (data.containsKey('order_discount_amount')) {
+      context.handle(
+          _orderDiscountAmountMeta,
+          orderDiscountAmount.isAcceptableOrUnknown(
+              data['order_discount_amount']!, _orderDiscountAmountMeta));
+    }
+    if (data.containsKey('order_discount_percentage')) {
+      context.handle(
+          _orderDiscountPercentageMeta,
+          orderDiscountPercentage.isAcceptableOrUnknown(
+              data['order_discount_percentage']!,
+              _orderDiscountPercentageMeta));
+    }
     if (data.containsKey('taxable_amount')) {
       context.handle(
           _taxableAmountMeta,
@@ -20314,6 +21237,12 @@ class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
               data['final_amount']!, _finalAmountMeta));
     } else if (isInserting) {
       context.missing(_finalAmountMeta);
+    }
+    if (data.containsKey('tax_group_id')) {
+      context.handle(
+          _taxGroupIdMeta,
+          taxGroupId.isAcceptableOrUnknown(
+              data['tax_group_id']!, _taxGroupIdMeta));
     }
     if (data.containsKey('notes')) {
       context.handle(
@@ -20358,12 +21287,25 @@ class $OrderProductModifierOptionV2Table extends OrderProductModifierOptionV2
           .read(DriftSqlType.double, data['${effectivePrefix}net_unit_price'])!,
       netTotalPrice: attachedDatabase.typeMapping.read(
           DriftSqlType.double, data['${effectivePrefix}net_total_price'])!,
+      netUnitPriceExcludeTax: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}net_unit_price_exclude_tax']),
+      netTotalPriceExcludeTax: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}net_total_price_exclude_tax']),
+      orderDiscountAmount: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}order_discount_amount']),
+      orderDiscountPercentage: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}order_discount_percentage']),
       taxableAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}taxable_amount']),
       taxAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}tax_amount']),
       finalAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}final_amount'])!,
+      taxGroupId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}tax_group_id']),
       notes: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}notes']),
     );
@@ -20391,9 +21333,14 @@ class OrderProductModifierOptionV2Data extends DataClass
   final double? discountPercentage;
   final double netUnitPrice;
   final double netTotalPrice;
+  final double? netUnitPriceExcludeTax;
+  final double? netTotalPriceExcludeTax;
+  final double? orderDiscountAmount;
+  final double? orderDiscountPercentage;
   final double? taxableAmount;
   final double? taxAmount;
   final double finalAmount;
+  final String? taxGroupId;
   final String? notes;
   const OrderProductModifierOptionV2Data(
       {this.orderRef,
@@ -20410,9 +21357,14 @@ class OrderProductModifierOptionV2Data extends DataClass
       this.discountPercentage,
       required this.netUnitPrice,
       required this.netTotalPrice,
+      this.netUnitPriceExcludeTax,
+      this.netTotalPriceExcludeTax,
+      this.orderDiscountAmount,
+      this.orderDiscountPercentage,
       this.taxableAmount,
       this.taxAmount,
       required this.finalAmount,
+      this.taxGroupId,
       this.notes});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -20449,6 +21401,21 @@ class OrderProductModifierOptionV2Data extends DataClass
     }
     map['net_unit_price'] = Variable<double>(netUnitPrice);
     map['net_total_price'] = Variable<double>(netTotalPrice);
+    if (!nullToAbsent || netUnitPriceExcludeTax != null) {
+      map['net_unit_price_exclude_tax'] =
+          Variable<double>(netUnitPriceExcludeTax);
+    }
+    if (!nullToAbsent || netTotalPriceExcludeTax != null) {
+      map['net_total_price_exclude_tax'] =
+          Variable<double>(netTotalPriceExcludeTax);
+    }
+    if (!nullToAbsent || orderDiscountAmount != null) {
+      map['order_discount_amount'] = Variable<double>(orderDiscountAmount);
+    }
+    if (!nullToAbsent || orderDiscountPercentage != null) {
+      map['order_discount_percentage'] =
+          Variable<double>(orderDiscountPercentage);
+    }
     if (!nullToAbsent || taxableAmount != null) {
       map['taxable_amount'] = Variable<double>(taxableAmount);
     }
@@ -20456,6 +21423,9 @@ class OrderProductModifierOptionV2Data extends DataClass
       map['tax_amount'] = Variable<double>(taxAmount);
     }
     map['final_amount'] = Variable<double>(finalAmount);
+    if (!nullToAbsent || taxGroupId != null) {
+      map['tax_group_id'] = Variable<String>(taxGroupId);
+    }
     if (!nullToAbsent || notes != null) {
       map['notes'] = Variable<String>(notes);
     }
@@ -20493,6 +21463,18 @@ class OrderProductModifierOptionV2Data extends DataClass
           : Value(discountPercentage),
       netUnitPrice: Value(netUnitPrice),
       netTotalPrice: Value(netTotalPrice),
+      netUnitPriceExcludeTax: netUnitPriceExcludeTax == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netUnitPriceExcludeTax),
+      netTotalPriceExcludeTax: netTotalPriceExcludeTax == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netTotalPriceExcludeTax),
+      orderDiscountAmount: orderDiscountAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderDiscountAmount),
+      orderDiscountPercentage: orderDiscountPercentage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderDiscountPercentage),
       taxableAmount: taxableAmount == null && nullToAbsent
           ? const Value.absent()
           : Value(taxableAmount),
@@ -20500,6 +21482,9 @@ class OrderProductModifierOptionV2Data extends DataClass
           ? const Value.absent()
           : Value(taxAmount),
       finalAmount: Value(finalAmount),
+      taxGroupId: taxGroupId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxGroupId),
       notes:
           notes == null && nullToAbsent ? const Value.absent() : Value(notes),
     );
@@ -20524,9 +21509,18 @@ class OrderProductModifierOptionV2Data extends DataClass
           serializer.fromJson<double?>(json['discountPercentage']),
       netUnitPrice: serializer.fromJson<double>(json['netUnitPrice']),
       netTotalPrice: serializer.fromJson<double>(json['netTotalPrice']),
+      netUnitPriceExcludeTax:
+          serializer.fromJson<double?>(json['netUnitPriceExcludeTax']),
+      netTotalPriceExcludeTax:
+          serializer.fromJson<double?>(json['netTotalPriceExcludeTax']),
+      orderDiscountAmount:
+          serializer.fromJson<double?>(json['orderDiscountAmount']),
+      orderDiscountPercentage:
+          serializer.fromJson<double?>(json['orderDiscountPercentage']),
       taxableAmount: serializer.fromJson<double?>(json['taxableAmount']),
       taxAmount: serializer.fromJson<double?>(json['taxAmount']),
       finalAmount: serializer.fromJson<double>(json['finalAmount']),
+      taxGroupId: serializer.fromJson<String?>(json['taxGroupId']),
       notes: serializer.fromJson<String?>(json['notes']),
     );
   }
@@ -20548,9 +21542,17 @@ class OrderProductModifierOptionV2Data extends DataClass
       'discountPercentage': serializer.toJson<double?>(discountPercentage),
       'netUnitPrice': serializer.toJson<double>(netUnitPrice),
       'netTotalPrice': serializer.toJson<double>(netTotalPrice),
+      'netUnitPriceExcludeTax':
+          serializer.toJson<double?>(netUnitPriceExcludeTax),
+      'netTotalPriceExcludeTax':
+          serializer.toJson<double?>(netTotalPriceExcludeTax),
+      'orderDiscountAmount': serializer.toJson<double?>(orderDiscountAmount),
+      'orderDiscountPercentage':
+          serializer.toJson<double?>(orderDiscountPercentage),
       'taxableAmount': serializer.toJson<double?>(taxableAmount),
       'taxAmount': serializer.toJson<double?>(taxAmount),
       'finalAmount': serializer.toJson<double>(finalAmount),
+      'taxGroupId': serializer.toJson<String?>(taxGroupId),
       'notes': serializer.toJson<String?>(notes),
     };
   }
@@ -20570,9 +21572,14 @@ class OrderProductModifierOptionV2Data extends DataClass
           Value<double?> discountPercentage = const Value.absent(),
           double? netUnitPrice,
           double? netTotalPrice,
+          Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+          Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+          Value<double?> orderDiscountAmount = const Value.absent(),
+          Value<double?> orderDiscountPercentage = const Value.absent(),
           Value<double?> taxableAmount = const Value.absent(),
           Value<double?> taxAmount = const Value.absent(),
           double? finalAmount,
+          Value<String?> taxGroupId = const Value.absent(),
           Value<String?> notes = const Value.absent()}) =>
       OrderProductModifierOptionV2Data(
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
@@ -20593,10 +21600,23 @@ class OrderProductModifierOptionV2Data extends DataClass
             : this.discountPercentage,
         netUnitPrice: netUnitPrice ?? this.netUnitPrice,
         netTotalPrice: netTotalPrice ?? this.netTotalPrice,
+        netUnitPriceExcludeTax: netUnitPriceExcludeTax.present
+            ? netUnitPriceExcludeTax.value
+            : this.netUnitPriceExcludeTax,
+        netTotalPriceExcludeTax: netTotalPriceExcludeTax.present
+            ? netTotalPriceExcludeTax.value
+            : this.netTotalPriceExcludeTax,
+        orderDiscountAmount: orderDiscountAmount.present
+            ? orderDiscountAmount.value
+            : this.orderDiscountAmount,
+        orderDiscountPercentage: orderDiscountPercentage.present
+            ? orderDiscountPercentage.value
+            : this.orderDiscountPercentage,
         taxableAmount:
             taxableAmount.present ? taxableAmount.value : this.taxableAmount,
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
         finalAmount: finalAmount ?? this.finalAmount,
+        taxGroupId: taxGroupId.present ? taxGroupId.value : this.taxGroupId,
         notes: notes.present ? notes.value : this.notes,
       );
   @override
@@ -20616,34 +21636,45 @@ class OrderProductModifierOptionV2Data extends DataClass
           ..write('discountPercentage: $discountPercentage, ')
           ..write('netUnitPrice: $netUnitPrice, ')
           ..write('netTotalPrice: $netTotalPrice, ')
+          ..write('netUnitPriceExcludeTax: $netUnitPriceExcludeTax, ')
+          ..write('netTotalPriceExcludeTax: $netTotalPriceExcludeTax, ')
+          ..write('orderDiscountAmount: $orderDiscountAmount, ')
+          ..write('orderDiscountPercentage: $orderDiscountPercentage, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('finalAmount: $finalAmount, ')
+          ..write('taxGroupId: $taxGroupId, ')
           ..write('notes: $notes')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(
-      orderRef,
-      productRef,
-      modifierId,
-      optionId,
-      name,
-      fName,
-      quantity,
-      freeQuantity,
-      unitPrice,
-      totalPrice,
-      discountAmount,
-      discountPercentage,
-      netUnitPrice,
-      netTotalPrice,
-      taxableAmount,
-      taxAmount,
-      finalAmount,
-      notes);
+  int get hashCode => Object.hashAll([
+        orderRef,
+        productRef,
+        modifierId,
+        optionId,
+        name,
+        fName,
+        quantity,
+        freeQuantity,
+        unitPrice,
+        totalPrice,
+        discountAmount,
+        discountPercentage,
+        netUnitPrice,
+        netTotalPrice,
+        netUnitPriceExcludeTax,
+        netTotalPriceExcludeTax,
+        orderDiscountAmount,
+        orderDiscountPercentage,
+        taxableAmount,
+        taxAmount,
+        finalAmount,
+        taxGroupId,
+        notes
+      ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -20662,9 +21693,14 @@ class OrderProductModifierOptionV2Data extends DataClass
           other.discountPercentage == this.discountPercentage &&
           other.netUnitPrice == this.netUnitPrice &&
           other.netTotalPrice == this.netTotalPrice &&
+          other.netUnitPriceExcludeTax == this.netUnitPriceExcludeTax &&
+          other.netTotalPriceExcludeTax == this.netTotalPriceExcludeTax &&
+          other.orderDiscountAmount == this.orderDiscountAmount &&
+          other.orderDiscountPercentage == this.orderDiscountPercentage &&
           other.taxableAmount == this.taxableAmount &&
           other.taxAmount == this.taxAmount &&
           other.finalAmount == this.finalAmount &&
+          other.taxGroupId == this.taxGroupId &&
           other.notes == this.notes);
 }
 
@@ -20684,9 +21720,14 @@ class OrderProductModifierOptionV2Companion
   final Value<double?> discountPercentage;
   final Value<double> netUnitPrice;
   final Value<double> netTotalPrice;
+  final Value<double?> netUnitPriceExcludeTax;
+  final Value<double?> netTotalPriceExcludeTax;
+  final Value<double?> orderDiscountAmount;
+  final Value<double?> orderDiscountPercentage;
   final Value<double?> taxableAmount;
   final Value<double?> taxAmount;
   final Value<double> finalAmount;
+  final Value<String?> taxGroupId;
   final Value<String?> notes;
   final Value<int> rowid;
   const OrderProductModifierOptionV2Companion({
@@ -20704,9 +21745,14 @@ class OrderProductModifierOptionV2Companion
     this.discountPercentage = const Value.absent(),
     this.netUnitPrice = const Value.absent(),
     this.netTotalPrice = const Value.absent(),
+    this.netUnitPriceExcludeTax = const Value.absent(),
+    this.netTotalPriceExcludeTax = const Value.absent(),
+    this.orderDiscountAmount = const Value.absent(),
+    this.orderDiscountPercentage = const Value.absent(),
     this.taxableAmount = const Value.absent(),
     this.taxAmount = const Value.absent(),
     this.finalAmount = const Value.absent(),
+    this.taxGroupId = const Value.absent(),
     this.notes = const Value.absent(),
     this.rowid = const Value.absent(),
   });
@@ -20725,9 +21771,14 @@ class OrderProductModifierOptionV2Companion
     this.discountPercentage = const Value.absent(),
     required double netUnitPrice,
     required double netTotalPrice,
+    this.netUnitPriceExcludeTax = const Value.absent(),
+    this.netTotalPriceExcludeTax = const Value.absent(),
+    this.orderDiscountAmount = const Value.absent(),
+    this.orderDiscountPercentage = const Value.absent(),
     this.taxableAmount = const Value.absent(),
     this.taxAmount = const Value.absent(),
     required double finalAmount,
+    this.taxGroupId = const Value.absent(),
     this.notes = const Value.absent(),
     this.rowid = const Value.absent(),
   })  : quantity = Value(quantity),
@@ -20751,9 +21802,14 @@ class OrderProductModifierOptionV2Companion
     Expression<double>? discountPercentage,
     Expression<double>? netUnitPrice,
     Expression<double>? netTotalPrice,
+    Expression<double>? netUnitPriceExcludeTax,
+    Expression<double>? netTotalPriceExcludeTax,
+    Expression<double>? orderDiscountAmount,
+    Expression<double>? orderDiscountPercentage,
     Expression<double>? taxableAmount,
     Expression<double>? taxAmount,
     Expression<double>? finalAmount,
+    Expression<String>? taxGroupId,
     Expression<String>? notes,
     Expression<int>? rowid,
   }) {
@@ -20772,9 +21828,18 @@ class OrderProductModifierOptionV2Companion
       if (discountPercentage != null) 'discount_percentage': discountPercentage,
       if (netUnitPrice != null) 'net_unit_price': netUnitPrice,
       if (netTotalPrice != null) 'net_total_price': netTotalPrice,
+      if (netUnitPriceExcludeTax != null)
+        'net_unit_price_exclude_tax': netUnitPriceExcludeTax,
+      if (netTotalPriceExcludeTax != null)
+        'net_total_price_exclude_tax': netTotalPriceExcludeTax,
+      if (orderDiscountAmount != null)
+        'order_discount_amount': orderDiscountAmount,
+      if (orderDiscountPercentage != null)
+        'order_discount_percentage': orderDiscountPercentage,
       if (taxableAmount != null) 'taxable_amount': taxableAmount,
       if (taxAmount != null) 'tax_amount': taxAmount,
       if (finalAmount != null) 'final_amount': finalAmount,
+      if (taxGroupId != null) 'tax_group_id': taxGroupId,
       if (notes != null) 'notes': notes,
       if (rowid != null) 'rowid': rowid,
     });
@@ -20795,9 +21860,14 @@ class OrderProductModifierOptionV2Companion
       Value<double?>? discountPercentage,
       Value<double>? netUnitPrice,
       Value<double>? netTotalPrice,
+      Value<double?>? netUnitPriceExcludeTax,
+      Value<double?>? netTotalPriceExcludeTax,
+      Value<double?>? orderDiscountAmount,
+      Value<double?>? orderDiscountPercentage,
       Value<double?>? taxableAmount,
       Value<double?>? taxAmount,
       Value<double>? finalAmount,
+      Value<String?>? taxGroupId,
       Value<String?>? notes,
       Value<int>? rowid}) {
     return OrderProductModifierOptionV2Companion(
@@ -20815,9 +21885,17 @@ class OrderProductModifierOptionV2Companion
       discountPercentage: discountPercentage ?? this.discountPercentage,
       netUnitPrice: netUnitPrice ?? this.netUnitPrice,
       netTotalPrice: netTotalPrice ?? this.netTotalPrice,
+      netUnitPriceExcludeTax:
+          netUnitPriceExcludeTax ?? this.netUnitPriceExcludeTax,
+      netTotalPriceExcludeTax:
+          netTotalPriceExcludeTax ?? this.netTotalPriceExcludeTax,
+      orderDiscountAmount: orderDiscountAmount ?? this.orderDiscountAmount,
+      orderDiscountPercentage:
+          orderDiscountPercentage ?? this.orderDiscountPercentage,
       taxableAmount: taxableAmount ?? this.taxableAmount,
       taxAmount: taxAmount ?? this.taxAmount,
       finalAmount: finalAmount ?? this.finalAmount,
+      taxGroupId: taxGroupId ?? this.taxGroupId,
       notes: notes ?? this.notes,
       rowid: rowid ?? this.rowid,
     );
@@ -20868,6 +21946,22 @@ class OrderProductModifierOptionV2Companion
     if (netTotalPrice.present) {
       map['net_total_price'] = Variable<double>(netTotalPrice.value);
     }
+    if (netUnitPriceExcludeTax.present) {
+      map['net_unit_price_exclude_tax'] =
+          Variable<double>(netUnitPriceExcludeTax.value);
+    }
+    if (netTotalPriceExcludeTax.present) {
+      map['net_total_price_exclude_tax'] =
+          Variable<double>(netTotalPriceExcludeTax.value);
+    }
+    if (orderDiscountAmount.present) {
+      map['order_discount_amount'] =
+          Variable<double>(orderDiscountAmount.value);
+    }
+    if (orderDiscountPercentage.present) {
+      map['order_discount_percentage'] =
+          Variable<double>(orderDiscountPercentage.value);
+    }
     if (taxableAmount.present) {
       map['taxable_amount'] = Variable<double>(taxableAmount.value);
     }
@@ -20876,6 +21970,9 @@ class OrderProductModifierOptionV2Companion
     }
     if (finalAmount.present) {
       map['final_amount'] = Variable<double>(finalAmount.value);
+    }
+    if (taxGroupId.present) {
+      map['tax_group_id'] = Variable<String>(taxGroupId.value);
     }
     if (notes.present) {
       map['notes'] = Variable<String>(notes.value);
@@ -20903,10 +22000,1419 @@ class OrderProductModifierOptionV2Companion
           ..write('discountPercentage: $discountPercentage, ')
           ..write('netUnitPrice: $netUnitPrice, ')
           ..write('netTotalPrice: $netTotalPrice, ')
+          ..write('netUnitPriceExcludeTax: $netUnitPriceExcludeTax, ')
+          ..write('netTotalPriceExcludeTax: $netTotalPriceExcludeTax, ')
+          ..write('orderDiscountAmount: $orderDiscountAmount, ')
+          ..write('orderDiscountPercentage: $orderDiscountPercentage, ')
           ..write('taxableAmount: $taxableAmount, ')
           ..write('taxAmount: $taxAmount, ')
           ..write('finalAmount: $finalAmount, ')
+          ..write('taxGroupId: $taxGroupId, ')
           ..write('notes: $notes, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $OrderPaymentV2Table extends OrderPaymentV2
+    with TableInfo<$OrderPaymentV2Table, OrderPaymentV2Data> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OrderPaymentV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _orderRefMeta =
+      const VerificationMeta('orderRef');
+  @override
+  late final GeneratedColumn<String> orderRef = GeneratedColumn<String>(
+      'order_ref', aliasedName, true,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
+  static const VerificationMeta _paymentIdMeta =
+      const VerificationMeta('paymentId');
+  @override
+  late final GeneratedColumn<String> paymentId = GeneratedColumn<String>(
+      'payment_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _paymentMethodIdMeta =
+      const VerificationMeta('paymentMethodId');
+  @override
+  late final GeneratedColumn<String> paymentMethodId = GeneratedColumn<String>(
+      'payment_method_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _paymentMethodTypeMeta =
+      const VerificationMeta('paymentMethodType');
+  @override
+  late final GeneratedColumn<int> paymentMethodType = GeneratedColumn<int>(
+      'payment_method_type', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _currencyAmountMeta =
+      const VerificationMeta('currencyAmount');
+  @override
+  late final GeneratedColumn<double> currencyAmount = GeneratedColumn<double>(
+      'currency_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _currencyCodeMeta =
+      const VerificationMeta('currencyCode');
+  @override
+  late final GeneratedColumn<String> currencyCode = GeneratedColumn<String>(
+      'currency_code', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _exchangeRateToBaseMeta =
+      const VerificationMeta('exchangeRateToBase');
+  @override
+  late final GeneratedColumn<double> exchangeRateToBase =
+      GeneratedColumn<double>('exchange_rate_to_base', aliasedName, true,
+          type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _baseAmountMeta =
+      const VerificationMeta('baseAmount');
+  @override
+  late final GeneratedColumn<double> baseAmount = GeneratedColumn<double>(
+      'base_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _receivedAmountMeta =
+      const VerificationMeta('receivedAmount');
+  @override
+  late final GeneratedColumn<double> receivedAmount = GeneratedColumn<double>(
+      'received_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _changeAmountMeta =
+      const VerificationMeta('changeAmount');
+  @override
+  late final GeneratedColumn<double> changeAmount = GeneratedColumn<double>(
+      'change_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _tipAmountMeta =
+      const VerificationMeta('tipAmount');
+  @override
+  late final GeneratedColumn<double> tipAmount = GeneratedColumn<double>(
+      'tip_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _feeAmountMeta =
+      const VerificationMeta('feeAmount');
+  @override
+  late final GeneratedColumn<double> feeAmount = GeneratedColumn<double>(
+      'fee_amount', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _cashierIdMeta =
+      const VerificationMeta('cashierId');
+  @override
+  late final GeneratedColumn<String> cashierId = GeneratedColumn<String>(
+      'cashier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _shiftIdMeta =
+      const VerificationMeta('shiftId');
+  @override
+  late final GeneratedColumn<String> shiftId = GeneratedColumn<String>(
+      'shift_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _tillIdMeta = const VerificationMeta('tillId');
+  @override
+  late final GeneratedColumn<String> tillId = GeneratedColumn<String>(
+      'till_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _deviceIdMeta =
+      const VerificationMeta('deviceId');
+  @override
+  late final GeneratedColumn<String> deviceId = GeneratedColumn<String>(
+      'device_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _externalTransactionIdMeta =
+      const VerificationMeta('externalTransactionId');
+  @override
+  late final GeneratedColumn<String> externalTransactionId =
+      GeneratedColumn<String>('external_transaction_id', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _referenceMeta =
+      const VerificationMeta('reference');
+  @override
+  late final GeneratedColumn<String> reference = GeneratedColumn<String>(
+      'reference', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _isVoidedMeta =
+      const VerificationMeta('isVoided');
+  @override
+  late final GeneratedColumn<bool> isVoided = GeneratedColumn<bool>(
+      'is_voided', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("is_voided" IN (0, 1))'));
+  static const VerificationMeta _voidReasonMeta =
+      const VerificationMeta('voidReason');
+  @override
+  late final GeneratedColumn<String> voidReason = GeneratedColumn<String>(
+      'void_reason', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdOnMeta =
+      const VerificationMeta('createdOn');
+  @override
+  late final GeneratedColumn<String> createdOn = GeneratedColumn<String>(
+      'created_on', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdByMeta =
+      const VerificationMeta('createdBy');
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+      'created_by', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        orderRef,
+        paymentId,
+        paymentMethodId,
+        paymentMethodType,
+        name,
+        fName,
+        currencyAmount,
+        currencyCode,
+        exchangeRateToBase,
+        baseAmount,
+        receivedAmount,
+        changeAmount,
+        tipAmount,
+        feeAmount,
+        cashierId,
+        shiftId,
+        tillId,
+        deviceId,
+        externalTransactionId,
+        reference,
+        isVoided,
+        voidReason,
+        createdOn,
+        createdBy,
+        notes
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'order_payment_v2';
+  @override
+  VerificationContext validateIntegrity(Insertable<OrderPaymentV2Data> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('order_ref')) {
+      context.handle(_orderRefMeta,
+          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    }
+    if (data.containsKey('payment_id')) {
+      context.handle(_paymentIdMeta,
+          paymentId.isAcceptableOrUnknown(data['payment_id']!, _paymentIdMeta));
+    }
+    if (data.containsKey('payment_method_id')) {
+      context.handle(
+          _paymentMethodIdMeta,
+          paymentMethodId.isAcceptableOrUnknown(
+              data['payment_method_id']!, _paymentMethodIdMeta));
+    }
+    if (data.containsKey('payment_method_type')) {
+      context.handle(
+          _paymentMethodTypeMeta,
+          paymentMethodType.isAcceptableOrUnknown(
+              data['payment_method_type']!, _paymentMethodTypeMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
+    }
+    if (data.containsKey('currency_amount')) {
+      context.handle(
+          _currencyAmountMeta,
+          currencyAmount.isAcceptableOrUnknown(
+              data['currency_amount']!, _currencyAmountMeta));
+    }
+    if (data.containsKey('currency_code')) {
+      context.handle(
+          _currencyCodeMeta,
+          currencyCode.isAcceptableOrUnknown(
+              data['currency_code']!, _currencyCodeMeta));
+    }
+    if (data.containsKey('exchange_rate_to_base')) {
+      context.handle(
+          _exchangeRateToBaseMeta,
+          exchangeRateToBase.isAcceptableOrUnknown(
+              data['exchange_rate_to_base']!, _exchangeRateToBaseMeta));
+    }
+    if (data.containsKey('base_amount')) {
+      context.handle(
+          _baseAmountMeta,
+          baseAmount.isAcceptableOrUnknown(
+              data['base_amount']!, _baseAmountMeta));
+    }
+    if (data.containsKey('received_amount')) {
+      context.handle(
+          _receivedAmountMeta,
+          receivedAmount.isAcceptableOrUnknown(
+              data['received_amount']!, _receivedAmountMeta));
+    }
+    if (data.containsKey('change_amount')) {
+      context.handle(
+          _changeAmountMeta,
+          changeAmount.isAcceptableOrUnknown(
+              data['change_amount']!, _changeAmountMeta));
+    }
+    if (data.containsKey('tip_amount')) {
+      context.handle(_tipAmountMeta,
+          tipAmount.isAcceptableOrUnknown(data['tip_amount']!, _tipAmountMeta));
+    }
+    if (data.containsKey('fee_amount')) {
+      context.handle(_feeAmountMeta,
+          feeAmount.isAcceptableOrUnknown(data['fee_amount']!, _feeAmountMeta));
+    }
+    if (data.containsKey('cashier_id')) {
+      context.handle(_cashierIdMeta,
+          cashierId.isAcceptableOrUnknown(data['cashier_id']!, _cashierIdMeta));
+    }
+    if (data.containsKey('shift_id')) {
+      context.handle(_shiftIdMeta,
+          shiftId.isAcceptableOrUnknown(data['shift_id']!, _shiftIdMeta));
+    }
+    if (data.containsKey('till_id')) {
+      context.handle(_tillIdMeta,
+          tillId.isAcceptableOrUnknown(data['till_id']!, _tillIdMeta));
+    }
+    if (data.containsKey('device_id')) {
+      context.handle(_deviceIdMeta,
+          deviceId.isAcceptableOrUnknown(data['device_id']!, _deviceIdMeta));
+    }
+    if (data.containsKey('external_transaction_id')) {
+      context.handle(
+          _externalTransactionIdMeta,
+          externalTransactionId.isAcceptableOrUnknown(
+              data['external_transaction_id']!, _externalTransactionIdMeta));
+    }
+    if (data.containsKey('reference')) {
+      context.handle(_referenceMeta,
+          reference.isAcceptableOrUnknown(data['reference']!, _referenceMeta));
+    }
+    if (data.containsKey('is_voided')) {
+      context.handle(_isVoidedMeta,
+          isVoided.isAcceptableOrUnknown(data['is_voided']!, _isVoidedMeta));
+    }
+    if (data.containsKey('void_reason')) {
+      context.handle(
+          _voidReasonMeta,
+          voidReason.isAcceptableOrUnknown(
+              data['void_reason']!, _voidReasonMeta));
+    }
+    if (data.containsKey('created_on')) {
+      context.handle(_createdOnMeta,
+          createdOn.isAcceptableOrUnknown(data['created_on']!, _createdOnMeta));
+    }
+    if (data.containsKey('created_by')) {
+      context.handle(_createdByMeta,
+          createdBy.isAcceptableOrUnknown(data['created_by']!, _createdByMeta));
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {orderRef, paymentId};
+  @override
+  OrderPaymentV2Data map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OrderPaymentV2Data(
+      orderRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+      paymentId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}payment_id']),
+      paymentMethodId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}payment_method_id']),
+      paymentMethodType: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}payment_method_type']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
+      currencyAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}currency_amount']),
+      currencyCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}currency_code']),
+      exchangeRateToBase: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}exchange_rate_to_base']),
+      baseAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}base_amount']),
+      receivedAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}received_amount']),
+      changeAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}change_amount']),
+      tipAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}tip_amount']),
+      feeAmount: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}fee_amount']),
+      cashierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}cashier_id']),
+      shiftId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}shift_id']),
+      tillId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}till_id']),
+      deviceId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}device_id']),
+      externalTransactionId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}external_transaction_id']),
+      reference: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}reference']),
+      isVoided: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_voided']),
+      voidReason: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}void_reason']),
+      createdOn: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}created_on']),
+      createdBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}created_by']),
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+    );
+  }
+
+  @override
+  $OrderPaymentV2Table createAlias(String alias) {
+    return $OrderPaymentV2Table(attachedDatabase, alias);
+  }
+}
+
+class OrderPaymentV2Data extends DataClass
+    implements Insertable<OrderPaymentV2Data> {
+  final String? orderRef;
+  final String? paymentId;
+  final String? paymentMethodId;
+  final int? paymentMethodType;
+  final String? name;
+  final String? fName;
+  final double? currencyAmount;
+  final String? currencyCode;
+  final double? exchangeRateToBase;
+  final double? baseAmount;
+  final double? receivedAmount;
+  final double? changeAmount;
+  final double? tipAmount;
+  final double? feeAmount;
+  final String? cashierId;
+  final String? shiftId;
+  final String? tillId;
+  final String? deviceId;
+  final String? externalTransactionId;
+  final String? reference;
+  final bool? isVoided;
+  final String? voidReason;
+  final String? createdOn;
+  final String? createdBy;
+  final String? notes;
+  const OrderPaymentV2Data(
+      {this.orderRef,
+      this.paymentId,
+      this.paymentMethodId,
+      this.paymentMethodType,
+      this.name,
+      this.fName,
+      this.currencyAmount,
+      this.currencyCode,
+      this.exchangeRateToBase,
+      this.baseAmount,
+      this.receivedAmount,
+      this.changeAmount,
+      this.tipAmount,
+      this.feeAmount,
+      this.cashierId,
+      this.shiftId,
+      this.tillId,
+      this.deviceId,
+      this.externalTransactionId,
+      this.reference,
+      this.isVoided,
+      this.voidReason,
+      this.createdOn,
+      this.createdBy,
+      this.notes});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || orderRef != null) {
+      map['order_ref'] = Variable<String>(orderRef);
+    }
+    if (!nullToAbsent || paymentId != null) {
+      map['payment_id'] = Variable<String>(paymentId);
+    }
+    if (!nullToAbsent || paymentMethodId != null) {
+      map['payment_method_id'] = Variable<String>(paymentMethodId);
+    }
+    if (!nullToAbsent || paymentMethodType != null) {
+      map['payment_method_type'] = Variable<int>(paymentMethodType);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
+    }
+    if (!nullToAbsent || currencyAmount != null) {
+      map['currency_amount'] = Variable<double>(currencyAmount);
+    }
+    if (!nullToAbsent || currencyCode != null) {
+      map['currency_code'] = Variable<String>(currencyCode);
+    }
+    if (!nullToAbsent || exchangeRateToBase != null) {
+      map['exchange_rate_to_base'] = Variable<double>(exchangeRateToBase);
+    }
+    if (!nullToAbsent || baseAmount != null) {
+      map['base_amount'] = Variable<double>(baseAmount);
+    }
+    if (!nullToAbsent || receivedAmount != null) {
+      map['received_amount'] = Variable<double>(receivedAmount);
+    }
+    if (!nullToAbsent || changeAmount != null) {
+      map['change_amount'] = Variable<double>(changeAmount);
+    }
+    if (!nullToAbsent || tipAmount != null) {
+      map['tip_amount'] = Variable<double>(tipAmount);
+    }
+    if (!nullToAbsent || feeAmount != null) {
+      map['fee_amount'] = Variable<double>(feeAmount);
+    }
+    if (!nullToAbsent || cashierId != null) {
+      map['cashier_id'] = Variable<String>(cashierId);
+    }
+    if (!nullToAbsent || shiftId != null) {
+      map['shift_id'] = Variable<String>(shiftId);
+    }
+    if (!nullToAbsent || tillId != null) {
+      map['till_id'] = Variable<String>(tillId);
+    }
+    if (!nullToAbsent || deviceId != null) {
+      map['device_id'] = Variable<String>(deviceId);
+    }
+    if (!nullToAbsent || externalTransactionId != null) {
+      map['external_transaction_id'] = Variable<String>(externalTransactionId);
+    }
+    if (!nullToAbsent || reference != null) {
+      map['reference'] = Variable<String>(reference);
+    }
+    if (!nullToAbsent || isVoided != null) {
+      map['is_voided'] = Variable<bool>(isVoided);
+    }
+    if (!nullToAbsent || voidReason != null) {
+      map['void_reason'] = Variable<String>(voidReason);
+    }
+    if (!nullToAbsent || createdOn != null) {
+      map['created_on'] = Variable<String>(createdOn);
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['created_by'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    return map;
+  }
+
+  OrderPaymentV2Companion toCompanion(bool nullToAbsent) {
+    return OrderPaymentV2Companion(
+      orderRef: orderRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderRef),
+      paymentId: paymentId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentId),
+      paymentMethodId: paymentMethodId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentMethodId),
+      paymentMethodType: paymentMethodType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentMethodType),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
+      currencyAmount: currencyAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currencyAmount),
+      currencyCode: currencyCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currencyCode),
+      exchangeRateToBase: exchangeRateToBase == null && nullToAbsent
+          ? const Value.absent()
+          : Value(exchangeRateToBase),
+      baseAmount: baseAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(baseAmount),
+      receivedAmount: receivedAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(receivedAmount),
+      changeAmount: changeAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(changeAmount),
+      tipAmount: tipAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(tipAmount),
+      feeAmount: feeAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(feeAmount),
+      cashierId: cashierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(cashierId),
+      shiftId: shiftId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(shiftId),
+      tillId:
+          tillId == null && nullToAbsent ? const Value.absent() : Value(tillId),
+      deviceId: deviceId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceId),
+      externalTransactionId: externalTransactionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(externalTransactionId),
+      reference: reference == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reference),
+      isVoided: isVoided == null && nullToAbsent
+          ? const Value.absent()
+          : Value(isVoided),
+      voidReason: voidReason == null && nullToAbsent
+          ? const Value.absent()
+          : Value(voidReason),
+      createdOn: createdOn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdOn),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+    );
+  }
+
+  factory OrderPaymentV2Data.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OrderPaymentV2Data(
+      orderRef: serializer.fromJson<String?>(json['orderRef']),
+      paymentId: serializer.fromJson<String?>(json['paymentId']),
+      paymentMethodId: serializer.fromJson<String?>(json['paymentMethodId']),
+      paymentMethodType: serializer.fromJson<int?>(json['paymentMethodType']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
+      currencyAmount: serializer.fromJson<double?>(json['currencyAmount']),
+      currencyCode: serializer.fromJson<String?>(json['currencyCode']),
+      exchangeRateToBase:
+          serializer.fromJson<double?>(json['exchangeRateToBase']),
+      baseAmount: serializer.fromJson<double?>(json['baseAmount']),
+      receivedAmount: serializer.fromJson<double?>(json['receivedAmount']),
+      changeAmount: serializer.fromJson<double?>(json['changeAmount']),
+      tipAmount: serializer.fromJson<double?>(json['tipAmount']),
+      feeAmount: serializer.fromJson<double?>(json['feeAmount']),
+      cashierId: serializer.fromJson<String?>(json['cashierId']),
+      shiftId: serializer.fromJson<String?>(json['shiftId']),
+      tillId: serializer.fromJson<String?>(json['tillId']),
+      deviceId: serializer.fromJson<String?>(json['deviceId']),
+      externalTransactionId:
+          serializer.fromJson<String?>(json['externalTransactionId']),
+      reference: serializer.fromJson<String?>(json['reference']),
+      isVoided: serializer.fromJson<bool?>(json['isVoided']),
+      voidReason: serializer.fromJson<String?>(json['voidReason']),
+      createdOn: serializer.fromJson<String?>(json['createdOn']),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      notes: serializer.fromJson<String?>(json['notes']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'orderRef': serializer.toJson<String?>(orderRef),
+      'paymentId': serializer.toJson<String?>(paymentId),
+      'paymentMethodId': serializer.toJson<String?>(paymentMethodId),
+      'paymentMethodType': serializer.toJson<int?>(paymentMethodType),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
+      'currencyAmount': serializer.toJson<double?>(currencyAmount),
+      'currencyCode': serializer.toJson<String?>(currencyCode),
+      'exchangeRateToBase': serializer.toJson<double?>(exchangeRateToBase),
+      'baseAmount': serializer.toJson<double?>(baseAmount),
+      'receivedAmount': serializer.toJson<double?>(receivedAmount),
+      'changeAmount': serializer.toJson<double?>(changeAmount),
+      'tipAmount': serializer.toJson<double?>(tipAmount),
+      'feeAmount': serializer.toJson<double?>(feeAmount),
+      'cashierId': serializer.toJson<String?>(cashierId),
+      'shiftId': serializer.toJson<String?>(shiftId),
+      'tillId': serializer.toJson<String?>(tillId),
+      'deviceId': serializer.toJson<String?>(deviceId),
+      'externalTransactionId':
+          serializer.toJson<String?>(externalTransactionId),
+      'reference': serializer.toJson<String?>(reference),
+      'isVoided': serializer.toJson<bool?>(isVoided),
+      'voidReason': serializer.toJson<String?>(voidReason),
+      'createdOn': serializer.toJson<String?>(createdOn),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'notes': serializer.toJson<String?>(notes),
+    };
+  }
+
+  OrderPaymentV2Data copyWith(
+          {Value<String?> orderRef = const Value.absent(),
+          Value<String?> paymentId = const Value.absent(),
+          Value<String?> paymentMethodId = const Value.absent(),
+          Value<int?> paymentMethodType = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
+          Value<double?> currencyAmount = const Value.absent(),
+          Value<String?> currencyCode = const Value.absent(),
+          Value<double?> exchangeRateToBase = const Value.absent(),
+          Value<double?> baseAmount = const Value.absent(),
+          Value<double?> receivedAmount = const Value.absent(),
+          Value<double?> changeAmount = const Value.absent(),
+          Value<double?> tipAmount = const Value.absent(),
+          Value<double?> feeAmount = const Value.absent(),
+          Value<String?> cashierId = const Value.absent(),
+          Value<String?> shiftId = const Value.absent(),
+          Value<String?> tillId = const Value.absent(),
+          Value<String?> deviceId = const Value.absent(),
+          Value<String?> externalTransactionId = const Value.absent(),
+          Value<String?> reference = const Value.absent(),
+          Value<bool?> isVoided = const Value.absent(),
+          Value<String?> voidReason = const Value.absent(),
+          Value<String?> createdOn = const Value.absent(),
+          Value<String?> createdBy = const Value.absent(),
+          Value<String?> notes = const Value.absent()}) =>
+      OrderPaymentV2Data(
+        orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        paymentId: paymentId.present ? paymentId.value : this.paymentId,
+        paymentMethodId: paymentMethodId.present
+            ? paymentMethodId.value
+            : this.paymentMethodId,
+        paymentMethodType: paymentMethodType.present
+            ? paymentMethodType.value
+            : this.paymentMethodType,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
+        currencyAmount:
+            currencyAmount.present ? currencyAmount.value : this.currencyAmount,
+        currencyCode:
+            currencyCode.present ? currencyCode.value : this.currencyCode,
+        exchangeRateToBase: exchangeRateToBase.present
+            ? exchangeRateToBase.value
+            : this.exchangeRateToBase,
+        baseAmount: baseAmount.present ? baseAmount.value : this.baseAmount,
+        receivedAmount:
+            receivedAmount.present ? receivedAmount.value : this.receivedAmount,
+        changeAmount:
+            changeAmount.present ? changeAmount.value : this.changeAmount,
+        tipAmount: tipAmount.present ? tipAmount.value : this.tipAmount,
+        feeAmount: feeAmount.present ? feeAmount.value : this.feeAmount,
+        cashierId: cashierId.present ? cashierId.value : this.cashierId,
+        shiftId: shiftId.present ? shiftId.value : this.shiftId,
+        tillId: tillId.present ? tillId.value : this.tillId,
+        deviceId: deviceId.present ? deviceId.value : this.deviceId,
+        externalTransactionId: externalTransactionId.present
+            ? externalTransactionId.value
+            : this.externalTransactionId,
+        reference: reference.present ? reference.value : this.reference,
+        isVoided: isVoided.present ? isVoided.value : this.isVoided,
+        voidReason: voidReason.present ? voidReason.value : this.voidReason,
+        createdOn: createdOn.present ? createdOn.value : this.createdOn,
+        createdBy: createdBy.present ? createdBy.value : this.createdBy,
+        notes: notes.present ? notes.value : this.notes,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('OrderPaymentV2Data(')
+          ..write('orderRef: $orderRef, ')
+          ..write('paymentId: $paymentId, ')
+          ..write('paymentMethodId: $paymentMethodId, ')
+          ..write('paymentMethodType: $paymentMethodType, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('currencyAmount: $currencyAmount, ')
+          ..write('currencyCode: $currencyCode, ')
+          ..write('exchangeRateToBase: $exchangeRateToBase, ')
+          ..write('baseAmount: $baseAmount, ')
+          ..write('receivedAmount: $receivedAmount, ')
+          ..write('changeAmount: $changeAmount, ')
+          ..write('tipAmount: $tipAmount, ')
+          ..write('feeAmount: $feeAmount, ')
+          ..write('cashierId: $cashierId, ')
+          ..write('shiftId: $shiftId, ')
+          ..write('tillId: $tillId, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('externalTransactionId: $externalTransactionId, ')
+          ..write('reference: $reference, ')
+          ..write('isVoided: $isVoided, ')
+          ..write('voidReason: $voidReason, ')
+          ..write('createdOn: $createdOn, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('notes: $notes')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        orderRef,
+        paymentId,
+        paymentMethodId,
+        paymentMethodType,
+        name,
+        fName,
+        currencyAmount,
+        currencyCode,
+        exchangeRateToBase,
+        baseAmount,
+        receivedAmount,
+        changeAmount,
+        tipAmount,
+        feeAmount,
+        cashierId,
+        shiftId,
+        tillId,
+        deviceId,
+        externalTransactionId,
+        reference,
+        isVoided,
+        voidReason,
+        createdOn,
+        createdBy,
+        notes
+      ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OrderPaymentV2Data &&
+          other.orderRef == this.orderRef &&
+          other.paymentId == this.paymentId &&
+          other.paymentMethodId == this.paymentMethodId &&
+          other.paymentMethodType == this.paymentMethodType &&
+          other.name == this.name &&
+          other.fName == this.fName &&
+          other.currencyAmount == this.currencyAmount &&
+          other.currencyCode == this.currencyCode &&
+          other.exchangeRateToBase == this.exchangeRateToBase &&
+          other.baseAmount == this.baseAmount &&
+          other.receivedAmount == this.receivedAmount &&
+          other.changeAmount == this.changeAmount &&
+          other.tipAmount == this.tipAmount &&
+          other.feeAmount == this.feeAmount &&
+          other.cashierId == this.cashierId &&
+          other.shiftId == this.shiftId &&
+          other.tillId == this.tillId &&
+          other.deviceId == this.deviceId &&
+          other.externalTransactionId == this.externalTransactionId &&
+          other.reference == this.reference &&
+          other.isVoided == this.isVoided &&
+          other.voidReason == this.voidReason &&
+          other.createdOn == this.createdOn &&
+          other.createdBy == this.createdBy &&
+          other.notes == this.notes);
+}
+
+class OrderPaymentV2Companion extends UpdateCompanion<OrderPaymentV2Data> {
+  final Value<String?> orderRef;
+  final Value<String?> paymentId;
+  final Value<String?> paymentMethodId;
+  final Value<int?> paymentMethodType;
+  final Value<String?> name;
+  final Value<String?> fName;
+  final Value<double?> currencyAmount;
+  final Value<String?> currencyCode;
+  final Value<double?> exchangeRateToBase;
+  final Value<double?> baseAmount;
+  final Value<double?> receivedAmount;
+  final Value<double?> changeAmount;
+  final Value<double?> tipAmount;
+  final Value<double?> feeAmount;
+  final Value<String?> cashierId;
+  final Value<String?> shiftId;
+  final Value<String?> tillId;
+  final Value<String?> deviceId;
+  final Value<String?> externalTransactionId;
+  final Value<String?> reference;
+  final Value<bool?> isVoided;
+  final Value<String?> voidReason;
+  final Value<String?> createdOn;
+  final Value<String?> createdBy;
+  final Value<String?> notes;
+  final Value<int> rowid;
+  const OrderPaymentV2Companion({
+    this.orderRef = const Value.absent(),
+    this.paymentId = const Value.absent(),
+    this.paymentMethodId = const Value.absent(),
+    this.paymentMethodType = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.currencyAmount = const Value.absent(),
+    this.currencyCode = const Value.absent(),
+    this.exchangeRateToBase = const Value.absent(),
+    this.baseAmount = const Value.absent(),
+    this.receivedAmount = const Value.absent(),
+    this.changeAmount = const Value.absent(),
+    this.tipAmount = const Value.absent(),
+    this.feeAmount = const Value.absent(),
+    this.cashierId = const Value.absent(),
+    this.shiftId = const Value.absent(),
+    this.tillId = const Value.absent(),
+    this.deviceId = const Value.absent(),
+    this.externalTransactionId = const Value.absent(),
+    this.reference = const Value.absent(),
+    this.isVoided = const Value.absent(),
+    this.voidReason = const Value.absent(),
+    this.createdOn = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OrderPaymentV2Companion.insert({
+    this.orderRef = const Value.absent(),
+    this.paymentId = const Value.absent(),
+    this.paymentMethodId = const Value.absent(),
+    this.paymentMethodType = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.currencyAmount = const Value.absent(),
+    this.currencyCode = const Value.absent(),
+    this.exchangeRateToBase = const Value.absent(),
+    this.baseAmount = const Value.absent(),
+    this.receivedAmount = const Value.absent(),
+    this.changeAmount = const Value.absent(),
+    this.tipAmount = const Value.absent(),
+    this.feeAmount = const Value.absent(),
+    this.cashierId = const Value.absent(),
+    this.shiftId = const Value.absent(),
+    this.tillId = const Value.absent(),
+    this.deviceId = const Value.absent(),
+    this.externalTransactionId = const Value.absent(),
+    this.reference = const Value.absent(),
+    this.isVoided = const Value.absent(),
+    this.voidReason = const Value.absent(),
+    this.createdOn = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  static Insertable<OrderPaymentV2Data> custom({
+    Expression<String>? orderRef,
+    Expression<String>? paymentId,
+    Expression<String>? paymentMethodId,
+    Expression<int>? paymentMethodType,
+    Expression<String>? name,
+    Expression<String>? fName,
+    Expression<double>? currencyAmount,
+    Expression<String>? currencyCode,
+    Expression<double>? exchangeRateToBase,
+    Expression<double>? baseAmount,
+    Expression<double>? receivedAmount,
+    Expression<double>? changeAmount,
+    Expression<double>? tipAmount,
+    Expression<double>? feeAmount,
+    Expression<String>? cashierId,
+    Expression<String>? shiftId,
+    Expression<String>? tillId,
+    Expression<String>? deviceId,
+    Expression<String>? externalTransactionId,
+    Expression<String>? reference,
+    Expression<bool>? isVoided,
+    Expression<String>? voidReason,
+    Expression<String>? createdOn,
+    Expression<String>? createdBy,
+    Expression<String>? notes,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (orderRef != null) 'order_ref': orderRef,
+      if (paymentId != null) 'payment_id': paymentId,
+      if (paymentMethodId != null) 'payment_method_id': paymentMethodId,
+      if (paymentMethodType != null) 'payment_method_type': paymentMethodType,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
+      if (currencyAmount != null) 'currency_amount': currencyAmount,
+      if (currencyCode != null) 'currency_code': currencyCode,
+      if (exchangeRateToBase != null)
+        'exchange_rate_to_base': exchangeRateToBase,
+      if (baseAmount != null) 'base_amount': baseAmount,
+      if (receivedAmount != null) 'received_amount': receivedAmount,
+      if (changeAmount != null) 'change_amount': changeAmount,
+      if (tipAmount != null) 'tip_amount': tipAmount,
+      if (feeAmount != null) 'fee_amount': feeAmount,
+      if (cashierId != null) 'cashier_id': cashierId,
+      if (shiftId != null) 'shift_id': shiftId,
+      if (tillId != null) 'till_id': tillId,
+      if (deviceId != null) 'device_id': deviceId,
+      if (externalTransactionId != null)
+        'external_transaction_id': externalTransactionId,
+      if (reference != null) 'reference': reference,
+      if (isVoided != null) 'is_voided': isVoided,
+      if (voidReason != null) 'void_reason': voidReason,
+      if (createdOn != null) 'created_on': createdOn,
+      if (createdBy != null) 'created_by': createdBy,
+      if (notes != null) 'notes': notes,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OrderPaymentV2Companion copyWith(
+      {Value<String?>? orderRef,
+      Value<String?>? paymentId,
+      Value<String?>? paymentMethodId,
+      Value<int?>? paymentMethodType,
+      Value<String?>? name,
+      Value<String?>? fName,
+      Value<double?>? currencyAmount,
+      Value<String?>? currencyCode,
+      Value<double?>? exchangeRateToBase,
+      Value<double?>? baseAmount,
+      Value<double?>? receivedAmount,
+      Value<double?>? changeAmount,
+      Value<double?>? tipAmount,
+      Value<double?>? feeAmount,
+      Value<String?>? cashierId,
+      Value<String?>? shiftId,
+      Value<String?>? tillId,
+      Value<String?>? deviceId,
+      Value<String?>? externalTransactionId,
+      Value<String?>? reference,
+      Value<bool?>? isVoided,
+      Value<String?>? voidReason,
+      Value<String?>? createdOn,
+      Value<String?>? createdBy,
+      Value<String?>? notes,
+      Value<int>? rowid}) {
+    return OrderPaymentV2Companion(
+      orderRef: orderRef ?? this.orderRef,
+      paymentId: paymentId ?? this.paymentId,
+      paymentMethodId: paymentMethodId ?? this.paymentMethodId,
+      paymentMethodType: paymentMethodType ?? this.paymentMethodType,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
+      currencyAmount: currencyAmount ?? this.currencyAmount,
+      currencyCode: currencyCode ?? this.currencyCode,
+      exchangeRateToBase: exchangeRateToBase ?? this.exchangeRateToBase,
+      baseAmount: baseAmount ?? this.baseAmount,
+      receivedAmount: receivedAmount ?? this.receivedAmount,
+      changeAmount: changeAmount ?? this.changeAmount,
+      tipAmount: tipAmount ?? this.tipAmount,
+      feeAmount: feeAmount ?? this.feeAmount,
+      cashierId: cashierId ?? this.cashierId,
+      shiftId: shiftId ?? this.shiftId,
+      tillId: tillId ?? this.tillId,
+      deviceId: deviceId ?? this.deviceId,
+      externalTransactionId:
+          externalTransactionId ?? this.externalTransactionId,
+      reference: reference ?? this.reference,
+      isVoided: isVoided ?? this.isVoided,
+      voidReason: voidReason ?? this.voidReason,
+      createdOn: createdOn ?? this.createdOn,
+      createdBy: createdBy ?? this.createdBy,
+      notes: notes ?? this.notes,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (orderRef.present) {
+      map['order_ref'] = Variable<String>(orderRef.value);
+    }
+    if (paymentId.present) {
+      map['payment_id'] = Variable<String>(paymentId.value);
+    }
+    if (paymentMethodId.present) {
+      map['payment_method_id'] = Variable<String>(paymentMethodId.value);
+    }
+    if (paymentMethodType.present) {
+      map['payment_method_type'] = Variable<int>(paymentMethodType.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
+    }
+    if (currencyAmount.present) {
+      map['currency_amount'] = Variable<double>(currencyAmount.value);
+    }
+    if (currencyCode.present) {
+      map['currency_code'] = Variable<String>(currencyCode.value);
+    }
+    if (exchangeRateToBase.present) {
+      map['exchange_rate_to_base'] = Variable<double>(exchangeRateToBase.value);
+    }
+    if (baseAmount.present) {
+      map['base_amount'] = Variable<double>(baseAmount.value);
+    }
+    if (receivedAmount.present) {
+      map['received_amount'] = Variable<double>(receivedAmount.value);
+    }
+    if (changeAmount.present) {
+      map['change_amount'] = Variable<double>(changeAmount.value);
+    }
+    if (tipAmount.present) {
+      map['tip_amount'] = Variable<double>(tipAmount.value);
+    }
+    if (feeAmount.present) {
+      map['fee_amount'] = Variable<double>(feeAmount.value);
+    }
+    if (cashierId.present) {
+      map['cashier_id'] = Variable<String>(cashierId.value);
+    }
+    if (shiftId.present) {
+      map['shift_id'] = Variable<String>(shiftId.value);
+    }
+    if (tillId.present) {
+      map['till_id'] = Variable<String>(tillId.value);
+    }
+    if (deviceId.present) {
+      map['device_id'] = Variable<String>(deviceId.value);
+    }
+    if (externalTransactionId.present) {
+      map['external_transaction_id'] =
+          Variable<String>(externalTransactionId.value);
+    }
+    if (reference.present) {
+      map['reference'] = Variable<String>(reference.value);
+    }
+    if (isVoided.present) {
+      map['is_voided'] = Variable<bool>(isVoided.value);
+    }
+    if (voidReason.present) {
+      map['void_reason'] = Variable<String>(voidReason.value);
+    }
+    if (createdOn.present) {
+      map['created_on'] = Variable<String>(createdOn.value);
+    }
+    if (createdBy.present) {
+      map['created_by'] = Variable<String>(createdBy.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OrderPaymentV2Companion(')
+          ..write('orderRef: $orderRef, ')
+          ..write('paymentId: $paymentId, ')
+          ..write('paymentMethodId: $paymentMethodId, ')
+          ..write('paymentMethodType: $paymentMethodType, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('currencyAmount: $currencyAmount, ')
+          ..write('currencyCode: $currencyCode, ')
+          ..write('exchangeRateToBase: $exchangeRateToBase, ')
+          ..write('baseAmount: $baseAmount, ')
+          ..write('receivedAmount: $receivedAmount, ')
+          ..write('changeAmount: $changeAmount, ')
+          ..write('tipAmount: $tipAmount, ')
+          ..write('feeAmount: $feeAmount, ')
+          ..write('cashierId: $cashierId, ')
+          ..write('shiftId: $shiftId, ')
+          ..write('tillId: $tillId, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('externalTransactionId: $externalTransactionId, ')
+          ..write('reference: $reference, ')
+          ..write('isVoided: $isVoided, ')
+          ..write('voidReason: $voidReason, ')
+          ..write('createdOn: $createdOn, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('notes: $notes, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $OrderPaymentDetailV2Table extends OrderPaymentDetailV2
+    with TableInfo<$OrderPaymentDetailV2Table, OrderPaymentDetailV2Data> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OrderPaymentDetailV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _orderRefMeta =
+      const VerificationMeta('orderRef');
+  @override
+  late final GeneratedColumn<String> orderRef = GeneratedColumn<String>(
+      'order_ref', aliasedName, true,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
+  static const VerificationMeta _paymentIdMeta =
+      const VerificationMeta('paymentId');
+  @override
+  late final GeneratedColumn<String> paymentId = GeneratedColumn<String>(
+      'payment_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _keyMeta = const VerificationMeta('key');
+  @override
+  late final GeneratedColumn<String> key = GeneratedColumn<String>(
+      'key', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
+  @override
+  late final GeneratedColumn<String> value = GeneratedColumn<String>(
+      'value', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [orderRef, paymentId, key, value];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'order_payment_detail_v2';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<OrderPaymentDetailV2Data> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('order_ref')) {
+      context.handle(_orderRefMeta,
+          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    }
+    if (data.containsKey('payment_id')) {
+      context.handle(_paymentIdMeta,
+          paymentId.isAcceptableOrUnknown(data['payment_id']!, _paymentIdMeta));
+    }
+    if (data.containsKey('key')) {
+      context.handle(
+          _keyMeta, key.isAcceptableOrUnknown(data['key']!, _keyMeta));
+    }
+    if (data.containsKey('value')) {
+      context.handle(
+          _valueMeta, value.isAcceptableOrUnknown(data['value']!, _valueMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {orderRef, paymentId, key};
+  @override
+  OrderPaymentDetailV2Data map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OrderPaymentDetailV2Data(
+      orderRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+      paymentId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}payment_id']),
+      key: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}key']),
+      value: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}value']),
+    );
+  }
+
+  @override
+  $OrderPaymentDetailV2Table createAlias(String alias) {
+    return $OrderPaymentDetailV2Table(attachedDatabase, alias);
+  }
+}
+
+class OrderPaymentDetailV2Data extends DataClass
+    implements Insertable<OrderPaymentDetailV2Data> {
+  final String? orderRef;
+  final String? paymentId;
+  final String? key;
+  final String? value;
+  const OrderPaymentDetailV2Data(
+      {this.orderRef, this.paymentId, this.key, this.value});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || orderRef != null) {
+      map['order_ref'] = Variable<String>(orderRef);
+    }
+    if (!nullToAbsent || paymentId != null) {
+      map['payment_id'] = Variable<String>(paymentId);
+    }
+    if (!nullToAbsent || key != null) {
+      map['key'] = Variable<String>(key);
+    }
+    if (!nullToAbsent || value != null) {
+      map['value'] = Variable<String>(value);
+    }
+    return map;
+  }
+
+  OrderPaymentDetailV2Companion toCompanion(bool nullToAbsent) {
+    return OrderPaymentDetailV2Companion(
+      orderRef: orderRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderRef),
+      paymentId: paymentId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentId),
+      key: key == null && nullToAbsent ? const Value.absent() : Value(key),
+      value:
+          value == null && nullToAbsent ? const Value.absent() : Value(value),
+    );
+  }
+
+  factory OrderPaymentDetailV2Data.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OrderPaymentDetailV2Data(
+      orderRef: serializer.fromJson<String?>(json['orderRef']),
+      paymentId: serializer.fromJson<String?>(json['paymentId']),
+      key: serializer.fromJson<String?>(json['key']),
+      value: serializer.fromJson<String?>(json['value']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'orderRef': serializer.toJson<String?>(orderRef),
+      'paymentId': serializer.toJson<String?>(paymentId),
+      'key': serializer.toJson<String?>(key),
+      'value': serializer.toJson<String?>(value),
+    };
+  }
+
+  OrderPaymentDetailV2Data copyWith(
+          {Value<String?> orderRef = const Value.absent(),
+          Value<String?> paymentId = const Value.absent(),
+          Value<String?> key = const Value.absent(),
+          Value<String?> value = const Value.absent()}) =>
+      OrderPaymentDetailV2Data(
+        orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        paymentId: paymentId.present ? paymentId.value : this.paymentId,
+        key: key.present ? key.value : this.key,
+        value: value.present ? value.value : this.value,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('OrderPaymentDetailV2Data(')
+          ..write('orderRef: $orderRef, ')
+          ..write('paymentId: $paymentId, ')
+          ..write('key: $key, ')
+          ..write('value: $value')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(orderRef, paymentId, key, value);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OrderPaymentDetailV2Data &&
+          other.orderRef == this.orderRef &&
+          other.paymentId == this.paymentId &&
+          other.key == this.key &&
+          other.value == this.value);
+}
+
+class OrderPaymentDetailV2Companion
+    extends UpdateCompanion<OrderPaymentDetailV2Data> {
+  final Value<String?> orderRef;
+  final Value<String?> paymentId;
+  final Value<String?> key;
+  final Value<String?> value;
+  final Value<int> rowid;
+  const OrderPaymentDetailV2Companion({
+    this.orderRef = const Value.absent(),
+    this.paymentId = const Value.absent(),
+    this.key = const Value.absent(),
+    this.value = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OrderPaymentDetailV2Companion.insert({
+    this.orderRef = const Value.absent(),
+    this.paymentId = const Value.absent(),
+    this.key = const Value.absent(),
+    this.value = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  static Insertable<OrderPaymentDetailV2Data> custom({
+    Expression<String>? orderRef,
+    Expression<String>? paymentId,
+    Expression<String>? key,
+    Expression<String>? value,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (orderRef != null) 'order_ref': orderRef,
+      if (paymentId != null) 'payment_id': paymentId,
+      if (key != null) 'key': key,
+      if (value != null) 'value': value,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OrderPaymentDetailV2Companion copyWith(
+      {Value<String?>? orderRef,
+      Value<String?>? paymentId,
+      Value<String?>? key,
+      Value<String?>? value,
+      Value<int>? rowid}) {
+    return OrderPaymentDetailV2Companion(
+      orderRef: orderRef ?? this.orderRef,
+      paymentId: paymentId ?? this.paymentId,
+      key: key ?? this.key,
+      value: value ?? this.value,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (orderRef.present) {
+      map['order_ref'] = Variable<String>(orderRef.value);
+    }
+    if (paymentId.present) {
+      map['payment_id'] = Variable<String>(paymentId.value);
+    }
+    if (key.present) {
+      map['key'] = Variable<String>(key.value);
+    }
+    if (value.present) {
+      map['value'] = Variable<String>(value.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OrderPaymentDetailV2Companion(')
+          ..write('orderRef: $orderRef, ')
+          ..write('paymentId: $paymentId, ')
+          ..write('key: $key, ')
+          ..write('value: $value, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -20970,6 +23476,9 @@ abstract class _$MyDatabase extends GeneratedDatabase {
       $OrderProductModifierV2Table(this);
   late final $OrderProductModifierOptionV2Table orderProductModifierOptionV2 =
       $OrderProductModifierOptionV2Table(this);
+  late final $OrderPaymentV2Table orderPaymentV2 = $OrderPaymentV2Table(this);
+  late final $OrderPaymentDetailV2Table orderPaymentDetailV2 =
+      $OrderPaymentDetailV2Table(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -21006,7 +23515,9 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         orderChargeForTotalV2,
         orderTaxTypeV2,
         orderProductModifierV2,
-        orderProductModifierOptionV2
+        orderProductModifierOptionV2,
+        orderPaymentV2,
+        orderPaymentDetailV2
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -21143,6 +23654,20 @@ abstract class _$MyDatabase extends GeneratedDatabase {
             result: [
               TableUpdate('order_product_modifier_option_v2',
                   kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('order_entity_v2',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('order_payment_v2', kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('order_entity_v2',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('order_payment_detail_v2', kind: UpdateKind.delete),
             ],
           ),
         ],

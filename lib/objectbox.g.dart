@@ -1864,7 +1864,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(21, 2208031943709943172),
       name: 'Device',
-      lastPropertyId: const IdUid(30, 4091436076607296752),
+      lastPropertyId: const IdUid(31, 4875146091774157512),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -2021,6 +2021,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(30, 4091436076607296752),
             name: 'resturnatSections',
             type: 30,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(31, 4875146091774157512),
+            name: 'deviceNo',
+            type: 9,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -8899,7 +8904,10 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeList(object.resturnatSections!
                   .map(fbb.writeString)
                   .toList(growable: false));
-          fbb.startTable(31);
+          final deviceNoOffset = object.deviceNo == null
+              ? null
+              : fbb.writeString(object.deviceNo!);
+          fbb.startTable(32);
           fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, deviceIdOffset);
           fbb.addOffset(2, deviceTypeIdOffset);
@@ -8930,6 +8938,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(27, departmentsOffset);
           fbb.addOffset(28, usersOffset);
           fbb.addOffset(29, resturnatSectionsOffset);
+          fbb.addOffset(30, deviceNoOffset);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -9006,6 +9015,8 @@ ModelDefinition getObjectBoxModel() {
                   fb.StringReader(asciiOptimization: true),
                   lazy: false)
               .vTableGetNullable(buffer, rootOffset, 60);
+          final deviceNoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 64);
           final object = Device(
               id: idParam,
               deviceId: deviceIdParam,
@@ -9033,7 +9044,8 @@ ModelDefinition getObjectBoxModel() {
               departments: departmentsParam,
               products: productsParam,
               resturnatSections: resturnatSectionsParam,
-              users: usersParam)
+              users: usersParam,
+              deviceNo: deviceNoParam)
             ..ip = const fb.StringReader(asciiOptimization: true)
                 .vTableGetNullable(buffer, rootOffset, 48);
           object.info.targetId =
@@ -9350,6 +9362,10 @@ ModelDefinition getObjectBoxModel() {
               .vTableGetNullable(buffer, rootOffset, 58);
           final maximumDiscountAmountProductParam = const fb.Float64Reader()
               .vTableGetNullable(buffer, rootOffset, 60);
+          final applyForAllProductsParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
+          final applyForAllCustomersParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
           final object = Discount(
               id: idParam,
               name: nameParam,
@@ -9375,13 +9391,11 @@ ModelDefinition getObjectBoxModel() {
               deviceCreatedBy: deviceCreatedByParam,
               minimalProductPrice: minimalProductPriceParam,
               groups: groupsParam,
-              maximumDiscountAmountProduct: maximumDiscountAmountProductParam)
+              maximumDiscountAmountProduct: maximumDiscountAmountProductParam,
+              applyForAllProducts: applyForAllProductsParam,
+              applyForAllCustomers: applyForAllCustomersParam)
             ..idSeq =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..applyForAllProducts =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52)
-            ..applyForAllCustomers =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           InternalToManyAccess.setRelInfo<Discount>(object.products, store,
               RelInfo<Discount>.toMany(33, object.idSeq!));
           return object;
@@ -15905,6 +15919,10 @@ class Device_ {
   /// see [Device.resturnatSections]
   static final resturnatSections =
       QueryStringVectorProperty<Device>(_entities[20].properties[29]);
+
+  /// see [Device.deviceNo]
+  static final deviceNo =
+      QueryStringProperty<Device>(_entities[20].properties[30]);
 }
 
 /// [DeviceSetting] entity fields to define ObjectBox queries.

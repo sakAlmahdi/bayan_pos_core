@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/data/enum/product_price_level.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
@@ -43,6 +42,7 @@ class OrderProductResponseDto {
   OrderProductTaxInfoDto? taxInfo;
   List<OrderProductAppliedModifierDto>? appliedModifiers;
   String? notes;
+  String? trace;
 
   double? modifiersUnitPrice;
   double? modifiersTotalPrice;
@@ -57,18 +57,44 @@ class OrderProductResponseDto {
   double? modifiersTaxAmount;
   double? modifiersFinalAmount;
 
-  double? unitPriceWithModifiers;
-  double? totalPriceWithModifiers;
-  double? discountAmountWithModifiers;
-  double? discountPercentageWithModifiers;
-  double? netUnitPriceWithModifiers;
-  double? netTotalPriceWithModifiers;
-  double? netUnitPriceExcludeTaxWithModifiers;
-  double? netTotalPriceExcludeTaxWithModifiers;
-  double? orderDiscountAmountWithModifiers;
-  double? taxableAmountWithModifiers;
-  double? taxAmountWithModifiers;
-  double? finalAmountWithModifiers;
+  double get unitPriceWithModifiers =>
+      unitPrice + modifiersUnitPrice.getZeroIfNull;
+
+  double get totalPriceWithModifiers =>
+      totalPrice + modifiersTotalPrice.getZeroIfNull;
+
+  double get discountAmountWithModifiers =>
+      (discountAmount.getZeroIfNull + modifiersDiscountAmount.getZeroIfNull);
+
+  double? get discountPercentageWithModifiers =>
+      discountPercentage; // Assuming this doesn't need modifiers
+
+  double get netUnitPriceWithModifiers =>
+      netUnitPrice + modifiersNetUnitPrice.getZeroIfNull;
+
+  double get netTotalPriceWithModifiers =>
+      netTotalPrice + modifiersNetTotalPrice.getZeroIfNull;
+
+  double? get netUnitPriceExcludeTaxWithModifiers =>
+      (netUnitPriceExcludeTax?.getZeroIfNull ?? 0.0) +
+      modifiersNetUnitPriceExcludeTax.getZeroIfNull;
+
+  double? get netTotalPriceExcludeTaxWithModifiers =>
+      (netTotalPriceExcludeTax?.getZeroIfNull ?? 0.0) +
+      modifiersNetTotalPriceExcludeTax.getZeroIfNull;
+
+  double get orderDiscountAmountWithModifiers =>
+      orderDiscountAmount.getZeroIfNull +
+      modifiersOrderDiscountAmount.getZeroIfNull;
+
+  double? get taxableAmountWithModifiers =>
+      taxableAmount.getZeroIfNull + modifiersTaxableAmount.getZeroIfNull;
+
+  double? get taxAmountWithModifiers =>
+      taxAmount.getZeroIfNull + modifiersTaxAmount.getZeroIfNull;
+
+  double get finalAmountWithModifiers =>
+      finalAmount + modifiersFinalAmount.getZeroIfNull;
 
   String? departmentId;
   String? categoryId;
@@ -78,8 +104,9 @@ class OrderProductResponseDto {
       discountAmount.getZeroIfNull + orderDiscountAmount.getZeroIfNull;
 
   double get subTotal =>
-      (totalPriceExcludeTax.getZeroIfNull + taxAmount.getZeroIfNull) -
-      discountAmount.getZeroIfNull;
+      (netTotalPriceExcludeTaxWithModifiers.getZeroIfNull +
+          taxAmountWithModifiers.getZeroIfNull) -
+      discountAmountWithModifiers.getZeroIfNull;
 
   ProductPriceLevel get getProductPriceLevel {
     if (timeEvent != null) {
@@ -147,21 +174,10 @@ class OrderProductResponseDto {
     this.modifiersTaxableAmount,
     this.modifiersTaxAmount,
     this.modifiersFinalAmount,
-    this.unitPriceWithModifiers,
-    this.totalPriceWithModifiers,
-    this.discountAmountWithModifiers,
-    this.discountPercentageWithModifiers,
-    this.netUnitPriceWithModifiers,
-    this.netTotalPriceWithModifiers,
-    this.netUnitPriceExcludeTaxWithModifiers,
-    this.netTotalPriceExcludeTaxWithModifiers,
-    this.orderDiscountAmountWithModifiers,
-    this.taxableAmountWithModifiers,
-    this.taxAmountWithModifiers,
-    this.finalAmountWithModifiers,
     this.isCancel = false,
     this.unitPriceExcludeTax,
     this.totalPriceExcludeTax,
+    this.trace,
   });
 
   factory OrderProductResponseDto.fromJson(Map<String, dynamic> json) {
@@ -244,35 +260,12 @@ class OrderProductResponseDto {
           double.tryParse(json['modifiersTaxAmount']?.toString() ?? ''),
       modifiersFinalAmount:
           double.tryParse(json['modifiersFinalAmount']?.toString() ?? ''),
-      unitPriceWithModifiers:
-          double.tryParse(json['unitPriceWithModifiers']?.toString() ?? ''),
-      totalPriceWithModifiers:
-          double.tryParse(json['totalPriceWithModifiers']?.toString() ?? ''),
-      discountAmountWithModifiers: double.tryParse(
-          json['discountAmountWithModifiers']?.toString() ?? ''),
-      discountPercentageWithModifiers: double.tryParse(
-          json['discountPercentageWithModifiers']?.toString() ?? ''),
-      netUnitPriceWithModifiers:
-          double.tryParse(json['netUnitPriceWithModifiers']?.toString() ?? ''),
-      netTotalPriceWithModifiers:
-          double.tryParse(json['netTotalPriceWithModifiers']?.toString() ?? ''),
-      netUnitPriceExcludeTaxWithModifiers: double.tryParse(
-          json['netUnitPriceExcludeTaxWithModifiers']?.toString() ?? ''),
-      netTotalPriceExcludeTaxWithModifiers: double.tryParse(
-          json['netTotalPriceExcludeTaxWithModifiers']?.toString() ?? ''),
-      orderDiscountAmountWithModifiers: double.tryParse(
-          json['orderDiscountAmountWithModifiers']?.toString() ?? ''),
-      taxableAmountWithModifiers:
-          double.tryParse(json['taxableAmountWithModifiers']?.toString() ?? ''),
-      taxAmountWithModifiers:
-          double.tryParse(json['taxAmountWithModifiers']?.toString() ?? ''),
-      finalAmountWithModifiers:
-          double.tryParse(json['finalAmountWithModifiers']?.toString() ?? ''),
       isCancel: json['isCancel'] ?? false,
       unitPriceExcludeTax:
           double.tryParse(json['unitPriceExcludeTax']?.toString() ?? ''),
       totalPriceExcludeTax:
           double.tryParse(json['totalPriceExcludeTax']?.toString() ?? ''),
+      trace: json['trace'],
     );
   }
 
@@ -336,6 +329,7 @@ class OrderProductResponseDto {
       'isCancel': isCancel,
       'unitPriceExcludeTax': unitPriceExcludeTax,
       'totalPriceExcludeTax': totalPriceExcludeTax,
+      'trace': trace,
     };
   }
 
@@ -381,21 +375,10 @@ class OrderProductResponseDto {
     double? modifiersTaxableAmount,
     double? modifiersTaxAmount,
     double? modifiersFinalAmount,
-    double? unitPriceWithModifiers,
-    double? totalPriceWithModifiers,
-    double? discountAmountWithModifiers,
-    double? discountPercentageWithModifiers,
-    double? netUnitPriceWithModifiers,
-    double? netTotalPriceWithModifiers,
-    double? netUnitPriceExcludeTaxWithModifiers,
-    double? netTotalPriceExcludeTaxWithModifiers,
-    double? orderDiscountAmountWithModifiers,
-    double? taxableAmountWithModifiers,
-    double? taxAmountWithModifiers,
-    double? finalAmountWithModifiers,
     bool? isCancel,
     double? unitPriceExcludeTax,
     double? totalPriceExcludeTax,
+    String? trace,
   }) {
     return OrderProductResponseDto(
       productRef: productRef ?? this.productRef,
@@ -450,35 +433,14 @@ class OrderProductResponseDto {
           modifiersTaxableAmount ?? this.modifiersTaxableAmount,
       modifiersTaxAmount: modifiersTaxAmount ?? this.modifiersTaxAmount,
       modifiersFinalAmount: modifiersFinalAmount ?? this.modifiersFinalAmount,
-      unitPriceWithModifiers:
-          unitPriceWithModifiers ?? this.unitPriceWithModifiers,
-      totalPriceWithModifiers:
-          totalPriceWithModifiers ?? this.totalPriceWithModifiers,
-      discountAmountWithModifiers:
-          discountAmountWithModifiers ?? this.discountAmountWithModifiers,
-      discountPercentageWithModifiers: discountPercentageWithModifiers ??
-          this.discountPercentageWithModifiers,
-      netUnitPriceWithModifiers:
-          netUnitPriceWithModifiers ?? this.netUnitPriceWithModifiers,
-      netTotalPriceWithModifiers:
-          netTotalPriceWithModifiers ?? this.netTotalPriceWithModifiers,
-      netUnitPriceExcludeTaxWithModifiers:
-          netUnitPriceExcludeTaxWithModifiers ??
-              this.netUnitPriceExcludeTaxWithModifiers,
-      netTotalPriceExcludeTaxWithModifiers:
-          netTotalPriceExcludeTaxWithModifiers ??
-              this.netTotalPriceExcludeTaxWithModifiers,
-      orderDiscountAmountWithModifiers: orderDiscountAmountWithModifiers ??
-          this.orderDiscountAmountWithModifiers,
-      taxableAmountWithModifiers:
-          taxableAmountWithModifiers ?? this.taxableAmountWithModifiers,
-      taxAmountWithModifiers:
-          taxAmountWithModifiers ?? this.taxAmountWithModifiers,
-      finalAmountWithModifiers:
-          finalAmountWithModifiers ?? this.finalAmountWithModifiers,
       isCancel: isCancel ?? this.isCancel,
       unitPriceExcludeTax: unitPriceExcludeTax ?? this.unitPriceExcludeTax,
       totalPriceExcludeTax: totalPriceExcludeTax ?? this.totalPriceExcludeTax,
+      trace: trace ?? this.trace,
     );
+  }
+
+  void addTrace(String trace) {
+    this.trace = "${this.trace}\n$trace";
   }
 }

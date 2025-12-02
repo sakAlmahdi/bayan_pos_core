@@ -72,6 +72,8 @@ class Charge {
       ? null
       : BaseHelpersMethods.compainDateAndTime(date: endDate!, time: endTime!);
   bool get applyForProducts => getChargeLevel == ChargeLevel.product;
+  bool get isAutoApply =>
+      autoApplyOnOrders == true || autoApplyOnProducts == true;
   Charge();
 
   Charge.fromJson(Map<String, dynamic> json) {

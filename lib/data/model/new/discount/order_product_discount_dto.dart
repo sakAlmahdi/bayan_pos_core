@@ -11,6 +11,10 @@ class OrderProductDiscountDto {
   DiscountType? discountType;
   bool? taxable;
   String? notes;
+  double? minAmountOnProduct;
+  double? maxAmountOnProduct;
+  double? minAmountOnOrder;
+  double? maxAmountOnOrder;
 
   // Constructor
   OrderProductDiscountDto({
@@ -23,6 +27,10 @@ class OrderProductDiscountDto {
     this.discountType,
     this.taxable,
     this.notes,
+    this.minAmountOnProduct,
+    this.maxAmountOnProduct,
+    this.minAmountOnOrder,
+    this.maxAmountOnOrder,
   });
 
   // From JSON constructor
@@ -38,6 +46,10 @@ class OrderProductDiscountDto {
       discountType: convertToDiscountTypeByName(json['discountType']),
       taxable: json['taxable'] as bool?,
       notes: json['notes'] as String?,
+      minAmountOnProduct: (json['minAmountOnProduct'] as num?)?.toDouble(),
+      maxAmountOnProduct: (json['maxAmountOnProduct'] as num?)?.toDouble(),
+      minAmountOnOrder: (json['minAmountOnOrder'] as num?)?.toDouble(),
+      maxAmountOnOrder: (json['maxAmountOnOrder'] as num?)?.toDouble(),
     );
   }
 
@@ -53,6 +65,10 @@ class OrderProductDiscountDto {
       'discountType': discountType.toString().split('.').last,
       'taxable': taxable,
       'notes': notes,
+      'minAmountOnProduct': minAmountOnProduct,
+      'maxAmountOnProduct': maxAmountOnProduct,
+      'minAmountOnOrder': minAmountOnOrder,
+      'maxAmountOnOrder': maxAmountOnOrder,
     };
   }
 
@@ -67,6 +83,10 @@ class OrderProductDiscountDto {
     DiscountType? discountType,
     bool? taxable,
     String? notes,
+    double? minAmountOnProduct,
+    double? maxAmountOnProduct,
+    double? minAmountOnOrder,
+    double? maxAmountOnOrder,
   }) {
     return OrderProductDiscountDto(
       id: id ?? this.id,
@@ -79,6 +99,10 @@ class OrderProductDiscountDto {
       discountType: discountType ?? this.discountType,
       taxable: taxable ?? this.taxable,
       notes: notes ?? this.notes,
+      minAmountOnProduct: minAmountOnProduct ?? this.minAmountOnProduct,
+      maxAmountOnProduct: maxAmountOnProduct ?? this.maxAmountOnProduct,
+      minAmountOnOrder: minAmountOnOrder ?? this.minAmountOnOrder,
+      maxAmountOnOrder: maxAmountOnOrder ?? this.maxAmountOnOrder,
     );
   }
 }

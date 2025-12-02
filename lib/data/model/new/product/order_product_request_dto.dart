@@ -1,5 +1,7 @@
+import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/model/new/tax/order_product_tax_info_dto.dart';
+import 'package:bayan_pos_core/data/model/order/unit.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductRequestDto {
@@ -17,6 +19,8 @@ class OrderProductRequestDto {
   Guid? taxGroupId;
   List<OrderProductAppliedModifierDto>? appliedModifiers;
   bool? isCancel;
+  Unit unit;
+  ExtractProduct productModel;
 
   OrderProductRequestDto({
     required this.prodRef,
@@ -24,6 +28,8 @@ class OrderProductRequestDto {
     required this.productId,
     required this.unitId,
     required this.quantity,
+    required this.unit,
+    required this.productModel,
     this.freeQuantity,
     required this.unitPrice,
     required this.totalPrice,
@@ -38,6 +44,9 @@ class OrderProductRequestDto {
   /// Factory constructor to create an instance from JSON
   factory OrderProductRequestDto.fromJson(Map<String, dynamic> json) {
     return OrderProductRequestDto(
+      productModel:
+          ExtractProduct.fromJson(json['productModel'] as Map<String, dynamic>),
+      unit: Unit.fromJson(json['unit'] as Map<String, dynamic>),
       prodRef: json['prodRef'] as String,
       tableRowIndex: json['tableRowIndex'] as int,
       productId: Guid(json['productId'] as String),
@@ -70,7 +79,9 @@ class OrderProductRequestDto {
   Map<String, dynamic> toJson() {
     return {
       'prodRef': prodRef,
+      'productModel': productModel.toJson(),
       'tableRowIndex': tableRowIndex,
+      'unit': unit.toJson(),
       'productId': productId.toString(),
       'unitId': unitId.toString(),
       'quantity': quantity,
@@ -88,6 +99,8 @@ class OrderProductRequestDto {
 
   /// Create a copy of the instance with updated fields
   OrderProductRequestDto copyWith({
+    Unit? unit,
+    ExtractProduct? productModel,
     int? tableRowIndex,
     Guid? productId,
     Guid? unitId,
@@ -104,6 +117,8 @@ class OrderProductRequestDto {
     bool? isCancel,
   }) {
     return OrderProductRequestDto(
+      productModel: productModel ?? this.productModel,
+      unit: unit ?? this.unit,
       prodRef: prodRef ?? this.prodRef,
       tableRowIndex: tableRowIndex ?? this.tableRowIndex,
       productId: productId ?? this.productId,

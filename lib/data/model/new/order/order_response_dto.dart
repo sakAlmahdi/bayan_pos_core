@@ -1,13 +1,15 @@
+import 'package:bayan_pos_core/data/enum/order_satate.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/customer/customer.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_charge_for_total_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/manual_charge_response_dto.dart';
 import 'package:bayan_pos_core/data/model/new/discount/order_product_discount_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/promotion_gift_card_dto.dart';
+import 'package:bayan_pos_core/data/model/new/order/payment/order_payment_dto.dart';
 import 'package:bayan_pos_core/data/model/new/promotion/order_product_response_dto.dart';
 import 'package:bayan_pos_core/data/model/new/promotion/order_promotion_applies_dto.dart';
 import 'package:bayan_pos_core/data/model/new/tax/order_tax_type_view_dto.dart';
-import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderResponseDto {
   // الحقول المالية الأساسية
@@ -29,6 +31,7 @@ class OrderResponseDto {
   double? timeEventChargeAmount;
   double? roundingDecimalAmount;
   String? note;
+  String? trace;
 
   // الحقول التشغيلية من OrderEntityV2
   String? orderRef;
@@ -93,84 +96,90 @@ class OrderResponseDto {
   List<OrderProductChargeDto>? charges;
   List<OrderChargeForTotalDto>? chargesForTotals;
   List<OrderTaxTypeViewDto>? taxInfo;
+  List<OrderPaymentDto>? payments;
 
   OrderType get getOrderType =>
       convertStringToOrderType(orderType) ?? OrderType.dineIn;
+  OrderStatusC get getStatus => convertStringToOrderStatus(status ?? 0);
 
   double get getTotalDiscountAndPromotionAmount =>
       (productDiscountAmount ?? 0) + (promotionDiscountAmount ?? 0);
+  Customer? get getCustomer => Customer.fromJson(customerJson ?? {});
 
-  OrderResponseDto(
-      {required this.totalPrice,
-      required this.netTotalPrice,
-      required this.finalAmount,
-      this.discountAmount,
-      this.chargeAmount,
-      this.taxableAmount,
-      this.taxAmount,
-      this.shippingAmount,
-      this.shippingDiscountAmount,
-      this.shippingDiscountPercentage,
-      this.productDiscountAmount,
-      this.discountPercentage,
-      this.totalDiscountAmount,
-      this.promotionDiscountAmount,
-      this.timeEventDiscountAmount,
-      this.timeEventChargeAmount,
-      this.roundingDecimalAmount,
-      this.note,
-      this.orderRef,
-      this.deviceId,
-      this.startDate,
-      this.endTime,
-      this.timeOfReceipt,
-      this.orderType,
-      this.orderSource,
-      this.status,
-      this.deliveryStatus,
-      this.paymentStatus,
-      this.refundStatus,
-      this.shiftId,
-      this.tillId,
-      this.tableId,
-      this.tableCaption,
-      this.numberVisitor,
-      this.minimumReservationPrice,
-      this.callName,
-      this.callNumber,
-      this.cancelReasonId,
-      this.msgCancel,
-      this.kitchenNote,
-      this.casherNote,
-      this.supervisorId,
-      this.parentOrderId,
-      this.splitIndex,
-      this.checksum,
-      this.masterChecksum,
-      this.serverChecksum,
-      this.totalCalories,
-      this.priceIncludeTax,
-      this.customerId,
-      this.customerJson,
-      this.addressId,
-      this.addressJson,
-      this.promotionId,
-      this.promotionJson,
-      this.giftCardJson,
-      this.createdOn,
-      this.createdBy,
-      this.lastModifiedOn,
-      this.lastModifiedBy,
-      this.discount,
-      this.products,
-      this.promotion,
-      this.giftCard,
-      this.charges,
-      this.chargesForTotals,
-      this.taxInfo,
-      this.manualCharges,
-      this.manualChargesTotal,
-      this.manualChargesTaxAmount});
+  OrderResponseDto({
+    required this.totalPrice,
+    required this.netTotalPrice,
+    required this.finalAmount,
+    this.discountAmount,
+    this.chargeAmount,
+    this.taxableAmount,
+    this.taxAmount,
+    this.shippingAmount,
+    this.shippingDiscountAmount,
+    this.shippingDiscountPercentage,
+    this.productDiscountAmount,
+    this.discountPercentage,
+    this.totalDiscountAmount,
+    this.promotionDiscountAmount,
+    this.timeEventDiscountAmount,
+    this.timeEventChargeAmount,
+    this.roundingDecimalAmount,
+    this.note,
+    this.orderRef,
+    this.deviceId,
+    this.startDate,
+    this.endTime,
+    this.timeOfReceipt,
+    this.orderType,
+    this.orderSource,
+    this.status,
+    this.deliveryStatus,
+    this.paymentStatus,
+    this.refundStatus,
+    this.shiftId,
+    this.tillId,
+    this.tableId,
+    this.tableCaption,
+    this.numberVisitor,
+    this.minimumReservationPrice,
+    this.callName,
+    this.callNumber,
+    this.cancelReasonId,
+    this.msgCancel,
+    this.kitchenNote,
+    this.casherNote,
+    this.supervisorId,
+    this.parentOrderId,
+    this.splitIndex,
+    this.checksum,
+    this.masterChecksum,
+    this.serverChecksum,
+    this.totalCalories,
+    this.priceIncludeTax,
+    this.customerId,
+    this.customerJson,
+    this.addressId,
+    this.addressJson,
+    this.promotionId,
+    this.promotionJson,
+    this.giftCardJson,
+    this.createdOn,
+    this.createdBy,
+    this.lastModifiedOn,
+    this.lastModifiedBy,
+    this.discount,
+    this.products,
+    this.promotion,
+    this.giftCard,
+    this.charges,
+    this.chargesForTotals,
+    this.taxInfo,
+    this.payments,
+    this.manualCharges,
+    this.manualChargesTotal,
+    this.manualChargesTaxAmount,
+    this.trace,
+  });
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
     return OrderResponseDto(
@@ -270,6 +279,11 @@ class OrderResponseDto {
               .map((e) => OrderTaxTypeViewDto.fromJson(e))
               .toList()
           : null,
+      payments: json['payments'] != null
+          ? (json['payments'] as List)
+              .map((e) => OrderPaymentDto.fromJson(e))
+              .toList()
+          : null,
       // إضافة الرسوم اليدوية
       manualCharges: json['manualCharges'] != null
           ? (json['manualCharges'] as List)
@@ -282,6 +296,7 @@ class OrderResponseDto {
       manualChargesTaxAmount: json['manualChargesTaxAmount'] != null
           ? (json['manualChargesTaxAmount'] as num).toDouble()
           : null,
+      trace: json['trace'],
     );
   }
 
@@ -354,10 +369,12 @@ class OrderResponseDto {
       'charges': charges?.map((e) => e.toJson()).toList(),
       'chargesForTotals': chargesForTotals?.map((e) => e.toJson()).toList(),
       'taxInfo': taxInfo?.map((e) => e.toJson()).toList(),
+      'payments': payments?.map((e) => e.toJson()).toList(),
       // إضافة الرسوم اليدوية
       'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
       'manualChargesTotal': manualChargesTotal,
       'manualChargesTaxAmount': manualChargesTaxAmount,
+      'trace': trace,
     };
   }
 
@@ -429,9 +446,11 @@ class OrderResponseDto {
     List<OrderProductChargeDto>? charges,
     List<OrderChargeForTotalDto>? chargesForTotals,
     List<OrderTaxTypeViewDto>? taxInfo,
+    List<OrderPaymentDto>? payments,
     List<ManualChargeResponseDto>? manualCharges,
     double? manualChargesTotal,
     double? manualChargesTaxAmount,
+    String? trace,
   }) {
     return OrderResponseDto(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -509,11 +528,17 @@ class OrderResponseDto {
       charges: charges ?? this.charges,
       chargesForTotals: chargesForTotals ?? this.chargesForTotals,
       taxInfo: taxInfo ?? this.taxInfo,
+      payments: payments ?? this.payments,
       // إضافة الرسوم اليدوية
       manualCharges: manualCharges ?? this.manualCharges,
       manualChargesTotal: manualChargesTotal ?? this.manualChargesTotal,
       manualChargesTaxAmount:
           manualChargesTaxAmount ?? this.manualChargesTaxAmount,
+      trace: trace ?? this.trace,
     );
+  }
+
+  void addTrace(String trace) {
+    this.trace = "${this.trace}\n$trace";
   }
 }

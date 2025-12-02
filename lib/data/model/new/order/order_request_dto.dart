@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/customer/customer.dart';
 import 'package:bayan_pos_core/data/model/new/product/order_product_request_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/manual_charge_request_dto.dart';
 import 'package:flutter_guid/flutter_guid.dart';
@@ -44,6 +45,8 @@ class OrderRequestDto {
   // إضافة الرسوم اليدوية
   List<ManualChargeRequestDto>? manualCharges;
 
+  Customer? customer;
+
   OrderRequestDto({
     this.branchId,
     this.priceListId,
@@ -76,6 +79,7 @@ class OrderRequestDto {
     this.splitIndex,
     this.priceIncludeTax,
     this.manualCharges,
+    this.customer,
   });
 
   factory OrderRequestDto.fromJson(Map<String, dynamic> json) {
@@ -128,6 +132,9 @@ class OrderRequestDto {
               .map((e) => ManualChargeRequestDto.fromJson(e))
               .toList()
           : null,
+      customer: json['customer'] != null
+          ? Customer.fromJson(json['customer'] as Map<String, dynamic>)
+          : null,
     );
   }
 
@@ -165,6 +172,7 @@ class OrderRequestDto {
       'priceIncludeTax': priceIncludeTax,
       // إضافة الرسوم اليدوية
       'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
+      'customer': customer?.toJson(),
     };
   }
 
@@ -187,6 +195,7 @@ class OrderRequestDto {
     bool? customerTaxable,
     bool? priceIncludeTax,
     List<ManualChargeRequestDto>? manualCharges,
+    Customer? customer,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -208,6 +217,7 @@ class OrderRequestDto {
       priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
       // إضافة الرسوم اليدوية
       manualCharges: manualCharges ?? this.manualCharges,
+      customer: customer ?? this.customer,
     );
   }
 }

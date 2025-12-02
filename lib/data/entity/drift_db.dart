@@ -48,21 +48,120 @@ part 'drift_db.g.dart';
   OrderTaxTypeV2,
   OrderProductModifierV2,
   OrderProductModifierOptionV2,
+  OrderPaymentV2,
+  OrderPaymentDetailV2,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
 
   @override
-  MigrationStrategy get migration => MigrationStrategy(
-      onCreate: (Migrator m) async {
+  MigrationStrategy get migration =>
+      MigrationStrategy(onCreate: (Migrator m) async {
         // تفعيل المفاتيح الأجنبية عند إنشاء قاعدة البيانات
         await customStatement('PRAGMA foreign_keys = ON');
         await m.createAll();
-      },
-      onUpgrade: (Migrator m, int from, int to) async {});
+      }, onUpgrade: (Migrator m, int from, int to) async {
+        // لا، الشرط if (from < 34) لن يتحقق عندما تكون النسخة ٣٤.
+        // سيتم تنفيذ الكود فقط إذا كانت النسخة السابقة أقل من ٣٤ (أي ٣٣ أو أقل).
+        if (from < 34) {
+          await m.createTable(orderPaymentV2);
+          await m.createTable(orderPaymentDetailV2);
+        }
+        // إضافة الحقول الجديدة لجدول OrderProductModifierV2
+        if (from < 35) {
+          // التحقق من وجود الأعمدة قبل إضافتها
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN discount_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN discount_percentage REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN net_unit_price REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN net_total_price REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN net_unit_price_exclude_tax REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN net_total_price_exclude_tax REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN order_discount_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN taxable_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN tax_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_v2 ADD COLUMN final_amount REAL');
+          } catch (_) {}
+        }
+        // إضافة الحقول الجديدة لجدول OrderProductModifierOptionV2
+        if (from < 36) {
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_option_v2 ADD COLUMN net_unit_price_exclude_tax REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_option_v2 ADD COLUMN net_total_price_exclude_tax REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_option_v2 ADD COLUMN order_discount_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_option_v2 ADD COLUMN order_discount_percentage REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_modifier_option_v2 ADD COLUMN tax_group_id TEXT');
+          } catch (_) {}
+        }
+
+        // إضافة الحقول الجديدة لجدول الضرائب
+        if (from < 37) {
+          // تعديل OrderProductTaxInfoV2
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_tax_info_v2 ADD COLUMN modifier_id TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_tax_info_v2 ADD COLUMN option_id TEXT');
+          } catch (_) {}
+
+          // تعديل OrderProductTaxTypeV2
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_tax_type_v2 ADD COLUMN modifier_id TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_product_tax_type_v2 ADD COLUMN option_id TEXT');
+          } catch (_) {}
+        }
+      });
 
   @override
-  int get schemaVersion => 32; // تحديث إصدار المخطط ليعكس التغييرات الجديدة
+  int get schemaVersion =>
+      38; // تحديث إصدار المخطط - حذف taxInfoJson من OrderProductModifierOptionV2
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

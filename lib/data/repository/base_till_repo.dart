@@ -26,4 +26,5 @@ abstract class BaseTillRepo {
   Future<List<Till>?> getAllTillOpened();
   Stream<List<Till>?> getTillsStream(String? userId,
       {Map<String, dynamic>? filter});
+  Future<Till?> getTillById(String tillId);
 }

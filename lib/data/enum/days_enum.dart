@@ -53,3 +53,24 @@ Day dayNow({int? day}) {
       return Day.saturday;
   }
 }
+
+extension DayExtension on Day {
+  String toName() {
+    switch (this) {
+      case Day.sunday:
+        return "الأحد";
+      case Day.monday:
+        return "الاثنين";
+      case Day.tuesday:
+        return "الثلاثاء";
+      case Day.wednesday:
+        return "الأربعاء";
+      case Day.thursday:
+        return "الخميس";
+      case Day.friday:
+        return "الجمعة";
+      case Day.saturday:
+        return "السبت";
+    }
+  }
+}

@@ -330,6 +330,14 @@ class BaseTillDriftProvider extends BaseTillRepo {
   }
 
   @override
+  Future<Till?> getTillById(String tillId) async {
+    var query = db.select(db.tillEntity);
+    query.where((tbl) => tbl.reference.equals(tillId));
+    var data = await query.get();
+    return data.isNotEmpty ? data.first.toTillModle : null;
+  }
+
+  @override
   List<Object?> get props => [db];
 }
 
