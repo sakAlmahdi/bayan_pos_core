@@ -209,7 +209,10 @@ class BaseOrderDriftProvider extends OrderRepo {
 
   @override
   Future<String?> createOrderInvoiceNumber({required OrderC order}) async {
-    Device? curentDevice = Get.find<ActivationController>().currentDevice;
+    ActivationController activationController =
+        Get.find<ActivationController>();
+    Device? curentDevice =
+        Get.find<ActivationController>().getCurrentDeviceByCurrentId;
     if (curentDevice == null) throw 'لم يتم اكتشاف الجهاز الحالي';
     var query = db.select(db.orderNumbers);
     query.where((tbl) => tbl.orderRef.equals(order.orderRef));
@@ -263,7 +266,7 @@ class BaseOrderDriftProvider extends OrderRepo {
   Future<List<OrderC>?> getNotSyncOrders({int? bualkNumber}) async {
     try {
       var data = await db.customSelect(
-        """ 
+        """
         SELECT * From order_entity WHERE  checksum <> master_checksum or master_checksum is NULL ${bualkNumber != null ? " LIMIT $bualkNumber" : ""} 
         
         """,
@@ -284,7 +287,7 @@ class BaseOrderDriftProvider extends OrderRepo {
   Future<int> countNotSyncOrders() async {
     try {
       var data = await db.customSelect(
-        """ 
+        """
         SELECT count(*) as 'count' From order_entity WHERE  checksum <> master_checksum or master_checksum is NULL 
         
         """,

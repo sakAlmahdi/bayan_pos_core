@@ -10,6 +10,7 @@ import 'package:bayan_pos_core/data/model/new/order/payment/order_payment_dto.da
 import 'package:bayan_pos_core/data/model/new/promotion/order_product_response_dto.dart';
 import 'package:bayan_pos_core/data/model/new/promotion/order_promotion_applies_dto.dart';
 import 'package:bayan_pos_core/data/model/new/tax/order_tax_type_view_dto.dart';
+import 'package:bayan_pos_core/data/model/order/order.dart';
 
 class OrderResponseDto {
   // الحقول المالية الأساسية
@@ -20,6 +21,9 @@ class OrderResponseDto {
   double? taxableAmount;
   double? taxAmount;
   double finalAmount;
+  double? paidAmount;
+  double? dueAmount;
+  double? changeAmount;
   double? shippingAmount;
   double? shippingDiscountAmount;
   double? shippingDiscountPercentage;
@@ -98,18 +102,24 @@ class OrderResponseDto {
   List<OrderTaxTypeViewDto>? taxInfo;
   List<OrderPaymentDto>? payments;
 
+  DeliveryCompanyInfo? deliveryCompanyInfo;
+
   OrderType get getOrderType =>
       convertStringToOrderType(orderType) ?? OrderType.dineIn;
   OrderStatusC get getStatus => convertStringToOrderStatus(status ?? 0);
 
   double get getTotalDiscountAndPromotionAmount =>
       (productDiscountAmount ?? 0) + (promotionDiscountAmount ?? 0);
-  Customer? get getCustomer => Customer.fromJson(customerJson ?? {});
+  Customer? get getCustomer =>
+      customerJson != null ? Customer.fromJson(customerJson!) : null;
 
   OrderResponseDto({
     required this.totalPrice,
     required this.netTotalPrice,
     required this.finalAmount,
+    this.paidAmount,
+    this.dueAmount,
+    this.changeAmount,
     this.discountAmount,
     this.chargeAmount,
     this.taxableAmount,
@@ -179,6 +189,7 @@ class OrderResponseDto {
     this.manualChargesTotal,
     this.manualChargesTaxAmount,
     this.trace,
+    this.deliveryCompanyInfo,
   });
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
@@ -190,6 +201,9 @@ class OrderResponseDto {
       taxableAmount: double.tryParse(json['taxableAmount'].toString()) ?? 0,
       taxAmount: double.tryParse(json['taxAmount'].toString()) ?? 0,
       finalAmount: double.tryParse(json['finalAmount'].toString()) ?? 0,
+      paidAmount: double.tryParse(json['paidAmount'].toString()) ?? 0,
+      dueAmount: double.tryParse(json['dueAmount'].toString()) ?? 0,
+      changeAmount: double.tryParse(json['changeAmount'].toString()) ?? 0,
       shippingAmount: double.tryParse(json['shippingAmount'].toString()) ?? 0,
       shippingDiscountAmount:
           double.tryParse(json['shippingDiscountAmount'].toString()) ?? 0,
@@ -199,11 +213,16 @@ class OrderResponseDto {
           double.tryParse(json['productDiscountAmount'].toString()) ?? 0,
       discountPercentage:
           double.tryParse(json['discountPercentage'].toString()) ?? 0,
-      totalDiscountAmount: json['totalDiscountAmount'],
-      promotionDiscountAmount: json['promotionDiscountAmount'],
-      timeEventDiscountAmount: json['timeEventDiscountAmount'],
-      timeEventChargeAmount: json['timeEventChargeAmount'],
-      roundingDecimalAmount: json['roundingDecimalAmount'],
+      totalDiscountAmount:
+          double.tryParse(json['totalDiscountAmount'].toString()),
+      promotionDiscountAmount:
+          double.tryParse(json['promotionDiscountAmount'].toString()),
+      timeEventDiscountAmount:
+          double.tryParse(json['timeEventDiscountAmount'].toString()),
+      timeEventChargeAmount:
+          double.tryParse(json['timeEventChargeAmount'].toString()),
+      roundingDecimalAmount:
+          double.tryParse(json['roundingDecimalAmount'].toString()),
       note: json['note'],
       orderRef: json['orderRef'],
       deviceId: json['deviceId'],
@@ -213,18 +232,19 @@ class OrderResponseDto {
       timeOfReceipt: json['timeOfReceipt'] != null
           ? DateTime.parse(json['timeOfReceipt'])
           : null,
-      orderType: json['orderType'],
-      orderSource: json['orderSource'],
-      status: json['status'],
-      deliveryStatus: json['deliveryStatus'],
-      paymentStatus: json['paymentStatus'],
-      refundStatus: json['refundStatus'],
+      orderType: int.tryParse(json['orderType'].toString()),
+      orderSource: int.tryParse(json['orderSource'].toString()),
+      status: int.tryParse(json['status'].toString()),
+      deliveryStatus: int.tryParse(json['deliveryStatus'].toString()),
+      paymentStatus: int.tryParse(json['paymentStatus'].toString()),
+      refundStatus: int.tryParse(json['refundStatus'].toString()),
       shiftId: json['shiftId'],
       tillId: json['tillId'],
       tableId: json['tableId'],
       tableCaption: json['tableCaption'],
-      numberVisitor: json['numberVisitor'],
-      minimumReservationPrice: json['minimumReservationPrice'],
+      numberVisitor: int.tryParse(json['numberVisitor'].toString()),
+      minimumReservationPrice:
+          double.tryParse(json['minimumReservationPrice'].toString()),
       callName: json['callName'],
       callNumber: json['callNumber'],
       cancelReasonId: json['cancelReasonId'],
@@ -233,11 +253,11 @@ class OrderResponseDto {
       casherNote: json['casherNote'],
       supervisorId: json['supervisorId'],
       parentOrderId: json['parentOrderId'],
-      splitIndex: json['splitIndex'],
+      splitIndex: int.tryParse(json['splitIndex'].toString()),
       checksum: json['checksum'],
       masterChecksum: json['masterChecksum'],
       serverChecksum: json['serverChecksum'],
-      totalCalories: json['totalCalories'],
+      totalCalories: double.tryParse(json['totalCalories'].toString()),
       priceIncludeTax: json['priceIncludeTax'],
       customerId: json['customerId'],
       customerJson: json['customerJson'],
@@ -297,6 +317,9 @@ class OrderResponseDto {
           ? (json['manualChargesTaxAmount'] as num).toDouble()
           : null,
       trace: json['trace'],
+      deliveryCompanyInfo: json['deliveryCompanyInfo'] != null
+          ? DeliveryCompanyInfo.fromJson(json['deliveryCompanyInfo'])
+          : null,
     );
   }
 
@@ -309,6 +332,9 @@ class OrderResponseDto {
       'taxableAmount': taxableAmount,
       'taxAmount': taxAmount,
       'finalAmount': finalAmount,
+      'paidAmount': paidAmount,
+      'dueAmount': dueAmount,
+      'changeAmount': changeAmount,
       'shippingAmount': shippingAmount,
       'shippingDiscountAmount': shippingDiscountAmount,
       'shippingDiscountPercentage': shippingDiscountPercentage,
@@ -375,6 +401,7 @@ class OrderResponseDto {
       'manualChargesTotal': manualChargesTotal,
       'manualChargesTaxAmount': manualChargesTaxAmount,
       'trace': trace,
+      'deliveryCompanyInfo': deliveryCompanyInfo?.toJson(),
     };
   }
 
@@ -386,6 +413,9 @@ class OrderResponseDto {
     double? taxableAmount,
     double? taxAmount,
     double? finalAmount,
+    double? paidAmount,
+    double? dueAmount,
+    double? changeAmount,
     double? shippingAmount,
     double? shippingDiscountAmount,
     double? shippingDiscountPercentage,
@@ -451,6 +481,7 @@ class OrderResponseDto {
     double? manualChargesTotal,
     double? manualChargesTaxAmount,
     String? trace,
+    DeliveryCompanyInfo? deliveryCompanyInfo,
   }) {
     return OrderResponseDto(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -460,6 +491,9 @@ class OrderResponseDto {
       taxableAmount: taxableAmount ?? this.taxableAmount,
       taxAmount: taxAmount ?? this.taxAmount,
       finalAmount: finalAmount ?? this.finalAmount,
+      paidAmount: paidAmount ?? this.paidAmount,
+      dueAmount: dueAmount ?? this.dueAmount,
+      changeAmount: changeAmount ?? this.changeAmount,
       shippingAmount: shippingAmount ?? this.shippingAmount,
       shippingDiscountAmount:
           shippingDiscountAmount ?? this.shippingDiscountAmount,
@@ -535,6 +569,7 @@ class OrderResponseDto {
       manualChargesTaxAmount:
           manualChargesTaxAmount ?? this.manualChargesTaxAmount,
       trace: trace ?? this.trace,
+      deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
     );
   }
 

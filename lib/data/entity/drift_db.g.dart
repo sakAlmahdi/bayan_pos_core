@@ -119,8 +119,6 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<DateTime> endTime = GeneratedColumn<DateTime>(
       'end_time', aliasedName, true,
       type: DriftSqlType.dateTime, requiredDuringInsert: false);
-  static const VerificationMeta _deliveryCompanyInfoIdMeta =
-      const VerificationMeta('deliveryCompanyInfoId');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String>
       deliveryCompanyInfoId = GeneratedColumn<String>(
@@ -134,15 +132,11 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<String> priceListId = GeneratedColumn<String>(
       'price_list_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _creatorByMeta =
-      const VerificationMeta('creatorBy');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> creatorBy =
       GeneratedColumn<String>('creator_by', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$convertercreatorBy);
-  static const VerificationMeta _closeByMeta =
-      const VerificationMeta('closeBy');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> closeBy =
       GeneratedColumn<String>('close_by', aliasedName, true,
@@ -160,36 +154,26 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<int> numberVistor = GeneratedColumn<int>(
       'number_vistor', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
-  static const VerificationMeta _customerMeta =
-      const VerificationMeta('customer');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> customer =
       GeneratedColumn<String>('customer', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$convertercustomer);
-  static const VerificationMeta _addressMeta =
-      const VerificationMeta('address');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> address =
       GeneratedColumn<String>('address', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converteraddress);
-  static const VerificationMeta _promotionMeta =
-      const VerificationMeta('promotion');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> promotion =
       GeneratedColumn<String>('promotion', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterpromotion);
-  static const VerificationMeta _discountMeta =
-      const VerificationMeta('discount');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> discount =
       GeneratedColumn<String>('discount', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterdiscount);
-  static const VerificationMeta _productsMeta =
-      const VerificationMeta('products');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> products =
       GeneratedColumn<String>('products', aliasedName, true,
@@ -232,22 +216,16 @@ class $OrderEntityTable extends OrderEntity
       type: DriftSqlType.double,
       requiredDuringInsert: false,
       defaultValue: const Constant(0));
-  static const VerificationMeta _chargesMeta =
-      const VerificationMeta('charges');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> charges =
       GeneratedColumn<String>('charges', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$convertercharges);
-  static const VerificationMeta _chargeValuesMeta =
-      const VerificationMeta('chargeValues');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> chargeValues =
       GeneratedColumn<String>('charge_values', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterchargeValues);
-  static const VerificationMeta _paymentsMeta =
-      const VerificationMeta('payments');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> payments =
       GeneratedColumn<String>('payments', aliasedName, true,
@@ -307,22 +285,16 @@ class $OrderEntityTable extends OrderEntity
       GeneratedColumn<double>(
           'total_discount_for_order_and_product', aliasedName, true,
           type: DriftSqlType.double, requiredDuringInsert: false);
-  static const VerificationMeta _kitchenInfoMeta =
-      const VerificationMeta('kitchenInfo');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> kitchenInfo =
       GeneratedColumn<String>('kitchen_info', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$converterkitchenInfo);
-  static const VerificationMeta _currencyMeta =
-      const VerificationMeta('currency');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> currency =
       GeneratedColumn<String>('currency', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$convertercurrency);
-  static const VerificationMeta _paymentCurrencyMeta =
-      const VerificationMeta('paymentCurrency');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> paymentCurrency =
       GeneratedColumn<String>('payment_currency', aliasedName, true,
@@ -334,8 +306,6 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<double> minimumReservationPrice =
       GeneratedColumn<double>('minimum_reservation_price', aliasedName, true,
           type: DriftSqlType.double, requiredDuringInsert: false);
-  static const VerificationMeta _giftCardMeta =
-      const VerificationMeta('giftCard');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> giftCard =
       GeneratedColumn<String>('gift_card', aliasedName, true,
@@ -383,8 +353,6 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<String> trackingStatusId = GeneratedColumn<String>(
       'tracking_status_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _orderStatusTrackingMeta =
-      const VerificationMeta('orderStatusTracking');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String>
       orderStatusTracking = GeneratedColumn<String>(
@@ -392,8 +360,6 @@ class $OrderEntityTable extends OrderEntity
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>(
               $OrderEntityTable.$converterorderStatusTracking);
-  static const VerificationMeta _waitersMeta =
-      const VerificationMeta('waiters');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> waiters =
       GeneratedColumn<String>('waiters', aliasedName, true,
@@ -429,14 +395,11 @@ class $OrderEntityTable extends OrderEntity
   late final GeneratedColumn<String> lastModifiedOn = GeneratedColumn<String>(
       'last_modified_on', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _tableMeta = const VerificationMeta('table');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> table =
       GeneratedColumn<String>('table', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityTable.$convertertable);
-  static const VerificationMeta _deliveryMeta =
-      const VerificationMeta('delivery');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> delivery =
       GeneratedColumn<String>('delivery', aliasedName, true,
@@ -637,16 +600,12 @@ class $OrderEntityTable extends OrderEntity
       context.handle(_endTimeMeta,
           endTime.isAcceptableOrUnknown(data['end_time']!, _endTimeMeta));
     }
-    context.handle(
-        _deliveryCompanyInfoIdMeta, const VerificationResult.success());
     if (data.containsKey('price_list_id')) {
       context.handle(
           _priceListIdMeta,
           priceListId.isAcceptableOrUnknown(
               data['price_list_id']!, _priceListIdMeta));
     }
-    context.handle(_creatorByMeta, const VerificationResult.success());
-    context.handle(_closeByMeta, const VerificationResult.success());
     if (data.containsKey('table_id')) {
       context.handle(_tableIdMeta,
           tableId.isAcceptableOrUnknown(data['table_id']!, _tableIdMeta));
@@ -657,11 +616,6 @@ class $OrderEntityTable extends OrderEntity
           numberVistor.isAcceptableOrUnknown(
               data['number_vistor']!, _numberVistorMeta));
     }
-    context.handle(_customerMeta, const VerificationResult.success());
-    context.handle(_addressMeta, const VerificationResult.success());
-    context.handle(_promotionMeta, const VerificationResult.success());
-    context.handle(_discountMeta, const VerificationResult.success());
-    context.handle(_productsMeta, const VerificationResult.success());
     if (data.containsKey('price_discount')) {
       context.handle(
           _priceDiscountMeta,
@@ -692,9 +646,6 @@ class $OrderEntityTable extends OrderEntity
       context.handle(_subTotalMeta,
           subTotal.isAcceptableOrUnknown(data['sub_total']!, _subTotalMeta));
     }
-    context.handle(_chargesMeta, const VerificationResult.success());
-    context.handle(_chargeValuesMeta, const VerificationResult.success());
-    context.handle(_paymentsMeta, const VerificationResult.success());
     if (data.containsKey('total_charge')) {
       context.handle(
           _totalChargeMeta,
@@ -740,9 +691,6 @@ class $OrderEntityTable extends OrderEntity
               data['total_discount_for_order_and_product']!,
               _totalDiscountForOrderAndProductMeta));
     }
-    context.handle(_kitchenInfoMeta, const VerificationResult.success());
-    context.handle(_currencyMeta, const VerificationResult.success());
-    context.handle(_paymentCurrencyMeta, const VerificationResult.success());
     if (data.containsKey('minimum_reservation_price')) {
       context.handle(
           _minimumReservationPriceMeta,
@@ -750,7 +698,6 @@ class $OrderEntityTable extends OrderEntity
               data['minimum_reservation_price']!,
               _minimumReservationPriceMeta));
     }
-    context.handle(_giftCardMeta, const VerificationResult.success());
     if (data.containsKey('rounding_amount')) {
       context.handle(
           _roundingAmountMeta,
@@ -789,9 +736,6 @@ class $OrderEntityTable extends OrderEntity
           trackingStatusId.isAcceptableOrUnknown(
               data['tracking_status_id']!, _trackingStatusIdMeta));
     }
-    context.handle(
-        _orderStatusTrackingMeta, const VerificationResult.success());
-    context.handle(_waitersMeta, const VerificationResult.success());
     if (data.containsKey('coupon_id')) {
       context.handle(_couponIdMeta,
           couponId.isAcceptableOrUnknown(data['coupon_id']!, _couponIdMeta));
@@ -816,8 +760,6 @@ class $OrderEntityTable extends OrderEntity
           lastModifiedOn.isAcceptableOrUnknown(
               data['last_modified_on']!, _lastModifiedOnMeta));
     }
-    context.handle(_tableMeta, const VerificationResult.success());
-    context.handle(_deliveryMeta, const VerificationResult.success());
     if (data.containsKey('customer_name')) {
       context.handle(
           _customerNameMeta,
@@ -1961,6 +1903,143 @@ class OrderEntityData extends DataClass implements Insertable<OrderEntityData> {
         customerPhone:
             customerPhone.present ? customerPhone.value : this.customerPhone,
       );
+  OrderEntityData copyWithCompanion(OrderEntityCompanion data) {
+    return OrderEntityData(
+      posTransactionType: data.posTransactionType.present
+          ? data.posTransactionType.value
+          : this.posTransactionType,
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      invoiceNumber: data.invoiceNumber.present
+          ? data.invoiceNumber.value
+          : this.invoiceNumber,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      timeOfReceipt: data.timeOfReceipt.present
+          ? data.timeOfReceipt.value
+          : this.timeOfReceipt,
+      parentOrderId: data.parentOrderId.present
+          ? data.parentOrderId.value
+          : this.parentOrderId,
+      splitIndex:
+          data.splitIndex.present ? data.splitIndex.value : this.splitIndex,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      callName: data.callName.present ? data.callName.value : this.callName,
+      callNumber:
+          data.callNumber.present ? data.callNumber.value : this.callNumber,
+      orderType: data.orderType.present ? data.orderType.value : this.orderType,
+      status: data.status.present ? data.status.value : this.status,
+      paymentStatus: data.paymentStatus.present
+          ? data.paymentStatus.value
+          : this.paymentStatus,
+      refundStatus: data.refundStatus.present
+          ? data.refundStatus.value
+          : this.refundStatus,
+      deliveryStatus: data.deliveryStatus.present
+          ? data.deliveryStatus.value
+          : this.deliveryStatus,
+      orderSource:
+          data.orderSource.present ? data.orderSource.value : this.orderSource,
+      endTime: data.endTime.present ? data.endTime.value : this.endTime,
+      deliveryCompanyInfoId: data.deliveryCompanyInfoId.present
+          ? data.deliveryCompanyInfoId.value
+          : this.deliveryCompanyInfoId,
+      priceListId:
+          data.priceListId.present ? data.priceListId.value : this.priceListId,
+      creatorBy: data.creatorBy.present ? data.creatorBy.value : this.creatorBy,
+      closeBy: data.closeBy.present ? data.closeBy.value : this.closeBy,
+      tableId: data.tableId.present ? data.tableId.value : this.tableId,
+      numberVistor: data.numberVistor.present
+          ? data.numberVistor.value
+          : this.numberVistor,
+      customer: data.customer.present ? data.customer.value : this.customer,
+      address: data.address.present ? data.address.value : this.address,
+      promotion: data.promotion.present ? data.promotion.value : this.promotion,
+      discount: data.discount.present ? data.discount.value : this.discount,
+      products: data.products.present ? data.products.value : this.products,
+      priceDiscount: data.priceDiscount.present
+          ? data.priceDiscount.value
+          : this.priceDiscount,
+      pricePromotion: data.pricePromotion.present
+          ? data.pricePromotion.value
+          : this.pricePromotion,
+      note: data.note.present ? data.note.value : this.note,
+      kitchenNote:
+          data.kitchenNote.present ? data.kitchenNote.value : this.kitchenNote,
+      msgCansel: data.msgCansel.present ? data.msgCansel.value : this.msgCansel,
+      subTotal: data.subTotal.present ? data.subTotal.value : this.subTotal,
+      charges: data.charges.present ? data.charges.value : this.charges,
+      chargeValues: data.chargeValues.present
+          ? data.chargeValues.value
+          : this.chargeValues,
+      payments: data.payments.present ? data.payments.value : this.payments,
+      totalCharge:
+          data.totalCharge.present ? data.totalCharge.value : this.totalCharge,
+      taxPrice: data.taxPrice.present ? data.taxPrice.value : this.taxPrice,
+      totalPaid: data.totalPaid.present ? data.totalPaid.value : this.totalPaid,
+      checksum: data.checksum.present ? data.checksum.value : this.checksum,
+      masterChecksum: data.masterChecksum.present
+          ? data.masterChecksum.value
+          : this.masterChecksum,
+      serverChecksum: data.serverChecksum.present
+          ? data.serverChecksum.value
+          : this.serverChecksum,
+      shiftId: data.shiftId.present ? data.shiftId.value : this.shiftId,
+      tillId: data.tillId.present ? data.tillId.value : this.tillId,
+      totalDiscountForOrderAndProduct:
+          data.totalDiscountForOrderAndProduct.present
+              ? data.totalDiscountForOrderAndProduct.value
+              : this.totalDiscountForOrderAndProduct,
+      kitchenInfo:
+          data.kitchenInfo.present ? data.kitchenInfo.value : this.kitchenInfo,
+      currency: data.currency.present ? data.currency.value : this.currency,
+      paymentCurrency: data.paymentCurrency.present
+          ? data.paymentCurrency.value
+          : this.paymentCurrency,
+      minimumReservationPrice: data.minimumReservationPrice.present
+          ? data.minimumReservationPrice.value
+          : this.minimumReservationPrice,
+      giftCard: data.giftCard.present ? data.giftCard.value : this.giftCard,
+      roundingAmount: data.roundingAmount.present
+          ? data.roundingAmount.value
+          : this.roundingAmount,
+      tipAmount: data.tipAmount.present ? data.tipAmount.value : this.tipAmount,
+      donationAmount: data.donationAmount.present
+          ? data.donationAmount.value
+          : this.donationAmount,
+      donationForId: data.donationForId.present
+          ? data.donationForId.value
+          : this.donationForId,
+      supervisorId: data.supervisorId.present
+          ? data.supervisorId.value
+          : this.supervisorId,
+      reference: data.reference.present ? data.reference.value : this.reference,
+      trackingStatusId: data.trackingStatusId.present
+          ? data.trackingStatusId.value
+          : this.trackingStatusId,
+      orderStatusTracking: data.orderStatusTracking.present
+          ? data.orderStatusTracking.value
+          : this.orderStatusTracking,
+      waiters: data.waiters.present ? data.waiters.value : this.waiters,
+      couponId: data.couponId.present ? data.couponId.value : this.couponId,
+      createdOn: data.createdOn.present ? data.createdOn.value : this.createdOn,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      lastModifiedBy: data.lastModifiedBy.present
+          ? data.lastModifiedBy.value
+          : this.lastModifiedBy,
+      lastModifiedOn: data.lastModifiedOn.present
+          ? data.lastModifiedOn.value
+          : this.lastModifiedOn,
+      table: data.table.present ? data.table.value : this.table,
+      delivery: data.delivery.present ? data.delivery.value : this.delivery,
+      customerName: data.customerName.present
+          ? data.customerName.value
+          : this.customerName,
+      customerPhone: data.customerPhone.present
+          ? data.customerPhone.value
+          : this.customerPhone,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderEntityData(')
@@ -3069,7 +3148,6 @@ class $OrderHistoryEntityTable extends OrderHistoryEntity
   late final GeneratedColumn<String> userFName = GeneratedColumn<String>(
       'user_f_name', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _orderMeta = const VerificationMeta('order');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> order =
       GeneratedColumn<String>('order', aliasedName, true,
@@ -3154,7 +3232,6 @@ class $OrderHistoryEntityTable extends OrderHistoryEntity
           userFName.isAcceptableOrUnknown(
               data['user_f_name']!, _userFNameMeta));
     }
-    context.handle(_orderMeta, const VerificationResult.success());
     if (data.containsKey('last_edit_date')) {
       context.handle(
           _lastEditDateMeta,
@@ -3381,6 +3458,29 @@ class OrderHistoryEntityData extends DataClass
         checkSumHash:
             checkSumHash.present ? checkSumHash.value : this.checkSumHash,
       );
+  OrderHistoryEntityData copyWithCompanion(OrderHistoryEntityCompanion data) {
+    return OrderHistoryEntityData(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      orderId: data.orderId.present ? data.orderId.value : this.orderId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      userName: data.userName.present ? data.userName.value : this.userName,
+      userFName: data.userFName.present ? data.userFName.value : this.userFName,
+      order: data.order.present ? data.order.value : this.order,
+      lastEditDate: data.lastEditDate.present
+          ? data.lastEditDate.value
+          : this.lastEditDate,
+      lastSyncDate: data.lastSyncDate.present
+          ? data.lastSyncDate.value
+          : this.lastSyncDate,
+      sesstionId:
+          data.sesstionId.present ? data.sesstionId.value : this.sesstionId,
+      checkSumHash: data.checkSumHash.present
+          ? data.checkSumHash.value
+          : this.checkSumHash,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderHistoryEntityData(')
@@ -3740,6 +3840,17 @@ class OrderNumber extends DataClass implements Insertable<OrderNumber> {
         invoiceNumberPerfix: invoiceNumberPerfix ?? this.invoiceNumberPerfix,
         prefix: prefix.present ? prefix.value : this.prefix,
       );
+  OrderNumber copyWithCompanion(OrderNumbersCompanion data) {
+    return OrderNumber(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      invoiceNumberPerfix: data.invoiceNumberPerfix.present
+          ? data.invoiceNumberPerfix.value
+          : this.invoiceNumberPerfix,
+      prefix: data.prefix.present ? data.prefix.value : this.prefix,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderNumber(')
@@ -4230,6 +4341,34 @@ class ShiftEntityData extends DataClass implements Insertable<ShiftEntityData> {
         isClockedOut:
             isClockedOut.present ? isClockedOut.value : this.isClockedOut,
       );
+  ShiftEntityData copyWithCompanion(ShiftEntityCompanion data) {
+    return ShiftEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      shiftId: data.shiftId.present ? data.shiftId.value : this.shiftId,
+      prefix: data.prefix.present ? data.prefix.value : this.prefix,
+      reference: data.reference.present ? data.reference.value : this.reference,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      userName: data.userName.present ? data.userName.value : this.userName,
+      branchName:
+          data.branchName.present ? data.branchName.value : this.branchName,
+      clockedInDateAt: data.clockedInDateAt.present
+          ? data.clockedInDateAt.value
+          : this.clockedInDateAt,
+      clockedInTimeAt: data.clockedInTimeAt.present
+          ? data.clockedInTimeAt.value
+          : this.clockedInTimeAt,
+      clockedOutDateAt: data.clockedOutDateAt.present
+          ? data.clockedOutDateAt.value
+          : this.clockedOutDateAt,
+      clockedOutTimeAt: data.clockedOutTimeAt.present
+          ? data.clockedOutTimeAt.value
+          : this.clockedOutTimeAt,
+      isClockedOut: data.isClockedOut.present
+          ? data.isClockedOut.value
+          : this.isClockedOut,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('ShiftEntityData(')
@@ -4798,6 +4937,27 @@ class TillEntityData extends DataClass implements Insertable<TillEntityData> {
         isClosed: isClosed ?? this.isClosed,
         amount: amount ?? this.amount,
       );
+  TillEntityData copyWithCompanion(TillEntityCompanion data) {
+    return TillEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      reference: data.reference.present ? data.reference.value : this.reference,
+      shiftId: data.shiftId.present ? data.shiftId.value : this.shiftId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      userName: data.userName.present ? data.userName.value : this.userName,
+      openDateOn:
+          data.openDateOn.present ? data.openDateOn.value : this.openDateOn,
+      openTimeOn:
+          data.openTimeOn.present ? data.openTimeOn.value : this.openTimeOn,
+      closeDateOn:
+          data.closeDateOn.present ? data.closeDateOn.value : this.closeDateOn,
+      closeTimeOn:
+          data.closeTimeOn.present ? data.closeTimeOn.value : this.closeTimeOn,
+      note: data.note.present ? data.note.value : this.note,
+      isClosed: data.isClosed.present ? data.isClosed.value : this.isClosed,
+      amount: data.amount.present ? data.amount.value : this.amount,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('TillEntityData(')
@@ -5325,6 +5485,34 @@ class TillAmountsEntityData extends DataClass
         paymentMethodFName: paymentMethodFName ?? this.paymentMethodFName,
         amount: amount ?? this.amount,
       );
+  TillAmountsEntityData copyWithCompanion(TillAmountsEntityCompanion data) {
+    return TillAmountsEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      idTill: data.idTill.present ? data.idTill.value : this.idTill,
+      currencyCode: data.currencyCode.present
+          ? data.currencyCode.value
+          : this.currencyCode,
+      currencyId:
+          data.currencyId.present ? data.currencyId.value : this.currencyId,
+      currencyName: data.currencyName.present
+          ? data.currencyName.value
+          : this.currencyName,
+      currencyFName: data.currencyFName.present
+          ? data.currencyFName.value
+          : this.currencyFName,
+      paymentMethodId: data.paymentMethodId.present
+          ? data.paymentMethodId.value
+          : this.paymentMethodId,
+      paymentMethodName: data.paymentMethodName.present
+          ? data.paymentMethodName.value
+          : this.paymentMethodName,
+      paymentMethodFName: data.paymentMethodFName.present
+          ? data.paymentMethodFName.value
+          : this.paymentMethodFName,
+      amount: data.amount.present ? data.amount.value : this.amount,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('TillAmountsEntityData(')
@@ -5851,6 +6039,26 @@ class PaymentMethodEntityData extends DataClass
         isDeleted: isDeleted.present ? isDeleted.value : this.isDeleted,
         imageUrl: imageUrl.present ? imageUrl.value : this.imageUrl,
       );
+  PaymentMethodEntityData copyWithCompanion(PaymentMethodEntityCompanion data) {
+    return PaymentMethodEntityData(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      paymentType:
+          data.paymentType.present ? data.paymentType.value : this.paymentType,
+      displayOrder: data.displayOrder.present
+          ? data.displayOrder.value
+          : this.displayOrder,
+      autoOpenCashDrawer: data.autoOpenCashDrawer.present
+          ? data.autoOpenCashDrawer.value
+          : this.autoOpenCashDrawer,
+      isActive: data.isActive.present ? data.isActive.value : this.isActive,
+      isDeleted: data.isDeleted.present ? data.isDeleted.value : this.isDeleted,
+      imageUrl: data.imageUrl.present ? data.imageUrl.value : this.imageUrl,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('PaymentMethodEntityData(')
@@ -6052,8 +6260,6 @@ class $SettingEntityTable extends SettingEntity
   late final GeneratedColumn<String> idUser = GeneratedColumn<String>(
       'id_user', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _shortcutsMeta =
-      const VerificationMeta('shortcuts');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> shortcuts =
       GeneratedColumn<String>('shortcuts', aliasedName, true,
@@ -6081,7 +6287,6 @@ class $SettingEntityTable extends SettingEntity
     } else if (isInserting) {
       context.missing(_idUserMeta);
     }
-    context.handle(_shortcutsMeta, const VerificationResult.success());
     return context;
   }
 
@@ -6173,6 +6378,14 @@ class SettingEntityData extends DataClass
         idUser: idUser ?? this.idUser,
         shortcuts: shortcuts.present ? shortcuts.value : this.shortcuts,
       );
+  SettingEntityData copyWithCompanion(SettingEntityCompanion data) {
+    return SettingEntityData(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      idUser: data.idUser.present ? data.idUser.value : this.idUser,
+      shortcuts: data.shortcuts.present ? data.shortcuts.value : this.shortcuts,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('SettingEntityData(')
@@ -6598,6 +6811,30 @@ class OrderPayment extends DataClass implements Insertable<OrderPayment> {
         currencyCode:
             currencyCode.present ? currencyCode.value : this.currencyCode,
       );
+  OrderPayment copyWithCompanion(OrderPaymentsCompanion data) {
+    return OrderPayment(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      refreance: data.refreance.present ? data.refreance.value : this.refreance,
+      tillId: data.tillId.present ? data.tillId.value : this.tillId,
+      paymentMehtodId: data.paymentMehtodId.present
+          ? data.paymentMehtodId.value
+          : this.paymentMehtodId,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      orderId: data.orderId.present ? data.orderId.value : this.orderId,
+      amount: data.amount.present ? data.amount.value : this.amount,
+      remainAmt: data.remainAmt.present ? data.remainAmt.value : this.remainAmt,
+      amountCurecny: data.amountCurecny.present
+          ? data.amountCurecny.value
+          : this.amountCurecny,
+      exchangeRate: data.exchangeRate.present
+          ? data.exchangeRate.value
+          : this.exchangeRate,
+      currencyCode: data.currencyCode.present
+          ? data.currencyCode.value
+          : this.currencyCode,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderPayment(')
@@ -7210,6 +7447,29 @@ class DrawerOperationEntityData extends DataClass
             currencyCode.present ? currencyCode.value : this.currencyCode,
         createdAt: createdAt ?? this.createdAt,
       );
+  DrawerOperationEntityData copyWithCompanion(
+      DrawerOperationEntityCompanion data) {
+    return DrawerOperationEntityData(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      referance: data.referance.present ? data.referance.value : this.referance,
+      dateWork: data.dateWork.present ? data.dateWork.value : this.dateWork,
+      type: data.type.present ? data.type.value : this.type,
+      amount: data.amount.present ? data.amount.value : this.amount,
+      resaon: data.resaon.present ? data.resaon.value : this.resaon,
+      note: data.note.present ? data.note.value : this.note,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      tillId: data.tillId.present ? data.tillId.value : this.tillId,
+      shiftId: data.shiftId.present ? data.shiftId.value : this.shiftId,
+      currencyId:
+          data.currencyId.present ? data.currencyId.value : this.currencyId,
+      currencyCode: data.currencyCode.present
+          ? data.currencyCode.value
+          : this.currencyCode,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('DrawerOperationEntityData(')
@@ -7590,8 +7850,6 @@ class $ActivationInfoEntityTable extends ActivationInfoEntity
       requiredDuringInsert: false,
       defaultConstraints: GeneratedColumn.constraintIsAlways(
           'CHECK ("receive_online_orders" IN (0, 1))'));
-  static const VerificationMeta _devicesMeta =
-      const VerificationMeta('devices');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> devices =
       GeneratedColumn<String>('devices', aliasedName, true,
@@ -7779,7 +8037,6 @@ class $ActivationInfoEntityTable extends ActivationInfoEntity
           receiveOnlineOrders.isAcceptableOrUnknown(
               data['receive_online_orders']!, _receiveOnlineOrdersMeta));
     }
-    context.handle(_devicesMeta, const VerificationResult.success());
     if (data.containsKey('code')) {
       context.handle(
           _codeMeta, code.isAcceptableOrUnknown(data['code']!, _codeMeta));
@@ -8272,6 +8529,59 @@ class ActivationInfoEntityData extends DataClass
         branch: branch.present ? branch.value : this.branch,
         fBranch: fBranch.present ? fBranch.value : this.fBranch,
       );
+  ActivationInfoEntityData copyWithCompanion(
+      ActivationInfoEntityCompanion data) {
+    return ActivationInfoEntityData(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      email: data.email.present ? data.email.value : this.email,
+      phone: data.phone.present ? data.phone.value : this.phone,
+      mobile: data.mobile.present ? data.mobile.value : this.mobile,
+      taxRegName:
+          data.taxRegName.present ? data.taxRegName.value : this.taxRegName,
+      fTaxRegName:
+          data.fTaxRegName.present ? data.fTaxRegName.value : this.fTaxRegName,
+      taxCode: data.taxCode.present ? data.taxCode.value : this.taxCode,
+      onlineOrderStartTime: data.onlineOrderStartTime.present
+          ? data.onlineOrderStartTime.value
+          : this.onlineOrderStartTime,
+      onlineOrderEndTime: data.onlineOrderEndTime.present
+          ? data.onlineOrderEndTime.value
+          : this.onlineOrderEndTime,
+      branchPrefix: data.branchPrefix.present
+          ? data.branchPrefix.value
+          : this.branchPrefix,
+      customerService: data.customerService.present
+          ? data.customerService.value
+          : this.customerService,
+      countryId: data.countryId.present ? data.countryId.value : this.countryId,
+      cityId: data.cityId.present ? data.cityId.value : this.cityId,
+      address: data.address.present ? data.address.value : this.address,
+      latitude: data.latitude.present ? data.latitude.value : this.latitude,
+      longitude: data.longitude.present ? data.longitude.value : this.longitude,
+      headerInvoiceMsg: data.headerInvoiceMsg.present
+          ? data.headerInvoiceMsg.value
+          : this.headerInvoiceMsg,
+      footerInvoiceMsg: data.footerInvoiceMsg.present
+          ? data.footerInvoiceMsg.value
+          : this.footerInvoiceMsg,
+      receiveOnlineOrders: data.receiveOnlineOrders.present
+          ? data.receiveOnlineOrders.value
+          : this.receiveOnlineOrders,
+      devices: data.devices.present ? data.devices.value : this.devices,
+      code: data.code.present ? data.code.value : this.code,
+      currentDeviceId: data.currentDeviceId.present
+          ? data.currentDeviceId.value
+          : this.currentDeviceId,
+      company: data.company.present ? data.company.value : this.company,
+      fCompany: data.fCompany.present ? data.fCompany.value : this.fCompany,
+      branch: data.branch.present ? data.branch.value : this.branch,
+      fBranch: data.fBranch.present ? data.fBranch.value : this.fBranch,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('ActivationInfoEntityData(')
@@ -8917,6 +9227,17 @@ class ProductQtyEntityData extends DataClass
         unitId: unitId ?? this.unitId,
         isAvailable: isAvailable ?? this.isAvailable,
       );
+  ProductQtyEntityData copyWithCompanion(ProductQtyEntityCompanion data) {
+    return ProductQtyEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      qty: data.qty.present ? data.qty.value : this.qty,
+      productId: data.productId.present ? data.productId.value : this.productId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      isAvailable:
+          data.isAvailable.present ? data.isAvailable.value : this.isAvailable,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('ProductQtyEntityData(')
@@ -9100,7 +9421,6 @@ class $SyncQueueEntityTable extends SyncQueueEntity
   late final GeneratedColumn<String> checksumCloud = GeneratedColumn<String>(
       'checksum_cloud', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _dataMeta = const VerificationMeta('data');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> data =
       GeneratedColumn<String>('data', aliasedName, false,
@@ -9184,7 +9504,6 @@ class $SyncQueueEntityTable extends SyncQueueEntity
           checksumCloud.isAcceptableOrUnknown(
               data['checksum_cloud']!, _checksumCloudMeta));
     }
-    context.handle(_dataMeta, const VerificationResult.success());
     return context;
   }
 
@@ -9374,6 +9693,28 @@ class SyncQueueEntityData extends DataClass
             checksumCloud.present ? checksumCloud.value : this.checksumCloud,
         data: data.present ? data.value : this.data,
       );
+  SyncQueueEntityData copyWithCompanion(SyncQueueEntityCompanion data) {
+    return SyncQueueEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      entity: data.entity.present ? data.entity.value : this.entity,
+      entityId: data.entityId.present ? data.entityId.value : this.entityId,
+      process: data.process.present ? data.process.value : this.process,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      synced: data.synced.present ? data.synced.value : this.synced,
+      checksumLocal: data.checksumLocal.present
+          ? data.checksumLocal.value
+          : this.checksumLocal,
+      checksumBaseCashier: data.checksumBaseCashier.present
+          ? data.checksumBaseCashier.value
+          : this.checksumBaseCashier,
+      checksumCloud: data.checksumCloud.present
+          ? data.checksumCloud.value
+          : this.checksumCloud,
+      data: data.data.present ? data.data.value : this.data,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('SyncQueueEntityData(')
@@ -9705,8 +10046,8 @@ class $OrderEntityV2Table extends OrderEntityV2
       const VerificationMeta('orderRef');
   @override
   late final GeneratedColumn<String> orderRef = GeneratedColumn<String>(
-      'order_ref', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+      'order_ref', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
   static const VerificationMeta _deviceIdMeta =
       const VerificationMeta('deviceId');
   @override
@@ -9894,8 +10235,6 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<String> customerId = GeneratedColumn<String>(
       'customer_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _customerJsonMeta =
-      const VerificationMeta('customerJson');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> customerJson =
       GeneratedColumn<String>('customer_json', aliasedName, true,
@@ -9907,8 +10246,6 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<String> addressId = GeneratedColumn<String>(
       'address_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _addressJsonMeta =
-      const VerificationMeta('addressJson');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> addressJson =
       GeneratedColumn<String>('address_json', aliasedName, true,
@@ -9920,15 +10257,11 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<String> promotionId = GeneratedColumn<String>(
       'promotion_id', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _promotionJsonMeta =
-      const VerificationMeta('promotionJson');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> promotionJson =
       GeneratedColumn<String>('promotion_json', aliasedName, true,
               type: DriftSqlType.string, requiredDuringInsert: false)
           .withConverter<dynamic>($OrderEntityV2Table.$converterpromotionJson);
-  static const VerificationMeta _giftCardJsonMeta =
-      const VerificationMeta('giftCardJson');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> giftCardJson =
       GeneratedColumn<String>('gift_card_json', aliasedName, true,
@@ -10166,6 +10499,8 @@ class $OrderEntityV2Table extends OrderEntityV2
     if (data.containsKey('order_ref')) {
       context.handle(_orderRefMeta,
           orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    } else if (isInserting) {
+      context.missing(_orderRefMeta);
     }
     if (data.containsKey('device_id')) {
       context.handle(_deviceIdMeta,
@@ -10332,20 +10667,16 @@ class $OrderEntityV2Table extends OrderEntityV2
           customerId.isAcceptableOrUnknown(
               data['customer_id']!, _customerIdMeta));
     }
-    context.handle(_customerJsonMeta, const VerificationResult.success());
     if (data.containsKey('address_id')) {
       context.handle(_addressIdMeta,
           addressId.isAcceptableOrUnknown(data['address_id']!, _addressIdMeta));
     }
-    context.handle(_addressJsonMeta, const VerificationResult.success());
     if (data.containsKey('promotion_id')) {
       context.handle(
           _promotionIdMeta,
           promotionId.isAcceptableOrUnknown(
               data['promotion_id']!, _promotionIdMeta));
     }
-    context.handle(_promotionJsonMeta, const VerificationResult.success());
-    context.handle(_giftCardJsonMeta, const VerificationResult.success());
     if (data.containsKey('created_on')) {
       context.handle(_createdOnMeta,
           createdOn.isAcceptableOrUnknown(data['created_on']!, _createdOnMeta));
@@ -10425,7 +10756,7 @@ class $OrderEntityV2Table extends OrderEntityV2
       note: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}note']),
       orderRef: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref'])!,
       deviceId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}device_id']),
       startDate: attachedDatabase.typeMapping
@@ -10554,7 +10885,7 @@ class OrderEntityV2Data extends DataClass
   final double? timeEventChargeAmount;
   final double? roundingDecimalAmount;
   final String? note;
-  final String? orderRef;
+  final String orderRef;
   final String? deviceId;
   final DateTime? startDate;
   final DateTime? endTime;
@@ -10618,7 +10949,7 @@ class OrderEntityV2Data extends DataClass
       this.timeEventChargeAmount,
       this.roundingDecimalAmount,
       this.note,
-      this.orderRef,
+      required this.orderRef,
       this.deviceId,
       this.startDate,
       this.endTime,
@@ -10724,9 +11055,7 @@ class OrderEntityV2Data extends DataClass
     if (!nullToAbsent || note != null) {
       map['note'] = Variable<String>(note);
     }
-    if (!nullToAbsent || orderRef != null) {
-      map['order_ref'] = Variable<String>(orderRef);
-    }
+    map['order_ref'] = Variable<String>(orderRef);
     if (!nullToAbsent || deviceId != null) {
       map['device_id'] = Variable<String>(deviceId);
     }
@@ -10916,9 +11245,7 @@ class OrderEntityV2Data extends DataClass
           ? const Value.absent()
           : Value(roundingDecimalAmount),
       note: note == null && nullToAbsent ? const Value.absent() : Value(note),
-      orderRef: orderRef == null && nullToAbsent
-          ? const Value.absent()
-          : Value(orderRef),
+      orderRef: Value(orderRef),
       deviceId: deviceId == null && nullToAbsent
           ? const Value.absent()
           : Value(deviceId),
@@ -11077,7 +11404,7 @@ class OrderEntityV2Data extends DataClass
       roundingDecimalAmount:
           serializer.fromJson<double?>(json['roundingDecimalAmount']),
       note: serializer.fromJson<String?>(json['note']),
-      orderRef: serializer.fromJson<String?>(json['orderRef']),
+      orderRef: serializer.fromJson<String>(json['orderRef']),
       deviceId: serializer.fromJson<String?>(json['deviceId']),
       startDate: serializer.fromJson<DateTime?>(json['startDate']),
       endTime: serializer.fromJson<DateTime?>(json['endTime']),
@@ -11154,7 +11481,7 @@ class OrderEntityV2Data extends DataClass
       'roundingDecimalAmount':
           serializer.toJson<double?>(roundingDecimalAmount),
       'note': serializer.toJson<String?>(note),
-      'orderRef': serializer.toJson<String?>(orderRef),
+      'orderRef': serializer.toJson<String>(orderRef),
       'deviceId': serializer.toJson<String?>(deviceId),
       'startDate': serializer.toJson<DateTime?>(startDate),
       'endTime': serializer.toJson<DateTime?>(endTime),
@@ -11222,7 +11549,7 @@ class OrderEntityV2Data extends DataClass
           Value<double?> timeEventChargeAmount = const Value.absent(),
           Value<double?> roundingDecimalAmount = const Value.absent(),
           Value<String?> note = const Value.absent(),
-          Value<String?> orderRef = const Value.absent(),
+          String? orderRef,
           Value<String?> deviceId = const Value.absent(),
           Value<DateTime?> startDate = const Value.absent(),
           Value<DateTime?> endTime = const Value.absent(),
@@ -11309,7 +11636,7 @@ class OrderEntityV2Data extends DataClass
             ? roundingDecimalAmount.value
             : this.roundingDecimalAmount,
         note: note.present ? note.value : this.note,
-        orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        orderRef: orderRef ?? this.orderRef,
         deviceId: deviceId.present ? deviceId.value : this.deviceId,
         startDate: startDate.present ? startDate.value : this.startDate,
         endTime: endTime.present ? endTime.value : this.endTime,
@@ -11373,6 +11700,153 @@ class OrderEntityV2Data extends DataClass
         lastModifiedBy:
             lastModifiedBy.present ? lastModifiedBy.value : this.lastModifiedBy,
       );
+  OrderEntityV2Data copyWithCompanion(OrderEntityV2Companion data) {
+    return OrderEntityV2Data(
+      totalPrice:
+          data.totalPrice.present ? data.totalPrice.value : this.totalPrice,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      netTotalPrice: data.netTotalPrice.present
+          ? data.netTotalPrice.value
+          : this.netTotalPrice,
+      chargeAmount: data.chargeAmount.present
+          ? data.chargeAmount.value
+          : this.chargeAmount,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+      finalAmount:
+          data.finalAmount.present ? data.finalAmount.value : this.finalAmount,
+      paidAmount:
+          data.paidAmount.present ? data.paidAmount.value : this.paidAmount,
+      dueAmount: data.dueAmount.present ? data.dueAmount.value : this.dueAmount,
+      changeAmount: data.changeAmount.present
+          ? data.changeAmount.value
+          : this.changeAmount,
+      shippingAmount: data.shippingAmount.present
+          ? data.shippingAmount.value
+          : this.shippingAmount,
+      shippingDiscountAmount: data.shippingDiscountAmount.present
+          ? data.shippingDiscountAmount.value
+          : this.shippingDiscountAmount,
+      shippingDiscountPercentage: data.shippingDiscountPercentage.present
+          ? data.shippingDiscountPercentage.value
+          : this.shippingDiscountPercentage,
+      productDiscountAmount: data.productDiscountAmount.present
+          ? data.productDiscountAmount.value
+          : this.productDiscountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+      totalDiscountAmount: data.totalDiscountAmount.present
+          ? data.totalDiscountAmount.value
+          : this.totalDiscountAmount,
+      promotionDiscountAmount: data.promotionDiscountAmount.present
+          ? data.promotionDiscountAmount.value
+          : this.promotionDiscountAmount,
+      timeEventDiscountAmount: data.timeEventDiscountAmount.present
+          ? data.timeEventDiscountAmount.value
+          : this.timeEventDiscountAmount,
+      timeEventChargeAmount: data.timeEventChargeAmount.present
+          ? data.timeEventChargeAmount.value
+          : this.timeEventChargeAmount,
+      roundingDecimalAmount: data.roundingDecimalAmount.present
+          ? data.roundingDecimalAmount.value
+          : this.roundingDecimalAmount,
+      note: data.note.present ? data.note.value : this.note,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      endTime: data.endTime.present ? data.endTime.value : this.endTime,
+      timeOfReceipt: data.timeOfReceipt.present
+          ? data.timeOfReceipt.value
+          : this.timeOfReceipt,
+      orderType: data.orderType.present ? data.orderType.value : this.orderType,
+      orderSource:
+          data.orderSource.present ? data.orderSource.value : this.orderSource,
+      status: data.status.present ? data.status.value : this.status,
+      deliveryStatus: data.deliveryStatus.present
+          ? data.deliveryStatus.value
+          : this.deliveryStatus,
+      paymentStatus: data.paymentStatus.present
+          ? data.paymentStatus.value
+          : this.paymentStatus,
+      refundStatus: data.refundStatus.present
+          ? data.refundStatus.value
+          : this.refundStatus,
+      shiftId: data.shiftId.present ? data.shiftId.value : this.shiftId,
+      tillId: data.tillId.present ? data.tillId.value : this.tillId,
+      tableId: data.tableId.present ? data.tableId.value : this.tableId,
+      tableCaption: data.tableCaption.present
+          ? data.tableCaption.value
+          : this.tableCaption,
+      numberVisitor: data.numberVisitor.present
+          ? data.numberVisitor.value
+          : this.numberVisitor,
+      minimumReservationPrice: data.minimumReservationPrice.present
+          ? data.minimumReservationPrice.value
+          : this.minimumReservationPrice,
+      callName: data.callName.present ? data.callName.value : this.callName,
+      callNumber:
+          data.callNumber.present ? data.callNumber.value : this.callNumber,
+      cancelReasonId: data.cancelReasonId.present
+          ? data.cancelReasonId.value
+          : this.cancelReasonId,
+      msgCancel: data.msgCancel.present ? data.msgCancel.value : this.msgCancel,
+      kitchenNote:
+          data.kitchenNote.present ? data.kitchenNote.value : this.kitchenNote,
+      casherNote:
+          data.casherNote.present ? data.casherNote.value : this.casherNote,
+      supervisorId: data.supervisorId.present
+          ? data.supervisorId.value
+          : this.supervisorId,
+      parentOrderId: data.parentOrderId.present
+          ? data.parentOrderId.value
+          : this.parentOrderId,
+      splitIndex:
+          data.splitIndex.present ? data.splitIndex.value : this.splitIndex,
+      checksum: data.checksum.present ? data.checksum.value : this.checksum,
+      masterChecksum: data.masterChecksum.present
+          ? data.masterChecksum.value
+          : this.masterChecksum,
+      serverChecksum: data.serverChecksum.present
+          ? data.serverChecksum.value
+          : this.serverChecksum,
+      totalCalories: data.totalCalories.present
+          ? data.totalCalories.value
+          : this.totalCalories,
+      priceIncludeTax: data.priceIncludeTax.present
+          ? data.priceIncludeTax.value
+          : this.priceIncludeTax,
+      customerId:
+          data.customerId.present ? data.customerId.value : this.customerId,
+      customerJson: data.customerJson.present
+          ? data.customerJson.value
+          : this.customerJson,
+      addressId: data.addressId.present ? data.addressId.value : this.addressId,
+      addressJson:
+          data.addressJson.present ? data.addressJson.value : this.addressJson,
+      promotionId:
+          data.promotionId.present ? data.promotionId.value : this.promotionId,
+      promotionJson: data.promotionJson.present
+          ? data.promotionJson.value
+          : this.promotionJson,
+      giftCardJson: data.giftCardJson.present
+          ? data.giftCardJson.value
+          : this.giftCardJson,
+      createdOn: data.createdOn.present ? data.createdOn.value : this.createdOn,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      lastModifiedOn: data.lastModifiedOn.present
+          ? data.lastModifiedOn.value
+          : this.lastModifiedOn,
+      lastModifiedBy: data.lastModifiedBy.present
+          ? data.lastModifiedBy.value
+          : this.lastModifiedBy,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderEntityV2Data(')
@@ -11600,7 +12074,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<double?> timeEventChargeAmount;
   final Value<double?> roundingDecimalAmount;
   final Value<String?> note;
-  final Value<String?> orderRef;
+  final Value<String> orderRef;
   final Value<String?> deviceId;
   final Value<DateTime?> startDate;
   final Value<DateTime?> endTime;
@@ -11731,7 +12205,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.timeEventChargeAmount = const Value.absent(),
     this.roundingDecimalAmount = const Value.absent(),
     this.note = const Value.absent(),
-    this.orderRef = const Value.absent(),
+    required String orderRef,
     this.deviceId = const Value.absent(),
     this.startDate = const Value.absent(),
     this.endTime = const Value.absent(),
@@ -11776,7 +12250,8 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.rowid = const Value.absent(),
   })  : totalPrice = Value(totalPrice),
         netTotalPrice = Value(netTotalPrice),
-        finalAmount = Value(finalAmount);
+        finalAmount = Value(finalAmount),
+        orderRef = Value(orderRef);
   static Insertable<OrderEntityV2Data> custom({
     Expression<double>? totalPrice,
     Expression<double>? discountAmount,
@@ -11942,7 +12417,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<double?>? timeEventChargeAmount,
       Value<double?>? roundingDecimalAmount,
       Value<String?>? note,
-      Value<String?>? orderRef,
+      Value<String>? orderRef,
       Value<String?>? deviceId,
       Value<DateTime?>? startDate,
       Value<DateTime?>? endTime,
@@ -13054,6 +13529,64 @@ class OrderProductEntityV2Data extends DataClass
             departmentId.present ? departmentId.value : this.departmentId,
         categoryId: categoryId.present ? categoryId.value : this.categoryId,
       );
+  OrderProductEntityV2Data copyWithCompanion(
+      OrderProductEntityV2Companion data) {
+    return OrderProductEntityV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      tableRowIndex: data.tableRowIndex.present
+          ? data.tableRowIndex.value
+          : this.tableRowIndex,
+      name: data.name.present ? data.name.value : this.name,
+      productId: data.productId.present ? data.productId.value : this.productId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      quantity: data.quantity.present ? data.quantity.value : this.quantity,
+      freeQuantity: data.freeQuantity.present
+          ? data.freeQuantity.value
+          : this.freeQuantity,
+      unitPrice: data.unitPrice.present ? data.unitPrice.value : this.unitPrice,
+      totalPrice:
+          data.totalPrice.present ? data.totalPrice.value : this.totalPrice,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+      netUnitPrice: data.netUnitPrice.present
+          ? data.netUnitPrice.value
+          : this.netUnitPrice,
+      netTotalPrice: data.netTotalPrice.present
+          ? data.netTotalPrice.value
+          : this.netTotalPrice,
+      netUnitPriceExcludeTax: data.netUnitPriceExcludeTax.present
+          ? data.netUnitPriceExcludeTax.value
+          : this.netUnitPriceExcludeTax,
+      netTotalPriceExcludeTax: data.netTotalPriceExcludeTax.present
+          ? data.netTotalPriceExcludeTax.value
+          : this.netTotalPriceExcludeTax,
+      orderDiscountAmount: data.orderDiscountAmount.present
+          ? data.orderDiscountAmount.value
+          : this.orderDiscountAmount,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+      finalAmount:
+          data.finalAmount.present ? data.finalAmount.value : this.finalAmount,
+      roundingDecimalAmount: data.roundingDecimalAmount.present
+          ? data.roundingDecimalAmount.value
+          : this.roundingDecimalAmount,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      departmentId: data.departmentId.present
+          ? data.departmentId.value
+          : this.departmentId,
+      categoryId:
+          data.categoryId.present ? data.categoryId.value : this.categoryId,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductEntityV2Data(')
@@ -13810,6 +14343,30 @@ class OrderProductUnitPriceV2Data extends DataClass
         name: name.present ? name.value : this.name,
         fName: fName.present ? fName.value : this.fName,
       );
+  OrderProductUnitPriceV2Data copyWithCompanion(
+      OrderProductUnitPriceV2Companion data) {
+    return OrderProductUnitPriceV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      unitPrice: data.unitPrice.present ? data.unitPrice.value : this.unitPrice,
+      description:
+          data.description.present ? data.description.value : this.description,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      productUnitId: data.productUnitId.present
+          ? data.productUnitId.value
+          : this.productUnitId,
+      productUnitPriceListId: data.productUnitPriceListId.present
+          ? data.productUnitPriceListId.value
+          : this.productUnitPriceListId,
+      productUnitPriceListSlapId: data.productUnitPriceListSlapId.present
+          ? data.productUnitPriceListSlapId.value
+          : this.productUnitPriceListSlapId,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductUnitPriceV2Data(')
@@ -14237,6 +14794,23 @@ class OrderProductTieredPricingV2Data extends DataClass
         netUnitPrice:
             netUnitPrice.present ? netUnitPrice.value : this.netUnitPrice,
       );
+  OrderProductTieredPricingV2Data copyWithCompanion(
+      OrderProductTieredPricingV2Companion data) {
+    return OrderProductTieredPricingV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      tieredPricingId: data.tieredPricingId.present
+          ? data.tieredPricingId.value
+          : this.tieredPricingId,
+      name: data.name.present ? data.name.value : this.name,
+      unitPrice: data.unitPrice.present ? data.unitPrice.value : this.unitPrice,
+      netUnitPrice: data.netUnitPrice.present
+          ? data.netUnitPrice.value
+          : this.netUnitPrice,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductTieredPricingV2Data(')
@@ -14586,6 +15160,22 @@ class OrderProductTimeEventV2Data extends DataClass
         unitPrice: unitPrice ?? this.unitPrice,
         netUnitPrice: netUnitPrice ?? this.netUnitPrice,
       );
+  OrderProductTimeEventV2Data copyWithCompanion(
+      OrderProductTimeEventV2Companion data) {
+    return OrderProductTimeEventV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      timeEventId:
+          data.timeEventId.present ? data.timeEventId.value : this.timeEventId,
+      name: data.name.present ? data.name.value : this.name,
+      unitPrice: data.unitPrice.present ? data.unitPrice.value : this.unitPrice,
+      netUnitPrice: data.netUnitPrice.present
+          ? data.netUnitPrice.value
+          : this.netUnitPrice,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductTimeEventV2Data(')
@@ -14961,6 +15551,26 @@ class OrderProductDiscountV2Data extends DataClass
             discountType.present ? discountType.value : this.discountType,
         discountId: discountId.present ? discountId.value : this.discountId,
       );
+  OrderProductDiscountV2Data copyWithCompanion(
+      OrderProductDiscountV2Companion data) {
+    return OrderProductDiscountV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+      discountType: data.discountType.present
+          ? data.discountType.value
+          : this.discountType,
+      discountId:
+          data.discountId.present ? data.discountId.value : this.discountId,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductDiscountV2Data(')
@@ -15151,8 +15761,6 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
       GeneratedColumn<double>(
           'promotion_discount_percentage', aliasedName, true,
           type: DriftSqlType.double, requiredDuringInsert: false);
-  static const VerificationMeta _promotionsJsonMeta =
-      const VerificationMeta('promotionsJson');
   @override
   late final GeneratedColumnWithTypeConverter<dynamic, String> promotionsJson =
       GeneratedColumn<String>('promotions_json', aliasedName, true,
@@ -15225,7 +15833,6 @@ class $OrderProductPromotionInfoV2Table extends OrderProductPromotionInfoV2
               data['promotion_discount_percentage']!,
               _promotionDiscountPercentageMeta));
     }
-    context.handle(_promotionsJsonMeta, const VerificationResult.success());
     return context;
   }
 
@@ -15424,6 +16031,33 @@ class OrderProductPromotionInfoV2Data extends DataClass
         promotionsJson:
             promotionsJson.present ? promotionsJson.value : this.promotionsJson,
       );
+  OrderProductPromotionInfoV2Data copyWithCompanion(
+      OrderProductPromotionInfoV2Companion data) {
+    return OrderProductPromotionInfoV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      notAppliesQuantity: data.notAppliesQuantity.present
+          ? data.notAppliesQuantity.value
+          : this.notAppliesQuantity,
+      appliesAsPurchaseQuantity: data.appliesAsPurchaseQuantity.present
+          ? data.appliesAsPurchaseQuantity.value
+          : this.appliesAsPurchaseQuantity,
+      appliesAsDiscountQuantity: data.appliesAsDiscountQuantity.present
+          ? data.appliesAsDiscountQuantity.value
+          : this.appliesAsDiscountQuantity,
+      promotionDiscountAmount: data.promotionDiscountAmount.present
+          ? data.promotionDiscountAmount.value
+          : this.promotionDiscountAmount,
+      promotionDiscountPercentage: data.promotionDiscountPercentage.present
+          ? data.promotionDiscountPercentage.value
+          : this.promotionDiscountPercentage,
+      promotionsJson: data.promotionsJson.present
+          ? data.promotionsJson.value
+          : this.promotionsJson,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductPromotionInfoV2Data(')
@@ -15824,6 +16458,20 @@ class OrderProductChargeV2Data extends DataClass
         amount: amount.present ? amount.value : this.amount,
         percentage: percentage.present ? percentage.value : this.percentage,
       );
+  OrderProductChargeV2Data copyWithCompanion(
+      OrderProductChargeV2Companion data) {
+    return OrderProductChargeV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      chargeId: data.chargeId.present ? data.chargeId.value : this.chargeId,
+      name: data.name.present ? data.name.value : this.name,
+      amount: data.amount.present ? data.amount.value : this.amount,
+      percentage:
+          data.percentage.present ? data.percentage.value : this.percentage,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeV2Data(')
@@ -16244,6 +16892,27 @@ class OrderProductTaxInfoV2Data extends DataClass
             taxPercentage.present ? taxPercentage.value : this.taxPercentage,
         taxGroupId: taxGroupId.present ? taxGroupId.value : this.taxGroupId,
       );
+  OrderProductTaxInfoV2Data copyWithCompanion(
+      OrderProductTaxInfoV2Companion data) {
+    return OrderProductTaxInfoV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      modifierId:
+          data.modifierId.present ? data.modifierId.value : this.modifierId,
+      optionId: data.optionId.present ? data.optionId.value : this.optionId,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+      taxPercentage: data.taxPercentage.present
+          ? data.taxPercentage.value
+          : this.taxPercentage,
+      taxGroupId:
+          data.taxGroupId.present ? data.taxGroupId.value : this.taxGroupId,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxInfoV2Data(')
@@ -16619,6 +17288,20 @@ class OrderProductChargeTaxV2Data extends DataClass
         amount: amount.present ? amount.value : this.amount,
         percentage: percentage.present ? percentage.value : this.percentage,
       );
+  OrderProductChargeTaxV2Data copyWithCompanion(
+      OrderProductChargeTaxV2Companion data) {
+    return OrderProductChargeTaxV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      taxId: data.taxId.present ? data.taxId.value : this.taxId,
+      name: data.name.present ? data.name.value : this.name,
+      amount: data.amount.present ? data.amount.value : this.amount,
+      percentage:
+          data.percentage.present ? data.percentage.value : this.percentage,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductChargeTaxV2Data(')
@@ -17316,6 +17999,45 @@ class OrderProductTaxTypeV2Data extends DataClass
             ? isNotApplyForThisPeriod.value
             : this.isNotApplyForThisPeriod,
       );
+  OrderProductTaxTypeV2Data copyWithCompanion(
+      OrderProductTaxTypeV2Companion data) {
+    return OrderProductTaxTypeV2Data(
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      modifierId:
+          data.modifierId.present ? data.modifierId.value : this.modifierId,
+      optionId: data.optionId.present ? data.optionId.value : this.optionId,
+      taxAccount:
+          data.taxAccount.present ? data.taxAccount.value : this.taxAccount,
+      taxCode: data.taxCode.present ? data.taxCode.value : this.taxCode,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      taxTypeId: data.taxTypeId.present ? data.taxTypeId.value : this.taxTypeId,
+      taxTypeName:
+          data.taxTypeName.present ? data.taxTypeName.value : this.taxTypeName,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+      taxPercentage: data.taxPercentage.present
+          ? data.taxPercentage.value
+          : this.taxPercentage,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      taxGroupId:
+          data.taxGroupId.present ? data.taxGroupId.value : this.taxGroupId,
+      isTaxExempt:
+          data.isTaxExempt.present ? data.isTaxExempt.value : this.isTaxExempt,
+      isZeroTax: data.isZeroTax.present ? data.isZeroTax.value : this.isZeroTax,
+      isNotApplyForThisCustomer: data.isNotApplyForThisCustomer.present
+          ? data.isNotApplyForThisCustomer.value
+          : this.isNotApplyForThisCustomer,
+      isNotApplyForThisOrderType: data.isNotApplyForThisOrderType.present
+          ? data.isNotApplyForThisOrderType.value
+          : this.isNotApplyForThisOrderType,
+      isNotApplyForThisPeriod: data.isNotApplyForThisPeriod.present
+          ? data.isNotApplyForThisPeriod.value
+          : this.isNotApplyForThisPeriod,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductTaxTypeV2Data(')
@@ -17961,6 +18683,31 @@ class OrderDiscountV2Data extends DataClass
         taxable: taxable.present ? taxable.value : this.taxable,
         notes: notes.present ? notes.value : this.notes,
       );
+  OrderDiscountV2Data copyWithCompanion(OrderDiscountV2Companion data) {
+    return OrderDiscountV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      discountId:
+          data.discountId.present ? data.discountId.value : this.discountId,
+      name: data.name.present ? data.name.value : this.name,
+      totalPrice:
+          data.totalPrice.present ? data.totalPrice.value : this.totalPrice,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+      discountAmountPerUnit: data.discountAmountPerUnit.present
+          ? data.discountAmountPerUnit.value
+          : this.discountAmountPerUnit,
+      discountType: data.discountType.present
+          ? data.discountType.value
+          : this.discountType,
+      taxable: data.taxable.present ? data.taxable.value : this.taxable,
+      notes: data.notes.present ? data.notes.value : this.notes,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderDiscountV2Data(')
@@ -18391,6 +19138,24 @@ class OrderPromotionAppliesV2Data extends DataClass
             ? discountPercentage.value
             : this.discountPercentage,
       );
+  OrderPromotionAppliesV2Data copyWithCompanion(
+      OrderPromotionAppliesV2Companion data) {
+    return OrderPromotionAppliesV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      promotionId:
+          data.promotionId.present ? data.promotionId.value : this.promotionId,
+      name: data.name.present ? data.name.value : this.name,
+      totalPrice:
+          data.totalPrice.present ? data.totalPrice.value : this.totalPrice,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderPromotionAppliesV2Data(')
@@ -18738,6 +19503,18 @@ class OrderPromotionGiftCardV2Data extends DataClass
         reference: reference.present ? reference.value : this.reference,
         price: price.present ? price.value : this.price,
       );
+  OrderPromotionGiftCardV2Data copyWithCompanion(
+      OrderPromotionGiftCardV2Companion data) {
+    return OrderPromotionGiftCardV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      barcode: data.barcode.present ? data.barcode.value : this.barcode,
+      reference: data.reference.present ? data.reference.value : this.reference,
+      price: data.price.present ? data.price.value : this.price,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderPromotionGiftCardV2Data(')
@@ -19172,6 +19949,26 @@ class OrderChargeV2Data extends DataClass
             chargeAmount.present ? chargeAmount.value : this.chargeAmount,
         description: description.present ? description.value : this.description,
       );
+  OrderChargeV2Data copyWithCompanion(OrderChargeV2Companion data) {
+    return OrderChargeV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      chargeId: data.chargeId.present ? data.chargeId.value : this.chargeId,
+      name: data.name.present ? data.name.value : this.name,
+      type: data.type.present ? data.type.value : this.type,
+      chargableAmount: data.chargableAmount.present
+          ? data.chargableAmount.value
+          : this.chargableAmount,
+      value: data.value.present ? data.value.value : this.value,
+      percentage:
+          data.percentage.present ? data.percentage.value : this.percentage,
+      chargeAmount: data.chargeAmount.present
+          ? data.chargeAmount.value
+          : this.chargeAmount,
+      description:
+          data.description.present ? data.description.value : this.description,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderChargeV2Data(')
@@ -19529,6 +20326,17 @@ class OrderChargeForTotalV2Data extends DataClass
         amount: amount.present ? amount.value : this.amount,
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
       );
+  OrderChargeForTotalV2Data copyWithCompanion(
+      OrderChargeForTotalV2Companion data) {
+    return OrderChargeForTotalV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      chargeId: data.chargeId.present ? data.chargeId.value : this.chargeId,
+      name: data.name.present ? data.name.value : this.name,
+      amount: data.amount.present ? data.amount.value : this.amount,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderChargeForTotalV2Data(')
@@ -19954,6 +20762,24 @@ class OrderTaxTypeV2Data extends DataClass
         taxAccount: taxAccount.present ? taxAccount.value : this.taxAccount,
         zeroTax: zeroTax.present ? zeroTax.value : this.zeroTax,
       );
+  OrderTaxTypeV2Data copyWithCompanion(OrderTaxTypeV2Companion data) {
+    return OrderTaxTypeV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      taxTypeId: data.taxTypeId.present ? data.taxTypeId.value : this.taxTypeId,
+      taxTypeName:
+          data.taxTypeName.present ? data.taxTypeName.value : this.taxTypeName,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      percent: data.percent.present ? data.percent.value : this.percent,
+      amount: data.amount.present ? data.amount.value : this.amount,
+      taxCode: data.taxCode.present ? data.taxCode.value : this.taxCode,
+      taxAccount:
+          data.taxAccount.present ? data.taxAccount.value : this.taxAccount,
+      zeroTax: data.zeroTax.present ? data.zeroTax.value : this.zeroTax,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderTaxTypeV2Data(')
@@ -20639,6 +21465,47 @@ class OrderProductModifierV2Data extends DataClass
         taxAmount: taxAmount.present ? taxAmount.value : this.taxAmount,
         finalAmount: finalAmount.present ? finalAmount.value : this.finalAmount,
       );
+  OrderProductModifierV2Data copyWithCompanion(
+      OrderProductModifierV2Companion data) {
+    return OrderProductModifierV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      modifierId:
+          data.modifierId.present ? data.modifierId.value : this.modifierId,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+      netUnitPrice: data.netUnitPrice.present
+          ? data.netUnitPrice.value
+          : this.netUnitPrice,
+      netTotalPrice: data.netTotalPrice.present
+          ? data.netTotalPrice.value
+          : this.netTotalPrice,
+      netUnitPriceExcludeTax: data.netUnitPriceExcludeTax.present
+          ? data.netUnitPriceExcludeTax.value
+          : this.netUnitPriceExcludeTax,
+      netTotalPriceExcludeTax: data.netTotalPriceExcludeTax.present
+          ? data.netTotalPriceExcludeTax.value
+          : this.netTotalPriceExcludeTax,
+      orderDiscountAmount: data.orderDiscountAmount.present
+          ? data.orderDiscountAmount.value
+          : this.orderDiscountAmount,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+      finalAmount:
+          data.finalAmount.present ? data.finalAmount.value : this.finalAmount,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductModifierV2Data(')
@@ -21619,6 +22486,60 @@ class OrderProductModifierOptionV2Data extends DataClass
         taxGroupId: taxGroupId.present ? taxGroupId.value : this.taxGroupId,
         notes: notes.present ? notes.value : this.notes,
       );
+  OrderProductModifierOptionV2Data copyWithCompanion(
+      OrderProductModifierOptionV2Companion data) {
+    return OrderProductModifierOptionV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      productRef:
+          data.productRef.present ? data.productRef.value : this.productRef,
+      modifierId:
+          data.modifierId.present ? data.modifierId.value : this.modifierId,
+      optionId: data.optionId.present ? data.optionId.value : this.optionId,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      quantity: data.quantity.present ? data.quantity.value : this.quantity,
+      freeQuantity: data.freeQuantity.present
+          ? data.freeQuantity.value
+          : this.freeQuantity,
+      unitPrice: data.unitPrice.present ? data.unitPrice.value : this.unitPrice,
+      totalPrice:
+          data.totalPrice.present ? data.totalPrice.value : this.totalPrice,
+      discountAmount: data.discountAmount.present
+          ? data.discountAmount.value
+          : this.discountAmount,
+      discountPercentage: data.discountPercentage.present
+          ? data.discountPercentage.value
+          : this.discountPercentage,
+      netUnitPrice: data.netUnitPrice.present
+          ? data.netUnitPrice.value
+          : this.netUnitPrice,
+      netTotalPrice: data.netTotalPrice.present
+          ? data.netTotalPrice.value
+          : this.netTotalPrice,
+      netUnitPriceExcludeTax: data.netUnitPriceExcludeTax.present
+          ? data.netUnitPriceExcludeTax.value
+          : this.netUnitPriceExcludeTax,
+      netTotalPriceExcludeTax: data.netTotalPriceExcludeTax.present
+          ? data.netTotalPriceExcludeTax.value
+          : this.netTotalPriceExcludeTax,
+      orderDiscountAmount: data.orderDiscountAmount.present
+          ? data.orderDiscountAmount.value
+          : this.orderDiscountAmount,
+      orderDiscountPercentage: data.orderDiscountPercentage.present
+          ? data.orderDiscountPercentage.value
+          : this.orderDiscountPercentage,
+      taxableAmount: data.taxableAmount.present
+          ? data.taxableAmount.value
+          : this.taxableAmount,
+      taxAmount: data.taxAmount.present ? data.taxAmount.value : this.taxAmount,
+      finalAmount:
+          data.finalAmount.present ? data.finalAmount.value : this.finalAmount,
+      taxGroupId:
+          data.taxGroupId.present ? data.taxGroupId.value : this.taxGroupId,
+      notes: data.notes.present ? data.notes.value : this.notes,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderProductModifierOptionV2Data(')
@@ -22740,6 +23661,54 @@ class OrderPaymentV2Data extends DataClass
         createdBy: createdBy.present ? createdBy.value : this.createdBy,
         notes: notes.present ? notes.value : this.notes,
       );
+  OrderPaymentV2Data copyWithCompanion(OrderPaymentV2Companion data) {
+    return OrderPaymentV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      paymentId: data.paymentId.present ? data.paymentId.value : this.paymentId,
+      paymentMethodId: data.paymentMethodId.present
+          ? data.paymentMethodId.value
+          : this.paymentMethodId,
+      paymentMethodType: data.paymentMethodType.present
+          ? data.paymentMethodType.value
+          : this.paymentMethodType,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      currencyAmount: data.currencyAmount.present
+          ? data.currencyAmount.value
+          : this.currencyAmount,
+      currencyCode: data.currencyCode.present
+          ? data.currencyCode.value
+          : this.currencyCode,
+      exchangeRateToBase: data.exchangeRateToBase.present
+          ? data.exchangeRateToBase.value
+          : this.exchangeRateToBase,
+      baseAmount:
+          data.baseAmount.present ? data.baseAmount.value : this.baseAmount,
+      receivedAmount: data.receivedAmount.present
+          ? data.receivedAmount.value
+          : this.receivedAmount,
+      changeAmount: data.changeAmount.present
+          ? data.changeAmount.value
+          : this.changeAmount,
+      tipAmount: data.tipAmount.present ? data.tipAmount.value : this.tipAmount,
+      feeAmount: data.feeAmount.present ? data.feeAmount.value : this.feeAmount,
+      cashierId: data.cashierId.present ? data.cashierId.value : this.cashierId,
+      shiftId: data.shiftId.present ? data.shiftId.value : this.shiftId,
+      tillId: data.tillId.present ? data.tillId.value : this.tillId,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      externalTransactionId: data.externalTransactionId.present
+          ? data.externalTransactionId.value
+          : this.externalTransactionId,
+      reference: data.reference.present ? data.reference.value : this.reference,
+      isVoided: data.isVoided.present ? data.isVoided.value : this.isVoided,
+      voidReason:
+          data.voidReason.present ? data.voidReason.value : this.voidReason,
+      createdOn: data.createdOn.present ? data.createdOn.value : this.createdOn,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      notes: data.notes.present ? data.notes.value : this.notes,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderPaymentV2Data(')
@@ -23310,6 +24279,16 @@ class OrderPaymentDetailV2Data extends DataClass
         key: key.present ? key.value : this.key,
         value: value.present ? value.value : this.value,
       );
+  OrderPaymentDetailV2Data copyWithCompanion(
+      OrderPaymentDetailV2Companion data) {
+    return OrderPaymentDetailV2Data(
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      paymentId: data.paymentId.present ? data.paymentId.value : this.paymentId,
+      key: data.key.present ? data.key.value : this.key,
+      value: data.value.present ? data.value.value : this.value,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('OrderPaymentDetailV2Data(')
@@ -23421,6 +24400,7 @@ class OrderPaymentDetailV2Companion
 
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
+  $MyDatabaseManager get managers => $MyDatabaseManager(this);
   late final $OrderEntityTable orderEntity = $OrderEntityTable(this);
   late final $OrderHistoryEntityTable orderHistoryEntity =
       $OrderHistoryEntityTable(this);
@@ -23672,4 +24652,14860 @@ abstract class _$MyDatabase extends GeneratedDatabase {
           ),
         ],
       );
+}
+
+typedef $$OrderEntityTableCreateCompanionBuilder = OrderEntityCompanion
+    Function({
+  Value<int?> posTransactionType,
+  Value<int?> idSeq,
+  Value<String?> invoiceNumber,
+  Value<String?> deviceId,
+  required DateTime startDate,
+  Value<DateTime?> timeOfReceipt,
+  Value<String?> parentOrderId,
+  Value<int?> splitIndex,
+  required String orderRef,
+  Value<String?> callName,
+  Value<String?> callNumber,
+  required int orderType,
+  required int status,
+  Value<int?> paymentStatus,
+  Value<int?> refundStatus,
+  Value<int?> deliveryStatus,
+  Value<int?> orderSource,
+  Value<DateTime?> endTime,
+  Value<dynamic> deliveryCompanyInfoId,
+  Value<String?> priceListId,
+  Value<dynamic> creatorBy,
+  Value<dynamic> closeBy,
+  Value<String?> tableId,
+  Value<int?> numberVistor,
+  Value<dynamic> customer,
+  Value<dynamic> address,
+  Value<dynamic> promotion,
+  Value<dynamic> discount,
+  Value<dynamic> products,
+  Value<double?> priceDiscount,
+  Value<double?> pricePromotion,
+  Value<String?> note,
+  Value<String?> kitchenNote,
+  Value<String?> msgCansel,
+  Value<double> subTotal,
+  Value<dynamic> charges,
+  Value<dynamic> chargeValues,
+  Value<dynamic> payments,
+  Value<double?> totalCharge,
+  Value<double?> taxPrice,
+  Value<double?> totalPaid,
+  Value<String?> checksum,
+  Value<String?> masterChecksum,
+  Value<String?> serverChecksum,
+  Value<String?> shiftId,
+  Value<String?> tillId,
+  Value<double?> totalDiscountForOrderAndProduct,
+  Value<dynamic> kitchenInfo,
+  Value<dynamic> currency,
+  Value<dynamic> paymentCurrency,
+  Value<double?> minimumReservationPrice,
+  Value<dynamic> giftCard,
+  Value<double?> roundingAmount,
+  Value<double?> tipAmount,
+  Value<double?> donationAmount,
+  Value<String?> donationForId,
+  Value<String?> supervisorId,
+  Value<String?> reference,
+  Value<String?> trackingStatusId,
+  Value<dynamic> orderStatusTracking,
+  Value<dynamic> waiters,
+  Value<String?> couponId,
+  Value<String?> createdOn,
+  Value<String?> createdBy,
+  Value<String?> lastModifiedBy,
+  Value<String?> lastModifiedOn,
+  Value<dynamic> table,
+  Value<dynamic> delivery,
+  Value<String?> customerName,
+  Value<String?> customerPhone,
+});
+typedef $$OrderEntityTableUpdateCompanionBuilder = OrderEntityCompanion
+    Function({
+  Value<int?> posTransactionType,
+  Value<int?> idSeq,
+  Value<String?> invoiceNumber,
+  Value<String?> deviceId,
+  Value<DateTime> startDate,
+  Value<DateTime?> timeOfReceipt,
+  Value<String?> parentOrderId,
+  Value<int?> splitIndex,
+  Value<String> orderRef,
+  Value<String?> callName,
+  Value<String?> callNumber,
+  Value<int> orderType,
+  Value<int> status,
+  Value<int?> paymentStatus,
+  Value<int?> refundStatus,
+  Value<int?> deliveryStatus,
+  Value<int?> orderSource,
+  Value<DateTime?> endTime,
+  Value<dynamic> deliveryCompanyInfoId,
+  Value<String?> priceListId,
+  Value<dynamic> creatorBy,
+  Value<dynamic> closeBy,
+  Value<String?> tableId,
+  Value<int?> numberVistor,
+  Value<dynamic> customer,
+  Value<dynamic> address,
+  Value<dynamic> promotion,
+  Value<dynamic> discount,
+  Value<dynamic> products,
+  Value<double?> priceDiscount,
+  Value<double?> pricePromotion,
+  Value<String?> note,
+  Value<String?> kitchenNote,
+  Value<String?> msgCansel,
+  Value<double> subTotal,
+  Value<dynamic> charges,
+  Value<dynamic> chargeValues,
+  Value<dynamic> payments,
+  Value<double?> totalCharge,
+  Value<double?> taxPrice,
+  Value<double?> totalPaid,
+  Value<String?> checksum,
+  Value<String?> masterChecksum,
+  Value<String?> serverChecksum,
+  Value<String?> shiftId,
+  Value<String?> tillId,
+  Value<double?> totalDiscountForOrderAndProduct,
+  Value<dynamic> kitchenInfo,
+  Value<dynamic> currency,
+  Value<dynamic> paymentCurrency,
+  Value<double?> minimumReservationPrice,
+  Value<dynamic> giftCard,
+  Value<double?> roundingAmount,
+  Value<double?> tipAmount,
+  Value<double?> donationAmount,
+  Value<String?> donationForId,
+  Value<String?> supervisorId,
+  Value<String?> reference,
+  Value<String?> trackingStatusId,
+  Value<dynamic> orderStatusTracking,
+  Value<dynamic> waiters,
+  Value<String?> couponId,
+  Value<String?> createdOn,
+  Value<String?> createdBy,
+  Value<String?> lastModifiedBy,
+  Value<String?> lastModifiedOn,
+  Value<dynamic> table,
+  Value<dynamic> delivery,
+  Value<String?> customerName,
+  Value<String?> customerPhone,
+});
+
+class $$OrderEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $OrderEntityTable> {
+  $$OrderEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get posTransactionType => $composableBuilder(
+      column: $table.posTransactionType,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get invoiceNumber => $composableBuilder(
+      column: $table.invoiceNumber, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+      column: $table.startDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get timeOfReceipt => $composableBuilder(
+      column: $table.timeOfReceipt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get parentOrderId => $composableBuilder(
+      column: $table.parentOrderId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get splitIndex => $composableBuilder(
+      column: $table.splitIndex, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get callName => $composableBuilder(
+      column: $table.callName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get callNumber => $composableBuilder(
+      column: $table.callNumber, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get orderType => $composableBuilder(
+      column: $table.orderType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get paymentStatus => $composableBuilder(
+      column: $table.paymentStatus, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get refundStatus => $composableBuilder(
+      column: $table.refundStatus, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get deliveryStatus => $composableBuilder(
+      column: $table.deliveryStatus,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get orderSource => $composableBuilder(
+      column: $table.orderSource, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get endTime => $composableBuilder(
+      column: $table.endTime, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String>
+      get deliveryCompanyInfoId => $composableBuilder(
+          column: $table.deliveryCompanyInfoId,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get priceListId => $composableBuilder(
+      column: $table.priceListId, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get creatorBy =>
+      $composableBuilder(
+          column: $table.creatorBy,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get closeBy =>
+      $composableBuilder(
+          column: $table.closeBy,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get tableId => $composableBuilder(
+      column: $table.tableId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get numberVistor => $composableBuilder(
+      column: $table.numberVistor, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get customer =>
+      $composableBuilder(
+          column: $table.customer,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get address =>
+      $composableBuilder(
+          column: $table.address,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get promotion =>
+      $composableBuilder(
+          column: $table.promotion,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get discount =>
+      $composableBuilder(
+          column: $table.discount,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get products =>
+      $composableBuilder(
+          column: $table.products,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<double> get priceDiscount => $composableBuilder(
+      column: $table.priceDiscount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get pricePromotion => $composableBuilder(
+      column: $table.pricePromotion,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get kitchenNote => $composableBuilder(
+      column: $table.kitchenNote, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get msgCansel => $composableBuilder(
+      column: $table.msgCansel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get subTotal => $composableBuilder(
+      column: $table.subTotal, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get charges =>
+      $composableBuilder(
+          column: $table.charges,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get chargeValues =>
+      $composableBuilder(
+          column: $table.chargeValues,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get payments =>
+      $composableBuilder(
+          column: $table.payments,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<double> get totalCharge => $composableBuilder(
+      column: $table.totalCharge, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxPrice => $composableBuilder(
+      column: $table.taxPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalPaid => $composableBuilder(
+      column: $table.totalPaid, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get checksum => $composableBuilder(
+      column: $table.checksum, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get masterChecksum => $composableBuilder(
+      column: $table.masterChecksum,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get serverChecksum => $composableBuilder(
+      column: $table.serverChecksum,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalDiscountForOrderAndProduct =>
+      $composableBuilder(
+          column: $table.totalDiscountForOrderAndProduct,
+          builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get kitchenInfo =>
+      $composableBuilder(
+          column: $table.kitchenInfo,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get currency =>
+      $composableBuilder(
+          column: $table.currency,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String>
+      get paymentCurrency => $composableBuilder(
+          column: $table.paymentCurrency,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<double> get minimumReservationPrice => $composableBuilder(
+      column: $table.minimumReservationPrice,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get giftCard =>
+      $composableBuilder(
+          column: $table.giftCard,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<double> get roundingAmount => $composableBuilder(
+      column: $table.roundingAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get tipAmount => $composableBuilder(
+      column: $table.tipAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get donationAmount => $composableBuilder(
+      column: $table.donationAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get donationForId => $composableBuilder(
+      column: $table.donationForId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get supervisorId => $composableBuilder(
+      column: $table.supervisorId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get trackingStatusId => $composableBuilder(
+      column: $table.trackingStatusId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String>
+      get orderStatusTracking => $composableBuilder(
+          column: $table.orderStatusTracking,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get waiters =>
+      $composableBuilder(
+          column: $table.waiters,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get couponId => $composableBuilder(
+      column: $table.couponId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get createdOn => $composableBuilder(
+      column: $table.createdOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get lastModifiedBy => $composableBuilder(
+      column: $table.lastModifiedBy,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get lastModifiedOn => $composableBuilder(
+      column: $table.lastModifiedOn,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get table =>
+      $composableBuilder(
+          column: $table.table,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get delivery =>
+      $composableBuilder(
+          column: $table.delivery,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get customerName => $composableBuilder(
+      column: $table.customerName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get customerPhone => $composableBuilder(
+      column: $table.customerPhone, builder: (column) => ColumnFilters(column));
+}
+
+class $$OrderEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderEntityTable> {
+  $$OrderEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get posTransactionType => $composableBuilder(
+      column: $table.posTransactionType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get invoiceNumber => $composableBuilder(
+      column: $table.invoiceNumber,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+      column: $table.startDate, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get timeOfReceipt => $composableBuilder(
+      column: $table.timeOfReceipt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get parentOrderId => $composableBuilder(
+      column: $table.parentOrderId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get splitIndex => $composableBuilder(
+      column: $table.splitIndex, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get callName => $composableBuilder(
+      column: $table.callName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get callNumber => $composableBuilder(
+      column: $table.callNumber, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get orderType => $composableBuilder(
+      column: $table.orderType, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get paymentStatus => $composableBuilder(
+      column: $table.paymentStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get refundStatus => $composableBuilder(
+      column: $table.refundStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get deliveryStatus => $composableBuilder(
+      column: $table.deliveryStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get orderSource => $composableBuilder(
+      column: $table.orderSource, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get endTime => $composableBuilder(
+      column: $table.endTime, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deliveryCompanyInfoId => $composableBuilder(
+      column: $table.deliveryCompanyInfoId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get priceListId => $composableBuilder(
+      column: $table.priceListId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get creatorBy => $composableBuilder(
+      column: $table.creatorBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get closeBy => $composableBuilder(
+      column: $table.closeBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tableId => $composableBuilder(
+      column: $table.tableId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get numberVistor => $composableBuilder(
+      column: $table.numberVistor,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get customer => $composableBuilder(
+      column: $table.customer, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get address => $composableBuilder(
+      column: $table.address, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get promotion => $composableBuilder(
+      column: $table.promotion, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get discount => $composableBuilder(
+      column: $table.discount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get products => $composableBuilder(
+      column: $table.products, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get priceDiscount => $composableBuilder(
+      column: $table.priceDiscount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get pricePromotion => $composableBuilder(
+      column: $table.pricePromotion,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get kitchenNote => $composableBuilder(
+      column: $table.kitchenNote, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get msgCansel => $composableBuilder(
+      column: $table.msgCansel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get subTotal => $composableBuilder(
+      column: $table.subTotal, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get charges => $composableBuilder(
+      column: $table.charges, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get chargeValues => $composableBuilder(
+      column: $table.chargeValues,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get payments => $composableBuilder(
+      column: $table.payments, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalCharge => $composableBuilder(
+      column: $table.totalCharge, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxPrice => $composableBuilder(
+      column: $table.taxPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalPaid => $composableBuilder(
+      column: $table.totalPaid, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get checksum => $composableBuilder(
+      column: $table.checksum, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get masterChecksum => $composableBuilder(
+      column: $table.masterChecksum,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get serverChecksum => $composableBuilder(
+      column: $table.serverChecksum,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalDiscountForOrderAndProduct =>
+      $composableBuilder(
+          column: $table.totalDiscountForOrderAndProduct,
+          builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get kitchenInfo => $composableBuilder(
+      column: $table.kitchenInfo, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currency => $composableBuilder(
+      column: $table.currency, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentCurrency => $composableBuilder(
+      column: $table.paymentCurrency,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get minimumReservationPrice => $composableBuilder(
+      column: $table.minimumReservationPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get giftCard => $composableBuilder(
+      column: $table.giftCard, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get roundingAmount => $composableBuilder(
+      column: $table.roundingAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get tipAmount => $composableBuilder(
+      column: $table.tipAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get donationAmount => $composableBuilder(
+      column: $table.donationAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get donationForId => $composableBuilder(
+      column: $table.donationForId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get supervisorId => $composableBuilder(
+      column: $table.supervisorId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get trackingStatusId => $composableBuilder(
+      column: $table.trackingStatusId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderStatusTracking => $composableBuilder(
+      column: $table.orderStatusTracking,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get waiters => $composableBuilder(
+      column: $table.waiters, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get couponId => $composableBuilder(
+      column: $table.couponId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdOn => $composableBuilder(
+      column: $table.createdOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get lastModifiedBy => $composableBuilder(
+      column: $table.lastModifiedBy,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get lastModifiedOn => $composableBuilder(
+      column: $table.lastModifiedOn,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get table => $composableBuilder(
+      column: $table.table, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get delivery => $composableBuilder(
+      column: $table.delivery, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get customerName => $composableBuilder(
+      column: $table.customerName,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get customerPhone => $composableBuilder(
+      column: $table.customerPhone,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$OrderEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderEntityTable> {
+  $$OrderEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get posTransactionType => $composableBuilder(
+      column: $table.posTransactionType, builder: (column) => column);
+
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get invoiceNumber => $composableBuilder(
+      column: $table.invoiceNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get timeOfReceipt => $composableBuilder(
+      column: $table.timeOfReceipt, builder: (column) => column);
+
+  GeneratedColumn<String> get parentOrderId => $composableBuilder(
+      column: $table.parentOrderId, builder: (column) => column);
+
+  GeneratedColumn<int> get splitIndex => $composableBuilder(
+      column: $table.splitIndex, builder: (column) => column);
+
+  GeneratedColumn<String> get orderRef =>
+      $composableBuilder(column: $table.orderRef, builder: (column) => column);
+
+  GeneratedColumn<String> get callName =>
+      $composableBuilder(column: $table.callName, builder: (column) => column);
+
+  GeneratedColumn<String> get callNumber => $composableBuilder(
+      column: $table.callNumber, builder: (column) => column);
+
+  GeneratedColumn<int> get orderType =>
+      $composableBuilder(column: $table.orderType, builder: (column) => column);
+
+  GeneratedColumn<int> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<int> get paymentStatus => $composableBuilder(
+      column: $table.paymentStatus, builder: (column) => column);
+
+  GeneratedColumn<int> get refundStatus => $composableBuilder(
+      column: $table.refundStatus, builder: (column) => column);
+
+  GeneratedColumn<int> get deliveryStatus => $composableBuilder(
+      column: $table.deliveryStatus, builder: (column) => column);
+
+  GeneratedColumn<int> get orderSource => $composableBuilder(
+      column: $table.orderSource, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endTime =>
+      $composableBuilder(column: $table.endTime, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get deliveryCompanyInfoId =>
+      $composableBuilder(
+          column: $table.deliveryCompanyInfoId, builder: (column) => column);
+
+  GeneratedColumn<String> get priceListId => $composableBuilder(
+      column: $table.priceListId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get creatorBy =>
+      $composableBuilder(column: $table.creatorBy, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get closeBy =>
+      $composableBuilder(column: $table.closeBy, builder: (column) => column);
+
+  GeneratedColumn<String> get tableId =>
+      $composableBuilder(column: $table.tableId, builder: (column) => column);
+
+  GeneratedColumn<int> get numberVistor => $composableBuilder(
+      column: $table.numberVistor, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get customer =>
+      $composableBuilder(column: $table.customer, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get address =>
+      $composableBuilder(column: $table.address, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get promotion =>
+      $composableBuilder(column: $table.promotion, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get discount =>
+      $composableBuilder(column: $table.discount, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get products =>
+      $composableBuilder(column: $table.products, builder: (column) => column);
+
+  GeneratedColumn<double> get priceDiscount => $composableBuilder(
+      column: $table.priceDiscount, builder: (column) => column);
+
+  GeneratedColumn<double> get pricePromotion => $composableBuilder(
+      column: $table.pricePromotion, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<String> get kitchenNote => $composableBuilder(
+      column: $table.kitchenNote, builder: (column) => column);
+
+  GeneratedColumn<String> get msgCansel =>
+      $composableBuilder(column: $table.msgCansel, builder: (column) => column);
+
+  GeneratedColumn<double> get subTotal =>
+      $composableBuilder(column: $table.subTotal, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get charges =>
+      $composableBuilder(column: $table.charges, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get chargeValues =>
+      $composableBuilder(
+          column: $table.chargeValues, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get payments =>
+      $composableBuilder(column: $table.payments, builder: (column) => column);
+
+  GeneratedColumn<double> get totalCharge => $composableBuilder(
+      column: $table.totalCharge, builder: (column) => column);
+
+  GeneratedColumn<double> get taxPrice =>
+      $composableBuilder(column: $table.taxPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get totalPaid =>
+      $composableBuilder(column: $table.totalPaid, builder: (column) => column);
+
+  GeneratedColumn<String> get checksum =>
+      $composableBuilder(column: $table.checksum, builder: (column) => column);
+
+  GeneratedColumn<String> get masterChecksum => $composableBuilder(
+      column: $table.masterChecksum, builder: (column) => column);
+
+  GeneratedColumn<String> get serverChecksum => $composableBuilder(
+      column: $table.serverChecksum, builder: (column) => column);
+
+  GeneratedColumn<String> get shiftId =>
+      $composableBuilder(column: $table.shiftId, builder: (column) => column);
+
+  GeneratedColumn<String> get tillId =>
+      $composableBuilder(column: $table.tillId, builder: (column) => column);
+
+  GeneratedColumn<double> get totalDiscountForOrderAndProduct =>
+      $composableBuilder(
+          column: $table.totalDiscountForOrderAndProduct,
+          builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get kitchenInfo =>
+      $composableBuilder(
+          column: $table.kitchenInfo, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get currency =>
+      $composableBuilder(column: $table.currency, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get paymentCurrency =>
+      $composableBuilder(
+          column: $table.paymentCurrency, builder: (column) => column);
+
+  GeneratedColumn<double> get minimumReservationPrice => $composableBuilder(
+      column: $table.minimumReservationPrice, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get giftCard =>
+      $composableBuilder(column: $table.giftCard, builder: (column) => column);
+
+  GeneratedColumn<double> get roundingAmount => $composableBuilder(
+      column: $table.roundingAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get tipAmount =>
+      $composableBuilder(column: $table.tipAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get donationAmount => $composableBuilder(
+      column: $table.donationAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get donationForId => $composableBuilder(
+      column: $table.donationForId, builder: (column) => column);
+
+  GeneratedColumn<String> get supervisorId => $composableBuilder(
+      column: $table.supervisorId, builder: (column) => column);
+
+  GeneratedColumn<String> get reference =>
+      $composableBuilder(column: $table.reference, builder: (column) => column);
+
+  GeneratedColumn<String> get trackingStatusId => $composableBuilder(
+      column: $table.trackingStatusId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get orderStatusTracking =>
+      $composableBuilder(
+          column: $table.orderStatusTracking, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get waiters =>
+      $composableBuilder(column: $table.waiters, builder: (column) => column);
+
+  GeneratedColumn<String> get couponId =>
+      $composableBuilder(column: $table.couponId, builder: (column) => column);
+
+  GeneratedColumn<String> get createdOn =>
+      $composableBuilder(column: $table.createdOn, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get lastModifiedBy => $composableBuilder(
+      column: $table.lastModifiedBy, builder: (column) => column);
+
+  GeneratedColumn<String> get lastModifiedOn => $composableBuilder(
+      column: $table.lastModifiedOn, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get table =>
+      $composableBuilder(column: $table.table, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get delivery =>
+      $composableBuilder(column: $table.delivery, builder: (column) => column);
+
+  GeneratedColumn<String> get customerName => $composableBuilder(
+      column: $table.customerName, builder: (column) => column);
+
+  GeneratedColumn<String> get customerPhone => $composableBuilder(
+      column: $table.customerPhone, builder: (column) => column);
+}
+
+class $$OrderEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderEntityTable,
+    OrderEntityData,
+    $$OrderEntityTableFilterComposer,
+    $$OrderEntityTableOrderingComposer,
+    $$OrderEntityTableAnnotationComposer,
+    $$OrderEntityTableCreateCompanionBuilder,
+    $$OrderEntityTableUpdateCompanionBuilder,
+    (
+      OrderEntityData,
+      BaseReferences<_$MyDatabase, $OrderEntityTable, OrderEntityData>
+    ),
+    OrderEntityData,
+    PrefetchHooks Function()> {
+  $$OrderEntityTableTableManager(_$MyDatabase db, $OrderEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> posTransactionType = const Value.absent(),
+            Value<int?> idSeq = const Value.absent(),
+            Value<String?> invoiceNumber = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<DateTime> startDate = const Value.absent(),
+            Value<DateTime?> timeOfReceipt = const Value.absent(),
+            Value<String?> parentOrderId = const Value.absent(),
+            Value<int?> splitIndex = const Value.absent(),
+            Value<String> orderRef = const Value.absent(),
+            Value<String?> callName = const Value.absent(),
+            Value<String?> callNumber = const Value.absent(),
+            Value<int> orderType = const Value.absent(),
+            Value<int> status = const Value.absent(),
+            Value<int?> paymentStatus = const Value.absent(),
+            Value<int?> refundStatus = const Value.absent(),
+            Value<int?> deliveryStatus = const Value.absent(),
+            Value<int?> orderSource = const Value.absent(),
+            Value<DateTime?> endTime = const Value.absent(),
+            Value<dynamic> deliveryCompanyInfoId = const Value.absent(),
+            Value<String?> priceListId = const Value.absent(),
+            Value<dynamic> creatorBy = const Value.absent(),
+            Value<dynamic> closeBy = const Value.absent(),
+            Value<String?> tableId = const Value.absent(),
+            Value<int?> numberVistor = const Value.absent(),
+            Value<dynamic> customer = const Value.absent(),
+            Value<dynamic> address = const Value.absent(),
+            Value<dynamic> promotion = const Value.absent(),
+            Value<dynamic> discount = const Value.absent(),
+            Value<dynamic> products = const Value.absent(),
+            Value<double?> priceDiscount = const Value.absent(),
+            Value<double?> pricePromotion = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<String?> kitchenNote = const Value.absent(),
+            Value<String?> msgCansel = const Value.absent(),
+            Value<double> subTotal = const Value.absent(),
+            Value<dynamic> charges = const Value.absent(),
+            Value<dynamic> chargeValues = const Value.absent(),
+            Value<dynamic> payments = const Value.absent(),
+            Value<double?> totalCharge = const Value.absent(),
+            Value<double?> taxPrice = const Value.absent(),
+            Value<double?> totalPaid = const Value.absent(),
+            Value<String?> checksum = const Value.absent(),
+            Value<String?> masterChecksum = const Value.absent(),
+            Value<String?> serverChecksum = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<double?> totalDiscountForOrderAndProduct =
+                const Value.absent(),
+            Value<dynamic> kitchenInfo = const Value.absent(),
+            Value<dynamic> currency = const Value.absent(),
+            Value<dynamic> paymentCurrency = const Value.absent(),
+            Value<double?> minimumReservationPrice = const Value.absent(),
+            Value<dynamic> giftCard = const Value.absent(),
+            Value<double?> roundingAmount = const Value.absent(),
+            Value<double?> tipAmount = const Value.absent(),
+            Value<double?> donationAmount = const Value.absent(),
+            Value<String?> donationForId = const Value.absent(),
+            Value<String?> supervisorId = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<String?> trackingStatusId = const Value.absent(),
+            Value<dynamic> orderStatusTracking = const Value.absent(),
+            Value<dynamic> waiters = const Value.absent(),
+            Value<String?> couponId = const Value.absent(),
+            Value<String?> createdOn = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> lastModifiedBy = const Value.absent(),
+            Value<String?> lastModifiedOn = const Value.absent(),
+            Value<dynamic> table = const Value.absent(),
+            Value<dynamic> delivery = const Value.absent(),
+            Value<String?> customerName = const Value.absent(),
+            Value<String?> customerPhone = const Value.absent(),
+          }) =>
+              OrderEntityCompanion(
+            posTransactionType: posTransactionType,
+            idSeq: idSeq,
+            invoiceNumber: invoiceNumber,
+            deviceId: deviceId,
+            startDate: startDate,
+            timeOfReceipt: timeOfReceipt,
+            parentOrderId: parentOrderId,
+            splitIndex: splitIndex,
+            orderRef: orderRef,
+            callName: callName,
+            callNumber: callNumber,
+            orderType: orderType,
+            status: status,
+            paymentStatus: paymentStatus,
+            refundStatus: refundStatus,
+            deliveryStatus: deliveryStatus,
+            orderSource: orderSource,
+            endTime: endTime,
+            deliveryCompanyInfoId: deliveryCompanyInfoId,
+            priceListId: priceListId,
+            creatorBy: creatorBy,
+            closeBy: closeBy,
+            tableId: tableId,
+            numberVistor: numberVistor,
+            customer: customer,
+            address: address,
+            promotion: promotion,
+            discount: discount,
+            products: products,
+            priceDiscount: priceDiscount,
+            pricePromotion: pricePromotion,
+            note: note,
+            kitchenNote: kitchenNote,
+            msgCansel: msgCansel,
+            subTotal: subTotal,
+            charges: charges,
+            chargeValues: chargeValues,
+            payments: payments,
+            totalCharge: totalCharge,
+            taxPrice: taxPrice,
+            totalPaid: totalPaid,
+            checksum: checksum,
+            masterChecksum: masterChecksum,
+            serverChecksum: serverChecksum,
+            shiftId: shiftId,
+            tillId: tillId,
+            totalDiscountForOrderAndProduct: totalDiscountForOrderAndProduct,
+            kitchenInfo: kitchenInfo,
+            currency: currency,
+            paymentCurrency: paymentCurrency,
+            minimumReservationPrice: minimumReservationPrice,
+            giftCard: giftCard,
+            roundingAmount: roundingAmount,
+            tipAmount: tipAmount,
+            donationAmount: donationAmount,
+            donationForId: donationForId,
+            supervisorId: supervisorId,
+            reference: reference,
+            trackingStatusId: trackingStatusId,
+            orderStatusTracking: orderStatusTracking,
+            waiters: waiters,
+            couponId: couponId,
+            createdOn: createdOn,
+            createdBy: createdBy,
+            lastModifiedBy: lastModifiedBy,
+            lastModifiedOn: lastModifiedOn,
+            table: table,
+            delivery: delivery,
+            customerName: customerName,
+            customerPhone: customerPhone,
+          ),
+          createCompanionCallback: ({
+            Value<int?> posTransactionType = const Value.absent(),
+            Value<int?> idSeq = const Value.absent(),
+            Value<String?> invoiceNumber = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            required DateTime startDate,
+            Value<DateTime?> timeOfReceipt = const Value.absent(),
+            Value<String?> parentOrderId = const Value.absent(),
+            Value<int?> splitIndex = const Value.absent(),
+            required String orderRef,
+            Value<String?> callName = const Value.absent(),
+            Value<String?> callNumber = const Value.absent(),
+            required int orderType,
+            required int status,
+            Value<int?> paymentStatus = const Value.absent(),
+            Value<int?> refundStatus = const Value.absent(),
+            Value<int?> deliveryStatus = const Value.absent(),
+            Value<int?> orderSource = const Value.absent(),
+            Value<DateTime?> endTime = const Value.absent(),
+            Value<dynamic> deliveryCompanyInfoId = const Value.absent(),
+            Value<String?> priceListId = const Value.absent(),
+            Value<dynamic> creatorBy = const Value.absent(),
+            Value<dynamic> closeBy = const Value.absent(),
+            Value<String?> tableId = const Value.absent(),
+            Value<int?> numberVistor = const Value.absent(),
+            Value<dynamic> customer = const Value.absent(),
+            Value<dynamic> address = const Value.absent(),
+            Value<dynamic> promotion = const Value.absent(),
+            Value<dynamic> discount = const Value.absent(),
+            Value<dynamic> products = const Value.absent(),
+            Value<double?> priceDiscount = const Value.absent(),
+            Value<double?> pricePromotion = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<String?> kitchenNote = const Value.absent(),
+            Value<String?> msgCansel = const Value.absent(),
+            Value<double> subTotal = const Value.absent(),
+            Value<dynamic> charges = const Value.absent(),
+            Value<dynamic> chargeValues = const Value.absent(),
+            Value<dynamic> payments = const Value.absent(),
+            Value<double?> totalCharge = const Value.absent(),
+            Value<double?> taxPrice = const Value.absent(),
+            Value<double?> totalPaid = const Value.absent(),
+            Value<String?> checksum = const Value.absent(),
+            Value<String?> masterChecksum = const Value.absent(),
+            Value<String?> serverChecksum = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<double?> totalDiscountForOrderAndProduct =
+                const Value.absent(),
+            Value<dynamic> kitchenInfo = const Value.absent(),
+            Value<dynamic> currency = const Value.absent(),
+            Value<dynamic> paymentCurrency = const Value.absent(),
+            Value<double?> minimumReservationPrice = const Value.absent(),
+            Value<dynamic> giftCard = const Value.absent(),
+            Value<double?> roundingAmount = const Value.absent(),
+            Value<double?> tipAmount = const Value.absent(),
+            Value<double?> donationAmount = const Value.absent(),
+            Value<String?> donationForId = const Value.absent(),
+            Value<String?> supervisorId = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<String?> trackingStatusId = const Value.absent(),
+            Value<dynamic> orderStatusTracking = const Value.absent(),
+            Value<dynamic> waiters = const Value.absent(),
+            Value<String?> couponId = const Value.absent(),
+            Value<String?> createdOn = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> lastModifiedBy = const Value.absent(),
+            Value<String?> lastModifiedOn = const Value.absent(),
+            Value<dynamic> table = const Value.absent(),
+            Value<dynamic> delivery = const Value.absent(),
+            Value<String?> customerName = const Value.absent(),
+            Value<String?> customerPhone = const Value.absent(),
+          }) =>
+              OrderEntityCompanion.insert(
+            posTransactionType: posTransactionType,
+            idSeq: idSeq,
+            invoiceNumber: invoiceNumber,
+            deviceId: deviceId,
+            startDate: startDate,
+            timeOfReceipt: timeOfReceipt,
+            parentOrderId: parentOrderId,
+            splitIndex: splitIndex,
+            orderRef: orderRef,
+            callName: callName,
+            callNumber: callNumber,
+            orderType: orderType,
+            status: status,
+            paymentStatus: paymentStatus,
+            refundStatus: refundStatus,
+            deliveryStatus: deliveryStatus,
+            orderSource: orderSource,
+            endTime: endTime,
+            deliveryCompanyInfoId: deliveryCompanyInfoId,
+            priceListId: priceListId,
+            creatorBy: creatorBy,
+            closeBy: closeBy,
+            tableId: tableId,
+            numberVistor: numberVistor,
+            customer: customer,
+            address: address,
+            promotion: promotion,
+            discount: discount,
+            products: products,
+            priceDiscount: priceDiscount,
+            pricePromotion: pricePromotion,
+            note: note,
+            kitchenNote: kitchenNote,
+            msgCansel: msgCansel,
+            subTotal: subTotal,
+            charges: charges,
+            chargeValues: chargeValues,
+            payments: payments,
+            totalCharge: totalCharge,
+            taxPrice: taxPrice,
+            totalPaid: totalPaid,
+            checksum: checksum,
+            masterChecksum: masterChecksum,
+            serverChecksum: serverChecksum,
+            shiftId: shiftId,
+            tillId: tillId,
+            totalDiscountForOrderAndProduct: totalDiscountForOrderAndProduct,
+            kitchenInfo: kitchenInfo,
+            currency: currency,
+            paymentCurrency: paymentCurrency,
+            minimumReservationPrice: minimumReservationPrice,
+            giftCard: giftCard,
+            roundingAmount: roundingAmount,
+            tipAmount: tipAmount,
+            donationAmount: donationAmount,
+            donationForId: donationForId,
+            supervisorId: supervisorId,
+            reference: reference,
+            trackingStatusId: trackingStatusId,
+            orderStatusTracking: orderStatusTracking,
+            waiters: waiters,
+            couponId: couponId,
+            createdOn: createdOn,
+            createdBy: createdBy,
+            lastModifiedBy: lastModifiedBy,
+            lastModifiedOn: lastModifiedOn,
+            table: table,
+            delivery: delivery,
+            customerName: customerName,
+            customerPhone: customerPhone,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$OrderEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderEntityTable,
+    OrderEntityData,
+    $$OrderEntityTableFilterComposer,
+    $$OrderEntityTableOrderingComposer,
+    $$OrderEntityTableAnnotationComposer,
+    $$OrderEntityTableCreateCompanionBuilder,
+    $$OrderEntityTableUpdateCompanionBuilder,
+    (
+      OrderEntityData,
+      BaseReferences<_$MyDatabase, $OrderEntityTable, OrderEntityData>
+    ),
+    OrderEntityData,
+    PrefetchHooks Function()>;
+typedef $$OrderHistoryEntityTableCreateCompanionBuilder
+    = OrderHistoryEntityCompanion Function({
+  Value<int?> idSeq,
+  required String orderRef,
+  Value<String?> orderId,
+  required String userId,
+  Value<String?> userName,
+  Value<String?> userFName,
+  Value<dynamic> order,
+  Value<DateTime?> lastEditDate,
+  Value<DateTime?> lastSyncDate,
+  required String sesstionId,
+  Value<String?> checkSumHash,
+});
+typedef $$OrderHistoryEntityTableUpdateCompanionBuilder
+    = OrderHistoryEntityCompanion Function({
+  Value<int?> idSeq,
+  Value<String> orderRef,
+  Value<String?> orderId,
+  Value<String> userId,
+  Value<String?> userName,
+  Value<String?> userFName,
+  Value<dynamic> order,
+  Value<DateTime?> lastEditDate,
+  Value<DateTime?> lastSyncDate,
+  Value<String> sesstionId,
+  Value<String?> checkSumHash,
+});
+
+class $$OrderHistoryEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $OrderHistoryEntityTable> {
+  $$OrderHistoryEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderId => $composableBuilder(
+      column: $table.orderId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userName => $composableBuilder(
+      column: $table.userName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userFName => $composableBuilder(
+      column: $table.userFName, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get order =>
+      $composableBuilder(
+          column: $table.order,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<DateTime> get lastEditDate => $composableBuilder(
+      column: $table.lastEditDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get lastSyncDate => $composableBuilder(
+      column: $table.lastSyncDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get sesstionId => $composableBuilder(
+      column: $table.sesstionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get checkSumHash => $composableBuilder(
+      column: $table.checkSumHash, builder: (column) => ColumnFilters(column));
+}
+
+class $$OrderHistoryEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderHistoryEntityTable> {
+  $$OrderHistoryEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderId => $composableBuilder(
+      column: $table.orderId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userName => $composableBuilder(
+      column: $table.userName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userFName => $composableBuilder(
+      column: $table.userFName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get order => $composableBuilder(
+      column: $table.order, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get lastEditDate => $composableBuilder(
+      column: $table.lastEditDate,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get lastSyncDate => $composableBuilder(
+      column: $table.lastSyncDate,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get sesstionId => $composableBuilder(
+      column: $table.sesstionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get checkSumHash => $composableBuilder(
+      column: $table.checkSumHash,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$OrderHistoryEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderHistoryEntityTable> {
+  $$OrderHistoryEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get orderRef =>
+      $composableBuilder(column: $table.orderRef, builder: (column) => column);
+
+  GeneratedColumn<String> get orderId =>
+      $composableBuilder(column: $table.orderId, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get userName =>
+      $composableBuilder(column: $table.userName, builder: (column) => column);
+
+  GeneratedColumn<String> get userFName =>
+      $composableBuilder(column: $table.userFName, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get order =>
+      $composableBuilder(column: $table.order, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastEditDate => $composableBuilder(
+      column: $table.lastEditDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastSyncDate => $composableBuilder(
+      column: $table.lastSyncDate, builder: (column) => column);
+
+  GeneratedColumn<String> get sesstionId => $composableBuilder(
+      column: $table.sesstionId, builder: (column) => column);
+
+  GeneratedColumn<String> get checkSumHash => $composableBuilder(
+      column: $table.checkSumHash, builder: (column) => column);
+}
+
+class $$OrderHistoryEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderHistoryEntityTable,
+    OrderHistoryEntityData,
+    $$OrderHistoryEntityTableFilterComposer,
+    $$OrderHistoryEntityTableOrderingComposer,
+    $$OrderHistoryEntityTableAnnotationComposer,
+    $$OrderHistoryEntityTableCreateCompanionBuilder,
+    $$OrderHistoryEntityTableUpdateCompanionBuilder,
+    (
+      OrderHistoryEntityData,
+      BaseReferences<_$MyDatabase, $OrderHistoryEntityTable,
+          OrderHistoryEntityData>
+    ),
+    OrderHistoryEntityData,
+    PrefetchHooks Function()> {
+  $$OrderHistoryEntityTableTableManager(
+      _$MyDatabase db, $OrderHistoryEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderHistoryEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderHistoryEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderHistoryEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String> orderRef = const Value.absent(),
+            Value<String?> orderId = const Value.absent(),
+            Value<String> userId = const Value.absent(),
+            Value<String?> userName = const Value.absent(),
+            Value<String?> userFName = const Value.absent(),
+            Value<dynamic> order = const Value.absent(),
+            Value<DateTime?> lastEditDate = const Value.absent(),
+            Value<DateTime?> lastSyncDate = const Value.absent(),
+            Value<String> sesstionId = const Value.absent(),
+            Value<String?> checkSumHash = const Value.absent(),
+          }) =>
+              OrderHistoryEntityCompanion(
+            idSeq: idSeq,
+            orderRef: orderRef,
+            orderId: orderId,
+            userId: userId,
+            userName: userName,
+            userFName: userFName,
+            order: order,
+            lastEditDate: lastEditDate,
+            lastSyncDate: lastSyncDate,
+            sesstionId: sesstionId,
+            checkSumHash: checkSumHash,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            required String orderRef,
+            Value<String?> orderId = const Value.absent(),
+            required String userId,
+            Value<String?> userName = const Value.absent(),
+            Value<String?> userFName = const Value.absent(),
+            Value<dynamic> order = const Value.absent(),
+            Value<DateTime?> lastEditDate = const Value.absent(),
+            Value<DateTime?> lastSyncDate = const Value.absent(),
+            required String sesstionId,
+            Value<String?> checkSumHash = const Value.absent(),
+          }) =>
+              OrderHistoryEntityCompanion.insert(
+            idSeq: idSeq,
+            orderRef: orderRef,
+            orderId: orderId,
+            userId: userId,
+            userName: userName,
+            userFName: userFName,
+            order: order,
+            lastEditDate: lastEditDate,
+            lastSyncDate: lastSyncDate,
+            sesstionId: sesstionId,
+            checkSumHash: checkSumHash,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$OrderHistoryEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderHistoryEntityTable,
+    OrderHistoryEntityData,
+    $$OrderHistoryEntityTableFilterComposer,
+    $$OrderHistoryEntityTableOrderingComposer,
+    $$OrderHistoryEntityTableAnnotationComposer,
+    $$OrderHistoryEntityTableCreateCompanionBuilder,
+    $$OrderHistoryEntityTableUpdateCompanionBuilder,
+    (
+      OrderHistoryEntityData,
+      BaseReferences<_$MyDatabase, $OrderHistoryEntityTable,
+          OrderHistoryEntityData>
+    ),
+    OrderHistoryEntityData,
+    PrefetchHooks Function()>;
+typedef $$OrderNumbersTableCreateCompanionBuilder = OrderNumbersCompanion
+    Function({
+  Value<int?> idSeq,
+  required String orderRef,
+  required String invoiceNumberPerfix,
+  Value<String?> prefix,
+});
+typedef $$OrderNumbersTableUpdateCompanionBuilder = OrderNumbersCompanion
+    Function({
+  Value<int?> idSeq,
+  Value<String> orderRef,
+  Value<String> invoiceNumberPerfix,
+  Value<String?> prefix,
+});
+
+class $$OrderNumbersTableFilterComposer
+    extends Composer<_$MyDatabase, $OrderNumbersTable> {
+  $$OrderNumbersTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get invoiceNumberPerfix => $composableBuilder(
+      column: $table.invoiceNumberPerfix,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get prefix => $composableBuilder(
+      column: $table.prefix, builder: (column) => ColumnFilters(column));
+}
+
+class $$OrderNumbersTableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderNumbersTable> {
+  $$OrderNumbersTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get invoiceNumberPerfix => $composableBuilder(
+      column: $table.invoiceNumberPerfix,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get prefix => $composableBuilder(
+      column: $table.prefix, builder: (column) => ColumnOrderings(column));
+}
+
+class $$OrderNumbersTableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderNumbersTable> {
+  $$OrderNumbersTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get orderRef =>
+      $composableBuilder(column: $table.orderRef, builder: (column) => column);
+
+  GeneratedColumn<String> get invoiceNumberPerfix => $composableBuilder(
+      column: $table.invoiceNumberPerfix, builder: (column) => column);
+
+  GeneratedColumn<String> get prefix =>
+      $composableBuilder(column: $table.prefix, builder: (column) => column);
+}
+
+class $$OrderNumbersTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderNumbersTable,
+    OrderNumber,
+    $$OrderNumbersTableFilterComposer,
+    $$OrderNumbersTableOrderingComposer,
+    $$OrderNumbersTableAnnotationComposer,
+    $$OrderNumbersTableCreateCompanionBuilder,
+    $$OrderNumbersTableUpdateCompanionBuilder,
+    (
+      OrderNumber,
+      BaseReferences<_$MyDatabase, $OrderNumbersTable, OrderNumber>
+    ),
+    OrderNumber,
+    PrefetchHooks Function()> {
+  $$OrderNumbersTableTableManager(_$MyDatabase db, $OrderNumbersTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderNumbersTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderNumbersTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderNumbersTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String> orderRef = const Value.absent(),
+            Value<String> invoiceNumberPerfix = const Value.absent(),
+            Value<String?> prefix = const Value.absent(),
+          }) =>
+              OrderNumbersCompanion(
+            idSeq: idSeq,
+            orderRef: orderRef,
+            invoiceNumberPerfix: invoiceNumberPerfix,
+            prefix: prefix,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            required String orderRef,
+            required String invoiceNumberPerfix,
+            Value<String?> prefix = const Value.absent(),
+          }) =>
+              OrderNumbersCompanion.insert(
+            idSeq: idSeq,
+            orderRef: orderRef,
+            invoiceNumberPerfix: invoiceNumberPerfix,
+            prefix: prefix,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$OrderNumbersTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderNumbersTable,
+    OrderNumber,
+    $$OrderNumbersTableFilterComposer,
+    $$OrderNumbersTableOrderingComposer,
+    $$OrderNumbersTableAnnotationComposer,
+    $$OrderNumbersTableCreateCompanionBuilder,
+    $$OrderNumbersTableUpdateCompanionBuilder,
+    (
+      OrderNumber,
+      BaseReferences<_$MyDatabase, $OrderNumbersTable, OrderNumber>
+    ),
+    OrderNumber,
+    PrefetchHooks Function()>;
+typedef $$ShiftEntityTableCreateCompanionBuilder = ShiftEntityCompanion
+    Function({
+  Value<int?> id,
+  Value<String?> shiftId,
+  Value<String?> prefix,
+  Value<String?> reference,
+  Value<String?> userId,
+  Value<String?> userName,
+  Value<String?> branchName,
+  Value<String?> clockedInDateAt,
+  Value<String?> clockedInTimeAt,
+  Value<String?> clockedOutDateAt,
+  Value<String?> clockedOutTimeAt,
+  Value<bool?> isClockedOut,
+});
+typedef $$ShiftEntityTableUpdateCompanionBuilder = ShiftEntityCompanion
+    Function({
+  Value<int?> id,
+  Value<String?> shiftId,
+  Value<String?> prefix,
+  Value<String?> reference,
+  Value<String?> userId,
+  Value<String?> userName,
+  Value<String?> branchName,
+  Value<String?> clockedInDateAt,
+  Value<String?> clockedInTimeAt,
+  Value<String?> clockedOutDateAt,
+  Value<String?> clockedOutTimeAt,
+  Value<bool?> isClockedOut,
+});
+
+class $$ShiftEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $ShiftEntityTable> {
+  $$ShiftEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get prefix => $composableBuilder(
+      column: $table.prefix, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userName => $composableBuilder(
+      column: $table.userName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get branchName => $composableBuilder(
+      column: $table.branchName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get clockedInDateAt => $composableBuilder(
+      column: $table.clockedInDateAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get clockedInTimeAt => $composableBuilder(
+      column: $table.clockedInTimeAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get clockedOutDateAt => $composableBuilder(
+      column: $table.clockedOutDateAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get clockedOutTimeAt => $composableBuilder(
+      column: $table.clockedOutTimeAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isClockedOut => $composableBuilder(
+      column: $table.isClockedOut, builder: (column) => ColumnFilters(column));
+}
+
+class $$ShiftEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $ShiftEntityTable> {
+  $$ShiftEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get prefix => $composableBuilder(
+      column: $table.prefix, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userName => $composableBuilder(
+      column: $table.userName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get branchName => $composableBuilder(
+      column: $table.branchName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get clockedInDateAt => $composableBuilder(
+      column: $table.clockedInDateAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get clockedInTimeAt => $composableBuilder(
+      column: $table.clockedInTimeAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get clockedOutDateAt => $composableBuilder(
+      column: $table.clockedOutDateAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get clockedOutTimeAt => $composableBuilder(
+      column: $table.clockedOutTimeAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isClockedOut => $composableBuilder(
+      column: $table.isClockedOut,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$ShiftEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $ShiftEntityTable> {
+  $$ShiftEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get shiftId =>
+      $composableBuilder(column: $table.shiftId, builder: (column) => column);
+
+  GeneratedColumn<String> get prefix =>
+      $composableBuilder(column: $table.prefix, builder: (column) => column);
+
+  GeneratedColumn<String> get reference =>
+      $composableBuilder(column: $table.reference, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get userName =>
+      $composableBuilder(column: $table.userName, builder: (column) => column);
+
+  GeneratedColumn<String> get branchName => $composableBuilder(
+      column: $table.branchName, builder: (column) => column);
+
+  GeneratedColumn<String> get clockedInDateAt => $composableBuilder(
+      column: $table.clockedInDateAt, builder: (column) => column);
+
+  GeneratedColumn<String> get clockedInTimeAt => $composableBuilder(
+      column: $table.clockedInTimeAt, builder: (column) => column);
+
+  GeneratedColumn<String> get clockedOutDateAt => $composableBuilder(
+      column: $table.clockedOutDateAt, builder: (column) => column);
+
+  GeneratedColumn<String> get clockedOutTimeAt => $composableBuilder(
+      column: $table.clockedOutTimeAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get isClockedOut => $composableBuilder(
+      column: $table.isClockedOut, builder: (column) => column);
+}
+
+class $$ShiftEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $ShiftEntityTable,
+    ShiftEntityData,
+    $$ShiftEntityTableFilterComposer,
+    $$ShiftEntityTableOrderingComposer,
+    $$ShiftEntityTableAnnotationComposer,
+    $$ShiftEntityTableCreateCompanionBuilder,
+    $$ShiftEntityTableUpdateCompanionBuilder,
+    (
+      ShiftEntityData,
+      BaseReferences<_$MyDatabase, $ShiftEntityTable, ShiftEntityData>
+    ),
+    ShiftEntityData,
+    PrefetchHooks Function()> {
+  $$ShiftEntityTableTableManager(_$MyDatabase db, $ShiftEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ShiftEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ShiftEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ShiftEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> prefix = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<String?> userId = const Value.absent(),
+            Value<String?> userName = const Value.absent(),
+            Value<String?> branchName = const Value.absent(),
+            Value<String?> clockedInDateAt = const Value.absent(),
+            Value<String?> clockedInTimeAt = const Value.absent(),
+            Value<String?> clockedOutDateAt = const Value.absent(),
+            Value<String?> clockedOutTimeAt = const Value.absent(),
+            Value<bool?> isClockedOut = const Value.absent(),
+          }) =>
+              ShiftEntityCompanion(
+            id: id,
+            shiftId: shiftId,
+            prefix: prefix,
+            reference: reference,
+            userId: userId,
+            userName: userName,
+            branchName: branchName,
+            clockedInDateAt: clockedInDateAt,
+            clockedInTimeAt: clockedInTimeAt,
+            clockedOutDateAt: clockedOutDateAt,
+            clockedOutTimeAt: clockedOutTimeAt,
+            isClockedOut: isClockedOut,
+          ),
+          createCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> prefix = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<String?> userId = const Value.absent(),
+            Value<String?> userName = const Value.absent(),
+            Value<String?> branchName = const Value.absent(),
+            Value<String?> clockedInDateAt = const Value.absent(),
+            Value<String?> clockedInTimeAt = const Value.absent(),
+            Value<String?> clockedOutDateAt = const Value.absent(),
+            Value<String?> clockedOutTimeAt = const Value.absent(),
+            Value<bool?> isClockedOut = const Value.absent(),
+          }) =>
+              ShiftEntityCompanion.insert(
+            id: id,
+            shiftId: shiftId,
+            prefix: prefix,
+            reference: reference,
+            userId: userId,
+            userName: userName,
+            branchName: branchName,
+            clockedInDateAt: clockedInDateAt,
+            clockedInTimeAt: clockedInTimeAt,
+            clockedOutDateAt: clockedOutDateAt,
+            clockedOutTimeAt: clockedOutTimeAt,
+            isClockedOut: isClockedOut,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ShiftEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $ShiftEntityTable,
+    ShiftEntityData,
+    $$ShiftEntityTableFilterComposer,
+    $$ShiftEntityTableOrderingComposer,
+    $$ShiftEntityTableAnnotationComposer,
+    $$ShiftEntityTableCreateCompanionBuilder,
+    $$ShiftEntityTableUpdateCompanionBuilder,
+    (
+      ShiftEntityData,
+      BaseReferences<_$MyDatabase, $ShiftEntityTable, ShiftEntityData>
+    ),
+    ShiftEntityData,
+    PrefetchHooks Function()>;
+typedef $$TillEntityTableCreateCompanionBuilder = TillEntityCompanion Function({
+  Value<int?> id,
+  required String reference,
+  required String shiftId,
+  required String userId,
+  required String userName,
+  required String openDateOn,
+  required String openTimeOn,
+  Value<String?> closeDateOn,
+  Value<String?> closeTimeOn,
+  Value<String?> note,
+  Value<bool> isClosed,
+  Value<double> amount,
+});
+typedef $$TillEntityTableUpdateCompanionBuilder = TillEntityCompanion Function({
+  Value<int?> id,
+  Value<String> reference,
+  Value<String> shiftId,
+  Value<String> userId,
+  Value<String> userName,
+  Value<String> openDateOn,
+  Value<String> openTimeOn,
+  Value<String?> closeDateOn,
+  Value<String?> closeTimeOn,
+  Value<String?> note,
+  Value<bool> isClosed,
+  Value<double> amount,
+});
+
+final class $$TillEntityTableReferences
+    extends BaseReferences<_$MyDatabase, $TillEntityTable, TillEntityData> {
+  $$TillEntityTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$TillAmountsEntityTable,
+      List<TillAmountsEntityData>> _tillAmountsEntityRefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.tillAmountsEntity,
+          aliasName: $_aliasNameGenerator(
+              db.tillEntity.reference, db.tillAmountsEntity.idTill));
+
+  $$TillAmountsEntityTableProcessedTableManager get tillAmountsEntityRefs {
+    final manager = $$TillAmountsEntityTableTableManager(
+            $_db, $_db.tillAmountsEntity)
+        .filter((f) =>
+            f.idTill.reference.sqlEquals($_itemColumn<String>('reference')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_tillAmountsEntityRefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+}
+
+class $$TillEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $TillEntityTable> {
+  $$TillEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userName => $composableBuilder(
+      column: $table.userName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get openDateOn => $composableBuilder(
+      column: $table.openDateOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get openTimeOn => $composableBuilder(
+      column: $table.openTimeOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get closeDateOn => $composableBuilder(
+      column: $table.closeDateOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get closeTimeOn => $composableBuilder(
+      column: $table.closeTimeOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isClosed => $composableBuilder(
+      column: $table.isClosed, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  Expression<bool> tillAmountsEntityRefs(
+      Expression<bool> Function($$TillAmountsEntityTableFilterComposer f) f) {
+    final $$TillAmountsEntityTableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.reference,
+        referencedTable: $db.tillAmountsEntity,
+        getReferencedColumn: (t) => t.idTill,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$TillAmountsEntityTableFilterComposer(
+              $db: $db,
+              $table: $db.tillAmountsEntity,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+}
+
+class $$TillEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $TillEntityTable> {
+  $$TillEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userName => $composableBuilder(
+      column: $table.userName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get openDateOn => $composableBuilder(
+      column: $table.openDateOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get openTimeOn => $composableBuilder(
+      column: $table.openTimeOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get closeDateOn => $composableBuilder(
+      column: $table.closeDateOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get closeTimeOn => $composableBuilder(
+      column: $table.closeTimeOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isClosed => $composableBuilder(
+      column: $table.isClosed, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+}
+
+class $$TillEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $TillEntityTable> {
+  $$TillEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get reference =>
+      $composableBuilder(column: $table.reference, builder: (column) => column);
+
+  GeneratedColumn<String> get shiftId =>
+      $composableBuilder(column: $table.shiftId, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get userName =>
+      $composableBuilder(column: $table.userName, builder: (column) => column);
+
+  GeneratedColumn<String> get openDateOn => $composableBuilder(
+      column: $table.openDateOn, builder: (column) => column);
+
+  GeneratedColumn<String> get openTimeOn => $composableBuilder(
+      column: $table.openTimeOn, builder: (column) => column);
+
+  GeneratedColumn<String> get closeDateOn => $composableBuilder(
+      column: $table.closeDateOn, builder: (column) => column);
+
+  GeneratedColumn<String> get closeTimeOn => $composableBuilder(
+      column: $table.closeTimeOn, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<bool> get isClosed =>
+      $composableBuilder(column: $table.isClosed, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  Expression<T> tillAmountsEntityRefs<T extends Object>(
+      Expression<T> Function($$TillAmountsEntityTableAnnotationComposer a) f) {
+    final $$TillAmountsEntityTableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.reference,
+            referencedTable: $db.tillAmountsEntity,
+            getReferencedColumn: (t) => t.idTill,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$TillAmountsEntityTableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.tillAmountsEntity,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+}
+
+class $$TillEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $TillEntityTable,
+    TillEntityData,
+    $$TillEntityTableFilterComposer,
+    $$TillEntityTableOrderingComposer,
+    $$TillEntityTableAnnotationComposer,
+    $$TillEntityTableCreateCompanionBuilder,
+    $$TillEntityTableUpdateCompanionBuilder,
+    (TillEntityData, $$TillEntityTableReferences),
+    TillEntityData,
+    PrefetchHooks Function({bool tillAmountsEntityRefs})> {
+  $$TillEntityTableTableManager(_$MyDatabase db, $TillEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TillEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TillEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TillEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<String> reference = const Value.absent(),
+            Value<String> shiftId = const Value.absent(),
+            Value<String> userId = const Value.absent(),
+            Value<String> userName = const Value.absent(),
+            Value<String> openDateOn = const Value.absent(),
+            Value<String> openTimeOn = const Value.absent(),
+            Value<String?> closeDateOn = const Value.absent(),
+            Value<String?> closeTimeOn = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<bool> isClosed = const Value.absent(),
+            Value<double> amount = const Value.absent(),
+          }) =>
+              TillEntityCompanion(
+            id: id,
+            reference: reference,
+            shiftId: shiftId,
+            userId: userId,
+            userName: userName,
+            openDateOn: openDateOn,
+            openTimeOn: openTimeOn,
+            closeDateOn: closeDateOn,
+            closeTimeOn: closeTimeOn,
+            note: note,
+            isClosed: isClosed,
+            amount: amount,
+          ),
+          createCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            required String reference,
+            required String shiftId,
+            required String userId,
+            required String userName,
+            required String openDateOn,
+            required String openTimeOn,
+            Value<String?> closeDateOn = const Value.absent(),
+            Value<String?> closeTimeOn = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<bool> isClosed = const Value.absent(),
+            Value<double> amount = const Value.absent(),
+          }) =>
+              TillEntityCompanion.insert(
+            id: id,
+            reference: reference,
+            shiftId: shiftId,
+            userId: userId,
+            userName: userName,
+            openDateOn: openDateOn,
+            openTimeOn: openTimeOn,
+            closeDateOn: closeDateOn,
+            closeTimeOn: closeTimeOn,
+            note: note,
+            isClosed: isClosed,
+            amount: amount,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$TillEntityTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({tillAmountsEntityRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (tillAmountsEntityRefs) db.tillAmountsEntity
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (tillAmountsEntityRefs)
+                    await $_getPrefetchedData<TillEntityData, $TillEntityTable,
+                            TillAmountsEntityData>(
+                        currentTable: table,
+                        referencedTable: $$TillEntityTableReferences
+                            ._tillAmountsEntityRefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$TillEntityTableReferences(db, table, p0)
+                                .tillAmountsEntityRefs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.idTill == item.reference),
+                        typedResults: items)
+                ];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$TillEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $TillEntityTable,
+    TillEntityData,
+    $$TillEntityTableFilterComposer,
+    $$TillEntityTableOrderingComposer,
+    $$TillEntityTableAnnotationComposer,
+    $$TillEntityTableCreateCompanionBuilder,
+    $$TillEntityTableUpdateCompanionBuilder,
+    (TillEntityData, $$TillEntityTableReferences),
+    TillEntityData,
+    PrefetchHooks Function({bool tillAmountsEntityRefs})>;
+typedef $$TillAmountsEntityTableCreateCompanionBuilder
+    = TillAmountsEntityCompanion Function({
+  Value<int?> id,
+  required String idTill,
+  required String currencyCode,
+  required String currencyId,
+  required String currencyName,
+  required String currencyFName,
+  required String paymentMethodId,
+  required String paymentMethodName,
+  required String paymentMethodFName,
+  Value<double> amount,
+});
+typedef $$TillAmountsEntityTableUpdateCompanionBuilder
+    = TillAmountsEntityCompanion Function({
+  Value<int?> id,
+  Value<String> idTill,
+  Value<String> currencyCode,
+  Value<String> currencyId,
+  Value<String> currencyName,
+  Value<String> currencyFName,
+  Value<String> paymentMethodId,
+  Value<String> paymentMethodName,
+  Value<String> paymentMethodFName,
+  Value<double> amount,
+});
+
+final class $$TillAmountsEntityTableReferences extends BaseReferences<
+    _$MyDatabase, $TillAmountsEntityTable, TillAmountsEntityData> {
+  $$TillAmountsEntityTableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $TillEntityTable _idTillTable(_$MyDatabase db) =>
+      db.tillEntity.createAlias($_aliasNameGenerator(
+          db.tillAmountsEntity.idTill, db.tillEntity.reference));
+
+  $$TillEntityTableProcessedTableManager get idTill {
+    final $_column = $_itemColumn<String>('id_till')!;
+
+    final manager = $$TillEntityTableTableManager($_db, $_db.tillEntity)
+        .filter((f) => f.reference.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_idTillTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$TillAmountsEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $TillAmountsEntityTable> {
+  $$TillAmountsEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyId => $composableBuilder(
+      column: $table.currencyId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyName => $composableBuilder(
+      column: $table.currencyName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyFName => $composableBuilder(
+      column: $table.currencyFName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get paymentMethodId => $composableBuilder(
+      column: $table.paymentMethodId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get paymentMethodName => $composableBuilder(
+      column: $table.paymentMethodName,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get paymentMethodFName => $composableBuilder(
+      column: $table.paymentMethodFName,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  $$TillEntityTableFilterComposer get idTill {
+    final $$TillEntityTableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.idTill,
+        referencedTable: $db.tillEntity,
+        getReferencedColumn: (t) => t.reference,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$TillEntityTableFilterComposer(
+              $db: $db,
+              $table: $db.tillEntity,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$TillAmountsEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $TillAmountsEntityTable> {
+  $$TillAmountsEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyId => $composableBuilder(
+      column: $table.currencyId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyName => $composableBuilder(
+      column: $table.currencyName,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyFName => $composableBuilder(
+      column: $table.currencyFName,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentMethodId => $composableBuilder(
+      column: $table.paymentMethodId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentMethodName => $composableBuilder(
+      column: $table.paymentMethodName,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentMethodFName => $composableBuilder(
+      column: $table.paymentMethodFName,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  $$TillEntityTableOrderingComposer get idTill {
+    final $$TillEntityTableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.idTill,
+        referencedTable: $db.tillEntity,
+        getReferencedColumn: (t) => t.reference,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$TillEntityTableOrderingComposer(
+              $db: $db,
+              $table: $db.tillEntity,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$TillAmountsEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $TillAmountsEntityTable> {
+  $$TillAmountsEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyId => $composableBuilder(
+      column: $table.currencyId, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyName => $composableBuilder(
+      column: $table.currencyName, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyFName => $composableBuilder(
+      column: $table.currencyFName, builder: (column) => column);
+
+  GeneratedColumn<String> get paymentMethodId => $composableBuilder(
+      column: $table.paymentMethodId, builder: (column) => column);
+
+  GeneratedColumn<String> get paymentMethodName => $composableBuilder(
+      column: $table.paymentMethodName, builder: (column) => column);
+
+  GeneratedColumn<String> get paymentMethodFName => $composableBuilder(
+      column: $table.paymentMethodFName, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  $$TillEntityTableAnnotationComposer get idTill {
+    final $$TillEntityTableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.idTill,
+        referencedTable: $db.tillEntity,
+        getReferencedColumn: (t) => t.reference,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$TillEntityTableAnnotationComposer(
+              $db: $db,
+              $table: $db.tillEntity,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$TillAmountsEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $TillAmountsEntityTable,
+    TillAmountsEntityData,
+    $$TillAmountsEntityTableFilterComposer,
+    $$TillAmountsEntityTableOrderingComposer,
+    $$TillAmountsEntityTableAnnotationComposer,
+    $$TillAmountsEntityTableCreateCompanionBuilder,
+    $$TillAmountsEntityTableUpdateCompanionBuilder,
+    (TillAmountsEntityData, $$TillAmountsEntityTableReferences),
+    TillAmountsEntityData,
+    PrefetchHooks Function({bool idTill})> {
+  $$TillAmountsEntityTableTableManager(
+      _$MyDatabase db, $TillAmountsEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TillAmountsEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TillAmountsEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TillAmountsEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<String> idTill = const Value.absent(),
+            Value<String> currencyCode = const Value.absent(),
+            Value<String> currencyId = const Value.absent(),
+            Value<String> currencyName = const Value.absent(),
+            Value<String> currencyFName = const Value.absent(),
+            Value<String> paymentMethodId = const Value.absent(),
+            Value<String> paymentMethodName = const Value.absent(),
+            Value<String> paymentMethodFName = const Value.absent(),
+            Value<double> amount = const Value.absent(),
+          }) =>
+              TillAmountsEntityCompanion(
+            id: id,
+            idTill: idTill,
+            currencyCode: currencyCode,
+            currencyId: currencyId,
+            currencyName: currencyName,
+            currencyFName: currencyFName,
+            paymentMethodId: paymentMethodId,
+            paymentMethodName: paymentMethodName,
+            paymentMethodFName: paymentMethodFName,
+            amount: amount,
+          ),
+          createCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            required String idTill,
+            required String currencyCode,
+            required String currencyId,
+            required String currencyName,
+            required String currencyFName,
+            required String paymentMethodId,
+            required String paymentMethodName,
+            required String paymentMethodFName,
+            Value<double> amount = const Value.absent(),
+          }) =>
+              TillAmountsEntityCompanion.insert(
+            id: id,
+            idTill: idTill,
+            currencyCode: currencyCode,
+            currencyId: currencyId,
+            currencyName: currencyName,
+            currencyFName: currencyFName,
+            paymentMethodId: paymentMethodId,
+            paymentMethodName: paymentMethodName,
+            paymentMethodFName: paymentMethodFName,
+            amount: amount,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$TillAmountsEntityTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({idTill = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (idTill) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.idTill,
+                    referencedTable:
+                        $$TillAmountsEntityTableReferences._idTillTable(db),
+                    referencedColumn: $$TillAmountsEntityTableReferences
+                        ._idTillTable(db)
+                        .reference,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$TillAmountsEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $TillAmountsEntityTable,
+    TillAmountsEntityData,
+    $$TillAmountsEntityTableFilterComposer,
+    $$TillAmountsEntityTableOrderingComposer,
+    $$TillAmountsEntityTableAnnotationComposer,
+    $$TillAmountsEntityTableCreateCompanionBuilder,
+    $$TillAmountsEntityTableUpdateCompanionBuilder,
+    (TillAmountsEntityData, $$TillAmountsEntityTableReferences),
+    TillAmountsEntityData,
+    PrefetchHooks Function({bool idTill})>;
+typedef $$PaymentMethodEntityTableCreateCompanionBuilder
+    = PaymentMethodEntityCompanion Function({
+  Value<int?> idSeq,
+  required String id,
+  required String name,
+  required String fName,
+  required int paymentType,
+  Value<int?> displayOrder,
+  Value<bool?> autoOpenCashDrawer,
+  Value<bool?> isActive,
+  Value<bool?> isDeleted,
+  Value<String?> imageUrl,
+});
+typedef $$PaymentMethodEntityTableUpdateCompanionBuilder
+    = PaymentMethodEntityCompanion Function({
+  Value<int?> idSeq,
+  Value<String> id,
+  Value<String> name,
+  Value<String> fName,
+  Value<int> paymentType,
+  Value<int?> displayOrder,
+  Value<bool?> autoOpenCashDrawer,
+  Value<bool?> isActive,
+  Value<bool?> isDeleted,
+  Value<String?> imageUrl,
+});
+
+class $$PaymentMethodEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $PaymentMethodEntityTable> {
+  $$PaymentMethodEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get paymentType => $composableBuilder(
+      column: $table.paymentType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get displayOrder => $composableBuilder(
+      column: $table.displayOrder, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get autoOpenCashDrawer => $composableBuilder(
+      column: $table.autoOpenCashDrawer,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isActive => $composableBuilder(
+      column: $table.isActive, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isDeleted => $composableBuilder(
+      column: $table.isDeleted, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get imageUrl => $composableBuilder(
+      column: $table.imageUrl, builder: (column) => ColumnFilters(column));
+}
+
+class $$PaymentMethodEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $PaymentMethodEntityTable> {
+  $$PaymentMethodEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get paymentType => $composableBuilder(
+      column: $table.paymentType, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get displayOrder => $composableBuilder(
+      column: $table.displayOrder,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get autoOpenCashDrawer => $composableBuilder(
+      column: $table.autoOpenCashDrawer,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isActive => $composableBuilder(
+      column: $table.isActive, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isDeleted => $composableBuilder(
+      column: $table.isDeleted, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get imageUrl => $composableBuilder(
+      column: $table.imageUrl, builder: (column) => ColumnOrderings(column));
+}
+
+class $$PaymentMethodEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $PaymentMethodEntityTable> {
+  $$PaymentMethodEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<int> get paymentType => $composableBuilder(
+      column: $table.paymentType, builder: (column) => column);
+
+  GeneratedColumn<int> get displayOrder => $composableBuilder(
+      column: $table.displayOrder, builder: (column) => column);
+
+  GeneratedColumn<bool> get autoOpenCashDrawer => $composableBuilder(
+      column: $table.autoOpenCashDrawer, builder: (column) => column);
+
+  GeneratedColumn<bool> get isActive =>
+      $composableBuilder(column: $table.isActive, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDeleted =>
+      $composableBuilder(column: $table.isDeleted, builder: (column) => column);
+
+  GeneratedColumn<String> get imageUrl =>
+      $composableBuilder(column: $table.imageUrl, builder: (column) => column);
+}
+
+class $$PaymentMethodEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $PaymentMethodEntityTable,
+    PaymentMethodEntityData,
+    $$PaymentMethodEntityTableFilterComposer,
+    $$PaymentMethodEntityTableOrderingComposer,
+    $$PaymentMethodEntityTableAnnotationComposer,
+    $$PaymentMethodEntityTableCreateCompanionBuilder,
+    $$PaymentMethodEntityTableUpdateCompanionBuilder,
+    (
+      PaymentMethodEntityData,
+      BaseReferences<_$MyDatabase, $PaymentMethodEntityTable,
+          PaymentMethodEntityData>
+    ),
+    PaymentMethodEntityData,
+    PrefetchHooks Function()> {
+  $$PaymentMethodEntityTableTableManager(
+      _$MyDatabase db, $PaymentMethodEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PaymentMethodEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PaymentMethodEntityTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PaymentMethodEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> fName = const Value.absent(),
+            Value<int> paymentType = const Value.absent(),
+            Value<int?> displayOrder = const Value.absent(),
+            Value<bool?> autoOpenCashDrawer = const Value.absent(),
+            Value<bool?> isActive = const Value.absent(),
+            Value<bool?> isDeleted = const Value.absent(),
+            Value<String?> imageUrl = const Value.absent(),
+          }) =>
+              PaymentMethodEntityCompanion(
+            idSeq: idSeq,
+            id: id,
+            name: name,
+            fName: fName,
+            paymentType: paymentType,
+            displayOrder: displayOrder,
+            autoOpenCashDrawer: autoOpenCashDrawer,
+            isActive: isActive,
+            isDeleted: isDeleted,
+            imageUrl: imageUrl,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            required String id,
+            required String name,
+            required String fName,
+            required int paymentType,
+            Value<int?> displayOrder = const Value.absent(),
+            Value<bool?> autoOpenCashDrawer = const Value.absent(),
+            Value<bool?> isActive = const Value.absent(),
+            Value<bool?> isDeleted = const Value.absent(),
+            Value<String?> imageUrl = const Value.absent(),
+          }) =>
+              PaymentMethodEntityCompanion.insert(
+            idSeq: idSeq,
+            id: id,
+            name: name,
+            fName: fName,
+            paymentType: paymentType,
+            displayOrder: displayOrder,
+            autoOpenCashDrawer: autoOpenCashDrawer,
+            isActive: isActive,
+            isDeleted: isDeleted,
+            imageUrl: imageUrl,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$PaymentMethodEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $PaymentMethodEntityTable,
+    PaymentMethodEntityData,
+    $$PaymentMethodEntityTableFilterComposer,
+    $$PaymentMethodEntityTableOrderingComposer,
+    $$PaymentMethodEntityTableAnnotationComposer,
+    $$PaymentMethodEntityTableCreateCompanionBuilder,
+    $$PaymentMethodEntityTableUpdateCompanionBuilder,
+    (
+      PaymentMethodEntityData,
+      BaseReferences<_$MyDatabase, $PaymentMethodEntityTable,
+          PaymentMethodEntityData>
+    ),
+    PaymentMethodEntityData,
+    PrefetchHooks Function()>;
+typedef $$SettingEntityTableCreateCompanionBuilder = SettingEntityCompanion
+    Function({
+  Value<int?> idSeq,
+  required String idUser,
+  Value<dynamic> shortcuts,
+});
+typedef $$SettingEntityTableUpdateCompanionBuilder = SettingEntityCompanion
+    Function({
+  Value<int?> idSeq,
+  Value<String> idUser,
+  Value<dynamic> shortcuts,
+});
+
+class $$SettingEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $SettingEntityTable> {
+  $$SettingEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get idUser => $composableBuilder(
+      column: $table.idUser, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get shortcuts =>
+      $composableBuilder(
+          column: $table.shortcuts,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+}
+
+class $$SettingEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $SettingEntityTable> {
+  $$SettingEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get idUser => $composableBuilder(
+      column: $table.idUser, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shortcuts => $composableBuilder(
+      column: $table.shortcuts, builder: (column) => ColumnOrderings(column));
+}
+
+class $$SettingEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $SettingEntityTable> {
+  $$SettingEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get idUser =>
+      $composableBuilder(column: $table.idUser, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get shortcuts =>
+      $composableBuilder(column: $table.shortcuts, builder: (column) => column);
+}
+
+class $$SettingEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $SettingEntityTable,
+    SettingEntityData,
+    $$SettingEntityTableFilterComposer,
+    $$SettingEntityTableOrderingComposer,
+    $$SettingEntityTableAnnotationComposer,
+    $$SettingEntityTableCreateCompanionBuilder,
+    $$SettingEntityTableUpdateCompanionBuilder,
+    (
+      SettingEntityData,
+      BaseReferences<_$MyDatabase, $SettingEntityTable, SettingEntityData>
+    ),
+    SettingEntityData,
+    PrefetchHooks Function()> {
+  $$SettingEntityTableTableManager(_$MyDatabase db, $SettingEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SettingEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SettingEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SettingEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String> idUser = const Value.absent(),
+            Value<dynamic> shortcuts = const Value.absent(),
+          }) =>
+              SettingEntityCompanion(
+            idSeq: idSeq,
+            idUser: idUser,
+            shortcuts: shortcuts,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            required String idUser,
+            Value<dynamic> shortcuts = const Value.absent(),
+          }) =>
+              SettingEntityCompanion.insert(
+            idSeq: idSeq,
+            idUser: idUser,
+            shortcuts: shortcuts,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$SettingEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $SettingEntityTable,
+    SettingEntityData,
+    $$SettingEntityTableFilterComposer,
+    $$SettingEntityTableOrderingComposer,
+    $$SettingEntityTableAnnotationComposer,
+    $$SettingEntityTableCreateCompanionBuilder,
+    $$SettingEntityTableUpdateCompanionBuilder,
+    (
+      SettingEntityData,
+      BaseReferences<_$MyDatabase, $SettingEntityTable, SettingEntityData>
+    ),
+    SettingEntityData,
+    PrefetchHooks Function()>;
+typedef $$OrderPaymentsTableCreateCompanionBuilder = OrderPaymentsCompanion
+    Function({
+  Value<int?> idSeq,
+  required String refreance,
+  required String tillId,
+  required String paymentMehtodId,
+  required String orderRef,
+  Value<String?> orderId,
+  Value<double?> amount,
+  Value<double> remainAmt,
+  Value<double> amountCurecny,
+  Value<double?> exchangeRate,
+  Value<String?> currencyCode,
+});
+typedef $$OrderPaymentsTableUpdateCompanionBuilder = OrderPaymentsCompanion
+    Function({
+  Value<int?> idSeq,
+  Value<String> refreance,
+  Value<String> tillId,
+  Value<String> paymentMehtodId,
+  Value<String> orderRef,
+  Value<String?> orderId,
+  Value<double?> amount,
+  Value<double> remainAmt,
+  Value<double> amountCurecny,
+  Value<double?> exchangeRate,
+  Value<String?> currencyCode,
+});
+
+class $$OrderPaymentsTableFilterComposer
+    extends Composer<_$MyDatabase, $OrderPaymentsTable> {
+  $$OrderPaymentsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get refreance => $composableBuilder(
+      column: $table.refreance, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get paymentMehtodId => $composableBuilder(
+      column: $table.paymentMehtodId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderId => $composableBuilder(
+      column: $table.orderId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get remainAmt => $composableBuilder(
+      column: $table.remainAmt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amountCurecny => $composableBuilder(
+      column: $table.amountCurecny, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get exchangeRate => $composableBuilder(
+      column: $table.exchangeRate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => ColumnFilters(column));
+}
+
+class $$OrderPaymentsTableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderPaymentsTable> {
+  $$OrderPaymentsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get refreance => $composableBuilder(
+      column: $table.refreance, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentMehtodId => $composableBuilder(
+      column: $table.paymentMehtodId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderId => $composableBuilder(
+      column: $table.orderId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get remainAmt => $composableBuilder(
+      column: $table.remainAmt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amountCurecny => $composableBuilder(
+      column: $table.amountCurecny,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get exchangeRate => $composableBuilder(
+      column: $table.exchangeRate,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$OrderPaymentsTableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderPaymentsTable> {
+  $$OrderPaymentsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get refreance =>
+      $composableBuilder(column: $table.refreance, builder: (column) => column);
+
+  GeneratedColumn<String> get tillId =>
+      $composableBuilder(column: $table.tillId, builder: (column) => column);
+
+  GeneratedColumn<String> get paymentMehtodId => $composableBuilder(
+      column: $table.paymentMehtodId, builder: (column) => column);
+
+  GeneratedColumn<String> get orderRef =>
+      $composableBuilder(column: $table.orderRef, builder: (column) => column);
+
+  GeneratedColumn<String> get orderId =>
+      $composableBuilder(column: $table.orderId, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  GeneratedColumn<double> get remainAmt =>
+      $composableBuilder(column: $table.remainAmt, builder: (column) => column);
+
+  GeneratedColumn<double> get amountCurecny => $composableBuilder(
+      column: $table.amountCurecny, builder: (column) => column);
+
+  GeneratedColumn<double> get exchangeRate => $composableBuilder(
+      column: $table.exchangeRate, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => column);
+}
+
+class $$OrderPaymentsTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderPaymentsTable,
+    OrderPayment,
+    $$OrderPaymentsTableFilterComposer,
+    $$OrderPaymentsTableOrderingComposer,
+    $$OrderPaymentsTableAnnotationComposer,
+    $$OrderPaymentsTableCreateCompanionBuilder,
+    $$OrderPaymentsTableUpdateCompanionBuilder,
+    (
+      OrderPayment,
+      BaseReferences<_$MyDatabase, $OrderPaymentsTable, OrderPayment>
+    ),
+    OrderPayment,
+    PrefetchHooks Function()> {
+  $$OrderPaymentsTableTableManager(_$MyDatabase db, $OrderPaymentsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderPaymentsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderPaymentsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderPaymentsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String> refreance = const Value.absent(),
+            Value<String> tillId = const Value.absent(),
+            Value<String> paymentMehtodId = const Value.absent(),
+            Value<String> orderRef = const Value.absent(),
+            Value<String?> orderId = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double> remainAmt = const Value.absent(),
+            Value<double> amountCurecny = const Value.absent(),
+            Value<double?> exchangeRate = const Value.absent(),
+            Value<String?> currencyCode = const Value.absent(),
+          }) =>
+              OrderPaymentsCompanion(
+            idSeq: idSeq,
+            refreance: refreance,
+            tillId: tillId,
+            paymentMehtodId: paymentMehtodId,
+            orderRef: orderRef,
+            orderId: orderId,
+            amount: amount,
+            remainAmt: remainAmt,
+            amountCurecny: amountCurecny,
+            exchangeRate: exchangeRate,
+            currencyCode: currencyCode,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            required String refreance,
+            required String tillId,
+            required String paymentMehtodId,
+            required String orderRef,
+            Value<String?> orderId = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double> remainAmt = const Value.absent(),
+            Value<double> amountCurecny = const Value.absent(),
+            Value<double?> exchangeRate = const Value.absent(),
+            Value<String?> currencyCode = const Value.absent(),
+          }) =>
+              OrderPaymentsCompanion.insert(
+            idSeq: idSeq,
+            refreance: refreance,
+            tillId: tillId,
+            paymentMehtodId: paymentMehtodId,
+            orderRef: orderRef,
+            orderId: orderId,
+            amount: amount,
+            remainAmt: remainAmt,
+            amountCurecny: amountCurecny,
+            exchangeRate: exchangeRate,
+            currencyCode: currencyCode,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$OrderPaymentsTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderPaymentsTable,
+    OrderPayment,
+    $$OrderPaymentsTableFilterComposer,
+    $$OrderPaymentsTableOrderingComposer,
+    $$OrderPaymentsTableAnnotationComposer,
+    $$OrderPaymentsTableCreateCompanionBuilder,
+    $$OrderPaymentsTableUpdateCompanionBuilder,
+    (
+      OrderPayment,
+      BaseReferences<_$MyDatabase, $OrderPaymentsTable, OrderPayment>
+    ),
+    OrderPayment,
+    PrefetchHooks Function()>;
+typedef $$DrawerOperationEntityTableCreateCompanionBuilder
+    = DrawerOperationEntityCompanion Function({
+  Value<int?> idSeq,
+  required String referance,
+  required DateTime dateWork,
+  Value<int?> type,
+  Value<double?> amount,
+  Value<String?> resaon,
+  Value<String?> note,
+  Value<String?> deviceId,
+  Value<String?> userId,
+  Value<String?> tillId,
+  Value<String?> shiftId,
+  Value<String?> currencyId,
+  Value<String?> currencyCode,
+  Value<DateTime> createdAt,
+});
+typedef $$DrawerOperationEntityTableUpdateCompanionBuilder
+    = DrawerOperationEntityCompanion Function({
+  Value<int?> idSeq,
+  Value<String> referance,
+  Value<DateTime> dateWork,
+  Value<int?> type,
+  Value<double?> amount,
+  Value<String?> resaon,
+  Value<String?> note,
+  Value<String?> deviceId,
+  Value<String?> userId,
+  Value<String?> tillId,
+  Value<String?> shiftId,
+  Value<String?> currencyId,
+  Value<String?> currencyCode,
+  Value<DateTime> createdAt,
+});
+
+class $$DrawerOperationEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $DrawerOperationEntityTable> {
+  $$DrawerOperationEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get referance => $composableBuilder(
+      column: $table.referance, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get dateWork => $composableBuilder(
+      column: $table.dateWork, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get type => $composableBuilder(
+      column: $table.type, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get resaon => $composableBuilder(
+      column: $table.resaon, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyId => $composableBuilder(
+      column: $table.currencyId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$DrawerOperationEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $DrawerOperationEntityTable> {
+  $$DrawerOperationEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get referance => $composableBuilder(
+      column: $table.referance, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get dateWork => $composableBuilder(
+      column: $table.dateWork, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get type => $composableBuilder(
+      column: $table.type, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get resaon => $composableBuilder(
+      column: $table.resaon, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyId => $composableBuilder(
+      column: $table.currencyId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$DrawerOperationEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $DrawerOperationEntityTable> {
+  $$DrawerOperationEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get referance =>
+      $composableBuilder(column: $table.referance, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get dateWork =>
+      $composableBuilder(column: $table.dateWork, builder: (column) => column);
+
+  GeneratedColumn<int> get type =>
+      $composableBuilder(column: $table.type, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  GeneratedColumn<String> get resaon =>
+      $composableBuilder(column: $table.resaon, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get tillId =>
+      $composableBuilder(column: $table.tillId, builder: (column) => column);
+
+  GeneratedColumn<String> get shiftId =>
+      $composableBuilder(column: $table.shiftId, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyId => $composableBuilder(
+      column: $table.currencyId, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$DrawerOperationEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $DrawerOperationEntityTable,
+    DrawerOperationEntityData,
+    $$DrawerOperationEntityTableFilterComposer,
+    $$DrawerOperationEntityTableOrderingComposer,
+    $$DrawerOperationEntityTableAnnotationComposer,
+    $$DrawerOperationEntityTableCreateCompanionBuilder,
+    $$DrawerOperationEntityTableUpdateCompanionBuilder,
+    (
+      DrawerOperationEntityData,
+      BaseReferences<_$MyDatabase, $DrawerOperationEntityTable,
+          DrawerOperationEntityData>
+    ),
+    DrawerOperationEntityData,
+    PrefetchHooks Function()> {
+  $$DrawerOperationEntityTableTableManager(
+      _$MyDatabase db, $DrawerOperationEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DrawerOperationEntityTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DrawerOperationEntityTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DrawerOperationEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String> referance = const Value.absent(),
+            Value<DateTime> dateWork = const Value.absent(),
+            Value<int?> type = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<String?> resaon = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<String?> userId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> currencyId = const Value.absent(),
+            Value<String?> currencyCode = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              DrawerOperationEntityCompanion(
+            idSeq: idSeq,
+            referance: referance,
+            dateWork: dateWork,
+            type: type,
+            amount: amount,
+            resaon: resaon,
+            note: note,
+            deviceId: deviceId,
+            userId: userId,
+            tillId: tillId,
+            shiftId: shiftId,
+            currencyId: currencyId,
+            currencyCode: currencyCode,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            required String referance,
+            required DateTime dateWork,
+            Value<int?> type = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<String?> resaon = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<String?> userId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> currencyId = const Value.absent(),
+            Value<String?> currencyCode = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              DrawerOperationEntityCompanion.insert(
+            idSeq: idSeq,
+            referance: referance,
+            dateWork: dateWork,
+            type: type,
+            amount: amount,
+            resaon: resaon,
+            note: note,
+            deviceId: deviceId,
+            userId: userId,
+            tillId: tillId,
+            shiftId: shiftId,
+            currencyId: currencyId,
+            currencyCode: currencyCode,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$DrawerOperationEntityTableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $DrawerOperationEntityTable,
+        DrawerOperationEntityData,
+        $$DrawerOperationEntityTableFilterComposer,
+        $$DrawerOperationEntityTableOrderingComposer,
+        $$DrawerOperationEntityTableAnnotationComposer,
+        $$DrawerOperationEntityTableCreateCompanionBuilder,
+        $$DrawerOperationEntityTableUpdateCompanionBuilder,
+        (
+          DrawerOperationEntityData,
+          BaseReferences<_$MyDatabase, $DrawerOperationEntityTable,
+              DrawerOperationEntityData>
+        ),
+        DrawerOperationEntityData,
+        PrefetchHooks Function()>;
+typedef $$ActivationInfoEntityTableCreateCompanionBuilder
+    = ActivationInfoEntityCompanion Function({
+  Value<int?> idSeq,
+  Value<String?> id,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<String?> email,
+  Value<String?> phone,
+  Value<String?> mobile,
+  Value<String?> taxRegName,
+  Value<String?> fTaxRegName,
+  Value<String?> taxCode,
+  Value<String?> onlineOrderStartTime,
+  Value<String?> onlineOrderEndTime,
+  Value<String?> branchPrefix,
+  Value<String?> customerService,
+  Value<String?> countryId,
+  Value<String?> cityId,
+  Value<String?> address,
+  Value<String?> latitude,
+  Value<String?> longitude,
+  Value<String?> headerInvoiceMsg,
+  Value<String?> footerInvoiceMsg,
+  Value<bool?> receiveOnlineOrders,
+  Value<dynamic> devices,
+  Value<String?> code,
+  Value<String?> currentDeviceId,
+  Value<String?> company,
+  Value<String?> fCompany,
+  Value<String?> branch,
+  Value<String?> fBranch,
+});
+typedef $$ActivationInfoEntityTableUpdateCompanionBuilder
+    = ActivationInfoEntityCompanion Function({
+  Value<int?> idSeq,
+  Value<String?> id,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<String?> email,
+  Value<String?> phone,
+  Value<String?> mobile,
+  Value<String?> taxRegName,
+  Value<String?> fTaxRegName,
+  Value<String?> taxCode,
+  Value<String?> onlineOrderStartTime,
+  Value<String?> onlineOrderEndTime,
+  Value<String?> branchPrefix,
+  Value<String?> customerService,
+  Value<String?> countryId,
+  Value<String?> cityId,
+  Value<String?> address,
+  Value<String?> latitude,
+  Value<String?> longitude,
+  Value<String?> headerInvoiceMsg,
+  Value<String?> footerInvoiceMsg,
+  Value<bool?> receiveOnlineOrders,
+  Value<dynamic> devices,
+  Value<String?> code,
+  Value<String?> currentDeviceId,
+  Value<String?> company,
+  Value<String?> fCompany,
+  Value<String?> branch,
+  Value<String?> fBranch,
+});
+
+class $$ActivationInfoEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $ActivationInfoEntityTable> {
+  $$ActivationInfoEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get email => $composableBuilder(
+      column: $table.email, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get phone => $composableBuilder(
+      column: $table.phone, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get mobile => $composableBuilder(
+      column: $table.mobile, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxRegName => $composableBuilder(
+      column: $table.taxRegName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fTaxRegName => $composableBuilder(
+      column: $table.fTaxRegName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxCode => $composableBuilder(
+      column: $table.taxCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get onlineOrderStartTime => $composableBuilder(
+      column: $table.onlineOrderStartTime,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get onlineOrderEndTime => $composableBuilder(
+      column: $table.onlineOrderEndTime,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get branchPrefix => $composableBuilder(
+      column: $table.branchPrefix, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get customerService => $composableBuilder(
+      column: $table.customerService,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get countryId => $composableBuilder(
+      column: $table.countryId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get cityId => $composableBuilder(
+      column: $table.cityId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get address => $composableBuilder(
+      column: $table.address, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get latitude => $composableBuilder(
+      column: $table.latitude, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get longitude => $composableBuilder(
+      column: $table.longitude, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get headerInvoiceMsg => $composableBuilder(
+      column: $table.headerInvoiceMsg,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get footerInvoiceMsg => $composableBuilder(
+      column: $table.footerInvoiceMsg,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get receiveOnlineOrders => $composableBuilder(
+      column: $table.receiveOnlineOrders,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get devices =>
+      $composableBuilder(
+          column: $table.devices,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get code => $composableBuilder(
+      column: $table.code, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currentDeviceId => $composableBuilder(
+      column: $table.currentDeviceId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get company => $composableBuilder(
+      column: $table.company, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fCompany => $composableBuilder(
+      column: $table.fCompany, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get branch => $composableBuilder(
+      column: $table.branch, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fBranch => $composableBuilder(
+      column: $table.fBranch, builder: (column) => ColumnFilters(column));
+}
+
+class $$ActivationInfoEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $ActivationInfoEntityTable> {
+  $$ActivationInfoEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get email => $composableBuilder(
+      column: $table.email, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get phone => $composableBuilder(
+      column: $table.phone, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get mobile => $composableBuilder(
+      column: $table.mobile, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxRegName => $composableBuilder(
+      column: $table.taxRegName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fTaxRegName => $composableBuilder(
+      column: $table.fTaxRegName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxCode => $composableBuilder(
+      column: $table.taxCode, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get onlineOrderStartTime => $composableBuilder(
+      column: $table.onlineOrderStartTime,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get onlineOrderEndTime => $composableBuilder(
+      column: $table.onlineOrderEndTime,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get branchPrefix => $composableBuilder(
+      column: $table.branchPrefix,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get customerService => $composableBuilder(
+      column: $table.customerService,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get countryId => $composableBuilder(
+      column: $table.countryId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get cityId => $composableBuilder(
+      column: $table.cityId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get address => $composableBuilder(
+      column: $table.address, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get latitude => $composableBuilder(
+      column: $table.latitude, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get longitude => $composableBuilder(
+      column: $table.longitude, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get headerInvoiceMsg => $composableBuilder(
+      column: $table.headerInvoiceMsg,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get footerInvoiceMsg => $composableBuilder(
+      column: $table.footerInvoiceMsg,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get receiveOnlineOrders => $composableBuilder(
+      column: $table.receiveOnlineOrders,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get devices => $composableBuilder(
+      column: $table.devices, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get code => $composableBuilder(
+      column: $table.code, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currentDeviceId => $composableBuilder(
+      column: $table.currentDeviceId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get company => $composableBuilder(
+      column: $table.company, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fCompany => $composableBuilder(
+      column: $table.fCompany, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get branch => $composableBuilder(
+      column: $table.branch, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fBranch => $composableBuilder(
+      column: $table.fBranch, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ActivationInfoEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $ActivationInfoEntityTable> {
+  $$ActivationInfoEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<String> get email =>
+      $composableBuilder(column: $table.email, builder: (column) => column);
+
+  GeneratedColumn<String> get phone =>
+      $composableBuilder(column: $table.phone, builder: (column) => column);
+
+  GeneratedColumn<String> get mobile =>
+      $composableBuilder(column: $table.mobile, builder: (column) => column);
+
+  GeneratedColumn<String> get taxRegName => $composableBuilder(
+      column: $table.taxRegName, builder: (column) => column);
+
+  GeneratedColumn<String> get fTaxRegName => $composableBuilder(
+      column: $table.fTaxRegName, builder: (column) => column);
+
+  GeneratedColumn<String> get taxCode =>
+      $composableBuilder(column: $table.taxCode, builder: (column) => column);
+
+  GeneratedColumn<String> get onlineOrderStartTime => $composableBuilder(
+      column: $table.onlineOrderStartTime, builder: (column) => column);
+
+  GeneratedColumn<String> get onlineOrderEndTime => $composableBuilder(
+      column: $table.onlineOrderEndTime, builder: (column) => column);
+
+  GeneratedColumn<String> get branchPrefix => $composableBuilder(
+      column: $table.branchPrefix, builder: (column) => column);
+
+  GeneratedColumn<String> get customerService => $composableBuilder(
+      column: $table.customerService, builder: (column) => column);
+
+  GeneratedColumn<String> get countryId =>
+      $composableBuilder(column: $table.countryId, builder: (column) => column);
+
+  GeneratedColumn<String> get cityId =>
+      $composableBuilder(column: $table.cityId, builder: (column) => column);
+
+  GeneratedColumn<String> get address =>
+      $composableBuilder(column: $table.address, builder: (column) => column);
+
+  GeneratedColumn<String> get latitude =>
+      $composableBuilder(column: $table.latitude, builder: (column) => column);
+
+  GeneratedColumn<String> get longitude =>
+      $composableBuilder(column: $table.longitude, builder: (column) => column);
+
+  GeneratedColumn<String> get headerInvoiceMsg => $composableBuilder(
+      column: $table.headerInvoiceMsg, builder: (column) => column);
+
+  GeneratedColumn<String> get footerInvoiceMsg => $composableBuilder(
+      column: $table.footerInvoiceMsg, builder: (column) => column);
+
+  GeneratedColumn<bool> get receiveOnlineOrders => $composableBuilder(
+      column: $table.receiveOnlineOrders, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get devices =>
+      $composableBuilder(column: $table.devices, builder: (column) => column);
+
+  GeneratedColumn<String> get code =>
+      $composableBuilder(column: $table.code, builder: (column) => column);
+
+  GeneratedColumn<String> get currentDeviceId => $composableBuilder(
+      column: $table.currentDeviceId, builder: (column) => column);
+
+  GeneratedColumn<String> get company =>
+      $composableBuilder(column: $table.company, builder: (column) => column);
+
+  GeneratedColumn<String> get fCompany =>
+      $composableBuilder(column: $table.fCompany, builder: (column) => column);
+
+  GeneratedColumn<String> get branch =>
+      $composableBuilder(column: $table.branch, builder: (column) => column);
+
+  GeneratedColumn<String> get fBranch =>
+      $composableBuilder(column: $table.fBranch, builder: (column) => column);
+}
+
+class $$ActivationInfoEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $ActivationInfoEntityTable,
+    ActivationInfoEntityData,
+    $$ActivationInfoEntityTableFilterComposer,
+    $$ActivationInfoEntityTableOrderingComposer,
+    $$ActivationInfoEntityTableAnnotationComposer,
+    $$ActivationInfoEntityTableCreateCompanionBuilder,
+    $$ActivationInfoEntityTableUpdateCompanionBuilder,
+    (
+      ActivationInfoEntityData,
+      BaseReferences<_$MyDatabase, $ActivationInfoEntityTable,
+          ActivationInfoEntityData>
+    ),
+    ActivationInfoEntityData,
+    PrefetchHooks Function()> {
+  $$ActivationInfoEntityTableTableManager(
+      _$MyDatabase db, $ActivationInfoEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ActivationInfoEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ActivationInfoEntityTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ActivationInfoEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String?> id = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<String?> email = const Value.absent(),
+            Value<String?> phone = const Value.absent(),
+            Value<String?> mobile = const Value.absent(),
+            Value<String?> taxRegName = const Value.absent(),
+            Value<String?> fTaxRegName = const Value.absent(),
+            Value<String?> taxCode = const Value.absent(),
+            Value<String?> onlineOrderStartTime = const Value.absent(),
+            Value<String?> onlineOrderEndTime = const Value.absent(),
+            Value<String?> branchPrefix = const Value.absent(),
+            Value<String?> customerService = const Value.absent(),
+            Value<String?> countryId = const Value.absent(),
+            Value<String?> cityId = const Value.absent(),
+            Value<String?> address = const Value.absent(),
+            Value<String?> latitude = const Value.absent(),
+            Value<String?> longitude = const Value.absent(),
+            Value<String?> headerInvoiceMsg = const Value.absent(),
+            Value<String?> footerInvoiceMsg = const Value.absent(),
+            Value<bool?> receiveOnlineOrders = const Value.absent(),
+            Value<dynamic> devices = const Value.absent(),
+            Value<String?> code = const Value.absent(),
+            Value<String?> currentDeviceId = const Value.absent(),
+            Value<String?> company = const Value.absent(),
+            Value<String?> fCompany = const Value.absent(),
+            Value<String?> branch = const Value.absent(),
+            Value<String?> fBranch = const Value.absent(),
+          }) =>
+              ActivationInfoEntityCompanion(
+            idSeq: idSeq,
+            id: id,
+            name: name,
+            fName: fName,
+            email: email,
+            phone: phone,
+            mobile: mobile,
+            taxRegName: taxRegName,
+            fTaxRegName: fTaxRegName,
+            taxCode: taxCode,
+            onlineOrderStartTime: onlineOrderStartTime,
+            onlineOrderEndTime: onlineOrderEndTime,
+            branchPrefix: branchPrefix,
+            customerService: customerService,
+            countryId: countryId,
+            cityId: cityId,
+            address: address,
+            latitude: latitude,
+            longitude: longitude,
+            headerInvoiceMsg: headerInvoiceMsg,
+            footerInvoiceMsg: footerInvoiceMsg,
+            receiveOnlineOrders: receiveOnlineOrders,
+            devices: devices,
+            code: code,
+            currentDeviceId: currentDeviceId,
+            company: company,
+            fCompany: fCompany,
+            branch: branch,
+            fBranch: fBranch,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idSeq = const Value.absent(),
+            Value<String?> id = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<String?> email = const Value.absent(),
+            Value<String?> phone = const Value.absent(),
+            Value<String?> mobile = const Value.absent(),
+            Value<String?> taxRegName = const Value.absent(),
+            Value<String?> fTaxRegName = const Value.absent(),
+            Value<String?> taxCode = const Value.absent(),
+            Value<String?> onlineOrderStartTime = const Value.absent(),
+            Value<String?> onlineOrderEndTime = const Value.absent(),
+            Value<String?> branchPrefix = const Value.absent(),
+            Value<String?> customerService = const Value.absent(),
+            Value<String?> countryId = const Value.absent(),
+            Value<String?> cityId = const Value.absent(),
+            Value<String?> address = const Value.absent(),
+            Value<String?> latitude = const Value.absent(),
+            Value<String?> longitude = const Value.absent(),
+            Value<String?> headerInvoiceMsg = const Value.absent(),
+            Value<String?> footerInvoiceMsg = const Value.absent(),
+            Value<bool?> receiveOnlineOrders = const Value.absent(),
+            Value<dynamic> devices = const Value.absent(),
+            Value<String?> code = const Value.absent(),
+            Value<String?> currentDeviceId = const Value.absent(),
+            Value<String?> company = const Value.absent(),
+            Value<String?> fCompany = const Value.absent(),
+            Value<String?> branch = const Value.absent(),
+            Value<String?> fBranch = const Value.absent(),
+          }) =>
+              ActivationInfoEntityCompanion.insert(
+            idSeq: idSeq,
+            id: id,
+            name: name,
+            fName: fName,
+            email: email,
+            phone: phone,
+            mobile: mobile,
+            taxRegName: taxRegName,
+            fTaxRegName: fTaxRegName,
+            taxCode: taxCode,
+            onlineOrderStartTime: onlineOrderStartTime,
+            onlineOrderEndTime: onlineOrderEndTime,
+            branchPrefix: branchPrefix,
+            customerService: customerService,
+            countryId: countryId,
+            cityId: cityId,
+            address: address,
+            latitude: latitude,
+            longitude: longitude,
+            headerInvoiceMsg: headerInvoiceMsg,
+            footerInvoiceMsg: footerInvoiceMsg,
+            receiveOnlineOrders: receiveOnlineOrders,
+            devices: devices,
+            code: code,
+            currentDeviceId: currentDeviceId,
+            company: company,
+            fCompany: fCompany,
+            branch: branch,
+            fBranch: fBranch,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ActivationInfoEntityTableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $ActivationInfoEntityTable,
+        ActivationInfoEntityData,
+        $$ActivationInfoEntityTableFilterComposer,
+        $$ActivationInfoEntityTableOrderingComposer,
+        $$ActivationInfoEntityTableAnnotationComposer,
+        $$ActivationInfoEntityTableCreateCompanionBuilder,
+        $$ActivationInfoEntityTableUpdateCompanionBuilder,
+        (
+          ActivationInfoEntityData,
+          BaseReferences<_$MyDatabase, $ActivationInfoEntityTable,
+              ActivationInfoEntityData>
+        ),
+        ActivationInfoEntityData,
+        PrefetchHooks Function()>;
+typedef $$ProductQtyEntityTableCreateCompanionBuilder
+    = ProductQtyEntityCompanion Function({
+  Value<int?> id,
+  required double qty,
+  required String productId,
+  required String unitId,
+  required bool isAvailable,
+});
+typedef $$ProductQtyEntityTableUpdateCompanionBuilder
+    = ProductQtyEntityCompanion Function({
+  Value<int?> id,
+  Value<double> qty,
+  Value<String> productId,
+  Value<String> unitId,
+  Value<bool> isAvailable,
+});
+
+class $$ProductQtyEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $ProductQtyEntityTable> {
+  $$ProductQtyEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get qty => $composableBuilder(
+      column: $table.qty, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isAvailable => $composableBuilder(
+      column: $table.isAvailable, builder: (column) => ColumnFilters(column));
+}
+
+class $$ProductQtyEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $ProductQtyEntityTable> {
+  $$ProductQtyEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get qty => $composableBuilder(
+      column: $table.qty, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isAvailable => $composableBuilder(
+      column: $table.isAvailable, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ProductQtyEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $ProductQtyEntityTable> {
+  $$ProductQtyEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<double> get qty =>
+      $composableBuilder(column: $table.qty, builder: (column) => column);
+
+  GeneratedColumn<String> get productId =>
+      $composableBuilder(column: $table.productId, builder: (column) => column);
+
+  GeneratedColumn<String> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<bool> get isAvailable => $composableBuilder(
+      column: $table.isAvailable, builder: (column) => column);
+}
+
+class $$ProductQtyEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $ProductQtyEntityTable,
+    ProductQtyEntityData,
+    $$ProductQtyEntityTableFilterComposer,
+    $$ProductQtyEntityTableOrderingComposer,
+    $$ProductQtyEntityTableAnnotationComposer,
+    $$ProductQtyEntityTableCreateCompanionBuilder,
+    $$ProductQtyEntityTableUpdateCompanionBuilder,
+    (
+      ProductQtyEntityData,
+      BaseReferences<_$MyDatabase, $ProductQtyEntityTable, ProductQtyEntityData>
+    ),
+    ProductQtyEntityData,
+    PrefetchHooks Function()> {
+  $$ProductQtyEntityTableTableManager(
+      _$MyDatabase db, $ProductQtyEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ProductQtyEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ProductQtyEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ProductQtyEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<double> qty = const Value.absent(),
+            Value<String> productId = const Value.absent(),
+            Value<String> unitId = const Value.absent(),
+            Value<bool> isAvailable = const Value.absent(),
+          }) =>
+              ProductQtyEntityCompanion(
+            id: id,
+            qty: qty,
+            productId: productId,
+            unitId: unitId,
+            isAvailable: isAvailable,
+          ),
+          createCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            required double qty,
+            required String productId,
+            required String unitId,
+            required bool isAvailable,
+          }) =>
+              ProductQtyEntityCompanion.insert(
+            id: id,
+            qty: qty,
+            productId: productId,
+            unitId: unitId,
+            isAvailable: isAvailable,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ProductQtyEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $ProductQtyEntityTable,
+    ProductQtyEntityData,
+    $$ProductQtyEntityTableFilterComposer,
+    $$ProductQtyEntityTableOrderingComposer,
+    $$ProductQtyEntityTableAnnotationComposer,
+    $$ProductQtyEntityTableCreateCompanionBuilder,
+    $$ProductQtyEntityTableUpdateCompanionBuilder,
+    (
+      ProductQtyEntityData,
+      BaseReferences<_$MyDatabase, $ProductQtyEntityTable, ProductQtyEntityData>
+    ),
+    ProductQtyEntityData,
+    PrefetchHooks Function()>;
+typedef $$SyncQueueEntityTableCreateCompanionBuilder = SyncQueueEntityCompanion
+    Function({
+  Value<int> id,
+  required String entity,
+  required String entityId,
+  required String process,
+  required DateTime createdAt,
+  Value<String?> userId,
+  Value<bool> synced,
+  Value<String?> checksumLocal,
+  Value<String?> checksumBaseCashier,
+  Value<String?> checksumCloud,
+  required dynamic data,
+});
+typedef $$SyncQueueEntityTableUpdateCompanionBuilder = SyncQueueEntityCompanion
+    Function({
+  Value<int> id,
+  Value<String> entity,
+  Value<String> entityId,
+  Value<String> process,
+  Value<DateTime> createdAt,
+  Value<String?> userId,
+  Value<bool> synced,
+  Value<String?> checksumLocal,
+  Value<String?> checksumBaseCashier,
+  Value<String?> checksumCloud,
+  Value<dynamic> data,
+});
+
+class $$SyncQueueEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $SyncQueueEntityTable> {
+  $$SyncQueueEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get entity => $composableBuilder(
+      column: $table.entity, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get entityId => $composableBuilder(
+      column: $table.entityId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get process => $composableBuilder(
+      column: $table.process, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get synced => $composableBuilder(
+      column: $table.synced, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get checksumLocal => $composableBuilder(
+      column: $table.checksumLocal, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get checksumBaseCashier => $composableBuilder(
+      column: $table.checksumBaseCashier,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get checksumCloud => $composableBuilder(
+      column: $table.checksumCloud, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get data =>
+      $composableBuilder(
+          column: $table.data,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+}
+
+class $$SyncQueueEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $SyncQueueEntityTable> {
+  $$SyncQueueEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get entity => $composableBuilder(
+      column: $table.entity, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get entityId => $composableBuilder(
+      column: $table.entityId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get process => $composableBuilder(
+      column: $table.process, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+      column: $table.userId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get synced => $composableBuilder(
+      column: $table.synced, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get checksumLocal => $composableBuilder(
+      column: $table.checksumLocal,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get checksumBaseCashier => $composableBuilder(
+      column: $table.checksumBaseCashier,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get checksumCloud => $composableBuilder(
+      column: $table.checksumCloud,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get data => $composableBuilder(
+      column: $table.data, builder: (column) => ColumnOrderings(column));
+}
+
+class $$SyncQueueEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $SyncQueueEntityTable> {
+  $$SyncQueueEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get entity =>
+      $composableBuilder(column: $table.entity, builder: (column) => column);
+
+  GeneratedColumn<String> get entityId =>
+      $composableBuilder(column: $table.entityId, builder: (column) => column);
+
+  GeneratedColumn<String> get process =>
+      $composableBuilder(column: $table.process, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<bool> get synced =>
+      $composableBuilder(column: $table.synced, builder: (column) => column);
+
+  GeneratedColumn<String> get checksumLocal => $composableBuilder(
+      column: $table.checksumLocal, builder: (column) => column);
+
+  GeneratedColumn<String> get checksumBaseCashier => $composableBuilder(
+      column: $table.checksumBaseCashier, builder: (column) => column);
+
+  GeneratedColumn<String> get checksumCloud => $composableBuilder(
+      column: $table.checksumCloud, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get data =>
+      $composableBuilder(column: $table.data, builder: (column) => column);
+}
+
+class $$SyncQueueEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $SyncQueueEntityTable,
+    SyncQueueEntityData,
+    $$SyncQueueEntityTableFilterComposer,
+    $$SyncQueueEntityTableOrderingComposer,
+    $$SyncQueueEntityTableAnnotationComposer,
+    $$SyncQueueEntityTableCreateCompanionBuilder,
+    $$SyncQueueEntityTableUpdateCompanionBuilder,
+    (
+      SyncQueueEntityData,
+      BaseReferences<_$MyDatabase, $SyncQueueEntityTable, SyncQueueEntityData>
+    ),
+    SyncQueueEntityData,
+    PrefetchHooks Function()> {
+  $$SyncQueueEntityTableTableManager(
+      _$MyDatabase db, $SyncQueueEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SyncQueueEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SyncQueueEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SyncQueueEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> entity = const Value.absent(),
+            Value<String> entityId = const Value.absent(),
+            Value<String> process = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+            Value<String?> userId = const Value.absent(),
+            Value<bool> synced = const Value.absent(),
+            Value<String?> checksumLocal = const Value.absent(),
+            Value<String?> checksumBaseCashier = const Value.absent(),
+            Value<String?> checksumCloud = const Value.absent(),
+            Value<dynamic> data = const Value.absent(),
+          }) =>
+              SyncQueueEntityCompanion(
+            id: id,
+            entity: entity,
+            entityId: entityId,
+            process: process,
+            createdAt: createdAt,
+            userId: userId,
+            synced: synced,
+            checksumLocal: checksumLocal,
+            checksumBaseCashier: checksumBaseCashier,
+            checksumCloud: checksumCloud,
+            data: data,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String entity,
+            required String entityId,
+            required String process,
+            required DateTime createdAt,
+            Value<String?> userId = const Value.absent(),
+            Value<bool> synced = const Value.absent(),
+            Value<String?> checksumLocal = const Value.absent(),
+            Value<String?> checksumBaseCashier = const Value.absent(),
+            Value<String?> checksumCloud = const Value.absent(),
+            required dynamic data,
+          }) =>
+              SyncQueueEntityCompanion.insert(
+            id: id,
+            entity: entity,
+            entityId: entityId,
+            process: process,
+            createdAt: createdAt,
+            userId: userId,
+            synced: synced,
+            checksumLocal: checksumLocal,
+            checksumBaseCashier: checksumBaseCashier,
+            checksumCloud: checksumCloud,
+            data: data,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$SyncQueueEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $SyncQueueEntityTable,
+    SyncQueueEntityData,
+    $$SyncQueueEntityTableFilterComposer,
+    $$SyncQueueEntityTableOrderingComposer,
+    $$SyncQueueEntityTableAnnotationComposer,
+    $$SyncQueueEntityTableCreateCompanionBuilder,
+    $$SyncQueueEntityTableUpdateCompanionBuilder,
+    (
+      SyncQueueEntityData,
+      BaseReferences<_$MyDatabase, $SyncQueueEntityTable, SyncQueueEntityData>
+    ),
+    SyncQueueEntityData,
+    PrefetchHooks Function()>;
+typedef $$OrderEntityV2TableCreateCompanionBuilder = OrderEntityV2Companion
+    Function({
+  required double totalPrice,
+  Value<double?> discountAmount,
+  required double netTotalPrice,
+  Value<double?> chargeAmount,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  required double finalAmount,
+  Value<double?> paidAmount,
+  Value<double?> dueAmount,
+  Value<double?> changeAmount,
+  Value<double?> shippingAmount,
+  Value<double?> shippingDiscountAmount,
+  Value<double?> shippingDiscountPercentage,
+  Value<double?> productDiscountAmount,
+  Value<double?> discountPercentage,
+  Value<double?> totalDiscountAmount,
+  Value<double?> promotionDiscountAmount,
+  Value<double?> timeEventDiscountAmount,
+  Value<double?> timeEventChargeAmount,
+  Value<double?> roundingDecimalAmount,
+  Value<String?> note,
+  required String orderRef,
+  Value<String?> deviceId,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endTime,
+  Value<DateTime?> timeOfReceipt,
+  Value<int?> orderType,
+  Value<int?> orderSource,
+  Value<int?> status,
+  Value<int?> deliveryStatus,
+  Value<int?> paymentStatus,
+  Value<int?> refundStatus,
+  Value<String?> shiftId,
+  Value<String?> tillId,
+  Value<String?> tableId,
+  Value<String?> tableCaption,
+  Value<int?> numberVisitor,
+  Value<double?> minimumReservationPrice,
+  Value<String?> callName,
+  Value<String?> callNumber,
+  Value<String?> cancelReasonId,
+  Value<String?> msgCancel,
+  Value<String?> kitchenNote,
+  Value<String?> casherNote,
+  Value<String?> supervisorId,
+  Value<String?> parentOrderId,
+  Value<int?> splitIndex,
+  Value<String?> checksum,
+  Value<String?> masterChecksum,
+  Value<String?> serverChecksum,
+  Value<double?> totalCalories,
+  Value<bool?> priceIncludeTax,
+  Value<String?> customerId,
+  Value<dynamic> customerJson,
+  Value<String?> addressId,
+  Value<dynamic> addressJson,
+  Value<String?> promotionId,
+  Value<dynamic> promotionJson,
+  Value<dynamic> giftCardJson,
+  Value<String?> createdOn,
+  Value<String?> createdBy,
+  Value<String?> lastModifiedOn,
+  Value<String?> lastModifiedBy,
+  Value<int> rowid,
+});
+typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
+    Function({
+  Value<double> totalPrice,
+  Value<double?> discountAmount,
+  Value<double> netTotalPrice,
+  Value<double?> chargeAmount,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double> finalAmount,
+  Value<double?> paidAmount,
+  Value<double?> dueAmount,
+  Value<double?> changeAmount,
+  Value<double?> shippingAmount,
+  Value<double?> shippingDiscountAmount,
+  Value<double?> shippingDiscountPercentage,
+  Value<double?> productDiscountAmount,
+  Value<double?> discountPercentage,
+  Value<double?> totalDiscountAmount,
+  Value<double?> promotionDiscountAmount,
+  Value<double?> timeEventDiscountAmount,
+  Value<double?> timeEventChargeAmount,
+  Value<double?> roundingDecimalAmount,
+  Value<String?> note,
+  Value<String> orderRef,
+  Value<String?> deviceId,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endTime,
+  Value<DateTime?> timeOfReceipt,
+  Value<int?> orderType,
+  Value<int?> orderSource,
+  Value<int?> status,
+  Value<int?> deliveryStatus,
+  Value<int?> paymentStatus,
+  Value<int?> refundStatus,
+  Value<String?> shiftId,
+  Value<String?> tillId,
+  Value<String?> tableId,
+  Value<String?> tableCaption,
+  Value<int?> numberVisitor,
+  Value<double?> minimumReservationPrice,
+  Value<String?> callName,
+  Value<String?> callNumber,
+  Value<String?> cancelReasonId,
+  Value<String?> msgCancel,
+  Value<String?> kitchenNote,
+  Value<String?> casherNote,
+  Value<String?> supervisorId,
+  Value<String?> parentOrderId,
+  Value<int?> splitIndex,
+  Value<String?> checksum,
+  Value<String?> masterChecksum,
+  Value<String?> serverChecksum,
+  Value<double?> totalCalories,
+  Value<bool?> priceIncludeTax,
+  Value<String?> customerId,
+  Value<dynamic> customerJson,
+  Value<String?> addressId,
+  Value<dynamic> addressJson,
+  Value<String?> promotionId,
+  Value<dynamic> promotionJson,
+  Value<dynamic> giftCardJson,
+  Value<String?> createdOn,
+  Value<String?> createdBy,
+  Value<String?> lastModifiedOn,
+  Value<String?> lastModifiedBy,
+  Value<int> rowid,
+});
+
+final class $$OrderEntityV2TableReferences extends BaseReferences<_$MyDatabase,
+    $OrderEntityV2Table, OrderEntityV2Data> {
+  $$OrderEntityV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$OrderProductEntityV2Table,
+      List<OrderProductEntityV2Data>> _orderProductEntityV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductEntityV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductEntityV2.orderRef));
+
+  $$OrderProductEntityV2TableProcessedTableManager
+      get orderProductEntityV2Refs {
+    final manager = $$OrderProductEntityV2TableTableManager(
+            $_db, $_db.orderProductEntityV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductEntityV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductUnitPriceV2Table,
+      List<OrderProductUnitPriceV2Data>> _orderProductUnitPriceV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductUnitPriceV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductUnitPriceV2.orderRef));
+
+  $$OrderProductUnitPriceV2TableProcessedTableManager
+      get orderProductUnitPriceV2Refs {
+    final manager = $$OrderProductUnitPriceV2TableTableManager(
+            $_db, $_db.orderProductUnitPriceV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductUnitPriceV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductTieredPricingV2Table,
+          List<OrderProductTieredPricingV2Data>>
+      _orderProductTieredPricingV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderProductTieredPricingV2,
+              aliasName: $_aliasNameGenerator(db.orderEntityV2.orderRef,
+                  db.orderProductTieredPricingV2.orderRef));
+
+  $$OrderProductTieredPricingV2TableProcessedTableManager
+      get orderProductTieredPricingV2Refs {
+    final manager = $$OrderProductTieredPricingV2TableTableManager(
+            $_db, $_db.orderProductTieredPricingV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache = $_typedResult
+        .readTableOrNull(_orderProductTieredPricingV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductTimeEventV2Table,
+      List<OrderProductTimeEventV2Data>> _orderProductTimeEventV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductTimeEventV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductTimeEventV2.orderRef));
+
+  $$OrderProductTimeEventV2TableProcessedTableManager
+      get orderProductTimeEventV2Refs {
+    final manager = $$OrderProductTimeEventV2TableTableManager(
+            $_db, $_db.orderProductTimeEventV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductTimeEventV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductDiscountV2Table,
+      List<OrderProductDiscountV2Data>> _orderProductDiscountV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductDiscountV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductDiscountV2.orderRef));
+
+  $$OrderProductDiscountV2TableProcessedTableManager
+      get orderProductDiscountV2Refs {
+    final manager = $$OrderProductDiscountV2TableTableManager(
+            $_db, $_db.orderProductDiscountV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductDiscountV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductPromotionInfoV2Table,
+          List<OrderProductPromotionInfoV2Data>>
+      _orderProductPromotionInfoV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderProductPromotionInfoV2,
+              aliasName: $_aliasNameGenerator(db.orderEntityV2.orderRef,
+                  db.orderProductPromotionInfoV2.orderRef));
+
+  $$OrderProductPromotionInfoV2TableProcessedTableManager
+      get orderProductPromotionInfoV2Refs {
+    final manager = $$OrderProductPromotionInfoV2TableTableManager(
+            $_db, $_db.orderProductPromotionInfoV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache = $_typedResult
+        .readTableOrNull(_orderProductPromotionInfoV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductChargeV2Table,
+      List<OrderProductChargeV2Data>> _orderProductChargeV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductChargeV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductChargeV2.orderRef));
+
+  $$OrderProductChargeV2TableProcessedTableManager
+      get orderProductChargeV2Refs {
+    final manager = $$OrderProductChargeV2TableTableManager(
+            $_db, $_db.orderProductChargeV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductChargeV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductTaxInfoV2Table,
+      List<OrderProductTaxInfoV2Data>> _orderProductTaxInfoV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductTaxInfoV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductTaxInfoV2.orderRef));
+
+  $$OrderProductTaxInfoV2TableProcessedTableManager
+      get orderProductTaxInfoV2Refs {
+    final manager = $$OrderProductTaxInfoV2TableTableManager(
+            $_db, $_db.orderProductTaxInfoV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductTaxInfoV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductChargeTaxV2Table,
+      List<OrderProductChargeTaxV2Data>> _orderProductChargeTaxV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductChargeTaxV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductChargeTaxV2.orderRef));
+
+  $$OrderProductChargeTaxV2TableProcessedTableManager
+      get orderProductChargeTaxV2Refs {
+    final manager = $$OrderProductChargeTaxV2TableTableManager(
+            $_db, $_db.orderProductChargeTaxV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductChargeTaxV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductTaxTypeV2Table,
+      List<OrderProductTaxTypeV2Data>> _orderProductTaxTypeV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductTaxTypeV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductTaxTypeV2.orderRef));
+
+  $$OrderProductTaxTypeV2TableProcessedTableManager
+      get orderProductTaxTypeV2Refs {
+    final manager = $$OrderProductTaxTypeV2TableTableManager(
+            $_db, $_db.orderProductTaxTypeV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductTaxTypeV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderDiscountV2Table, List<OrderDiscountV2Data>>
+      _orderDiscountV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderDiscountV2,
+              aliasName: $_aliasNameGenerator(
+                  db.orderEntityV2.orderRef, db.orderDiscountV2.orderRef));
+
+  $$OrderDiscountV2TableProcessedTableManager get orderDiscountV2Refs {
+    final manager = $$OrderDiscountV2TableTableManager(
+            $_db, $_db.orderDiscountV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderDiscountV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderPromotionAppliesV2Table,
+      List<OrderPromotionAppliesV2Data>> _orderPromotionAppliesV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderPromotionAppliesV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderPromotionAppliesV2.orderRef));
+
+  $$OrderPromotionAppliesV2TableProcessedTableManager
+      get orderPromotionAppliesV2Refs {
+    final manager = $$OrderPromotionAppliesV2TableTableManager(
+            $_db, $_db.orderPromotionAppliesV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderPromotionAppliesV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderPromotionGiftCardV2Table,
+      List<OrderPromotionGiftCardV2Data>> _orderPromotionGiftCardV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderPromotionGiftCardV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderPromotionGiftCardV2.orderRef));
+
+  $$OrderPromotionGiftCardV2TableProcessedTableManager
+      get orderPromotionGiftCardV2Refs {
+    final manager = $$OrderPromotionGiftCardV2TableTableManager(
+            $_db, $_db.orderPromotionGiftCardV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderPromotionGiftCardV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderChargeV2Table, List<OrderChargeV2Data>>
+      _orderChargeV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderChargeV2,
+              aliasName: $_aliasNameGenerator(
+                  db.orderEntityV2.orderRef, db.orderChargeV2.orderRef));
+
+  $$OrderChargeV2TableProcessedTableManager get orderChargeV2Refs {
+    final manager = $$OrderChargeV2TableTableManager($_db, $_db.orderChargeV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache = $_typedResult.readTableOrNull(_orderChargeV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderChargeForTotalV2Table,
+      List<OrderChargeForTotalV2Data>> _orderChargeForTotalV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderChargeForTotalV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderChargeForTotalV2.orderRef));
+
+  $$OrderChargeForTotalV2TableProcessedTableManager
+      get orderChargeForTotalV2Refs {
+    final manager = $$OrderChargeForTotalV2TableTableManager(
+            $_db, $_db.orderChargeForTotalV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderChargeForTotalV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderTaxTypeV2Table, List<OrderTaxTypeV2Data>>
+      _orderTaxTypeV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderTaxTypeV2,
+              aliasName: $_aliasNameGenerator(
+                  db.orderEntityV2.orderRef, db.orderTaxTypeV2.orderRef));
+
+  $$OrderTaxTypeV2TableProcessedTableManager get orderTaxTypeV2Refs {
+    final manager = $$OrderTaxTypeV2TableTableManager($_db, $_db.orderTaxTypeV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache = $_typedResult.readTableOrNull(_orderTaxTypeV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductModifierV2Table,
+      List<OrderProductModifierV2Data>> _orderProductModifierV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderProductModifierV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderProductModifierV2.orderRef));
+
+  $$OrderProductModifierV2TableProcessedTableManager
+      get orderProductModifierV2Refs {
+    final manager = $$OrderProductModifierV2TableTableManager(
+            $_db, $_db.orderProductModifierV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderProductModifierV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderProductModifierOptionV2Table,
+          List<OrderProductModifierOptionV2Data>>
+      _orderProductModifierOptionV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderProductModifierOptionV2,
+              aliasName: $_aliasNameGenerator(db.orderEntityV2.orderRef,
+                  db.orderProductModifierOptionV2.orderRef));
+
+  $$OrderProductModifierOptionV2TableProcessedTableManager
+      get orderProductModifierOptionV2Refs {
+    final manager = $$OrderProductModifierOptionV2TableTableManager(
+            $_db, $_db.orderProductModifierOptionV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache = $_typedResult
+        .readTableOrNull(_orderProductModifierOptionV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderPaymentV2Table, List<OrderPaymentV2Data>>
+      _orderPaymentV2RefsTable(_$MyDatabase db) =>
+          MultiTypedResultKey.fromTable(db.orderPaymentV2,
+              aliasName: $_aliasNameGenerator(
+                  db.orderEntityV2.orderRef, db.orderPaymentV2.orderRef));
+
+  $$OrderPaymentV2TableProcessedTableManager get orderPaymentV2Refs {
+    final manager = $$OrderPaymentV2TableTableManager($_db, $_db.orderPaymentV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache = $_typedResult.readTableOrNull(_orderPaymentV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$OrderPaymentDetailV2Table,
+      List<OrderPaymentDetailV2Data>> _orderPaymentDetailV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderPaymentDetailV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderPaymentDetailV2.orderRef));
+
+  $$OrderPaymentDetailV2TableProcessedTableManager
+      get orderPaymentDetailV2Refs {
+    final manager = $$OrderPaymentDetailV2TableTableManager(
+            $_db, $_db.orderPaymentDetailV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderPaymentDetailV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+}
+
+class $$OrderEntityV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderEntityV2Table> {
+  $$OrderEntityV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get chargeAmount => $composableBuilder(
+      column: $table.chargeAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get paidAmount => $composableBuilder(
+      column: $table.paidAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get dueAmount => $composableBuilder(
+      column: $table.dueAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get changeAmount => $composableBuilder(
+      column: $table.changeAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get shippingAmount => $composableBuilder(
+      column: $table.shippingAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get shippingDiscountAmount => $composableBuilder(
+      column: $table.shippingDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get shippingDiscountPercentage => $composableBuilder(
+      column: $table.shippingDiscountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get productDiscountAmount => $composableBuilder(
+      column: $table.productDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalDiscountAmount => $composableBuilder(
+      column: $table.totalDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get promotionDiscountAmount => $composableBuilder(
+      column: $table.promotionDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get timeEventDiscountAmount => $composableBuilder(
+      column: $table.timeEventDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get timeEventChargeAmount => $composableBuilder(
+      column: $table.timeEventChargeAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get roundingDecimalAmount => $composableBuilder(
+      column: $table.roundingDecimalAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+      column: $table.startDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get endTime => $composableBuilder(
+      column: $table.endTime, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get timeOfReceipt => $composableBuilder(
+      column: $table.timeOfReceipt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get orderType => $composableBuilder(
+      column: $table.orderType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get orderSource => $composableBuilder(
+      column: $table.orderSource, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get deliveryStatus => $composableBuilder(
+      column: $table.deliveryStatus,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get paymentStatus => $composableBuilder(
+      column: $table.paymentStatus, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get refundStatus => $composableBuilder(
+      column: $table.refundStatus, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tableId => $composableBuilder(
+      column: $table.tableId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tableCaption => $composableBuilder(
+      column: $table.tableCaption, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get numberVisitor => $composableBuilder(
+      column: $table.numberVisitor, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get minimumReservationPrice => $composableBuilder(
+      column: $table.minimumReservationPrice,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get callName => $composableBuilder(
+      column: $table.callName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get callNumber => $composableBuilder(
+      column: $table.callNumber, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get cancelReasonId => $composableBuilder(
+      column: $table.cancelReasonId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get msgCancel => $composableBuilder(
+      column: $table.msgCancel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get kitchenNote => $composableBuilder(
+      column: $table.kitchenNote, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get casherNote => $composableBuilder(
+      column: $table.casherNote, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get supervisorId => $composableBuilder(
+      column: $table.supervisorId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get parentOrderId => $composableBuilder(
+      column: $table.parentOrderId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get splitIndex => $composableBuilder(
+      column: $table.splitIndex, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get checksum => $composableBuilder(
+      column: $table.checksum, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get masterChecksum => $composableBuilder(
+      column: $table.masterChecksum,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get serverChecksum => $composableBuilder(
+      column: $table.serverChecksum,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalCalories => $composableBuilder(
+      column: $table.totalCalories, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get priceIncludeTax => $composableBuilder(
+      column: $table.priceIncludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get customerId => $composableBuilder(
+      column: $table.customerId, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get customerJson =>
+      $composableBuilder(
+          column: $table.customerJson,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get addressId => $composableBuilder(
+      column: $table.addressId, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get addressJson =>
+      $composableBuilder(
+          column: $table.addressJson,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get promotionId => $composableBuilder(
+      column: $table.promotionId, builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get promotionJson =>
+      $composableBuilder(
+          column: $table.promotionJson,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get giftCardJson =>
+      $composableBuilder(
+          column: $table.giftCardJson,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  ColumnFilters<String> get createdOn => $composableBuilder(
+      column: $table.createdOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get lastModifiedOn => $composableBuilder(
+      column: $table.lastModifiedOn,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get lastModifiedBy => $composableBuilder(
+      column: $table.lastModifiedBy,
+      builder: (column) => ColumnFilters(column));
+
+  Expression<bool> orderProductEntityV2Refs(
+      Expression<bool> Function($$OrderProductEntityV2TableFilterComposer f)
+          f) {
+    final $$OrderProductEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderProductEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderProductEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderProductEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductUnitPriceV2Refs(
+      Expression<bool> Function($$OrderProductUnitPriceV2TableFilterComposer f)
+          f) {
+    final $$OrderProductUnitPriceV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductUnitPriceV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductUnitPriceV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductUnitPriceV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductTieredPricingV2Refs(
+      Expression<bool> Function(
+              $$OrderProductTieredPricingV2TableFilterComposer f)
+          f) {
+    final $$OrderProductTieredPricingV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTieredPricingV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTieredPricingV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductTieredPricingV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductTimeEventV2Refs(
+      Expression<bool> Function($$OrderProductTimeEventV2TableFilterComposer f)
+          f) {
+    final $$OrderProductTimeEventV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTimeEventV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTimeEventV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductTimeEventV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductDiscountV2Refs(
+      Expression<bool> Function($$OrderProductDiscountV2TableFilterComposer f)
+          f) {
+    final $$OrderProductDiscountV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductDiscountV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductDiscountV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductDiscountV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductPromotionInfoV2Refs(
+      Expression<bool> Function(
+              $$OrderProductPromotionInfoV2TableFilterComposer f)
+          f) {
+    final $$OrderProductPromotionInfoV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductPromotionInfoV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductPromotionInfoV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductPromotionInfoV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductChargeV2Refs(
+      Expression<bool> Function($$OrderProductChargeV2TableFilterComposer f)
+          f) {
+    final $$OrderProductChargeV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderProductChargeV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderProductChargeV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderProductChargeV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductTaxInfoV2Refs(
+      Expression<bool> Function($$OrderProductTaxInfoV2TableFilterComposer f)
+          f) {
+    final $$OrderProductTaxInfoV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTaxInfoV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTaxInfoV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductTaxInfoV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductChargeTaxV2Refs(
+      Expression<bool> Function($$OrderProductChargeTaxV2TableFilterComposer f)
+          f) {
+    final $$OrderProductChargeTaxV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductChargeTaxV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductChargeTaxV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductChargeTaxV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductTaxTypeV2Refs(
+      Expression<bool> Function($$OrderProductTaxTypeV2TableFilterComposer f)
+          f) {
+    final $$OrderProductTaxTypeV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTaxTypeV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTaxTypeV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductTaxTypeV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderDiscountV2Refs(
+      Expression<bool> Function($$OrderDiscountV2TableFilterComposer f) f) {
+    final $$OrderDiscountV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderDiscountV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderDiscountV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderDiscountV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<bool> orderPromotionAppliesV2Refs(
+      Expression<bool> Function($$OrderPromotionAppliesV2TableFilterComposer f)
+          f) {
+    final $$OrderPromotionAppliesV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderPromotionAppliesV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderPromotionAppliesV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderPromotionAppliesV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderPromotionGiftCardV2Refs(
+      Expression<bool> Function($$OrderPromotionGiftCardV2TableFilterComposer f)
+          f) {
+    final $$OrderPromotionGiftCardV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderPromotionGiftCardV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderPromotionGiftCardV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderPromotionGiftCardV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderChargeV2Refs(
+      Expression<bool> Function($$OrderChargeV2TableFilterComposer f) f) {
+    final $$OrderChargeV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderChargeV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderChargeV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderChargeV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<bool> orderChargeForTotalV2Refs(
+      Expression<bool> Function($$OrderChargeForTotalV2TableFilterComposer f)
+          f) {
+    final $$OrderChargeForTotalV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderChargeForTotalV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderChargeForTotalV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderChargeForTotalV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderTaxTypeV2Refs(
+      Expression<bool> Function($$OrderTaxTypeV2TableFilterComposer f) f) {
+    final $$OrderTaxTypeV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderTaxTypeV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderTaxTypeV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderTaxTypeV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductModifierV2Refs(
+      Expression<bool> Function($$OrderProductModifierV2TableFilterComposer f)
+          f) {
+    final $$OrderProductModifierV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductModifierV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductModifierV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductModifierV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderProductModifierOptionV2Refs(
+      Expression<bool> Function(
+              $$OrderProductModifierOptionV2TableFilterComposer f)
+          f) {
+    final $$OrderProductModifierOptionV2TableFilterComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductModifierOptionV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductModifierOptionV2TableFilterComposer(
+                  $db: $db,
+                  $table: $db.orderProductModifierOptionV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<bool> orderPaymentV2Refs(
+      Expression<bool> Function($$OrderPaymentV2TableFilterComposer f) f) {
+    final $$OrderPaymentV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderPaymentV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderPaymentV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderPaymentV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<bool> orderPaymentDetailV2Refs(
+      Expression<bool> Function($$OrderPaymentDetailV2TableFilterComposer f)
+          f) {
+    final $$OrderPaymentDetailV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderPaymentDetailV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderPaymentDetailV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderPaymentDetailV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+}
+
+class $$OrderEntityV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderEntityV2Table> {
+  $$OrderEntityV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get chargeAmount => $composableBuilder(
+      column: $table.chargeAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get paidAmount => $composableBuilder(
+      column: $table.paidAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get dueAmount => $composableBuilder(
+      column: $table.dueAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get changeAmount => $composableBuilder(
+      column: $table.changeAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get shippingAmount => $composableBuilder(
+      column: $table.shippingAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get shippingDiscountAmount => $composableBuilder(
+      column: $table.shippingDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get shippingDiscountPercentage => $composableBuilder(
+      column: $table.shippingDiscountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get productDiscountAmount => $composableBuilder(
+      column: $table.productDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalDiscountAmount => $composableBuilder(
+      column: $table.totalDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get promotionDiscountAmount => $composableBuilder(
+      column: $table.promotionDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get timeEventDiscountAmount => $composableBuilder(
+      column: $table.timeEventDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get timeEventChargeAmount => $composableBuilder(
+      column: $table.timeEventChargeAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get roundingDecimalAmount => $composableBuilder(
+      column: $table.roundingDecimalAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderRef => $composableBuilder(
+      column: $table.orderRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+      column: $table.startDate, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get endTime => $composableBuilder(
+      column: $table.endTime, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get timeOfReceipt => $composableBuilder(
+      column: $table.timeOfReceipt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get orderType => $composableBuilder(
+      column: $table.orderType, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get orderSource => $composableBuilder(
+      column: $table.orderSource, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get deliveryStatus => $composableBuilder(
+      column: $table.deliveryStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get paymentStatus => $composableBuilder(
+      column: $table.paymentStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get refundStatus => $composableBuilder(
+      column: $table.refundStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tableId => $composableBuilder(
+      column: $table.tableId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tableCaption => $composableBuilder(
+      column: $table.tableCaption,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get numberVisitor => $composableBuilder(
+      column: $table.numberVisitor,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get minimumReservationPrice => $composableBuilder(
+      column: $table.minimumReservationPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get callName => $composableBuilder(
+      column: $table.callName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get callNumber => $composableBuilder(
+      column: $table.callNumber, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get cancelReasonId => $composableBuilder(
+      column: $table.cancelReasonId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get msgCancel => $composableBuilder(
+      column: $table.msgCancel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get kitchenNote => $composableBuilder(
+      column: $table.kitchenNote, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get casherNote => $composableBuilder(
+      column: $table.casherNote, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get supervisorId => $composableBuilder(
+      column: $table.supervisorId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get parentOrderId => $composableBuilder(
+      column: $table.parentOrderId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get splitIndex => $composableBuilder(
+      column: $table.splitIndex, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get checksum => $composableBuilder(
+      column: $table.checksum, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get masterChecksum => $composableBuilder(
+      column: $table.masterChecksum,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get serverChecksum => $composableBuilder(
+      column: $table.serverChecksum,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalCalories => $composableBuilder(
+      column: $table.totalCalories,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get priceIncludeTax => $composableBuilder(
+      column: $table.priceIncludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get customerId => $composableBuilder(
+      column: $table.customerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get customerJson => $composableBuilder(
+      column: $table.customerJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get addressId => $composableBuilder(
+      column: $table.addressId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get addressJson => $composableBuilder(
+      column: $table.addressJson, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get promotionId => $composableBuilder(
+      column: $table.promotionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get promotionJson => $composableBuilder(
+      column: $table.promotionJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get giftCardJson => $composableBuilder(
+      column: $table.giftCardJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdOn => $composableBuilder(
+      column: $table.createdOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get lastModifiedOn => $composableBuilder(
+      column: $table.lastModifiedOn,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get lastModifiedBy => $composableBuilder(
+      column: $table.lastModifiedBy,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$OrderEntityV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderEntityV2Table> {
+  $$OrderEntityV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get chargeAmount => $composableBuilder(
+      column: $table.chargeAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get paidAmount => $composableBuilder(
+      column: $table.paidAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get dueAmount =>
+      $composableBuilder(column: $table.dueAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get changeAmount => $composableBuilder(
+      column: $table.changeAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get shippingAmount => $composableBuilder(
+      column: $table.shippingAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get shippingDiscountAmount => $composableBuilder(
+      column: $table.shippingDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get shippingDiscountPercentage => $composableBuilder(
+      column: $table.shippingDiscountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get productDiscountAmount => $composableBuilder(
+      column: $table.productDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get totalDiscountAmount => $composableBuilder(
+      column: $table.totalDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get promotionDiscountAmount => $composableBuilder(
+      column: $table.promotionDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get timeEventDiscountAmount => $composableBuilder(
+      column: $table.timeEventDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get timeEventChargeAmount => $composableBuilder(
+      column: $table.timeEventChargeAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get roundingDecimalAmount => $composableBuilder(
+      column: $table.roundingDecimalAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<String> get orderRef =>
+      $composableBuilder(column: $table.orderRef, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endTime =>
+      $composableBuilder(column: $table.endTime, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get timeOfReceipt => $composableBuilder(
+      column: $table.timeOfReceipt, builder: (column) => column);
+
+  GeneratedColumn<int> get orderType =>
+      $composableBuilder(column: $table.orderType, builder: (column) => column);
+
+  GeneratedColumn<int> get orderSource => $composableBuilder(
+      column: $table.orderSource, builder: (column) => column);
+
+  GeneratedColumn<int> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<int> get deliveryStatus => $composableBuilder(
+      column: $table.deliveryStatus, builder: (column) => column);
+
+  GeneratedColumn<int> get paymentStatus => $composableBuilder(
+      column: $table.paymentStatus, builder: (column) => column);
+
+  GeneratedColumn<int> get refundStatus => $composableBuilder(
+      column: $table.refundStatus, builder: (column) => column);
+
+  GeneratedColumn<String> get shiftId =>
+      $composableBuilder(column: $table.shiftId, builder: (column) => column);
+
+  GeneratedColumn<String> get tillId =>
+      $composableBuilder(column: $table.tillId, builder: (column) => column);
+
+  GeneratedColumn<String> get tableId =>
+      $composableBuilder(column: $table.tableId, builder: (column) => column);
+
+  GeneratedColumn<String> get tableCaption => $composableBuilder(
+      column: $table.tableCaption, builder: (column) => column);
+
+  GeneratedColumn<int> get numberVisitor => $composableBuilder(
+      column: $table.numberVisitor, builder: (column) => column);
+
+  GeneratedColumn<double> get minimumReservationPrice => $composableBuilder(
+      column: $table.minimumReservationPrice, builder: (column) => column);
+
+  GeneratedColumn<String> get callName =>
+      $composableBuilder(column: $table.callName, builder: (column) => column);
+
+  GeneratedColumn<String> get callNumber => $composableBuilder(
+      column: $table.callNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get cancelReasonId => $composableBuilder(
+      column: $table.cancelReasonId, builder: (column) => column);
+
+  GeneratedColumn<String> get msgCancel =>
+      $composableBuilder(column: $table.msgCancel, builder: (column) => column);
+
+  GeneratedColumn<String> get kitchenNote => $composableBuilder(
+      column: $table.kitchenNote, builder: (column) => column);
+
+  GeneratedColumn<String> get casherNote => $composableBuilder(
+      column: $table.casherNote, builder: (column) => column);
+
+  GeneratedColumn<String> get supervisorId => $composableBuilder(
+      column: $table.supervisorId, builder: (column) => column);
+
+  GeneratedColumn<String> get parentOrderId => $composableBuilder(
+      column: $table.parentOrderId, builder: (column) => column);
+
+  GeneratedColumn<int> get splitIndex => $composableBuilder(
+      column: $table.splitIndex, builder: (column) => column);
+
+  GeneratedColumn<String> get checksum =>
+      $composableBuilder(column: $table.checksum, builder: (column) => column);
+
+  GeneratedColumn<String> get masterChecksum => $composableBuilder(
+      column: $table.masterChecksum, builder: (column) => column);
+
+  GeneratedColumn<String> get serverChecksum => $composableBuilder(
+      column: $table.serverChecksum, builder: (column) => column);
+
+  GeneratedColumn<double> get totalCalories => $composableBuilder(
+      column: $table.totalCalories, builder: (column) => column);
+
+  GeneratedColumn<bool> get priceIncludeTax => $composableBuilder(
+      column: $table.priceIncludeTax, builder: (column) => column);
+
+  GeneratedColumn<String> get customerId => $composableBuilder(
+      column: $table.customerId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get customerJson =>
+      $composableBuilder(
+          column: $table.customerJson, builder: (column) => column);
+
+  GeneratedColumn<String> get addressId =>
+      $composableBuilder(column: $table.addressId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get addressJson =>
+      $composableBuilder(
+          column: $table.addressJson, builder: (column) => column);
+
+  GeneratedColumn<String> get promotionId => $composableBuilder(
+      column: $table.promotionId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get promotionJson =>
+      $composableBuilder(
+          column: $table.promotionJson, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get giftCardJson =>
+      $composableBuilder(
+          column: $table.giftCardJson, builder: (column) => column);
+
+  GeneratedColumn<String> get createdOn =>
+      $composableBuilder(column: $table.createdOn, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get lastModifiedOn => $composableBuilder(
+      column: $table.lastModifiedOn, builder: (column) => column);
+
+  GeneratedColumn<String> get lastModifiedBy => $composableBuilder(
+      column: $table.lastModifiedBy, builder: (column) => column);
+
+  Expression<T> orderProductEntityV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductEntityV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductEntityV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductEntityV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductEntityV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductEntityV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductUnitPriceV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductUnitPriceV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductUnitPriceV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductUnitPriceV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductUnitPriceV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductUnitPriceV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductTieredPricingV2Refs<T extends Object>(
+      Expression<T> Function(
+              $$OrderProductTieredPricingV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductTieredPricingV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTieredPricingV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTieredPricingV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductTieredPricingV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductTimeEventV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductTimeEventV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductTimeEventV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTimeEventV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTimeEventV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductTimeEventV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductDiscountV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductDiscountV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductDiscountV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductDiscountV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductDiscountV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductDiscountV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductPromotionInfoV2Refs<T extends Object>(
+      Expression<T> Function(
+              $$OrderProductPromotionInfoV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductPromotionInfoV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductPromotionInfoV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductPromotionInfoV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductPromotionInfoV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductChargeV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductChargeV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductChargeV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductChargeV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductChargeV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductChargeV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductTaxInfoV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductTaxInfoV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductTaxInfoV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTaxInfoV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTaxInfoV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductTaxInfoV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductChargeTaxV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductChargeTaxV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductChargeTaxV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductChargeTaxV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductChargeTaxV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductChargeTaxV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductTaxTypeV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductTaxTypeV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductTaxTypeV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductTaxTypeV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductTaxTypeV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductTaxTypeV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderDiscountV2Refs<T extends Object>(
+      Expression<T> Function($$OrderDiscountV2TableAnnotationComposer a) f) {
+    final $$OrderDiscountV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderDiscountV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderDiscountV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderDiscountV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<T> orderPromotionAppliesV2Refs<T extends Object>(
+      Expression<T> Function($$OrderPromotionAppliesV2TableAnnotationComposer a)
+          f) {
+    final $$OrderPromotionAppliesV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderPromotionAppliesV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderPromotionAppliesV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderPromotionAppliesV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderPromotionGiftCardV2Refs<T extends Object>(
+      Expression<T> Function(
+              $$OrderPromotionGiftCardV2TableAnnotationComposer a)
+          f) {
+    final $$OrderPromotionGiftCardV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderPromotionGiftCardV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderPromotionGiftCardV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderPromotionGiftCardV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderChargeV2Refs<T extends Object>(
+      Expression<T> Function($$OrderChargeV2TableAnnotationComposer a) f) {
+    final $$OrderChargeV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderChargeV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderChargeV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderChargeV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<T> orderChargeForTotalV2Refs<T extends Object>(
+      Expression<T> Function($$OrderChargeForTotalV2TableAnnotationComposer a)
+          f) {
+    final $$OrderChargeForTotalV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderChargeForTotalV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderChargeForTotalV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderChargeForTotalV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderTaxTypeV2Refs<T extends Object>(
+      Expression<T> Function($$OrderTaxTypeV2TableAnnotationComposer a) f) {
+    final $$OrderTaxTypeV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderTaxTypeV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderTaxTypeV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderTaxTypeV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductModifierV2Refs<T extends Object>(
+      Expression<T> Function($$OrderProductModifierV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductModifierV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductModifierV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductModifierV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductModifierV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderProductModifierOptionV2Refs<T extends Object>(
+      Expression<T> Function(
+              $$OrderProductModifierOptionV2TableAnnotationComposer a)
+          f) {
+    final $$OrderProductModifierOptionV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderProductModifierOptionV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderProductModifierOptionV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderProductModifierOptionV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+
+  Expression<T> orderPaymentV2Refs<T extends Object>(
+      Expression<T> Function($$OrderPaymentV2TableAnnotationComposer a) f) {
+    final $$OrderPaymentV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderPaymentV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderPaymentV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderPaymentV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
+
+  Expression<T> orderPaymentDetailV2Refs<T extends Object>(
+      Expression<T> Function($$OrderPaymentDetailV2TableAnnotationComposer a)
+          f) {
+    final $$OrderPaymentDetailV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderPaymentDetailV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderPaymentDetailV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderPaymentDetailV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
+}
+
+class $$OrderEntityV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderEntityV2Table,
+    OrderEntityV2Data,
+    $$OrderEntityV2TableFilterComposer,
+    $$OrderEntityV2TableOrderingComposer,
+    $$OrderEntityV2TableAnnotationComposer,
+    $$OrderEntityV2TableCreateCompanionBuilder,
+    $$OrderEntityV2TableUpdateCompanionBuilder,
+    (OrderEntityV2Data, $$OrderEntityV2TableReferences),
+    OrderEntityV2Data,
+    PrefetchHooks Function(
+        {bool orderProductEntityV2Refs,
+        bool orderProductUnitPriceV2Refs,
+        bool orderProductTieredPricingV2Refs,
+        bool orderProductTimeEventV2Refs,
+        bool orderProductDiscountV2Refs,
+        bool orderProductPromotionInfoV2Refs,
+        bool orderProductChargeV2Refs,
+        bool orderProductTaxInfoV2Refs,
+        bool orderProductChargeTaxV2Refs,
+        bool orderProductTaxTypeV2Refs,
+        bool orderDiscountV2Refs,
+        bool orderPromotionAppliesV2Refs,
+        bool orderPromotionGiftCardV2Refs,
+        bool orderChargeV2Refs,
+        bool orderChargeForTotalV2Refs,
+        bool orderTaxTypeV2Refs,
+        bool orderProductModifierV2Refs,
+        bool orderProductModifierOptionV2Refs,
+        bool orderPaymentV2Refs,
+        bool orderPaymentDetailV2Refs})> {
+  $$OrderEntityV2TableTableManager(_$MyDatabase db, $OrderEntityV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderEntityV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderEntityV2TableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderEntityV2TableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<double> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double> netTotalPrice = const Value.absent(),
+            Value<double?> chargeAmount = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double> finalAmount = const Value.absent(),
+            Value<double?> paidAmount = const Value.absent(),
+            Value<double?> dueAmount = const Value.absent(),
+            Value<double?> changeAmount = const Value.absent(),
+            Value<double?> shippingAmount = const Value.absent(),
+            Value<double?> shippingDiscountAmount = const Value.absent(),
+            Value<double?> shippingDiscountPercentage = const Value.absent(),
+            Value<double?> productDiscountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double?> totalDiscountAmount = const Value.absent(),
+            Value<double?> promotionDiscountAmount = const Value.absent(),
+            Value<double?> timeEventDiscountAmount = const Value.absent(),
+            Value<double?> timeEventChargeAmount = const Value.absent(),
+            Value<double?> roundingDecimalAmount = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<String> orderRef = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<DateTime?> startDate = const Value.absent(),
+            Value<DateTime?> endTime = const Value.absent(),
+            Value<DateTime?> timeOfReceipt = const Value.absent(),
+            Value<int?> orderType = const Value.absent(),
+            Value<int?> orderSource = const Value.absent(),
+            Value<int?> status = const Value.absent(),
+            Value<int?> deliveryStatus = const Value.absent(),
+            Value<int?> paymentStatus = const Value.absent(),
+            Value<int?> refundStatus = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<String?> tableId = const Value.absent(),
+            Value<String?> tableCaption = const Value.absent(),
+            Value<int?> numberVisitor = const Value.absent(),
+            Value<double?> minimumReservationPrice = const Value.absent(),
+            Value<String?> callName = const Value.absent(),
+            Value<String?> callNumber = const Value.absent(),
+            Value<String?> cancelReasonId = const Value.absent(),
+            Value<String?> msgCancel = const Value.absent(),
+            Value<String?> kitchenNote = const Value.absent(),
+            Value<String?> casherNote = const Value.absent(),
+            Value<String?> supervisorId = const Value.absent(),
+            Value<String?> parentOrderId = const Value.absent(),
+            Value<int?> splitIndex = const Value.absent(),
+            Value<String?> checksum = const Value.absent(),
+            Value<String?> masterChecksum = const Value.absent(),
+            Value<String?> serverChecksum = const Value.absent(),
+            Value<double?> totalCalories = const Value.absent(),
+            Value<bool?> priceIncludeTax = const Value.absent(),
+            Value<String?> customerId = const Value.absent(),
+            Value<dynamic> customerJson = const Value.absent(),
+            Value<String?> addressId = const Value.absent(),
+            Value<dynamic> addressJson = const Value.absent(),
+            Value<String?> promotionId = const Value.absent(),
+            Value<dynamic> promotionJson = const Value.absent(),
+            Value<dynamic> giftCardJson = const Value.absent(),
+            Value<String?> createdOn = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> lastModifiedOn = const Value.absent(),
+            Value<String?> lastModifiedBy = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderEntityV2Companion(
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            netTotalPrice: netTotalPrice,
+            chargeAmount: chargeAmount,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            paidAmount: paidAmount,
+            dueAmount: dueAmount,
+            changeAmount: changeAmount,
+            shippingAmount: shippingAmount,
+            shippingDiscountAmount: shippingDiscountAmount,
+            shippingDiscountPercentage: shippingDiscountPercentage,
+            productDiscountAmount: productDiscountAmount,
+            discountPercentage: discountPercentage,
+            totalDiscountAmount: totalDiscountAmount,
+            promotionDiscountAmount: promotionDiscountAmount,
+            timeEventDiscountAmount: timeEventDiscountAmount,
+            timeEventChargeAmount: timeEventChargeAmount,
+            roundingDecimalAmount: roundingDecimalAmount,
+            note: note,
+            orderRef: orderRef,
+            deviceId: deviceId,
+            startDate: startDate,
+            endTime: endTime,
+            timeOfReceipt: timeOfReceipt,
+            orderType: orderType,
+            orderSource: orderSource,
+            status: status,
+            deliveryStatus: deliveryStatus,
+            paymentStatus: paymentStatus,
+            refundStatus: refundStatus,
+            shiftId: shiftId,
+            tillId: tillId,
+            tableId: tableId,
+            tableCaption: tableCaption,
+            numberVisitor: numberVisitor,
+            minimumReservationPrice: minimumReservationPrice,
+            callName: callName,
+            callNumber: callNumber,
+            cancelReasonId: cancelReasonId,
+            msgCancel: msgCancel,
+            kitchenNote: kitchenNote,
+            casherNote: casherNote,
+            supervisorId: supervisorId,
+            parentOrderId: parentOrderId,
+            splitIndex: splitIndex,
+            checksum: checksum,
+            masterChecksum: masterChecksum,
+            serverChecksum: serverChecksum,
+            totalCalories: totalCalories,
+            priceIncludeTax: priceIncludeTax,
+            customerId: customerId,
+            customerJson: customerJson,
+            addressId: addressId,
+            addressJson: addressJson,
+            promotionId: promotionId,
+            promotionJson: promotionJson,
+            giftCardJson: giftCardJson,
+            createdOn: createdOn,
+            createdBy: createdBy,
+            lastModifiedOn: lastModifiedOn,
+            lastModifiedBy: lastModifiedBy,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required double totalPrice,
+            Value<double?> discountAmount = const Value.absent(),
+            required double netTotalPrice,
+            Value<double?> chargeAmount = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            required double finalAmount,
+            Value<double?> paidAmount = const Value.absent(),
+            Value<double?> dueAmount = const Value.absent(),
+            Value<double?> changeAmount = const Value.absent(),
+            Value<double?> shippingAmount = const Value.absent(),
+            Value<double?> shippingDiscountAmount = const Value.absent(),
+            Value<double?> shippingDiscountPercentage = const Value.absent(),
+            Value<double?> productDiscountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double?> totalDiscountAmount = const Value.absent(),
+            Value<double?> promotionDiscountAmount = const Value.absent(),
+            Value<double?> timeEventDiscountAmount = const Value.absent(),
+            Value<double?> timeEventChargeAmount = const Value.absent(),
+            Value<double?> roundingDecimalAmount = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            required String orderRef,
+            Value<String?> deviceId = const Value.absent(),
+            Value<DateTime?> startDate = const Value.absent(),
+            Value<DateTime?> endTime = const Value.absent(),
+            Value<DateTime?> timeOfReceipt = const Value.absent(),
+            Value<int?> orderType = const Value.absent(),
+            Value<int?> orderSource = const Value.absent(),
+            Value<int?> status = const Value.absent(),
+            Value<int?> deliveryStatus = const Value.absent(),
+            Value<int?> paymentStatus = const Value.absent(),
+            Value<int?> refundStatus = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<String?> tableId = const Value.absent(),
+            Value<String?> tableCaption = const Value.absent(),
+            Value<int?> numberVisitor = const Value.absent(),
+            Value<double?> minimumReservationPrice = const Value.absent(),
+            Value<String?> callName = const Value.absent(),
+            Value<String?> callNumber = const Value.absent(),
+            Value<String?> cancelReasonId = const Value.absent(),
+            Value<String?> msgCancel = const Value.absent(),
+            Value<String?> kitchenNote = const Value.absent(),
+            Value<String?> casherNote = const Value.absent(),
+            Value<String?> supervisorId = const Value.absent(),
+            Value<String?> parentOrderId = const Value.absent(),
+            Value<int?> splitIndex = const Value.absent(),
+            Value<String?> checksum = const Value.absent(),
+            Value<String?> masterChecksum = const Value.absent(),
+            Value<String?> serverChecksum = const Value.absent(),
+            Value<double?> totalCalories = const Value.absent(),
+            Value<bool?> priceIncludeTax = const Value.absent(),
+            Value<String?> customerId = const Value.absent(),
+            Value<dynamic> customerJson = const Value.absent(),
+            Value<String?> addressId = const Value.absent(),
+            Value<dynamic> addressJson = const Value.absent(),
+            Value<String?> promotionId = const Value.absent(),
+            Value<dynamic> promotionJson = const Value.absent(),
+            Value<dynamic> giftCardJson = const Value.absent(),
+            Value<String?> createdOn = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> lastModifiedOn = const Value.absent(),
+            Value<String?> lastModifiedBy = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderEntityV2Companion.insert(
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            netTotalPrice: netTotalPrice,
+            chargeAmount: chargeAmount,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            paidAmount: paidAmount,
+            dueAmount: dueAmount,
+            changeAmount: changeAmount,
+            shippingAmount: shippingAmount,
+            shippingDiscountAmount: shippingDiscountAmount,
+            shippingDiscountPercentage: shippingDiscountPercentage,
+            productDiscountAmount: productDiscountAmount,
+            discountPercentage: discountPercentage,
+            totalDiscountAmount: totalDiscountAmount,
+            promotionDiscountAmount: promotionDiscountAmount,
+            timeEventDiscountAmount: timeEventDiscountAmount,
+            timeEventChargeAmount: timeEventChargeAmount,
+            roundingDecimalAmount: roundingDecimalAmount,
+            note: note,
+            orderRef: orderRef,
+            deviceId: deviceId,
+            startDate: startDate,
+            endTime: endTime,
+            timeOfReceipt: timeOfReceipt,
+            orderType: orderType,
+            orderSource: orderSource,
+            status: status,
+            deliveryStatus: deliveryStatus,
+            paymentStatus: paymentStatus,
+            refundStatus: refundStatus,
+            shiftId: shiftId,
+            tillId: tillId,
+            tableId: tableId,
+            tableCaption: tableCaption,
+            numberVisitor: numberVisitor,
+            minimumReservationPrice: minimumReservationPrice,
+            callName: callName,
+            callNumber: callNumber,
+            cancelReasonId: cancelReasonId,
+            msgCancel: msgCancel,
+            kitchenNote: kitchenNote,
+            casherNote: casherNote,
+            supervisorId: supervisorId,
+            parentOrderId: parentOrderId,
+            splitIndex: splitIndex,
+            checksum: checksum,
+            masterChecksum: masterChecksum,
+            serverChecksum: serverChecksum,
+            totalCalories: totalCalories,
+            priceIncludeTax: priceIncludeTax,
+            customerId: customerId,
+            customerJson: customerJson,
+            addressId: addressId,
+            addressJson: addressJson,
+            promotionId: promotionId,
+            promotionJson: promotionJson,
+            giftCardJson: giftCardJson,
+            createdOn: createdOn,
+            createdBy: createdBy,
+            lastModifiedOn: lastModifiedOn,
+            lastModifiedBy: lastModifiedBy,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderEntityV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: (
+              {orderProductEntityV2Refs = false,
+              orderProductUnitPriceV2Refs = false,
+              orderProductTieredPricingV2Refs = false,
+              orderProductTimeEventV2Refs = false,
+              orderProductDiscountV2Refs = false,
+              orderProductPromotionInfoV2Refs = false,
+              orderProductChargeV2Refs = false,
+              orderProductTaxInfoV2Refs = false,
+              orderProductChargeTaxV2Refs = false,
+              orderProductTaxTypeV2Refs = false,
+              orderDiscountV2Refs = false,
+              orderPromotionAppliesV2Refs = false,
+              orderPromotionGiftCardV2Refs = false,
+              orderChargeV2Refs = false,
+              orderChargeForTotalV2Refs = false,
+              orderTaxTypeV2Refs = false,
+              orderProductModifierV2Refs = false,
+              orderProductModifierOptionV2Refs = false,
+              orderPaymentV2Refs = false,
+              orderPaymentDetailV2Refs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (orderProductEntityV2Refs) db.orderProductEntityV2,
+                if (orderProductUnitPriceV2Refs) db.orderProductUnitPriceV2,
+                if (orderProductTieredPricingV2Refs)
+                  db.orderProductTieredPricingV2,
+                if (orderProductTimeEventV2Refs) db.orderProductTimeEventV2,
+                if (orderProductDiscountV2Refs) db.orderProductDiscountV2,
+                if (orderProductPromotionInfoV2Refs)
+                  db.orderProductPromotionInfoV2,
+                if (orderProductChargeV2Refs) db.orderProductChargeV2,
+                if (orderProductTaxInfoV2Refs) db.orderProductTaxInfoV2,
+                if (orderProductChargeTaxV2Refs) db.orderProductChargeTaxV2,
+                if (orderProductTaxTypeV2Refs) db.orderProductTaxTypeV2,
+                if (orderDiscountV2Refs) db.orderDiscountV2,
+                if (orderPromotionAppliesV2Refs) db.orderPromotionAppliesV2,
+                if (orderPromotionGiftCardV2Refs) db.orderPromotionGiftCardV2,
+                if (orderChargeV2Refs) db.orderChargeV2,
+                if (orderChargeForTotalV2Refs) db.orderChargeForTotalV2,
+                if (orderTaxTypeV2Refs) db.orderTaxTypeV2,
+                if (orderProductModifierV2Refs) db.orderProductModifierV2,
+                if (orderProductModifierOptionV2Refs)
+                  db.orderProductModifierOptionV2,
+                if (orderPaymentV2Refs) db.orderPaymentV2,
+                if (orderPaymentDetailV2Refs) db.orderPaymentDetailV2
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (orderProductEntityV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductEntityV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductEntityV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductEntityV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductUnitPriceV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductUnitPriceV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductUnitPriceV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductUnitPriceV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductTieredPricingV2Refs)
+                    await $_getPrefetchedData<
+                            OrderEntityV2Data,
+                            $OrderEntityV2Table,
+                            OrderProductTieredPricingV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductTieredPricingV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductTieredPricingV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductTimeEventV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductTimeEventV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductTimeEventV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductTimeEventV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductDiscountV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductDiscountV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductDiscountV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductDiscountV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductPromotionInfoV2Refs)
+                    await $_getPrefetchedData<
+                            OrderEntityV2Data,
+                            $OrderEntityV2Table,
+                            OrderProductPromotionInfoV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductPromotionInfoV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductPromotionInfoV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductChargeV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductChargeV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductChargeV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductChargeV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductTaxInfoV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductTaxInfoV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductTaxInfoV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductTaxInfoV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductChargeTaxV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductChargeTaxV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductChargeTaxV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductChargeTaxV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductTaxTypeV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductTaxTypeV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductTaxTypeV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductTaxTypeV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderDiscountV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderDiscountV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderDiscountV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderDiscountV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderPromotionAppliesV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderPromotionAppliesV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderPromotionAppliesV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderPromotionAppliesV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderPromotionGiftCardV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderPromotionGiftCardV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderPromotionGiftCardV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderPromotionGiftCardV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderChargeV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderChargeV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderChargeV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderChargeV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderChargeForTotalV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderChargeForTotalV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderChargeForTotalV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderChargeForTotalV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderTaxTypeV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderTaxTypeV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderTaxTypeV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderTaxTypeV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductModifierV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderProductModifierV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductModifierV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductModifierV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderProductModifierOptionV2Refs)
+                    await $_getPrefetchedData<
+                            OrderEntityV2Data,
+                            $OrderEntityV2Table,
+                            OrderProductModifierOptionV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderProductModifierOptionV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderProductModifierOptionV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderPaymentV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderPaymentV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderPaymentV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderPaymentV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderPaymentDetailV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderPaymentDetailV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderPaymentDetailV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderPaymentDetailV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items)
+                ];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderEntityV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderEntityV2Table,
+    OrderEntityV2Data,
+    $$OrderEntityV2TableFilterComposer,
+    $$OrderEntityV2TableOrderingComposer,
+    $$OrderEntityV2TableAnnotationComposer,
+    $$OrderEntityV2TableCreateCompanionBuilder,
+    $$OrderEntityV2TableUpdateCompanionBuilder,
+    (OrderEntityV2Data, $$OrderEntityV2TableReferences),
+    OrderEntityV2Data,
+    PrefetchHooks Function(
+        {bool orderProductEntityV2Refs,
+        bool orderProductUnitPriceV2Refs,
+        bool orderProductTieredPricingV2Refs,
+        bool orderProductTimeEventV2Refs,
+        bool orderProductDiscountV2Refs,
+        bool orderProductPromotionInfoV2Refs,
+        bool orderProductChargeV2Refs,
+        bool orderProductTaxInfoV2Refs,
+        bool orderProductChargeTaxV2Refs,
+        bool orderProductTaxTypeV2Refs,
+        bool orderDiscountV2Refs,
+        bool orderPromotionAppliesV2Refs,
+        bool orderPromotionGiftCardV2Refs,
+        bool orderChargeV2Refs,
+        bool orderChargeForTotalV2Refs,
+        bool orderTaxTypeV2Refs,
+        bool orderProductModifierV2Refs,
+        bool orderProductModifierOptionV2Refs,
+        bool orderPaymentV2Refs,
+        bool orderPaymentDetailV2Refs})>;
+typedef $$OrderProductEntityV2TableCreateCompanionBuilder
+    = OrderProductEntityV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  required int tableRowIndex,
+  required String name,
+  required String productId,
+  required String unitId,
+  required double quantity,
+  Value<double?> freeQuantity,
+  required double unitPrice,
+  required double totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  required double netUnitPrice,
+  required double netTotalPrice,
+  Value<double?> netUnitPriceExcludeTax,
+  Value<double?> netTotalPriceExcludeTax,
+  Value<double?> orderDiscountAmount,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  required double finalAmount,
+  Value<double?> roundingDecimalAmount,
+  Value<String?> notes,
+  Value<String?> departmentId,
+  Value<String?> categoryId,
+  Value<int> rowid,
+});
+typedef $$OrderProductEntityV2TableUpdateCompanionBuilder
+    = OrderProductEntityV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<int> tableRowIndex,
+  Value<String> name,
+  Value<String> productId,
+  Value<String> unitId,
+  Value<double> quantity,
+  Value<double?> freeQuantity,
+  Value<double> unitPrice,
+  Value<double> totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<double> netUnitPrice,
+  Value<double> netTotalPrice,
+  Value<double?> netUnitPriceExcludeTax,
+  Value<double?> netTotalPriceExcludeTax,
+  Value<double?> orderDiscountAmount,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double> finalAmount,
+  Value<double?> roundingDecimalAmount,
+  Value<String?> notes,
+  Value<String?> departmentId,
+  Value<String?> categoryId,
+  Value<int> rowid,
+});
+
+final class $$OrderProductEntityV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductEntityV2Table, OrderProductEntityV2Data> {
+  $$OrderProductEntityV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductEntityV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductEntityV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductEntityV2Table> {
+  $$OrderProductEntityV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get tableRowIndex => $composableBuilder(
+      column: $table.tableRowIndex, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get quantity => $composableBuilder(
+      column: $table.quantity, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get freeQuantity => $composableBuilder(
+      column: $table.freeQuantity, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get roundingDecimalAmount => $composableBuilder(
+      column: $table.roundingDecimalAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get departmentId => $composableBuilder(
+      column: $table.departmentId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get categoryId => $composableBuilder(
+      column: $table.categoryId, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductEntityV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductEntityV2Table> {
+  $$OrderProductEntityV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get tableRowIndex => $composableBuilder(
+      column: $table.tableRowIndex,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get quantity => $composableBuilder(
+      column: $table.quantity, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get freeQuantity => $composableBuilder(
+      column: $table.freeQuantity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get roundingDecimalAmount => $composableBuilder(
+      column: $table.roundingDecimalAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get departmentId => $composableBuilder(
+      column: $table.departmentId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get categoryId => $composableBuilder(
+      column: $table.categoryId, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductEntityV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductEntityV2Table> {
+  $$OrderProductEntityV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<int> get tableRowIndex => $composableBuilder(
+      column: $table.tableRowIndex, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get productId =>
+      $composableBuilder(column: $table.productId, builder: (column) => column);
+
+  GeneratedColumn<String> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<double> get quantity =>
+      $composableBuilder(column: $table.quantity, builder: (column) => column);
+
+  GeneratedColumn<double> get freeQuantity => $composableBuilder(
+      column: $table.freeQuantity, builder: (column) => column);
+
+  GeneratedColumn<double> get unitPrice =>
+      $composableBuilder(column: $table.unitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax, builder: (column) => column);
+
+  GeneratedColumn<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get roundingDecimalAmount => $composableBuilder(
+      column: $table.roundingDecimalAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<String> get departmentId => $composableBuilder(
+      column: $table.departmentId, builder: (column) => column);
+
+  GeneratedColumn<String> get categoryId => $composableBuilder(
+      column: $table.categoryId, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductEntityV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductEntityV2Table,
+    OrderProductEntityV2Data,
+    $$OrderProductEntityV2TableFilterComposer,
+    $$OrderProductEntityV2TableOrderingComposer,
+    $$OrderProductEntityV2TableAnnotationComposer,
+    $$OrderProductEntityV2TableCreateCompanionBuilder,
+    $$OrderProductEntityV2TableUpdateCompanionBuilder,
+    (OrderProductEntityV2Data, $$OrderProductEntityV2TableReferences),
+    OrderProductEntityV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductEntityV2TableTableManager(
+      _$MyDatabase db, $OrderProductEntityV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductEntityV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductEntityV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductEntityV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<int> tableRowIndex = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> productId = const Value.absent(),
+            Value<String> unitId = const Value.absent(),
+            Value<double> quantity = const Value.absent(),
+            Value<double?> freeQuantity = const Value.absent(),
+            Value<double> unitPrice = const Value.absent(),
+            Value<double> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double> netUnitPrice = const Value.absent(),
+            Value<double> netTotalPrice = const Value.absent(),
+            Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+            Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+            Value<double?> orderDiscountAmount = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double> finalAmount = const Value.absent(),
+            Value<double?> roundingDecimalAmount = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<String?> departmentId = const Value.absent(),
+            Value<String?> categoryId = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductEntityV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            tableRowIndex: tableRowIndex,
+            name: name,
+            productId: productId,
+            unitId: unitId,
+            quantity: quantity,
+            freeQuantity: freeQuantity,
+            unitPrice: unitPrice,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            netUnitPrice: netUnitPrice,
+            netTotalPrice: netTotalPrice,
+            netUnitPriceExcludeTax: netUnitPriceExcludeTax,
+            netTotalPriceExcludeTax: netTotalPriceExcludeTax,
+            orderDiscountAmount: orderDiscountAmount,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            roundingDecimalAmount: roundingDecimalAmount,
+            notes: notes,
+            departmentId: departmentId,
+            categoryId: categoryId,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            required int tableRowIndex,
+            required String name,
+            required String productId,
+            required String unitId,
+            required double quantity,
+            Value<double?> freeQuantity = const Value.absent(),
+            required double unitPrice,
+            required double totalPrice,
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            required double netUnitPrice,
+            required double netTotalPrice,
+            Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+            Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+            Value<double?> orderDiscountAmount = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            required double finalAmount,
+            Value<double?> roundingDecimalAmount = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<String?> departmentId = const Value.absent(),
+            Value<String?> categoryId = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductEntityV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            tableRowIndex: tableRowIndex,
+            name: name,
+            productId: productId,
+            unitId: unitId,
+            quantity: quantity,
+            freeQuantity: freeQuantity,
+            unitPrice: unitPrice,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            netUnitPrice: netUnitPrice,
+            netTotalPrice: netTotalPrice,
+            netUnitPriceExcludeTax: netUnitPriceExcludeTax,
+            netTotalPriceExcludeTax: netTotalPriceExcludeTax,
+            orderDiscountAmount: orderDiscountAmount,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            roundingDecimalAmount: roundingDecimalAmount,
+            notes: notes,
+            departmentId: departmentId,
+            categoryId: categoryId,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductEntityV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductEntityV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductEntityV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductEntityV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductEntityV2Table,
+        OrderProductEntityV2Data,
+        $$OrderProductEntityV2TableFilterComposer,
+        $$OrderProductEntityV2TableOrderingComposer,
+        $$OrderProductEntityV2TableAnnotationComposer,
+        $$OrderProductEntityV2TableCreateCompanionBuilder,
+        $$OrderProductEntityV2TableUpdateCompanionBuilder,
+        (OrderProductEntityV2Data, $$OrderProductEntityV2TableReferences),
+        OrderProductEntityV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductUnitPriceV2TableCreateCompanionBuilder
+    = OrderProductUnitPriceV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<double?> unitPrice,
+  Value<String?> description,
+  Value<String?> unitId,
+  Value<String?> productUnitId,
+  Value<String?> productUnitPriceListId,
+  Value<String?> productUnitPriceListSlapId,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<int> rowid,
+});
+typedef $$OrderProductUnitPriceV2TableUpdateCompanionBuilder
+    = OrderProductUnitPriceV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<double?> unitPrice,
+  Value<String?> description,
+  Value<String?> unitId,
+  Value<String?> productUnitId,
+  Value<String?> productUnitPriceListId,
+  Value<String?> productUnitPriceListSlapId,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<int> rowid,
+});
+
+final class $$OrderProductUnitPriceV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductUnitPriceV2Table, OrderProductUnitPriceV2Data> {
+  $$OrderProductUnitPriceV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductUnitPriceV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductUnitPriceV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductUnitPriceV2Table> {
+  $$OrderProductUnitPriceV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get productUnitId => $composableBuilder(
+      column: $table.productUnitId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get productUnitPriceListId => $composableBuilder(
+      column: $table.productUnitPriceListId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get productUnitPriceListSlapId => $composableBuilder(
+      column: $table.productUnitPriceListSlapId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductUnitPriceV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductUnitPriceV2Table> {
+  $$OrderProductUnitPriceV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get productUnitId => $composableBuilder(
+      column: $table.productUnitId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get productUnitPriceListId => $composableBuilder(
+      column: $table.productUnitPriceListId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get productUnitPriceListSlapId => $composableBuilder(
+      column: $table.productUnitPriceListSlapId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductUnitPriceV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductUnitPriceV2Table> {
+  $$OrderProductUnitPriceV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<double> get unitPrice =>
+      $composableBuilder(column: $table.unitPrice, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  GeneratedColumn<String> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get productUnitId => $composableBuilder(
+      column: $table.productUnitId, builder: (column) => column);
+
+  GeneratedColumn<String> get productUnitPriceListId => $composableBuilder(
+      column: $table.productUnitPriceListId, builder: (column) => column);
+
+  GeneratedColumn<String> get productUnitPriceListSlapId => $composableBuilder(
+      column: $table.productUnitPriceListSlapId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductUnitPriceV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductUnitPriceV2Table,
+    OrderProductUnitPriceV2Data,
+    $$OrderProductUnitPriceV2TableFilterComposer,
+    $$OrderProductUnitPriceV2TableOrderingComposer,
+    $$OrderProductUnitPriceV2TableAnnotationComposer,
+    $$OrderProductUnitPriceV2TableCreateCompanionBuilder,
+    $$OrderProductUnitPriceV2TableUpdateCompanionBuilder,
+    (OrderProductUnitPriceV2Data, $$OrderProductUnitPriceV2TableReferences),
+    OrderProductUnitPriceV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductUnitPriceV2TableTableManager(
+      _$MyDatabase db, $OrderProductUnitPriceV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductUnitPriceV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductUnitPriceV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductUnitPriceV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<double?> unitPrice = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<String?> unitId = const Value.absent(),
+            Value<String?> productUnitId = const Value.absent(),
+            Value<String?> productUnitPriceListId = const Value.absent(),
+            Value<String?> productUnitPriceListSlapId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductUnitPriceV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            unitPrice: unitPrice,
+            description: description,
+            unitId: unitId,
+            productUnitId: productUnitId,
+            productUnitPriceListId: productUnitPriceListId,
+            productUnitPriceListSlapId: productUnitPriceListSlapId,
+            name: name,
+            fName: fName,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<double?> unitPrice = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<String?> unitId = const Value.absent(),
+            Value<String?> productUnitId = const Value.absent(),
+            Value<String?> productUnitPriceListId = const Value.absent(),
+            Value<String?> productUnitPriceListSlapId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductUnitPriceV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            unitPrice: unitPrice,
+            description: description,
+            unitId: unitId,
+            productUnitId: productUnitId,
+            productUnitPriceListId: productUnitPriceListId,
+            productUnitPriceListSlapId: productUnitPriceListSlapId,
+            name: name,
+            fName: fName,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductUnitPriceV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductUnitPriceV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductUnitPriceV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductUnitPriceV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductUnitPriceV2Table,
+        OrderProductUnitPriceV2Data,
+        $$OrderProductUnitPriceV2TableFilterComposer,
+        $$OrderProductUnitPriceV2TableOrderingComposer,
+        $$OrderProductUnitPriceV2TableAnnotationComposer,
+        $$OrderProductUnitPriceV2TableCreateCompanionBuilder,
+        $$OrderProductUnitPriceV2TableUpdateCompanionBuilder,
+        (OrderProductUnitPriceV2Data, $$OrderProductUnitPriceV2TableReferences),
+        OrderProductUnitPriceV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductTieredPricingV2TableCreateCompanionBuilder
+    = OrderProductTieredPricingV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> tieredPricingId,
+  Value<String?> name,
+  Value<double?> unitPrice,
+  Value<double?> netUnitPrice,
+  Value<int> rowid,
+});
+typedef $$OrderProductTieredPricingV2TableUpdateCompanionBuilder
+    = OrderProductTieredPricingV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> tieredPricingId,
+  Value<String?> name,
+  Value<double?> unitPrice,
+  Value<double?> netUnitPrice,
+  Value<int> rowid,
+});
+
+final class $$OrderProductTieredPricingV2TableReferences extends BaseReferences<
+    _$MyDatabase,
+    $OrderProductTieredPricingV2Table,
+    OrderProductTieredPricingV2Data> {
+  $$OrderProductTieredPricingV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductTieredPricingV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductTieredPricingV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductTieredPricingV2Table> {
+  $$OrderProductTieredPricingV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tieredPricingId => $composableBuilder(
+      column: $table.tieredPricingId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTieredPricingV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductTieredPricingV2Table> {
+  $$OrderProductTieredPricingV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tieredPricingId => $composableBuilder(
+      column: $table.tieredPricingId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTieredPricingV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductTieredPricingV2Table> {
+  $$OrderProductTieredPricingV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get tieredPricingId => $composableBuilder(
+      column: $table.tieredPricingId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get unitPrice =>
+      $composableBuilder(column: $table.unitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTieredPricingV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductTieredPricingV2Table,
+    OrderProductTieredPricingV2Data,
+    $$OrderProductTieredPricingV2TableFilterComposer,
+    $$OrderProductTieredPricingV2TableOrderingComposer,
+    $$OrderProductTieredPricingV2TableAnnotationComposer,
+    $$OrderProductTieredPricingV2TableCreateCompanionBuilder,
+    $$OrderProductTieredPricingV2TableUpdateCompanionBuilder,
+    (
+      OrderProductTieredPricingV2Data,
+      $$OrderProductTieredPricingV2TableReferences
+    ),
+    OrderProductTieredPricingV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductTieredPricingV2TableTableManager(
+      _$MyDatabase db, $OrderProductTieredPricingV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductTieredPricingV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductTieredPricingV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductTieredPricingV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> tieredPricingId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> unitPrice = const Value.absent(),
+            Value<double?> netUnitPrice = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTieredPricingV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            tieredPricingId: tieredPricingId,
+            name: name,
+            unitPrice: unitPrice,
+            netUnitPrice: netUnitPrice,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> tieredPricingId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> unitPrice = const Value.absent(),
+            Value<double?> netUnitPrice = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTieredPricingV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            tieredPricingId: tieredPricingId,
+            name: name,
+            unitPrice: unitPrice,
+            netUnitPrice: netUnitPrice,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductTieredPricingV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderProductTieredPricingV2TableReferences
+                            ._orderRefTable(db),
+                    referencedColumn:
+                        $$OrderProductTieredPricingV2TableReferences
+                            ._orderRefTable(db)
+                            .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductTieredPricingV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderProductTieredPricingV2Table,
+    OrderProductTieredPricingV2Data,
+    $$OrderProductTieredPricingV2TableFilterComposer,
+    $$OrderProductTieredPricingV2TableOrderingComposer,
+    $$OrderProductTieredPricingV2TableAnnotationComposer,
+    $$OrderProductTieredPricingV2TableCreateCompanionBuilder,
+    $$OrderProductTieredPricingV2TableUpdateCompanionBuilder,
+    (
+      OrderProductTieredPricingV2Data,
+      $$OrderProductTieredPricingV2TableReferences
+    ),
+    OrderProductTieredPricingV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductTimeEventV2TableCreateCompanionBuilder
+    = OrderProductTimeEventV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  required String timeEventId,
+  Value<String?> name,
+  required double unitPrice,
+  required double netUnitPrice,
+  Value<int> rowid,
+});
+typedef $$OrderProductTimeEventV2TableUpdateCompanionBuilder
+    = OrderProductTimeEventV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String> timeEventId,
+  Value<String?> name,
+  Value<double> unitPrice,
+  Value<double> netUnitPrice,
+  Value<int> rowid,
+});
+
+final class $$OrderProductTimeEventV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductTimeEventV2Table, OrderProductTimeEventV2Data> {
+  $$OrderProductTimeEventV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductTimeEventV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductTimeEventV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductTimeEventV2Table> {
+  $$OrderProductTimeEventV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get timeEventId => $composableBuilder(
+      column: $table.timeEventId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTimeEventV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductTimeEventV2Table> {
+  $$OrderProductTimeEventV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get timeEventId => $composableBuilder(
+      column: $table.timeEventId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTimeEventV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductTimeEventV2Table> {
+  $$OrderProductTimeEventV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get timeEventId => $composableBuilder(
+      column: $table.timeEventId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get unitPrice =>
+      $composableBuilder(column: $table.unitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTimeEventV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductTimeEventV2Table,
+    OrderProductTimeEventV2Data,
+    $$OrderProductTimeEventV2TableFilterComposer,
+    $$OrderProductTimeEventV2TableOrderingComposer,
+    $$OrderProductTimeEventV2TableAnnotationComposer,
+    $$OrderProductTimeEventV2TableCreateCompanionBuilder,
+    $$OrderProductTimeEventV2TableUpdateCompanionBuilder,
+    (OrderProductTimeEventV2Data, $$OrderProductTimeEventV2TableReferences),
+    OrderProductTimeEventV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductTimeEventV2TableTableManager(
+      _$MyDatabase db, $OrderProductTimeEventV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductTimeEventV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductTimeEventV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductTimeEventV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String> timeEventId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double> unitPrice = const Value.absent(),
+            Value<double> netUnitPrice = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTimeEventV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            timeEventId: timeEventId,
+            name: name,
+            unitPrice: unitPrice,
+            netUnitPrice: netUnitPrice,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            required String timeEventId,
+            Value<String?> name = const Value.absent(),
+            required double unitPrice,
+            required double netUnitPrice,
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTimeEventV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            timeEventId: timeEventId,
+            name: name,
+            unitPrice: unitPrice,
+            netUnitPrice: netUnitPrice,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductTimeEventV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductTimeEventV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductTimeEventV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductTimeEventV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductTimeEventV2Table,
+        OrderProductTimeEventV2Data,
+        $$OrderProductTimeEventV2TableFilterComposer,
+        $$OrderProductTimeEventV2TableOrderingComposer,
+        $$OrderProductTimeEventV2TableAnnotationComposer,
+        $$OrderProductTimeEventV2TableCreateCompanionBuilder,
+        $$OrderProductTimeEventV2TableUpdateCompanionBuilder,
+        (OrderProductTimeEventV2Data, $$OrderProductTimeEventV2TableReferences),
+        OrderProductTimeEventV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductDiscountV2TableCreateCompanionBuilder
+    = OrderProductDiscountV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<String?> discountType,
+  Value<String?> discountId,
+  Value<int> rowid,
+});
+typedef $$OrderProductDiscountV2TableUpdateCompanionBuilder
+    = OrderProductDiscountV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<String?> discountType,
+  Value<String?> discountId,
+  Value<int> rowid,
+});
+
+final class $$OrderProductDiscountV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductDiscountV2Table, OrderProductDiscountV2Data> {
+  $$OrderProductDiscountV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductDiscountV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductDiscountV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductDiscountV2Table> {
+  $$OrderProductDiscountV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get discountType => $composableBuilder(
+      column: $table.discountType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get discountId => $composableBuilder(
+      column: $table.discountId, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductDiscountV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductDiscountV2Table> {
+  $$OrderProductDiscountV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get discountType => $composableBuilder(
+      column: $table.discountType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get discountId => $composableBuilder(
+      column: $table.discountId, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductDiscountV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductDiscountV2Table> {
+  $$OrderProductDiscountV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  GeneratedColumn<String> get discountType => $composableBuilder(
+      column: $table.discountType, builder: (column) => column);
+
+  GeneratedColumn<String> get discountId => $composableBuilder(
+      column: $table.discountId, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductDiscountV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductDiscountV2Table,
+    OrderProductDiscountV2Data,
+    $$OrderProductDiscountV2TableFilterComposer,
+    $$OrderProductDiscountV2TableOrderingComposer,
+    $$OrderProductDiscountV2TableAnnotationComposer,
+    $$OrderProductDiscountV2TableCreateCompanionBuilder,
+    $$OrderProductDiscountV2TableUpdateCompanionBuilder,
+    (OrderProductDiscountV2Data, $$OrderProductDiscountV2TableReferences),
+    OrderProductDiscountV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductDiscountV2TableTableManager(
+      _$MyDatabase db, $OrderProductDiscountV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductDiscountV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductDiscountV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductDiscountV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<String?> discountType = const Value.absent(),
+            Value<String?> discountId = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductDiscountV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            discountType: discountType,
+            discountId: discountId,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<String?> discountType = const Value.absent(),
+            Value<String?> discountId = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductDiscountV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            discountType: discountType,
+            discountId: discountId,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductDiscountV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductDiscountV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductDiscountV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductDiscountV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductDiscountV2Table,
+        OrderProductDiscountV2Data,
+        $$OrderProductDiscountV2TableFilterComposer,
+        $$OrderProductDiscountV2TableOrderingComposer,
+        $$OrderProductDiscountV2TableAnnotationComposer,
+        $$OrderProductDiscountV2TableCreateCompanionBuilder,
+        $$OrderProductDiscountV2TableUpdateCompanionBuilder,
+        (OrderProductDiscountV2Data, $$OrderProductDiscountV2TableReferences),
+        OrderProductDiscountV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductPromotionInfoV2TableCreateCompanionBuilder
+    = OrderProductPromotionInfoV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<double?> notAppliesQuantity,
+  Value<double?> appliesAsPurchaseQuantity,
+  Value<double?> appliesAsDiscountQuantity,
+  Value<double?> promotionDiscountAmount,
+  Value<double?> promotionDiscountPercentage,
+  Value<dynamic> promotionsJson,
+  Value<int> rowid,
+});
+typedef $$OrderProductPromotionInfoV2TableUpdateCompanionBuilder
+    = OrderProductPromotionInfoV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<double?> notAppliesQuantity,
+  Value<double?> appliesAsPurchaseQuantity,
+  Value<double?> appliesAsDiscountQuantity,
+  Value<double?> promotionDiscountAmount,
+  Value<double?> promotionDiscountPercentage,
+  Value<dynamic> promotionsJson,
+  Value<int> rowid,
+});
+
+final class $$OrderProductPromotionInfoV2TableReferences extends BaseReferences<
+    _$MyDatabase,
+    $OrderProductPromotionInfoV2Table,
+    OrderProductPromotionInfoV2Data> {
+  $$OrderProductPromotionInfoV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductPromotionInfoV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductPromotionInfoV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductPromotionInfoV2Table> {
+  $$OrderProductPromotionInfoV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get notAppliesQuantity => $composableBuilder(
+      column: $table.notAppliesQuantity,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get appliesAsPurchaseQuantity => $composableBuilder(
+      column: $table.appliesAsPurchaseQuantity,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get appliesAsDiscountQuantity => $composableBuilder(
+      column: $table.appliesAsDiscountQuantity,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get promotionDiscountAmount => $composableBuilder(
+      column: $table.promotionDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get promotionDiscountPercentage => $composableBuilder(
+      column: $table.promotionDiscountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get promotionsJson =>
+      $composableBuilder(
+          column: $table.promotionsJson,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductPromotionInfoV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductPromotionInfoV2Table> {
+  $$OrderProductPromotionInfoV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get notAppliesQuantity => $composableBuilder(
+      column: $table.notAppliesQuantity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get appliesAsPurchaseQuantity => $composableBuilder(
+      column: $table.appliesAsPurchaseQuantity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get appliesAsDiscountQuantity => $composableBuilder(
+      column: $table.appliesAsDiscountQuantity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get promotionDiscountAmount => $composableBuilder(
+      column: $table.promotionDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get promotionDiscountPercentage => $composableBuilder(
+      column: $table.promotionDiscountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get promotionsJson => $composableBuilder(
+      column: $table.promotionsJson,
+      builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductPromotionInfoV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductPromotionInfoV2Table> {
+  $$OrderProductPromotionInfoV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<double> get notAppliesQuantity => $composableBuilder(
+      column: $table.notAppliesQuantity, builder: (column) => column);
+
+  GeneratedColumn<double> get appliesAsPurchaseQuantity => $composableBuilder(
+      column: $table.appliesAsPurchaseQuantity, builder: (column) => column);
+
+  GeneratedColumn<double> get appliesAsDiscountQuantity => $composableBuilder(
+      column: $table.appliesAsDiscountQuantity, builder: (column) => column);
+
+  GeneratedColumn<double> get promotionDiscountAmount => $composableBuilder(
+      column: $table.promotionDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get promotionDiscountPercentage => $composableBuilder(
+      column: $table.promotionDiscountPercentage, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get promotionsJson =>
+      $composableBuilder(
+          column: $table.promotionsJson, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductPromotionInfoV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductPromotionInfoV2Table,
+    OrderProductPromotionInfoV2Data,
+    $$OrderProductPromotionInfoV2TableFilterComposer,
+    $$OrderProductPromotionInfoV2TableOrderingComposer,
+    $$OrderProductPromotionInfoV2TableAnnotationComposer,
+    $$OrderProductPromotionInfoV2TableCreateCompanionBuilder,
+    $$OrderProductPromotionInfoV2TableUpdateCompanionBuilder,
+    (
+      OrderProductPromotionInfoV2Data,
+      $$OrderProductPromotionInfoV2TableReferences
+    ),
+    OrderProductPromotionInfoV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductPromotionInfoV2TableTableManager(
+      _$MyDatabase db, $OrderProductPromotionInfoV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductPromotionInfoV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductPromotionInfoV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductPromotionInfoV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<double?> notAppliesQuantity = const Value.absent(),
+            Value<double?> appliesAsPurchaseQuantity = const Value.absent(),
+            Value<double?> appliesAsDiscountQuantity = const Value.absent(),
+            Value<double?> promotionDiscountAmount = const Value.absent(),
+            Value<double?> promotionDiscountPercentage = const Value.absent(),
+            Value<dynamic> promotionsJson = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductPromotionInfoV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            notAppliesQuantity: notAppliesQuantity,
+            appliesAsPurchaseQuantity: appliesAsPurchaseQuantity,
+            appliesAsDiscountQuantity: appliesAsDiscountQuantity,
+            promotionDiscountAmount: promotionDiscountAmount,
+            promotionDiscountPercentage: promotionDiscountPercentage,
+            promotionsJson: promotionsJson,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<double?> notAppliesQuantity = const Value.absent(),
+            Value<double?> appliesAsPurchaseQuantity = const Value.absent(),
+            Value<double?> appliesAsDiscountQuantity = const Value.absent(),
+            Value<double?> promotionDiscountAmount = const Value.absent(),
+            Value<double?> promotionDiscountPercentage = const Value.absent(),
+            Value<dynamic> promotionsJson = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductPromotionInfoV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            notAppliesQuantity: notAppliesQuantity,
+            appliesAsPurchaseQuantity: appliesAsPurchaseQuantity,
+            appliesAsDiscountQuantity: appliesAsDiscountQuantity,
+            promotionDiscountAmount: promotionDiscountAmount,
+            promotionDiscountPercentage: promotionDiscountPercentage,
+            promotionsJson: promotionsJson,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductPromotionInfoV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderProductPromotionInfoV2TableReferences
+                            ._orderRefTable(db),
+                    referencedColumn:
+                        $$OrderProductPromotionInfoV2TableReferences
+                            ._orderRefTable(db)
+                            .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductPromotionInfoV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderProductPromotionInfoV2Table,
+    OrderProductPromotionInfoV2Data,
+    $$OrderProductPromotionInfoV2TableFilterComposer,
+    $$OrderProductPromotionInfoV2TableOrderingComposer,
+    $$OrderProductPromotionInfoV2TableAnnotationComposer,
+    $$OrderProductPromotionInfoV2TableCreateCompanionBuilder,
+    $$OrderProductPromotionInfoV2TableUpdateCompanionBuilder,
+    (
+      OrderProductPromotionInfoV2Data,
+      $$OrderProductPromotionInfoV2TableReferences
+    ),
+    OrderProductPromotionInfoV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductChargeV2TableCreateCompanionBuilder
+    = OrderProductChargeV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> chargeId,
+  Value<String?> name,
+  Value<double?> amount,
+  Value<double?> percentage,
+  Value<int> rowid,
+});
+typedef $$OrderProductChargeV2TableUpdateCompanionBuilder
+    = OrderProductChargeV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> chargeId,
+  Value<String?> name,
+  Value<double?> amount,
+  Value<double?> percentage,
+  Value<int> rowid,
+});
+
+final class $$OrderProductChargeV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductChargeV2Table, OrderProductChargeV2Data> {
+  $$OrderProductChargeV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductChargeV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductChargeV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductChargeV2Table> {
+  $$OrderProductChargeV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get chargeId => $composableBuilder(
+      column: $table.chargeId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductChargeV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductChargeV2Table> {
+  $$OrderProductChargeV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get chargeId => $composableBuilder(
+      column: $table.chargeId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductChargeV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductChargeV2Table> {
+  $$OrderProductChargeV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get chargeId =>
+      $composableBuilder(column: $table.chargeId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  GeneratedColumn<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductChargeV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductChargeV2Table,
+    OrderProductChargeV2Data,
+    $$OrderProductChargeV2TableFilterComposer,
+    $$OrderProductChargeV2TableOrderingComposer,
+    $$OrderProductChargeV2TableAnnotationComposer,
+    $$OrderProductChargeV2TableCreateCompanionBuilder,
+    $$OrderProductChargeV2TableUpdateCompanionBuilder,
+    (OrderProductChargeV2Data, $$OrderProductChargeV2TableReferences),
+    OrderProductChargeV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductChargeV2TableTableManager(
+      _$MyDatabase db, $OrderProductChargeV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductChargeV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductChargeV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductChargeV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> chargeId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double?> percentage = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductChargeV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            chargeId: chargeId,
+            name: name,
+            amount: amount,
+            percentage: percentage,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> chargeId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double?> percentage = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductChargeV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            chargeId: chargeId,
+            name: name,
+            amount: amount,
+            percentage: percentage,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductChargeV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductChargeV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductChargeV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductChargeV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductChargeV2Table,
+        OrderProductChargeV2Data,
+        $$OrderProductChargeV2TableFilterComposer,
+        $$OrderProductChargeV2TableOrderingComposer,
+        $$OrderProductChargeV2TableAnnotationComposer,
+        $$OrderProductChargeV2TableCreateCompanionBuilder,
+        $$OrderProductChargeV2TableUpdateCompanionBuilder,
+        (OrderProductChargeV2Data, $$OrderProductChargeV2TableReferences),
+        OrderProductChargeV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductTaxInfoV2TableCreateCompanionBuilder
+    = OrderProductTaxInfoV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> optionId,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double?> taxPercentage,
+  Value<String?> taxGroupId,
+  Value<int> rowid,
+});
+typedef $$OrderProductTaxInfoV2TableUpdateCompanionBuilder
+    = OrderProductTaxInfoV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> optionId,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double?> taxPercentage,
+  Value<String?> taxGroupId,
+  Value<int> rowid,
+});
+
+final class $$OrderProductTaxInfoV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductTaxInfoV2Table, OrderProductTaxInfoV2Data> {
+  $$OrderProductTaxInfoV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductTaxInfoV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductTaxInfoV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductTaxInfoV2Table> {
+  $$OrderProductTaxInfoV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get optionId => $composableBuilder(
+      column: $table.optionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxPercentage => $composableBuilder(
+      column: $table.taxPercentage, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTaxInfoV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductTaxInfoV2Table> {
+  $$OrderProductTaxInfoV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get optionId => $composableBuilder(
+      column: $table.optionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxPercentage => $composableBuilder(
+      column: $table.taxPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTaxInfoV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductTaxInfoV2Table> {
+  $$OrderProductTaxInfoV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => column);
+
+  GeneratedColumn<String> get optionId =>
+      $composableBuilder(column: $table.optionId, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxPercentage => $composableBuilder(
+      column: $table.taxPercentage, builder: (column) => column);
+
+  GeneratedColumn<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTaxInfoV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductTaxInfoV2Table,
+    OrderProductTaxInfoV2Data,
+    $$OrderProductTaxInfoV2TableFilterComposer,
+    $$OrderProductTaxInfoV2TableOrderingComposer,
+    $$OrderProductTaxInfoV2TableAnnotationComposer,
+    $$OrderProductTaxInfoV2TableCreateCompanionBuilder,
+    $$OrderProductTaxInfoV2TableUpdateCompanionBuilder,
+    (OrderProductTaxInfoV2Data, $$OrderProductTaxInfoV2TableReferences),
+    OrderProductTaxInfoV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductTaxInfoV2TableTableManager(
+      _$MyDatabase db, $OrderProductTaxInfoV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductTaxInfoV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductTaxInfoV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductTaxInfoV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> optionId = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double?> taxPercentage = const Value.absent(),
+            Value<String?> taxGroupId = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTaxInfoV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            modifierId: modifierId,
+            optionId: optionId,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            taxPercentage: taxPercentage,
+            taxGroupId: taxGroupId,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> optionId = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double?> taxPercentage = const Value.absent(),
+            Value<String?> taxGroupId = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTaxInfoV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            modifierId: modifierId,
+            optionId: optionId,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            taxPercentage: taxPercentage,
+            taxGroupId: taxGroupId,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductTaxInfoV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductTaxInfoV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductTaxInfoV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductTaxInfoV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductTaxInfoV2Table,
+        OrderProductTaxInfoV2Data,
+        $$OrderProductTaxInfoV2TableFilterComposer,
+        $$OrderProductTaxInfoV2TableOrderingComposer,
+        $$OrderProductTaxInfoV2TableAnnotationComposer,
+        $$OrderProductTaxInfoV2TableCreateCompanionBuilder,
+        $$OrderProductTaxInfoV2TableUpdateCompanionBuilder,
+        (OrderProductTaxInfoV2Data, $$OrderProductTaxInfoV2TableReferences),
+        OrderProductTaxInfoV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductChargeTaxV2TableCreateCompanionBuilder
+    = OrderProductChargeTaxV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> taxId,
+  Value<String?> name,
+  Value<double?> amount,
+  Value<double?> percentage,
+  Value<int> rowid,
+});
+typedef $$OrderProductChargeTaxV2TableUpdateCompanionBuilder
+    = OrderProductChargeTaxV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> taxId,
+  Value<String?> name,
+  Value<double?> amount,
+  Value<double?> percentage,
+  Value<int> rowid,
+});
+
+final class $$OrderProductChargeTaxV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductChargeTaxV2Table, OrderProductChargeTaxV2Data> {
+  $$OrderProductChargeTaxV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductChargeTaxV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductChargeTaxV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductChargeTaxV2Table> {
+  $$OrderProductChargeTaxV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxId => $composableBuilder(
+      column: $table.taxId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductChargeTaxV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductChargeTaxV2Table> {
+  $$OrderProductChargeTaxV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxId => $composableBuilder(
+      column: $table.taxId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductChargeTaxV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductChargeTaxV2Table> {
+  $$OrderProductChargeTaxV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get taxId =>
+      $composableBuilder(column: $table.taxId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  GeneratedColumn<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductChargeTaxV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductChargeTaxV2Table,
+    OrderProductChargeTaxV2Data,
+    $$OrderProductChargeTaxV2TableFilterComposer,
+    $$OrderProductChargeTaxV2TableOrderingComposer,
+    $$OrderProductChargeTaxV2TableAnnotationComposer,
+    $$OrderProductChargeTaxV2TableCreateCompanionBuilder,
+    $$OrderProductChargeTaxV2TableUpdateCompanionBuilder,
+    (OrderProductChargeTaxV2Data, $$OrderProductChargeTaxV2TableReferences),
+    OrderProductChargeTaxV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductChargeTaxV2TableTableManager(
+      _$MyDatabase db, $OrderProductChargeTaxV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductChargeTaxV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductChargeTaxV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductChargeTaxV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> taxId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double?> percentage = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductChargeTaxV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            taxId: taxId,
+            name: name,
+            amount: amount,
+            percentage: percentage,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> taxId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double?> percentage = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductChargeTaxV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            taxId: taxId,
+            name: name,
+            amount: amount,
+            percentage: percentage,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductChargeTaxV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductChargeTaxV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductChargeTaxV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductChargeTaxV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductChargeTaxV2Table,
+        OrderProductChargeTaxV2Data,
+        $$OrderProductChargeTaxV2TableFilterComposer,
+        $$OrderProductChargeTaxV2TableOrderingComposer,
+        $$OrderProductChargeTaxV2TableAnnotationComposer,
+        $$OrderProductChargeTaxV2TableCreateCompanionBuilder,
+        $$OrderProductChargeTaxV2TableUpdateCompanionBuilder,
+        (OrderProductChargeTaxV2Data, $$OrderProductChargeTaxV2TableReferences),
+        OrderProductChargeTaxV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductTaxTypeV2TableCreateCompanionBuilder
+    = OrderProductTaxTypeV2Companion Function({
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> optionId,
+  Value<String?> taxAccount,
+  Value<String?> taxCode,
+  Value<String?> orderRef,
+  Value<String?> taxTypeId,
+  Value<String?> taxTypeName,
+  Value<double?> taxAmount,
+  Value<double?> taxPercentage,
+  required double taxableAmount,
+  Value<String?> taxGroupId,
+  Value<bool?> isTaxExempt,
+  Value<bool?> isZeroTax,
+  Value<bool?> isNotApplyForThisCustomer,
+  Value<bool?> isNotApplyForThisOrderType,
+  Value<bool?> isNotApplyForThisPeriod,
+  Value<int> rowid,
+});
+typedef $$OrderProductTaxTypeV2TableUpdateCompanionBuilder
+    = OrderProductTaxTypeV2Companion Function({
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> optionId,
+  Value<String?> taxAccount,
+  Value<String?> taxCode,
+  Value<String?> orderRef,
+  Value<String?> taxTypeId,
+  Value<String?> taxTypeName,
+  Value<double?> taxAmount,
+  Value<double?> taxPercentage,
+  Value<double> taxableAmount,
+  Value<String?> taxGroupId,
+  Value<bool?> isTaxExempt,
+  Value<bool?> isZeroTax,
+  Value<bool?> isNotApplyForThisCustomer,
+  Value<bool?> isNotApplyForThisOrderType,
+  Value<bool?> isNotApplyForThisPeriod,
+  Value<int> rowid,
+});
+
+final class $$OrderProductTaxTypeV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductTaxTypeV2Table, OrderProductTaxTypeV2Data> {
+  $$OrderProductTaxTypeV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductTaxTypeV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductTaxTypeV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductTaxTypeV2Table> {
+  $$OrderProductTaxTypeV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get optionId => $composableBuilder(
+      column: $table.optionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxAccount => $composableBuilder(
+      column: $table.taxAccount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxCode => $composableBuilder(
+      column: $table.taxCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxTypeId => $composableBuilder(
+      column: $table.taxTypeId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxTypeName => $composableBuilder(
+      column: $table.taxTypeName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxPercentage => $composableBuilder(
+      column: $table.taxPercentage, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isTaxExempt => $composableBuilder(
+      column: $table.isTaxExempt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isZeroTax => $composableBuilder(
+      column: $table.isZeroTax, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isNotApplyForThisCustomer => $composableBuilder(
+      column: $table.isNotApplyForThisCustomer,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isNotApplyForThisOrderType => $composableBuilder(
+      column: $table.isNotApplyForThisOrderType,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isNotApplyForThisPeriod => $composableBuilder(
+      column: $table.isNotApplyForThisPeriod,
+      builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTaxTypeV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductTaxTypeV2Table> {
+  $$OrderProductTaxTypeV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get optionId => $composableBuilder(
+      column: $table.optionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxAccount => $composableBuilder(
+      column: $table.taxAccount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxCode => $composableBuilder(
+      column: $table.taxCode, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxTypeId => $composableBuilder(
+      column: $table.taxTypeId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxTypeName => $composableBuilder(
+      column: $table.taxTypeName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxPercentage => $composableBuilder(
+      column: $table.taxPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isTaxExempt => $composableBuilder(
+      column: $table.isTaxExempt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isZeroTax => $composableBuilder(
+      column: $table.isZeroTax, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isNotApplyForThisCustomer => $composableBuilder(
+      column: $table.isNotApplyForThisCustomer,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isNotApplyForThisOrderType => $composableBuilder(
+      column: $table.isNotApplyForThisOrderType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isNotApplyForThisPeriod => $composableBuilder(
+      column: $table.isNotApplyForThisPeriod,
+      builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTaxTypeV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductTaxTypeV2Table> {
+  $$OrderProductTaxTypeV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => column);
+
+  GeneratedColumn<String> get optionId =>
+      $composableBuilder(column: $table.optionId, builder: (column) => column);
+
+  GeneratedColumn<String> get taxAccount => $composableBuilder(
+      column: $table.taxAccount, builder: (column) => column);
+
+  GeneratedColumn<String> get taxCode =>
+      $composableBuilder(column: $table.taxCode, builder: (column) => column);
+
+  GeneratedColumn<String> get taxTypeId =>
+      $composableBuilder(column: $table.taxTypeId, builder: (column) => column);
+
+  GeneratedColumn<String> get taxTypeName => $composableBuilder(
+      column: $table.taxTypeName, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxPercentage => $composableBuilder(
+      column: $table.taxPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => column);
+
+  GeneratedColumn<bool> get isTaxExempt => $composableBuilder(
+      column: $table.isTaxExempt, builder: (column) => column);
+
+  GeneratedColumn<bool> get isZeroTax =>
+      $composableBuilder(column: $table.isZeroTax, builder: (column) => column);
+
+  GeneratedColumn<bool> get isNotApplyForThisCustomer => $composableBuilder(
+      column: $table.isNotApplyForThisCustomer, builder: (column) => column);
+
+  GeneratedColumn<bool> get isNotApplyForThisOrderType => $composableBuilder(
+      column: $table.isNotApplyForThisOrderType, builder: (column) => column);
+
+  GeneratedColumn<bool> get isNotApplyForThisPeriod => $composableBuilder(
+      column: $table.isNotApplyForThisPeriod, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductTaxTypeV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductTaxTypeV2Table,
+    OrderProductTaxTypeV2Data,
+    $$OrderProductTaxTypeV2TableFilterComposer,
+    $$OrderProductTaxTypeV2TableOrderingComposer,
+    $$OrderProductTaxTypeV2TableAnnotationComposer,
+    $$OrderProductTaxTypeV2TableCreateCompanionBuilder,
+    $$OrderProductTaxTypeV2TableUpdateCompanionBuilder,
+    (OrderProductTaxTypeV2Data, $$OrderProductTaxTypeV2TableReferences),
+    OrderProductTaxTypeV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductTaxTypeV2TableTableManager(
+      _$MyDatabase db, $OrderProductTaxTypeV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductTaxTypeV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductTaxTypeV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductTaxTypeV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> optionId = const Value.absent(),
+            Value<String?> taxAccount = const Value.absent(),
+            Value<String?> taxCode = const Value.absent(),
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> taxTypeId = const Value.absent(),
+            Value<String?> taxTypeName = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double?> taxPercentage = const Value.absent(),
+            Value<double> taxableAmount = const Value.absent(),
+            Value<String?> taxGroupId = const Value.absent(),
+            Value<bool?> isTaxExempt = const Value.absent(),
+            Value<bool?> isZeroTax = const Value.absent(),
+            Value<bool?> isNotApplyForThisCustomer = const Value.absent(),
+            Value<bool?> isNotApplyForThisOrderType = const Value.absent(),
+            Value<bool?> isNotApplyForThisPeriod = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTaxTypeV2Companion(
+            productRef: productRef,
+            modifierId: modifierId,
+            optionId: optionId,
+            taxAccount: taxAccount,
+            taxCode: taxCode,
+            orderRef: orderRef,
+            taxTypeId: taxTypeId,
+            taxTypeName: taxTypeName,
+            taxAmount: taxAmount,
+            taxPercentage: taxPercentage,
+            taxableAmount: taxableAmount,
+            taxGroupId: taxGroupId,
+            isTaxExempt: isTaxExempt,
+            isZeroTax: isZeroTax,
+            isNotApplyForThisCustomer: isNotApplyForThisCustomer,
+            isNotApplyForThisOrderType: isNotApplyForThisOrderType,
+            isNotApplyForThisPeriod: isNotApplyForThisPeriod,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> optionId = const Value.absent(),
+            Value<String?> taxAccount = const Value.absent(),
+            Value<String?> taxCode = const Value.absent(),
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> taxTypeId = const Value.absent(),
+            Value<String?> taxTypeName = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double?> taxPercentage = const Value.absent(),
+            required double taxableAmount,
+            Value<String?> taxGroupId = const Value.absent(),
+            Value<bool?> isTaxExempt = const Value.absent(),
+            Value<bool?> isZeroTax = const Value.absent(),
+            Value<bool?> isNotApplyForThisCustomer = const Value.absent(),
+            Value<bool?> isNotApplyForThisOrderType = const Value.absent(),
+            Value<bool?> isNotApplyForThisPeriod = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductTaxTypeV2Companion.insert(
+            productRef: productRef,
+            modifierId: modifierId,
+            optionId: optionId,
+            taxAccount: taxAccount,
+            taxCode: taxCode,
+            orderRef: orderRef,
+            taxTypeId: taxTypeId,
+            taxTypeName: taxTypeName,
+            taxAmount: taxAmount,
+            taxPercentage: taxPercentage,
+            taxableAmount: taxableAmount,
+            taxGroupId: taxGroupId,
+            isTaxExempt: isTaxExempt,
+            isZeroTax: isZeroTax,
+            isNotApplyForThisCustomer: isNotApplyForThisCustomer,
+            isNotApplyForThisOrderType: isNotApplyForThisOrderType,
+            isNotApplyForThisPeriod: isNotApplyForThisPeriod,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductTaxTypeV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductTaxTypeV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductTaxTypeV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductTaxTypeV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductTaxTypeV2Table,
+        OrderProductTaxTypeV2Data,
+        $$OrderProductTaxTypeV2TableFilterComposer,
+        $$OrderProductTaxTypeV2TableOrderingComposer,
+        $$OrderProductTaxTypeV2TableAnnotationComposer,
+        $$OrderProductTaxTypeV2TableCreateCompanionBuilder,
+        $$OrderProductTaxTypeV2TableUpdateCompanionBuilder,
+        (OrderProductTaxTypeV2Data, $$OrderProductTaxTypeV2TableReferences),
+        OrderProductTaxTypeV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderDiscountV2TableCreateCompanionBuilder = OrderDiscountV2Companion
+    Function({
+  Value<String?> orderRef,
+  Value<String?> discountId,
+  Value<String?> name,
+  Value<double?> totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<double?> discountAmountPerUnit,
+  Value<String?> discountType,
+  Value<bool?> taxable,
+  Value<String?> notes,
+  Value<int> rowid,
+});
+typedef $$OrderDiscountV2TableUpdateCompanionBuilder = OrderDiscountV2Companion
+    Function({
+  Value<String?> orderRef,
+  Value<String?> discountId,
+  Value<String?> name,
+  Value<double?> totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<double?> discountAmountPerUnit,
+  Value<String?> discountType,
+  Value<bool?> taxable,
+  Value<String?> notes,
+  Value<int> rowid,
+});
+
+final class $$OrderDiscountV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderDiscountV2Table, OrderDiscountV2Data> {
+  $$OrderDiscountV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderDiscountV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderDiscountV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderDiscountV2Table> {
+  $$OrderDiscountV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get discountId => $composableBuilder(
+      column: $table.discountId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmountPerUnit => $composableBuilder(
+      column: $table.discountAmountPerUnit,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get discountType => $composableBuilder(
+      column: $table.discountType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get taxable => $composableBuilder(
+      column: $table.taxable, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderDiscountV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderDiscountV2Table> {
+  $$OrderDiscountV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get discountId => $composableBuilder(
+      column: $table.discountId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmountPerUnit => $composableBuilder(
+      column: $table.discountAmountPerUnit,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get discountType => $composableBuilder(
+      column: $table.discountType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get taxable => $composableBuilder(
+      column: $table.taxable, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderDiscountV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderDiscountV2Table> {
+  $$OrderDiscountV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get discountId => $composableBuilder(
+      column: $table.discountId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmountPerUnit => $composableBuilder(
+      column: $table.discountAmountPerUnit, builder: (column) => column);
+
+  GeneratedColumn<String> get discountType => $composableBuilder(
+      column: $table.discountType, builder: (column) => column);
+
+  GeneratedColumn<bool> get taxable =>
+      $composableBuilder(column: $table.taxable, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderDiscountV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderDiscountV2Table,
+    OrderDiscountV2Data,
+    $$OrderDiscountV2TableFilterComposer,
+    $$OrderDiscountV2TableOrderingComposer,
+    $$OrderDiscountV2TableAnnotationComposer,
+    $$OrderDiscountV2TableCreateCompanionBuilder,
+    $$OrderDiscountV2TableUpdateCompanionBuilder,
+    (OrderDiscountV2Data, $$OrderDiscountV2TableReferences),
+    OrderDiscountV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderDiscountV2TableTableManager(
+      _$MyDatabase db, $OrderDiscountV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderDiscountV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderDiscountV2TableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderDiscountV2TableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> discountId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double?> discountAmountPerUnit = const Value.absent(),
+            Value<String?> discountType = const Value.absent(),
+            Value<bool?> taxable = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderDiscountV2Companion(
+            orderRef: orderRef,
+            discountId: discountId,
+            name: name,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            discountAmountPerUnit: discountAmountPerUnit,
+            discountType: discountType,
+            taxable: taxable,
+            notes: notes,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> discountId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double?> discountAmountPerUnit = const Value.absent(),
+            Value<String?> discountType = const Value.absent(),
+            Value<bool?> taxable = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderDiscountV2Companion.insert(
+            orderRef: orderRef,
+            discountId: discountId,
+            name: name,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            discountAmountPerUnit: discountAmountPerUnit,
+            discountType: discountType,
+            taxable: taxable,
+            notes: notes,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderDiscountV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderDiscountV2TableReferences._orderRefTable(db),
+                    referencedColumn: $$OrderDiscountV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderDiscountV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderDiscountV2Table,
+    OrderDiscountV2Data,
+    $$OrderDiscountV2TableFilterComposer,
+    $$OrderDiscountV2TableOrderingComposer,
+    $$OrderDiscountV2TableAnnotationComposer,
+    $$OrderDiscountV2TableCreateCompanionBuilder,
+    $$OrderDiscountV2TableUpdateCompanionBuilder,
+    (OrderDiscountV2Data, $$OrderDiscountV2TableReferences),
+    OrderDiscountV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderPromotionAppliesV2TableCreateCompanionBuilder
+    = OrderPromotionAppliesV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> promotionId,
+  Value<String?> name,
+  Value<double?> totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<int> rowid,
+});
+typedef $$OrderPromotionAppliesV2TableUpdateCompanionBuilder
+    = OrderPromotionAppliesV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> promotionId,
+  Value<String?> name,
+  Value<double?> totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<int> rowid,
+});
+
+final class $$OrderPromotionAppliesV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderPromotionAppliesV2Table, OrderPromotionAppliesV2Data> {
+  $$OrderPromotionAppliesV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderPromotionAppliesV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderPromotionAppliesV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderPromotionAppliesV2Table> {
+  $$OrderPromotionAppliesV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get promotionId => $composableBuilder(
+      column: $table.promotionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPromotionAppliesV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderPromotionAppliesV2Table> {
+  $$OrderPromotionAppliesV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get promotionId => $composableBuilder(
+      column: $table.promotionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPromotionAppliesV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderPromotionAppliesV2Table> {
+  $$OrderPromotionAppliesV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get promotionId => $composableBuilder(
+      column: $table.promotionId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPromotionAppliesV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderPromotionAppliesV2Table,
+    OrderPromotionAppliesV2Data,
+    $$OrderPromotionAppliesV2TableFilterComposer,
+    $$OrderPromotionAppliesV2TableOrderingComposer,
+    $$OrderPromotionAppliesV2TableAnnotationComposer,
+    $$OrderPromotionAppliesV2TableCreateCompanionBuilder,
+    $$OrderPromotionAppliesV2TableUpdateCompanionBuilder,
+    (OrderPromotionAppliesV2Data, $$OrderPromotionAppliesV2TableReferences),
+    OrderPromotionAppliesV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderPromotionAppliesV2TableTableManager(
+      _$MyDatabase db, $OrderPromotionAppliesV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderPromotionAppliesV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderPromotionAppliesV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderPromotionAppliesV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> promotionId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPromotionAppliesV2Companion(
+            orderRef: orderRef,
+            promotionId: promotionId,
+            name: name,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> promotionId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPromotionAppliesV2Companion.insert(
+            orderRef: orderRef,
+            promotionId: promotionId,
+            name: name,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderPromotionAppliesV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderPromotionAppliesV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderPromotionAppliesV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderPromotionAppliesV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderPromotionAppliesV2Table,
+        OrderPromotionAppliesV2Data,
+        $$OrderPromotionAppliesV2TableFilterComposer,
+        $$OrderPromotionAppliesV2TableOrderingComposer,
+        $$OrderPromotionAppliesV2TableAnnotationComposer,
+        $$OrderPromotionAppliesV2TableCreateCompanionBuilder,
+        $$OrderPromotionAppliesV2TableUpdateCompanionBuilder,
+        (OrderPromotionAppliesV2Data, $$OrderPromotionAppliesV2TableReferences),
+        OrderPromotionAppliesV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderPromotionGiftCardV2TableCreateCompanionBuilder
+    = OrderPromotionGiftCardV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<String?> barcode,
+  Value<String?> reference,
+  Value<double?> price,
+  Value<int> rowid,
+});
+typedef $$OrderPromotionGiftCardV2TableUpdateCompanionBuilder
+    = OrderPromotionGiftCardV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<String?> barcode,
+  Value<String?> reference,
+  Value<double?> price,
+  Value<int> rowid,
+});
+
+final class $$OrderPromotionGiftCardV2TableReferences extends BaseReferences<
+    _$MyDatabase,
+    $OrderPromotionGiftCardV2Table,
+    OrderPromotionGiftCardV2Data> {
+  $$OrderPromotionGiftCardV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderPromotionGiftCardV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderPromotionGiftCardV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderPromotionGiftCardV2Table> {
+  $$OrderPromotionGiftCardV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get barcode => $composableBuilder(
+      column: $table.barcode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get price => $composableBuilder(
+      column: $table.price, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPromotionGiftCardV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderPromotionGiftCardV2Table> {
+  $$OrderPromotionGiftCardV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get barcode => $composableBuilder(
+      column: $table.barcode, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get price => $composableBuilder(
+      column: $table.price, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPromotionGiftCardV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderPromotionGiftCardV2Table> {
+  $$OrderPromotionGiftCardV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<String> get barcode =>
+      $composableBuilder(column: $table.barcode, builder: (column) => column);
+
+  GeneratedColumn<String> get reference =>
+      $composableBuilder(column: $table.reference, builder: (column) => column);
+
+  GeneratedColumn<double> get price =>
+      $composableBuilder(column: $table.price, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPromotionGiftCardV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderPromotionGiftCardV2Table,
+    OrderPromotionGiftCardV2Data,
+    $$OrderPromotionGiftCardV2TableFilterComposer,
+    $$OrderPromotionGiftCardV2TableOrderingComposer,
+    $$OrderPromotionGiftCardV2TableAnnotationComposer,
+    $$OrderPromotionGiftCardV2TableCreateCompanionBuilder,
+    $$OrderPromotionGiftCardV2TableUpdateCompanionBuilder,
+    (OrderPromotionGiftCardV2Data, $$OrderPromotionGiftCardV2TableReferences),
+    OrderPromotionGiftCardV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderPromotionGiftCardV2TableTableManager(
+      _$MyDatabase db, $OrderPromotionGiftCardV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderPromotionGiftCardV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderPromotionGiftCardV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderPromotionGiftCardV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<String?> barcode = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<double?> price = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPromotionGiftCardV2Companion(
+            orderRef: orderRef,
+            name: name,
+            fName: fName,
+            barcode: barcode,
+            reference: reference,
+            price: price,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<String?> barcode = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<double?> price = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPromotionGiftCardV2Companion.insert(
+            orderRef: orderRef,
+            name: name,
+            fName: fName,
+            barcode: barcode,
+            reference: reference,
+            price: price,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderPromotionGiftCardV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderPromotionGiftCardV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderPromotionGiftCardV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderPromotionGiftCardV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderPromotionGiftCardV2Table,
+        OrderPromotionGiftCardV2Data,
+        $$OrderPromotionGiftCardV2TableFilterComposer,
+        $$OrderPromotionGiftCardV2TableOrderingComposer,
+        $$OrderPromotionGiftCardV2TableAnnotationComposer,
+        $$OrderPromotionGiftCardV2TableCreateCompanionBuilder,
+        $$OrderPromotionGiftCardV2TableUpdateCompanionBuilder,
+        (
+          OrderPromotionGiftCardV2Data,
+          $$OrderPromotionGiftCardV2TableReferences
+        ),
+        OrderPromotionGiftCardV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderChargeV2TableCreateCompanionBuilder = OrderChargeV2Companion
+    Function({
+  Value<String?> orderRef,
+  Value<String?> chargeId,
+  Value<String?> name,
+  Value<String?> type,
+  Value<double?> chargableAmount,
+  Value<double?> value,
+  Value<double?> percentage,
+  Value<double?> chargeAmount,
+  Value<String?> description,
+  Value<int> rowid,
+});
+typedef $$OrderChargeV2TableUpdateCompanionBuilder = OrderChargeV2Companion
+    Function({
+  Value<String?> orderRef,
+  Value<String?> chargeId,
+  Value<String?> name,
+  Value<String?> type,
+  Value<double?> chargableAmount,
+  Value<double?> value,
+  Value<double?> percentage,
+  Value<double?> chargeAmount,
+  Value<String?> description,
+  Value<int> rowid,
+});
+
+final class $$OrderChargeV2TableReferences extends BaseReferences<_$MyDatabase,
+    $OrderChargeV2Table, OrderChargeV2Data> {
+  $$OrderChargeV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderChargeV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderChargeV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderChargeV2Table> {
+  $$OrderChargeV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get chargeId => $composableBuilder(
+      column: $table.chargeId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get type => $composableBuilder(
+      column: $table.type, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get chargableAmount => $composableBuilder(
+      column: $table.chargableAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get value => $composableBuilder(
+      column: $table.value, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get chargeAmount => $composableBuilder(
+      column: $table.chargeAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderChargeV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderChargeV2Table> {
+  $$OrderChargeV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get chargeId => $composableBuilder(
+      column: $table.chargeId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get type => $composableBuilder(
+      column: $table.type, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get chargableAmount => $composableBuilder(
+      column: $table.chargableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get value => $composableBuilder(
+      column: $table.value, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get chargeAmount => $composableBuilder(
+      column: $table.chargeAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderChargeV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderChargeV2Table> {
+  $$OrderChargeV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get chargeId =>
+      $composableBuilder(column: $table.chargeId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get type =>
+      $composableBuilder(column: $table.type, builder: (column) => column);
+
+  GeneratedColumn<double> get chargableAmount => $composableBuilder(
+      column: $table.chargableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  GeneratedColumn<double> get percentage => $composableBuilder(
+      column: $table.percentage, builder: (column) => column);
+
+  GeneratedColumn<double> get chargeAmount => $composableBuilder(
+      column: $table.chargeAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderChargeV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderChargeV2Table,
+    OrderChargeV2Data,
+    $$OrderChargeV2TableFilterComposer,
+    $$OrderChargeV2TableOrderingComposer,
+    $$OrderChargeV2TableAnnotationComposer,
+    $$OrderChargeV2TableCreateCompanionBuilder,
+    $$OrderChargeV2TableUpdateCompanionBuilder,
+    (OrderChargeV2Data, $$OrderChargeV2TableReferences),
+    OrderChargeV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderChargeV2TableTableManager(_$MyDatabase db, $OrderChargeV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderChargeV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderChargeV2TableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderChargeV2TableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> chargeId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> type = const Value.absent(),
+            Value<double?> chargableAmount = const Value.absent(),
+            Value<double?> value = const Value.absent(),
+            Value<double?> percentage = const Value.absent(),
+            Value<double?> chargeAmount = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderChargeV2Companion(
+            orderRef: orderRef,
+            chargeId: chargeId,
+            name: name,
+            type: type,
+            chargableAmount: chargableAmount,
+            value: value,
+            percentage: percentage,
+            chargeAmount: chargeAmount,
+            description: description,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> chargeId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> type = const Value.absent(),
+            Value<double?> chargableAmount = const Value.absent(),
+            Value<double?> value = const Value.absent(),
+            Value<double?> percentage = const Value.absent(),
+            Value<double?> chargeAmount = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderChargeV2Companion.insert(
+            orderRef: orderRef,
+            chargeId: chargeId,
+            name: name,
+            type: type,
+            chargableAmount: chargableAmount,
+            value: value,
+            percentage: percentage,
+            chargeAmount: chargeAmount,
+            description: description,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderChargeV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderChargeV2TableReferences._orderRefTable(db),
+                    referencedColumn: $$OrderChargeV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderChargeV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderChargeV2Table,
+    OrderChargeV2Data,
+    $$OrderChargeV2TableFilterComposer,
+    $$OrderChargeV2TableOrderingComposer,
+    $$OrderChargeV2TableAnnotationComposer,
+    $$OrderChargeV2TableCreateCompanionBuilder,
+    $$OrderChargeV2TableUpdateCompanionBuilder,
+    (OrderChargeV2Data, $$OrderChargeV2TableReferences),
+    OrderChargeV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderChargeForTotalV2TableCreateCompanionBuilder
+    = OrderChargeForTotalV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> chargeId,
+  Value<String?> name,
+  Value<double?> amount,
+  Value<double?> taxAmount,
+  Value<int> rowid,
+});
+typedef $$OrderChargeForTotalV2TableUpdateCompanionBuilder
+    = OrderChargeForTotalV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> chargeId,
+  Value<String?> name,
+  Value<double?> amount,
+  Value<double?> taxAmount,
+  Value<int> rowid,
+});
+
+final class $$OrderChargeForTotalV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderChargeForTotalV2Table, OrderChargeForTotalV2Data> {
+  $$OrderChargeForTotalV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderChargeForTotalV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderChargeForTotalV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderChargeForTotalV2Table> {
+  $$OrderChargeForTotalV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get chargeId => $composableBuilder(
+      column: $table.chargeId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderChargeForTotalV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderChargeForTotalV2Table> {
+  $$OrderChargeForTotalV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get chargeId => $composableBuilder(
+      column: $table.chargeId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderChargeForTotalV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderChargeForTotalV2Table> {
+  $$OrderChargeForTotalV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get chargeId =>
+      $composableBuilder(column: $table.chargeId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderChargeForTotalV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderChargeForTotalV2Table,
+    OrderChargeForTotalV2Data,
+    $$OrderChargeForTotalV2TableFilterComposer,
+    $$OrderChargeForTotalV2TableOrderingComposer,
+    $$OrderChargeForTotalV2TableAnnotationComposer,
+    $$OrderChargeForTotalV2TableCreateCompanionBuilder,
+    $$OrderChargeForTotalV2TableUpdateCompanionBuilder,
+    (OrderChargeForTotalV2Data, $$OrderChargeForTotalV2TableReferences),
+    OrderChargeForTotalV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderChargeForTotalV2TableTableManager(
+      _$MyDatabase db, $OrderChargeForTotalV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderChargeForTotalV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderChargeForTotalV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderChargeForTotalV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> chargeId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderChargeForTotalV2Companion(
+            orderRef: orderRef,
+            chargeId: chargeId,
+            name: name,
+            amount: amount,
+            taxAmount: taxAmount,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> chargeId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderChargeForTotalV2Companion.insert(
+            orderRef: orderRef,
+            chargeId: chargeId,
+            name: name,
+            amount: amount,
+            taxAmount: taxAmount,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderChargeForTotalV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderChargeForTotalV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderChargeForTotalV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderChargeForTotalV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderChargeForTotalV2Table,
+        OrderChargeForTotalV2Data,
+        $$OrderChargeForTotalV2TableFilterComposer,
+        $$OrderChargeForTotalV2TableOrderingComposer,
+        $$OrderChargeForTotalV2TableAnnotationComposer,
+        $$OrderChargeForTotalV2TableCreateCompanionBuilder,
+        $$OrderChargeForTotalV2TableUpdateCompanionBuilder,
+        (OrderChargeForTotalV2Data, $$OrderChargeForTotalV2TableReferences),
+        OrderChargeForTotalV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderTaxTypeV2TableCreateCompanionBuilder = OrderTaxTypeV2Companion
+    Function({
+  required String orderRef,
+  Value<String?> taxTypeId,
+  Value<String?> taxTypeName,
+  Value<double?> taxableAmount,
+  Value<double?> percent,
+  Value<double?> amount,
+  Value<String?> taxCode,
+  Value<String?> taxAccount,
+  Value<bool?> zeroTax,
+  Value<int> rowid,
+});
+typedef $$OrderTaxTypeV2TableUpdateCompanionBuilder = OrderTaxTypeV2Companion
+    Function({
+  Value<String> orderRef,
+  Value<String?> taxTypeId,
+  Value<String?> taxTypeName,
+  Value<double?> taxableAmount,
+  Value<double?> percent,
+  Value<double?> amount,
+  Value<String?> taxCode,
+  Value<String?> taxAccount,
+  Value<bool?> zeroTax,
+  Value<int> rowid,
+});
+
+final class $$OrderTaxTypeV2TableReferences extends BaseReferences<_$MyDatabase,
+    $OrderTaxTypeV2Table, OrderTaxTypeV2Data> {
+  $$OrderTaxTypeV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderTaxTypeV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager get orderRef {
+    final $_column = $_itemColumn<String>('order_ref')!;
+
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderTaxTypeV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderTaxTypeV2Table> {
+  $$OrderTaxTypeV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get taxTypeId => $composableBuilder(
+      column: $table.taxTypeId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxTypeName => $composableBuilder(
+      column: $table.taxTypeName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get percent => $composableBuilder(
+      column: $table.percent, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxCode => $composableBuilder(
+      column: $table.taxCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxAccount => $composableBuilder(
+      column: $table.taxAccount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get zeroTax => $composableBuilder(
+      column: $table.zeroTax, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderTaxTypeV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderTaxTypeV2Table> {
+  $$OrderTaxTypeV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get taxTypeId => $composableBuilder(
+      column: $table.taxTypeId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxTypeName => $composableBuilder(
+      column: $table.taxTypeName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get percent => $composableBuilder(
+      column: $table.percent, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxCode => $composableBuilder(
+      column: $table.taxCode, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxAccount => $composableBuilder(
+      column: $table.taxAccount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get zeroTax => $composableBuilder(
+      column: $table.zeroTax, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderTaxTypeV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderTaxTypeV2Table> {
+  $$OrderTaxTypeV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get taxTypeId =>
+      $composableBuilder(column: $table.taxTypeId, builder: (column) => column);
+
+  GeneratedColumn<String> get taxTypeName => $composableBuilder(
+      column: $table.taxTypeName, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get percent =>
+      $composableBuilder(column: $table.percent, builder: (column) => column);
+
+  GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  GeneratedColumn<String> get taxCode =>
+      $composableBuilder(column: $table.taxCode, builder: (column) => column);
+
+  GeneratedColumn<String> get taxAccount => $composableBuilder(
+      column: $table.taxAccount, builder: (column) => column);
+
+  GeneratedColumn<bool> get zeroTax =>
+      $composableBuilder(column: $table.zeroTax, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderTaxTypeV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderTaxTypeV2Table,
+    OrderTaxTypeV2Data,
+    $$OrderTaxTypeV2TableFilterComposer,
+    $$OrderTaxTypeV2TableOrderingComposer,
+    $$OrderTaxTypeV2TableAnnotationComposer,
+    $$OrderTaxTypeV2TableCreateCompanionBuilder,
+    $$OrderTaxTypeV2TableUpdateCompanionBuilder,
+    (OrderTaxTypeV2Data, $$OrderTaxTypeV2TableReferences),
+    OrderTaxTypeV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderTaxTypeV2TableTableManager(_$MyDatabase db, $OrderTaxTypeV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderTaxTypeV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderTaxTypeV2TableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderTaxTypeV2TableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> orderRef = const Value.absent(),
+            Value<String?> taxTypeId = const Value.absent(),
+            Value<String?> taxTypeName = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> percent = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<String?> taxCode = const Value.absent(),
+            Value<String?> taxAccount = const Value.absent(),
+            Value<bool?> zeroTax = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderTaxTypeV2Companion(
+            orderRef: orderRef,
+            taxTypeId: taxTypeId,
+            taxTypeName: taxTypeName,
+            taxableAmount: taxableAmount,
+            percent: percent,
+            amount: amount,
+            taxCode: taxCode,
+            taxAccount: taxAccount,
+            zeroTax: zeroTax,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String orderRef,
+            Value<String?> taxTypeId = const Value.absent(),
+            Value<String?> taxTypeName = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> percent = const Value.absent(),
+            Value<double?> amount = const Value.absent(),
+            Value<String?> taxCode = const Value.absent(),
+            Value<String?> taxAccount = const Value.absent(),
+            Value<bool?> zeroTax = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderTaxTypeV2Companion.insert(
+            orderRef: orderRef,
+            taxTypeId: taxTypeId,
+            taxTypeName: taxTypeName,
+            taxableAmount: taxableAmount,
+            percent: percent,
+            amount: amount,
+            taxCode: taxCode,
+            taxAccount: taxAccount,
+            zeroTax: zeroTax,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderTaxTypeV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderTaxTypeV2TableReferences._orderRefTable(db),
+                    referencedColumn: $$OrderTaxTypeV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderTaxTypeV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderTaxTypeV2Table,
+    OrderTaxTypeV2Data,
+    $$OrderTaxTypeV2TableFilterComposer,
+    $$OrderTaxTypeV2TableOrderingComposer,
+    $$OrderTaxTypeV2TableAnnotationComposer,
+    $$OrderTaxTypeV2TableCreateCompanionBuilder,
+    $$OrderTaxTypeV2TableUpdateCompanionBuilder,
+    (OrderTaxTypeV2Data, $$OrderTaxTypeV2TableReferences),
+    OrderTaxTypeV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductModifierV2TableCreateCompanionBuilder
+    = OrderProductModifierV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<String?> notes,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<double?> netUnitPrice,
+  Value<double?> netTotalPrice,
+  Value<double?> netUnitPriceExcludeTax,
+  Value<double?> netTotalPriceExcludeTax,
+  Value<double?> orderDiscountAmount,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double?> finalAmount,
+  Value<int> rowid,
+});
+typedef $$OrderProductModifierV2TableUpdateCompanionBuilder
+    = OrderProductModifierV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<String?> notes,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<double?> netUnitPrice,
+  Value<double?> netTotalPrice,
+  Value<double?> netUnitPriceExcludeTax,
+  Value<double?> netTotalPriceExcludeTax,
+  Value<double?> orderDiscountAmount,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double?> finalAmount,
+  Value<int> rowid,
+});
+
+final class $$OrderProductModifierV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderProductModifierV2Table, OrderProductModifierV2Data> {
+  $$OrderProductModifierV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductModifierV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductModifierV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductModifierV2Table> {
+  $$OrderProductModifierV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductModifierV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductModifierV2Table> {
+  $$OrderProductModifierV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductModifierV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductModifierV2Table> {
+  $$OrderProductModifierV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax, builder: (column) => column);
+
+  GeneratedColumn<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductModifierV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductModifierV2Table,
+    OrderProductModifierV2Data,
+    $$OrderProductModifierV2TableFilterComposer,
+    $$OrderProductModifierV2TableOrderingComposer,
+    $$OrderProductModifierV2TableAnnotationComposer,
+    $$OrderProductModifierV2TableCreateCompanionBuilder,
+    $$OrderProductModifierV2TableUpdateCompanionBuilder,
+    (OrderProductModifierV2Data, $$OrderProductModifierV2TableReferences),
+    OrderProductModifierV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductModifierV2TableTableManager(
+      _$MyDatabase db, $OrderProductModifierV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductModifierV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductModifierV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductModifierV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double?> netUnitPrice = const Value.absent(),
+            Value<double?> netTotalPrice = const Value.absent(),
+            Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+            Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+            Value<double?> orderDiscountAmount = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double?> finalAmount = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductModifierV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            modifierId: modifierId,
+            name: name,
+            fName: fName,
+            notes: notes,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            netUnitPrice: netUnitPrice,
+            netTotalPrice: netTotalPrice,
+            netUnitPriceExcludeTax: netUnitPriceExcludeTax,
+            netTotalPriceExcludeTax: netTotalPriceExcludeTax,
+            orderDiscountAmount: orderDiscountAmount,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double?> netUnitPrice = const Value.absent(),
+            Value<double?> netTotalPrice = const Value.absent(),
+            Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+            Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+            Value<double?> orderDiscountAmount = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double?> finalAmount = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductModifierV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            modifierId: modifierId,
+            name: name,
+            fName: fName,
+            notes: notes,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            netUnitPrice: netUnitPrice,
+            netTotalPrice: netTotalPrice,
+            netUnitPriceExcludeTax: netUnitPriceExcludeTax,
+            netTotalPriceExcludeTax: netTotalPriceExcludeTax,
+            orderDiscountAmount: orderDiscountAmount,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductModifierV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderProductModifierV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderProductModifierV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductModifierV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductModifierV2Table,
+        OrderProductModifierV2Data,
+        $$OrderProductModifierV2TableFilterComposer,
+        $$OrderProductModifierV2TableOrderingComposer,
+        $$OrderProductModifierV2TableAnnotationComposer,
+        $$OrderProductModifierV2TableCreateCompanionBuilder,
+        $$OrderProductModifierV2TableUpdateCompanionBuilder,
+        (OrderProductModifierV2Data, $$OrderProductModifierV2TableReferences),
+        OrderProductModifierV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderProductModifierOptionV2TableCreateCompanionBuilder
+    = OrderProductModifierOptionV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> optionId,
+  Value<String?> name,
+  Value<String?> fName,
+  required double quantity,
+  Value<double?> freeQuantity,
+  required double unitPrice,
+  required double totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  required double netUnitPrice,
+  required double netTotalPrice,
+  Value<double?> netUnitPriceExcludeTax,
+  Value<double?> netTotalPriceExcludeTax,
+  Value<double?> orderDiscountAmount,
+  Value<double?> orderDiscountPercentage,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  required double finalAmount,
+  Value<String?> taxGroupId,
+  Value<String?> notes,
+  Value<int> rowid,
+});
+typedef $$OrderProductModifierOptionV2TableUpdateCompanionBuilder
+    = OrderProductModifierOptionV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> productRef,
+  Value<String?> modifierId,
+  Value<String?> optionId,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<double> quantity,
+  Value<double?> freeQuantity,
+  Value<double> unitPrice,
+  Value<double> totalPrice,
+  Value<double?> discountAmount,
+  Value<double?> discountPercentage,
+  Value<double> netUnitPrice,
+  Value<double> netTotalPrice,
+  Value<double?> netUnitPriceExcludeTax,
+  Value<double?> netTotalPriceExcludeTax,
+  Value<double?> orderDiscountAmount,
+  Value<double?> orderDiscountPercentage,
+  Value<double?> taxableAmount,
+  Value<double?> taxAmount,
+  Value<double> finalAmount,
+  Value<String?> taxGroupId,
+  Value<String?> notes,
+  Value<int> rowid,
+});
+
+final class $$OrderProductModifierOptionV2TableReferences
+    extends BaseReferences<_$MyDatabase, $OrderProductModifierOptionV2Table,
+        OrderProductModifierOptionV2Data> {
+  $$OrderProductModifierOptionV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderProductModifierOptionV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderProductModifierOptionV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderProductModifierOptionV2Table> {
+  $$OrderProductModifierOptionV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get optionId => $composableBuilder(
+      column: $table.optionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get quantity => $composableBuilder(
+      column: $table.quantity, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get freeQuantity => $composableBuilder(
+      column: $table.freeQuantity, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get orderDiscountPercentage => $composableBuilder(
+      column: $table.orderDiscountPercentage,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductModifierOptionV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderProductModifierOptionV2Table> {
+  $$OrderProductModifierOptionV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get optionId => $composableBuilder(
+      column: $table.optionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get quantity => $composableBuilder(
+      column: $table.quantity, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get freeQuantity => $composableBuilder(
+      column: $table.freeQuantity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get unitPrice => $composableBuilder(
+      column: $table.unitPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get orderDiscountPercentage => $composableBuilder(
+      column: $table.orderDiscountPercentage,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get taxAmount => $composableBuilder(
+      column: $table.taxAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductModifierOptionV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderProductModifierOptionV2Table> {
+  $$OrderProductModifierOptionV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get productRef => $composableBuilder(
+      column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => column);
+
+  GeneratedColumn<String> get optionId =>
+      $composableBuilder(column: $table.optionId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<double> get quantity =>
+      $composableBuilder(column: $table.quantity, builder: (column) => column);
+
+  GeneratedColumn<double> get freeQuantity => $composableBuilder(
+      column: $table.freeQuantity, builder: (column) => column);
+
+  GeneratedColumn<double> get unitPrice =>
+      $composableBuilder(column: $table.unitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get totalPrice => $composableBuilder(
+      column: $table.totalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get discountAmount => $composableBuilder(
+      column: $table.discountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get discountPercentage => $composableBuilder(
+      column: $table.discountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPrice => $composableBuilder(
+      column: $table.netUnitPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPrice => $composableBuilder(
+      column: $table.netTotalPrice, builder: (column) => column);
+
+  GeneratedColumn<double> get netUnitPriceExcludeTax => $composableBuilder(
+      column: $table.netUnitPriceExcludeTax, builder: (column) => column);
+
+  GeneratedColumn<double> get netTotalPriceExcludeTax => $composableBuilder(
+      column: $table.netTotalPriceExcludeTax, builder: (column) => column);
+
+  GeneratedColumn<double> get orderDiscountAmount => $composableBuilder(
+      column: $table.orderDiscountAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get orderDiscountPercentage => $composableBuilder(
+      column: $table.orderDiscountPercentage, builder: (column) => column);
+
+  GeneratedColumn<double> get taxableAmount => $composableBuilder(
+      column: $table.taxableAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get taxAmount =>
+      $composableBuilder(column: $table.taxAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get finalAmount => $composableBuilder(
+      column: $table.finalAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get taxGroupId => $composableBuilder(
+      column: $table.taxGroupId, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderProductModifierOptionV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderProductModifierOptionV2Table,
+    OrderProductModifierOptionV2Data,
+    $$OrderProductModifierOptionV2TableFilterComposer,
+    $$OrderProductModifierOptionV2TableOrderingComposer,
+    $$OrderProductModifierOptionV2TableAnnotationComposer,
+    $$OrderProductModifierOptionV2TableCreateCompanionBuilder,
+    $$OrderProductModifierOptionV2TableUpdateCompanionBuilder,
+    (
+      OrderProductModifierOptionV2Data,
+      $$OrderProductModifierOptionV2TableReferences
+    ),
+    OrderProductModifierOptionV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderProductModifierOptionV2TableTableManager(
+      _$MyDatabase db, $OrderProductModifierOptionV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderProductModifierOptionV2TableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderProductModifierOptionV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderProductModifierOptionV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> optionId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<double> quantity = const Value.absent(),
+            Value<double?> freeQuantity = const Value.absent(),
+            Value<double> unitPrice = const Value.absent(),
+            Value<double> totalPrice = const Value.absent(),
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            Value<double> netUnitPrice = const Value.absent(),
+            Value<double> netTotalPrice = const Value.absent(),
+            Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+            Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+            Value<double?> orderDiscountAmount = const Value.absent(),
+            Value<double?> orderDiscountPercentage = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            Value<double> finalAmount = const Value.absent(),
+            Value<String?> taxGroupId = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductModifierOptionV2Companion(
+            orderRef: orderRef,
+            productRef: productRef,
+            modifierId: modifierId,
+            optionId: optionId,
+            name: name,
+            fName: fName,
+            quantity: quantity,
+            freeQuantity: freeQuantity,
+            unitPrice: unitPrice,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            netUnitPrice: netUnitPrice,
+            netTotalPrice: netTotalPrice,
+            netUnitPriceExcludeTax: netUnitPriceExcludeTax,
+            netTotalPriceExcludeTax: netTotalPriceExcludeTax,
+            orderDiscountAmount: orderDiscountAmount,
+            orderDiscountPercentage: orderDiscountPercentage,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            taxGroupId: taxGroupId,
+            notes: notes,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> productRef = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<String?> optionId = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            required double quantity,
+            Value<double?> freeQuantity = const Value.absent(),
+            required double unitPrice,
+            required double totalPrice,
+            Value<double?> discountAmount = const Value.absent(),
+            Value<double?> discountPercentage = const Value.absent(),
+            required double netUnitPrice,
+            required double netTotalPrice,
+            Value<double?> netUnitPriceExcludeTax = const Value.absent(),
+            Value<double?> netTotalPriceExcludeTax = const Value.absent(),
+            Value<double?> orderDiscountAmount = const Value.absent(),
+            Value<double?> orderDiscountPercentage = const Value.absent(),
+            Value<double?> taxableAmount = const Value.absent(),
+            Value<double?> taxAmount = const Value.absent(),
+            required double finalAmount,
+            Value<String?> taxGroupId = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderProductModifierOptionV2Companion.insert(
+            orderRef: orderRef,
+            productRef: productRef,
+            modifierId: modifierId,
+            optionId: optionId,
+            name: name,
+            fName: fName,
+            quantity: quantity,
+            freeQuantity: freeQuantity,
+            unitPrice: unitPrice,
+            totalPrice: totalPrice,
+            discountAmount: discountAmount,
+            discountPercentage: discountPercentage,
+            netUnitPrice: netUnitPrice,
+            netTotalPrice: netTotalPrice,
+            netUnitPriceExcludeTax: netUnitPriceExcludeTax,
+            netTotalPriceExcludeTax: netTotalPriceExcludeTax,
+            orderDiscountAmount: orderDiscountAmount,
+            orderDiscountPercentage: orderDiscountPercentage,
+            taxableAmount: taxableAmount,
+            taxAmount: taxAmount,
+            finalAmount: finalAmount,
+            taxGroupId: taxGroupId,
+            notes: notes,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderProductModifierOptionV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderProductModifierOptionV2TableReferences
+                            ._orderRefTable(db),
+                    referencedColumn:
+                        $$OrderProductModifierOptionV2TableReferences
+                            ._orderRefTable(db)
+                            .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderProductModifierOptionV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderProductModifierOptionV2Table,
+        OrderProductModifierOptionV2Data,
+        $$OrderProductModifierOptionV2TableFilterComposer,
+        $$OrderProductModifierOptionV2TableOrderingComposer,
+        $$OrderProductModifierOptionV2TableAnnotationComposer,
+        $$OrderProductModifierOptionV2TableCreateCompanionBuilder,
+        $$OrderProductModifierOptionV2TableUpdateCompanionBuilder,
+        (
+          OrderProductModifierOptionV2Data,
+          $$OrderProductModifierOptionV2TableReferences
+        ),
+        OrderProductModifierOptionV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderPaymentV2TableCreateCompanionBuilder = OrderPaymentV2Companion
+    Function({
+  Value<String?> orderRef,
+  Value<String?> paymentId,
+  Value<String?> paymentMethodId,
+  Value<int?> paymentMethodType,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<double?> currencyAmount,
+  Value<String?> currencyCode,
+  Value<double?> exchangeRateToBase,
+  Value<double?> baseAmount,
+  Value<double?> receivedAmount,
+  Value<double?> changeAmount,
+  Value<double?> tipAmount,
+  Value<double?> feeAmount,
+  Value<String?> cashierId,
+  Value<String?> shiftId,
+  Value<String?> tillId,
+  Value<String?> deviceId,
+  Value<String?> externalTransactionId,
+  Value<String?> reference,
+  Value<bool?> isVoided,
+  Value<String?> voidReason,
+  Value<String?> createdOn,
+  Value<String?> createdBy,
+  Value<String?> notes,
+  Value<int> rowid,
+});
+typedef $$OrderPaymentV2TableUpdateCompanionBuilder = OrderPaymentV2Companion
+    Function({
+  Value<String?> orderRef,
+  Value<String?> paymentId,
+  Value<String?> paymentMethodId,
+  Value<int?> paymentMethodType,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<double?> currencyAmount,
+  Value<String?> currencyCode,
+  Value<double?> exchangeRateToBase,
+  Value<double?> baseAmount,
+  Value<double?> receivedAmount,
+  Value<double?> changeAmount,
+  Value<double?> tipAmount,
+  Value<double?> feeAmount,
+  Value<String?> cashierId,
+  Value<String?> shiftId,
+  Value<String?> tillId,
+  Value<String?> deviceId,
+  Value<String?> externalTransactionId,
+  Value<String?> reference,
+  Value<bool?> isVoided,
+  Value<String?> voidReason,
+  Value<String?> createdOn,
+  Value<String?> createdBy,
+  Value<String?> notes,
+  Value<int> rowid,
+});
+
+final class $$OrderPaymentV2TableReferences extends BaseReferences<_$MyDatabase,
+    $OrderPaymentV2Table, OrderPaymentV2Data> {
+  $$OrderPaymentV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderPaymentV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderPaymentV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderPaymentV2Table> {
+  $$OrderPaymentV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get paymentId => $composableBuilder(
+      column: $table.paymentId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get paymentMethodId => $composableBuilder(
+      column: $table.paymentMethodId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get paymentMethodType => $composableBuilder(
+      column: $table.paymentMethodType,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get currencyAmount => $composableBuilder(
+      column: $table.currencyAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get exchangeRateToBase => $composableBuilder(
+      column: $table.exchangeRateToBase,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get baseAmount => $composableBuilder(
+      column: $table.baseAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get receivedAmount => $composableBuilder(
+      column: $table.receivedAmount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get changeAmount => $composableBuilder(
+      column: $table.changeAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get tipAmount => $composableBuilder(
+      column: $table.tipAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get feeAmount => $composableBuilder(
+      column: $table.feeAmount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get cashierId => $composableBuilder(
+      column: $table.cashierId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get externalTransactionId => $composableBuilder(
+      column: $table.externalTransactionId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isVoided => $composableBuilder(
+      column: $table.isVoided, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get voidReason => $composableBuilder(
+      column: $table.voidReason, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get createdOn => $composableBuilder(
+      column: $table.createdOn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPaymentV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderPaymentV2Table> {
+  $$OrderPaymentV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get paymentId => $composableBuilder(
+      column: $table.paymentId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentMethodId => $composableBuilder(
+      column: $table.paymentMethodId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get paymentMethodType => $composableBuilder(
+      column: $table.paymentMethodType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get currencyAmount => $composableBuilder(
+      column: $table.currencyAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get exchangeRateToBase => $composableBuilder(
+      column: $table.exchangeRateToBase,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get baseAmount => $composableBuilder(
+      column: $table.baseAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get receivedAmount => $composableBuilder(
+      column: $table.receivedAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get changeAmount => $composableBuilder(
+      column: $table.changeAmount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get tipAmount => $composableBuilder(
+      column: $table.tipAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get feeAmount => $composableBuilder(
+      column: $table.feeAmount, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get cashierId => $composableBuilder(
+      column: $table.cashierId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get shiftId => $composableBuilder(
+      column: $table.shiftId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tillId => $composableBuilder(
+      column: $table.tillId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get externalTransactionId => $composableBuilder(
+      column: $table.externalTransactionId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isVoided => $composableBuilder(
+      column: $table.isVoided, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get voidReason => $composableBuilder(
+      column: $table.voidReason, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdOn => $composableBuilder(
+      column: $table.createdOn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPaymentV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderPaymentV2Table> {
+  $$OrderPaymentV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get paymentId =>
+      $composableBuilder(column: $table.paymentId, builder: (column) => column);
+
+  GeneratedColumn<String> get paymentMethodId => $composableBuilder(
+      column: $table.paymentMethodId, builder: (column) => column);
+
+  GeneratedColumn<int> get paymentMethodType => $composableBuilder(
+      column: $table.paymentMethodType, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<double> get currencyAmount => $composableBuilder(
+      column: $table.currencyAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get currencyCode => $composableBuilder(
+      column: $table.currencyCode, builder: (column) => column);
+
+  GeneratedColumn<double> get exchangeRateToBase => $composableBuilder(
+      column: $table.exchangeRateToBase, builder: (column) => column);
+
+  GeneratedColumn<double> get baseAmount => $composableBuilder(
+      column: $table.baseAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get receivedAmount => $composableBuilder(
+      column: $table.receivedAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get changeAmount => $composableBuilder(
+      column: $table.changeAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get tipAmount =>
+      $composableBuilder(column: $table.tipAmount, builder: (column) => column);
+
+  GeneratedColumn<double> get feeAmount =>
+      $composableBuilder(column: $table.feeAmount, builder: (column) => column);
+
+  GeneratedColumn<String> get cashierId =>
+      $composableBuilder(column: $table.cashierId, builder: (column) => column);
+
+  GeneratedColumn<String> get shiftId =>
+      $composableBuilder(column: $table.shiftId, builder: (column) => column);
+
+  GeneratedColumn<String> get tillId =>
+      $composableBuilder(column: $table.tillId, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<String> get externalTransactionId => $composableBuilder(
+      column: $table.externalTransactionId, builder: (column) => column);
+
+  GeneratedColumn<String> get reference =>
+      $composableBuilder(column: $table.reference, builder: (column) => column);
+
+  GeneratedColumn<bool> get isVoided =>
+      $composableBuilder(column: $table.isVoided, builder: (column) => column);
+
+  GeneratedColumn<String> get voidReason => $composableBuilder(
+      column: $table.voidReason, builder: (column) => column);
+
+  GeneratedColumn<String> get createdOn =>
+      $composableBuilder(column: $table.createdOn, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPaymentV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderPaymentV2Table,
+    OrderPaymentV2Data,
+    $$OrderPaymentV2TableFilterComposer,
+    $$OrderPaymentV2TableOrderingComposer,
+    $$OrderPaymentV2TableAnnotationComposer,
+    $$OrderPaymentV2TableCreateCompanionBuilder,
+    $$OrderPaymentV2TableUpdateCompanionBuilder,
+    (OrderPaymentV2Data, $$OrderPaymentV2TableReferences),
+    OrderPaymentV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderPaymentV2TableTableManager(_$MyDatabase db, $OrderPaymentV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderPaymentV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderPaymentV2TableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderPaymentV2TableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> paymentId = const Value.absent(),
+            Value<String?> paymentMethodId = const Value.absent(),
+            Value<int?> paymentMethodType = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<double?> currencyAmount = const Value.absent(),
+            Value<String?> currencyCode = const Value.absent(),
+            Value<double?> exchangeRateToBase = const Value.absent(),
+            Value<double?> baseAmount = const Value.absent(),
+            Value<double?> receivedAmount = const Value.absent(),
+            Value<double?> changeAmount = const Value.absent(),
+            Value<double?> tipAmount = const Value.absent(),
+            Value<double?> feeAmount = const Value.absent(),
+            Value<String?> cashierId = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<String?> externalTransactionId = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<bool?> isVoided = const Value.absent(),
+            Value<String?> voidReason = const Value.absent(),
+            Value<String?> createdOn = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPaymentV2Companion(
+            orderRef: orderRef,
+            paymentId: paymentId,
+            paymentMethodId: paymentMethodId,
+            paymentMethodType: paymentMethodType,
+            name: name,
+            fName: fName,
+            currencyAmount: currencyAmount,
+            currencyCode: currencyCode,
+            exchangeRateToBase: exchangeRateToBase,
+            baseAmount: baseAmount,
+            receivedAmount: receivedAmount,
+            changeAmount: changeAmount,
+            tipAmount: tipAmount,
+            feeAmount: feeAmount,
+            cashierId: cashierId,
+            shiftId: shiftId,
+            tillId: tillId,
+            deviceId: deviceId,
+            externalTransactionId: externalTransactionId,
+            reference: reference,
+            isVoided: isVoided,
+            voidReason: voidReason,
+            createdOn: createdOn,
+            createdBy: createdBy,
+            notes: notes,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> paymentId = const Value.absent(),
+            Value<String?> paymentMethodId = const Value.absent(),
+            Value<int?> paymentMethodType = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<double?> currencyAmount = const Value.absent(),
+            Value<String?> currencyCode = const Value.absent(),
+            Value<double?> exchangeRateToBase = const Value.absent(),
+            Value<double?> baseAmount = const Value.absent(),
+            Value<double?> receivedAmount = const Value.absent(),
+            Value<double?> changeAmount = const Value.absent(),
+            Value<double?> tipAmount = const Value.absent(),
+            Value<double?> feeAmount = const Value.absent(),
+            Value<String?> cashierId = const Value.absent(),
+            Value<String?> shiftId = const Value.absent(),
+            Value<String?> tillId = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<String?> externalTransactionId = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<bool?> isVoided = const Value.absent(),
+            Value<String?> voidReason = const Value.absent(),
+            Value<String?> createdOn = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPaymentV2Companion.insert(
+            orderRef: orderRef,
+            paymentId: paymentId,
+            paymentMethodId: paymentMethodId,
+            paymentMethodType: paymentMethodType,
+            name: name,
+            fName: fName,
+            currencyAmount: currencyAmount,
+            currencyCode: currencyCode,
+            exchangeRateToBase: exchangeRateToBase,
+            baseAmount: baseAmount,
+            receivedAmount: receivedAmount,
+            changeAmount: changeAmount,
+            tipAmount: tipAmount,
+            feeAmount: feeAmount,
+            cashierId: cashierId,
+            shiftId: shiftId,
+            tillId: tillId,
+            deviceId: deviceId,
+            externalTransactionId: externalTransactionId,
+            reference: reference,
+            isVoided: isVoided,
+            voidReason: voidReason,
+            createdOn: createdOn,
+            createdBy: createdBy,
+            notes: notes,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderPaymentV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderPaymentV2TableReferences._orderRefTable(db),
+                    referencedColumn: $$OrderPaymentV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderPaymentV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderPaymentV2Table,
+    OrderPaymentV2Data,
+    $$OrderPaymentV2TableFilterComposer,
+    $$OrderPaymentV2TableOrderingComposer,
+    $$OrderPaymentV2TableAnnotationComposer,
+    $$OrderPaymentV2TableCreateCompanionBuilder,
+    $$OrderPaymentV2TableUpdateCompanionBuilder,
+    (OrderPaymentV2Data, $$OrderPaymentV2TableReferences),
+    OrderPaymentV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$OrderPaymentDetailV2TableCreateCompanionBuilder
+    = OrderPaymentDetailV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> paymentId,
+  Value<String?> key,
+  Value<String?> value,
+  Value<int> rowid,
+});
+typedef $$OrderPaymentDetailV2TableUpdateCompanionBuilder
+    = OrderPaymentDetailV2Companion Function({
+  Value<String?> orderRef,
+  Value<String?> paymentId,
+  Value<String?> key,
+  Value<String?> value,
+  Value<int> rowid,
+});
+
+final class $$OrderPaymentDetailV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderPaymentDetailV2Table, OrderPaymentDetailV2Data> {
+  $$OrderPaymentDetailV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderPaymentDetailV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderPaymentDetailV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderPaymentDetailV2Table> {
+  $$OrderPaymentDetailV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get paymentId => $composableBuilder(
+      column: $table.paymentId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get key => $composableBuilder(
+      column: $table.key, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get value => $composableBuilder(
+      column: $table.value, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPaymentDetailV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderPaymentDetailV2Table> {
+  $$OrderPaymentDetailV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get paymentId => $composableBuilder(
+      column: $table.paymentId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get key => $composableBuilder(
+      column: $table.key, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get value => $composableBuilder(
+      column: $table.value, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPaymentDetailV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderPaymentDetailV2Table> {
+  $$OrderPaymentDetailV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get paymentId =>
+      $composableBuilder(column: $table.paymentId, builder: (column) => column);
+
+  GeneratedColumn<String> get key =>
+      $composableBuilder(column: $table.key, builder: (column) => column);
+
+  GeneratedColumn<String> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPaymentDetailV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderPaymentDetailV2Table,
+    OrderPaymentDetailV2Data,
+    $$OrderPaymentDetailV2TableFilterComposer,
+    $$OrderPaymentDetailV2TableOrderingComposer,
+    $$OrderPaymentDetailV2TableAnnotationComposer,
+    $$OrderPaymentDetailV2TableCreateCompanionBuilder,
+    $$OrderPaymentDetailV2TableUpdateCompanionBuilder,
+    (OrderPaymentDetailV2Data, $$OrderPaymentDetailV2TableReferences),
+    OrderPaymentDetailV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderPaymentDetailV2TableTableManager(
+      _$MyDatabase db, $OrderPaymentDetailV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderPaymentDetailV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderPaymentDetailV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderPaymentDetailV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> paymentId = const Value.absent(),
+            Value<String?> key = const Value.absent(),
+            Value<String?> value = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPaymentDetailV2Companion(
+            orderRef: orderRef,
+            paymentId: paymentId,
+            key: key,
+            value: value,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            Value<String?> orderRef = const Value.absent(),
+            Value<String?> paymentId = const Value.absent(),
+            Value<String?> key = const Value.absent(),
+            Value<String?> value = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPaymentDetailV2Companion.insert(
+            orderRef: orderRef,
+            paymentId: paymentId,
+            key: key,
+            value: value,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderPaymentDetailV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable: $$OrderPaymentDetailV2TableReferences
+                        ._orderRefTable(db),
+                    referencedColumn: $$OrderPaymentDetailV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderPaymentDetailV2TableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $OrderPaymentDetailV2Table,
+        OrderPaymentDetailV2Data,
+        $$OrderPaymentDetailV2TableFilterComposer,
+        $$OrderPaymentDetailV2TableOrderingComposer,
+        $$OrderPaymentDetailV2TableAnnotationComposer,
+        $$OrderPaymentDetailV2TableCreateCompanionBuilder,
+        $$OrderPaymentDetailV2TableUpdateCompanionBuilder,
+        (OrderPaymentDetailV2Data, $$OrderPaymentDetailV2TableReferences),
+        OrderPaymentDetailV2Data,
+        PrefetchHooks Function({bool orderRef})>;
+
+class $MyDatabaseManager {
+  final _$MyDatabase _db;
+  $MyDatabaseManager(this._db);
+  $$OrderEntityTableTableManager get orderEntity =>
+      $$OrderEntityTableTableManager(_db, _db.orderEntity);
+  $$OrderHistoryEntityTableTableManager get orderHistoryEntity =>
+      $$OrderHistoryEntityTableTableManager(_db, _db.orderHistoryEntity);
+  $$OrderNumbersTableTableManager get orderNumbers =>
+      $$OrderNumbersTableTableManager(_db, _db.orderNumbers);
+  $$ShiftEntityTableTableManager get shiftEntity =>
+      $$ShiftEntityTableTableManager(_db, _db.shiftEntity);
+  $$TillEntityTableTableManager get tillEntity =>
+      $$TillEntityTableTableManager(_db, _db.tillEntity);
+  $$TillAmountsEntityTableTableManager get tillAmountsEntity =>
+      $$TillAmountsEntityTableTableManager(_db, _db.tillAmountsEntity);
+  $$PaymentMethodEntityTableTableManager get paymentMethodEntity =>
+      $$PaymentMethodEntityTableTableManager(_db, _db.paymentMethodEntity);
+  $$SettingEntityTableTableManager get settingEntity =>
+      $$SettingEntityTableTableManager(_db, _db.settingEntity);
+  $$OrderPaymentsTableTableManager get orderPayments =>
+      $$OrderPaymentsTableTableManager(_db, _db.orderPayments);
+  $$DrawerOperationEntityTableTableManager get drawerOperationEntity =>
+      $$DrawerOperationEntityTableTableManager(_db, _db.drawerOperationEntity);
+  $$ActivationInfoEntityTableTableManager get activationInfoEntity =>
+      $$ActivationInfoEntityTableTableManager(_db, _db.activationInfoEntity);
+  $$ProductQtyEntityTableTableManager get productQtyEntity =>
+      $$ProductQtyEntityTableTableManager(_db, _db.productQtyEntity);
+  $$SyncQueueEntityTableTableManager get syncQueueEntity =>
+      $$SyncQueueEntityTableTableManager(_db, _db.syncQueueEntity);
+  $$OrderEntityV2TableTableManager get orderEntityV2 =>
+      $$OrderEntityV2TableTableManager(_db, _db.orderEntityV2);
+  $$OrderProductEntityV2TableTableManager get orderProductEntityV2 =>
+      $$OrderProductEntityV2TableTableManager(_db, _db.orderProductEntityV2);
+  $$OrderProductUnitPriceV2TableTableManager get orderProductUnitPriceV2 =>
+      $$OrderProductUnitPriceV2TableTableManager(
+          _db, _db.orderProductUnitPriceV2);
+  $$OrderProductTieredPricingV2TableTableManager
+      get orderProductTieredPricingV2 =>
+          $$OrderProductTieredPricingV2TableTableManager(
+              _db, _db.orderProductTieredPricingV2);
+  $$OrderProductTimeEventV2TableTableManager get orderProductTimeEventV2 =>
+      $$OrderProductTimeEventV2TableTableManager(
+          _db, _db.orderProductTimeEventV2);
+  $$OrderProductDiscountV2TableTableManager get orderProductDiscountV2 =>
+      $$OrderProductDiscountV2TableTableManager(
+          _db, _db.orderProductDiscountV2);
+  $$OrderProductPromotionInfoV2TableTableManager
+      get orderProductPromotionInfoV2 =>
+          $$OrderProductPromotionInfoV2TableTableManager(
+              _db, _db.orderProductPromotionInfoV2);
+  $$OrderProductChargeV2TableTableManager get orderProductChargeV2 =>
+      $$OrderProductChargeV2TableTableManager(_db, _db.orderProductChargeV2);
+  $$OrderProductTaxInfoV2TableTableManager get orderProductTaxInfoV2 =>
+      $$OrderProductTaxInfoV2TableTableManager(_db, _db.orderProductTaxInfoV2);
+  $$OrderProductChargeTaxV2TableTableManager get orderProductChargeTaxV2 =>
+      $$OrderProductChargeTaxV2TableTableManager(
+          _db, _db.orderProductChargeTaxV2);
+  $$OrderProductTaxTypeV2TableTableManager get orderProductTaxTypeV2 =>
+      $$OrderProductTaxTypeV2TableTableManager(_db, _db.orderProductTaxTypeV2);
+  $$OrderDiscountV2TableTableManager get orderDiscountV2 =>
+      $$OrderDiscountV2TableTableManager(_db, _db.orderDiscountV2);
+  $$OrderPromotionAppliesV2TableTableManager get orderPromotionAppliesV2 =>
+      $$OrderPromotionAppliesV2TableTableManager(
+          _db, _db.orderPromotionAppliesV2);
+  $$OrderPromotionGiftCardV2TableTableManager get orderPromotionGiftCardV2 =>
+      $$OrderPromotionGiftCardV2TableTableManager(
+          _db, _db.orderPromotionGiftCardV2);
+  $$OrderChargeV2TableTableManager get orderChargeV2 =>
+      $$OrderChargeV2TableTableManager(_db, _db.orderChargeV2);
+  $$OrderChargeForTotalV2TableTableManager get orderChargeForTotalV2 =>
+      $$OrderChargeForTotalV2TableTableManager(_db, _db.orderChargeForTotalV2);
+  $$OrderTaxTypeV2TableTableManager get orderTaxTypeV2 =>
+      $$OrderTaxTypeV2TableTableManager(_db, _db.orderTaxTypeV2);
+  $$OrderProductModifierV2TableTableManager get orderProductModifierV2 =>
+      $$OrderProductModifierV2TableTableManager(
+          _db, _db.orderProductModifierV2);
+  $$OrderProductModifierOptionV2TableTableManager
+      get orderProductModifierOptionV2 =>
+          $$OrderProductModifierOptionV2TableTableManager(
+              _db, _db.orderProductModifierOptionV2);
+  $$OrderPaymentV2TableTableManager get orderPaymentV2 =>
+      $$OrderPaymentV2TableTableManager(_db, _db.orderPaymentV2);
+  $$OrderPaymentDetailV2TableTableManager get orderPaymentDetailV2 =>
+      $$OrderPaymentDetailV2TableTableManager(_db, _db.orderPaymentDetailV2);
 }

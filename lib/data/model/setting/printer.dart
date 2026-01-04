@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/enum/print_to_enum.dart';
 import 'package:bayan_pos_core/data/enum/printer_interface.dart';
@@ -31,6 +33,8 @@ class Printer {
   List<PrintInSeparate>? menus;
 
   List<int>? orderTypes;
+
+  String? printerConnectionJson;
   final settings = ToMany<PrinterSetting>();
   PrinterType get getPrinterType => convertStringToPrinterType(printerType);
   PrinterInterface get getPrinterInterface =>
@@ -106,6 +110,11 @@ class Printer {
         orderTypes!.add(v);
       });
     }
+
+    if (json['printerConnectionJson'] != null) {
+      printerConnectionJson =
+          jsonEncode(json['printerConnectionJson']).toString();
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -135,6 +144,10 @@ class Printer {
 
     if (orderTypes != null) {
       data['orderTypes'] = orderTypes!.map((v) => v).toList();
+    }
+    if (data['printerConnectionJson'] != null) {
+      printerConnectionJson =
+          jsonEncode(data['printerConnectionJson']).toString();
     }
     return data;
   }

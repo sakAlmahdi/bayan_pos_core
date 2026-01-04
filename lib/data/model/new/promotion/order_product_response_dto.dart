@@ -14,6 +14,7 @@ class OrderProductResponseDto {
   String productRef;
   int tableRowIndex;
   String name;
+  String? fName;
   String productId;
   String unitId;
   double quantity;
@@ -178,6 +179,7 @@ class OrderProductResponseDto {
     this.unitPriceExcludeTax,
     this.totalPriceExcludeTax,
     this.trace,
+    this.fName,
   });
 
   factory OrderProductResponseDto.fromJson(Map<String, dynamic> json) {
@@ -266,6 +268,7 @@ class OrderProductResponseDto {
       totalPriceExcludeTax:
           double.tryParse(json['totalPriceExcludeTax']?.toString() ?? ''),
       trace: json['trace'],
+      fName: json['fName'],
     );
   }
 
@@ -330,6 +333,7 @@ class OrderProductResponseDto {
       'unitPriceExcludeTax': unitPriceExcludeTax,
       'totalPriceExcludeTax': totalPriceExcludeTax,
       'trace': trace,
+      'fName': fName,
     };
   }
 
@@ -379,6 +383,7 @@ class OrderProductResponseDto {
     double? unitPriceExcludeTax,
     double? totalPriceExcludeTax,
     String? trace,
+    String? fName,
   }) {
     return OrderProductResponseDto(
       productRef: productRef ?? this.productRef,
@@ -437,6 +442,7 @@ class OrderProductResponseDto {
       unitPriceExcludeTax: unitPriceExcludeTax ?? this.unitPriceExcludeTax,
       totalPriceExcludeTax: totalPriceExcludeTax ?? this.totalPriceExcludeTax,
       trace: trace ?? this.trace,
+      fName: fName ?? this.fName,
     );
   }
 

@@ -157,11 +157,26 @@ class MyDatabase extends _$MyDatabase {
                 'ALTER TABLE order_product_tax_type_v2 ADD COLUMN option_id TEXT');
           } catch (_) {}
         }
+
+        if (from < 39) {
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN paid_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN due_amount REAL');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN change_amount REAL');
+          } catch (_) {}
+        }
       });
 
   @override
   int get schemaVersion =>
-      38; // تحديث إصدار المخطط - حذف taxInfoJson من OrderProductModifierOptionV2
+      39; // تحديث إصدار المخطط - إضافة حقول مالية لـ OrderEntityV2
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

@@ -21,6 +21,7 @@ class OrderProductRequestDto {
   bool? isCancel;
   Unit unit;
   ExtractProduct productModel;
+  String? note;
 
   OrderProductRequestDto({
     required this.prodRef,
@@ -39,6 +40,7 @@ class OrderProductRequestDto {
     this.taxGroupId,
     this.appliedModifiers,
     this.isCancel,
+    this.note,
   });
 
   /// Factory constructor to create an instance from JSON
@@ -72,6 +74,7 @@ class OrderProductRequestDto {
               .toList()
           : null,
       isCancel: json['isCancel'],
+      note: json['note'],
     );
   }
 
@@ -94,6 +97,7 @@ class OrderProductRequestDto {
       'taxGroupId': taxGroupId?.toString(),
       'appliedModifiers': appliedModifiers?.map((e) => e.toJson()).toList(),
       'isCancel': isCancel,
+      'note': note,
     };
   }
 
@@ -115,6 +119,7 @@ class OrderProductRequestDto {
     String? prodRef,
     List<OrderProductAppliedModifierDto>? appliedModifiers,
     bool? isCancel,
+    String? note,
   }) {
     return OrderProductRequestDto(
       productModel: productModel ?? this.productModel,

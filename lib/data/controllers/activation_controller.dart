@@ -46,6 +46,10 @@ class ActivationController extends GetxController {
 
   Device? currentDevice;
 
+  Device? get getCurrentDeviceByCurrentId =>
+      activationInfoData?.devices.firstWhereOrNull(
+          (element) => element.deviceId == activationInfoData?.currentDeviceId);
+
   @override
   Future<void> onInit() async {
     super.onInit();

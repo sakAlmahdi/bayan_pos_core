@@ -62,7 +62,7 @@ class OrderEntityV2 extends Table {
   TextColumn get note => text().nullable()();
 
   // From OrderC
-  TextColumn get orderRef => text().nullable()();
+  TextColumn get orderRef => text()();
   TextColumn get deviceId => text().nullable()();
   DateTimeColumn get startDate => dateTime().nullable()();
   DateTimeColumn get endTime => dateTime().nullable()();

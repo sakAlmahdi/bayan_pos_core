@@ -2,6 +2,7 @@ import 'package:bayan_pos_core/data/enum/order_type.dart';
 import 'package:bayan_pos_core/data/model/customer/customer.dart';
 import 'package:bayan_pos_core/data/model/new/product/order_product_request_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/manual_charge_request_dto.dart';
+import 'package:bayan_pos_core/data/model/order/order.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderRequestDto {
@@ -32,6 +33,7 @@ class OrderRequestDto {
   String? shiftId;
   String? tillId;
   String? tableId;
+  String? tableCaption;
 
   int? numberVisitor;
 
@@ -46,6 +48,7 @@ class OrderRequestDto {
   List<ManualChargeRequestDto>? manualCharges;
 
   Customer? customer;
+  DeliveryCompanyInfo? deliveryCompanyInfo;
 
   OrderRequestDto({
     this.branchId,
@@ -80,6 +83,8 @@ class OrderRequestDto {
     this.priceIncludeTax,
     this.manualCharges,
     this.customer,
+    this.tableCaption,
+    this.deliveryCompanyInfo,
   });
 
   factory OrderRequestDto.fromJson(Map<String, dynamic> json) {
@@ -135,6 +140,10 @@ class OrderRequestDto {
       customer: json['customer'] != null
           ? Customer.fromJson(json['customer'] as Map<String, dynamic>)
           : null,
+      tableCaption: json['tableCaption'],
+      deliveryCompanyInfo: json['deliveryCompanyInfo'] != null
+          ? DeliveryCompanyInfo.fromJson(json['deliveryCompanyInfo'])
+          : null,
     );
   }
 
@@ -173,6 +182,8 @@ class OrderRequestDto {
       // إضافة الرسوم اليدوية
       'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
       'customer': customer?.toJson(),
+      'tableCaption': tableCaption,
+      'deliveryCompanyInfo': deliveryCompanyInfo?.toJson(),
     };
   }
 
@@ -196,6 +207,8 @@ class OrderRequestDto {
     bool? priceIncludeTax,
     List<ManualChargeRequestDto>? manualCharges,
     Customer? customer,
+    String? tableCaption,
+    DeliveryCompanyInfo? deliveryCompanyInfo,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -218,6 +231,8 @@ class OrderRequestDto {
       // إضافة الرسوم اليدوية
       manualCharges: manualCharges ?? this.manualCharges,
       customer: customer ?? this.customer,
+      tableCaption: tableCaption ?? this.tableCaption,
+      deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
     );
   }
 }
