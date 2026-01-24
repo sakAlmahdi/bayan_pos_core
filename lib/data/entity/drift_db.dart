@@ -13,6 +13,8 @@ import 'package:path/path.dart' as p;
 import 'order_entity.dart';
 import 'sync_queue_entity.dart';
 import 'order_v2_entity.dart';
+import 'table_assignments_entity.dart';
+import 'audit_logs_entity.dart';
 part 'drift_db.g.dart';
 
 @DriftDatabase(tables: [
@@ -50,6 +52,8 @@ part 'drift_db.g.dart';
   OrderProductModifierOptionV2,
   OrderPaymentV2,
   OrderPaymentDetailV2,
+  TableAssignments,
+  AuditLogs,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -172,11 +176,52 @@ class MyDatabase extends _$MyDatabase {
                 'ALTER TABLE order_entity_v2 ADD COLUMN change_amount REAL');
           } catch (_) {}
         }
+
+        if (from < 40) {
+          await m.createTable(tableAssignments);
+          await m.createTable(auditLogs);
+        }
+
+        if (from < 41) {
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN opened_on TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN opened_by TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN closed_on TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN closed_by TEXT');
+          } catch (_) {}
+          // Ensure potentially missing metadata fields are added
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN created_on TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN created_by TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN last_modified_on TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN last_modified_by TEXT');
+          } catch (_) {}
+        }
       });
 
   @override
   int get schemaVersion =>
-      39; // تحديث إصدار المخطط - إضافة حقول مالية لـ OrderEntityV2
+      41; // تحديث إصدار المخطط - إضافة جداول مسؤول الطاولة وسجلات التدقيق
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

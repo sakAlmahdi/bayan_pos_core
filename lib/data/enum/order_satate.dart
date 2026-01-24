@@ -93,21 +93,21 @@ extension OrderStatusCExtension on OrderStatusC {
   Color toColor() {
     switch (this) {
       case OrderStatusC.pending:
-        return "#CCCCCC".color;
+        return "#FFA726".color; // برتقالي للمعلق
       case OrderStatusC.active:
-        return "#00FF00".color;
+        return "#2196F3".color; // أزرق للنشط
       case OrderStatusC.declined:
-        return "#990000".color;
+        return "#F44336".color; // أحمر للملغي
       case OrderStatusC.returned:
-        return "#996633".color;
+        return "#9C27B0".color; // بنفسجي للمرتجع
       case OrderStatusC.joined:
-        return "#FF9933".color;
+        return "#03A9F4".color; // أزرق فاتح للمدموج
       case OrderStatusC.lvoid:
-        return "#666666".color;
+        return "#757575".color; // رمادي غامق للـ void
       case OrderStatusC.done:
-        return "#00CC66".color;
+        return "#4CAF50".color; // أخضر للمكتمل
       case OrderStatusC.draft:
-        return "#D3D3D3".color;
+        return "#BDBDBD".color; // رمادي فاتح للمسودة
     }
   }
 }

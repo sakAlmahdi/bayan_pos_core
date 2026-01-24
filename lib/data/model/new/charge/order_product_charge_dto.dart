@@ -1,6 +1,7 @@
 import 'package:bayan_pos_core/data/model/new/enums/charge_type.dart';
 import 'package:bayan_pos_core/data/model/new/tax/order_product_tax_info_dto.dart';
 import 'package:flutter_guid/flutter_guid.dart';
+import 'package:get/get.dart';
 
 class OrderProductChargeDto {
   Guid? chargeId;
@@ -40,8 +41,8 @@ class OrderProductChargeDto {
     return OrderProductChargeDto(
       chargeId: Guid(json['ChargeId']),
       name: json['Name'],
-      type: ChargeType.values
-          .firstWhere((e) => e.toString() == 'ChargeType.${json['Type']}'),
+      type: ChargeType.values.firstWhereOrNull(
+          (e) => e.toString() == 'ChargeType.${json['Type']}'),
       chargableAmount: (json['ChargableAmount'] as num).toDouble(),
       value: (json['Value'] as num).toDouble(),
       percentage: (json['Percentage'] as num).toDouble(),

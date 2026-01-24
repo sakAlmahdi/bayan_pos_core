@@ -43,6 +43,7 @@ class OrderRequestDto {
   int? splitIndex;
 
   bool? priceIncludeTax;
+  String? kitchenNote;
 
   // إضافة الرسوم اليدوية
   List<ManualChargeRequestDto>? manualCharges;
@@ -81,6 +82,7 @@ class OrderRequestDto {
     this.parentOrderId,
     this.splitIndex,
     this.priceIncludeTax,
+    this.kitchenNote,
     this.manualCharges,
     this.customer,
     this.tableCaption,
@@ -131,6 +133,7 @@ class OrderRequestDto {
       parentOrderId: json['parentOrderId'],
       splitIndex: json['splitIndex'],
       priceIncludeTax: json['priceIncludeTax'],
+      kitchenNote: json['kitchenNote'],
       // إضافة الرسوم اليدوية
       manualCharges: json['manualCharges'] != null
           ? (json['manualCharges'] as List)
@@ -179,6 +182,7 @@ class OrderRequestDto {
       'parentOrderId': parentOrderId,
       'splitIndex': splitIndex,
       'priceIncludeTax': priceIncludeTax,
+      'kitchenNote': kitchenNote,
       // إضافة الرسوم اليدوية
       'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
       'customer': customer?.toJson(),
@@ -205,6 +209,7 @@ class OrderRequestDto {
     String? customerType,
     bool? customerTaxable,
     bool? priceIncludeTax,
+    String? kitchenNote,
     List<ManualChargeRequestDto>? manualCharges,
     Customer? customer,
     String? tableCaption,
@@ -228,6 +233,7 @@ class OrderRequestDto {
       customerType: customerType ?? this.customerType,
       customerTaxable: customerTaxable ?? this.customerTaxable,
       priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
+      kitchenNote: kitchenNote ?? this.kitchenNote,
       // إضافة الرسوم اليدوية
       manualCharges: manualCharges ?? this.manualCharges,
       customer: customer ?? this.customer,

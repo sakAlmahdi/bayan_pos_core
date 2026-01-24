@@ -112,6 +112,44 @@ class OrderEntityV2 extends Table {
   TextColumn get createdBy => text().nullable()();
   TextColumn get lastModifiedOn => text().nullable()();
   TextColumn get lastModifiedBy => text().nullable()();
+  TextColumn get openedOn => text().nullable()();
+  TextColumn get openedBy => text().nullable()();
+  TextColumn get closedOn => text().nullable()();
+  TextColumn get closedBy => text().nullable()();
+
+  // Print State Management Fields (added for POS printing and payment workflow)
+  /// حالة الطباعة: 0=غير مطبوع، 1=مطبوع قبل السداد، 2=مدفوع
+  IntColumn get printState =>
+      integer().nullable().withDefault(const Constant(0))();
+
+  /// عدد مرات الطباعة قبل السداد
+  IntColumn get prePaymentPrintCount =>
+      integer().nullable().withDefault(const Constant(0))();
+
+  /// تاريخ أول طباعة قبل السداد
+  DateTimeColumn get firstPrintedAt => dateTime().nullable()();
+
+  /// تاريخ آخر طباعة
+  DateTimeColumn get lastPrintedAt => dateTime().nullable()();
+
+  /// معرف آخر من قام بالطباعة
+  TextColumn get lastPrintedBy => text().nullable()();
+
+  /// هل الطلب مقفل ضد التعديل؟
+  BoolColumn get isLocked =>
+      boolean().nullable().withDefault(const Constant(false))();
+
+  /// تاريخ القفل
+  DateTimeColumn get lockedAt => dateTime().nullable()();
+
+  /// سبب إلغاء الطباعة
+  TextColumn get unprintReason => text().nullable()();
+
+  /// تاريخ إلغاء الطباعة
+  DateTimeColumn get unprintedAt => dateTime().nullable()();
+
+  /// من قام بإلغاء الطباعة
+  TextColumn get unprintedBy => text().nullable()();
 
   @override
   Set<Column<Object>>? get primaryKey => {orderRef};

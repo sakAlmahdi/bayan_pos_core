@@ -70,6 +70,37 @@ class OrderResponseDto {
   double? totalCalories;
   bool? priceIncludeTax;
 
+  // حقول الطباعة الجديدة
+  /// حالة الطباعة الحالية (0: غير مطبوع، 1: مطبوع، 2: مدفوع)
+  int? printState;
+
+  /// عدد مرات الطباعة قبل السداد
+  int? prePaymentPrintCount;
+
+  /// تاريخ أول طباعة قبل السداد
+  DateTime? firstPrintedAt;
+
+  /// تاريخ آخر طباعة
+  DateTime? lastPrintedAt;
+
+  /// معرف آخر من قام بالطباعة
+  String? lastPrintedBy;
+
+  /// هل الطلب مقفل ضد التعديل؟
+  bool? isLocked;
+
+  /// تاريخ القفل
+  DateTime? lockedAt;
+
+  /// سبب إلغاء الطباعة
+  String? unprintReason;
+
+  /// تاريخ إلغاء الطباعة
+  DateTime? unprintedAt;
+
+  /// من قام بإلغاء الطباعة
+  String? unprintedBy;
+
   // إضافة الرسوم اليدوية المحسوبة
   List<ManualChargeResponseDto>? manualCharges;
   double? manualChargesTotal;
@@ -91,6 +122,10 @@ class OrderResponseDto {
   String? createdBy;
   String? lastModifiedOn;
   String? lastModifiedBy;
+  String? openedOn;
+  String? openedBy;
+  String? closedOn;
+  String? closedBy;
 
   // الحقول المرتبطة بالمنتجات والخصومات
   OrderProductDiscountDto? discount;
@@ -166,6 +201,16 @@ class OrderResponseDto {
     this.serverChecksum,
     this.totalCalories,
     this.priceIncludeTax,
+    this.printState,
+    this.prePaymentPrintCount,
+    this.firstPrintedAt,
+    this.lastPrintedAt,
+    this.lastPrintedBy,
+    this.isLocked,
+    this.lockedAt,
+    this.unprintReason,
+    this.unprintedAt,
+    this.unprintedBy,
     this.customerId,
     this.customerJson,
     this.addressId,
@@ -177,6 +222,10 @@ class OrderResponseDto {
     this.createdBy,
     this.lastModifiedOn,
     this.lastModifiedBy,
+    this.openedOn,
+    this.openedBy,
+    this.closedOn,
+    this.closedBy,
     this.discount,
     this.products,
     this.promotion,
@@ -259,6 +308,24 @@ class OrderResponseDto {
       serverChecksum: json['serverChecksum'],
       totalCalories: double.tryParse(json['totalCalories'].toString()),
       priceIncludeTax: json['priceIncludeTax'],
+      printState: int.tryParse(json['printState'].toString()),
+      prePaymentPrintCount:
+          int.tryParse(json['prePaymentPrintCount'].toString()) ?? 0,
+      firstPrintedAt: json['firstPrintedAt'] != null
+          ? DateTime.parse(json['firstPrintedAt'])
+          : null,
+      lastPrintedAt: json['lastPrintedAt'] != null
+          ? DateTime.parse(json['lastPrintedAt'])
+          : null,
+      lastPrintedBy: json['lastPrintedBy'],
+      isLocked: json['isLocked'],
+      lockedAt:
+          json['lockedAt'] != null ? DateTime.parse(json['lockedAt']) : null,
+      unprintReason: json['unprintReason'],
+      unprintedAt: json['unprintedAt'] != null
+          ? DateTime.parse(json['unprintedAt'])
+          : null,
+      unprintedBy: json['unprintedBy'],
       customerId: json['customerId'],
       customerJson: json['customerJson'],
       addressId: json['addressId'],
@@ -270,6 +337,10 @@ class OrderResponseDto {
       createdBy: json['createdBy'],
       lastModifiedOn: json['lastModifiedOn'],
       lastModifiedBy: json['lastModifiedBy'],
+      openedOn: json['openedOn'],
+      openedBy: json['openedBy'],
+      closedOn: json['closedOn'],
+      closedBy: json['closedBy'],
       discount: json['discount'] != null
           ? OrderProductDiscountDto.fromJson(json['discount'])
           : null,
@@ -377,6 +448,16 @@ class OrderResponseDto {
       'serverChecksum': serverChecksum,
       'totalCalories': totalCalories,
       'priceIncludeTax': priceIncludeTax,
+      'printState': printState,
+      'prePaymentPrintCount': prePaymentPrintCount,
+      'firstPrintedAt': firstPrintedAt?.toIso8601String(),
+      'lastPrintedAt': lastPrintedAt?.toIso8601String(),
+      'lastPrintedBy': lastPrintedBy,
+      'isLocked': isLocked,
+      'lockedAt': lockedAt?.toIso8601String(),
+      'unprintReason': unprintReason,
+      'unprintedAt': unprintedAt?.toIso8601String(),
+      'unprintedBy': unprintedBy,
       'customerId': customerId,
       'customerJson': customerJson,
       'addressId': addressId,
@@ -388,6 +469,10 @@ class OrderResponseDto {
       'createdBy': createdBy,
       'lastModifiedOn': lastModifiedOn,
       'lastModifiedBy': lastModifiedBy,
+      'openedOn': openedOn,
+      'openedBy': openedBy,
+      'closedOn': closedOn,
+      'closedBy': closedBy,
       'discount': discount?.toJson(),
       'products': products?.map((e) => e.toJson()).toList(),
       'promotion': promotion?.toJson(),
@@ -458,6 +543,16 @@ class OrderResponseDto {
     String? serverChecksum,
     double? totalCalories,
     bool? priceIncludeTax,
+    int? printState,
+    int? prePaymentPrintCount,
+    DateTime? firstPrintedAt,
+    DateTime? lastPrintedAt,
+    String? lastPrintedBy,
+    bool? isLocked,
+    DateTime? lockedAt,
+    String? unprintReason,
+    DateTime? unprintedAt,
+    String? unprintedBy,
     String? customerId,
     Map<String, dynamic>? customerJson,
     String? addressId,
@@ -469,6 +564,10 @@ class OrderResponseDto {
     String? createdBy,
     String? lastModifiedOn,
     String? lastModifiedBy,
+    String? openedOn,
+    String? openedBy,
+    String? closedOn,
+    String? closedBy,
     OrderProductDiscountDto? discount,
     List<OrderProductResponseDto>? products,
     OrderPromotionAppliesDto? promotion,
@@ -544,6 +643,16 @@ class OrderResponseDto {
       serverChecksum: serverChecksum ?? this.serverChecksum,
       totalCalories: totalCalories ?? this.totalCalories,
       priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
+      printState: printState ?? this.printState,
+      prePaymentPrintCount: prePaymentPrintCount ?? this.prePaymentPrintCount,
+      firstPrintedAt: firstPrintedAt ?? this.firstPrintedAt,
+      lastPrintedAt: lastPrintedAt ?? this.lastPrintedAt,
+      lastPrintedBy: lastPrintedBy ?? this.lastPrintedBy,
+      isLocked: isLocked ?? this.isLocked,
+      lockedAt: lockedAt ?? this.lockedAt,
+      unprintReason: unprintReason ?? this.unprintReason,
+      unprintedAt: unprintedAt ?? this.unprintedAt,
+      unprintedBy: unprintedBy ?? this.unprintedBy,
       customerId: customerId ?? this.customerId,
       customerJson: customerJson ?? this.customerJson,
       addressId: addressId ?? this.addressId,
@@ -555,6 +664,10 @@ class OrderResponseDto {
       createdBy: createdBy ?? this.createdBy,
       lastModifiedOn: lastModifiedOn ?? this.lastModifiedOn,
       lastModifiedBy: lastModifiedBy ?? this.lastModifiedBy,
+      openedOn: openedOn ?? this.openedOn,
+      openedBy: openedBy ?? this.openedBy,
+      closedOn: closedOn ?? this.closedOn,
+      closedBy: closedBy ?? this.closedBy,
       discount: discount ?? this.discount,
       products: products ?? this.products,
       promotion: promotion ?? this.promotion,
