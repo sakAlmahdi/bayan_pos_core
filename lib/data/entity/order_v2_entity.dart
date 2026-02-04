@@ -126,6 +126,10 @@ class OrderEntityV2 extends Table {
   IntColumn get prePaymentPrintCount =>
       integer().nullable().withDefault(const Constant(0))();
 
+  /// عدد مرات الطباعة بعد السداد
+  IntColumn get postPaymentPrintCount =>
+      integer().nullable().withDefault(const Constant(0))();
+
   /// تاريخ أول طباعة قبل السداد
   DateTimeColumn get firstPrintedAt => dateTime().nullable()();
 
@@ -561,4 +565,26 @@ class OrderPaymentDetailV2 extends Table {
 
   @override
   Set<Column> get primaryKey => {orderRef, paymentId, key};
+}
+
+/// سجل عمليات الطباعة
+class OrderPrintHistoryV2 extends Table {
+  TextColumn get id => text()();
+  TextColumn get orderRef => text()
+      .nullable()
+      .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
+  DateTimeColumn get printedAt => dateTime().nullable()();
+  TextColumn get printedBy => text().nullable()();
+  TextColumn get printedByName => text().nullable()();
+  IntColumn get copyNumber => integer().nullable()();
+  BoolColumn get isPrePayment => boolean().nullable()();
+  TextColumn get printerName => text().nullable()();
+  BoolColumn get success => boolean().nullable()();
+  TextColumn get failureReason => text().nullable()();
+
+  /// نوع الوثيقة (Check, Invoice, etc.)
+  TextColumn get printType => text().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
 }

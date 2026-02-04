@@ -57,6 +57,7 @@ class SalesInvoiceTemplates {
   String? pointsMessage;
   String? fPointsMessage;
   bool? printCustomerPoints;
+  bool? printPaidStatus;
 
   SalesInvoiceTemplates({
     this.id,
@@ -109,6 +110,7 @@ class SalesInvoiceTemplates {
     this.pointsMessage,
     this.fPointsMessage,
     this.printCustomerPoints,
+    this.printPaidStatus,
   });
 
   SalesInvoiceTemplates.fromJson(Map<String, dynamic> json) {
@@ -178,6 +180,7 @@ class SalesInvoiceTemplates {
     pointsMessage = json['pointsMessage'];
     fPointsMessage = json['fPointsMessage'];
     printCustomerPoints = json['print_Customer_Points'];
+    printPaidStatus = json['print_Paid_Status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -237,6 +240,7 @@ class SalesInvoiceTemplates {
     data['pointsMessage'] = pointsMessage;
     data['fPointsMessage'] = fPointsMessage;
     data['print_Customer_Points'] = printCustomerPoints;
+    data['print_Paid_Status'] = printPaidStatus;
 
     return data;
   }

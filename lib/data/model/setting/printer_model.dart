@@ -24,12 +24,17 @@ class PrinterModel {
   final copyConfigs = ToMany<PrinterCopyConfigModel>();
 
   String? printerConnectionJson;
-  PrintDataFormat printDataFormat = PrintDataFormat.graphical;
+  int? printDataFormat;
 
   PrinterConnectionType get getConnectionType =>
       convertToPrinterConnectionType(connectionType);
 
   PrinterType get getPrinterType => convertStringToPrinterType(printerType);
+
+  PrintDataFormat get getPrintDataFormat => printDataFormat != null &&
+          printDataFormat! < PrintDataFormat.values.length
+      ? PrintDataFormat.values[printDataFormat!]
+      : PrintDataFormat.graphical;
 
   PrinterModel({
     this.id,
@@ -42,7 +47,7 @@ class PrinterModel {
     this.port,
     this.printerType,
     this.printTo,
-    this.printDataFormat = PrintDataFormat.graphical,
+    this.printDataFormat,
     this.printerConnectionJson,
   });
 
@@ -58,11 +63,12 @@ class PrinterModel {
     printerType = json['printerType'];
     printDataFormat = json['printDataFormat'] != null
         ? (json['printDataFormat'] is int
-            ? PrintDataFormat.values[json['printDataFormat']]
-            : PrintDataFormat.values.firstWhere(
-                (e) => e.name == json['printDataFormat'],
-                orElse: () => PrintDataFormat.graphical))
-        : PrintDataFormat.graphical;
+            ? json['printDataFormat']
+            : PrintDataFormat.values
+                .firstWhere((e) => e.name == json['printDataFormat'],
+                    orElse: () => PrintDataFormat.graphical)
+                .index)
+        : PrintDataFormat.graphical.index;
 
     printTo = json['printTo'];
     setting.target = json['setting'] != null
@@ -96,13 +102,13 @@ class PrinterModel {
     }
 
     if (printerConnectionJson != null) {
-      data['printerConnectionJson'] = printerConnectionJson;
+      try {
+        data['printerConnectionJson'] = jsonDecode(printerConnectionJson!);
+      } catch (e) {
+        data['printerConnectionJson'] = printerConnectionJson;
+      }
     }
-    data['printDataFormat'] = printDataFormat.name;
-    if (data['printerConnectionJson'] != null) {
-      printerConnectionJson =
-          jsonEncode(data['printerConnectionJson']).toString();
-    }
+    data['printDataFormat'] = printDataFormat;
     if (copyConfigs.isNotEmpty) {
       data['copyConfigs'] = copyConfigs.map((e) => e.toJson()).toList();
     }
@@ -199,7 +205,7 @@ enum PaperSize { mm80, mm58, mm57, mm40, mm38, mm32, mm29, mm26, mm24, mm21 }
 
 enum PrinterConnectionType { usb, bluetooth, network }
 
-convertToPrinterConnectionType(int? key) {
+PrinterConnectionType convertToPrinterConnectionType(int? key) {
   switch (key) {
     case 0:
       return PrinterConnectionType.usb;
@@ -207,5 +213,7 @@ convertToPrinterConnectionType(int? key) {
       return PrinterConnectionType.bluetooth;
     case 2:
       return PrinterConnectionType.network;
+    default:
+      return PrinterConnectionType.usb;
   }
 }

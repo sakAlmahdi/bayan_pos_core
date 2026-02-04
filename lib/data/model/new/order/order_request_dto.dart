@@ -38,6 +38,7 @@ class OrderRequestDto {
   int? numberVisitor;
 
   String? callNumber;
+  String? callName;
 
   String? parentOrderId;
   int? splitIndex;
@@ -79,6 +80,7 @@ class OrderRequestDto {
     this.tableId,
     this.numberVisitor,
     this.callNumber,
+    this.callName,
     this.parentOrderId,
     this.splitIndex,
     this.priceIncludeTax,
@@ -130,6 +132,7 @@ class OrderRequestDto {
       tableId: json['tableId'],
       numberVisitor: json['numberVisitor'],
       callNumber: json['callNumber'],
+      callName: json['callName'],
       parentOrderId: json['parentOrderId'],
       splitIndex: json['splitIndex'],
       priceIncludeTax: json['priceIncludeTax'],
@@ -179,6 +182,7 @@ class OrderRequestDto {
       'tableId': tableId,
       'numberVisitor': numberVisitor,
       'callNumber': callNumber,
+      'callName': callName,
       'parentOrderId': parentOrderId,
       'splitIndex': splitIndex,
       'priceIncludeTax': priceIncludeTax,
@@ -214,6 +218,7 @@ class OrderRequestDto {
     Customer? customer,
     String? tableCaption,
     DeliveryCompanyInfo? deliveryCompanyInfo,
+    String? callName,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -239,6 +244,7 @@ class OrderRequestDto {
       customer: customer ?? this.customer,
       tableCaption: tableCaption ?? this.tableCaption,
       deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
+      callName: callName ?? this.callName,
     );
   }
 }

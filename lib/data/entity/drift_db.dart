@@ -6,6 +6,7 @@ import 'package:bayan_pos_core/data/entity/product_qty_entity.dart';
 import 'package:bayan_pos_core/data/entity/settings_entity.dart';
 import 'package:bayan_pos_core/data/entity/shift_entity.dart';
 import 'package:bayan_pos_core/data/entity/till_entity.dart';
+import 'package:bayan_pos_core/data/entity/end_of_day_entity.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
@@ -54,6 +55,8 @@ part 'drift_db.g.dart';
   OrderPaymentDetailV2,
   TableAssignments,
   AuditLogs,
+  OrderPrintHistoryV2,
+  EndOfDayEntity,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -217,11 +220,30 @@ class MyDatabase extends _$MyDatabase {
                 'ALTER TABLE order_entity_v2 ADD COLUMN last_modified_by TEXT');
           } catch (_) {}
         }
+
+        if (from < 42) {
+          await m.createTable(orderPrintHistoryV2);
+        }
+
+        if (from < 43) {
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN post_payment_print_count INTEGER');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_print_history_v2 ADD COLUMN print_type TEXT');
+          } catch (_) {}
+        }
+
+        // إضافة جدول إنهاء اليوم
+        if (from < 44) {
+          await m.createTable(endOfDayEntity);
+        }
       });
 
   @override
-  int get schemaVersion =>
-      41; // تحديث إصدار المخطط - إضافة جداول مسؤول الطاولة وسجلات التدقيق
+  int get schemaVersion => 44; // تحديث إصدار المخطط - إضافة جدول إنهاء اليوم
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

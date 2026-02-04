@@ -179,6 +179,14 @@ class OrderC {
     String? customerName,
     String? customerPhone,
     bool? priceIncludeTax,
+    int? printState,
+    int? prePaymentPrintCount,
+    DateTime? firstPrintedAt,
+    DateTime? lastPrintedAt,
+    String? printedBy,
+    String? unprintReason,
+    String? unprintedBy,
+    DateTime? unprintedAt,
   }) {
     return OrderC()
       ..posTransactionType = posTransactionType ?? this.posTransactionType

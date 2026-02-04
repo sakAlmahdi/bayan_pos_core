@@ -10331,6 +10331,14 @@ class $OrderEntityV2Table extends OrderEntityV2
       type: DriftSqlType.int,
       requiredDuringInsert: false,
       defaultValue: const Constant(0));
+  static const VerificationMeta _postPaymentPrintCountMeta =
+      const VerificationMeta('postPaymentPrintCount');
+  @override
+  late final GeneratedColumn<int> postPaymentPrintCount = GeneratedColumn<int>(
+      'post_payment_print_count', aliasedName, true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
   static const VerificationMeta _firstPrintedAtMeta =
       const VerificationMeta('firstPrintedAt');
   @override
@@ -10454,6 +10462,7 @@ class $OrderEntityV2Table extends OrderEntityV2
         closedBy,
         printState,
         prePaymentPrintCount,
+        postPaymentPrintCount,
         firstPrintedAt,
         lastPrintedAt,
         lastPrintedBy,
@@ -10831,6 +10840,12 @@ class $OrderEntityV2Table extends OrderEntityV2
           prePaymentPrintCount.isAcceptableOrUnknown(
               data['pre_payment_print_count']!, _prePaymentPrintCountMeta));
     }
+    if (data.containsKey('post_payment_print_count')) {
+      context.handle(
+          _postPaymentPrintCountMeta,
+          postPaymentPrintCount.isAcceptableOrUnknown(
+              data['post_payment_print_count']!, _postPaymentPrintCountMeta));
+    }
     if (data.containsKey('first_printed_at')) {
       context.handle(
           _firstPrintedAtMeta,
@@ -11034,6 +11049,8 @@ class $OrderEntityV2Table extends OrderEntityV2
           .read(DriftSqlType.int, data['${effectivePrefix}print_state']),
       prePaymentPrintCount: attachedDatabase.typeMapping.read(
           DriftSqlType.int, data['${effectivePrefix}pre_payment_print_count']),
+      postPaymentPrintCount: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}post_payment_print_count']),
       firstPrintedAt: attachedDatabase.typeMapping.read(
           DriftSqlType.dateTime, data['${effectivePrefix}first_printed_at']),
       lastPrintedAt: attachedDatabase.typeMapping.read(
@@ -11144,6 +11161,9 @@ class OrderEntityV2Data extends DataClass
   /// عدد مرات الطباعة قبل السداد
   final int? prePaymentPrintCount;
 
+  /// عدد مرات الطباعة بعد السداد
+  final int? postPaymentPrintCount;
+
   /// تاريخ أول طباعة قبل السداد
   final DateTime? firstPrintedAt;
 
@@ -11237,6 +11257,7 @@ class OrderEntityV2Data extends DataClass
       this.closedBy,
       this.printState,
       this.prePaymentPrintCount,
+      this.postPaymentPrintCount,
       this.firstPrintedAt,
       this.lastPrintedAt,
       this.lastPrintedBy,
@@ -11455,6 +11476,9 @@ class OrderEntityV2Data extends DataClass
     }
     if (!nullToAbsent || prePaymentPrintCount != null) {
       map['pre_payment_print_count'] = Variable<int>(prePaymentPrintCount);
+    }
+    if (!nullToAbsent || postPaymentPrintCount != null) {
+      map['post_payment_print_count'] = Variable<int>(postPaymentPrintCount);
     }
     if (!nullToAbsent || firstPrintedAt != null) {
       map['first_printed_at'] = Variable<DateTime>(firstPrintedAt);
@@ -11681,6 +11705,9 @@ class OrderEntityV2Data extends DataClass
       prePaymentPrintCount: prePaymentPrintCount == null && nullToAbsent
           ? const Value.absent()
           : Value(prePaymentPrintCount),
+      postPaymentPrintCount: postPaymentPrintCount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(postPaymentPrintCount),
       firstPrintedAt: firstPrintedAt == null && nullToAbsent
           ? const Value.absent()
           : Value(firstPrintedAt),
@@ -11792,6 +11819,8 @@ class OrderEntityV2Data extends DataClass
       printState: serializer.fromJson<int?>(json['printState']),
       prePaymentPrintCount:
           serializer.fromJson<int?>(json['prePaymentPrintCount']),
+      postPaymentPrintCount:
+          serializer.fromJson<int?>(json['postPaymentPrintCount']),
       firstPrintedAt: serializer.fromJson<DateTime?>(json['firstPrintedAt']),
       lastPrintedAt: serializer.fromJson<DateTime?>(json['lastPrintedAt']),
       lastPrintedBy: serializer.fromJson<String?>(json['lastPrintedBy']),
@@ -11883,6 +11912,7 @@ class OrderEntityV2Data extends DataClass
       'closedBy': serializer.toJson<String?>(closedBy),
       'printState': serializer.toJson<int?>(printState),
       'prePaymentPrintCount': serializer.toJson<int?>(prePaymentPrintCount),
+      'postPaymentPrintCount': serializer.toJson<int?>(postPaymentPrintCount),
       'firstPrintedAt': serializer.toJson<DateTime?>(firstPrintedAt),
       'lastPrintedAt': serializer.toJson<DateTime?>(lastPrintedAt),
       'lastPrintedBy': serializer.toJson<String?>(lastPrintedBy),
@@ -11964,6 +11994,7 @@ class OrderEntityV2Data extends DataClass
           Value<String?> closedBy = const Value.absent(),
           Value<int?> printState = const Value.absent(),
           Value<int?> prePaymentPrintCount = const Value.absent(),
+          Value<int?> postPaymentPrintCount = const Value.absent(),
           Value<DateTime?> firstPrintedAt = const Value.absent(),
           Value<DateTime?> lastPrintedAt = const Value.absent(),
           Value<String?> lastPrintedBy = const Value.absent(),
@@ -12088,6 +12119,9 @@ class OrderEntityV2Data extends DataClass
         prePaymentPrintCount: prePaymentPrintCount.present
             ? prePaymentPrintCount.value
             : this.prePaymentPrintCount,
+        postPaymentPrintCount: postPaymentPrintCount.present
+            ? postPaymentPrintCount.value
+            : this.postPaymentPrintCount,
         firstPrintedAt:
             firstPrintedAt.present ? firstPrintedAt.value : this.firstPrintedAt,
         lastPrintedAt:
@@ -12254,6 +12288,9 @@ class OrderEntityV2Data extends DataClass
       prePaymentPrintCount: data.prePaymentPrintCount.present
           ? data.prePaymentPrintCount.value
           : this.prePaymentPrintCount,
+      postPaymentPrintCount: data.postPaymentPrintCount.present
+          ? data.postPaymentPrintCount.value
+          : this.postPaymentPrintCount,
       firstPrintedAt: data.firstPrintedAt.present
           ? data.firstPrintedAt.value
           : this.firstPrintedAt,
@@ -12347,6 +12384,7 @@ class OrderEntityV2Data extends DataClass
           ..write('closedBy: $closedBy, ')
           ..write('printState: $printState, ')
           ..write('prePaymentPrintCount: $prePaymentPrintCount, ')
+          ..write('postPaymentPrintCount: $postPaymentPrintCount, ')
           ..write('firstPrintedAt: $firstPrintedAt, ')
           ..write('lastPrintedAt: $lastPrintedAt, ')
           ..write('lastPrintedBy: $lastPrintedBy, ')
@@ -12430,6 +12468,7 @@ class OrderEntityV2Data extends DataClass
         closedBy,
         printState,
         prePaymentPrintCount,
+        postPaymentPrintCount,
         firstPrintedAt,
         lastPrintedAt,
         lastPrintedBy,
@@ -12512,6 +12551,7 @@ class OrderEntityV2Data extends DataClass
           other.closedBy == this.closedBy &&
           other.printState == this.printState &&
           other.prePaymentPrintCount == this.prePaymentPrintCount &&
+          other.postPaymentPrintCount == this.postPaymentPrintCount &&
           other.firstPrintedAt == this.firstPrintedAt &&
           other.lastPrintedAt == this.lastPrintedAt &&
           other.lastPrintedBy == this.lastPrintedBy &&
@@ -12592,6 +12632,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<String?> closedBy;
   final Value<int?> printState;
   final Value<int?> prePaymentPrintCount;
+  final Value<int?> postPaymentPrintCount;
   final Value<DateTime?> firstPrintedAt;
   final Value<DateTime?> lastPrintedAt;
   final Value<String?> lastPrintedBy;
@@ -12671,6 +12712,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.closedBy = const Value.absent(),
     this.printState = const Value.absent(),
     this.prePaymentPrintCount = const Value.absent(),
+    this.postPaymentPrintCount = const Value.absent(),
     this.firstPrintedAt = const Value.absent(),
     this.lastPrintedAt = const Value.absent(),
     this.lastPrintedBy = const Value.absent(),
@@ -12751,6 +12793,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.closedBy = const Value.absent(),
     this.printState = const Value.absent(),
     this.prePaymentPrintCount = const Value.absent(),
+    this.postPaymentPrintCount = const Value.absent(),
     this.firstPrintedAt = const Value.absent(),
     this.lastPrintedAt = const Value.absent(),
     this.lastPrintedBy = const Value.absent(),
@@ -12834,6 +12877,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<String>? closedBy,
     Expression<int>? printState,
     Expression<int>? prePaymentPrintCount,
+    Expression<int>? postPaymentPrintCount,
     Expression<DateTime>? firstPrintedAt,
     Expression<DateTime>? lastPrintedAt,
     Expression<String>? lastPrintedBy,
@@ -12924,6 +12968,8 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       if (printState != null) 'print_state': printState,
       if (prePaymentPrintCount != null)
         'pre_payment_print_count': prePaymentPrintCount,
+      if (postPaymentPrintCount != null)
+        'post_payment_print_count': postPaymentPrintCount,
       if (firstPrintedAt != null) 'first_printed_at': firstPrintedAt,
       if (lastPrintedAt != null) 'last_printed_at': lastPrintedAt,
       if (lastPrintedBy != null) 'last_printed_by': lastPrintedBy,
@@ -13006,6 +13052,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<String?>? closedBy,
       Value<int?>? printState,
       Value<int?>? prePaymentPrintCount,
+      Value<int?>? postPaymentPrintCount,
       Value<DateTime?>? firstPrintedAt,
       Value<DateTime?>? lastPrintedAt,
       Value<String?>? lastPrintedBy,
@@ -13093,6 +13140,8 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       closedBy: closedBy ?? this.closedBy,
       printState: printState ?? this.printState,
       prePaymentPrintCount: prePaymentPrintCount ?? this.prePaymentPrintCount,
+      postPaymentPrintCount:
+          postPaymentPrintCount ?? this.postPaymentPrintCount,
       firstPrintedAt: firstPrintedAt ?? this.firstPrintedAt,
       lastPrintedAt: lastPrintedAt ?? this.lastPrintedAt,
       lastPrintedBy: lastPrintedBy ?? this.lastPrintedBy,
@@ -13330,6 +13379,10 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       map['pre_payment_print_count'] =
           Variable<int>(prePaymentPrintCount.value);
     }
+    if (postPaymentPrintCount.present) {
+      map['post_payment_print_count'] =
+          Variable<int>(postPaymentPrintCount.value);
+    }
     if (firstPrintedAt.present) {
       map['first_printed_at'] = Variable<DateTime>(firstPrintedAt.value);
     }
@@ -13432,6 +13485,7 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
           ..write('closedBy: $closedBy, ')
           ..write('printState: $printState, ')
           ..write('prePaymentPrintCount: $prePaymentPrintCount, ')
+          ..write('postPaymentPrintCount: $postPaymentPrintCount, ')
           ..write('firstPrintedAt: $firstPrintedAt, ')
           ..write('lastPrintedAt: $lastPrintedAt, ')
           ..write('lastPrintedBy: $lastPrintedBy, ')
@@ -25709,6 +25763,1724 @@ class AuditLogsCompanion extends UpdateCompanion<AuditLog> {
   }
 }
 
+class $OrderPrintHistoryV2Table extends OrderPrintHistoryV2
+    with TableInfo<$OrderPrintHistoryV2Table, OrderPrintHistoryV2Data> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $OrderPrintHistoryV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _orderRefMeta =
+      const VerificationMeta('orderRef');
+  @override
+  late final GeneratedColumn<String> orderRef = GeneratedColumn<String>(
+      'order_ref', aliasedName, true,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES order_entity_v2 (order_ref) ON DELETE CASCADE'));
+  static const VerificationMeta _printedAtMeta =
+      const VerificationMeta('printedAt');
+  @override
+  late final GeneratedColumn<DateTime> printedAt = GeneratedColumn<DateTime>(
+      'printed_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _printedByMeta =
+      const VerificationMeta('printedBy');
+  @override
+  late final GeneratedColumn<String> printedBy = GeneratedColumn<String>(
+      'printed_by', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _printedByNameMeta =
+      const VerificationMeta('printedByName');
+  @override
+  late final GeneratedColumn<String> printedByName = GeneratedColumn<String>(
+      'printed_by_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _copyNumberMeta =
+      const VerificationMeta('copyNumber');
+  @override
+  late final GeneratedColumn<int> copyNumber = GeneratedColumn<int>(
+      'copy_number', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _isPrePaymentMeta =
+      const VerificationMeta('isPrePayment');
+  @override
+  late final GeneratedColumn<bool> isPrePayment = GeneratedColumn<bool>(
+      'is_pre_payment', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("is_pre_payment" IN (0, 1))'));
+  static const VerificationMeta _printerNameMeta =
+      const VerificationMeta('printerName');
+  @override
+  late final GeneratedColumn<String> printerName = GeneratedColumn<String>(
+      'printer_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _successMeta =
+      const VerificationMeta('success');
+  @override
+  late final GeneratedColumn<bool> success = GeneratedColumn<bool>(
+      'success', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("success" IN (0, 1))'));
+  static const VerificationMeta _failureReasonMeta =
+      const VerificationMeta('failureReason');
+  @override
+  late final GeneratedColumn<String> failureReason = GeneratedColumn<String>(
+      'failure_reason', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _printTypeMeta =
+      const VerificationMeta('printType');
+  @override
+  late final GeneratedColumn<String> printType = GeneratedColumn<String>(
+      'print_type', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        orderRef,
+        printedAt,
+        printedBy,
+        printedByName,
+        copyNumber,
+        isPrePayment,
+        printerName,
+        success,
+        failureReason,
+        printType
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'order_print_history_v2';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<OrderPrintHistoryV2Data> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('order_ref')) {
+      context.handle(_orderRefMeta,
+          orderRef.isAcceptableOrUnknown(data['order_ref']!, _orderRefMeta));
+    }
+    if (data.containsKey('printed_at')) {
+      context.handle(_printedAtMeta,
+          printedAt.isAcceptableOrUnknown(data['printed_at']!, _printedAtMeta));
+    }
+    if (data.containsKey('printed_by')) {
+      context.handle(_printedByMeta,
+          printedBy.isAcceptableOrUnknown(data['printed_by']!, _printedByMeta));
+    }
+    if (data.containsKey('printed_by_name')) {
+      context.handle(
+          _printedByNameMeta,
+          printedByName.isAcceptableOrUnknown(
+              data['printed_by_name']!, _printedByNameMeta));
+    }
+    if (data.containsKey('copy_number')) {
+      context.handle(
+          _copyNumberMeta,
+          copyNumber.isAcceptableOrUnknown(
+              data['copy_number']!, _copyNumberMeta));
+    }
+    if (data.containsKey('is_pre_payment')) {
+      context.handle(
+          _isPrePaymentMeta,
+          isPrePayment.isAcceptableOrUnknown(
+              data['is_pre_payment']!, _isPrePaymentMeta));
+    }
+    if (data.containsKey('printer_name')) {
+      context.handle(
+          _printerNameMeta,
+          printerName.isAcceptableOrUnknown(
+              data['printer_name']!, _printerNameMeta));
+    }
+    if (data.containsKey('success')) {
+      context.handle(_successMeta,
+          success.isAcceptableOrUnknown(data['success']!, _successMeta));
+    }
+    if (data.containsKey('failure_reason')) {
+      context.handle(
+          _failureReasonMeta,
+          failureReason.isAcceptableOrUnknown(
+              data['failure_reason']!, _failureReasonMeta));
+    }
+    if (data.containsKey('print_type')) {
+      context.handle(_printTypeMeta,
+          printType.isAcceptableOrUnknown(data['print_type']!, _printTypeMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  OrderPrintHistoryV2Data map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return OrderPrintHistoryV2Data(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      orderRef: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
+      printedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}printed_at']),
+      printedBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}printed_by']),
+      printedByName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}printed_by_name']),
+      copyNumber: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}copy_number']),
+      isPrePayment: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_pre_payment']),
+      printerName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}printer_name']),
+      success: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}success']),
+      failureReason: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}failure_reason']),
+      printType: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}print_type']),
+    );
+  }
+
+  @override
+  $OrderPrintHistoryV2Table createAlias(String alias) {
+    return $OrderPrintHistoryV2Table(attachedDatabase, alias);
+  }
+}
+
+class OrderPrintHistoryV2Data extends DataClass
+    implements Insertable<OrderPrintHistoryV2Data> {
+  final String id;
+  final String? orderRef;
+  final DateTime? printedAt;
+  final String? printedBy;
+  final String? printedByName;
+  final int? copyNumber;
+  final bool? isPrePayment;
+  final String? printerName;
+  final bool? success;
+  final String? failureReason;
+
+  /// نوع الوثيقة (Check, Invoice, etc.)
+  final String? printType;
+  const OrderPrintHistoryV2Data(
+      {required this.id,
+      this.orderRef,
+      this.printedAt,
+      this.printedBy,
+      this.printedByName,
+      this.copyNumber,
+      this.isPrePayment,
+      this.printerName,
+      this.success,
+      this.failureReason,
+      this.printType});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    if (!nullToAbsent || orderRef != null) {
+      map['order_ref'] = Variable<String>(orderRef);
+    }
+    if (!nullToAbsent || printedAt != null) {
+      map['printed_at'] = Variable<DateTime>(printedAt);
+    }
+    if (!nullToAbsent || printedBy != null) {
+      map['printed_by'] = Variable<String>(printedBy);
+    }
+    if (!nullToAbsent || printedByName != null) {
+      map['printed_by_name'] = Variable<String>(printedByName);
+    }
+    if (!nullToAbsent || copyNumber != null) {
+      map['copy_number'] = Variable<int>(copyNumber);
+    }
+    if (!nullToAbsent || isPrePayment != null) {
+      map['is_pre_payment'] = Variable<bool>(isPrePayment);
+    }
+    if (!nullToAbsent || printerName != null) {
+      map['printer_name'] = Variable<String>(printerName);
+    }
+    if (!nullToAbsent || success != null) {
+      map['success'] = Variable<bool>(success);
+    }
+    if (!nullToAbsent || failureReason != null) {
+      map['failure_reason'] = Variable<String>(failureReason);
+    }
+    if (!nullToAbsent || printType != null) {
+      map['print_type'] = Variable<String>(printType);
+    }
+    return map;
+  }
+
+  OrderPrintHistoryV2Companion toCompanion(bool nullToAbsent) {
+    return OrderPrintHistoryV2Companion(
+      id: Value(id),
+      orderRef: orderRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderRef),
+      printedAt: printedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(printedAt),
+      printedBy: printedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(printedBy),
+      printedByName: printedByName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(printedByName),
+      copyNumber: copyNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(copyNumber),
+      isPrePayment: isPrePayment == null && nullToAbsent
+          ? const Value.absent()
+          : Value(isPrePayment),
+      printerName: printerName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(printerName),
+      success: success == null && nullToAbsent
+          ? const Value.absent()
+          : Value(success),
+      failureReason: failureReason == null && nullToAbsent
+          ? const Value.absent()
+          : Value(failureReason),
+      printType: printType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(printType),
+    );
+  }
+
+  factory OrderPrintHistoryV2Data.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return OrderPrintHistoryV2Data(
+      id: serializer.fromJson<String>(json['id']),
+      orderRef: serializer.fromJson<String?>(json['orderRef']),
+      printedAt: serializer.fromJson<DateTime?>(json['printedAt']),
+      printedBy: serializer.fromJson<String?>(json['printedBy']),
+      printedByName: serializer.fromJson<String?>(json['printedByName']),
+      copyNumber: serializer.fromJson<int?>(json['copyNumber']),
+      isPrePayment: serializer.fromJson<bool?>(json['isPrePayment']),
+      printerName: serializer.fromJson<String?>(json['printerName']),
+      success: serializer.fromJson<bool?>(json['success']),
+      failureReason: serializer.fromJson<String?>(json['failureReason']),
+      printType: serializer.fromJson<String?>(json['printType']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'orderRef': serializer.toJson<String?>(orderRef),
+      'printedAt': serializer.toJson<DateTime?>(printedAt),
+      'printedBy': serializer.toJson<String?>(printedBy),
+      'printedByName': serializer.toJson<String?>(printedByName),
+      'copyNumber': serializer.toJson<int?>(copyNumber),
+      'isPrePayment': serializer.toJson<bool?>(isPrePayment),
+      'printerName': serializer.toJson<String?>(printerName),
+      'success': serializer.toJson<bool?>(success),
+      'failureReason': serializer.toJson<String?>(failureReason),
+      'printType': serializer.toJson<String?>(printType),
+    };
+  }
+
+  OrderPrintHistoryV2Data copyWith(
+          {String? id,
+          Value<String?> orderRef = const Value.absent(),
+          Value<DateTime?> printedAt = const Value.absent(),
+          Value<String?> printedBy = const Value.absent(),
+          Value<String?> printedByName = const Value.absent(),
+          Value<int?> copyNumber = const Value.absent(),
+          Value<bool?> isPrePayment = const Value.absent(),
+          Value<String?> printerName = const Value.absent(),
+          Value<bool?> success = const Value.absent(),
+          Value<String?> failureReason = const Value.absent(),
+          Value<String?> printType = const Value.absent()}) =>
+      OrderPrintHistoryV2Data(
+        id: id ?? this.id,
+        orderRef: orderRef.present ? orderRef.value : this.orderRef,
+        printedAt: printedAt.present ? printedAt.value : this.printedAt,
+        printedBy: printedBy.present ? printedBy.value : this.printedBy,
+        printedByName:
+            printedByName.present ? printedByName.value : this.printedByName,
+        copyNumber: copyNumber.present ? copyNumber.value : this.copyNumber,
+        isPrePayment:
+            isPrePayment.present ? isPrePayment.value : this.isPrePayment,
+        printerName: printerName.present ? printerName.value : this.printerName,
+        success: success.present ? success.value : this.success,
+        failureReason:
+            failureReason.present ? failureReason.value : this.failureReason,
+        printType: printType.present ? printType.value : this.printType,
+      );
+  OrderPrintHistoryV2Data copyWithCompanion(OrderPrintHistoryV2Companion data) {
+    return OrderPrintHistoryV2Data(
+      id: data.id.present ? data.id.value : this.id,
+      orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
+      printedAt: data.printedAt.present ? data.printedAt.value : this.printedAt,
+      printedBy: data.printedBy.present ? data.printedBy.value : this.printedBy,
+      printedByName: data.printedByName.present
+          ? data.printedByName.value
+          : this.printedByName,
+      copyNumber:
+          data.copyNumber.present ? data.copyNumber.value : this.copyNumber,
+      isPrePayment: data.isPrePayment.present
+          ? data.isPrePayment.value
+          : this.isPrePayment,
+      printerName:
+          data.printerName.present ? data.printerName.value : this.printerName,
+      success: data.success.present ? data.success.value : this.success,
+      failureReason: data.failureReason.present
+          ? data.failureReason.value
+          : this.failureReason,
+      printType: data.printType.present ? data.printType.value : this.printType,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OrderPrintHistoryV2Data(')
+          ..write('id: $id, ')
+          ..write('orderRef: $orderRef, ')
+          ..write('printedAt: $printedAt, ')
+          ..write('printedBy: $printedBy, ')
+          ..write('printedByName: $printedByName, ')
+          ..write('copyNumber: $copyNumber, ')
+          ..write('isPrePayment: $isPrePayment, ')
+          ..write('printerName: $printerName, ')
+          ..write('success: $success, ')
+          ..write('failureReason: $failureReason, ')
+          ..write('printType: $printType')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id,
+      orderRef,
+      printedAt,
+      printedBy,
+      printedByName,
+      copyNumber,
+      isPrePayment,
+      printerName,
+      success,
+      failureReason,
+      printType);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is OrderPrintHistoryV2Data &&
+          other.id == this.id &&
+          other.orderRef == this.orderRef &&
+          other.printedAt == this.printedAt &&
+          other.printedBy == this.printedBy &&
+          other.printedByName == this.printedByName &&
+          other.copyNumber == this.copyNumber &&
+          other.isPrePayment == this.isPrePayment &&
+          other.printerName == this.printerName &&
+          other.success == this.success &&
+          other.failureReason == this.failureReason &&
+          other.printType == this.printType);
+}
+
+class OrderPrintHistoryV2Companion
+    extends UpdateCompanion<OrderPrintHistoryV2Data> {
+  final Value<String> id;
+  final Value<String?> orderRef;
+  final Value<DateTime?> printedAt;
+  final Value<String?> printedBy;
+  final Value<String?> printedByName;
+  final Value<int?> copyNumber;
+  final Value<bool?> isPrePayment;
+  final Value<String?> printerName;
+  final Value<bool?> success;
+  final Value<String?> failureReason;
+  final Value<String?> printType;
+  final Value<int> rowid;
+  const OrderPrintHistoryV2Companion({
+    this.id = const Value.absent(),
+    this.orderRef = const Value.absent(),
+    this.printedAt = const Value.absent(),
+    this.printedBy = const Value.absent(),
+    this.printedByName = const Value.absent(),
+    this.copyNumber = const Value.absent(),
+    this.isPrePayment = const Value.absent(),
+    this.printerName = const Value.absent(),
+    this.success = const Value.absent(),
+    this.failureReason = const Value.absent(),
+    this.printType = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  OrderPrintHistoryV2Companion.insert({
+    required String id,
+    this.orderRef = const Value.absent(),
+    this.printedAt = const Value.absent(),
+    this.printedBy = const Value.absent(),
+    this.printedByName = const Value.absent(),
+    this.copyNumber = const Value.absent(),
+    this.isPrePayment = const Value.absent(),
+    this.printerName = const Value.absent(),
+    this.success = const Value.absent(),
+    this.failureReason = const Value.absent(),
+    this.printType = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id);
+  static Insertable<OrderPrintHistoryV2Data> custom({
+    Expression<String>? id,
+    Expression<String>? orderRef,
+    Expression<DateTime>? printedAt,
+    Expression<String>? printedBy,
+    Expression<String>? printedByName,
+    Expression<int>? copyNumber,
+    Expression<bool>? isPrePayment,
+    Expression<String>? printerName,
+    Expression<bool>? success,
+    Expression<String>? failureReason,
+    Expression<String>? printType,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (orderRef != null) 'order_ref': orderRef,
+      if (printedAt != null) 'printed_at': printedAt,
+      if (printedBy != null) 'printed_by': printedBy,
+      if (printedByName != null) 'printed_by_name': printedByName,
+      if (copyNumber != null) 'copy_number': copyNumber,
+      if (isPrePayment != null) 'is_pre_payment': isPrePayment,
+      if (printerName != null) 'printer_name': printerName,
+      if (success != null) 'success': success,
+      if (failureReason != null) 'failure_reason': failureReason,
+      if (printType != null) 'print_type': printType,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  OrderPrintHistoryV2Companion copyWith(
+      {Value<String>? id,
+      Value<String?>? orderRef,
+      Value<DateTime?>? printedAt,
+      Value<String?>? printedBy,
+      Value<String?>? printedByName,
+      Value<int?>? copyNumber,
+      Value<bool?>? isPrePayment,
+      Value<String?>? printerName,
+      Value<bool?>? success,
+      Value<String?>? failureReason,
+      Value<String?>? printType,
+      Value<int>? rowid}) {
+    return OrderPrintHistoryV2Companion(
+      id: id ?? this.id,
+      orderRef: orderRef ?? this.orderRef,
+      printedAt: printedAt ?? this.printedAt,
+      printedBy: printedBy ?? this.printedBy,
+      printedByName: printedByName ?? this.printedByName,
+      copyNumber: copyNumber ?? this.copyNumber,
+      isPrePayment: isPrePayment ?? this.isPrePayment,
+      printerName: printerName ?? this.printerName,
+      success: success ?? this.success,
+      failureReason: failureReason ?? this.failureReason,
+      printType: printType ?? this.printType,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (orderRef.present) {
+      map['order_ref'] = Variable<String>(orderRef.value);
+    }
+    if (printedAt.present) {
+      map['printed_at'] = Variable<DateTime>(printedAt.value);
+    }
+    if (printedBy.present) {
+      map['printed_by'] = Variable<String>(printedBy.value);
+    }
+    if (printedByName.present) {
+      map['printed_by_name'] = Variable<String>(printedByName.value);
+    }
+    if (copyNumber.present) {
+      map['copy_number'] = Variable<int>(copyNumber.value);
+    }
+    if (isPrePayment.present) {
+      map['is_pre_payment'] = Variable<bool>(isPrePayment.value);
+    }
+    if (printerName.present) {
+      map['printer_name'] = Variable<String>(printerName.value);
+    }
+    if (success.present) {
+      map['success'] = Variable<bool>(success.value);
+    }
+    if (failureReason.present) {
+      map['failure_reason'] = Variable<String>(failureReason.value);
+    }
+    if (printType.present) {
+      map['print_type'] = Variable<String>(printType.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('OrderPrintHistoryV2Companion(')
+          ..write('id: $id, ')
+          ..write('orderRef: $orderRef, ')
+          ..write('printedAt: $printedAt, ')
+          ..write('printedBy: $printedBy, ')
+          ..write('printedByName: $printedByName, ')
+          ..write('copyNumber: $copyNumber, ')
+          ..write('isPrePayment: $isPrePayment, ')
+          ..write('printerName: $printerName, ')
+          ..write('success: $success, ')
+          ..write('failureReason: $failureReason, ')
+          ..write('printType: $printType, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $EndOfDayEntityTable extends EndOfDayEntity
+    with TableInfo<$EndOfDayEntityTable, EndOfDayEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $EndOfDayEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _eodIdMeta = const VerificationMeta('eodId');
+  @override
+  late final GeneratedColumn<String> eodId = GeneratedColumn<String>(
+      'eod_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _businessDateMeta =
+      const VerificationMeta('businessDate');
+  @override
+  late final GeneratedColumn<DateTime> businessDate = GeneratedColumn<DateTime>(
+      'business_date', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _completedAtMeta =
+      const VerificationMeta('completedAt');
+  @override
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+      'completed_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _completedByMeta =
+      const VerificationMeta('completedBy');
+  @override
+  late final GeneratedColumn<String> completedBy = GeneratedColumn<String>(
+      'completed_by', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _deviceIdMeta =
+      const VerificationMeta('deviceId');
+  @override
+  late final GeneratedColumn<String> deviceId = GeneratedColumn<String>(
+      'device_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _branchIdMeta =
+      const VerificationMeta('branchId');
+  @override
+  late final GeneratedColumn<String> branchId = GeneratedColumn<String>(
+      'branch_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _salesSummaryJsonMeta =
+      const VerificationMeta('salesSummaryJson');
+  @override
+  late final GeneratedColumn<String> salesSummaryJson = GeneratedColumn<String>(
+      'sales_summary_json', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _paymentsSummaryJsonMeta =
+      const VerificationMeta('paymentsSummaryJson');
+  @override
+  late final GeneratedColumn<String> paymentsSummaryJson =
+      GeneratedColumn<String>('payments_summary_json', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _returnsSummaryJsonMeta =
+      const VerificationMeta('returnsSummaryJson');
+  @override
+  late final GeneratedColumn<String> returnsSummaryJson =
+      GeneratedColumn<String>('returns_summary_json', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _discountsSummaryJsonMeta =
+      const VerificationMeta('discountsSummaryJson');
+  @override
+  late final GeneratedColumn<String> discountsSummaryJson =
+      GeneratedColumn<String>('discounts_summary_json', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _taxesSummaryJsonMeta =
+      const VerificationMeta('taxesSummaryJson');
+  @override
+  late final GeneratedColumn<String> taxesSummaryJson = GeneratedColumn<String>(
+      'taxes_summary_json', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _drawerOperationsSummaryJsonMeta =
+      const VerificationMeta('drawerOperationsSummaryJson');
+  @override
+  late final GeneratedColumn<String> drawerOperationsSummaryJson =
+      GeneratedColumn<String>(
+          'drawer_operations_summary_json', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _reconciliationSummaryJsonMeta =
+      const VerificationMeta('reconciliationSummaryJson');
+  @override
+  late final GeneratedColumn<String> reconciliationSummaryJson =
+      GeneratedColumn<String>('reconciliation_summary_json', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _tillsSummaryJsonMeta =
+      const VerificationMeta('tillsSummaryJson');
+  @override
+  late final GeneratedColumn<String> tillsSummaryJson = GeneratedColumn<String>(
+      'tills_summary_json', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _totalSalesMeta =
+      const VerificationMeta('totalSales');
+  @override
+  late final GeneratedColumn<double> totalSales = GeneratedColumn<double>(
+      'total_sales', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _totalPaymentsMeta =
+      const VerificationMeta('totalPayments');
+  @override
+  late final GeneratedColumn<double> totalPayments = GeneratedColumn<double>(
+      'total_payments', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _totalVarianceMeta =
+      const VerificationMeta('totalVariance');
+  @override
+  late final GeneratedColumn<double> totalVariance = GeneratedColumn<double>(
+      'total_variance', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _totalTillsClosedMeta =
+      const VerificationMeta('totalTillsClosed');
+  @override
+  late final GeneratedColumn<int> totalTillsClosed = GeneratedColumn<int>(
+      'total_tills_closed', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+      'status', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _alertsJsonMeta =
+      const VerificationMeta('alertsJson');
+  @override
+  late final GeneratedColumn<String> alertsJson = GeneratedColumn<String>(
+      'alerts_json', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _syncedAtMeta =
+      const VerificationMeta('syncedAt');
+  @override
+  late final GeneratedColumn<DateTime> syncedAt = GeneratedColumn<DateTime>(
+      'synced_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        eodId,
+        businessDate,
+        completedAt,
+        completedBy,
+        deviceId,
+        branchId,
+        salesSummaryJson,
+        paymentsSummaryJson,
+        returnsSummaryJson,
+        discountsSummaryJson,
+        taxesSummaryJson,
+        drawerOperationsSummaryJson,
+        reconciliationSummaryJson,
+        tillsSummaryJson,
+        totalSales,
+        totalPayments,
+        totalVariance,
+        totalTillsClosed,
+        status,
+        notes,
+        alertsJson,
+        createdAt,
+        syncedAt
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'end_of_day_entity';
+  @override
+  VerificationContext validateIntegrity(Insertable<EndOfDayEntityData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('eod_id')) {
+      context.handle(
+          _eodIdMeta, eodId.isAcceptableOrUnknown(data['eod_id']!, _eodIdMeta));
+    } else if (isInserting) {
+      context.missing(_eodIdMeta);
+    }
+    if (data.containsKey('business_date')) {
+      context.handle(
+          _businessDateMeta,
+          businessDate.isAcceptableOrUnknown(
+              data['business_date']!, _businessDateMeta));
+    } else if (isInserting) {
+      context.missing(_businessDateMeta);
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+          _completedAtMeta,
+          completedAt.isAcceptableOrUnknown(
+              data['completed_at']!, _completedAtMeta));
+    } else if (isInserting) {
+      context.missing(_completedAtMeta);
+    }
+    if (data.containsKey('completed_by')) {
+      context.handle(
+          _completedByMeta,
+          completedBy.isAcceptableOrUnknown(
+              data['completed_by']!, _completedByMeta));
+    } else if (isInserting) {
+      context.missing(_completedByMeta);
+    }
+    if (data.containsKey('device_id')) {
+      context.handle(_deviceIdMeta,
+          deviceId.isAcceptableOrUnknown(data['device_id']!, _deviceIdMeta));
+    }
+    if (data.containsKey('branch_id')) {
+      context.handle(_branchIdMeta,
+          branchId.isAcceptableOrUnknown(data['branch_id']!, _branchIdMeta));
+    }
+    if (data.containsKey('sales_summary_json')) {
+      context.handle(
+          _salesSummaryJsonMeta,
+          salesSummaryJson.isAcceptableOrUnknown(
+              data['sales_summary_json']!, _salesSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_salesSummaryJsonMeta);
+    }
+    if (data.containsKey('payments_summary_json')) {
+      context.handle(
+          _paymentsSummaryJsonMeta,
+          paymentsSummaryJson.isAcceptableOrUnknown(
+              data['payments_summary_json']!, _paymentsSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_paymentsSummaryJsonMeta);
+    }
+    if (data.containsKey('returns_summary_json')) {
+      context.handle(
+          _returnsSummaryJsonMeta,
+          returnsSummaryJson.isAcceptableOrUnknown(
+              data['returns_summary_json']!, _returnsSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_returnsSummaryJsonMeta);
+    }
+    if (data.containsKey('discounts_summary_json')) {
+      context.handle(
+          _discountsSummaryJsonMeta,
+          discountsSummaryJson.isAcceptableOrUnknown(
+              data['discounts_summary_json']!, _discountsSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_discountsSummaryJsonMeta);
+    }
+    if (data.containsKey('taxes_summary_json')) {
+      context.handle(
+          _taxesSummaryJsonMeta,
+          taxesSummaryJson.isAcceptableOrUnknown(
+              data['taxes_summary_json']!, _taxesSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_taxesSummaryJsonMeta);
+    }
+    if (data.containsKey('drawer_operations_summary_json')) {
+      context.handle(
+          _drawerOperationsSummaryJsonMeta,
+          drawerOperationsSummaryJson.isAcceptableOrUnknown(
+              data['drawer_operations_summary_json']!,
+              _drawerOperationsSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_drawerOperationsSummaryJsonMeta);
+    }
+    if (data.containsKey('reconciliation_summary_json')) {
+      context.handle(
+          _reconciliationSummaryJsonMeta,
+          reconciliationSummaryJson.isAcceptableOrUnknown(
+              data['reconciliation_summary_json']!,
+              _reconciliationSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_reconciliationSummaryJsonMeta);
+    }
+    if (data.containsKey('tills_summary_json')) {
+      context.handle(
+          _tillsSummaryJsonMeta,
+          tillsSummaryJson.isAcceptableOrUnknown(
+              data['tills_summary_json']!, _tillsSummaryJsonMeta));
+    } else if (isInserting) {
+      context.missing(_tillsSummaryJsonMeta);
+    }
+    if (data.containsKey('total_sales')) {
+      context.handle(
+          _totalSalesMeta,
+          totalSales.isAcceptableOrUnknown(
+              data['total_sales']!, _totalSalesMeta));
+    } else if (isInserting) {
+      context.missing(_totalSalesMeta);
+    }
+    if (data.containsKey('total_payments')) {
+      context.handle(
+          _totalPaymentsMeta,
+          totalPayments.isAcceptableOrUnknown(
+              data['total_payments']!, _totalPaymentsMeta));
+    } else if (isInserting) {
+      context.missing(_totalPaymentsMeta);
+    }
+    if (data.containsKey('total_variance')) {
+      context.handle(
+          _totalVarianceMeta,
+          totalVariance.isAcceptableOrUnknown(
+              data['total_variance']!, _totalVarianceMeta));
+    } else if (isInserting) {
+      context.missing(_totalVarianceMeta);
+    }
+    if (data.containsKey('total_tills_closed')) {
+      context.handle(
+          _totalTillsClosedMeta,
+          totalTillsClosed.isAcceptableOrUnknown(
+              data['total_tills_closed']!, _totalTillsClosedMeta));
+    }
+    if (data.containsKey('status')) {
+      context.handle(_statusMeta,
+          status.isAcceptableOrUnknown(data['status']!, _statusMeta));
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    if (data.containsKey('alerts_json')) {
+      context.handle(
+          _alertsJsonMeta,
+          alertsJson.isAcceptableOrUnknown(
+              data['alerts_json']!, _alertsJsonMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('synced_at')) {
+      context.handle(_syncedAtMeta,
+          syncedAt.isAcceptableOrUnknown(data['synced_at']!, _syncedAtMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {eodId};
+  @override
+  EndOfDayEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return EndOfDayEntityData(
+      eodId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}eod_id'])!,
+      businessDate: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}business_date'])!,
+      completedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}completed_at'])!,
+      completedBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}completed_by'])!,
+      deviceId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}device_id']),
+      branchId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}branch_id']),
+      salesSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}sales_summary_json'])!,
+      paymentsSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}payments_summary_json'])!,
+      returnsSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}returns_summary_json'])!,
+      discountsSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}discounts_summary_json'])!,
+      taxesSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}taxes_summary_json'])!,
+      drawerOperationsSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}drawer_operations_summary_json'])!,
+      reconciliationSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}reconciliation_summary_json'])!,
+      tillsSummaryJson: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}tills_summary_json'])!,
+      totalSales: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}total_sales'])!,
+      totalPayments: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}total_payments'])!,
+      totalVariance: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}total_variance'])!,
+      totalTillsClosed: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}total_tills_closed']),
+      status: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}status'])!,
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+      alertsJson: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}alerts_json']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+      syncedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}synced_at']),
+    );
+  }
+
+  @override
+  $EndOfDayEntityTable createAlias(String alias) {
+    return $EndOfDayEntityTable(attachedDatabase, alias);
+  }
+}
+
+class EndOfDayEntityData extends DataClass
+    implements Insertable<EndOfDayEntityData> {
+  final String eodId;
+  final DateTime businessDate;
+  final DateTime completedAt;
+  final String completedBy;
+  final String? deviceId;
+  final String? branchId;
+  final String salesSummaryJson;
+  final String paymentsSummaryJson;
+  final String returnsSummaryJson;
+  final String discountsSummaryJson;
+  final String taxesSummaryJson;
+  final String drawerOperationsSummaryJson;
+  final String reconciliationSummaryJson;
+  final String tillsSummaryJson;
+  final double totalSales;
+  final double totalPayments;
+  final double totalVariance;
+  final int? totalTillsClosed;
+  final String status;
+  final String? notes;
+  final String? alertsJson;
+  final DateTime createdAt;
+  final DateTime? syncedAt;
+  const EndOfDayEntityData(
+      {required this.eodId,
+      required this.businessDate,
+      required this.completedAt,
+      required this.completedBy,
+      this.deviceId,
+      this.branchId,
+      required this.salesSummaryJson,
+      required this.paymentsSummaryJson,
+      required this.returnsSummaryJson,
+      required this.discountsSummaryJson,
+      required this.taxesSummaryJson,
+      required this.drawerOperationsSummaryJson,
+      required this.reconciliationSummaryJson,
+      required this.tillsSummaryJson,
+      required this.totalSales,
+      required this.totalPayments,
+      required this.totalVariance,
+      this.totalTillsClosed,
+      required this.status,
+      this.notes,
+      this.alertsJson,
+      required this.createdAt,
+      this.syncedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['eod_id'] = Variable<String>(eodId);
+    map['business_date'] = Variable<DateTime>(businessDate);
+    map['completed_at'] = Variable<DateTime>(completedAt);
+    map['completed_by'] = Variable<String>(completedBy);
+    if (!nullToAbsent || deviceId != null) {
+      map['device_id'] = Variable<String>(deviceId);
+    }
+    if (!nullToAbsent || branchId != null) {
+      map['branch_id'] = Variable<String>(branchId);
+    }
+    map['sales_summary_json'] = Variable<String>(salesSummaryJson);
+    map['payments_summary_json'] = Variable<String>(paymentsSummaryJson);
+    map['returns_summary_json'] = Variable<String>(returnsSummaryJson);
+    map['discounts_summary_json'] = Variable<String>(discountsSummaryJson);
+    map['taxes_summary_json'] = Variable<String>(taxesSummaryJson);
+    map['drawer_operations_summary_json'] =
+        Variable<String>(drawerOperationsSummaryJson);
+    map['reconciliation_summary_json'] =
+        Variable<String>(reconciliationSummaryJson);
+    map['tills_summary_json'] = Variable<String>(tillsSummaryJson);
+    map['total_sales'] = Variable<double>(totalSales);
+    map['total_payments'] = Variable<double>(totalPayments);
+    map['total_variance'] = Variable<double>(totalVariance);
+    if (!nullToAbsent || totalTillsClosed != null) {
+      map['total_tills_closed'] = Variable<int>(totalTillsClosed);
+    }
+    map['status'] = Variable<String>(status);
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    if (!nullToAbsent || alertsJson != null) {
+      map['alerts_json'] = Variable<String>(alertsJson);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || syncedAt != null) {
+      map['synced_at'] = Variable<DateTime>(syncedAt);
+    }
+    return map;
+  }
+
+  EndOfDayEntityCompanion toCompanion(bool nullToAbsent) {
+    return EndOfDayEntityCompanion(
+      eodId: Value(eodId),
+      businessDate: Value(businessDate),
+      completedAt: Value(completedAt),
+      completedBy: Value(completedBy),
+      deviceId: deviceId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceId),
+      branchId: branchId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(branchId),
+      salesSummaryJson: Value(salesSummaryJson),
+      paymentsSummaryJson: Value(paymentsSummaryJson),
+      returnsSummaryJson: Value(returnsSummaryJson),
+      discountsSummaryJson: Value(discountsSummaryJson),
+      taxesSummaryJson: Value(taxesSummaryJson),
+      drawerOperationsSummaryJson: Value(drawerOperationsSummaryJson),
+      reconciliationSummaryJson: Value(reconciliationSummaryJson),
+      tillsSummaryJson: Value(tillsSummaryJson),
+      totalSales: Value(totalSales),
+      totalPayments: Value(totalPayments),
+      totalVariance: Value(totalVariance),
+      totalTillsClosed: totalTillsClosed == null && nullToAbsent
+          ? const Value.absent()
+          : Value(totalTillsClosed),
+      status: Value(status),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+      alertsJson: alertsJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(alertsJson),
+      createdAt: Value(createdAt),
+      syncedAt: syncedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncedAt),
+    );
+  }
+
+  factory EndOfDayEntityData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return EndOfDayEntityData(
+      eodId: serializer.fromJson<String>(json['eodId']),
+      businessDate: serializer.fromJson<DateTime>(json['businessDate']),
+      completedAt: serializer.fromJson<DateTime>(json['completedAt']),
+      completedBy: serializer.fromJson<String>(json['completedBy']),
+      deviceId: serializer.fromJson<String?>(json['deviceId']),
+      branchId: serializer.fromJson<String?>(json['branchId']),
+      salesSummaryJson: serializer.fromJson<String>(json['salesSummaryJson']),
+      paymentsSummaryJson:
+          serializer.fromJson<String>(json['paymentsSummaryJson']),
+      returnsSummaryJson:
+          serializer.fromJson<String>(json['returnsSummaryJson']),
+      discountsSummaryJson:
+          serializer.fromJson<String>(json['discountsSummaryJson']),
+      taxesSummaryJson: serializer.fromJson<String>(json['taxesSummaryJson']),
+      drawerOperationsSummaryJson:
+          serializer.fromJson<String>(json['drawerOperationsSummaryJson']),
+      reconciliationSummaryJson:
+          serializer.fromJson<String>(json['reconciliationSummaryJson']),
+      tillsSummaryJson: serializer.fromJson<String>(json['tillsSummaryJson']),
+      totalSales: serializer.fromJson<double>(json['totalSales']),
+      totalPayments: serializer.fromJson<double>(json['totalPayments']),
+      totalVariance: serializer.fromJson<double>(json['totalVariance']),
+      totalTillsClosed: serializer.fromJson<int?>(json['totalTillsClosed']),
+      status: serializer.fromJson<String>(json['status']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      alertsJson: serializer.fromJson<String?>(json['alertsJson']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      syncedAt: serializer.fromJson<DateTime?>(json['syncedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'eodId': serializer.toJson<String>(eodId),
+      'businessDate': serializer.toJson<DateTime>(businessDate),
+      'completedAt': serializer.toJson<DateTime>(completedAt),
+      'completedBy': serializer.toJson<String>(completedBy),
+      'deviceId': serializer.toJson<String?>(deviceId),
+      'branchId': serializer.toJson<String?>(branchId),
+      'salesSummaryJson': serializer.toJson<String>(salesSummaryJson),
+      'paymentsSummaryJson': serializer.toJson<String>(paymentsSummaryJson),
+      'returnsSummaryJson': serializer.toJson<String>(returnsSummaryJson),
+      'discountsSummaryJson': serializer.toJson<String>(discountsSummaryJson),
+      'taxesSummaryJson': serializer.toJson<String>(taxesSummaryJson),
+      'drawerOperationsSummaryJson':
+          serializer.toJson<String>(drawerOperationsSummaryJson),
+      'reconciliationSummaryJson':
+          serializer.toJson<String>(reconciliationSummaryJson),
+      'tillsSummaryJson': serializer.toJson<String>(tillsSummaryJson),
+      'totalSales': serializer.toJson<double>(totalSales),
+      'totalPayments': serializer.toJson<double>(totalPayments),
+      'totalVariance': serializer.toJson<double>(totalVariance),
+      'totalTillsClosed': serializer.toJson<int?>(totalTillsClosed),
+      'status': serializer.toJson<String>(status),
+      'notes': serializer.toJson<String?>(notes),
+      'alertsJson': serializer.toJson<String?>(alertsJson),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'syncedAt': serializer.toJson<DateTime?>(syncedAt),
+    };
+  }
+
+  EndOfDayEntityData copyWith(
+          {String? eodId,
+          DateTime? businessDate,
+          DateTime? completedAt,
+          String? completedBy,
+          Value<String?> deviceId = const Value.absent(),
+          Value<String?> branchId = const Value.absent(),
+          String? salesSummaryJson,
+          String? paymentsSummaryJson,
+          String? returnsSummaryJson,
+          String? discountsSummaryJson,
+          String? taxesSummaryJson,
+          String? drawerOperationsSummaryJson,
+          String? reconciliationSummaryJson,
+          String? tillsSummaryJson,
+          double? totalSales,
+          double? totalPayments,
+          double? totalVariance,
+          Value<int?> totalTillsClosed = const Value.absent(),
+          String? status,
+          Value<String?> notes = const Value.absent(),
+          Value<String?> alertsJson = const Value.absent(),
+          DateTime? createdAt,
+          Value<DateTime?> syncedAt = const Value.absent()}) =>
+      EndOfDayEntityData(
+        eodId: eodId ?? this.eodId,
+        businessDate: businessDate ?? this.businessDate,
+        completedAt: completedAt ?? this.completedAt,
+        completedBy: completedBy ?? this.completedBy,
+        deviceId: deviceId.present ? deviceId.value : this.deviceId,
+        branchId: branchId.present ? branchId.value : this.branchId,
+        salesSummaryJson: salesSummaryJson ?? this.salesSummaryJson,
+        paymentsSummaryJson: paymentsSummaryJson ?? this.paymentsSummaryJson,
+        returnsSummaryJson: returnsSummaryJson ?? this.returnsSummaryJson,
+        discountsSummaryJson: discountsSummaryJson ?? this.discountsSummaryJson,
+        taxesSummaryJson: taxesSummaryJson ?? this.taxesSummaryJson,
+        drawerOperationsSummaryJson:
+            drawerOperationsSummaryJson ?? this.drawerOperationsSummaryJson,
+        reconciliationSummaryJson:
+            reconciliationSummaryJson ?? this.reconciliationSummaryJson,
+        tillsSummaryJson: tillsSummaryJson ?? this.tillsSummaryJson,
+        totalSales: totalSales ?? this.totalSales,
+        totalPayments: totalPayments ?? this.totalPayments,
+        totalVariance: totalVariance ?? this.totalVariance,
+        totalTillsClosed: totalTillsClosed.present
+            ? totalTillsClosed.value
+            : this.totalTillsClosed,
+        status: status ?? this.status,
+        notes: notes.present ? notes.value : this.notes,
+        alertsJson: alertsJson.present ? alertsJson.value : this.alertsJson,
+        createdAt: createdAt ?? this.createdAt,
+        syncedAt: syncedAt.present ? syncedAt.value : this.syncedAt,
+      );
+  EndOfDayEntityData copyWithCompanion(EndOfDayEntityCompanion data) {
+    return EndOfDayEntityData(
+      eodId: data.eodId.present ? data.eodId.value : this.eodId,
+      businessDate: data.businessDate.present
+          ? data.businessDate.value
+          : this.businessDate,
+      completedAt:
+          data.completedAt.present ? data.completedAt.value : this.completedAt,
+      completedBy:
+          data.completedBy.present ? data.completedBy.value : this.completedBy,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      branchId: data.branchId.present ? data.branchId.value : this.branchId,
+      salesSummaryJson: data.salesSummaryJson.present
+          ? data.salesSummaryJson.value
+          : this.salesSummaryJson,
+      paymentsSummaryJson: data.paymentsSummaryJson.present
+          ? data.paymentsSummaryJson.value
+          : this.paymentsSummaryJson,
+      returnsSummaryJson: data.returnsSummaryJson.present
+          ? data.returnsSummaryJson.value
+          : this.returnsSummaryJson,
+      discountsSummaryJson: data.discountsSummaryJson.present
+          ? data.discountsSummaryJson.value
+          : this.discountsSummaryJson,
+      taxesSummaryJson: data.taxesSummaryJson.present
+          ? data.taxesSummaryJson.value
+          : this.taxesSummaryJson,
+      drawerOperationsSummaryJson: data.drawerOperationsSummaryJson.present
+          ? data.drawerOperationsSummaryJson.value
+          : this.drawerOperationsSummaryJson,
+      reconciliationSummaryJson: data.reconciliationSummaryJson.present
+          ? data.reconciliationSummaryJson.value
+          : this.reconciliationSummaryJson,
+      tillsSummaryJson: data.tillsSummaryJson.present
+          ? data.tillsSummaryJson.value
+          : this.tillsSummaryJson,
+      totalSales:
+          data.totalSales.present ? data.totalSales.value : this.totalSales,
+      totalPayments: data.totalPayments.present
+          ? data.totalPayments.value
+          : this.totalPayments,
+      totalVariance: data.totalVariance.present
+          ? data.totalVariance.value
+          : this.totalVariance,
+      totalTillsClosed: data.totalTillsClosed.present
+          ? data.totalTillsClosed.value
+          : this.totalTillsClosed,
+      status: data.status.present ? data.status.value : this.status,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      alertsJson:
+          data.alertsJson.present ? data.alertsJson.value : this.alertsJson,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      syncedAt: data.syncedAt.present ? data.syncedAt.value : this.syncedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EndOfDayEntityData(')
+          ..write('eodId: $eodId, ')
+          ..write('businessDate: $businessDate, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('completedBy: $completedBy, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('branchId: $branchId, ')
+          ..write('salesSummaryJson: $salesSummaryJson, ')
+          ..write('paymentsSummaryJson: $paymentsSummaryJson, ')
+          ..write('returnsSummaryJson: $returnsSummaryJson, ')
+          ..write('discountsSummaryJson: $discountsSummaryJson, ')
+          ..write('taxesSummaryJson: $taxesSummaryJson, ')
+          ..write('drawerOperationsSummaryJson: $drawerOperationsSummaryJson, ')
+          ..write('reconciliationSummaryJson: $reconciliationSummaryJson, ')
+          ..write('tillsSummaryJson: $tillsSummaryJson, ')
+          ..write('totalSales: $totalSales, ')
+          ..write('totalPayments: $totalPayments, ')
+          ..write('totalVariance: $totalVariance, ')
+          ..write('totalTillsClosed: $totalTillsClosed, ')
+          ..write('status: $status, ')
+          ..write('notes: $notes, ')
+          ..write('alertsJson: $alertsJson, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('syncedAt: $syncedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        eodId,
+        businessDate,
+        completedAt,
+        completedBy,
+        deviceId,
+        branchId,
+        salesSummaryJson,
+        paymentsSummaryJson,
+        returnsSummaryJson,
+        discountsSummaryJson,
+        taxesSummaryJson,
+        drawerOperationsSummaryJson,
+        reconciliationSummaryJson,
+        tillsSummaryJson,
+        totalSales,
+        totalPayments,
+        totalVariance,
+        totalTillsClosed,
+        status,
+        notes,
+        alertsJson,
+        createdAt,
+        syncedAt
+      ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is EndOfDayEntityData &&
+          other.eodId == this.eodId &&
+          other.businessDate == this.businessDate &&
+          other.completedAt == this.completedAt &&
+          other.completedBy == this.completedBy &&
+          other.deviceId == this.deviceId &&
+          other.branchId == this.branchId &&
+          other.salesSummaryJson == this.salesSummaryJson &&
+          other.paymentsSummaryJson == this.paymentsSummaryJson &&
+          other.returnsSummaryJson == this.returnsSummaryJson &&
+          other.discountsSummaryJson == this.discountsSummaryJson &&
+          other.taxesSummaryJson == this.taxesSummaryJson &&
+          other.drawerOperationsSummaryJson ==
+              this.drawerOperationsSummaryJson &&
+          other.reconciliationSummaryJson == this.reconciliationSummaryJson &&
+          other.tillsSummaryJson == this.tillsSummaryJson &&
+          other.totalSales == this.totalSales &&
+          other.totalPayments == this.totalPayments &&
+          other.totalVariance == this.totalVariance &&
+          other.totalTillsClosed == this.totalTillsClosed &&
+          other.status == this.status &&
+          other.notes == this.notes &&
+          other.alertsJson == this.alertsJson &&
+          other.createdAt == this.createdAt &&
+          other.syncedAt == this.syncedAt);
+}
+
+class EndOfDayEntityCompanion extends UpdateCompanion<EndOfDayEntityData> {
+  final Value<String> eodId;
+  final Value<DateTime> businessDate;
+  final Value<DateTime> completedAt;
+  final Value<String> completedBy;
+  final Value<String?> deviceId;
+  final Value<String?> branchId;
+  final Value<String> salesSummaryJson;
+  final Value<String> paymentsSummaryJson;
+  final Value<String> returnsSummaryJson;
+  final Value<String> discountsSummaryJson;
+  final Value<String> taxesSummaryJson;
+  final Value<String> drawerOperationsSummaryJson;
+  final Value<String> reconciliationSummaryJson;
+  final Value<String> tillsSummaryJson;
+  final Value<double> totalSales;
+  final Value<double> totalPayments;
+  final Value<double> totalVariance;
+  final Value<int?> totalTillsClosed;
+  final Value<String> status;
+  final Value<String?> notes;
+  final Value<String?> alertsJson;
+  final Value<DateTime> createdAt;
+  final Value<DateTime?> syncedAt;
+  final Value<int> rowid;
+  const EndOfDayEntityCompanion({
+    this.eodId = const Value.absent(),
+    this.businessDate = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.completedBy = const Value.absent(),
+    this.deviceId = const Value.absent(),
+    this.branchId = const Value.absent(),
+    this.salesSummaryJson = const Value.absent(),
+    this.paymentsSummaryJson = const Value.absent(),
+    this.returnsSummaryJson = const Value.absent(),
+    this.discountsSummaryJson = const Value.absent(),
+    this.taxesSummaryJson = const Value.absent(),
+    this.drawerOperationsSummaryJson = const Value.absent(),
+    this.reconciliationSummaryJson = const Value.absent(),
+    this.tillsSummaryJson = const Value.absent(),
+    this.totalSales = const Value.absent(),
+    this.totalPayments = const Value.absent(),
+    this.totalVariance = const Value.absent(),
+    this.totalTillsClosed = const Value.absent(),
+    this.status = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.alertsJson = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  EndOfDayEntityCompanion.insert({
+    required String eodId,
+    required DateTime businessDate,
+    required DateTime completedAt,
+    required String completedBy,
+    this.deviceId = const Value.absent(),
+    this.branchId = const Value.absent(),
+    required String salesSummaryJson,
+    required String paymentsSummaryJson,
+    required String returnsSummaryJson,
+    required String discountsSummaryJson,
+    required String taxesSummaryJson,
+    required String drawerOperationsSummaryJson,
+    required String reconciliationSummaryJson,
+    required String tillsSummaryJson,
+    required double totalSales,
+    required double totalPayments,
+    required double totalVariance,
+    this.totalTillsClosed = const Value.absent(),
+    required String status,
+    this.notes = const Value.absent(),
+    this.alertsJson = const Value.absent(),
+    required DateTime createdAt,
+    this.syncedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  })  : eodId = Value(eodId),
+        businessDate = Value(businessDate),
+        completedAt = Value(completedAt),
+        completedBy = Value(completedBy),
+        salesSummaryJson = Value(salesSummaryJson),
+        paymentsSummaryJson = Value(paymentsSummaryJson),
+        returnsSummaryJson = Value(returnsSummaryJson),
+        discountsSummaryJson = Value(discountsSummaryJson),
+        taxesSummaryJson = Value(taxesSummaryJson),
+        drawerOperationsSummaryJson = Value(drawerOperationsSummaryJson),
+        reconciliationSummaryJson = Value(reconciliationSummaryJson),
+        tillsSummaryJson = Value(tillsSummaryJson),
+        totalSales = Value(totalSales),
+        totalPayments = Value(totalPayments),
+        totalVariance = Value(totalVariance),
+        status = Value(status),
+        createdAt = Value(createdAt);
+  static Insertable<EndOfDayEntityData> custom({
+    Expression<String>? eodId,
+    Expression<DateTime>? businessDate,
+    Expression<DateTime>? completedAt,
+    Expression<String>? completedBy,
+    Expression<String>? deviceId,
+    Expression<String>? branchId,
+    Expression<String>? salesSummaryJson,
+    Expression<String>? paymentsSummaryJson,
+    Expression<String>? returnsSummaryJson,
+    Expression<String>? discountsSummaryJson,
+    Expression<String>? taxesSummaryJson,
+    Expression<String>? drawerOperationsSummaryJson,
+    Expression<String>? reconciliationSummaryJson,
+    Expression<String>? tillsSummaryJson,
+    Expression<double>? totalSales,
+    Expression<double>? totalPayments,
+    Expression<double>? totalVariance,
+    Expression<int>? totalTillsClosed,
+    Expression<String>? status,
+    Expression<String>? notes,
+    Expression<String>? alertsJson,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? syncedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (eodId != null) 'eod_id': eodId,
+      if (businessDate != null) 'business_date': businessDate,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (completedBy != null) 'completed_by': completedBy,
+      if (deviceId != null) 'device_id': deviceId,
+      if (branchId != null) 'branch_id': branchId,
+      if (salesSummaryJson != null) 'sales_summary_json': salesSummaryJson,
+      if (paymentsSummaryJson != null)
+        'payments_summary_json': paymentsSummaryJson,
+      if (returnsSummaryJson != null)
+        'returns_summary_json': returnsSummaryJson,
+      if (discountsSummaryJson != null)
+        'discounts_summary_json': discountsSummaryJson,
+      if (taxesSummaryJson != null) 'taxes_summary_json': taxesSummaryJson,
+      if (drawerOperationsSummaryJson != null)
+        'drawer_operations_summary_json': drawerOperationsSummaryJson,
+      if (reconciliationSummaryJson != null)
+        'reconciliation_summary_json': reconciliationSummaryJson,
+      if (tillsSummaryJson != null) 'tills_summary_json': tillsSummaryJson,
+      if (totalSales != null) 'total_sales': totalSales,
+      if (totalPayments != null) 'total_payments': totalPayments,
+      if (totalVariance != null) 'total_variance': totalVariance,
+      if (totalTillsClosed != null) 'total_tills_closed': totalTillsClosed,
+      if (status != null) 'status': status,
+      if (notes != null) 'notes': notes,
+      if (alertsJson != null) 'alerts_json': alertsJson,
+      if (createdAt != null) 'created_at': createdAt,
+      if (syncedAt != null) 'synced_at': syncedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  EndOfDayEntityCompanion copyWith(
+      {Value<String>? eodId,
+      Value<DateTime>? businessDate,
+      Value<DateTime>? completedAt,
+      Value<String>? completedBy,
+      Value<String?>? deviceId,
+      Value<String?>? branchId,
+      Value<String>? salesSummaryJson,
+      Value<String>? paymentsSummaryJson,
+      Value<String>? returnsSummaryJson,
+      Value<String>? discountsSummaryJson,
+      Value<String>? taxesSummaryJson,
+      Value<String>? drawerOperationsSummaryJson,
+      Value<String>? reconciliationSummaryJson,
+      Value<String>? tillsSummaryJson,
+      Value<double>? totalSales,
+      Value<double>? totalPayments,
+      Value<double>? totalVariance,
+      Value<int?>? totalTillsClosed,
+      Value<String>? status,
+      Value<String?>? notes,
+      Value<String?>? alertsJson,
+      Value<DateTime>? createdAt,
+      Value<DateTime?>? syncedAt,
+      Value<int>? rowid}) {
+    return EndOfDayEntityCompanion(
+      eodId: eodId ?? this.eodId,
+      businessDate: businessDate ?? this.businessDate,
+      completedAt: completedAt ?? this.completedAt,
+      completedBy: completedBy ?? this.completedBy,
+      deviceId: deviceId ?? this.deviceId,
+      branchId: branchId ?? this.branchId,
+      salesSummaryJson: salesSummaryJson ?? this.salesSummaryJson,
+      paymentsSummaryJson: paymentsSummaryJson ?? this.paymentsSummaryJson,
+      returnsSummaryJson: returnsSummaryJson ?? this.returnsSummaryJson,
+      discountsSummaryJson: discountsSummaryJson ?? this.discountsSummaryJson,
+      taxesSummaryJson: taxesSummaryJson ?? this.taxesSummaryJson,
+      drawerOperationsSummaryJson:
+          drawerOperationsSummaryJson ?? this.drawerOperationsSummaryJson,
+      reconciliationSummaryJson:
+          reconciliationSummaryJson ?? this.reconciliationSummaryJson,
+      tillsSummaryJson: tillsSummaryJson ?? this.tillsSummaryJson,
+      totalSales: totalSales ?? this.totalSales,
+      totalPayments: totalPayments ?? this.totalPayments,
+      totalVariance: totalVariance ?? this.totalVariance,
+      totalTillsClosed: totalTillsClosed ?? this.totalTillsClosed,
+      status: status ?? this.status,
+      notes: notes ?? this.notes,
+      alertsJson: alertsJson ?? this.alertsJson,
+      createdAt: createdAt ?? this.createdAt,
+      syncedAt: syncedAt ?? this.syncedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (eodId.present) {
+      map['eod_id'] = Variable<String>(eodId.value);
+    }
+    if (businessDate.present) {
+      map['business_date'] = Variable<DateTime>(businessDate.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (completedBy.present) {
+      map['completed_by'] = Variable<String>(completedBy.value);
+    }
+    if (deviceId.present) {
+      map['device_id'] = Variable<String>(deviceId.value);
+    }
+    if (branchId.present) {
+      map['branch_id'] = Variable<String>(branchId.value);
+    }
+    if (salesSummaryJson.present) {
+      map['sales_summary_json'] = Variable<String>(salesSummaryJson.value);
+    }
+    if (paymentsSummaryJson.present) {
+      map['payments_summary_json'] =
+          Variable<String>(paymentsSummaryJson.value);
+    }
+    if (returnsSummaryJson.present) {
+      map['returns_summary_json'] = Variable<String>(returnsSummaryJson.value);
+    }
+    if (discountsSummaryJson.present) {
+      map['discounts_summary_json'] =
+          Variable<String>(discountsSummaryJson.value);
+    }
+    if (taxesSummaryJson.present) {
+      map['taxes_summary_json'] = Variable<String>(taxesSummaryJson.value);
+    }
+    if (drawerOperationsSummaryJson.present) {
+      map['drawer_operations_summary_json'] =
+          Variable<String>(drawerOperationsSummaryJson.value);
+    }
+    if (reconciliationSummaryJson.present) {
+      map['reconciliation_summary_json'] =
+          Variable<String>(reconciliationSummaryJson.value);
+    }
+    if (tillsSummaryJson.present) {
+      map['tills_summary_json'] = Variable<String>(tillsSummaryJson.value);
+    }
+    if (totalSales.present) {
+      map['total_sales'] = Variable<double>(totalSales.value);
+    }
+    if (totalPayments.present) {
+      map['total_payments'] = Variable<double>(totalPayments.value);
+    }
+    if (totalVariance.present) {
+      map['total_variance'] = Variable<double>(totalVariance.value);
+    }
+    if (totalTillsClosed.present) {
+      map['total_tills_closed'] = Variable<int>(totalTillsClosed.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (alertsJson.present) {
+      map['alerts_json'] = Variable<String>(alertsJson.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (syncedAt.present) {
+      map['synced_at'] = Variable<DateTime>(syncedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EndOfDayEntityCompanion(')
+          ..write('eodId: $eodId, ')
+          ..write('businessDate: $businessDate, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('completedBy: $completedBy, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('branchId: $branchId, ')
+          ..write('salesSummaryJson: $salesSummaryJson, ')
+          ..write('paymentsSummaryJson: $paymentsSummaryJson, ')
+          ..write('returnsSummaryJson: $returnsSummaryJson, ')
+          ..write('discountsSummaryJson: $discountsSummaryJson, ')
+          ..write('taxesSummaryJson: $taxesSummaryJson, ')
+          ..write('drawerOperationsSummaryJson: $drawerOperationsSummaryJson, ')
+          ..write('reconciliationSummaryJson: $reconciliationSummaryJson, ')
+          ..write('tillsSummaryJson: $tillsSummaryJson, ')
+          ..write('totalSales: $totalSales, ')
+          ..write('totalPayments: $totalPayments, ')
+          ..write('totalVariance: $totalVariance, ')
+          ..write('totalTillsClosed: $totalTillsClosed, ')
+          ..write('status: $status, ')
+          ..write('notes: $notes, ')
+          ..write('alertsJson: $alertsJson, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   $MyDatabaseManager get managers => $MyDatabaseManager(this);
@@ -25773,6 +27545,9 @@ abstract class _$MyDatabase extends GeneratedDatabase {
   late final $TableAssignmentsTable tableAssignments =
       $TableAssignmentsTable(this);
   late final $AuditLogsTable auditLogs = $AuditLogsTable(this);
+  late final $OrderPrintHistoryV2Table orderPrintHistoryV2 =
+      $OrderPrintHistoryV2Table(this);
+  late final $EndOfDayEntityTable endOfDayEntity = $EndOfDayEntityTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -25813,7 +27588,9 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         orderPaymentV2,
         orderPaymentDetailV2,
         tableAssignments,
-        auditLogs
+        auditLogs,
+        orderPrintHistoryV2,
+        endOfDayEntity
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -25964,6 +27741,13 @@ abstract class _$MyDatabase extends GeneratedDatabase {
                 limitUpdateKind: UpdateKind.delete),
             result: [
               TableUpdate('order_payment_detail_v2', kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('order_entity_v2',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('order_print_history_v2', kind: UpdateKind.delete),
             ],
           ),
         ],
@@ -30631,6 +32415,7 @@ typedef $$OrderEntityV2TableCreateCompanionBuilder = OrderEntityV2Companion
   Value<String?> closedBy,
   Value<int?> printState,
   Value<int?> prePaymentPrintCount,
+  Value<int?> postPaymentPrintCount,
   Value<DateTime?> firstPrintedAt,
   Value<DateTime?> lastPrintedAt,
   Value<String?> lastPrintedBy,
@@ -30712,6 +32497,7 @@ typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
   Value<String?> closedBy,
   Value<int?> printState,
   Value<int?> prePaymentPrintCount,
+  Value<int?> postPaymentPrintCount,
   Value<DateTime?> firstPrintedAt,
   Value<DateTime?> lastPrintedAt,
   Value<String?> lastPrintedBy,
@@ -31113,6 +32899,25 @@ final class $$OrderEntityV2TableReferences extends BaseReferences<_$MyDatabase,
     return ProcessedTableManager(
         manager.$state.copyWith(prefetchedData: cache));
   }
+
+  static MultiTypedResultKey<$OrderPrintHistoryV2Table,
+      List<OrderPrintHistoryV2Data>> _orderPrintHistoryV2RefsTable(
+          _$MyDatabase db) =>
+      MultiTypedResultKey.fromTable(db.orderPrintHistoryV2,
+          aliasName: $_aliasNameGenerator(
+              db.orderEntityV2.orderRef, db.orderPrintHistoryV2.orderRef));
+
+  $$OrderPrintHistoryV2TableProcessedTableManager get orderPrintHistoryV2Refs {
+    final manager = $$OrderPrintHistoryV2TableTableManager(
+            $_db, $_db.orderPrintHistoryV2)
+        .filter((f) =>
+            f.orderRef.orderRef.sqlEquals($_itemColumn<String>('order_ref')!));
+
+    final cache =
+        $_typedResult.readTableOrNull(_orderPrintHistoryV2RefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
 }
 
 class $$OrderEntityV2TableFilterComposer
@@ -31357,6 +33162,10 @@ class $$OrderEntityV2TableFilterComposer
 
   ColumnFilters<int> get prePaymentPrintCount => $composableBuilder(
       column: $table.prePaymentPrintCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get postPaymentPrintCount => $composableBuilder(
+      column: $table.postPaymentPrintCount,
       builder: (column) => ColumnFilters(column));
 
   ColumnFilters<DateTime> get firstPrintedAt => $composableBuilder(
@@ -31835,6 +33644,27 @@ class $$OrderEntityV2TableFilterComposer
             ));
     return f(composer);
   }
+
+  Expression<bool> orderPrintHistoryV2Refs(
+      Expression<bool> Function($$OrderPrintHistoryV2TableFilterComposer f) f) {
+    final $$OrderPrintHistoryV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderPrintHistoryV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderPrintHistoryV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderPrintHistoryV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return f(composer);
+  }
 }
 
 class $$OrderEntityV2TableOrderingComposer
@@ -32088,6 +33918,10 @@ class $$OrderEntityV2TableOrderingComposer
       column: $table.prePaymentPrintCount,
       builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<int> get postPaymentPrintCount => $composableBuilder(
+      column: $table.postPaymentPrintCount,
+      builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<DateTime> get firstPrintedAt => $composableBuilder(
       column: $table.firstPrintedAt,
       builder: (column) => ColumnOrderings(column));
@@ -32336,6 +34170,9 @@ class $$OrderEntityV2TableAnnotationComposer
 
   GeneratedColumn<int> get prePaymentPrintCount => $composableBuilder(
       column: $table.prePaymentPrintCount, builder: (column) => column);
+
+  GeneratedColumn<int> get postPaymentPrintCount => $composableBuilder(
+      column: $table.postPaymentPrintCount, builder: (column) => column);
 
   GeneratedColumn<DateTime> get firstPrintedAt => $composableBuilder(
       column: $table.firstPrintedAt, builder: (column) => column);
@@ -32816,6 +34653,29 @@ class $$OrderEntityV2TableAnnotationComposer
                 ));
     return f(composer);
   }
+
+  Expression<T> orderPrintHistoryV2Refs<T extends Object>(
+      Expression<T> Function($$OrderPrintHistoryV2TableAnnotationComposer a)
+          f) {
+    final $$OrderPrintHistoryV2TableAnnotationComposer composer =
+        $composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.orderRef,
+            referencedTable: $db.orderPrintHistoryV2,
+            getReferencedColumn: (t) => t.orderRef,
+            builder: (joinBuilder,
+                    {$addJoinBuilderToRootComposer,
+                    $removeJoinBuilderFromRootComposer}) =>
+                $$OrderPrintHistoryV2TableAnnotationComposer(
+                  $db: $db,
+                  $table: $db.orderPrintHistoryV2,
+                  $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                  joinBuilder: joinBuilder,
+                  $removeJoinBuilderFromRootComposer:
+                      $removeJoinBuilderFromRootComposer,
+                ));
+    return f(composer);
+  }
 }
 
 class $$OrderEntityV2TableTableManager extends RootTableManager<
@@ -32849,7 +34709,8 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
         bool orderProductModifierV2Refs,
         bool orderProductModifierOptionV2Refs,
         bool orderPaymentV2Refs,
-        bool orderPaymentDetailV2Refs})> {
+        bool orderPaymentDetailV2Refs,
+        bool orderPrintHistoryV2Refs})> {
   $$OrderEntityV2TableTableManager(_$MyDatabase db, $OrderEntityV2Table table)
       : super(TableManagerState(
           db: db,
@@ -32930,6 +34791,7 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<String?> closedBy = const Value.absent(),
             Value<int?> printState = const Value.absent(),
             Value<int?> prePaymentPrintCount = const Value.absent(),
+            Value<int?> postPaymentPrintCount = const Value.absent(),
             Value<DateTime?> firstPrintedAt = const Value.absent(),
             Value<DateTime?> lastPrintedAt = const Value.absent(),
             Value<String?> lastPrintedBy = const Value.absent(),
@@ -33010,6 +34872,7 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             closedBy: closedBy,
             printState: printState,
             prePaymentPrintCount: prePaymentPrintCount,
+            postPaymentPrintCount: postPaymentPrintCount,
             firstPrintedAt: firstPrintedAt,
             lastPrintedAt: lastPrintedAt,
             lastPrintedBy: lastPrintedBy,
@@ -33090,6 +34953,7 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<String?> closedBy = const Value.absent(),
             Value<int?> printState = const Value.absent(),
             Value<int?> prePaymentPrintCount = const Value.absent(),
+            Value<int?> postPaymentPrintCount = const Value.absent(),
             Value<DateTime?> firstPrintedAt = const Value.absent(),
             Value<DateTime?> lastPrintedAt = const Value.absent(),
             Value<String?> lastPrintedBy = const Value.absent(),
@@ -33170,6 +35034,7 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             closedBy: closedBy,
             printState: printState,
             prePaymentPrintCount: prePaymentPrintCount,
+            postPaymentPrintCount: postPaymentPrintCount,
             firstPrintedAt: firstPrintedAt,
             lastPrintedAt: lastPrintedAt,
             lastPrintedBy: lastPrintedBy,
@@ -33206,7 +35071,8 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
               orderProductModifierV2Refs = false,
               orderProductModifierOptionV2Refs = false,
               orderPaymentV2Refs = false,
-              orderPaymentDetailV2Refs = false}) {
+              orderPaymentDetailV2Refs = false,
+              orderPrintHistoryV2Refs = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [
@@ -33232,7 +35098,8 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
                 if (orderProductModifierOptionV2Refs)
                   db.orderProductModifierOptionV2,
                 if (orderPaymentV2Refs) db.orderPaymentV2,
-                if (orderPaymentDetailV2Refs) db.orderPaymentDetailV2
+                if (orderPaymentDetailV2Refs) db.orderPaymentDetailV2,
+                if (orderPrintHistoryV2Refs) db.orderPrintHistoryV2
               ],
               addJoins: null,
               getPrefetchedDataCallback: (items) async {
@@ -33502,6 +35369,19 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
                         referencedItemsForCurrentItem:
                             (item, referencedItems) => referencedItems
                                 .where((e) => e.orderRef == item.orderRef),
+                        typedResults: items),
+                  if (orderPrintHistoryV2Refs)
+                    await $_getPrefetchedData<OrderEntityV2Data,
+                            $OrderEntityV2Table, OrderPrintHistoryV2Data>(
+                        currentTable: table,
+                        referencedTable: $$OrderEntityV2TableReferences
+                            ._orderPrintHistoryV2RefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$OrderEntityV2TableReferences(db, table, p0)
+                                .orderPrintHistoryV2Refs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.orderRef == item.orderRef),
                         typedResults: items)
                 ];
               },
@@ -33541,7 +35421,8 @@ typedef $$OrderEntityV2TableProcessedTableManager = ProcessedTableManager<
         bool orderProductModifierV2Refs,
         bool orderProductModifierOptionV2Refs,
         bool orderPaymentV2Refs,
-        bool orderPaymentDetailV2Refs})>;
+        bool orderPaymentDetailV2Refs,
+        bool orderPrintHistoryV2Refs})>;
 typedef $$OrderProductEntityV2TableCreateCompanionBuilder
     = OrderProductEntityV2Companion Function({
   Value<String?> orderRef,
@@ -41313,6 +43194,843 @@ typedef $$AuditLogsTableProcessedTableManager = ProcessedTableManager<
     (AuditLog, BaseReferences<_$MyDatabase, $AuditLogsTable, AuditLog>),
     AuditLog,
     PrefetchHooks Function()>;
+typedef $$OrderPrintHistoryV2TableCreateCompanionBuilder
+    = OrderPrintHistoryV2Companion Function({
+  required String id,
+  Value<String?> orderRef,
+  Value<DateTime?> printedAt,
+  Value<String?> printedBy,
+  Value<String?> printedByName,
+  Value<int?> copyNumber,
+  Value<bool?> isPrePayment,
+  Value<String?> printerName,
+  Value<bool?> success,
+  Value<String?> failureReason,
+  Value<String?> printType,
+  Value<int> rowid,
+});
+typedef $$OrderPrintHistoryV2TableUpdateCompanionBuilder
+    = OrderPrintHistoryV2Companion Function({
+  Value<String> id,
+  Value<String?> orderRef,
+  Value<DateTime?> printedAt,
+  Value<String?> printedBy,
+  Value<String?> printedByName,
+  Value<int?> copyNumber,
+  Value<bool?> isPrePayment,
+  Value<String?> printerName,
+  Value<bool?> success,
+  Value<String?> failureReason,
+  Value<String?> printType,
+  Value<int> rowid,
+});
+
+final class $$OrderPrintHistoryV2TableReferences extends BaseReferences<
+    _$MyDatabase, $OrderPrintHistoryV2Table, OrderPrintHistoryV2Data> {
+  $$OrderPrintHistoryV2TableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $OrderEntityV2Table _orderRefTable(_$MyDatabase db) =>
+      db.orderEntityV2.createAlias($_aliasNameGenerator(
+          db.orderPrintHistoryV2.orderRef, db.orderEntityV2.orderRef));
+
+  $$OrderEntityV2TableProcessedTableManager? get orderRef {
+    final $_column = $_itemColumn<String>('order_ref');
+    if ($_column == null) return null;
+    final manager = $$OrderEntityV2TableTableManager($_db, $_db.orderEntityV2)
+        .filter((f) => f.orderRef.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_orderRefTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$OrderPrintHistoryV2TableFilterComposer
+    extends Composer<_$MyDatabase, $OrderPrintHistoryV2Table> {
+  $$OrderPrintHistoryV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get printedAt => $composableBuilder(
+      column: $table.printedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get printedBy => $composableBuilder(
+      column: $table.printedBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get printedByName => $composableBuilder(
+      column: $table.printedByName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get copyNumber => $composableBuilder(
+      column: $table.copyNumber, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isPrePayment => $composableBuilder(
+      column: $table.isPrePayment, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get printerName => $composableBuilder(
+      column: $table.printerName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get success => $composableBuilder(
+      column: $table.success, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get failureReason => $composableBuilder(
+      column: $table.failureReason, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get printType => $composableBuilder(
+      column: $table.printType, builder: (column) => ColumnFilters(column));
+
+  $$OrderEntityV2TableFilterComposer get orderRef {
+    final $$OrderEntityV2TableFilterComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableFilterComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPrintHistoryV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $OrderPrintHistoryV2Table> {
+  $$OrderPrintHistoryV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get printedAt => $composableBuilder(
+      column: $table.printedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get printedBy => $composableBuilder(
+      column: $table.printedBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get printedByName => $composableBuilder(
+      column: $table.printedByName,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get copyNumber => $composableBuilder(
+      column: $table.copyNumber, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isPrePayment => $composableBuilder(
+      column: $table.isPrePayment,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get printerName => $composableBuilder(
+      column: $table.printerName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get success => $composableBuilder(
+      column: $table.success, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get failureReason => $composableBuilder(
+      column: $table.failureReason,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get printType => $composableBuilder(
+      column: $table.printType, builder: (column) => ColumnOrderings(column));
+
+  $$OrderEntityV2TableOrderingComposer get orderRef {
+    final $$OrderEntityV2TableOrderingComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableOrderingComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPrintHistoryV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $OrderPrintHistoryV2Table> {
+  $$OrderPrintHistoryV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get printedAt =>
+      $composableBuilder(column: $table.printedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get printedBy =>
+      $composableBuilder(column: $table.printedBy, builder: (column) => column);
+
+  GeneratedColumn<String> get printedByName => $composableBuilder(
+      column: $table.printedByName, builder: (column) => column);
+
+  GeneratedColumn<int> get copyNumber => $composableBuilder(
+      column: $table.copyNumber, builder: (column) => column);
+
+  GeneratedColumn<bool> get isPrePayment => $composableBuilder(
+      column: $table.isPrePayment, builder: (column) => column);
+
+  GeneratedColumn<String> get printerName => $composableBuilder(
+      column: $table.printerName, builder: (column) => column);
+
+  GeneratedColumn<bool> get success =>
+      $composableBuilder(column: $table.success, builder: (column) => column);
+
+  GeneratedColumn<String> get failureReason => $composableBuilder(
+      column: $table.failureReason, builder: (column) => column);
+
+  GeneratedColumn<String> get printType =>
+      $composableBuilder(column: $table.printType, builder: (column) => column);
+
+  $$OrderEntityV2TableAnnotationComposer get orderRef {
+    final $$OrderEntityV2TableAnnotationComposer composer = $composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.orderRef,
+        referencedTable: $db.orderEntityV2,
+        getReferencedColumn: (t) => t.orderRef,
+        builder: (joinBuilder,
+                {$addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer}) =>
+            $$OrderEntityV2TableAnnotationComposer(
+              $db: $db,
+              $table: $db.orderEntityV2,
+              $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+              joinBuilder: joinBuilder,
+              $removeJoinBuilderFromRootComposer:
+                  $removeJoinBuilderFromRootComposer,
+            ));
+    return composer;
+  }
+}
+
+class $$OrderPrintHistoryV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $OrderPrintHistoryV2Table,
+    OrderPrintHistoryV2Data,
+    $$OrderPrintHistoryV2TableFilterComposer,
+    $$OrderPrintHistoryV2TableOrderingComposer,
+    $$OrderPrintHistoryV2TableAnnotationComposer,
+    $$OrderPrintHistoryV2TableCreateCompanionBuilder,
+    $$OrderPrintHistoryV2TableUpdateCompanionBuilder,
+    (OrderPrintHistoryV2Data, $$OrderPrintHistoryV2TableReferences),
+    OrderPrintHistoryV2Data,
+    PrefetchHooks Function({bool orderRef})> {
+  $$OrderPrintHistoryV2TableTableManager(
+      _$MyDatabase db, $OrderPrintHistoryV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$OrderPrintHistoryV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$OrderPrintHistoryV2TableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$OrderPrintHistoryV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String?> orderRef = const Value.absent(),
+            Value<DateTime?> printedAt = const Value.absent(),
+            Value<String?> printedBy = const Value.absent(),
+            Value<String?> printedByName = const Value.absent(),
+            Value<int?> copyNumber = const Value.absent(),
+            Value<bool?> isPrePayment = const Value.absent(),
+            Value<String?> printerName = const Value.absent(),
+            Value<bool?> success = const Value.absent(),
+            Value<String?> failureReason = const Value.absent(),
+            Value<String?> printType = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPrintHistoryV2Companion(
+            id: id,
+            orderRef: orderRef,
+            printedAt: printedAt,
+            printedBy: printedBy,
+            printedByName: printedByName,
+            copyNumber: copyNumber,
+            isPrePayment: isPrePayment,
+            printerName: printerName,
+            success: success,
+            failureReason: failureReason,
+            printType: printType,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            Value<String?> orderRef = const Value.absent(),
+            Value<DateTime?> printedAt = const Value.absent(),
+            Value<String?> printedBy = const Value.absent(),
+            Value<String?> printedByName = const Value.absent(),
+            Value<int?> copyNumber = const Value.absent(),
+            Value<bool?> isPrePayment = const Value.absent(),
+            Value<String?> printerName = const Value.absent(),
+            Value<bool?> success = const Value.absent(),
+            Value<String?> failureReason = const Value.absent(),
+            Value<String?> printType = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              OrderPrintHistoryV2Companion.insert(
+            id: id,
+            orderRef: orderRef,
+            printedAt: printedAt,
+            printedBy: printedBy,
+            printedByName: printedByName,
+            copyNumber: copyNumber,
+            isPrePayment: isPrePayment,
+            printerName: printerName,
+            success: success,
+            failureReason: failureReason,
+            printType: printType,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$OrderPrintHistoryV2TableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({orderRef = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (orderRef) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.orderRef,
+                    referencedTable:
+                        $$OrderPrintHistoryV2TableReferences._orderRefTable(db),
+                    referencedColumn: $$OrderPrintHistoryV2TableReferences
+                        ._orderRefTable(db)
+                        .orderRef,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$OrderPrintHistoryV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $OrderPrintHistoryV2Table,
+    OrderPrintHistoryV2Data,
+    $$OrderPrintHistoryV2TableFilterComposer,
+    $$OrderPrintHistoryV2TableOrderingComposer,
+    $$OrderPrintHistoryV2TableAnnotationComposer,
+    $$OrderPrintHistoryV2TableCreateCompanionBuilder,
+    $$OrderPrintHistoryV2TableUpdateCompanionBuilder,
+    (OrderPrintHistoryV2Data, $$OrderPrintHistoryV2TableReferences),
+    OrderPrintHistoryV2Data,
+    PrefetchHooks Function({bool orderRef})>;
+typedef $$EndOfDayEntityTableCreateCompanionBuilder = EndOfDayEntityCompanion
+    Function({
+  required String eodId,
+  required DateTime businessDate,
+  required DateTime completedAt,
+  required String completedBy,
+  Value<String?> deviceId,
+  Value<String?> branchId,
+  required String salesSummaryJson,
+  required String paymentsSummaryJson,
+  required String returnsSummaryJson,
+  required String discountsSummaryJson,
+  required String taxesSummaryJson,
+  required String drawerOperationsSummaryJson,
+  required String reconciliationSummaryJson,
+  required String tillsSummaryJson,
+  required double totalSales,
+  required double totalPayments,
+  required double totalVariance,
+  Value<int?> totalTillsClosed,
+  required String status,
+  Value<String?> notes,
+  Value<String?> alertsJson,
+  required DateTime createdAt,
+  Value<DateTime?> syncedAt,
+  Value<int> rowid,
+});
+typedef $$EndOfDayEntityTableUpdateCompanionBuilder = EndOfDayEntityCompanion
+    Function({
+  Value<String> eodId,
+  Value<DateTime> businessDate,
+  Value<DateTime> completedAt,
+  Value<String> completedBy,
+  Value<String?> deviceId,
+  Value<String?> branchId,
+  Value<String> salesSummaryJson,
+  Value<String> paymentsSummaryJson,
+  Value<String> returnsSummaryJson,
+  Value<String> discountsSummaryJson,
+  Value<String> taxesSummaryJson,
+  Value<String> drawerOperationsSummaryJson,
+  Value<String> reconciliationSummaryJson,
+  Value<String> tillsSummaryJson,
+  Value<double> totalSales,
+  Value<double> totalPayments,
+  Value<double> totalVariance,
+  Value<int?> totalTillsClosed,
+  Value<String> status,
+  Value<String?> notes,
+  Value<String?> alertsJson,
+  Value<DateTime> createdAt,
+  Value<DateTime?> syncedAt,
+  Value<int> rowid,
+});
+
+class $$EndOfDayEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $EndOfDayEntityTable> {
+  $$EndOfDayEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get eodId => $composableBuilder(
+      column: $table.eodId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get businessDate => $composableBuilder(
+      column: $table.businessDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get completedBy => $composableBuilder(
+      column: $table.completedBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get branchId => $composableBuilder(
+      column: $table.branchId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get salesSummaryJson => $composableBuilder(
+      column: $table.salesSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get paymentsSummaryJson => $composableBuilder(
+      column: $table.paymentsSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get returnsSummaryJson => $composableBuilder(
+      column: $table.returnsSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get discountsSummaryJson => $composableBuilder(
+      column: $table.discountsSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get taxesSummaryJson => $composableBuilder(
+      column: $table.taxesSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get drawerOperationsSummaryJson => $composableBuilder(
+      column: $table.drawerOperationsSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reconciliationSummaryJson => $composableBuilder(
+      column: $table.reconciliationSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tillsSummaryJson => $composableBuilder(
+      column: $table.tillsSummaryJson,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalSales => $composableBuilder(
+      column: $table.totalSales, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalPayments => $composableBuilder(
+      column: $table.totalPayments, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get totalVariance => $composableBuilder(
+      column: $table.totalVariance, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get totalTillsClosed => $composableBuilder(
+      column: $table.totalTillsClosed,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get alertsJson => $composableBuilder(
+      column: $table.alertsJson, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get syncedAt => $composableBuilder(
+      column: $table.syncedAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$EndOfDayEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $EndOfDayEntityTable> {
+  $$EndOfDayEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get eodId => $composableBuilder(
+      column: $table.eodId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get businessDate => $composableBuilder(
+      column: $table.businessDate,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get completedBy => $composableBuilder(
+      column: $table.completedBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get branchId => $composableBuilder(
+      column: $table.branchId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get salesSummaryJson => $composableBuilder(
+      column: $table.salesSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get paymentsSummaryJson => $composableBuilder(
+      column: $table.paymentsSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get returnsSummaryJson => $composableBuilder(
+      column: $table.returnsSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get discountsSummaryJson => $composableBuilder(
+      column: $table.discountsSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get taxesSummaryJson => $composableBuilder(
+      column: $table.taxesSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get drawerOperationsSummaryJson => $composableBuilder(
+      column: $table.drawerOperationsSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reconciliationSummaryJson => $composableBuilder(
+      column: $table.reconciliationSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tillsSummaryJson => $composableBuilder(
+      column: $table.tillsSummaryJson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalSales => $composableBuilder(
+      column: $table.totalSales, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalPayments => $composableBuilder(
+      column: $table.totalPayments,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get totalVariance => $composableBuilder(
+      column: $table.totalVariance,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get totalTillsClosed => $composableBuilder(
+      column: $table.totalTillsClosed,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get alertsJson => $composableBuilder(
+      column: $table.alertsJson, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get syncedAt => $composableBuilder(
+      column: $table.syncedAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$EndOfDayEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $EndOfDayEntityTable> {
+  $$EndOfDayEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get eodId =>
+      $composableBuilder(column: $table.eodId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get businessDate => $composableBuilder(
+      column: $table.businessDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get completedBy => $composableBuilder(
+      column: $table.completedBy, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<String> get branchId =>
+      $composableBuilder(column: $table.branchId, builder: (column) => column);
+
+  GeneratedColumn<String> get salesSummaryJson => $composableBuilder(
+      column: $table.salesSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get paymentsSummaryJson => $composableBuilder(
+      column: $table.paymentsSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get returnsSummaryJson => $composableBuilder(
+      column: $table.returnsSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get discountsSummaryJson => $composableBuilder(
+      column: $table.discountsSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get taxesSummaryJson => $composableBuilder(
+      column: $table.taxesSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get drawerOperationsSummaryJson => $composableBuilder(
+      column: $table.drawerOperationsSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get reconciliationSummaryJson => $composableBuilder(
+      column: $table.reconciliationSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<String> get tillsSummaryJson => $composableBuilder(
+      column: $table.tillsSummaryJson, builder: (column) => column);
+
+  GeneratedColumn<double> get totalSales => $composableBuilder(
+      column: $table.totalSales, builder: (column) => column);
+
+  GeneratedColumn<double> get totalPayments => $composableBuilder(
+      column: $table.totalPayments, builder: (column) => column);
+
+  GeneratedColumn<double> get totalVariance => $composableBuilder(
+      column: $table.totalVariance, builder: (column) => column);
+
+  GeneratedColumn<int> get totalTillsClosed => $composableBuilder(
+      column: $table.totalTillsClosed, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<String> get alertsJson => $composableBuilder(
+      column: $table.alertsJson, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get syncedAt =>
+      $composableBuilder(column: $table.syncedAt, builder: (column) => column);
+}
+
+class $$EndOfDayEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $EndOfDayEntityTable,
+    EndOfDayEntityData,
+    $$EndOfDayEntityTableFilterComposer,
+    $$EndOfDayEntityTableOrderingComposer,
+    $$EndOfDayEntityTableAnnotationComposer,
+    $$EndOfDayEntityTableCreateCompanionBuilder,
+    $$EndOfDayEntityTableUpdateCompanionBuilder,
+    (
+      EndOfDayEntityData,
+      BaseReferences<_$MyDatabase, $EndOfDayEntityTable, EndOfDayEntityData>
+    ),
+    EndOfDayEntityData,
+    PrefetchHooks Function()> {
+  $$EndOfDayEntityTableTableManager(_$MyDatabase db, $EndOfDayEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$EndOfDayEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$EndOfDayEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$EndOfDayEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> eodId = const Value.absent(),
+            Value<DateTime> businessDate = const Value.absent(),
+            Value<DateTime> completedAt = const Value.absent(),
+            Value<String> completedBy = const Value.absent(),
+            Value<String?> deviceId = const Value.absent(),
+            Value<String?> branchId = const Value.absent(),
+            Value<String> salesSummaryJson = const Value.absent(),
+            Value<String> paymentsSummaryJson = const Value.absent(),
+            Value<String> returnsSummaryJson = const Value.absent(),
+            Value<String> discountsSummaryJson = const Value.absent(),
+            Value<String> taxesSummaryJson = const Value.absent(),
+            Value<String> drawerOperationsSummaryJson = const Value.absent(),
+            Value<String> reconciliationSummaryJson = const Value.absent(),
+            Value<String> tillsSummaryJson = const Value.absent(),
+            Value<double> totalSales = const Value.absent(),
+            Value<double> totalPayments = const Value.absent(),
+            Value<double> totalVariance = const Value.absent(),
+            Value<int?> totalTillsClosed = const Value.absent(),
+            Value<String> status = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<String?> alertsJson = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+            Value<DateTime?> syncedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              EndOfDayEntityCompanion(
+            eodId: eodId,
+            businessDate: businessDate,
+            completedAt: completedAt,
+            completedBy: completedBy,
+            deviceId: deviceId,
+            branchId: branchId,
+            salesSummaryJson: salesSummaryJson,
+            paymentsSummaryJson: paymentsSummaryJson,
+            returnsSummaryJson: returnsSummaryJson,
+            discountsSummaryJson: discountsSummaryJson,
+            taxesSummaryJson: taxesSummaryJson,
+            drawerOperationsSummaryJson: drawerOperationsSummaryJson,
+            reconciliationSummaryJson: reconciliationSummaryJson,
+            tillsSummaryJson: tillsSummaryJson,
+            totalSales: totalSales,
+            totalPayments: totalPayments,
+            totalVariance: totalVariance,
+            totalTillsClosed: totalTillsClosed,
+            status: status,
+            notes: notes,
+            alertsJson: alertsJson,
+            createdAt: createdAt,
+            syncedAt: syncedAt,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String eodId,
+            required DateTime businessDate,
+            required DateTime completedAt,
+            required String completedBy,
+            Value<String?> deviceId = const Value.absent(),
+            Value<String?> branchId = const Value.absent(),
+            required String salesSummaryJson,
+            required String paymentsSummaryJson,
+            required String returnsSummaryJson,
+            required String discountsSummaryJson,
+            required String taxesSummaryJson,
+            required String drawerOperationsSummaryJson,
+            required String reconciliationSummaryJson,
+            required String tillsSummaryJson,
+            required double totalSales,
+            required double totalPayments,
+            required double totalVariance,
+            Value<int?> totalTillsClosed = const Value.absent(),
+            required String status,
+            Value<String?> notes = const Value.absent(),
+            Value<String?> alertsJson = const Value.absent(),
+            required DateTime createdAt,
+            Value<DateTime?> syncedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              EndOfDayEntityCompanion.insert(
+            eodId: eodId,
+            businessDate: businessDate,
+            completedAt: completedAt,
+            completedBy: completedBy,
+            deviceId: deviceId,
+            branchId: branchId,
+            salesSummaryJson: salesSummaryJson,
+            paymentsSummaryJson: paymentsSummaryJson,
+            returnsSummaryJson: returnsSummaryJson,
+            discountsSummaryJson: discountsSummaryJson,
+            taxesSummaryJson: taxesSummaryJson,
+            drawerOperationsSummaryJson: drawerOperationsSummaryJson,
+            reconciliationSummaryJson: reconciliationSummaryJson,
+            tillsSummaryJson: tillsSummaryJson,
+            totalSales: totalSales,
+            totalPayments: totalPayments,
+            totalVariance: totalVariance,
+            totalTillsClosed: totalTillsClosed,
+            status: status,
+            notes: notes,
+            alertsJson: alertsJson,
+            createdAt: createdAt,
+            syncedAt: syncedAt,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$EndOfDayEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $EndOfDayEntityTable,
+    EndOfDayEntityData,
+    $$EndOfDayEntityTableFilterComposer,
+    $$EndOfDayEntityTableOrderingComposer,
+    $$EndOfDayEntityTableAnnotationComposer,
+    $$EndOfDayEntityTableCreateCompanionBuilder,
+    $$EndOfDayEntityTableUpdateCompanionBuilder,
+    (
+      EndOfDayEntityData,
+      BaseReferences<_$MyDatabase, $EndOfDayEntityTable, EndOfDayEntityData>
+    ),
+    EndOfDayEntityData,
+    PrefetchHooks Function()>;
 
 class $MyDatabaseManager {
   final _$MyDatabase _db;
@@ -41402,4 +44120,8 @@ class $MyDatabaseManager {
       $$TableAssignmentsTableTableManager(_db, _db.tableAssignments);
   $$AuditLogsTableTableManager get auditLogs =>
       $$AuditLogsTableTableManager(_db, _db.auditLogs);
+  $$OrderPrintHistoryV2TableTableManager get orderPrintHistoryV2 =>
+      $$OrderPrintHistoryV2TableTableManager(_db, _db.orderPrintHistoryV2);
+  $$EndOfDayEntityTableTableManager get endOfDayEntity =>
+      $$EndOfDayEntityTableTableManager(_db, _db.endOfDayEntity);
 }

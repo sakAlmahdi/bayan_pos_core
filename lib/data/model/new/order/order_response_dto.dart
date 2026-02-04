@@ -77,6 +77,9 @@ class OrderResponseDto {
   /// عدد مرات الطباعة قبل السداد
   int? prePaymentPrintCount;
 
+  /// عدد مرات الطباعة بعد السداد
+  int? postPaymentPrintCount;
+
   /// تاريخ أول طباعة قبل السداد
   DateTime? firstPrintedAt;
 
@@ -211,6 +214,7 @@ class OrderResponseDto {
     this.unprintReason,
     this.unprintedAt,
     this.unprintedBy,
+    this.postPaymentPrintCount,
     this.customerId,
     this.customerJson,
     this.addressId,
@@ -311,6 +315,8 @@ class OrderResponseDto {
       printState: int.tryParse(json['printState'].toString()),
       prePaymentPrintCount:
           int.tryParse(json['prePaymentPrintCount'].toString()) ?? 0,
+      postPaymentPrintCount:
+          int.tryParse(json['postPaymentPrintCount'].toString()) ?? 0,
       firstPrintedAt: json['firstPrintedAt'] != null
           ? DateTime.parse(json['firstPrintedAt'])
           : null,
@@ -450,6 +456,7 @@ class OrderResponseDto {
       'priceIncludeTax': priceIncludeTax,
       'printState': printState,
       'prePaymentPrintCount': prePaymentPrintCount,
+      'postPaymentPrintCount': postPaymentPrintCount,
       'firstPrintedAt': firstPrintedAt?.toIso8601String(),
       'lastPrintedAt': lastPrintedAt?.toIso8601String(),
       'lastPrintedBy': lastPrintedBy,
@@ -545,6 +552,7 @@ class OrderResponseDto {
     bool? priceIncludeTax,
     int? printState,
     int? prePaymentPrintCount,
+    int? postPaymentPrintCount,
     DateTime? firstPrintedAt,
     DateTime? lastPrintedAt,
     String? lastPrintedBy,
@@ -645,6 +653,8 @@ class OrderResponseDto {
       priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
       printState: printState ?? this.printState,
       prePaymentPrintCount: prePaymentPrintCount ?? this.prePaymentPrintCount,
+      postPaymentPrintCount:
+          postPaymentPrintCount ?? this.postPaymentPrintCount,
       firstPrintedAt: firstPrintedAt ?? this.firstPrintedAt,
       lastPrintedAt: lastPrintedAt ?? this.lastPrintedAt,
       lastPrintedBy: lastPrintedBy ?? this.lastPrintedBy,

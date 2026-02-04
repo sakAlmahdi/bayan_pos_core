@@ -4004,7 +4004,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(44, 7842135050779151667),
     name: 'OrderC',
-    lastPropertyId: const obx_int.IdUid(63, 1297710748768535751),
+    lastPropertyId: const obx_int.IdUid(71, 7483909766262187306),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -5445,7 +5445,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(60, 6818378341795595111),
     name: 'SalesInvoiceTemplates',
-    lastPropertyId: const obx_int.IdUid(51, 490776852860280721),
+    lastPropertyId: const obx_int.IdUid(52, 3466157620630218989),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -5752,6 +5752,12 @@ final _entities = <obx_int.ModelEntity>[
       obx_int.ModelProperty(
         id: const obx_int.IdUid(51, 490776852860280721),
         name: 'printCustomerPoints',
+        type: 1,
+        flags: 0,
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(52, 3466157620630218989),
+        name: 'printPaidStatus',
         type: 1,
         flags: 0,
       ),
@@ -7883,7 +7889,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(89, 1092230501526261982),
     name: 'PrinterModel',
-    lastPropertyId: const obx_int.IdUid(13, 3204178902931445406),
+    lastPropertyId: const obx_int.IdUid(14, 7065405282403823126),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -7966,6 +7972,12 @@ final _entities = <obx_int.ModelEntity>[
         id: const obx_int.IdUid(13, 3204178902931445406),
         name: 'printerConnectionJson',
         type: 9,
+        flags: 0,
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(14, 7065405282403823126),
+        name: 'printDataFormat',
+        type: 6,
         flags: 0,
       ),
     ],
@@ -9087,6 +9099,14 @@ obx_int.ModelDefinition getObjectBoxModel() {
       8398129930541933928,
       9203042544313784896,
       3316267263640731302,
+      3616339758151331225,
+      6119450445273755349,
+      4579592567535350472,
+      7741480867796698054,
+      8459619366205173639,
+      7935099116544880015,
+      1424959760182633585,
+      7483909766262187306,
     ],
     retiredRelationUids: const [
       9100000052568182061,
@@ -14139,7 +14159,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final customerPhoneOffset = object.customerPhone == null
             ? null
             : fbb.writeString(object.customerPhone!);
-        fbb.startTable(64);
+        fbb.startTable(72);
         fbb.addInt64(0, object.idSeq);
         fbb.addOffset(1, invoiceNumberOffset);
         fbb.addOffset(2, deviceIdOffset);
@@ -15870,7 +15890,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final fPointsMessageOffset = object.fPointsMessage == null
             ? null
             : fbb.writeString(object.fPointsMessage!);
-        fbb.startTable(52);
+        fbb.startTable(53);
         fbb.addInt64(0, object.idSeq ?? 0);
         fbb.addOffset(1, idOffset);
         fbb.addOffset(2, nameOffset);
@@ -15922,6 +15942,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         fbb.addOffset(48, pointsMessageOffset);
         fbb.addOffset(49, fPointsMessageOffset);
         fbb.addBool(50, object.printCustomerPoints);
+        fbb.addBool(51, object.printPaidStatus);
         fbb.finish(fbb.endTable());
         return object.idSeq ?? 0;
       },
@@ -16096,6 +16117,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
         ).vTableGetNullable(buffer, rootOffset, 102);
         final printCustomerPointsParam = const fb.BoolReader()
             .vTableGetNullable(buffer, rootOffset, 104);
+        final printPaidStatusParam = const fb.BoolReader().vTableGetNullable(
+          buffer,
+          rootOffset,
+          106,
+        );
         final object =
             SalesInvoiceTemplates(
                 id: idParam,
@@ -16151,6 +16177,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
                 pointsMessage: pointsMessageParam,
                 fPointsMessage: fPointsMessageParam,
                 printCustomerPoints: printCustomerPointsParam,
+                printPaidStatus: printPaidStatusParam,
               )
               ..idSeq = const fb.Int64Reader().vTableGetNullable(
                 buffer,
@@ -19080,7 +19107,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final printerConnectionJsonOffset = object.printerConnectionJson == null
             ? null
             : fbb.writeString(object.printerConnectionJson!);
-        fbb.startTable(14);
+        fbb.startTable(15);
         fbb.addInt64(0, object.idSeq ?? 0);
         fbb.addOffset(1, idOffset);
         fbb.addOffset(2, nameOffset);
@@ -19094,6 +19121,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         fbb.addInt64(10, object.port);
         fbb.addInt64(11, object.setting.targetId);
         fbb.addOffset(12, printerConnectionJsonOffset);
+        fbb.addInt64(13, object.printDataFormat);
         fbb.finish(fbb.endTable());
         return object.idSeq ?? 0;
       },
@@ -19138,6 +19166,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
           rootOffset,
           22,
         );
+        final printDataFormatParam = const fb.Int64Reader().vTableGetNullable(
+          buffer,
+          rootOffset,
+          30,
+        );
         final printerConnectionJsonParam = const fb.StringReader(
           asciiOptimization: true,
         ).vTableGetNullable(buffer, rootOffset, 28);
@@ -19153,6 +19186,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
                 port: portParam,
                 printerType: printerTypeParam,
                 printTo: printToParam,
+                printDataFormat: printDataFormatParam,
                 printerConnectionJson: printerConnectionJsonParam,
               )
               ..idSeq = const fb.Int64Reader().vTableGetNullable(
@@ -23791,6 +23825,12 @@ class SalesInvoiceTemplates_ {
       obx.QueryBooleanProperty<SalesInvoiceTemplates>(
         _entities[56].properties[50],
       );
+
+  /// See [SalesInvoiceTemplates.printPaidStatus].
+  static final printPaidStatus =
+      obx.QueryBooleanProperty<SalesInvoiceTemplates>(
+        _entities[56].properties[51],
+      );
 }
 
 /// [SalesInvoiceTemplatesA4] entity fields to define ObjectBox queries.
@@ -25474,6 +25514,11 @@ class PrinterModel_ {
   /// See [PrinterModel.printerConnectionJson].
   static final printerConnectionJson = obx.QueryStringProperty<PrinterModel>(
     _entities[84].properties[12],
+  );
+
+  /// See [PrinterModel.printDataFormat].
+  static final printDataFormat = obx.QueryIntegerProperty<PrinterModel>(
+    _entities[84].properties[13],
   );
 
   /// see [PrinterModel.copyConfigs]
