@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/bayan_pos_core.dart';
+import 'package:bayan_pos_core/data/model/new/order/order_response_dto.dart';
 // import 'package:bayan_pos_core/data/enum/order_satate.dart';
 // import 'package:bayan_pos_core/data/model/order/option.dart';
 // import 'package:bayan_pos_core/data/model/order/unit.dart';

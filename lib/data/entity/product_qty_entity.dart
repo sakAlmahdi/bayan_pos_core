@@ -5,10 +5,12 @@ class ProductQtyEntity extends Table {
   RealColumn get qty => real()();
   TextColumn get productId => text()();
   TextColumn get unitId => text()();
+  TextColumn get addonId => text().nullable()();
+  TextColumn get modifierId => text().nullable()();
   BoolColumn get isAvailable => boolean()();
 
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [
-        {productId, unitId}
+        {productId, unitId, addonId, modifierId}
       ];
 }

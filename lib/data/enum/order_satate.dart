@@ -21,7 +21,8 @@ enum OrderStatusC {
   joined,
   lvoid,
   done,
-  draft
+  draft,
+  scheduled
 }
 
 OrderStatusC convertStringToOrderStatus(int type) {
@@ -42,6 +43,8 @@ OrderStatusC convertStringToOrderStatus(int type) {
       return OrderStatusC.done;
     case 7:
       return OrderStatusC.draft;
+    case 8:
+      return OrderStatusC.scheduled;
     default:
       return OrderStatusC.draft;
   }
@@ -66,6 +69,8 @@ extension OrderStatusCExtension on OrderStatusC {
         return 6;
       case OrderStatusC.draft:
         return 7;
+      case OrderStatusC.scheduled:
+        return 8;
     }
   }
 
@@ -87,6 +92,8 @@ extension OrderStatusCExtension on OrderStatusC {
         return 'تم';
       case OrderStatusC.draft:
         return 'مسودة';
+      case OrderStatusC.scheduled:
+        return 'مجدول';
     }
   }
 
@@ -108,6 +115,8 @@ extension OrderStatusCExtension on OrderStatusC {
         return "#4CAF50".color; // أخضر للمكتمل
       case OrderStatusC.draft:
         return "#BDBDBD".color; // رمادي فاتح للمسودة
+      case OrderStatusC.scheduled:
+        return "#FF9800".color; // برتقالي غامق للمجدول
     }
   }
 }

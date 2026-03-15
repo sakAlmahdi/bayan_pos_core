@@ -11,6 +11,9 @@ class PrinterCopyConfigModel {
   String? copyName;
   int template;
 
+  /// طباعة الفاتورة كاملة مع التجميعات
+  bool isPrintFullInvoiceWithGroups = true;
+
   /// وضع التقسيم والتجميع
   int splitMode = 1; // 'none' | 'per_item' | 'grouped'
 
@@ -24,6 +27,7 @@ class PrinterCopyConfigModel {
     this.copyName,
     required this.template,
     required this.splitMode,
+    this.isPrintFullInvoiceWithGroups = true,
     List<String>? selectedGroupIds,
   }) {
     if (selectedGroupIds != null) {
@@ -47,6 +51,8 @@ class PrinterCopyConfigModel {
       copyName: json['copyName'] as String?,
       template: json['template'] as int,
       splitMode: json['splitMode'] as int,
+      isPrintFullInvoiceWithGroups:
+          json['isPrintFullInvoiceWithGroups'] as bool? ?? true,
       selectedGroupIds: ids,
     );
   }
@@ -57,6 +63,7 @@ class PrinterCopyConfigModel {
       if (copyName != null && copyName!.isNotEmpty) 'copyName': copyName,
       'template': template,
       'splitMode': splitMode,
+      'isPrintFullInvoiceWithGroups': isPrintFullInvoiceWithGroups,
       'selectedGroupIds': selectedGroupIds,
     };
   }
@@ -66,12 +73,15 @@ class PrinterCopyConfigModel {
     String? copyName,
     int? template,
     int? splitMode,
+    bool? isPrintFullInvoiceWithGroups,
     List<String>? selectedGroupIds,
   }) {
     return PrinterCopyConfigModel(
       copyName: copyName ?? this.copyName,
       template: template ?? this.template,
       splitMode: splitMode ?? this.splitMode,
+      isPrintFullInvoiceWithGroups:
+          isPrintFullInvoiceWithGroups ?? this.isPrintFullInvoiceWithGroups,
       selectedGroupIds: selectedGroupIds ?? this.selectedGroupIds,
     );
   }

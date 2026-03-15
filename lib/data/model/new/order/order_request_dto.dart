@@ -1,7 +1,9 @@
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/customer/adderss.dart';
 import 'package:bayan_pos_core/data/model/customer/customer.dart';
 import 'package:bayan_pos_core/data/model/new/product/order_product_request_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/manual_charge_request_dto.dart';
+
 import 'package:bayan_pos_core/data/model/order/order.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
@@ -52,6 +54,8 @@ class OrderRequestDto {
   Customer? customer;
   DeliveryCompanyInfo? deliveryCompanyInfo;
 
+  Address? address;
+
   OrderRequestDto({
     this.branchId,
     this.priceListId,
@@ -89,6 +93,7 @@ class OrderRequestDto {
     this.customer,
     this.tableCaption,
     this.deliveryCompanyInfo,
+    this.address,
   });
 
   factory OrderRequestDto.fromJson(Map<String, dynamic> json) {
@@ -150,6 +155,9 @@ class OrderRequestDto {
       deliveryCompanyInfo: json['deliveryCompanyInfo'] != null
           ? DeliveryCompanyInfo.fromJson(json['deliveryCompanyInfo'])
           : null,
+      address: json['address'] != null
+          ? Address.fromJson(json['address'] as Map<String, dynamic>)
+          : null,
     );
   }
 
@@ -192,6 +200,7 @@ class OrderRequestDto {
       'customer': customer?.toJson(),
       'tableCaption': tableCaption,
       'deliveryCompanyInfo': deliveryCompanyInfo?.toJson(),
+      'address': address?.toJson(),
     };
   }
 
@@ -219,6 +228,7 @@ class OrderRequestDto {
     String? tableCaption,
     DeliveryCompanyInfo? deliveryCompanyInfo,
     String? callName,
+    Address? address,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -245,6 +255,7 @@ class OrderRequestDto {
       tableCaption: tableCaption ?? this.tableCaption,
       deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
       callName: callName ?? this.callName,
+      address: address ?? this.address,
     );
   }
 }

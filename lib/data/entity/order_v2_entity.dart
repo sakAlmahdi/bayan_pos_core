@@ -114,8 +114,10 @@ class OrderEntityV2 extends Table {
   TextColumn get lastModifiedBy => text().nullable()();
   TextColumn get openedOn => text().nullable()();
   TextColumn get openedBy => text().nullable()();
-  TextColumn get closedOn => text().nullable()();
   TextColumn get closedBy => text().nullable()();
+  TextColumn get deliveryCompanyId => text().nullable()();
+  TextColumn get deliveryCompanyJson =>
+      text().map(const JsonTypeConverter()).nullable()();
 
   // Print State Management Fields (added for POS printing and payment workflow)
   /// حالة الطباعة: 0=غير مطبوع، 1=مطبوع قبل السداد، 2=مدفوع
@@ -154,6 +156,33 @@ class OrderEntityV2 extends Table {
 
   /// من قام بإلغاء الطباعة
   TextColumn get unprintedBy => text().nullable()();
+
+  // حقول الجدولة (Scheduled Orders)
+  /// هل الطلب مجدول للتنفيذ في وقت لاحق؟
+  BoolColumn get isScheduled =>
+      boolean().nullable().withDefault(const Constant(false))();
+
+  /// التاريخ والوقت المحدد لتنفيذ الطلب المجدول
+  DateTimeColumn get scheduledFor => dateTime().nullable()();
+
+  /// معرف المستخدم الذي قام بجدولة الطلب
+  TextColumn get scheduledBy => text().nullable()();
+
+  /// تاريخ ووقت جدولة الطلب
+  DateTimeColumn get scheduledAt => dateTime().nullable()();
+
+  /// حالة الطلب المجدول (0=معلق، 1=جاهز للتفعيل، 2=تم التفعيل، 3=ملغي، 4=منتهي)
+  IntColumn get scheduledStatus =>
+      integer().nullable().withDefault(const Constant(0))();
+
+  /// تاريخ ووقت تفعيل الطلب المجدول
+  DateTimeColumn get activatedAt => dateTime().nullable()();
+
+  /// معرف المستخدم الذي قام بتفعيل الطلب
+  TextColumn get activatedBy => text().nullable()();
+
+  /// ملاحظات حول الجدولة
+  TextColumn get scheduledNotes => text().nullable()();
 
   @override
   Set<Column<Object>>? get primaryKey => {orderRef};

@@ -5,6 +5,7 @@ import 'package:bayan_pos_core/data/entity/drawer_operation_entity.dart';
 import 'package:bayan_pos_core/data/entity/product_qty_entity.dart';
 import 'package:bayan_pos_core/data/entity/settings_entity.dart';
 import 'package:bayan_pos_core/data/entity/shift_entity.dart';
+import 'package:bayan_pos_core/data/entity/stock_transaction_entity.dart';
 import 'package:bayan_pos_core/data/entity/till_entity.dart';
 import 'package:bayan_pos_core/data/entity/end_of_day_entity.dart';
 import 'package:drift/drift.dart';
@@ -57,6 +58,7 @@ part 'drift_db.g.dart';
   AuditLogs,
   OrderPrintHistoryV2,
   EndOfDayEntity,
+  StockTransactionEntity,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());

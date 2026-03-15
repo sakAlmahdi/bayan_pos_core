@@ -1,5 +1,6 @@
 import 'package:bayan_pos_core/data/enum/order_satate.dart';
 import 'package:bayan_pos_core/data/enum/order_type.dart';
+import 'package:bayan_pos_core/data/model/customer/adderss.dart';
 import 'package:bayan_pos_core/data/model/customer/customer.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_charge_for_total_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/order_product_charge_dto.dart';
@@ -151,6 +152,8 @@ class OrderResponseDto {
   Customer? get getCustomer =>
       customerJson != null ? Customer.fromJson(customerJson!) : null;
 
+  Address? address;
+
   OrderResponseDto({
     required this.totalPrice,
     required this.netTotalPrice,
@@ -243,6 +246,7 @@ class OrderResponseDto {
     this.manualChargesTaxAmount,
     this.trace,
     this.deliveryCompanyInfo,
+    this.address,
   });
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
@@ -397,6 +401,9 @@ class OrderResponseDto {
       deliveryCompanyInfo: json['deliveryCompanyInfo'] != null
           ? DeliveryCompanyInfo.fromJson(json['deliveryCompanyInfo'])
           : null,
+      address: json['address'] != null
+          ? Address.fromJson(json['address'] as Map<String, dynamic>)
+          : null,
     );
   }
 
@@ -494,6 +501,7 @@ class OrderResponseDto {
       'manualChargesTaxAmount': manualChargesTaxAmount,
       'trace': trace,
       'deliveryCompanyInfo': deliveryCompanyInfo?.toJson(),
+      'address': address?.toJson(),
     };
   }
 
@@ -589,6 +597,7 @@ class OrderResponseDto {
     double? manualChargesTaxAmount,
     String? trace,
     DeliveryCompanyInfo? deliveryCompanyInfo,
+    Address? address,
   }) {
     return OrderResponseDto(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -693,6 +702,7 @@ class OrderResponseDto {
           manualChargesTaxAmount ?? this.manualChargesTaxAmount,
       trace: trace ?? this.trace,
       deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
+      address: address ?? this.address,
     );
   }
 

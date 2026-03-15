@@ -9071,6 +9071,18 @@ class $ProductQtyEntityTable extends ProductQtyEntity
   late final GeneratedColumn<String> unitId = GeneratedColumn<String>(
       'unit_id', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _addonIdMeta =
+      const VerificationMeta('addonId');
+  @override
+  late final GeneratedColumn<String> addonId = GeneratedColumn<String>(
+      'addon_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _modifierIdMeta =
+      const VerificationMeta('modifierId');
+  @override
+  late final GeneratedColumn<String> modifierId = GeneratedColumn<String>(
+      'modifier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _isAvailableMeta =
       const VerificationMeta('isAvailable');
   @override
@@ -9082,7 +9094,7 @@ class $ProductQtyEntityTable extends ProductQtyEntity
           'CHECK ("is_available" IN (0, 1))'));
   @override
   List<GeneratedColumn> get $columns =>
-      [id, qty, productId, unitId, isAvailable];
+      [id, qty, productId, unitId, addonId, modifierId, isAvailable];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -9115,6 +9127,16 @@ class $ProductQtyEntityTable extends ProductQtyEntity
     } else if (isInserting) {
       context.missing(_unitIdMeta);
     }
+    if (data.containsKey('addon_id')) {
+      context.handle(_addonIdMeta,
+          addonId.isAcceptableOrUnknown(data['addon_id']!, _addonIdMeta));
+    }
+    if (data.containsKey('modifier_id')) {
+      context.handle(
+          _modifierIdMeta,
+          modifierId.isAcceptableOrUnknown(
+              data['modifier_id']!, _modifierIdMeta));
+    }
     if (data.containsKey('is_available')) {
       context.handle(
           _isAvailableMeta,
@@ -9130,7 +9152,7 @@ class $ProductQtyEntityTable extends ProductQtyEntity
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
   List<Set<GeneratedColumn>> get uniqueKeys => [
-        {productId, unitId},
+        {productId, unitId, addonId, modifierId},
       ];
   @override
   ProductQtyEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
@@ -9144,6 +9166,10 @@ class $ProductQtyEntityTable extends ProductQtyEntity
           .read(DriftSqlType.string, data['${effectivePrefix}product_id'])!,
       unitId: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}unit_id'])!,
+      addonId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}addon_id']),
+      modifierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}modifier_id']),
       isAvailable: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_available'])!,
     );
@@ -9161,12 +9187,16 @@ class ProductQtyEntityData extends DataClass
   final double qty;
   final String productId;
   final String unitId;
+  final String? addonId;
+  final String? modifierId;
   final bool isAvailable;
   const ProductQtyEntityData(
       {this.id,
       required this.qty,
       required this.productId,
       required this.unitId,
+      this.addonId,
+      this.modifierId,
       required this.isAvailable});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -9177,6 +9207,12 @@ class ProductQtyEntityData extends DataClass
     map['qty'] = Variable<double>(qty);
     map['product_id'] = Variable<String>(productId);
     map['unit_id'] = Variable<String>(unitId);
+    if (!nullToAbsent || addonId != null) {
+      map['addon_id'] = Variable<String>(addonId);
+    }
+    if (!nullToAbsent || modifierId != null) {
+      map['modifier_id'] = Variable<String>(modifierId);
+    }
     map['is_available'] = Variable<bool>(isAvailable);
     return map;
   }
@@ -9187,6 +9223,12 @@ class ProductQtyEntityData extends DataClass
       qty: Value(qty),
       productId: Value(productId),
       unitId: Value(unitId),
+      addonId: addonId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(addonId),
+      modifierId: modifierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(modifierId),
       isAvailable: Value(isAvailable),
     );
   }
@@ -9199,6 +9241,8 @@ class ProductQtyEntityData extends DataClass
       qty: serializer.fromJson<double>(json['qty']),
       productId: serializer.fromJson<String>(json['productId']),
       unitId: serializer.fromJson<String>(json['unitId']),
+      addonId: serializer.fromJson<String?>(json['addonId']),
+      modifierId: serializer.fromJson<String?>(json['modifierId']),
       isAvailable: serializer.fromJson<bool>(json['isAvailable']),
     );
   }
@@ -9210,6 +9254,8 @@ class ProductQtyEntityData extends DataClass
       'qty': serializer.toJson<double>(qty),
       'productId': serializer.toJson<String>(productId),
       'unitId': serializer.toJson<String>(unitId),
+      'addonId': serializer.toJson<String?>(addonId),
+      'modifierId': serializer.toJson<String?>(modifierId),
       'isAvailable': serializer.toJson<bool>(isAvailable),
     };
   }
@@ -9219,12 +9265,16 @@ class ProductQtyEntityData extends DataClass
           double? qty,
           String? productId,
           String? unitId,
+          Value<String?> addonId = const Value.absent(),
+          Value<String?> modifierId = const Value.absent(),
           bool? isAvailable}) =>
       ProductQtyEntityData(
         id: id.present ? id.value : this.id,
         qty: qty ?? this.qty,
         productId: productId ?? this.productId,
         unitId: unitId ?? this.unitId,
+        addonId: addonId.present ? addonId.value : this.addonId,
+        modifierId: modifierId.present ? modifierId.value : this.modifierId,
         isAvailable: isAvailable ?? this.isAvailable,
       );
   ProductQtyEntityData copyWithCompanion(ProductQtyEntityCompanion data) {
@@ -9233,6 +9283,9 @@ class ProductQtyEntityData extends DataClass
       qty: data.qty.present ? data.qty.value : this.qty,
       productId: data.productId.present ? data.productId.value : this.productId,
       unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      addonId: data.addonId.present ? data.addonId.value : this.addonId,
+      modifierId:
+          data.modifierId.present ? data.modifierId.value : this.modifierId,
       isAvailable:
           data.isAvailable.present ? data.isAvailable.value : this.isAvailable,
     );
@@ -9245,13 +9298,16 @@ class ProductQtyEntityData extends DataClass
           ..write('qty: $qty, ')
           ..write('productId: $productId, ')
           ..write('unitId: $unitId, ')
+          ..write('addonId: $addonId, ')
+          ..write('modifierId: $modifierId, ')
           ..write('isAvailable: $isAvailable')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, qty, productId, unitId, isAvailable);
+  int get hashCode =>
+      Object.hash(id, qty, productId, unitId, addonId, modifierId, isAvailable);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -9260,6 +9316,8 @@ class ProductQtyEntityData extends DataClass
           other.qty == this.qty &&
           other.productId == this.productId &&
           other.unitId == this.unitId &&
+          other.addonId == this.addonId &&
+          other.modifierId == this.modifierId &&
           other.isAvailable == this.isAvailable);
 }
 
@@ -9268,12 +9326,16 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
   final Value<double> qty;
   final Value<String> productId;
   final Value<String> unitId;
+  final Value<String?> addonId;
+  final Value<String?> modifierId;
   final Value<bool> isAvailable;
   const ProductQtyEntityCompanion({
     this.id = const Value.absent(),
     this.qty = const Value.absent(),
     this.productId = const Value.absent(),
     this.unitId = const Value.absent(),
+    this.addonId = const Value.absent(),
+    this.modifierId = const Value.absent(),
     this.isAvailable = const Value.absent(),
   });
   ProductQtyEntityCompanion.insert({
@@ -9281,6 +9343,8 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
     required double qty,
     required String productId,
     required String unitId,
+    this.addonId = const Value.absent(),
+    this.modifierId = const Value.absent(),
     required bool isAvailable,
   })  : qty = Value(qty),
         productId = Value(productId),
@@ -9291,6 +9355,8 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
     Expression<double>? qty,
     Expression<String>? productId,
     Expression<String>? unitId,
+    Expression<String>? addonId,
+    Expression<String>? modifierId,
     Expression<bool>? isAvailable,
   }) {
     return RawValuesInsertable({
@@ -9298,6 +9364,8 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
       if (qty != null) 'qty': qty,
       if (productId != null) 'product_id': productId,
       if (unitId != null) 'unit_id': unitId,
+      if (addonId != null) 'addon_id': addonId,
+      if (modifierId != null) 'modifier_id': modifierId,
       if (isAvailable != null) 'is_available': isAvailable,
     });
   }
@@ -9307,12 +9375,16 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
       Value<double>? qty,
       Value<String>? productId,
       Value<String>? unitId,
+      Value<String?>? addonId,
+      Value<String?>? modifierId,
       Value<bool>? isAvailable}) {
     return ProductQtyEntityCompanion(
       id: id ?? this.id,
       qty: qty ?? this.qty,
       productId: productId ?? this.productId,
       unitId: unitId ?? this.unitId,
+      addonId: addonId ?? this.addonId,
+      modifierId: modifierId ?? this.modifierId,
       isAvailable: isAvailable ?? this.isAvailable,
     );
   }
@@ -9332,6 +9404,12 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
     if (unitId.present) {
       map['unit_id'] = Variable<String>(unitId.value);
     }
+    if (addonId.present) {
+      map['addon_id'] = Variable<String>(addonId.value);
+    }
+    if (modifierId.present) {
+      map['modifier_id'] = Variable<String>(modifierId.value);
+    }
     if (isAvailable.present) {
       map['is_available'] = Variable<bool>(isAvailable.value);
     }
@@ -9345,6 +9423,8 @@ class ProductQtyEntityCompanion extends UpdateCompanion<ProductQtyEntityData> {
           ..write('qty: $qty, ')
           ..write('productId: $productId, ')
           ..write('unitId: $unitId, ')
+          ..write('addonId: $addonId, ')
+          ..write('modifierId: $modifierId, ')
           ..write('isAvailable: $isAvailable')
           ..write(')'))
         .toString();
@@ -10303,18 +10383,25 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<String> openedBy = GeneratedColumn<String>(
       'opened_by', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
-  static const VerificationMeta _closedOnMeta =
-      const VerificationMeta('closedOn');
-  @override
-  late final GeneratedColumn<String> closedOn = GeneratedColumn<String>(
-      'closed_on', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _closedByMeta =
       const VerificationMeta('closedBy');
   @override
   late final GeneratedColumn<String> closedBy = GeneratedColumn<String>(
       'closed_by', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _deliveryCompanyIdMeta =
+      const VerificationMeta('deliveryCompanyId');
+  @override
+  late final GeneratedColumn<String> deliveryCompanyId =
+      GeneratedColumn<String>('delivery_company_id', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumnWithTypeConverter<dynamic, String>
+      deliveryCompanyJson = GeneratedColumn<String>(
+              'delivery_company_json', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<dynamic>(
+              $OrderEntityV2Table.$converterdeliveryCompanyJson);
   static const VerificationMeta _printStateMeta =
       const VerificationMeta('printState');
   @override
@@ -10391,6 +10478,60 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<String> unprintedBy = GeneratedColumn<String>(
       'unprinted_by', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _isScheduledMeta =
+      const VerificationMeta('isScheduled');
+  @override
+  late final GeneratedColumn<bool> isScheduled = GeneratedColumn<bool>(
+      'is_scheduled', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("is_scheduled" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _scheduledForMeta =
+      const VerificationMeta('scheduledFor');
+  @override
+  late final GeneratedColumn<DateTime> scheduledFor = GeneratedColumn<DateTime>(
+      'scheduled_for', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _scheduledByMeta =
+      const VerificationMeta('scheduledBy');
+  @override
+  late final GeneratedColumn<String> scheduledBy = GeneratedColumn<String>(
+      'scheduled_by', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _scheduledAtMeta =
+      const VerificationMeta('scheduledAt');
+  @override
+  late final GeneratedColumn<DateTime> scheduledAt = GeneratedColumn<DateTime>(
+      'scheduled_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _scheduledStatusMeta =
+      const VerificationMeta('scheduledStatus');
+  @override
+  late final GeneratedColumn<int> scheduledStatus = GeneratedColumn<int>(
+      'scheduled_status', aliasedName, true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _activatedAtMeta =
+      const VerificationMeta('activatedAt');
+  @override
+  late final GeneratedColumn<DateTime> activatedAt = GeneratedColumn<DateTime>(
+      'activated_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _activatedByMeta =
+      const VerificationMeta('activatedBy');
+  @override
+  late final GeneratedColumn<String> activatedBy = GeneratedColumn<String>(
+      'activated_by', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _scheduledNotesMeta =
+      const VerificationMeta('scheduledNotes');
+  @override
+  late final GeneratedColumn<String> scheduledNotes = GeneratedColumn<String>(
+      'scheduled_notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         totalPrice,
@@ -10458,8 +10599,9 @@ class $OrderEntityV2Table extends OrderEntityV2
         lastModifiedBy,
         openedOn,
         openedBy,
-        closedOn,
         closedBy,
+        deliveryCompanyId,
+        deliveryCompanyJson,
         printState,
         prePaymentPrintCount,
         postPaymentPrintCount,
@@ -10470,7 +10612,15 @@ class $OrderEntityV2Table extends OrderEntityV2
         lockedAt,
         unprintReason,
         unprintedAt,
-        unprintedBy
+        unprintedBy,
+        isScheduled,
+        scheduledFor,
+        scheduledBy,
+        scheduledAt,
+        scheduledStatus,
+        activatedAt,
+        activatedBy,
+        scheduledNotes
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -10820,13 +10970,15 @@ class $OrderEntityV2Table extends OrderEntityV2
       context.handle(_openedByMeta,
           openedBy.isAcceptableOrUnknown(data['opened_by']!, _openedByMeta));
     }
-    if (data.containsKey('closed_on')) {
-      context.handle(_closedOnMeta,
-          closedOn.isAcceptableOrUnknown(data['closed_on']!, _closedOnMeta));
-    }
     if (data.containsKey('closed_by')) {
       context.handle(_closedByMeta,
           closedBy.isAcceptableOrUnknown(data['closed_by']!, _closedByMeta));
+    }
+    if (data.containsKey('delivery_company_id')) {
+      context.handle(
+          _deliveryCompanyIdMeta,
+          deliveryCompanyId.isAcceptableOrUnknown(
+              data['delivery_company_id']!, _deliveryCompanyIdMeta));
     }
     if (data.containsKey('print_state')) {
       context.handle(
@@ -10889,6 +11041,54 @@ class $OrderEntityV2Table extends OrderEntityV2
           _unprintedByMeta,
           unprintedBy.isAcceptableOrUnknown(
               data['unprinted_by']!, _unprintedByMeta));
+    }
+    if (data.containsKey('is_scheduled')) {
+      context.handle(
+          _isScheduledMeta,
+          isScheduled.isAcceptableOrUnknown(
+              data['is_scheduled']!, _isScheduledMeta));
+    }
+    if (data.containsKey('scheduled_for')) {
+      context.handle(
+          _scheduledForMeta,
+          scheduledFor.isAcceptableOrUnknown(
+              data['scheduled_for']!, _scheduledForMeta));
+    }
+    if (data.containsKey('scheduled_by')) {
+      context.handle(
+          _scheduledByMeta,
+          scheduledBy.isAcceptableOrUnknown(
+              data['scheduled_by']!, _scheduledByMeta));
+    }
+    if (data.containsKey('scheduled_at')) {
+      context.handle(
+          _scheduledAtMeta,
+          scheduledAt.isAcceptableOrUnknown(
+              data['scheduled_at']!, _scheduledAtMeta));
+    }
+    if (data.containsKey('scheduled_status')) {
+      context.handle(
+          _scheduledStatusMeta,
+          scheduledStatus.isAcceptableOrUnknown(
+              data['scheduled_status']!, _scheduledStatusMeta));
+    }
+    if (data.containsKey('activated_at')) {
+      context.handle(
+          _activatedAtMeta,
+          activatedAt.isAcceptableOrUnknown(
+              data['activated_at']!, _activatedAtMeta));
+    }
+    if (data.containsKey('activated_by')) {
+      context.handle(
+          _activatedByMeta,
+          activatedBy.isAcceptableOrUnknown(
+              data['activated_by']!, _activatedByMeta));
+    }
+    if (data.containsKey('scheduled_notes')) {
+      context.handle(
+          _scheduledNotesMeta,
+          scheduledNotes.isAcceptableOrUnknown(
+              data['scheduled_notes']!, _scheduledNotesMeta));
     }
     return context;
   }
@@ -11041,10 +11241,13 @@ class $OrderEntityV2Table extends OrderEntityV2
           .read(DriftSqlType.string, data['${effectivePrefix}opened_on']),
       openedBy: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}opened_by']),
-      closedOn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}closed_on']),
       closedBy: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}closed_by']),
+      deliveryCompanyId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}delivery_company_id']),
+      deliveryCompanyJson: $OrderEntityV2Table.$converterdeliveryCompanyJson
+          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.string,
+              data['${effectivePrefix}delivery_company_json'])),
       printState: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}print_state']),
       prePaymentPrintCount: attachedDatabase.typeMapping.read(
@@ -11067,6 +11270,22 @@ class $OrderEntityV2Table extends OrderEntityV2
           .read(DriftSqlType.dateTime, data['${effectivePrefix}unprinted_at']),
       unprintedBy: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}unprinted_by']),
+      isScheduled: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_scheduled']),
+      scheduledFor: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}scheduled_for']),
+      scheduledBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}scheduled_by']),
+      scheduledAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}scheduled_at']),
+      scheduledStatus: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}scheduled_status']),
+      activatedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}activated_at']),
+      activatedBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}activated_by']),
+      scheduledNotes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}scheduled_notes']),
     );
   }
 
@@ -11082,6 +11301,8 @@ class $OrderEntityV2Table extends OrderEntityV2
   static TypeConverter<dynamic, String?> $converterpromotionJson =
       const JsonTypeConverter();
   static TypeConverter<dynamic, String?> $convertergiftCardJson =
+      const JsonTypeConverter();
+  static TypeConverter<dynamic, String?> $converterdeliveryCompanyJson =
       const JsonTypeConverter();
 }
 
@@ -11152,8 +11373,9 @@ class OrderEntityV2Data extends DataClass
   final String? lastModifiedBy;
   final String? openedOn;
   final String? openedBy;
-  final String? closedOn;
   final String? closedBy;
+  final String? deliveryCompanyId;
+  final dynamic deliveryCompanyJson;
 
   /// حالة الطباعة: 0=غير مطبوع، 1=مطبوع قبل السداد، 2=مدفوع
   final int? printState;
@@ -11187,6 +11409,30 @@ class OrderEntityV2Data extends DataClass
 
   /// من قام بإلغاء الطباعة
   final String? unprintedBy;
+
+  /// هل الطلب مجدول للتنفيذ في وقت لاحق؟
+  final bool? isScheduled;
+
+  /// التاريخ والوقت المحدد لتنفيذ الطلب المجدول
+  final DateTime? scheduledFor;
+
+  /// معرف المستخدم الذي قام بجدولة الطلب
+  final String? scheduledBy;
+
+  /// تاريخ ووقت جدولة الطلب
+  final DateTime? scheduledAt;
+
+  /// حالة الطلب المجدول (0=معلق، 1=جاهز للتفعيل، 2=تم التفعيل، 3=ملغي، 4=منتهي)
+  final int? scheduledStatus;
+
+  /// تاريخ ووقت تفعيل الطلب المجدول
+  final DateTime? activatedAt;
+
+  /// معرف المستخدم الذي قام بتفعيل الطلب
+  final String? activatedBy;
+
+  /// ملاحظات حول الجدولة
+  final String? scheduledNotes;
   const OrderEntityV2Data(
       {required this.totalPrice,
       this.discountAmount,
@@ -11253,8 +11499,9 @@ class OrderEntityV2Data extends DataClass
       this.lastModifiedBy,
       this.openedOn,
       this.openedBy,
-      this.closedOn,
       this.closedBy,
+      this.deliveryCompanyId,
+      this.deliveryCompanyJson,
       this.printState,
       this.prePaymentPrintCount,
       this.postPaymentPrintCount,
@@ -11265,7 +11512,15 @@ class OrderEntityV2Data extends DataClass
       this.lockedAt,
       this.unprintReason,
       this.unprintedAt,
-      this.unprintedBy});
+      this.unprintedBy,
+      this.isScheduled,
+      this.scheduledFor,
+      this.scheduledBy,
+      this.scheduledAt,
+      this.scheduledStatus,
+      this.activatedAt,
+      this.activatedBy,
+      this.scheduledNotes});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -11465,11 +11720,16 @@ class OrderEntityV2Data extends DataClass
     if (!nullToAbsent || openedBy != null) {
       map['opened_by'] = Variable<String>(openedBy);
     }
-    if (!nullToAbsent || closedOn != null) {
-      map['closed_on'] = Variable<String>(closedOn);
-    }
     if (!nullToAbsent || closedBy != null) {
       map['closed_by'] = Variable<String>(closedBy);
+    }
+    if (!nullToAbsent || deliveryCompanyId != null) {
+      map['delivery_company_id'] = Variable<String>(deliveryCompanyId);
+    }
+    if (!nullToAbsent || deliveryCompanyJson != null) {
+      map['delivery_company_json'] = Variable<String>($OrderEntityV2Table
+          .$converterdeliveryCompanyJson
+          .toSql(deliveryCompanyJson));
     }
     if (!nullToAbsent || printState != null) {
       map['print_state'] = Variable<int>(printState);
@@ -11503,6 +11763,30 @@ class OrderEntityV2Data extends DataClass
     }
     if (!nullToAbsent || unprintedBy != null) {
       map['unprinted_by'] = Variable<String>(unprintedBy);
+    }
+    if (!nullToAbsent || isScheduled != null) {
+      map['is_scheduled'] = Variable<bool>(isScheduled);
+    }
+    if (!nullToAbsent || scheduledFor != null) {
+      map['scheduled_for'] = Variable<DateTime>(scheduledFor);
+    }
+    if (!nullToAbsent || scheduledBy != null) {
+      map['scheduled_by'] = Variable<String>(scheduledBy);
+    }
+    if (!nullToAbsent || scheduledAt != null) {
+      map['scheduled_at'] = Variable<DateTime>(scheduledAt);
+    }
+    if (!nullToAbsent || scheduledStatus != null) {
+      map['scheduled_status'] = Variable<int>(scheduledStatus);
+    }
+    if (!nullToAbsent || activatedAt != null) {
+      map['activated_at'] = Variable<DateTime>(activatedAt);
+    }
+    if (!nullToAbsent || activatedBy != null) {
+      map['activated_by'] = Variable<String>(activatedBy);
+    }
+    if (!nullToAbsent || scheduledNotes != null) {
+      map['scheduled_notes'] = Variable<String>(scheduledNotes);
     }
     return map;
   }
@@ -11693,12 +11977,15 @@ class OrderEntityV2Data extends DataClass
       openedBy: openedBy == null && nullToAbsent
           ? const Value.absent()
           : Value(openedBy),
-      closedOn: closedOn == null && nullToAbsent
-          ? const Value.absent()
-          : Value(closedOn),
       closedBy: closedBy == null && nullToAbsent
           ? const Value.absent()
           : Value(closedBy),
+      deliveryCompanyId: deliveryCompanyId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deliveryCompanyId),
+      deliveryCompanyJson: deliveryCompanyJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deliveryCompanyJson),
       printState: printState == null && nullToAbsent
           ? const Value.absent()
           : Value(printState),
@@ -11732,6 +12019,30 @@ class OrderEntityV2Data extends DataClass
       unprintedBy: unprintedBy == null && nullToAbsent
           ? const Value.absent()
           : Value(unprintedBy),
+      isScheduled: isScheduled == null && nullToAbsent
+          ? const Value.absent()
+          : Value(isScheduled),
+      scheduledFor: scheduledFor == null && nullToAbsent
+          ? const Value.absent()
+          : Value(scheduledFor),
+      scheduledBy: scheduledBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(scheduledBy),
+      scheduledAt: scheduledAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(scheduledAt),
+      scheduledStatus: scheduledStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(scheduledStatus),
+      activatedAt: activatedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(activatedAt),
+      activatedBy: activatedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(activatedBy),
+      scheduledNotes: scheduledNotes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(scheduledNotes),
     );
   }
 
@@ -11814,8 +12125,11 @@ class OrderEntityV2Data extends DataClass
       lastModifiedBy: serializer.fromJson<String?>(json['lastModifiedBy']),
       openedOn: serializer.fromJson<String?>(json['openedOn']),
       openedBy: serializer.fromJson<String?>(json['openedBy']),
-      closedOn: serializer.fromJson<String?>(json['closedOn']),
       closedBy: serializer.fromJson<String?>(json['closedBy']),
+      deliveryCompanyId:
+          serializer.fromJson<String?>(json['deliveryCompanyId']),
+      deliveryCompanyJson:
+          serializer.fromJson<dynamic>(json['deliveryCompanyJson']),
       printState: serializer.fromJson<int?>(json['printState']),
       prePaymentPrintCount:
           serializer.fromJson<int?>(json['prePaymentPrintCount']),
@@ -11829,6 +12143,14 @@ class OrderEntityV2Data extends DataClass
       unprintReason: serializer.fromJson<String?>(json['unprintReason']),
       unprintedAt: serializer.fromJson<DateTime?>(json['unprintedAt']),
       unprintedBy: serializer.fromJson<String?>(json['unprintedBy']),
+      isScheduled: serializer.fromJson<bool?>(json['isScheduled']),
+      scheduledFor: serializer.fromJson<DateTime?>(json['scheduledFor']),
+      scheduledBy: serializer.fromJson<String?>(json['scheduledBy']),
+      scheduledAt: serializer.fromJson<DateTime?>(json['scheduledAt']),
+      scheduledStatus: serializer.fromJson<int?>(json['scheduledStatus']),
+      activatedAt: serializer.fromJson<DateTime?>(json['activatedAt']),
+      activatedBy: serializer.fromJson<String?>(json['activatedBy']),
+      scheduledNotes: serializer.fromJson<String?>(json['scheduledNotes']),
     );
   }
   @override
@@ -11908,8 +12230,9 @@ class OrderEntityV2Data extends DataClass
       'lastModifiedBy': serializer.toJson<String?>(lastModifiedBy),
       'openedOn': serializer.toJson<String?>(openedOn),
       'openedBy': serializer.toJson<String?>(openedBy),
-      'closedOn': serializer.toJson<String?>(closedOn),
       'closedBy': serializer.toJson<String?>(closedBy),
+      'deliveryCompanyId': serializer.toJson<String?>(deliveryCompanyId),
+      'deliveryCompanyJson': serializer.toJson<dynamic>(deliveryCompanyJson),
       'printState': serializer.toJson<int?>(printState),
       'prePaymentPrintCount': serializer.toJson<int?>(prePaymentPrintCount),
       'postPaymentPrintCount': serializer.toJson<int?>(postPaymentPrintCount),
@@ -11921,6 +12244,14 @@ class OrderEntityV2Data extends DataClass
       'unprintReason': serializer.toJson<String?>(unprintReason),
       'unprintedAt': serializer.toJson<DateTime?>(unprintedAt),
       'unprintedBy': serializer.toJson<String?>(unprintedBy),
+      'isScheduled': serializer.toJson<bool?>(isScheduled),
+      'scheduledFor': serializer.toJson<DateTime?>(scheduledFor),
+      'scheduledBy': serializer.toJson<String?>(scheduledBy),
+      'scheduledAt': serializer.toJson<DateTime?>(scheduledAt),
+      'scheduledStatus': serializer.toJson<int?>(scheduledStatus),
+      'activatedAt': serializer.toJson<DateTime?>(activatedAt),
+      'activatedBy': serializer.toJson<String?>(activatedBy),
+      'scheduledNotes': serializer.toJson<String?>(scheduledNotes),
     };
   }
 
@@ -11990,8 +12321,9 @@ class OrderEntityV2Data extends DataClass
           Value<String?> lastModifiedBy = const Value.absent(),
           Value<String?> openedOn = const Value.absent(),
           Value<String?> openedBy = const Value.absent(),
-          Value<String?> closedOn = const Value.absent(),
           Value<String?> closedBy = const Value.absent(),
+          Value<String?> deliveryCompanyId = const Value.absent(),
+          Value<dynamic> deliveryCompanyJson = const Value.absent(),
           Value<int?> printState = const Value.absent(),
           Value<int?> prePaymentPrintCount = const Value.absent(),
           Value<int?> postPaymentPrintCount = const Value.absent(),
@@ -12002,7 +12334,15 @@ class OrderEntityV2Data extends DataClass
           Value<DateTime?> lockedAt = const Value.absent(),
           Value<String?> unprintReason = const Value.absent(),
           Value<DateTime?> unprintedAt = const Value.absent(),
-          Value<String?> unprintedBy = const Value.absent()}) =>
+          Value<String?> unprintedBy = const Value.absent(),
+          Value<bool?> isScheduled = const Value.absent(),
+          Value<DateTime?> scheduledFor = const Value.absent(),
+          Value<String?> scheduledBy = const Value.absent(),
+          Value<DateTime?> scheduledAt = const Value.absent(),
+          Value<int?> scheduledStatus = const Value.absent(),
+          Value<DateTime?> activatedAt = const Value.absent(),
+          Value<String?> activatedBy = const Value.absent(),
+          Value<String?> scheduledNotes = const Value.absent()}) =>
       OrderEntityV2Data(
         totalPrice: totalPrice ?? this.totalPrice,
         discountAmount:
@@ -12113,8 +12453,13 @@ class OrderEntityV2Data extends DataClass
             lastModifiedBy.present ? lastModifiedBy.value : this.lastModifiedBy,
         openedOn: openedOn.present ? openedOn.value : this.openedOn,
         openedBy: openedBy.present ? openedBy.value : this.openedBy,
-        closedOn: closedOn.present ? closedOn.value : this.closedOn,
         closedBy: closedBy.present ? closedBy.value : this.closedBy,
+        deliveryCompanyId: deliveryCompanyId.present
+            ? deliveryCompanyId.value
+            : this.deliveryCompanyId,
+        deliveryCompanyJson: deliveryCompanyJson.present
+            ? deliveryCompanyJson.value
+            : this.deliveryCompanyJson,
         printState: printState.present ? printState.value : this.printState,
         prePaymentPrintCount: prePaymentPrintCount.present
             ? prePaymentPrintCount.value
@@ -12134,6 +12479,18 @@ class OrderEntityV2Data extends DataClass
             unprintReason.present ? unprintReason.value : this.unprintReason,
         unprintedAt: unprintedAt.present ? unprintedAt.value : this.unprintedAt,
         unprintedBy: unprintedBy.present ? unprintedBy.value : this.unprintedBy,
+        isScheduled: isScheduled.present ? isScheduled.value : this.isScheduled,
+        scheduledFor:
+            scheduledFor.present ? scheduledFor.value : this.scheduledFor,
+        scheduledBy: scheduledBy.present ? scheduledBy.value : this.scheduledBy,
+        scheduledAt: scheduledAt.present ? scheduledAt.value : this.scheduledAt,
+        scheduledStatus: scheduledStatus.present
+            ? scheduledStatus.value
+            : this.scheduledStatus,
+        activatedAt: activatedAt.present ? activatedAt.value : this.activatedAt,
+        activatedBy: activatedBy.present ? activatedBy.value : this.activatedBy,
+        scheduledNotes:
+            scheduledNotes.present ? scheduledNotes.value : this.scheduledNotes,
       );
   OrderEntityV2Data copyWithCompanion(OrderEntityV2Companion data) {
     return OrderEntityV2Data(
@@ -12281,8 +12638,13 @@ class OrderEntityV2Data extends DataClass
           : this.lastModifiedBy,
       openedOn: data.openedOn.present ? data.openedOn.value : this.openedOn,
       openedBy: data.openedBy.present ? data.openedBy.value : this.openedBy,
-      closedOn: data.closedOn.present ? data.closedOn.value : this.closedOn,
       closedBy: data.closedBy.present ? data.closedBy.value : this.closedBy,
+      deliveryCompanyId: data.deliveryCompanyId.present
+          ? data.deliveryCompanyId.value
+          : this.deliveryCompanyId,
+      deliveryCompanyJson: data.deliveryCompanyJson.present
+          ? data.deliveryCompanyJson.value
+          : this.deliveryCompanyJson,
       printState:
           data.printState.present ? data.printState.value : this.printState,
       prePaymentPrintCount: data.prePaymentPrintCount.present
@@ -12309,6 +12671,25 @@ class OrderEntityV2Data extends DataClass
           data.unprintedAt.present ? data.unprintedAt.value : this.unprintedAt,
       unprintedBy:
           data.unprintedBy.present ? data.unprintedBy.value : this.unprintedBy,
+      isScheduled:
+          data.isScheduled.present ? data.isScheduled.value : this.isScheduled,
+      scheduledFor: data.scheduledFor.present
+          ? data.scheduledFor.value
+          : this.scheduledFor,
+      scheduledBy:
+          data.scheduledBy.present ? data.scheduledBy.value : this.scheduledBy,
+      scheduledAt:
+          data.scheduledAt.present ? data.scheduledAt.value : this.scheduledAt,
+      scheduledStatus: data.scheduledStatus.present
+          ? data.scheduledStatus.value
+          : this.scheduledStatus,
+      activatedAt:
+          data.activatedAt.present ? data.activatedAt.value : this.activatedAt,
+      activatedBy:
+          data.activatedBy.present ? data.activatedBy.value : this.activatedBy,
+      scheduledNotes: data.scheduledNotes.present
+          ? data.scheduledNotes.value
+          : this.scheduledNotes,
     );
   }
 
@@ -12380,8 +12761,9 @@ class OrderEntityV2Data extends DataClass
           ..write('lastModifiedBy: $lastModifiedBy, ')
           ..write('openedOn: $openedOn, ')
           ..write('openedBy: $openedBy, ')
-          ..write('closedOn: $closedOn, ')
           ..write('closedBy: $closedBy, ')
+          ..write('deliveryCompanyId: $deliveryCompanyId, ')
+          ..write('deliveryCompanyJson: $deliveryCompanyJson, ')
           ..write('printState: $printState, ')
           ..write('prePaymentPrintCount: $prePaymentPrintCount, ')
           ..write('postPaymentPrintCount: $postPaymentPrintCount, ')
@@ -12392,7 +12774,15 @@ class OrderEntityV2Data extends DataClass
           ..write('lockedAt: $lockedAt, ')
           ..write('unprintReason: $unprintReason, ')
           ..write('unprintedAt: $unprintedAt, ')
-          ..write('unprintedBy: $unprintedBy')
+          ..write('unprintedBy: $unprintedBy, ')
+          ..write('isScheduled: $isScheduled, ')
+          ..write('scheduledFor: $scheduledFor, ')
+          ..write('scheduledBy: $scheduledBy, ')
+          ..write('scheduledAt: $scheduledAt, ')
+          ..write('scheduledStatus: $scheduledStatus, ')
+          ..write('activatedAt: $activatedAt, ')
+          ..write('activatedBy: $activatedBy, ')
+          ..write('scheduledNotes: $scheduledNotes')
           ..write(')'))
         .toString();
   }
@@ -12464,8 +12854,9 @@ class OrderEntityV2Data extends DataClass
         lastModifiedBy,
         openedOn,
         openedBy,
-        closedOn,
         closedBy,
+        deliveryCompanyId,
+        deliveryCompanyJson,
         printState,
         prePaymentPrintCount,
         postPaymentPrintCount,
@@ -12476,7 +12867,15 @@ class OrderEntityV2Data extends DataClass
         lockedAt,
         unprintReason,
         unprintedAt,
-        unprintedBy
+        unprintedBy,
+        isScheduled,
+        scheduledFor,
+        scheduledBy,
+        scheduledAt,
+        scheduledStatus,
+        activatedAt,
+        activatedBy,
+        scheduledNotes
       ]);
   @override
   bool operator ==(Object other) =>
@@ -12547,8 +12946,9 @@ class OrderEntityV2Data extends DataClass
           other.lastModifiedBy == this.lastModifiedBy &&
           other.openedOn == this.openedOn &&
           other.openedBy == this.openedBy &&
-          other.closedOn == this.closedOn &&
           other.closedBy == this.closedBy &&
+          other.deliveryCompanyId == this.deliveryCompanyId &&
+          other.deliveryCompanyJson == this.deliveryCompanyJson &&
           other.printState == this.printState &&
           other.prePaymentPrintCount == this.prePaymentPrintCount &&
           other.postPaymentPrintCount == this.postPaymentPrintCount &&
@@ -12559,7 +12959,15 @@ class OrderEntityV2Data extends DataClass
           other.lockedAt == this.lockedAt &&
           other.unprintReason == this.unprintReason &&
           other.unprintedAt == this.unprintedAt &&
-          other.unprintedBy == this.unprintedBy);
+          other.unprintedBy == this.unprintedBy &&
+          other.isScheduled == this.isScheduled &&
+          other.scheduledFor == this.scheduledFor &&
+          other.scheduledBy == this.scheduledBy &&
+          other.scheduledAt == this.scheduledAt &&
+          other.scheduledStatus == this.scheduledStatus &&
+          other.activatedAt == this.activatedAt &&
+          other.activatedBy == this.activatedBy &&
+          other.scheduledNotes == this.scheduledNotes);
 }
 
 class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
@@ -12628,8 +13036,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<String?> lastModifiedBy;
   final Value<String?> openedOn;
   final Value<String?> openedBy;
-  final Value<String?> closedOn;
   final Value<String?> closedBy;
+  final Value<String?> deliveryCompanyId;
+  final Value<dynamic> deliveryCompanyJson;
   final Value<int?> printState;
   final Value<int?> prePaymentPrintCount;
   final Value<int?> postPaymentPrintCount;
@@ -12641,6 +13050,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<String?> unprintReason;
   final Value<DateTime?> unprintedAt;
   final Value<String?> unprintedBy;
+  final Value<bool?> isScheduled;
+  final Value<DateTime?> scheduledFor;
+  final Value<String?> scheduledBy;
+  final Value<DateTime?> scheduledAt;
+  final Value<int?> scheduledStatus;
+  final Value<DateTime?> activatedAt;
+  final Value<String?> activatedBy;
+  final Value<String?> scheduledNotes;
   final Value<int> rowid;
   const OrderEntityV2Companion({
     this.totalPrice = const Value.absent(),
@@ -12708,8 +13125,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.lastModifiedBy = const Value.absent(),
     this.openedOn = const Value.absent(),
     this.openedBy = const Value.absent(),
-    this.closedOn = const Value.absent(),
     this.closedBy = const Value.absent(),
+    this.deliveryCompanyId = const Value.absent(),
+    this.deliveryCompanyJson = const Value.absent(),
     this.printState = const Value.absent(),
     this.prePaymentPrintCount = const Value.absent(),
     this.postPaymentPrintCount = const Value.absent(),
@@ -12721,6 +13139,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.unprintReason = const Value.absent(),
     this.unprintedAt = const Value.absent(),
     this.unprintedBy = const Value.absent(),
+    this.isScheduled = const Value.absent(),
+    this.scheduledFor = const Value.absent(),
+    this.scheduledBy = const Value.absent(),
+    this.scheduledAt = const Value.absent(),
+    this.scheduledStatus = const Value.absent(),
+    this.activatedAt = const Value.absent(),
+    this.activatedBy = const Value.absent(),
+    this.scheduledNotes = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   OrderEntityV2Companion.insert({
@@ -12789,8 +13215,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.lastModifiedBy = const Value.absent(),
     this.openedOn = const Value.absent(),
     this.openedBy = const Value.absent(),
-    this.closedOn = const Value.absent(),
     this.closedBy = const Value.absent(),
+    this.deliveryCompanyId = const Value.absent(),
+    this.deliveryCompanyJson = const Value.absent(),
     this.printState = const Value.absent(),
     this.prePaymentPrintCount = const Value.absent(),
     this.postPaymentPrintCount = const Value.absent(),
@@ -12802,6 +13229,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.unprintReason = const Value.absent(),
     this.unprintedAt = const Value.absent(),
     this.unprintedBy = const Value.absent(),
+    this.isScheduled = const Value.absent(),
+    this.scheduledFor = const Value.absent(),
+    this.scheduledBy = const Value.absent(),
+    this.scheduledAt = const Value.absent(),
+    this.scheduledStatus = const Value.absent(),
+    this.activatedAt = const Value.absent(),
+    this.activatedBy = const Value.absent(),
+    this.scheduledNotes = const Value.absent(),
     this.rowid = const Value.absent(),
   })  : totalPrice = Value(totalPrice),
         netTotalPrice = Value(netTotalPrice),
@@ -12873,8 +13308,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<String>? lastModifiedBy,
     Expression<String>? openedOn,
     Expression<String>? openedBy,
-    Expression<String>? closedOn,
     Expression<String>? closedBy,
+    Expression<String>? deliveryCompanyId,
+    Expression<String>? deliveryCompanyJson,
     Expression<int>? printState,
     Expression<int>? prePaymentPrintCount,
     Expression<int>? postPaymentPrintCount,
@@ -12886,6 +13322,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<String>? unprintReason,
     Expression<DateTime>? unprintedAt,
     Expression<String>? unprintedBy,
+    Expression<bool>? isScheduled,
+    Expression<DateTime>? scheduledFor,
+    Expression<String>? scheduledBy,
+    Expression<DateTime>? scheduledAt,
+    Expression<int>? scheduledStatus,
+    Expression<DateTime>? activatedAt,
+    Expression<String>? activatedBy,
+    Expression<String>? scheduledNotes,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -12963,8 +13407,10 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       if (lastModifiedBy != null) 'last_modified_by': lastModifiedBy,
       if (openedOn != null) 'opened_on': openedOn,
       if (openedBy != null) 'opened_by': openedBy,
-      if (closedOn != null) 'closed_on': closedOn,
       if (closedBy != null) 'closed_by': closedBy,
+      if (deliveryCompanyId != null) 'delivery_company_id': deliveryCompanyId,
+      if (deliveryCompanyJson != null)
+        'delivery_company_json': deliveryCompanyJson,
       if (printState != null) 'print_state': printState,
       if (prePaymentPrintCount != null)
         'pre_payment_print_count': prePaymentPrintCount,
@@ -12978,6 +13424,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       if (unprintReason != null) 'unprint_reason': unprintReason,
       if (unprintedAt != null) 'unprinted_at': unprintedAt,
       if (unprintedBy != null) 'unprinted_by': unprintedBy,
+      if (isScheduled != null) 'is_scheduled': isScheduled,
+      if (scheduledFor != null) 'scheduled_for': scheduledFor,
+      if (scheduledBy != null) 'scheduled_by': scheduledBy,
+      if (scheduledAt != null) 'scheduled_at': scheduledAt,
+      if (scheduledStatus != null) 'scheduled_status': scheduledStatus,
+      if (activatedAt != null) 'activated_at': activatedAt,
+      if (activatedBy != null) 'activated_by': activatedBy,
+      if (scheduledNotes != null) 'scheduled_notes': scheduledNotes,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -13048,8 +13502,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<String?>? lastModifiedBy,
       Value<String?>? openedOn,
       Value<String?>? openedBy,
-      Value<String?>? closedOn,
       Value<String?>? closedBy,
+      Value<String?>? deliveryCompanyId,
+      Value<dynamic>? deliveryCompanyJson,
       Value<int?>? printState,
       Value<int?>? prePaymentPrintCount,
       Value<int?>? postPaymentPrintCount,
@@ -13061,6 +13516,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<String?>? unprintReason,
       Value<DateTime?>? unprintedAt,
       Value<String?>? unprintedBy,
+      Value<bool?>? isScheduled,
+      Value<DateTime?>? scheduledFor,
+      Value<String?>? scheduledBy,
+      Value<DateTime?>? scheduledAt,
+      Value<int?>? scheduledStatus,
+      Value<DateTime?>? activatedAt,
+      Value<String?>? activatedBy,
+      Value<String?>? scheduledNotes,
       Value<int>? rowid}) {
     return OrderEntityV2Companion(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -13136,8 +13599,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       lastModifiedBy: lastModifiedBy ?? this.lastModifiedBy,
       openedOn: openedOn ?? this.openedOn,
       openedBy: openedBy ?? this.openedBy,
-      closedOn: closedOn ?? this.closedOn,
       closedBy: closedBy ?? this.closedBy,
+      deliveryCompanyId: deliveryCompanyId ?? this.deliveryCompanyId,
+      deliveryCompanyJson: deliveryCompanyJson ?? this.deliveryCompanyJson,
       printState: printState ?? this.printState,
       prePaymentPrintCount: prePaymentPrintCount ?? this.prePaymentPrintCount,
       postPaymentPrintCount:
@@ -13150,6 +13614,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       unprintReason: unprintReason ?? this.unprintReason,
       unprintedAt: unprintedAt ?? this.unprintedAt,
       unprintedBy: unprintedBy ?? this.unprintedBy,
+      isScheduled: isScheduled ?? this.isScheduled,
+      scheduledFor: scheduledFor ?? this.scheduledFor,
+      scheduledBy: scheduledBy ?? this.scheduledBy,
+      scheduledAt: scheduledAt ?? this.scheduledAt,
+      scheduledStatus: scheduledStatus ?? this.scheduledStatus,
+      activatedAt: activatedAt ?? this.activatedAt,
+      activatedBy: activatedBy ?? this.activatedBy,
+      scheduledNotes: scheduledNotes ?? this.scheduledNotes,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -13366,11 +13838,16 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     if (openedBy.present) {
       map['opened_by'] = Variable<String>(openedBy.value);
     }
-    if (closedOn.present) {
-      map['closed_on'] = Variable<String>(closedOn.value);
-    }
     if (closedBy.present) {
       map['closed_by'] = Variable<String>(closedBy.value);
+    }
+    if (deliveryCompanyId.present) {
+      map['delivery_company_id'] = Variable<String>(deliveryCompanyId.value);
+    }
+    if (deliveryCompanyJson.present) {
+      map['delivery_company_json'] = Variable<String>($OrderEntityV2Table
+          .$converterdeliveryCompanyJson
+          .toSql(deliveryCompanyJson.value));
     }
     if (printState.present) {
       map['print_state'] = Variable<int>(printState.value);
@@ -13406,6 +13883,30 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     }
     if (unprintedBy.present) {
       map['unprinted_by'] = Variable<String>(unprintedBy.value);
+    }
+    if (isScheduled.present) {
+      map['is_scheduled'] = Variable<bool>(isScheduled.value);
+    }
+    if (scheduledFor.present) {
+      map['scheduled_for'] = Variable<DateTime>(scheduledFor.value);
+    }
+    if (scheduledBy.present) {
+      map['scheduled_by'] = Variable<String>(scheduledBy.value);
+    }
+    if (scheduledAt.present) {
+      map['scheduled_at'] = Variable<DateTime>(scheduledAt.value);
+    }
+    if (scheduledStatus.present) {
+      map['scheduled_status'] = Variable<int>(scheduledStatus.value);
+    }
+    if (activatedAt.present) {
+      map['activated_at'] = Variable<DateTime>(activatedAt.value);
+    }
+    if (activatedBy.present) {
+      map['activated_by'] = Variable<String>(activatedBy.value);
+    }
+    if (scheduledNotes.present) {
+      map['scheduled_notes'] = Variable<String>(scheduledNotes.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -13481,8 +13982,9 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
           ..write('lastModifiedBy: $lastModifiedBy, ')
           ..write('openedOn: $openedOn, ')
           ..write('openedBy: $openedBy, ')
-          ..write('closedOn: $closedOn, ')
           ..write('closedBy: $closedBy, ')
+          ..write('deliveryCompanyId: $deliveryCompanyId, ')
+          ..write('deliveryCompanyJson: $deliveryCompanyJson, ')
           ..write('printState: $printState, ')
           ..write('prePaymentPrintCount: $prePaymentPrintCount, ')
           ..write('postPaymentPrintCount: $postPaymentPrintCount, ')
@@ -13494,6 +13996,14 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
           ..write('unprintReason: $unprintReason, ')
           ..write('unprintedAt: $unprintedAt, ')
           ..write('unprintedBy: $unprintedBy, ')
+          ..write('isScheduled: $isScheduled, ')
+          ..write('scheduledFor: $scheduledFor, ')
+          ..write('scheduledBy: $scheduledBy, ')
+          ..write('scheduledAt: $scheduledAt, ')
+          ..write('scheduledStatus: $scheduledStatus, ')
+          ..write('activatedAt: $activatedAt, ')
+          ..write('activatedBy: $activatedBy, ')
+          ..write('scheduledNotes: $scheduledNotes, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -27481,6 +27991,480 @@ class EndOfDayEntityCompanion extends UpdateCompanion<EndOfDayEntityData> {
   }
 }
 
+class $StockTransactionEntityTable extends StockTransactionEntity
+    with TableInfo<$StockTransactionEntityTable, StockTransactionEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $StockTransactionEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _productIdMeta =
+      const VerificationMeta('productId');
+  @override
+  late final GeneratedColumn<String> productId = GeneratedColumn<String>(
+      'product_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<String> unitId = GeneratedColumn<String>(
+      'unit_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _addonIdMeta =
+      const VerificationMeta('addonId');
+  @override
+  late final GeneratedColumn<String> addonId = GeneratedColumn<String>(
+      'addon_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _modifierIdMeta =
+      const VerificationMeta('modifierId');
+  @override
+  late final GeneratedColumn<String> modifierId = GeneratedColumn<String>(
+      'modifier_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _changeQtyMeta =
+      const VerificationMeta('changeQty');
+  @override
+  late final GeneratedColumn<double> changeQty = GeneratedColumn<double>(
+      'change_qty', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _referenceTypeMeta =
+      const VerificationMeta('referenceType');
+  @override
+  late final GeneratedColumn<String> referenceType = GeneratedColumn<String>(
+      'reference_type', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _referenceIdMeta =
+      const VerificationMeta('referenceId');
+  @override
+  late final GeneratedColumn<String> referenceId = GeneratedColumn<String>(
+      'reference_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        productId,
+        unitId,
+        addonId,
+        modifierId,
+        changeQty,
+        referenceType,
+        referenceId,
+        createdAt
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'stock_transaction_entity';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<StockTransactionEntityData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('product_id')) {
+      context.handle(_productIdMeta,
+          productId.isAcceptableOrUnknown(data['product_id']!, _productIdMeta));
+    } else if (isInserting) {
+      context.missing(_productIdMeta);
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(_unitIdMeta,
+          unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta));
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('addon_id')) {
+      context.handle(_addonIdMeta,
+          addonId.isAcceptableOrUnknown(data['addon_id']!, _addonIdMeta));
+    }
+    if (data.containsKey('modifier_id')) {
+      context.handle(
+          _modifierIdMeta,
+          modifierId.isAcceptableOrUnknown(
+              data['modifier_id']!, _modifierIdMeta));
+    }
+    if (data.containsKey('change_qty')) {
+      context.handle(_changeQtyMeta,
+          changeQty.isAcceptableOrUnknown(data['change_qty']!, _changeQtyMeta));
+    } else if (isInserting) {
+      context.missing(_changeQtyMeta);
+    }
+    if (data.containsKey('reference_type')) {
+      context.handle(
+          _referenceTypeMeta,
+          referenceType.isAcceptableOrUnknown(
+              data['reference_type']!, _referenceTypeMeta));
+    } else if (isInserting) {
+      context.missing(_referenceTypeMeta);
+    }
+    if (data.containsKey('reference_id')) {
+      context.handle(
+          _referenceIdMeta,
+          referenceId.isAcceptableOrUnknown(
+              data['reference_id']!, _referenceIdMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  StockTransactionEntityData map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return StockTransactionEntityData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      productId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}product_id'])!,
+      unitId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}unit_id'])!,
+      addonId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}addon_id']),
+      modifierId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}modifier_id']),
+      changeQty: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}change_qty'])!,
+      referenceType: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}reference_type'])!,
+      referenceId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}reference_id']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $StockTransactionEntityTable createAlias(String alias) {
+    return $StockTransactionEntityTable(attachedDatabase, alias);
+  }
+}
+
+class StockTransactionEntityData extends DataClass
+    implements Insertable<StockTransactionEntityData> {
+  final int id;
+  final String productId;
+  final String unitId;
+  final String? addonId;
+  final String? modifierId;
+  final double changeQty;
+  final String referenceType;
+  final String? referenceId;
+  final DateTime createdAt;
+  const StockTransactionEntityData(
+      {required this.id,
+      required this.productId,
+      required this.unitId,
+      this.addonId,
+      this.modifierId,
+      required this.changeQty,
+      required this.referenceType,
+      this.referenceId,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['product_id'] = Variable<String>(productId);
+    map['unit_id'] = Variable<String>(unitId);
+    if (!nullToAbsent || addonId != null) {
+      map['addon_id'] = Variable<String>(addonId);
+    }
+    if (!nullToAbsent || modifierId != null) {
+      map['modifier_id'] = Variable<String>(modifierId);
+    }
+    map['change_qty'] = Variable<double>(changeQty);
+    map['reference_type'] = Variable<String>(referenceType);
+    if (!nullToAbsent || referenceId != null) {
+      map['reference_id'] = Variable<String>(referenceId);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  StockTransactionEntityCompanion toCompanion(bool nullToAbsent) {
+    return StockTransactionEntityCompanion(
+      id: Value(id),
+      productId: Value(productId),
+      unitId: Value(unitId),
+      addonId: addonId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(addonId),
+      modifierId: modifierId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(modifierId),
+      changeQty: Value(changeQty),
+      referenceType: Value(referenceType),
+      referenceId: referenceId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(referenceId),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory StockTransactionEntityData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return StockTransactionEntityData(
+      id: serializer.fromJson<int>(json['id']),
+      productId: serializer.fromJson<String>(json['productId']),
+      unitId: serializer.fromJson<String>(json['unitId']),
+      addonId: serializer.fromJson<String?>(json['addonId']),
+      modifierId: serializer.fromJson<String?>(json['modifierId']),
+      changeQty: serializer.fromJson<double>(json['changeQty']),
+      referenceType: serializer.fromJson<String>(json['referenceType']),
+      referenceId: serializer.fromJson<String?>(json['referenceId']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'productId': serializer.toJson<String>(productId),
+      'unitId': serializer.toJson<String>(unitId),
+      'addonId': serializer.toJson<String?>(addonId),
+      'modifierId': serializer.toJson<String?>(modifierId),
+      'changeQty': serializer.toJson<double>(changeQty),
+      'referenceType': serializer.toJson<String>(referenceType),
+      'referenceId': serializer.toJson<String?>(referenceId),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  StockTransactionEntityData copyWith(
+          {int? id,
+          String? productId,
+          String? unitId,
+          Value<String?> addonId = const Value.absent(),
+          Value<String?> modifierId = const Value.absent(),
+          double? changeQty,
+          String? referenceType,
+          Value<String?> referenceId = const Value.absent(),
+          DateTime? createdAt}) =>
+      StockTransactionEntityData(
+        id: id ?? this.id,
+        productId: productId ?? this.productId,
+        unitId: unitId ?? this.unitId,
+        addonId: addonId.present ? addonId.value : this.addonId,
+        modifierId: modifierId.present ? modifierId.value : this.modifierId,
+        changeQty: changeQty ?? this.changeQty,
+        referenceType: referenceType ?? this.referenceType,
+        referenceId: referenceId.present ? referenceId.value : this.referenceId,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  StockTransactionEntityData copyWithCompanion(
+      StockTransactionEntityCompanion data) {
+    return StockTransactionEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      productId: data.productId.present ? data.productId.value : this.productId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      addonId: data.addonId.present ? data.addonId.value : this.addonId,
+      modifierId:
+          data.modifierId.present ? data.modifierId.value : this.modifierId,
+      changeQty: data.changeQty.present ? data.changeQty.value : this.changeQty,
+      referenceType: data.referenceType.present
+          ? data.referenceType.value
+          : this.referenceType,
+      referenceId:
+          data.referenceId.present ? data.referenceId.value : this.referenceId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StockTransactionEntityData(')
+          ..write('id: $id, ')
+          ..write('productId: $productId, ')
+          ..write('unitId: $unitId, ')
+          ..write('addonId: $addonId, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('changeQty: $changeQty, ')
+          ..write('referenceType: $referenceType, ')
+          ..write('referenceId: $referenceId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, productId, unitId, addonId, modifierId,
+      changeQty, referenceType, referenceId, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is StockTransactionEntityData &&
+          other.id == this.id &&
+          other.productId == this.productId &&
+          other.unitId == this.unitId &&
+          other.addonId == this.addonId &&
+          other.modifierId == this.modifierId &&
+          other.changeQty == this.changeQty &&
+          other.referenceType == this.referenceType &&
+          other.referenceId == this.referenceId &&
+          other.createdAt == this.createdAt);
+}
+
+class StockTransactionEntityCompanion
+    extends UpdateCompanion<StockTransactionEntityData> {
+  final Value<int> id;
+  final Value<String> productId;
+  final Value<String> unitId;
+  final Value<String?> addonId;
+  final Value<String?> modifierId;
+  final Value<double> changeQty;
+  final Value<String> referenceType;
+  final Value<String?> referenceId;
+  final Value<DateTime> createdAt;
+  const StockTransactionEntityCompanion({
+    this.id = const Value.absent(),
+    this.productId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.addonId = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    this.changeQty = const Value.absent(),
+    this.referenceType = const Value.absent(),
+    this.referenceId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  StockTransactionEntityCompanion.insert({
+    this.id = const Value.absent(),
+    required String productId,
+    required String unitId,
+    this.addonId = const Value.absent(),
+    this.modifierId = const Value.absent(),
+    required double changeQty,
+    required String referenceType,
+    this.referenceId = const Value.absent(),
+    required DateTime createdAt,
+  })  : productId = Value(productId),
+        unitId = Value(unitId),
+        changeQty = Value(changeQty),
+        referenceType = Value(referenceType),
+        createdAt = Value(createdAt);
+  static Insertable<StockTransactionEntityData> custom({
+    Expression<int>? id,
+    Expression<String>? productId,
+    Expression<String>? unitId,
+    Expression<String>? addonId,
+    Expression<String>? modifierId,
+    Expression<double>? changeQty,
+    Expression<String>? referenceType,
+    Expression<String>? referenceId,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (productId != null) 'product_id': productId,
+      if (unitId != null) 'unit_id': unitId,
+      if (addonId != null) 'addon_id': addonId,
+      if (modifierId != null) 'modifier_id': modifierId,
+      if (changeQty != null) 'change_qty': changeQty,
+      if (referenceType != null) 'reference_type': referenceType,
+      if (referenceId != null) 'reference_id': referenceId,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  StockTransactionEntityCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? productId,
+      Value<String>? unitId,
+      Value<String?>? addonId,
+      Value<String?>? modifierId,
+      Value<double>? changeQty,
+      Value<String>? referenceType,
+      Value<String?>? referenceId,
+      Value<DateTime>? createdAt}) {
+    return StockTransactionEntityCompanion(
+      id: id ?? this.id,
+      productId: productId ?? this.productId,
+      unitId: unitId ?? this.unitId,
+      addonId: addonId ?? this.addonId,
+      modifierId: modifierId ?? this.modifierId,
+      changeQty: changeQty ?? this.changeQty,
+      referenceType: referenceType ?? this.referenceType,
+      referenceId: referenceId ?? this.referenceId,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (productId.present) {
+      map['product_id'] = Variable<String>(productId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<String>(unitId.value);
+    }
+    if (addonId.present) {
+      map['addon_id'] = Variable<String>(addonId.value);
+    }
+    if (modifierId.present) {
+      map['modifier_id'] = Variable<String>(modifierId.value);
+    }
+    if (changeQty.present) {
+      map['change_qty'] = Variable<double>(changeQty.value);
+    }
+    if (referenceType.present) {
+      map['reference_type'] = Variable<String>(referenceType.value);
+    }
+    if (referenceId.present) {
+      map['reference_id'] = Variable<String>(referenceId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StockTransactionEntityCompanion(')
+          ..write('id: $id, ')
+          ..write('productId: $productId, ')
+          ..write('unitId: $unitId, ')
+          ..write('addonId: $addonId, ')
+          ..write('modifierId: $modifierId, ')
+          ..write('changeQty: $changeQty, ')
+          ..write('referenceType: $referenceType, ')
+          ..write('referenceId: $referenceId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   $MyDatabaseManager get managers => $MyDatabaseManager(this);
@@ -27548,6 +28532,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
   late final $OrderPrintHistoryV2Table orderPrintHistoryV2 =
       $OrderPrintHistoryV2Table(this);
   late final $EndOfDayEntityTable endOfDayEntity = $EndOfDayEntityTable(this);
+  late final $StockTransactionEntityTable stockTransactionEntity =
+      $StockTransactionEntityTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -27590,7 +28576,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         tableAssignments,
         auditLogs,
         orderPrintHistoryV2,
-        endOfDayEntity
+        endOfDayEntity,
+        stockTransactionEntity
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -31918,6 +32905,8 @@ typedef $$ProductQtyEntityTableCreateCompanionBuilder
   required double qty,
   required String productId,
   required String unitId,
+  Value<String?> addonId,
+  Value<String?> modifierId,
   required bool isAvailable,
 });
 typedef $$ProductQtyEntityTableUpdateCompanionBuilder
@@ -31926,6 +32915,8 @@ typedef $$ProductQtyEntityTableUpdateCompanionBuilder
   Value<double> qty,
   Value<String> productId,
   Value<String> unitId,
+  Value<String?> addonId,
+  Value<String?> modifierId,
   Value<bool> isAvailable,
 });
 
@@ -31949,6 +32940,12 @@ class $$ProductQtyEntityTableFilterComposer
 
   ColumnFilters<String> get unitId => $composableBuilder(
       column: $table.unitId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get addonId => $composableBuilder(
+      column: $table.addonId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<bool> get isAvailable => $composableBuilder(
       column: $table.isAvailable, builder: (column) => ColumnFilters(column));
@@ -31975,6 +32972,12 @@ class $$ProductQtyEntityTableOrderingComposer
   ColumnOrderings<String> get unitId => $composableBuilder(
       column: $table.unitId, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get addonId => $composableBuilder(
+      column: $table.addonId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<bool> get isAvailable => $composableBuilder(
       column: $table.isAvailable, builder: (column) => ColumnOrderings(column));
 }
@@ -31999,6 +33002,12 @@ class $$ProductQtyEntityTableAnnotationComposer
 
   GeneratedColumn<String> get unitId =>
       $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get addonId =>
+      $composableBuilder(column: $table.addonId, builder: (column) => column);
+
+  GeneratedColumn<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => column);
 
   GeneratedColumn<bool> get isAvailable => $composableBuilder(
       column: $table.isAvailable, builder: (column) => column);
@@ -32035,6 +33044,8 @@ class $$ProductQtyEntityTableTableManager extends RootTableManager<
             Value<double> qty = const Value.absent(),
             Value<String> productId = const Value.absent(),
             Value<String> unitId = const Value.absent(),
+            Value<String?> addonId = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
             Value<bool> isAvailable = const Value.absent(),
           }) =>
               ProductQtyEntityCompanion(
@@ -32042,6 +33053,8 @@ class $$ProductQtyEntityTableTableManager extends RootTableManager<
             qty: qty,
             productId: productId,
             unitId: unitId,
+            addonId: addonId,
+            modifierId: modifierId,
             isAvailable: isAvailable,
           ),
           createCompanionCallback: ({
@@ -32049,6 +33062,8 @@ class $$ProductQtyEntityTableTableManager extends RootTableManager<
             required double qty,
             required String productId,
             required String unitId,
+            Value<String?> addonId = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
             required bool isAvailable,
           }) =>
               ProductQtyEntityCompanion.insert(
@@ -32056,6 +33071,8 @@ class $$ProductQtyEntityTableTableManager extends RootTableManager<
             qty: qty,
             productId: productId,
             unitId: unitId,
+            addonId: addonId,
+            modifierId: modifierId,
             isAvailable: isAvailable,
           ),
           withReferenceMapper: (p0) => p0
@@ -32411,8 +33428,9 @@ typedef $$OrderEntityV2TableCreateCompanionBuilder = OrderEntityV2Companion
   Value<String?> lastModifiedBy,
   Value<String?> openedOn,
   Value<String?> openedBy,
-  Value<String?> closedOn,
   Value<String?> closedBy,
+  Value<String?> deliveryCompanyId,
+  Value<dynamic> deliveryCompanyJson,
   Value<int?> printState,
   Value<int?> prePaymentPrintCount,
   Value<int?> postPaymentPrintCount,
@@ -32424,6 +33442,14 @@ typedef $$OrderEntityV2TableCreateCompanionBuilder = OrderEntityV2Companion
   Value<String?> unprintReason,
   Value<DateTime?> unprintedAt,
   Value<String?> unprintedBy,
+  Value<bool?> isScheduled,
+  Value<DateTime?> scheduledFor,
+  Value<String?> scheduledBy,
+  Value<DateTime?> scheduledAt,
+  Value<int?> scheduledStatus,
+  Value<DateTime?> activatedAt,
+  Value<String?> activatedBy,
+  Value<String?> scheduledNotes,
   Value<int> rowid,
 });
 typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
@@ -32493,8 +33519,9 @@ typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
   Value<String?> lastModifiedBy,
   Value<String?> openedOn,
   Value<String?> openedBy,
-  Value<String?> closedOn,
   Value<String?> closedBy,
+  Value<String?> deliveryCompanyId,
+  Value<dynamic> deliveryCompanyJson,
   Value<int?> printState,
   Value<int?> prePaymentPrintCount,
   Value<int?> postPaymentPrintCount,
@@ -32506,6 +33533,14 @@ typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
   Value<String?> unprintReason,
   Value<DateTime?> unprintedAt,
   Value<String?> unprintedBy,
+  Value<bool?> isScheduled,
+  Value<DateTime?> scheduledFor,
+  Value<String?> scheduledBy,
+  Value<DateTime?> scheduledAt,
+  Value<int?> scheduledStatus,
+  Value<DateTime?> activatedAt,
+  Value<String?> activatedBy,
+  Value<String?> scheduledNotes,
   Value<int> rowid,
 });
 
@@ -33151,11 +34186,17 @@ class $$OrderEntityV2TableFilterComposer
   ColumnFilters<String> get openedBy => $composableBuilder(
       column: $table.openedBy, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get closedOn => $composableBuilder(
-      column: $table.closedOn, builder: (column) => ColumnFilters(column));
-
   ColumnFilters<String> get closedBy => $composableBuilder(
       column: $table.closedBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deliveryCompanyId => $composableBuilder(
+      column: $table.deliveryCompanyId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnWithTypeConverterFilters<dynamic, dynamic, String>
+      get deliveryCompanyJson => $composableBuilder(
+          column: $table.deliveryCompanyJson,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
 
   ColumnFilters<int> get printState => $composableBuilder(
       column: $table.printState, builder: (column) => ColumnFilters(column));
@@ -33192,6 +34233,32 @@ class $$OrderEntityV2TableFilterComposer
 
   ColumnFilters<String> get unprintedBy => $composableBuilder(
       column: $table.unprintedBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isScheduled => $composableBuilder(
+      column: $table.isScheduled, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get scheduledFor => $composableBuilder(
+      column: $table.scheduledFor, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get scheduledBy => $composableBuilder(
+      column: $table.scheduledBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get scheduledAt => $composableBuilder(
+      column: $table.scheduledAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get scheduledStatus => $composableBuilder(
+      column: $table.scheduledStatus,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get activatedAt => $composableBuilder(
+      column: $table.activatedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get activatedBy => $composableBuilder(
+      column: $table.activatedBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get scheduledNotes => $composableBuilder(
+      column: $table.scheduledNotes,
+      builder: (column) => ColumnFilters(column));
 
   Expression<bool> orderProductEntityV2Refs(
       Expression<bool> Function($$OrderProductEntityV2TableFilterComposer f)
@@ -33905,11 +34972,16 @@ class $$OrderEntityV2TableOrderingComposer
   ColumnOrderings<String> get openedBy => $composableBuilder(
       column: $table.openedBy, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get closedOn => $composableBuilder(
-      column: $table.closedOn, builder: (column) => ColumnOrderings(column));
-
   ColumnOrderings<String> get closedBy => $composableBuilder(
       column: $table.closedBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deliveryCompanyId => $composableBuilder(
+      column: $table.deliveryCompanyId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deliveryCompanyJson => $composableBuilder(
+      column: $table.deliveryCompanyJson,
+      builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<int> get printState => $composableBuilder(
       column: $table.printState, builder: (column) => ColumnOrderings(column));
@@ -33949,6 +35021,33 @@ class $$OrderEntityV2TableOrderingComposer
 
   ColumnOrderings<String> get unprintedBy => $composableBuilder(
       column: $table.unprintedBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isScheduled => $composableBuilder(
+      column: $table.isScheduled, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get scheduledFor => $composableBuilder(
+      column: $table.scheduledFor,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get scheduledBy => $composableBuilder(
+      column: $table.scheduledBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get scheduledAt => $composableBuilder(
+      column: $table.scheduledAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get scheduledStatus => $composableBuilder(
+      column: $table.scheduledStatus,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get activatedAt => $composableBuilder(
+      column: $table.activatedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get activatedBy => $composableBuilder(
+      column: $table.activatedBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get scheduledNotes => $composableBuilder(
+      column: $table.scheduledNotes,
+      builder: (column) => ColumnOrderings(column));
 }
 
 class $$OrderEntityV2TableAnnotationComposer
@@ -34159,11 +35258,15 @@ class $$OrderEntityV2TableAnnotationComposer
   GeneratedColumn<String> get openedBy =>
       $composableBuilder(column: $table.openedBy, builder: (column) => column);
 
-  GeneratedColumn<String> get closedOn =>
-      $composableBuilder(column: $table.closedOn, builder: (column) => column);
-
   GeneratedColumn<String> get closedBy =>
       $composableBuilder(column: $table.closedBy, builder: (column) => column);
+
+  GeneratedColumn<String> get deliveryCompanyId => $composableBuilder(
+      column: $table.deliveryCompanyId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<dynamic, String> get deliveryCompanyJson =>
+      $composableBuilder(
+          column: $table.deliveryCompanyJson, builder: (column) => column);
 
   GeneratedColumn<int> get printState => $composableBuilder(
       column: $table.printState, builder: (column) => column);
@@ -34197,6 +35300,30 @@ class $$OrderEntityV2TableAnnotationComposer
 
   GeneratedColumn<String> get unprintedBy => $composableBuilder(
       column: $table.unprintedBy, builder: (column) => column);
+
+  GeneratedColumn<bool> get isScheduled => $composableBuilder(
+      column: $table.isScheduled, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get scheduledFor => $composableBuilder(
+      column: $table.scheduledFor, builder: (column) => column);
+
+  GeneratedColumn<String> get scheduledBy => $composableBuilder(
+      column: $table.scheduledBy, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get scheduledAt => $composableBuilder(
+      column: $table.scheduledAt, builder: (column) => column);
+
+  GeneratedColumn<int> get scheduledStatus => $composableBuilder(
+      column: $table.scheduledStatus, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get activatedAt => $composableBuilder(
+      column: $table.activatedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get activatedBy => $composableBuilder(
+      column: $table.activatedBy, builder: (column) => column);
+
+  GeneratedColumn<String> get scheduledNotes => $composableBuilder(
+      column: $table.scheduledNotes, builder: (column) => column);
 
   Expression<T> orderProductEntityV2Refs<T extends Object>(
       Expression<T> Function($$OrderProductEntityV2TableAnnotationComposer a)
@@ -34787,8 +35914,9 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<String?> lastModifiedBy = const Value.absent(),
             Value<String?> openedOn = const Value.absent(),
             Value<String?> openedBy = const Value.absent(),
-            Value<String?> closedOn = const Value.absent(),
             Value<String?> closedBy = const Value.absent(),
+            Value<String?> deliveryCompanyId = const Value.absent(),
+            Value<dynamic> deliveryCompanyJson = const Value.absent(),
             Value<int?> printState = const Value.absent(),
             Value<int?> prePaymentPrintCount = const Value.absent(),
             Value<int?> postPaymentPrintCount = const Value.absent(),
@@ -34800,6 +35928,14 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<String?> unprintReason = const Value.absent(),
             Value<DateTime?> unprintedAt = const Value.absent(),
             Value<String?> unprintedBy = const Value.absent(),
+            Value<bool?> isScheduled = const Value.absent(),
+            Value<DateTime?> scheduledFor = const Value.absent(),
+            Value<String?> scheduledBy = const Value.absent(),
+            Value<DateTime?> scheduledAt = const Value.absent(),
+            Value<int?> scheduledStatus = const Value.absent(),
+            Value<DateTime?> activatedAt = const Value.absent(),
+            Value<String?> activatedBy = const Value.absent(),
+            Value<String?> scheduledNotes = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               OrderEntityV2Companion(
@@ -34868,8 +36004,9 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             lastModifiedBy: lastModifiedBy,
             openedOn: openedOn,
             openedBy: openedBy,
-            closedOn: closedOn,
             closedBy: closedBy,
+            deliveryCompanyId: deliveryCompanyId,
+            deliveryCompanyJson: deliveryCompanyJson,
             printState: printState,
             prePaymentPrintCount: prePaymentPrintCount,
             postPaymentPrintCount: postPaymentPrintCount,
@@ -34881,6 +36018,14 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             unprintReason: unprintReason,
             unprintedAt: unprintedAt,
             unprintedBy: unprintedBy,
+            isScheduled: isScheduled,
+            scheduledFor: scheduledFor,
+            scheduledBy: scheduledBy,
+            scheduledAt: scheduledAt,
+            scheduledStatus: scheduledStatus,
+            activatedAt: activatedAt,
+            activatedBy: activatedBy,
+            scheduledNotes: scheduledNotes,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -34949,8 +36094,9 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<String?> lastModifiedBy = const Value.absent(),
             Value<String?> openedOn = const Value.absent(),
             Value<String?> openedBy = const Value.absent(),
-            Value<String?> closedOn = const Value.absent(),
             Value<String?> closedBy = const Value.absent(),
+            Value<String?> deliveryCompanyId = const Value.absent(),
+            Value<dynamic> deliveryCompanyJson = const Value.absent(),
             Value<int?> printState = const Value.absent(),
             Value<int?> prePaymentPrintCount = const Value.absent(),
             Value<int?> postPaymentPrintCount = const Value.absent(),
@@ -34962,6 +36108,14 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<String?> unprintReason = const Value.absent(),
             Value<DateTime?> unprintedAt = const Value.absent(),
             Value<String?> unprintedBy = const Value.absent(),
+            Value<bool?> isScheduled = const Value.absent(),
+            Value<DateTime?> scheduledFor = const Value.absent(),
+            Value<String?> scheduledBy = const Value.absent(),
+            Value<DateTime?> scheduledAt = const Value.absent(),
+            Value<int?> scheduledStatus = const Value.absent(),
+            Value<DateTime?> activatedAt = const Value.absent(),
+            Value<String?> activatedBy = const Value.absent(),
+            Value<String?> scheduledNotes = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               OrderEntityV2Companion.insert(
@@ -35030,8 +36184,9 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             lastModifiedBy: lastModifiedBy,
             openedOn: openedOn,
             openedBy: openedBy,
-            closedOn: closedOn,
             closedBy: closedBy,
+            deliveryCompanyId: deliveryCompanyId,
+            deliveryCompanyJson: deliveryCompanyJson,
             printState: printState,
             prePaymentPrintCount: prePaymentPrintCount,
             postPaymentPrintCount: postPaymentPrintCount,
@@ -35043,6 +36198,14 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             unprintReason: unprintReason,
             unprintedAt: unprintedAt,
             unprintedBy: unprintedBy,
+            isScheduled: isScheduled,
+            scheduledFor: scheduledFor,
+            scheduledBy: scheduledBy,
+            scheduledAt: scheduledAt,
+            scheduledStatus: scheduledStatus,
+            activatedAt: activatedAt,
+            activatedBy: activatedBy,
+            scheduledNotes: scheduledNotes,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
@@ -44031,6 +45194,241 @@ typedef $$EndOfDayEntityTableProcessedTableManager = ProcessedTableManager<
     ),
     EndOfDayEntityData,
     PrefetchHooks Function()>;
+typedef $$StockTransactionEntityTableCreateCompanionBuilder
+    = StockTransactionEntityCompanion Function({
+  Value<int> id,
+  required String productId,
+  required String unitId,
+  Value<String?> addonId,
+  Value<String?> modifierId,
+  required double changeQty,
+  required String referenceType,
+  Value<String?> referenceId,
+  required DateTime createdAt,
+});
+typedef $$StockTransactionEntityTableUpdateCompanionBuilder
+    = StockTransactionEntityCompanion Function({
+  Value<int> id,
+  Value<String> productId,
+  Value<String> unitId,
+  Value<String?> addonId,
+  Value<String?> modifierId,
+  Value<double> changeQty,
+  Value<String> referenceType,
+  Value<String?> referenceId,
+  Value<DateTime> createdAt,
+});
+
+class $$StockTransactionEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $StockTransactionEntityTable> {
+  $$StockTransactionEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get addonId => $composableBuilder(
+      column: $table.addonId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get changeQty => $composableBuilder(
+      column: $table.changeQty, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get referenceType => $composableBuilder(
+      column: $table.referenceType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get referenceId => $composableBuilder(
+      column: $table.referenceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$StockTransactionEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $StockTransactionEntityTable> {
+  $$StockTransactionEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get unitId => $composableBuilder(
+      column: $table.unitId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get addonId => $composableBuilder(
+      column: $table.addonId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get changeQty => $composableBuilder(
+      column: $table.changeQty, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get referenceType => $composableBuilder(
+      column: $table.referenceType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get referenceId => $composableBuilder(
+      column: $table.referenceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$StockTransactionEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $StockTransactionEntityTable> {
+  $$StockTransactionEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get productId =>
+      $composableBuilder(column: $table.productId, builder: (column) => column);
+
+  GeneratedColumn<String> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get addonId =>
+      $composableBuilder(column: $table.addonId, builder: (column) => column);
+
+  GeneratedColumn<String> get modifierId => $composableBuilder(
+      column: $table.modifierId, builder: (column) => column);
+
+  GeneratedColumn<double> get changeQty =>
+      $composableBuilder(column: $table.changeQty, builder: (column) => column);
+
+  GeneratedColumn<String> get referenceType => $composableBuilder(
+      column: $table.referenceType, builder: (column) => column);
+
+  GeneratedColumn<String> get referenceId => $composableBuilder(
+      column: $table.referenceId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$StockTransactionEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $StockTransactionEntityTable,
+    StockTransactionEntityData,
+    $$StockTransactionEntityTableFilterComposer,
+    $$StockTransactionEntityTableOrderingComposer,
+    $$StockTransactionEntityTableAnnotationComposer,
+    $$StockTransactionEntityTableCreateCompanionBuilder,
+    $$StockTransactionEntityTableUpdateCompanionBuilder,
+    (
+      StockTransactionEntityData,
+      BaseReferences<_$MyDatabase, $StockTransactionEntityTable,
+          StockTransactionEntityData>
+    ),
+    StockTransactionEntityData,
+    PrefetchHooks Function()> {
+  $$StockTransactionEntityTableTableManager(
+      _$MyDatabase db, $StockTransactionEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$StockTransactionEntityTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$StockTransactionEntityTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$StockTransactionEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> productId = const Value.absent(),
+            Value<String> unitId = const Value.absent(),
+            Value<String?> addonId = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            Value<double> changeQty = const Value.absent(),
+            Value<String> referenceType = const Value.absent(),
+            Value<String?> referenceId = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              StockTransactionEntityCompanion(
+            id: id,
+            productId: productId,
+            unitId: unitId,
+            addonId: addonId,
+            modifierId: modifierId,
+            changeQty: changeQty,
+            referenceType: referenceType,
+            referenceId: referenceId,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String productId,
+            required String unitId,
+            Value<String?> addonId = const Value.absent(),
+            Value<String?> modifierId = const Value.absent(),
+            required double changeQty,
+            required String referenceType,
+            Value<String?> referenceId = const Value.absent(),
+            required DateTime createdAt,
+          }) =>
+              StockTransactionEntityCompanion.insert(
+            id: id,
+            productId: productId,
+            unitId: unitId,
+            addonId: addonId,
+            modifierId: modifierId,
+            changeQty: changeQty,
+            referenceType: referenceType,
+            referenceId: referenceId,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$StockTransactionEntityTableProcessedTableManager
+    = ProcessedTableManager<
+        _$MyDatabase,
+        $StockTransactionEntityTable,
+        StockTransactionEntityData,
+        $$StockTransactionEntityTableFilterComposer,
+        $$StockTransactionEntityTableOrderingComposer,
+        $$StockTransactionEntityTableAnnotationComposer,
+        $$StockTransactionEntityTableCreateCompanionBuilder,
+        $$StockTransactionEntityTableUpdateCompanionBuilder,
+        (
+          StockTransactionEntityData,
+          BaseReferences<_$MyDatabase, $StockTransactionEntityTable,
+              StockTransactionEntityData>
+        ),
+        StockTransactionEntityData,
+        PrefetchHooks Function()>;
 
 class $MyDatabaseManager {
   final _$MyDatabase _db;
@@ -44124,4 +45522,7 @@ class $MyDatabaseManager {
       $$OrderPrintHistoryV2TableTableManager(_db, _db.orderPrintHistoryV2);
   $$EndOfDayEntityTableTableManager get endOfDayEntity =>
       $$EndOfDayEntityTableTableManager(_db, _db.endOfDayEntity);
+  $$StockTransactionEntityTableTableManager get stockTransactionEntity =>
+      $$StockTransactionEntityTableTableManager(
+          _db, _db.stockTransactionEntity);
 }
