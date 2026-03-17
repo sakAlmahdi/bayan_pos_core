@@ -141,7 +141,15 @@ class OrderResponseDto {
   List<OrderTaxTypeViewDto>? taxInfo;
   List<OrderPaymentDto>? payments;
 
+
   DeliveryCompanyInfo? deliveryCompanyInfo;
+
+  // ZATCA Phase 2 fields
+  String? invoiceNumber;
+  String? invoiceUUID;
+  int? invoiceCounterValue;
+  String? invoiceHash;
+  String? previousInvoiceHash;
 
   OrderType get getOrderType =>
       convertStringToOrderType(orderType) ?? OrderType.dineIn;
@@ -247,6 +255,11 @@ class OrderResponseDto {
     this.trace,
     this.deliveryCompanyInfo,
     this.address,
+    this.invoiceNumber,
+    this.invoiceUUID,
+    this.invoiceCounterValue,
+    this.invoiceHash,
+    this.previousInvoiceHash,
   });
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
@@ -404,6 +417,11 @@ class OrderResponseDto {
       address: json['address'] != null
           ? Address.fromJson(json['address'] as Map<String, dynamic>)
           : null,
+      invoiceNumber: json['invoiceNumber'],
+      invoiceUUID: json['invoiceUUID'],
+      invoiceCounterValue: int.tryParse(json['invoiceCounterValue']?.toString() ?? ''),
+      invoiceHash: json['invoiceHash'],
+      previousInvoiceHash: json['previousInvoiceHash'],
     );
   }
 
@@ -502,6 +520,11 @@ class OrderResponseDto {
       'trace': trace,
       'deliveryCompanyInfo': deliveryCompanyInfo?.toJson(),
       'address': address?.toJson(),
+      'invoiceNumber': invoiceNumber,
+      'invoiceUUID': invoiceUUID,
+      'invoiceCounterValue': invoiceCounterValue,
+      'invoiceHash': invoiceHash,
+      'previousInvoiceHash': previousInvoiceHash,
     };
   }
 
@@ -598,6 +621,11 @@ class OrderResponseDto {
     String? trace,
     DeliveryCompanyInfo? deliveryCompanyInfo,
     Address? address,
+    String? invoiceNumber,
+    String? invoiceUUID,
+    int? invoiceCounterValue,
+    String? invoiceHash,
+    String? previousInvoiceHash,
   }) {
     return OrderResponseDto(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -703,6 +731,11 @@ class OrderResponseDto {
       trace: trace ?? this.trace,
       deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
       address: address ?? this.address,
+      invoiceNumber: invoiceNumber ?? this.invoiceNumber,
+      invoiceUUID: invoiceUUID ?? this.invoiceUUID,
+      invoiceCounterValue: invoiceCounterValue ?? this.invoiceCounterValue,
+      invoiceHash: invoiceHash ?? this.invoiceHash,
+      previousInvoiceHash: previousInvoiceHash ?? this.previousInvoiceHash,
     );
   }
 

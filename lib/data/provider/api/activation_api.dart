@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/data/model/device/activation.dart';
 import 'package:bayan_pos_core/data/model/device/activation_info.dart';
@@ -33,7 +30,6 @@ class ActivationApiProvider extends ActivationRepository {
   @override
   activeDevice(Activation activation) async {
     try {
-      log(jsonEncode(activation.toJson().removeNull()));
       Response response = await dio.put(
         pathActiveDevice,
         data: activation.toJson().removeNull(),

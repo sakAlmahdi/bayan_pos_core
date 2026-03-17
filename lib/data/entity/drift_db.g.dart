@@ -10532,6 +10532,36 @@ class $OrderEntityV2Table extends OrderEntityV2
   late final GeneratedColumn<String> scheduledNotes = GeneratedColumn<String>(
       'scheduled_notes', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _invoiceNumberMeta =
+      const VerificationMeta('invoiceNumber');
+  @override
+  late final GeneratedColumn<String> invoiceNumber = GeneratedColumn<String>(
+      'invoice_number', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _invoiceUUIDMeta =
+      const VerificationMeta('invoiceUUID');
+  @override
+  late final GeneratedColumn<String> invoiceUUID = GeneratedColumn<String>(
+      'invoice_uuid', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _invoiceCounterValueMeta =
+      const VerificationMeta('invoiceCounterValue');
+  @override
+  late final GeneratedColumn<int> invoiceCounterValue = GeneratedColumn<int>(
+      'invoice_counter_value', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _invoiceHashMeta =
+      const VerificationMeta('invoiceHash');
+  @override
+  late final GeneratedColumn<String> invoiceHash = GeneratedColumn<String>(
+      'invoice_hash', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _previousInvoiceHashMeta =
+      const VerificationMeta('previousInvoiceHash');
+  @override
+  late final GeneratedColumn<String> previousInvoiceHash =
+      GeneratedColumn<String>('previous_invoice_hash', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         totalPrice,
@@ -10620,7 +10650,12 @@ class $OrderEntityV2Table extends OrderEntityV2
         scheduledStatus,
         activatedAt,
         activatedBy,
-        scheduledNotes
+        scheduledNotes,
+        invoiceNumber,
+        invoiceUUID,
+        invoiceCounterValue,
+        invoiceHash,
+        previousInvoiceHash
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -11090,6 +11125,36 @@ class $OrderEntityV2Table extends OrderEntityV2
           scheduledNotes.isAcceptableOrUnknown(
               data['scheduled_notes']!, _scheduledNotesMeta));
     }
+    if (data.containsKey('invoice_number')) {
+      context.handle(
+          _invoiceNumberMeta,
+          invoiceNumber.isAcceptableOrUnknown(
+              data['invoice_number']!, _invoiceNumberMeta));
+    }
+    if (data.containsKey('invoice_uuid')) {
+      context.handle(
+          _invoiceUUIDMeta,
+          invoiceUUID.isAcceptableOrUnknown(
+              data['invoice_uuid']!, _invoiceUUIDMeta));
+    }
+    if (data.containsKey('invoice_counter_value')) {
+      context.handle(
+          _invoiceCounterValueMeta,
+          invoiceCounterValue.isAcceptableOrUnknown(
+              data['invoice_counter_value']!, _invoiceCounterValueMeta));
+    }
+    if (data.containsKey('invoice_hash')) {
+      context.handle(
+          _invoiceHashMeta,
+          invoiceHash.isAcceptableOrUnknown(
+              data['invoice_hash']!, _invoiceHashMeta));
+    }
+    if (data.containsKey('previous_invoice_hash')) {
+      context.handle(
+          _previousInvoiceHashMeta,
+          previousInvoiceHash.isAcceptableOrUnknown(
+              data['previous_invoice_hash']!, _previousInvoiceHashMeta));
+    }
     return context;
   }
 
@@ -11286,6 +11351,16 @@ class $OrderEntityV2Table extends OrderEntityV2
           .read(DriftSqlType.string, data['${effectivePrefix}activated_by']),
       scheduledNotes: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}scheduled_notes']),
+      invoiceNumber: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}invoice_number']),
+      invoiceUUID: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}invoice_uuid']),
+      invoiceCounterValue: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}invoice_counter_value']),
+      invoiceHash: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}invoice_hash']),
+      previousInvoiceHash: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}previous_invoice_hash']),
     );
   }
 
@@ -11433,6 +11508,21 @@ class OrderEntityV2Data extends DataClass
 
   /// ملاحظات حول الجدولة
   final String? scheduledNotes;
+
+  /// رقم الفاتورة (متسلسل تصاعدياً على مستوى الفرع أو الجهاز)
+  final String? invoiceNumber;
+
+  /// معرف الفاتورة العالمي الفريد (UUID v4)
+  final String? invoiceUUID;
+
+  /// عداد الفواتير (ICV) يبدأ من 1 ويزيد بمقدار 1 لكل فاتورة
+  final int? invoiceCounterValue;
+
+  /// الـ Hash الخاص بالفاتورة الحالية لضمان عدم التلاعب
+  final String? invoiceHash;
+
+  /// الـ Hash الخاص بالفاتورة السابقة لإنشاء سلسلة مترابطة
+  final String? previousInvoiceHash;
   const OrderEntityV2Data(
       {required this.totalPrice,
       this.discountAmount,
@@ -11520,7 +11610,12 @@ class OrderEntityV2Data extends DataClass
       this.scheduledStatus,
       this.activatedAt,
       this.activatedBy,
-      this.scheduledNotes});
+      this.scheduledNotes,
+      this.invoiceNumber,
+      this.invoiceUUID,
+      this.invoiceCounterValue,
+      this.invoiceHash,
+      this.previousInvoiceHash});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -11788,6 +11883,21 @@ class OrderEntityV2Data extends DataClass
     if (!nullToAbsent || scheduledNotes != null) {
       map['scheduled_notes'] = Variable<String>(scheduledNotes);
     }
+    if (!nullToAbsent || invoiceNumber != null) {
+      map['invoice_number'] = Variable<String>(invoiceNumber);
+    }
+    if (!nullToAbsent || invoiceUUID != null) {
+      map['invoice_uuid'] = Variable<String>(invoiceUUID);
+    }
+    if (!nullToAbsent || invoiceCounterValue != null) {
+      map['invoice_counter_value'] = Variable<int>(invoiceCounterValue);
+    }
+    if (!nullToAbsent || invoiceHash != null) {
+      map['invoice_hash'] = Variable<String>(invoiceHash);
+    }
+    if (!nullToAbsent || previousInvoiceHash != null) {
+      map['previous_invoice_hash'] = Variable<String>(previousInvoiceHash);
+    }
     return map;
   }
 
@@ -12043,6 +12153,21 @@ class OrderEntityV2Data extends DataClass
       scheduledNotes: scheduledNotes == null && nullToAbsent
           ? const Value.absent()
           : Value(scheduledNotes),
+      invoiceNumber: invoiceNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(invoiceNumber),
+      invoiceUUID: invoiceUUID == null && nullToAbsent
+          ? const Value.absent()
+          : Value(invoiceUUID),
+      invoiceCounterValue: invoiceCounterValue == null && nullToAbsent
+          ? const Value.absent()
+          : Value(invoiceCounterValue),
+      invoiceHash: invoiceHash == null && nullToAbsent
+          ? const Value.absent()
+          : Value(invoiceHash),
+      previousInvoiceHash: previousInvoiceHash == null && nullToAbsent
+          ? const Value.absent()
+          : Value(previousInvoiceHash),
     );
   }
 
@@ -12151,6 +12276,13 @@ class OrderEntityV2Data extends DataClass
       activatedAt: serializer.fromJson<DateTime?>(json['activatedAt']),
       activatedBy: serializer.fromJson<String?>(json['activatedBy']),
       scheduledNotes: serializer.fromJson<String?>(json['scheduledNotes']),
+      invoiceNumber: serializer.fromJson<String?>(json['invoiceNumber']),
+      invoiceUUID: serializer.fromJson<String?>(json['invoiceUUID']),
+      invoiceCounterValue:
+          serializer.fromJson<int?>(json['invoiceCounterValue']),
+      invoiceHash: serializer.fromJson<String?>(json['invoiceHash']),
+      previousInvoiceHash:
+          serializer.fromJson<String?>(json['previousInvoiceHash']),
     );
   }
   @override
@@ -12252,6 +12384,11 @@ class OrderEntityV2Data extends DataClass
       'activatedAt': serializer.toJson<DateTime?>(activatedAt),
       'activatedBy': serializer.toJson<String?>(activatedBy),
       'scheduledNotes': serializer.toJson<String?>(scheduledNotes),
+      'invoiceNumber': serializer.toJson<String?>(invoiceNumber),
+      'invoiceUUID': serializer.toJson<String?>(invoiceUUID),
+      'invoiceCounterValue': serializer.toJson<int?>(invoiceCounterValue),
+      'invoiceHash': serializer.toJson<String?>(invoiceHash),
+      'previousInvoiceHash': serializer.toJson<String?>(previousInvoiceHash),
     };
   }
 
@@ -12342,7 +12479,12 @@ class OrderEntityV2Data extends DataClass
           Value<int?> scheduledStatus = const Value.absent(),
           Value<DateTime?> activatedAt = const Value.absent(),
           Value<String?> activatedBy = const Value.absent(),
-          Value<String?> scheduledNotes = const Value.absent()}) =>
+          Value<String?> scheduledNotes = const Value.absent(),
+          Value<String?> invoiceNumber = const Value.absent(),
+          Value<String?> invoiceUUID = const Value.absent(),
+          Value<int?> invoiceCounterValue = const Value.absent(),
+          Value<String?> invoiceHash = const Value.absent(),
+          Value<String?> previousInvoiceHash = const Value.absent()}) =>
       OrderEntityV2Data(
         totalPrice: totalPrice ?? this.totalPrice,
         discountAmount:
@@ -12491,6 +12633,16 @@ class OrderEntityV2Data extends DataClass
         activatedBy: activatedBy.present ? activatedBy.value : this.activatedBy,
         scheduledNotes:
             scheduledNotes.present ? scheduledNotes.value : this.scheduledNotes,
+        invoiceNumber:
+            invoiceNumber.present ? invoiceNumber.value : this.invoiceNumber,
+        invoiceUUID: invoiceUUID.present ? invoiceUUID.value : this.invoiceUUID,
+        invoiceCounterValue: invoiceCounterValue.present
+            ? invoiceCounterValue.value
+            : this.invoiceCounterValue,
+        invoiceHash: invoiceHash.present ? invoiceHash.value : this.invoiceHash,
+        previousInvoiceHash: previousInvoiceHash.present
+            ? previousInvoiceHash.value
+            : this.previousInvoiceHash,
       );
   OrderEntityV2Data copyWithCompanion(OrderEntityV2Companion data) {
     return OrderEntityV2Data(
@@ -12690,6 +12842,19 @@ class OrderEntityV2Data extends DataClass
       scheduledNotes: data.scheduledNotes.present
           ? data.scheduledNotes.value
           : this.scheduledNotes,
+      invoiceNumber: data.invoiceNumber.present
+          ? data.invoiceNumber.value
+          : this.invoiceNumber,
+      invoiceUUID:
+          data.invoiceUUID.present ? data.invoiceUUID.value : this.invoiceUUID,
+      invoiceCounterValue: data.invoiceCounterValue.present
+          ? data.invoiceCounterValue.value
+          : this.invoiceCounterValue,
+      invoiceHash:
+          data.invoiceHash.present ? data.invoiceHash.value : this.invoiceHash,
+      previousInvoiceHash: data.previousInvoiceHash.present
+          ? data.previousInvoiceHash.value
+          : this.previousInvoiceHash,
     );
   }
 
@@ -12782,7 +12947,12 @@ class OrderEntityV2Data extends DataClass
           ..write('scheduledStatus: $scheduledStatus, ')
           ..write('activatedAt: $activatedAt, ')
           ..write('activatedBy: $activatedBy, ')
-          ..write('scheduledNotes: $scheduledNotes')
+          ..write('scheduledNotes: $scheduledNotes, ')
+          ..write('invoiceNumber: $invoiceNumber, ')
+          ..write('invoiceUUID: $invoiceUUID, ')
+          ..write('invoiceCounterValue: $invoiceCounterValue, ')
+          ..write('invoiceHash: $invoiceHash, ')
+          ..write('previousInvoiceHash: $previousInvoiceHash')
           ..write(')'))
         .toString();
   }
@@ -12875,7 +13045,12 @@ class OrderEntityV2Data extends DataClass
         scheduledStatus,
         activatedAt,
         activatedBy,
-        scheduledNotes
+        scheduledNotes,
+        invoiceNumber,
+        invoiceUUID,
+        invoiceCounterValue,
+        invoiceHash,
+        previousInvoiceHash
       ]);
   @override
   bool operator ==(Object other) =>
@@ -12967,7 +13142,12 @@ class OrderEntityV2Data extends DataClass
           other.scheduledStatus == this.scheduledStatus &&
           other.activatedAt == this.activatedAt &&
           other.activatedBy == this.activatedBy &&
-          other.scheduledNotes == this.scheduledNotes);
+          other.scheduledNotes == this.scheduledNotes &&
+          other.invoiceNumber == this.invoiceNumber &&
+          other.invoiceUUID == this.invoiceUUID &&
+          other.invoiceCounterValue == this.invoiceCounterValue &&
+          other.invoiceHash == this.invoiceHash &&
+          other.previousInvoiceHash == this.previousInvoiceHash);
 }
 
 class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
@@ -13058,6 +13238,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
   final Value<DateTime?> activatedAt;
   final Value<String?> activatedBy;
   final Value<String?> scheduledNotes;
+  final Value<String?> invoiceNumber;
+  final Value<String?> invoiceUUID;
+  final Value<int?> invoiceCounterValue;
+  final Value<String?> invoiceHash;
+  final Value<String?> previousInvoiceHash;
   final Value<int> rowid;
   const OrderEntityV2Companion({
     this.totalPrice = const Value.absent(),
@@ -13147,6 +13332,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.activatedAt = const Value.absent(),
     this.activatedBy = const Value.absent(),
     this.scheduledNotes = const Value.absent(),
+    this.invoiceNumber = const Value.absent(),
+    this.invoiceUUID = const Value.absent(),
+    this.invoiceCounterValue = const Value.absent(),
+    this.invoiceHash = const Value.absent(),
+    this.previousInvoiceHash = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   OrderEntityV2Companion.insert({
@@ -13237,6 +13427,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     this.activatedAt = const Value.absent(),
     this.activatedBy = const Value.absent(),
     this.scheduledNotes = const Value.absent(),
+    this.invoiceNumber = const Value.absent(),
+    this.invoiceUUID = const Value.absent(),
+    this.invoiceCounterValue = const Value.absent(),
+    this.invoiceHash = const Value.absent(),
+    this.previousInvoiceHash = const Value.absent(),
     this.rowid = const Value.absent(),
   })  : totalPrice = Value(totalPrice),
         netTotalPrice = Value(netTotalPrice),
@@ -13330,6 +13525,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     Expression<DateTime>? activatedAt,
     Expression<String>? activatedBy,
     Expression<String>? scheduledNotes,
+    Expression<String>? invoiceNumber,
+    Expression<String>? invoiceUUID,
+    Expression<int>? invoiceCounterValue,
+    Expression<String>? invoiceHash,
+    Expression<String>? previousInvoiceHash,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -13432,6 +13632,13 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       if (activatedAt != null) 'activated_at': activatedAt,
       if (activatedBy != null) 'activated_by': activatedBy,
       if (scheduledNotes != null) 'scheduled_notes': scheduledNotes,
+      if (invoiceNumber != null) 'invoice_number': invoiceNumber,
+      if (invoiceUUID != null) 'invoice_uuid': invoiceUUID,
+      if (invoiceCounterValue != null)
+        'invoice_counter_value': invoiceCounterValue,
+      if (invoiceHash != null) 'invoice_hash': invoiceHash,
+      if (previousInvoiceHash != null)
+        'previous_invoice_hash': previousInvoiceHash,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -13524,6 +13731,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       Value<DateTime?>? activatedAt,
       Value<String?>? activatedBy,
       Value<String?>? scheduledNotes,
+      Value<String?>? invoiceNumber,
+      Value<String?>? invoiceUUID,
+      Value<int?>? invoiceCounterValue,
+      Value<String?>? invoiceHash,
+      Value<String?>? previousInvoiceHash,
       Value<int>? rowid}) {
     return OrderEntityV2Companion(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -13622,6 +13834,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
       activatedAt: activatedAt ?? this.activatedAt,
       activatedBy: activatedBy ?? this.activatedBy,
       scheduledNotes: scheduledNotes ?? this.scheduledNotes,
+      invoiceNumber: invoiceNumber ?? this.invoiceNumber,
+      invoiceUUID: invoiceUUID ?? this.invoiceUUID,
+      invoiceCounterValue: invoiceCounterValue ?? this.invoiceCounterValue,
+      invoiceHash: invoiceHash ?? this.invoiceHash,
+      previousInvoiceHash: previousInvoiceHash ?? this.previousInvoiceHash,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -13908,6 +14125,22 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
     if (scheduledNotes.present) {
       map['scheduled_notes'] = Variable<String>(scheduledNotes.value);
     }
+    if (invoiceNumber.present) {
+      map['invoice_number'] = Variable<String>(invoiceNumber.value);
+    }
+    if (invoiceUUID.present) {
+      map['invoice_uuid'] = Variable<String>(invoiceUUID.value);
+    }
+    if (invoiceCounterValue.present) {
+      map['invoice_counter_value'] = Variable<int>(invoiceCounterValue.value);
+    }
+    if (invoiceHash.present) {
+      map['invoice_hash'] = Variable<String>(invoiceHash.value);
+    }
+    if (previousInvoiceHash.present) {
+      map['previous_invoice_hash'] =
+          Variable<String>(previousInvoiceHash.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -14004,6 +14237,11 @@ class OrderEntityV2Companion extends UpdateCompanion<OrderEntityV2Data> {
           ..write('activatedAt: $activatedAt, ')
           ..write('activatedBy: $activatedBy, ')
           ..write('scheduledNotes: $scheduledNotes, ')
+          ..write('invoiceNumber: $invoiceNumber, ')
+          ..write('invoiceUUID: $invoiceUUID, ')
+          ..write('invoiceCounterValue: $invoiceCounterValue, ')
+          ..write('invoiceHash: $invoiceHash, ')
+          ..write('previousInvoiceHash: $previousInvoiceHash, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -28465,6 +28703,337 @@ class StockTransactionEntityCompanion
   }
 }
 
+class $InvoiceSequenceV2Table extends InvoiceSequenceV2
+    with TableInfo<$InvoiceSequenceV2Table, InvoiceSequenceV2Data> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $InvoiceSequenceV2Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _branchIdMeta =
+      const VerificationMeta('branchId');
+  @override
+  late final GeneratedColumn<String> branchId = GeneratedColumn<String>(
+      'branch_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _lastICVMeta =
+      const VerificationMeta('lastICV');
+  @override
+  late final GeneratedColumn<int> lastICV = GeneratedColumn<int>(
+      'last_i_c_v', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _lastInvoiceNumberMeta =
+      const VerificationMeta('lastInvoiceNumber');
+  @override
+  late final GeneratedColumn<int> lastInvoiceNumber = GeneratedColumn<int>(
+      'last_invoice_number', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(1000));
+  static const VerificationMeta _lastHashMeta =
+      const VerificationMeta('lastHash');
+  @override
+  late final GeneratedColumn<String> lastHash = GeneratedColumn<String>(
+      'last_hash', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant("0"));
+  static const VerificationMeta _lastUpdatedAtMeta =
+      const VerificationMeta('lastUpdatedAt');
+  @override
+  late final GeneratedColumn<DateTime> lastUpdatedAt =
+      GeneratedColumn<DateTime>('last_updated_at', aliasedName, true,
+          type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [branchId, lastICV, lastInvoiceNumber, lastHash, lastUpdatedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'invoice_sequence_v2';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<InvoiceSequenceV2Data> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('branch_id')) {
+      context.handle(_branchIdMeta,
+          branchId.isAcceptableOrUnknown(data['branch_id']!, _branchIdMeta));
+    } else if (isInserting) {
+      context.missing(_branchIdMeta);
+    }
+    if (data.containsKey('last_i_c_v')) {
+      context.handle(_lastICVMeta,
+          lastICV.isAcceptableOrUnknown(data['last_i_c_v']!, _lastICVMeta));
+    }
+    if (data.containsKey('last_invoice_number')) {
+      context.handle(
+          _lastInvoiceNumberMeta,
+          lastInvoiceNumber.isAcceptableOrUnknown(
+              data['last_invoice_number']!, _lastInvoiceNumberMeta));
+    }
+    if (data.containsKey('last_hash')) {
+      context.handle(_lastHashMeta,
+          lastHash.isAcceptableOrUnknown(data['last_hash']!, _lastHashMeta));
+    }
+    if (data.containsKey('last_updated_at')) {
+      context.handle(
+          _lastUpdatedAtMeta,
+          lastUpdatedAt.isAcceptableOrUnknown(
+              data['last_updated_at']!, _lastUpdatedAtMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {branchId};
+  @override
+  InvoiceSequenceV2Data map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return InvoiceSequenceV2Data(
+      branchId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}branch_id'])!,
+      lastICV: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}last_i_c_v'])!,
+      lastInvoiceNumber: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}last_invoice_number'])!,
+      lastHash: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}last_hash'])!,
+      lastUpdatedAt: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}last_updated_at']),
+    );
+  }
+
+  @override
+  $InvoiceSequenceV2Table createAlias(String alias) {
+    return $InvoiceSequenceV2Table(attachedDatabase, alias);
+  }
+}
+
+class InvoiceSequenceV2Data extends DataClass
+    implements Insertable<InvoiceSequenceV2Data> {
+  /// معرف الفرع (المفتاح الأساسي لضمان تسلسل واحد لكل فرع)
+  final String branchId;
+
+  /// آخر قيمة لعداد الفواتير (ICV)
+  final int lastICV;
+
+  /// آخر رقم فاتورة تم إصداره
+  final int lastInvoiceNumber;
+
+  /// آخر Hash تم إنتاجه لربط السلسلة (Hash Chain)
+  final String lastHash;
+
+  /// تاريخ آخر تحديث
+  final DateTime? lastUpdatedAt;
+  const InvoiceSequenceV2Data(
+      {required this.branchId,
+      required this.lastICV,
+      required this.lastInvoiceNumber,
+      required this.lastHash,
+      this.lastUpdatedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['branch_id'] = Variable<String>(branchId);
+    map['last_i_c_v'] = Variable<int>(lastICV);
+    map['last_invoice_number'] = Variable<int>(lastInvoiceNumber);
+    map['last_hash'] = Variable<String>(lastHash);
+    if (!nullToAbsent || lastUpdatedAt != null) {
+      map['last_updated_at'] = Variable<DateTime>(lastUpdatedAt);
+    }
+    return map;
+  }
+
+  InvoiceSequenceV2Companion toCompanion(bool nullToAbsent) {
+    return InvoiceSequenceV2Companion(
+      branchId: Value(branchId),
+      lastICV: Value(lastICV),
+      lastInvoiceNumber: Value(lastInvoiceNumber),
+      lastHash: Value(lastHash),
+      lastUpdatedAt: lastUpdatedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastUpdatedAt),
+    );
+  }
+
+  factory InvoiceSequenceV2Data.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return InvoiceSequenceV2Data(
+      branchId: serializer.fromJson<String>(json['branchId']),
+      lastICV: serializer.fromJson<int>(json['lastICV']),
+      lastInvoiceNumber: serializer.fromJson<int>(json['lastInvoiceNumber']),
+      lastHash: serializer.fromJson<String>(json['lastHash']),
+      lastUpdatedAt: serializer.fromJson<DateTime?>(json['lastUpdatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'branchId': serializer.toJson<String>(branchId),
+      'lastICV': serializer.toJson<int>(lastICV),
+      'lastInvoiceNumber': serializer.toJson<int>(lastInvoiceNumber),
+      'lastHash': serializer.toJson<String>(lastHash),
+      'lastUpdatedAt': serializer.toJson<DateTime?>(lastUpdatedAt),
+    };
+  }
+
+  InvoiceSequenceV2Data copyWith(
+          {String? branchId,
+          int? lastICV,
+          int? lastInvoiceNumber,
+          String? lastHash,
+          Value<DateTime?> lastUpdatedAt = const Value.absent()}) =>
+      InvoiceSequenceV2Data(
+        branchId: branchId ?? this.branchId,
+        lastICV: lastICV ?? this.lastICV,
+        lastInvoiceNumber: lastInvoiceNumber ?? this.lastInvoiceNumber,
+        lastHash: lastHash ?? this.lastHash,
+        lastUpdatedAt:
+            lastUpdatedAt.present ? lastUpdatedAt.value : this.lastUpdatedAt,
+      );
+  InvoiceSequenceV2Data copyWithCompanion(InvoiceSequenceV2Companion data) {
+    return InvoiceSequenceV2Data(
+      branchId: data.branchId.present ? data.branchId.value : this.branchId,
+      lastICV: data.lastICV.present ? data.lastICV.value : this.lastICV,
+      lastInvoiceNumber: data.lastInvoiceNumber.present
+          ? data.lastInvoiceNumber.value
+          : this.lastInvoiceNumber,
+      lastHash: data.lastHash.present ? data.lastHash.value : this.lastHash,
+      lastUpdatedAt: data.lastUpdatedAt.present
+          ? data.lastUpdatedAt.value
+          : this.lastUpdatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('InvoiceSequenceV2Data(')
+          ..write('branchId: $branchId, ')
+          ..write('lastICV: $lastICV, ')
+          ..write('lastInvoiceNumber: $lastInvoiceNumber, ')
+          ..write('lastHash: $lastHash, ')
+          ..write('lastUpdatedAt: $lastUpdatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      branchId, lastICV, lastInvoiceNumber, lastHash, lastUpdatedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is InvoiceSequenceV2Data &&
+          other.branchId == this.branchId &&
+          other.lastICV == this.lastICV &&
+          other.lastInvoiceNumber == this.lastInvoiceNumber &&
+          other.lastHash == this.lastHash &&
+          other.lastUpdatedAt == this.lastUpdatedAt);
+}
+
+class InvoiceSequenceV2Companion
+    extends UpdateCompanion<InvoiceSequenceV2Data> {
+  final Value<String> branchId;
+  final Value<int> lastICV;
+  final Value<int> lastInvoiceNumber;
+  final Value<String> lastHash;
+  final Value<DateTime?> lastUpdatedAt;
+  final Value<int> rowid;
+  const InvoiceSequenceV2Companion({
+    this.branchId = const Value.absent(),
+    this.lastICV = const Value.absent(),
+    this.lastInvoiceNumber = const Value.absent(),
+    this.lastHash = const Value.absent(),
+    this.lastUpdatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  InvoiceSequenceV2Companion.insert({
+    required String branchId,
+    this.lastICV = const Value.absent(),
+    this.lastInvoiceNumber = const Value.absent(),
+    this.lastHash = const Value.absent(),
+    this.lastUpdatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : branchId = Value(branchId);
+  static Insertable<InvoiceSequenceV2Data> custom({
+    Expression<String>? branchId,
+    Expression<int>? lastICV,
+    Expression<int>? lastInvoiceNumber,
+    Expression<String>? lastHash,
+    Expression<DateTime>? lastUpdatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (branchId != null) 'branch_id': branchId,
+      if (lastICV != null) 'last_i_c_v': lastICV,
+      if (lastInvoiceNumber != null) 'last_invoice_number': lastInvoiceNumber,
+      if (lastHash != null) 'last_hash': lastHash,
+      if (lastUpdatedAt != null) 'last_updated_at': lastUpdatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  InvoiceSequenceV2Companion copyWith(
+      {Value<String>? branchId,
+      Value<int>? lastICV,
+      Value<int>? lastInvoiceNumber,
+      Value<String>? lastHash,
+      Value<DateTime?>? lastUpdatedAt,
+      Value<int>? rowid}) {
+    return InvoiceSequenceV2Companion(
+      branchId: branchId ?? this.branchId,
+      lastICV: lastICV ?? this.lastICV,
+      lastInvoiceNumber: lastInvoiceNumber ?? this.lastInvoiceNumber,
+      lastHash: lastHash ?? this.lastHash,
+      lastUpdatedAt: lastUpdatedAt ?? this.lastUpdatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (branchId.present) {
+      map['branch_id'] = Variable<String>(branchId.value);
+    }
+    if (lastICV.present) {
+      map['last_i_c_v'] = Variable<int>(lastICV.value);
+    }
+    if (lastInvoiceNumber.present) {
+      map['last_invoice_number'] = Variable<int>(lastInvoiceNumber.value);
+    }
+    if (lastHash.present) {
+      map['last_hash'] = Variable<String>(lastHash.value);
+    }
+    if (lastUpdatedAt.present) {
+      map['last_updated_at'] = Variable<DateTime>(lastUpdatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('InvoiceSequenceV2Companion(')
+          ..write('branchId: $branchId, ')
+          ..write('lastICV: $lastICV, ')
+          ..write('lastInvoiceNumber: $lastInvoiceNumber, ')
+          ..write('lastHash: $lastHash, ')
+          ..write('lastUpdatedAt: $lastUpdatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   $MyDatabaseManager get managers => $MyDatabaseManager(this);
@@ -28534,6 +29103,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
   late final $EndOfDayEntityTable endOfDayEntity = $EndOfDayEntityTable(this);
   late final $StockTransactionEntityTable stockTransactionEntity =
       $StockTransactionEntityTable(this);
+  late final $InvoiceSequenceV2Table invoiceSequenceV2 =
+      $InvoiceSequenceV2Table(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -28577,7 +29148,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         auditLogs,
         orderPrintHistoryV2,
         endOfDayEntity,
-        stockTransactionEntity
+        stockTransactionEntity,
+        invoiceSequenceV2
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -33450,6 +34022,11 @@ typedef $$OrderEntityV2TableCreateCompanionBuilder = OrderEntityV2Companion
   Value<DateTime?> activatedAt,
   Value<String?> activatedBy,
   Value<String?> scheduledNotes,
+  Value<String?> invoiceNumber,
+  Value<String?> invoiceUUID,
+  Value<int?> invoiceCounterValue,
+  Value<String?> invoiceHash,
+  Value<String?> previousInvoiceHash,
   Value<int> rowid,
 });
 typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
@@ -33541,6 +34118,11 @@ typedef $$OrderEntityV2TableUpdateCompanionBuilder = OrderEntityV2Companion
   Value<DateTime?> activatedAt,
   Value<String?> activatedBy,
   Value<String?> scheduledNotes,
+  Value<String?> invoiceNumber,
+  Value<String?> invoiceUUID,
+  Value<int?> invoiceCounterValue,
+  Value<String?> invoiceHash,
+  Value<String?> previousInvoiceHash,
   Value<int> rowid,
 });
 
@@ -34258,6 +34840,23 @@ class $$OrderEntityV2TableFilterComposer
 
   ColumnFilters<String> get scheduledNotes => $composableBuilder(
       column: $table.scheduledNotes,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get invoiceNumber => $composableBuilder(
+      column: $table.invoiceNumber, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get invoiceUUID => $composableBuilder(
+      column: $table.invoiceUUID, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get invoiceCounterValue => $composableBuilder(
+      column: $table.invoiceCounterValue,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get invoiceHash => $composableBuilder(
+      column: $table.invoiceHash, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get previousInvoiceHash => $composableBuilder(
+      column: $table.previousInvoiceHash,
       builder: (column) => ColumnFilters(column));
 
   Expression<bool> orderProductEntityV2Refs(
@@ -35048,6 +35647,24 @@ class $$OrderEntityV2TableOrderingComposer
   ColumnOrderings<String> get scheduledNotes => $composableBuilder(
       column: $table.scheduledNotes,
       builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get invoiceNumber => $composableBuilder(
+      column: $table.invoiceNumber,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get invoiceUUID => $composableBuilder(
+      column: $table.invoiceUUID, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get invoiceCounterValue => $composableBuilder(
+      column: $table.invoiceCounterValue,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get invoiceHash => $composableBuilder(
+      column: $table.invoiceHash, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get previousInvoiceHash => $composableBuilder(
+      column: $table.previousInvoiceHash,
+      builder: (column) => ColumnOrderings(column));
 }
 
 class $$OrderEntityV2TableAnnotationComposer
@@ -35324,6 +35941,21 @@ class $$OrderEntityV2TableAnnotationComposer
 
   GeneratedColumn<String> get scheduledNotes => $composableBuilder(
       column: $table.scheduledNotes, builder: (column) => column);
+
+  GeneratedColumn<String> get invoiceNumber => $composableBuilder(
+      column: $table.invoiceNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get invoiceUUID => $composableBuilder(
+      column: $table.invoiceUUID, builder: (column) => column);
+
+  GeneratedColumn<int> get invoiceCounterValue => $composableBuilder(
+      column: $table.invoiceCounterValue, builder: (column) => column);
+
+  GeneratedColumn<String> get invoiceHash => $composableBuilder(
+      column: $table.invoiceHash, builder: (column) => column);
+
+  GeneratedColumn<String> get previousInvoiceHash => $composableBuilder(
+      column: $table.previousInvoiceHash, builder: (column) => column);
 
   Expression<T> orderProductEntityV2Refs<T extends Object>(
       Expression<T> Function($$OrderProductEntityV2TableAnnotationComposer a)
@@ -35936,6 +36568,11 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<DateTime?> activatedAt = const Value.absent(),
             Value<String?> activatedBy = const Value.absent(),
             Value<String?> scheduledNotes = const Value.absent(),
+            Value<String?> invoiceNumber = const Value.absent(),
+            Value<String?> invoiceUUID = const Value.absent(),
+            Value<int?> invoiceCounterValue = const Value.absent(),
+            Value<String?> invoiceHash = const Value.absent(),
+            Value<String?> previousInvoiceHash = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               OrderEntityV2Companion(
@@ -36026,6 +36663,11 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             activatedAt: activatedAt,
             activatedBy: activatedBy,
             scheduledNotes: scheduledNotes,
+            invoiceNumber: invoiceNumber,
+            invoiceUUID: invoiceUUID,
+            invoiceCounterValue: invoiceCounterValue,
+            invoiceHash: invoiceHash,
+            previousInvoiceHash: previousInvoiceHash,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -36116,6 +36758,11 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             Value<DateTime?> activatedAt = const Value.absent(),
             Value<String?> activatedBy = const Value.absent(),
             Value<String?> scheduledNotes = const Value.absent(),
+            Value<String?> invoiceNumber = const Value.absent(),
+            Value<String?> invoiceUUID = const Value.absent(),
+            Value<int?> invoiceCounterValue = const Value.absent(),
+            Value<String?> invoiceHash = const Value.absent(),
+            Value<String?> previousInvoiceHash = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               OrderEntityV2Companion.insert(
@@ -36206,6 +36853,11 @@ class $$OrderEntityV2TableTableManager extends RootTableManager<
             activatedAt: activatedAt,
             activatedBy: activatedBy,
             scheduledNotes: scheduledNotes,
+            invoiceNumber: invoiceNumber,
+            invoiceUUID: invoiceUUID,
+            invoiceCounterValue: invoiceCounterValue,
+            invoiceHash: invoiceHash,
+            previousInvoiceHash: previousInvoiceHash,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
@@ -45429,6 +46081,186 @@ typedef $$StockTransactionEntityTableProcessedTableManager
         ),
         StockTransactionEntityData,
         PrefetchHooks Function()>;
+typedef $$InvoiceSequenceV2TableCreateCompanionBuilder
+    = InvoiceSequenceV2Companion Function({
+  required String branchId,
+  Value<int> lastICV,
+  Value<int> lastInvoiceNumber,
+  Value<String> lastHash,
+  Value<DateTime?> lastUpdatedAt,
+  Value<int> rowid,
+});
+typedef $$InvoiceSequenceV2TableUpdateCompanionBuilder
+    = InvoiceSequenceV2Companion Function({
+  Value<String> branchId,
+  Value<int> lastICV,
+  Value<int> lastInvoiceNumber,
+  Value<String> lastHash,
+  Value<DateTime?> lastUpdatedAt,
+  Value<int> rowid,
+});
+
+class $$InvoiceSequenceV2TableFilterComposer
+    extends Composer<_$MyDatabase, $InvoiceSequenceV2Table> {
+  $$InvoiceSequenceV2TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get branchId => $composableBuilder(
+      column: $table.branchId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get lastICV => $composableBuilder(
+      column: $table.lastICV, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get lastInvoiceNumber => $composableBuilder(
+      column: $table.lastInvoiceNumber,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get lastHash => $composableBuilder(
+      column: $table.lastHash, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get lastUpdatedAt => $composableBuilder(
+      column: $table.lastUpdatedAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$InvoiceSequenceV2TableOrderingComposer
+    extends Composer<_$MyDatabase, $InvoiceSequenceV2Table> {
+  $$InvoiceSequenceV2TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get branchId => $composableBuilder(
+      column: $table.branchId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get lastICV => $composableBuilder(
+      column: $table.lastICV, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get lastInvoiceNumber => $composableBuilder(
+      column: $table.lastInvoiceNumber,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get lastHash => $composableBuilder(
+      column: $table.lastHash, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get lastUpdatedAt => $composableBuilder(
+      column: $table.lastUpdatedAt,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$InvoiceSequenceV2TableAnnotationComposer
+    extends Composer<_$MyDatabase, $InvoiceSequenceV2Table> {
+  $$InvoiceSequenceV2TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get branchId =>
+      $composableBuilder(column: $table.branchId, builder: (column) => column);
+
+  GeneratedColumn<int> get lastICV =>
+      $composableBuilder(column: $table.lastICV, builder: (column) => column);
+
+  GeneratedColumn<int> get lastInvoiceNumber => $composableBuilder(
+      column: $table.lastInvoiceNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get lastHash =>
+      $composableBuilder(column: $table.lastHash, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastUpdatedAt => $composableBuilder(
+      column: $table.lastUpdatedAt, builder: (column) => column);
+}
+
+class $$InvoiceSequenceV2TableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $InvoiceSequenceV2Table,
+    InvoiceSequenceV2Data,
+    $$InvoiceSequenceV2TableFilterComposer,
+    $$InvoiceSequenceV2TableOrderingComposer,
+    $$InvoiceSequenceV2TableAnnotationComposer,
+    $$InvoiceSequenceV2TableCreateCompanionBuilder,
+    $$InvoiceSequenceV2TableUpdateCompanionBuilder,
+    (
+      InvoiceSequenceV2Data,
+      BaseReferences<_$MyDatabase, $InvoiceSequenceV2Table,
+          InvoiceSequenceV2Data>
+    ),
+    InvoiceSequenceV2Data,
+    PrefetchHooks Function()> {
+  $$InvoiceSequenceV2TableTableManager(
+      _$MyDatabase db, $InvoiceSequenceV2Table table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$InvoiceSequenceV2TableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$InvoiceSequenceV2TableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$InvoiceSequenceV2TableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> branchId = const Value.absent(),
+            Value<int> lastICV = const Value.absent(),
+            Value<int> lastInvoiceNumber = const Value.absent(),
+            Value<String> lastHash = const Value.absent(),
+            Value<DateTime?> lastUpdatedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              InvoiceSequenceV2Companion(
+            branchId: branchId,
+            lastICV: lastICV,
+            lastInvoiceNumber: lastInvoiceNumber,
+            lastHash: lastHash,
+            lastUpdatedAt: lastUpdatedAt,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String branchId,
+            Value<int> lastICV = const Value.absent(),
+            Value<int> lastInvoiceNumber = const Value.absent(),
+            Value<String> lastHash = const Value.absent(),
+            Value<DateTime?> lastUpdatedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              InvoiceSequenceV2Companion.insert(
+            branchId: branchId,
+            lastICV: lastICV,
+            lastInvoiceNumber: lastInvoiceNumber,
+            lastHash: lastHash,
+            lastUpdatedAt: lastUpdatedAt,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$InvoiceSequenceV2TableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $InvoiceSequenceV2Table,
+    InvoiceSequenceV2Data,
+    $$InvoiceSequenceV2TableFilterComposer,
+    $$InvoiceSequenceV2TableOrderingComposer,
+    $$InvoiceSequenceV2TableAnnotationComposer,
+    $$InvoiceSequenceV2TableCreateCompanionBuilder,
+    $$InvoiceSequenceV2TableUpdateCompanionBuilder,
+    (
+      InvoiceSequenceV2Data,
+      BaseReferences<_$MyDatabase, $InvoiceSequenceV2Table,
+          InvoiceSequenceV2Data>
+    ),
+    InvoiceSequenceV2Data,
+    PrefetchHooks Function()>;
 
 class $MyDatabaseManager {
   final _$MyDatabase _db;
@@ -45525,4 +46357,6 @@ class $MyDatabaseManager {
   $$StockTransactionEntityTableTableManager get stockTransactionEntity =>
       $$StockTransactionEntityTableTableManager(
           _db, _db.stockTransactionEntity);
+  $$InvoiceSequenceV2TableTableManager get invoiceSequenceV2 =>
+      $$InvoiceSequenceV2TableTableManager(_db, _db.invoiceSequenceV2);
 }

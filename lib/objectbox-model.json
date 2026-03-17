@@ -6577,7 +6577,7 @@
     },
     {
       "id": "94:973714715367905798",
-      "lastPropertyId": "60:8415881098945915121",
+      "lastPropertyId": "62:8697945290160182427",
       "name": "OrderC",
       "properties": [
         {
@@ -6897,6 +6897,16 @@
           "id": "60:8415881098945915121",
           "name": "totalDiscountForOrderAndProduct",
           "type": 8
+        },
+        {
+          "id": "61:8502178685019718913",
+          "name": "creatorBy",
+          "type": 13
+        },
+        {
+          "id": "62:8697945290160182427",
+          "name": "closeBy",
+          "type": 13
         }
       ],
       "relations": [

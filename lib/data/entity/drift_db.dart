@@ -59,6 +59,7 @@ part 'drift_db.g.dart';
   OrderPrintHistoryV2,
   EndOfDayEntity,
   StockTransactionEntity,
+  InvoiceSequenceV2,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -242,10 +243,57 @@ class MyDatabase extends _$MyDatabase {
         if (from < 44) {
           await m.createTable(endOfDayEntity);
         }
+
+        // ZATCA Phase 2 Invoice fields migration
+        if (from < 45) {
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN invoice_number TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN invoice_uuid TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN invoice_counter_value INTEGER');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN invoice_hash TEXT');
+          } catch (_) {}
+          try {
+            await customStatement(
+                'ALTER TABLE order_entity_v2 ADD COLUMN previous_invoice_hash TEXT');
+          } catch (_) {}
+        }
+
+        // Migration to v46: Add InvoiceSequenceV2 table
+        if (from < 46) {
+          await m.createTable(invoiceSequenceV2);
+        }
+
+        // Migration to v47: Ensure all ZATCA columns exist (redundancy check for stability)
+        if (from < 47) {
+          final columns = [
+            'ALTER TABLE order_entity_v2 ADD COLUMN invoice_number TEXT',
+            'ALTER TABLE order_entity_v2 ADD COLUMN invoice_uuid TEXT',
+            'ALTER TABLE order_entity_v2 ADD COLUMN invoice_counter_value INTEGER',
+            'ALTER TABLE order_entity_v2 ADD COLUMN invoice_hash TEXT',
+            'ALTER TABLE order_entity_v2 ADD COLUMN previous_invoice_hash TEXT',
+          ];
+          for (var col in columns) {
+            try {
+              await customStatement(col);
+            } catch (_) {
+              // Ignore if column already exists
+            }
+          }
+        }
       });
 
   @override
-  int get schemaVersion => 44; // تحديث إصدار المخطط - إضافة جدول إنهاء اليوم
+  int get schemaVersion => 47; // تحديث إصدار المخطط لتنفيذ الهجرة الأخيرة وتصحيح التسميات
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

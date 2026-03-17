@@ -7793,7 +7793,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(94, 973714715367905798),
     name: 'OrderC',
-    lastPropertyId: const obx_int.IdUid(60, 8415881098945915121),
+    lastPropertyId: const obx_int.IdUid(62, 8697945290160182427),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -8172,6 +8172,18 @@ final _entities = <obx_int.ModelEntity>[
         type: 8,
         flags: 0,
       ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(61, 8502178685019718913),
+        name: 'creatorBy',
+        type: 13,
+        flags: 0,
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(62, 8697945290160182427),
+        name: 'closeBy',
+        type: 13,
+        flags: 0,
+      ),
     ],
     relations: <obx_int.ModelRelation>[
       obx_int.ModelRelation(
@@ -8236,6 +8248,11 @@ Future<obx.Store> openStore({
 /// [obx.Store.new].
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
+    // If this version is not found, it means that this file was generated
+    // with an older version of the ObjectBox Dart generator.
+    // Please regenerate this file with the current generator version.
+    // Typically, this is done with `dart run build_runner build`.
+    generatorVersion: obx_int.GeneratorVersion.v2025_12_16,
     entities: _entities,
     lastEntityId: const obx_int.IdUid(94, 973714715367905798),
     lastIndexId: const obx_int.IdUid(83, 5694678103533904033),
@@ -19228,7 +19245,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final customerPhoneOffset = object.customerPhone == null
             ? null
             : fbb.writeString(object.customerPhone!);
-        fbb.startTable(61);
+        final creatorByOffset = object.creatorBy == null
+            ? null
+            : fbb.writeListInt8(obx_int.toFlexBuffer(object.creatorBy!));
+        final closeByOffset = object.closeBy == null
+            ? null
+            : fbb.writeListInt8(obx_int.toFlexBuffer(object.closeBy!));
+        fbb.startTable(63);
         fbb.addInt64(0, object.posTransactionType ?? 0);
         fbb.addInt64(1, object.idSeq);
         fbb.addOffset(2, invoiceNumberOffset);
@@ -19289,6 +19312,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
         fbb.addOffset(57, customerPhoneOffset);
         fbb.addBool(58, object.priceIncludeTax);
         fbb.addFloat64(59, object.totalDiscountForOrderAndProduct);
+        fbb.addOffset(60, creatorByOffset);
+        fbb.addOffset(61, closeByOffset);
         fbb.finish(fbb.endTable());
         return object.posTransactionType ?? 0;
       },
@@ -19510,7 +19535,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
             false,
           )
           ..totalDiscountForOrderAndProduct = const fb.Float64Reader()
-              .vTableGetNullable(buffer, rootOffset, 122);
+              .vTableGetNullable(buffer, rootOffset, 122)
+          ..creatorBy = obx_int.flexBufferToMap(buffer, rootOffset, 124)
+          ..closeBy = obx_int.flexBufferToMap(buffer, rootOffset, 126);
         object.deliveryCompanyInfo.targetId = const fb.Int64Reader().vTableGet(
           buffer,
           rootOffset,

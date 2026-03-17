@@ -184,6 +184,23 @@ class OrderEntityV2 extends Table {
   /// ملاحظات حول الجدولة
   TextColumn get scheduledNotes => text().nullable()();
 
+  // ZATCA Phase 2 Invoice Fields
+  /// رقم الفاتورة (متسلسل تصاعدياً على مستوى الفرع أو الجهاز)
+  TextColumn get invoiceNumber => text().nullable()();
+
+  /// معرف الفاتورة العالمي الفريد (UUID v4)
+  // تم تحديد الاسم يدوياً ليطابق الهجرة في drift_db.dart ويمنع Drift من توليد invoice_u_u_i_d
+  TextColumn get invoiceUUID => text().nullable().named('invoice_uuid')();
+
+  /// عداد الفواتير (ICV) يبدأ من 1 ويزيد بمقدار 1 لكل فاتورة
+  IntColumn get invoiceCounterValue => integer().nullable()();
+
+  /// الـ Hash الخاص بالفاتورة الحالية لضمان عدم التلاعب
+  TextColumn get invoiceHash => text().nullable()();
+
+  /// الـ Hash الخاص بالفاتورة السابقة لإنشاء سلسلة مترابطة
+  TextColumn get previousInvoiceHash => text().nullable()();
+
   @override
   Set<Column<Object>>? get primaryKey => {orderRef};
 }
@@ -616,4 +633,27 @@ class OrderPrintHistoryV2 extends Table {
 
   @override
   Set<Column> get primaryKey => {id};
+}
+
+/// جدول إدارة تسلسل الفواتير (ZATCA Phase 2)
+/// يستخدم لضمان سلامة التسلسل ومنع التعارضات والـ Race Conditions
+class InvoiceSequenceV2 extends Table {
+  /// معرف الفرع (المفتاح الأساسي لضمان تسلسل واحد لكل فرع)
+  TextColumn get branchId => text()();
+
+  /// آخر قيمة لعداد الفواتير (ICV)
+  IntColumn get lastICV => integer().withDefault(const Constant(0))();
+
+  /// آخر رقم فاتورة تم إصداره
+  IntColumn get lastInvoiceNumber =>
+      integer().withDefault(const Constant(1000))();
+
+  /// آخر Hash تم إنتاجه لربط السلسلة (Hash Chain)
+  TextColumn get lastHash => text().withDefault(const Constant("0"))();
+
+  /// تاريخ آخر تحديث
+  DateTimeColumn get lastUpdatedAt => dateTime().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {branchId};
 }
