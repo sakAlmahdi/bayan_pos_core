@@ -1,6 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
 class InvoiceResultV2 {
+  final bool success;
+  final String? message;
   final String orderRef;
   final String? invoiceNumber;
   final String? invoiceUUID;
@@ -11,6 +13,8 @@ class InvoiceResultV2 {
   final DateTime? invoiceDate;
 
   InvoiceResultV2({
+    required this.success,
+    this.message,
     required this.orderRef,
     this.invoiceNumber,
     this.invoiceUUID,
@@ -22,7 +26,9 @@ class InvoiceResultV2 {
   });
 
   InvoiceResultV2.fromJson(Map<String, dynamic> json)
-      : orderRef = json['orderRef'] as String,
+      : success = json['success'] as bool? ?? true,
+        message = json['message'] as String?,
+        orderRef = json['orderRef'] as String,
         invoiceNumber = json['invoiceNumber'] as String?,
         invoiceUUID = json['invoiceUUID'] as String?,
         invoiceCounterValue = json['invoiceCounterValue'] as int?,
@@ -35,6 +41,8 @@ class InvoiceResultV2 {
 
   Map<String, dynamic> toJson() {
     return {
+      'success': success,
+      'message': message,
       'orderRef': orderRef,
       'invoiceNumber': invoiceNumber,
       'invoiceUUID': invoiceUUID,

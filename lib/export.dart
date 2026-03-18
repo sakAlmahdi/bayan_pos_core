@@ -17,7 +17,9 @@ export 'package:bayan_pos_core/core/extensions/base_shift_entity_extension.dart'
 export 'package:bayan_pos_core/core/extensions/time_event_extension.dart';
 export 'package:bayan_pos_core/core/halper/helpers_method.dart';
 export 'package:bayan_pos_core/data/repository/order_repo.dart';
+export 'package:bayan_pos_core/data/repository/base_order_repo_v2.dart';
 export 'package:bayan_pos_core/data/entity/drift_db.dart';
+export 'package:bayan_pos_core/data/provider/drift/base_order_drift_v2.dart';
 export 'package:bayan_pos_core/data/entity/settings_entity.dart';
 export 'package:bayan_pos_core/data/entity/order_history.dart';
 export 'package:bayan_pos_core/data/entity/shift_entity.dart';
