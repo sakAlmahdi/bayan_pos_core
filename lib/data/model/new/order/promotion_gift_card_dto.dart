@@ -21,7 +21,7 @@ class PromotionGiftCardDto {
       fName: json['fName'] as String?,
       barcode: json['barcode'] as String?,
       reference: json['reference'] as String?,
-      price: (json['price'] as num).toDouble(),
+      price: (json['price'] as num?)?.toDouble(),
     );
   }
 
