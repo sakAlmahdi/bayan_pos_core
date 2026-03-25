@@ -41,17 +41,27 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
   BaseOrderDriftV2(this.db);
 
   @override
-  Future<InvoiceResultV2> finalizeInvoice(String orderRef) async {
+  Future<InvoiceResultV2> finalizeInvoice(OrderResponseDto orderDto) async {
+    final String orderRef = orderDto.orderRef ?? '';
+    if (orderRef.isEmpty) throw 'orderRef is required';
+
     return await _lock.synchronized(() async {
       try {
-        final order = await (db.select(db.orderEntityV2)
+        var order = await (db.select(db.orderEntityV2)
               ..where((t) => t.orderRef.equals(orderRef)))
             .getSingleOrNull();
 
         if (order == null) {
+          await saveOrder(orderResponseDto: orderDto);
+          order = await (db.select(db.orderEntityV2)
+                ..where((t) => t.orderRef.equals(orderRef)))
+              .getSingleOrNull();
+        }
+
+        if (order == null) {
           return InvoiceResultV2(
             success: false,
-            message: 'Order not found: $orderRef',
+            message: 'Order not found and could not be created: $orderRef',
             orderRef: orderRef,
           );
         }
@@ -62,6 +72,9 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
             orderRef: orderRef,
             invoiceNumber: order.invoiceNumber,
             invoiceUUID: order.invoiceUUID,
+            invoiceCounterValue: order.invoiceCounterValue,
+            invoiceHash: order.invoiceHash,
+            previousInvoiceHash: order.previousInvoiceHash,
           );
         }
 
@@ -112,6 +125,9 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
             orderRef: orderRef,
             invoiceNumber: invoiceNumber,
             invoiceUUID: invoiceUuid,
+            invoiceCounterValue: nextCounter,
+            invoiceHash: currentHash,
+            previousInvoiceHash: previousHash,
           );
         });
       } catch (e) {

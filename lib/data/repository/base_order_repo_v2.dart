@@ -7,7 +7,7 @@ import '../model/till/till.dart';
 import '../model/order_dashbord/order_statistics.dart';
 
 abstract class BaseOrderRepoV2 {
-  Future<InvoiceResultV2> finalizeInvoice(String orderRef);
+  Future<InvoiceResultV2> finalizeInvoice(OrderResponseDto order);
 
   Future<List<OrderPaymentDto>> getOrderPayments({required String orderRef});
 
