@@ -8,6 +8,7 @@ import 'package:bayan_pos_core/data/entity/shift_entity.dart';
 import 'package:bayan_pos_core/data/entity/stock_transaction_entity.dart';
 import 'package:bayan_pos_core/data/entity/till_entity.dart';
 import 'package:bayan_pos_core/data/entity/end_of_day_entity.dart';
+import 'package:bayan_pos_core/data/entity/device_entity.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
@@ -60,6 +61,7 @@ part 'drift_db.g.dart';
   EndOfDayEntity,
   StockTransactionEntity,
   InvoiceSequenceV2,
+  DeviceEntity,
 ])
 class MyDatabase extends _$MyDatabase {
   MyDatabase() : super(_openConnection());
@@ -75,7 +77,7 @@ class MyDatabase extends _$MyDatabase {
 
   @override
   int get schemaVersion =>
-      48; // تحديث إصدار المخطط لتنفيذ الهجرة الأخيرة وتصحيح التسميات
+      49; // تحديث إصدار المخطط لإضافة جدول الأجهزة (Devices)
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

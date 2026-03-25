@@ -29034,6 +29034,1392 @@ class InvoiceSequenceV2Companion
   }
 }
 
+class $DeviceEntityTable extends DeviceEntity
+    with TableInfo<$DeviceEntityTable, DeviceEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DeviceEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idSeqMeta = const VerificationMeta('idSeq');
+  @override
+  late final GeneratedColumn<int> idSeq = GeneratedColumn<int>(
+      'id_seq', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _deviceIdMeta =
+      const VerificationMeta('deviceId');
+  @override
+  late final GeneratedColumn<String> deviceId = GeneratedColumn<String>(
+      'device_id', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: true,
+      defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
+  static const VerificationMeta _deviceTypeIdMeta =
+      const VerificationMeta('deviceTypeId');
+  @override
+  late final GeneratedColumn<String> deviceTypeId = GeneratedColumn<String>(
+      'device_type_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _deviceModelIdMeta =
+      const VerificationMeta('deviceModelId');
+  @override
+  late final GeneratedColumn<String> deviceModelId = GeneratedColumn<String>(
+      'device_model_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _deviceTypeCodeMeta =
+      const VerificationMeta('deviceTypeCode');
+  @override
+  late final GeneratedColumn<int> deviceTypeCode = GeneratedColumn<int>(
+      'device_type_code', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _masterDeviceNoMeta =
+      const VerificationMeta('masterDeviceNo');
+  @override
+  late final GeneratedColumn<int> masterDeviceNo = GeneratedColumn<int>(
+      'master_device_no', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _deviceNoMeta =
+      const VerificationMeta('deviceNo');
+  @override
+  late final GeneratedColumn<String> deviceNo = GeneratedColumn<String>(
+      'device_no', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _referenceMeta =
+      const VerificationMeta('reference');
+  @override
+  late final GeneratedColumn<String> reference = GeneratedColumn<String>(
+      'reference', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _enableOnlineOrderReceiverMeta =
+      const VerificationMeta('enableOnlineOrderReceiver');
+  @override
+  late final GeneratedColumn<bool> enableOnlineOrderReceiver =
+      GeneratedColumn<bool>('enable_online_order_receiver', aliasedName, true,
+          type: DriftSqlType.bool,
+          requiredDuringInsert: false,
+          defaultConstraints: GeneratedColumn.constraintIsAlways(
+              'CHECK ("enable_online_order_receiver" IN (0, 1))'));
+  static const VerificationMeta _modelMeta = const VerificationMeta('model');
+  @override
+  late final GeneratedColumn<String> model = GeneratedColumn<String>(
+      'model', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _systemVersionMeta =
+      const VerificationMeta('systemVersion');
+  @override
+  late final GeneratedColumn<String> systemVersion = GeneratedColumn<String>(
+      'system_version', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _appVersionMeta =
+      const VerificationMeta('appVersion');
+  @override
+  late final GeneratedColumn<String> appVersion = GeneratedColumn<String>(
+      'app_version', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _buildMeta = const VerificationMeta('build');
+  @override
+  late final GeneratedColumn<String> build = GeneratedColumn<String>(
+      'build', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _latitudeMeta =
+      const VerificationMeta('latitude');
+  @override
+  late final GeneratedColumn<String> latitude = GeneratedColumn<String>(
+      'latitude', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _longitudeMeta =
+      const VerificationMeta('longitude');
+  @override
+  late final GeneratedColumn<String> longitude = GeneratedColumn<String>(
+      'longitude', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _connectionIPAddressMeta =
+      const VerificationMeta('connectionIPAddress');
+  @override
+  late final GeneratedColumn<String> connectionIPAddress =
+      GeneratedColumn<String>('connection_i_p_address', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _connectionPortMeta =
+      const VerificationMeta('connectionPort');
+  @override
+  late final GeneratedColumn<int> connectionPort = GeneratedColumn<int>(
+      'connection_port', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _connectionTypeMeta =
+      const VerificationMeta('connectionType');
+  @override
+  late final GeneratedColumn<int> connectionType = GeneratedColumn<int>(
+      'connection_type', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _imeiMeta = const VerificationMeta('imei');
+  @override
+  late final GeneratedColumn<String> imei = GeneratedColumn<String>(
+      'imei', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _ipMeta = const VerificationMeta('ip');
+  @override
+  late final GeneratedColumn<String> ip = GeneratedColumn<String>(
+      'ip', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _refrencePrefixMeta =
+      const VerificationMeta('refrencePrefix');
+  @override
+  late final GeneratedColumn<String> refrencePrefix = GeneratedColumn<String>(
+      'refrence_prefix', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _orderTypesMeta =
+      const VerificationMeta('orderTypes');
+  @override
+  late final GeneratedColumn<String> orderTypes = GeneratedColumn<String>(
+      'order_types', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _productsMeta =
+      const VerificationMeta('products');
+  @override
+  late final GeneratedColumn<String> products = GeneratedColumn<String>(
+      'products', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _categoriesMeta =
+      const VerificationMeta('categories');
+  @override
+  late final GeneratedColumn<String> categories = GeneratedColumn<String>(
+      'categories', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _departmentsMeta =
+      const VerificationMeta('departments');
+  @override
+  late final GeneratedColumn<String> departments = GeneratedColumn<String>(
+      'departments', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _usersMeta = const VerificationMeta('users');
+  @override
+  late final GeneratedColumn<String> users = GeneratedColumn<String>(
+      'users', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _resturnatSectionsMeta =
+      const VerificationMeta('resturnatSections');
+  @override
+  late final GeneratedColumn<String> resturnatSections =
+      GeneratedColumn<String>('resturnat_sections', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _settingsMeta =
+      const VerificationMeta('settings');
+  @override
+  late final GeneratedColumn<String> settings = GeneratedColumn<String>(
+      'settings', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        idSeq,
+        deviceId,
+        deviceTypeId,
+        deviceModelId,
+        deviceTypeCode,
+        masterDeviceNo,
+        deviceNo,
+        reference,
+        name,
+        fName,
+        enableOnlineOrderReceiver,
+        model,
+        systemVersion,
+        appVersion,
+        build,
+        latitude,
+        longitude,
+        connectionIPAddress,
+        connectionPort,
+        connectionType,
+        imei,
+        ip,
+        refrencePrefix,
+        orderTypes,
+        products,
+        categories,
+        departments,
+        users,
+        resturnatSections,
+        settings
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'device_entity';
+  @override
+  VerificationContext validateIntegrity(Insertable<DeviceEntityData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id_seq')) {
+      context.handle(
+          _idSeqMeta, idSeq.isAcceptableOrUnknown(data['id_seq']!, _idSeqMeta));
+    }
+    if (data.containsKey('device_id')) {
+      context.handle(_deviceIdMeta,
+          deviceId.isAcceptableOrUnknown(data['device_id']!, _deviceIdMeta));
+    } else if (isInserting) {
+      context.missing(_deviceIdMeta);
+    }
+    if (data.containsKey('device_type_id')) {
+      context.handle(
+          _deviceTypeIdMeta,
+          deviceTypeId.isAcceptableOrUnknown(
+              data['device_type_id']!, _deviceTypeIdMeta));
+    }
+    if (data.containsKey('device_model_id')) {
+      context.handle(
+          _deviceModelIdMeta,
+          deviceModelId.isAcceptableOrUnknown(
+              data['device_model_id']!, _deviceModelIdMeta));
+    }
+    if (data.containsKey('device_type_code')) {
+      context.handle(
+          _deviceTypeCodeMeta,
+          deviceTypeCode.isAcceptableOrUnknown(
+              data['device_type_code']!, _deviceTypeCodeMeta));
+    }
+    if (data.containsKey('master_device_no')) {
+      context.handle(
+          _masterDeviceNoMeta,
+          masterDeviceNo.isAcceptableOrUnknown(
+              data['master_device_no']!, _masterDeviceNoMeta));
+    }
+    if (data.containsKey('device_no')) {
+      context.handle(_deviceNoMeta,
+          deviceNo.isAcceptableOrUnknown(data['device_no']!, _deviceNoMeta));
+    }
+    if (data.containsKey('reference')) {
+      context.handle(_referenceMeta,
+          reference.isAcceptableOrUnknown(data['reference']!, _referenceMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
+    }
+    if (data.containsKey('enable_online_order_receiver')) {
+      context.handle(
+          _enableOnlineOrderReceiverMeta,
+          enableOnlineOrderReceiver.isAcceptableOrUnknown(
+              data['enable_online_order_receiver']!,
+              _enableOnlineOrderReceiverMeta));
+    }
+    if (data.containsKey('model')) {
+      context.handle(
+          _modelMeta, model.isAcceptableOrUnknown(data['model']!, _modelMeta));
+    }
+    if (data.containsKey('system_version')) {
+      context.handle(
+          _systemVersionMeta,
+          systemVersion.isAcceptableOrUnknown(
+              data['system_version']!, _systemVersionMeta));
+    }
+    if (data.containsKey('app_version')) {
+      context.handle(
+          _appVersionMeta,
+          appVersion.isAcceptableOrUnknown(
+              data['app_version']!, _appVersionMeta));
+    }
+    if (data.containsKey('build')) {
+      context.handle(
+          _buildMeta, build.isAcceptableOrUnknown(data['build']!, _buildMeta));
+    }
+    if (data.containsKey('latitude')) {
+      context.handle(_latitudeMeta,
+          latitude.isAcceptableOrUnknown(data['latitude']!, _latitudeMeta));
+    }
+    if (data.containsKey('longitude')) {
+      context.handle(_longitudeMeta,
+          longitude.isAcceptableOrUnknown(data['longitude']!, _longitudeMeta));
+    }
+    if (data.containsKey('connection_i_p_address')) {
+      context.handle(
+          _connectionIPAddressMeta,
+          connectionIPAddress.isAcceptableOrUnknown(
+              data['connection_i_p_address']!, _connectionIPAddressMeta));
+    }
+    if (data.containsKey('connection_port')) {
+      context.handle(
+          _connectionPortMeta,
+          connectionPort.isAcceptableOrUnknown(
+              data['connection_port']!, _connectionPortMeta));
+    }
+    if (data.containsKey('connection_type')) {
+      context.handle(
+          _connectionTypeMeta,
+          connectionType.isAcceptableOrUnknown(
+              data['connection_type']!, _connectionTypeMeta));
+    }
+    if (data.containsKey('imei')) {
+      context.handle(
+          _imeiMeta, imei.isAcceptableOrUnknown(data['imei']!, _imeiMeta));
+    }
+    if (data.containsKey('ip')) {
+      context.handle(_ipMeta, ip.isAcceptableOrUnknown(data['ip']!, _ipMeta));
+    }
+    if (data.containsKey('refrence_prefix')) {
+      context.handle(
+          _refrencePrefixMeta,
+          refrencePrefix.isAcceptableOrUnknown(
+              data['refrence_prefix']!, _refrencePrefixMeta));
+    }
+    if (data.containsKey('order_types')) {
+      context.handle(
+          _orderTypesMeta,
+          orderTypes.isAcceptableOrUnknown(
+              data['order_types']!, _orderTypesMeta));
+    }
+    if (data.containsKey('products')) {
+      context.handle(_productsMeta,
+          products.isAcceptableOrUnknown(data['products']!, _productsMeta));
+    }
+    if (data.containsKey('categories')) {
+      context.handle(
+          _categoriesMeta,
+          categories.isAcceptableOrUnknown(
+              data['categories']!, _categoriesMeta));
+    }
+    if (data.containsKey('departments')) {
+      context.handle(
+          _departmentsMeta,
+          departments.isAcceptableOrUnknown(
+              data['departments']!, _departmentsMeta));
+    }
+    if (data.containsKey('users')) {
+      context.handle(
+          _usersMeta, users.isAcceptableOrUnknown(data['users']!, _usersMeta));
+    }
+    if (data.containsKey('resturnat_sections')) {
+      context.handle(
+          _resturnatSectionsMeta,
+          resturnatSections.isAcceptableOrUnknown(
+              data['resturnat_sections']!, _resturnatSectionsMeta));
+    }
+    if (data.containsKey('settings')) {
+      context.handle(_settingsMeta,
+          settings.isAcceptableOrUnknown(data['settings']!, _settingsMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {idSeq};
+  @override
+  DeviceEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DeviceEntityData(
+      idSeq: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_seq'])!,
+      deviceId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}device_id'])!,
+      deviceTypeId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}device_type_id']),
+      deviceModelId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}device_model_id']),
+      deviceTypeCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}device_type_code']),
+      masterDeviceNo: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}master_device_no']),
+      deviceNo: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}device_no']),
+      reference: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}reference']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
+      enableOnlineOrderReceiver: attachedDatabase.typeMapping.read(
+          DriftSqlType.bool,
+          data['${effectivePrefix}enable_online_order_receiver']),
+      model: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}model']),
+      systemVersion: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}system_version']),
+      appVersion: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}app_version']),
+      build: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}build']),
+      latitude: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}latitude']),
+      longitude: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}longitude']),
+      connectionIPAddress: attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}connection_i_p_address']),
+      connectionPort: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}connection_port']),
+      connectionType: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}connection_type']),
+      imei: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}imei']),
+      ip: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}ip']),
+      refrencePrefix: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}refrence_prefix']),
+      orderTypes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}order_types']),
+      products: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}products']),
+      categories: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}categories']),
+      departments: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}departments']),
+      users: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}users']),
+      resturnatSections: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}resturnat_sections']),
+      settings: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}settings']),
+    );
+  }
+
+  @override
+  $DeviceEntityTable createAlias(String alias) {
+    return $DeviceEntityTable(attachedDatabase, alias);
+  }
+}
+
+class DeviceEntityData extends DataClass
+    implements Insertable<DeviceEntityData> {
+  final int idSeq;
+  final String deviceId;
+  final String? deviceTypeId;
+  final String? deviceModelId;
+  final int? deviceTypeCode;
+  final int? masterDeviceNo;
+  final String? deviceNo;
+  final String? reference;
+  final String? name;
+  final String? fName;
+  final bool? enableOnlineOrderReceiver;
+  final String? model;
+  final String? systemVersion;
+  final String? appVersion;
+  final String? build;
+  final String? latitude;
+  final String? longitude;
+  final String? connectionIPAddress;
+  final int? connectionPort;
+  final int? connectionType;
+  final String? imei;
+  final String? ip;
+  final String? refrencePrefix;
+  final String? orderTypes;
+  final String? products;
+  final String? categories;
+  final String? departments;
+  final String? users;
+  final String? resturnatSections;
+  final String? settings;
+  const DeviceEntityData(
+      {required this.idSeq,
+      required this.deviceId,
+      this.deviceTypeId,
+      this.deviceModelId,
+      this.deviceTypeCode,
+      this.masterDeviceNo,
+      this.deviceNo,
+      this.reference,
+      this.name,
+      this.fName,
+      this.enableOnlineOrderReceiver,
+      this.model,
+      this.systemVersion,
+      this.appVersion,
+      this.build,
+      this.latitude,
+      this.longitude,
+      this.connectionIPAddress,
+      this.connectionPort,
+      this.connectionType,
+      this.imei,
+      this.ip,
+      this.refrencePrefix,
+      this.orderTypes,
+      this.products,
+      this.categories,
+      this.departments,
+      this.users,
+      this.resturnatSections,
+      this.settings});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id_seq'] = Variable<int>(idSeq);
+    map['device_id'] = Variable<String>(deviceId);
+    if (!nullToAbsent || deviceTypeId != null) {
+      map['device_type_id'] = Variable<String>(deviceTypeId);
+    }
+    if (!nullToAbsent || deviceModelId != null) {
+      map['device_model_id'] = Variable<String>(deviceModelId);
+    }
+    if (!nullToAbsent || deviceTypeCode != null) {
+      map['device_type_code'] = Variable<int>(deviceTypeCode);
+    }
+    if (!nullToAbsent || masterDeviceNo != null) {
+      map['master_device_no'] = Variable<int>(masterDeviceNo);
+    }
+    if (!nullToAbsent || deviceNo != null) {
+      map['device_no'] = Variable<String>(deviceNo);
+    }
+    if (!nullToAbsent || reference != null) {
+      map['reference'] = Variable<String>(reference);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
+    }
+    if (!nullToAbsent || enableOnlineOrderReceiver != null) {
+      map['enable_online_order_receiver'] =
+          Variable<bool>(enableOnlineOrderReceiver);
+    }
+    if (!nullToAbsent || model != null) {
+      map['model'] = Variable<String>(model);
+    }
+    if (!nullToAbsent || systemVersion != null) {
+      map['system_version'] = Variable<String>(systemVersion);
+    }
+    if (!nullToAbsent || appVersion != null) {
+      map['app_version'] = Variable<String>(appVersion);
+    }
+    if (!nullToAbsent || build != null) {
+      map['build'] = Variable<String>(build);
+    }
+    if (!nullToAbsent || latitude != null) {
+      map['latitude'] = Variable<String>(latitude);
+    }
+    if (!nullToAbsent || longitude != null) {
+      map['longitude'] = Variable<String>(longitude);
+    }
+    if (!nullToAbsent || connectionIPAddress != null) {
+      map['connection_i_p_address'] = Variable<String>(connectionIPAddress);
+    }
+    if (!nullToAbsent || connectionPort != null) {
+      map['connection_port'] = Variable<int>(connectionPort);
+    }
+    if (!nullToAbsent || connectionType != null) {
+      map['connection_type'] = Variable<int>(connectionType);
+    }
+    if (!nullToAbsent || imei != null) {
+      map['imei'] = Variable<String>(imei);
+    }
+    if (!nullToAbsent || ip != null) {
+      map['ip'] = Variable<String>(ip);
+    }
+    if (!nullToAbsent || refrencePrefix != null) {
+      map['refrence_prefix'] = Variable<String>(refrencePrefix);
+    }
+    if (!nullToAbsent || orderTypes != null) {
+      map['order_types'] = Variable<String>(orderTypes);
+    }
+    if (!nullToAbsent || products != null) {
+      map['products'] = Variable<String>(products);
+    }
+    if (!nullToAbsent || categories != null) {
+      map['categories'] = Variable<String>(categories);
+    }
+    if (!nullToAbsent || departments != null) {
+      map['departments'] = Variable<String>(departments);
+    }
+    if (!nullToAbsent || users != null) {
+      map['users'] = Variable<String>(users);
+    }
+    if (!nullToAbsent || resturnatSections != null) {
+      map['resturnat_sections'] = Variable<String>(resturnatSections);
+    }
+    if (!nullToAbsent || settings != null) {
+      map['settings'] = Variable<String>(settings);
+    }
+    return map;
+  }
+
+  DeviceEntityCompanion toCompanion(bool nullToAbsent) {
+    return DeviceEntityCompanion(
+      idSeq: Value(idSeq),
+      deviceId: Value(deviceId),
+      deviceTypeId: deviceTypeId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceTypeId),
+      deviceModelId: deviceModelId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceModelId),
+      deviceTypeCode: deviceTypeCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceTypeCode),
+      masterDeviceNo: masterDeviceNo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(masterDeviceNo),
+      deviceNo: deviceNo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceNo),
+      reference: reference == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reference),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
+      enableOnlineOrderReceiver:
+          enableOnlineOrderReceiver == null && nullToAbsent
+              ? const Value.absent()
+              : Value(enableOnlineOrderReceiver),
+      model:
+          model == null && nullToAbsent ? const Value.absent() : Value(model),
+      systemVersion: systemVersion == null && nullToAbsent
+          ? const Value.absent()
+          : Value(systemVersion),
+      appVersion: appVersion == null && nullToAbsent
+          ? const Value.absent()
+          : Value(appVersion),
+      build:
+          build == null && nullToAbsent ? const Value.absent() : Value(build),
+      latitude: latitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(latitude),
+      longitude: longitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(longitude),
+      connectionIPAddress: connectionIPAddress == null && nullToAbsent
+          ? const Value.absent()
+          : Value(connectionIPAddress),
+      connectionPort: connectionPort == null && nullToAbsent
+          ? const Value.absent()
+          : Value(connectionPort),
+      connectionType: connectionType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(connectionType),
+      imei: imei == null && nullToAbsent ? const Value.absent() : Value(imei),
+      ip: ip == null && nullToAbsent ? const Value.absent() : Value(ip),
+      refrencePrefix: refrencePrefix == null && nullToAbsent
+          ? const Value.absent()
+          : Value(refrencePrefix),
+      orderTypes: orderTypes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(orderTypes),
+      products: products == null && nullToAbsent
+          ? const Value.absent()
+          : Value(products),
+      categories: categories == null && nullToAbsent
+          ? const Value.absent()
+          : Value(categories),
+      departments: departments == null && nullToAbsent
+          ? const Value.absent()
+          : Value(departments),
+      users:
+          users == null && nullToAbsent ? const Value.absent() : Value(users),
+      resturnatSections: resturnatSections == null && nullToAbsent
+          ? const Value.absent()
+          : Value(resturnatSections),
+      settings: settings == null && nullToAbsent
+          ? const Value.absent()
+          : Value(settings),
+    );
+  }
+
+  factory DeviceEntityData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DeviceEntityData(
+      idSeq: serializer.fromJson<int>(json['idSeq']),
+      deviceId: serializer.fromJson<String>(json['deviceId']),
+      deviceTypeId: serializer.fromJson<String?>(json['deviceTypeId']),
+      deviceModelId: serializer.fromJson<String?>(json['deviceModelId']),
+      deviceTypeCode: serializer.fromJson<int?>(json['deviceTypeCode']),
+      masterDeviceNo: serializer.fromJson<int?>(json['masterDeviceNo']),
+      deviceNo: serializer.fromJson<String?>(json['deviceNo']),
+      reference: serializer.fromJson<String?>(json['reference']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
+      enableOnlineOrderReceiver:
+          serializer.fromJson<bool?>(json['enableOnlineOrderReceiver']),
+      model: serializer.fromJson<String?>(json['model']),
+      systemVersion: serializer.fromJson<String?>(json['systemVersion']),
+      appVersion: serializer.fromJson<String?>(json['appVersion']),
+      build: serializer.fromJson<String?>(json['build']),
+      latitude: serializer.fromJson<String?>(json['latitude']),
+      longitude: serializer.fromJson<String?>(json['longitude']),
+      connectionIPAddress:
+          serializer.fromJson<String?>(json['connectionIPAddress']),
+      connectionPort: serializer.fromJson<int?>(json['connectionPort']),
+      connectionType: serializer.fromJson<int?>(json['connectionType']),
+      imei: serializer.fromJson<String?>(json['imei']),
+      ip: serializer.fromJson<String?>(json['ip']),
+      refrencePrefix: serializer.fromJson<String?>(json['refrencePrefix']),
+      orderTypes: serializer.fromJson<String?>(json['orderTypes']),
+      products: serializer.fromJson<String?>(json['products']),
+      categories: serializer.fromJson<String?>(json['categories']),
+      departments: serializer.fromJson<String?>(json['departments']),
+      users: serializer.fromJson<String?>(json['users']),
+      resturnatSections:
+          serializer.fromJson<String?>(json['resturnatSections']),
+      settings: serializer.fromJson<String?>(json['settings']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'idSeq': serializer.toJson<int>(idSeq),
+      'deviceId': serializer.toJson<String>(deviceId),
+      'deviceTypeId': serializer.toJson<String?>(deviceTypeId),
+      'deviceModelId': serializer.toJson<String?>(deviceModelId),
+      'deviceTypeCode': serializer.toJson<int?>(deviceTypeCode),
+      'masterDeviceNo': serializer.toJson<int?>(masterDeviceNo),
+      'deviceNo': serializer.toJson<String?>(deviceNo),
+      'reference': serializer.toJson<String?>(reference),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
+      'enableOnlineOrderReceiver':
+          serializer.toJson<bool?>(enableOnlineOrderReceiver),
+      'model': serializer.toJson<String?>(model),
+      'systemVersion': serializer.toJson<String?>(systemVersion),
+      'appVersion': serializer.toJson<String?>(appVersion),
+      'build': serializer.toJson<String?>(build),
+      'latitude': serializer.toJson<String?>(latitude),
+      'longitude': serializer.toJson<String?>(longitude),
+      'connectionIPAddress': serializer.toJson<String?>(connectionIPAddress),
+      'connectionPort': serializer.toJson<int?>(connectionPort),
+      'connectionType': serializer.toJson<int?>(connectionType),
+      'imei': serializer.toJson<String?>(imei),
+      'ip': serializer.toJson<String?>(ip),
+      'refrencePrefix': serializer.toJson<String?>(refrencePrefix),
+      'orderTypes': serializer.toJson<String?>(orderTypes),
+      'products': serializer.toJson<String?>(products),
+      'categories': serializer.toJson<String?>(categories),
+      'departments': serializer.toJson<String?>(departments),
+      'users': serializer.toJson<String?>(users),
+      'resturnatSections': serializer.toJson<String?>(resturnatSections),
+      'settings': serializer.toJson<String?>(settings),
+    };
+  }
+
+  DeviceEntityData copyWith(
+          {int? idSeq,
+          String? deviceId,
+          Value<String?> deviceTypeId = const Value.absent(),
+          Value<String?> deviceModelId = const Value.absent(),
+          Value<int?> deviceTypeCode = const Value.absent(),
+          Value<int?> masterDeviceNo = const Value.absent(),
+          Value<String?> deviceNo = const Value.absent(),
+          Value<String?> reference = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
+          Value<bool?> enableOnlineOrderReceiver = const Value.absent(),
+          Value<String?> model = const Value.absent(),
+          Value<String?> systemVersion = const Value.absent(),
+          Value<String?> appVersion = const Value.absent(),
+          Value<String?> build = const Value.absent(),
+          Value<String?> latitude = const Value.absent(),
+          Value<String?> longitude = const Value.absent(),
+          Value<String?> connectionIPAddress = const Value.absent(),
+          Value<int?> connectionPort = const Value.absent(),
+          Value<int?> connectionType = const Value.absent(),
+          Value<String?> imei = const Value.absent(),
+          Value<String?> ip = const Value.absent(),
+          Value<String?> refrencePrefix = const Value.absent(),
+          Value<String?> orderTypes = const Value.absent(),
+          Value<String?> products = const Value.absent(),
+          Value<String?> categories = const Value.absent(),
+          Value<String?> departments = const Value.absent(),
+          Value<String?> users = const Value.absent(),
+          Value<String?> resturnatSections = const Value.absent(),
+          Value<String?> settings = const Value.absent()}) =>
+      DeviceEntityData(
+        idSeq: idSeq ?? this.idSeq,
+        deviceId: deviceId ?? this.deviceId,
+        deviceTypeId:
+            deviceTypeId.present ? deviceTypeId.value : this.deviceTypeId,
+        deviceModelId:
+            deviceModelId.present ? deviceModelId.value : this.deviceModelId,
+        deviceTypeCode:
+            deviceTypeCode.present ? deviceTypeCode.value : this.deviceTypeCode,
+        masterDeviceNo:
+            masterDeviceNo.present ? masterDeviceNo.value : this.masterDeviceNo,
+        deviceNo: deviceNo.present ? deviceNo.value : this.deviceNo,
+        reference: reference.present ? reference.value : this.reference,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
+        enableOnlineOrderReceiver: enableOnlineOrderReceiver.present
+            ? enableOnlineOrderReceiver.value
+            : this.enableOnlineOrderReceiver,
+        model: model.present ? model.value : this.model,
+        systemVersion:
+            systemVersion.present ? systemVersion.value : this.systemVersion,
+        appVersion: appVersion.present ? appVersion.value : this.appVersion,
+        build: build.present ? build.value : this.build,
+        latitude: latitude.present ? latitude.value : this.latitude,
+        longitude: longitude.present ? longitude.value : this.longitude,
+        connectionIPAddress: connectionIPAddress.present
+            ? connectionIPAddress.value
+            : this.connectionIPAddress,
+        connectionPort:
+            connectionPort.present ? connectionPort.value : this.connectionPort,
+        connectionType:
+            connectionType.present ? connectionType.value : this.connectionType,
+        imei: imei.present ? imei.value : this.imei,
+        ip: ip.present ? ip.value : this.ip,
+        refrencePrefix:
+            refrencePrefix.present ? refrencePrefix.value : this.refrencePrefix,
+        orderTypes: orderTypes.present ? orderTypes.value : this.orderTypes,
+        products: products.present ? products.value : this.products,
+        categories: categories.present ? categories.value : this.categories,
+        departments: departments.present ? departments.value : this.departments,
+        users: users.present ? users.value : this.users,
+        resturnatSections: resturnatSections.present
+            ? resturnatSections.value
+            : this.resturnatSections,
+        settings: settings.present ? settings.value : this.settings,
+      );
+  DeviceEntityData copyWithCompanion(DeviceEntityCompanion data) {
+    return DeviceEntityData(
+      idSeq: data.idSeq.present ? data.idSeq.value : this.idSeq,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      deviceTypeId: data.deviceTypeId.present
+          ? data.deviceTypeId.value
+          : this.deviceTypeId,
+      deviceModelId: data.deviceModelId.present
+          ? data.deviceModelId.value
+          : this.deviceModelId,
+      deviceTypeCode: data.deviceTypeCode.present
+          ? data.deviceTypeCode.value
+          : this.deviceTypeCode,
+      masterDeviceNo: data.masterDeviceNo.present
+          ? data.masterDeviceNo.value
+          : this.masterDeviceNo,
+      deviceNo: data.deviceNo.present ? data.deviceNo.value : this.deviceNo,
+      reference: data.reference.present ? data.reference.value : this.reference,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
+      enableOnlineOrderReceiver: data.enableOnlineOrderReceiver.present
+          ? data.enableOnlineOrderReceiver.value
+          : this.enableOnlineOrderReceiver,
+      model: data.model.present ? data.model.value : this.model,
+      systemVersion: data.systemVersion.present
+          ? data.systemVersion.value
+          : this.systemVersion,
+      appVersion:
+          data.appVersion.present ? data.appVersion.value : this.appVersion,
+      build: data.build.present ? data.build.value : this.build,
+      latitude: data.latitude.present ? data.latitude.value : this.latitude,
+      longitude: data.longitude.present ? data.longitude.value : this.longitude,
+      connectionIPAddress: data.connectionIPAddress.present
+          ? data.connectionIPAddress.value
+          : this.connectionIPAddress,
+      connectionPort: data.connectionPort.present
+          ? data.connectionPort.value
+          : this.connectionPort,
+      connectionType: data.connectionType.present
+          ? data.connectionType.value
+          : this.connectionType,
+      imei: data.imei.present ? data.imei.value : this.imei,
+      ip: data.ip.present ? data.ip.value : this.ip,
+      refrencePrefix: data.refrencePrefix.present
+          ? data.refrencePrefix.value
+          : this.refrencePrefix,
+      orderTypes:
+          data.orderTypes.present ? data.orderTypes.value : this.orderTypes,
+      products: data.products.present ? data.products.value : this.products,
+      categories:
+          data.categories.present ? data.categories.value : this.categories,
+      departments:
+          data.departments.present ? data.departments.value : this.departments,
+      users: data.users.present ? data.users.value : this.users,
+      resturnatSections: data.resturnatSections.present
+          ? data.resturnatSections.value
+          : this.resturnatSections,
+      settings: data.settings.present ? data.settings.value : this.settings,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DeviceEntityData(')
+          ..write('idSeq: $idSeq, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('deviceTypeId: $deviceTypeId, ')
+          ..write('deviceModelId: $deviceModelId, ')
+          ..write('deviceTypeCode: $deviceTypeCode, ')
+          ..write('masterDeviceNo: $masterDeviceNo, ')
+          ..write('deviceNo: $deviceNo, ')
+          ..write('reference: $reference, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('enableOnlineOrderReceiver: $enableOnlineOrderReceiver, ')
+          ..write('model: $model, ')
+          ..write('systemVersion: $systemVersion, ')
+          ..write('appVersion: $appVersion, ')
+          ..write('build: $build, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('connectionIPAddress: $connectionIPAddress, ')
+          ..write('connectionPort: $connectionPort, ')
+          ..write('connectionType: $connectionType, ')
+          ..write('imei: $imei, ')
+          ..write('ip: $ip, ')
+          ..write('refrencePrefix: $refrencePrefix, ')
+          ..write('orderTypes: $orderTypes, ')
+          ..write('products: $products, ')
+          ..write('categories: $categories, ')
+          ..write('departments: $departments, ')
+          ..write('users: $users, ')
+          ..write('resturnatSections: $resturnatSections, ')
+          ..write('settings: $settings')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        idSeq,
+        deviceId,
+        deviceTypeId,
+        deviceModelId,
+        deviceTypeCode,
+        masterDeviceNo,
+        deviceNo,
+        reference,
+        name,
+        fName,
+        enableOnlineOrderReceiver,
+        model,
+        systemVersion,
+        appVersion,
+        build,
+        latitude,
+        longitude,
+        connectionIPAddress,
+        connectionPort,
+        connectionType,
+        imei,
+        ip,
+        refrencePrefix,
+        orderTypes,
+        products,
+        categories,
+        departments,
+        users,
+        resturnatSections,
+        settings
+      ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DeviceEntityData &&
+          other.idSeq == this.idSeq &&
+          other.deviceId == this.deviceId &&
+          other.deviceTypeId == this.deviceTypeId &&
+          other.deviceModelId == this.deviceModelId &&
+          other.deviceTypeCode == this.deviceTypeCode &&
+          other.masterDeviceNo == this.masterDeviceNo &&
+          other.deviceNo == this.deviceNo &&
+          other.reference == this.reference &&
+          other.name == this.name &&
+          other.fName == this.fName &&
+          other.enableOnlineOrderReceiver == this.enableOnlineOrderReceiver &&
+          other.model == this.model &&
+          other.systemVersion == this.systemVersion &&
+          other.appVersion == this.appVersion &&
+          other.build == this.build &&
+          other.latitude == this.latitude &&
+          other.longitude == this.longitude &&
+          other.connectionIPAddress == this.connectionIPAddress &&
+          other.connectionPort == this.connectionPort &&
+          other.connectionType == this.connectionType &&
+          other.imei == this.imei &&
+          other.ip == this.ip &&
+          other.refrencePrefix == this.refrencePrefix &&
+          other.orderTypes == this.orderTypes &&
+          other.products == this.products &&
+          other.categories == this.categories &&
+          other.departments == this.departments &&
+          other.users == this.users &&
+          other.resturnatSections == this.resturnatSections &&
+          other.settings == this.settings);
+}
+
+class DeviceEntityCompanion extends UpdateCompanion<DeviceEntityData> {
+  final Value<int> idSeq;
+  final Value<String> deviceId;
+  final Value<String?> deviceTypeId;
+  final Value<String?> deviceModelId;
+  final Value<int?> deviceTypeCode;
+  final Value<int?> masterDeviceNo;
+  final Value<String?> deviceNo;
+  final Value<String?> reference;
+  final Value<String?> name;
+  final Value<String?> fName;
+  final Value<bool?> enableOnlineOrderReceiver;
+  final Value<String?> model;
+  final Value<String?> systemVersion;
+  final Value<String?> appVersion;
+  final Value<String?> build;
+  final Value<String?> latitude;
+  final Value<String?> longitude;
+  final Value<String?> connectionIPAddress;
+  final Value<int?> connectionPort;
+  final Value<int?> connectionType;
+  final Value<String?> imei;
+  final Value<String?> ip;
+  final Value<String?> refrencePrefix;
+  final Value<String?> orderTypes;
+  final Value<String?> products;
+  final Value<String?> categories;
+  final Value<String?> departments;
+  final Value<String?> users;
+  final Value<String?> resturnatSections;
+  final Value<String?> settings;
+  const DeviceEntityCompanion({
+    this.idSeq = const Value.absent(),
+    this.deviceId = const Value.absent(),
+    this.deviceTypeId = const Value.absent(),
+    this.deviceModelId = const Value.absent(),
+    this.deviceTypeCode = const Value.absent(),
+    this.masterDeviceNo = const Value.absent(),
+    this.deviceNo = const Value.absent(),
+    this.reference = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.enableOnlineOrderReceiver = const Value.absent(),
+    this.model = const Value.absent(),
+    this.systemVersion = const Value.absent(),
+    this.appVersion = const Value.absent(),
+    this.build = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.connectionIPAddress = const Value.absent(),
+    this.connectionPort = const Value.absent(),
+    this.connectionType = const Value.absent(),
+    this.imei = const Value.absent(),
+    this.ip = const Value.absent(),
+    this.refrencePrefix = const Value.absent(),
+    this.orderTypes = const Value.absent(),
+    this.products = const Value.absent(),
+    this.categories = const Value.absent(),
+    this.departments = const Value.absent(),
+    this.users = const Value.absent(),
+    this.resturnatSections = const Value.absent(),
+    this.settings = const Value.absent(),
+  });
+  DeviceEntityCompanion.insert({
+    this.idSeq = const Value.absent(),
+    required String deviceId,
+    this.deviceTypeId = const Value.absent(),
+    this.deviceModelId = const Value.absent(),
+    this.deviceTypeCode = const Value.absent(),
+    this.masterDeviceNo = const Value.absent(),
+    this.deviceNo = const Value.absent(),
+    this.reference = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
+    this.enableOnlineOrderReceiver = const Value.absent(),
+    this.model = const Value.absent(),
+    this.systemVersion = const Value.absent(),
+    this.appVersion = const Value.absent(),
+    this.build = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.connectionIPAddress = const Value.absent(),
+    this.connectionPort = const Value.absent(),
+    this.connectionType = const Value.absent(),
+    this.imei = const Value.absent(),
+    this.ip = const Value.absent(),
+    this.refrencePrefix = const Value.absent(),
+    this.orderTypes = const Value.absent(),
+    this.products = const Value.absent(),
+    this.categories = const Value.absent(),
+    this.departments = const Value.absent(),
+    this.users = const Value.absent(),
+    this.resturnatSections = const Value.absent(),
+    this.settings = const Value.absent(),
+  }) : deviceId = Value(deviceId);
+  static Insertable<DeviceEntityData> custom({
+    Expression<int>? idSeq,
+    Expression<String>? deviceId,
+    Expression<String>? deviceTypeId,
+    Expression<String>? deviceModelId,
+    Expression<int>? deviceTypeCode,
+    Expression<int>? masterDeviceNo,
+    Expression<String>? deviceNo,
+    Expression<String>? reference,
+    Expression<String>? name,
+    Expression<String>? fName,
+    Expression<bool>? enableOnlineOrderReceiver,
+    Expression<String>? model,
+    Expression<String>? systemVersion,
+    Expression<String>? appVersion,
+    Expression<String>? build,
+    Expression<String>? latitude,
+    Expression<String>? longitude,
+    Expression<String>? connectionIPAddress,
+    Expression<int>? connectionPort,
+    Expression<int>? connectionType,
+    Expression<String>? imei,
+    Expression<String>? ip,
+    Expression<String>? refrencePrefix,
+    Expression<String>? orderTypes,
+    Expression<String>? products,
+    Expression<String>? categories,
+    Expression<String>? departments,
+    Expression<String>? users,
+    Expression<String>? resturnatSections,
+    Expression<String>? settings,
+  }) {
+    return RawValuesInsertable({
+      if (idSeq != null) 'id_seq': idSeq,
+      if (deviceId != null) 'device_id': deviceId,
+      if (deviceTypeId != null) 'device_type_id': deviceTypeId,
+      if (deviceModelId != null) 'device_model_id': deviceModelId,
+      if (deviceTypeCode != null) 'device_type_code': deviceTypeCode,
+      if (masterDeviceNo != null) 'master_device_no': masterDeviceNo,
+      if (deviceNo != null) 'device_no': deviceNo,
+      if (reference != null) 'reference': reference,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
+      if (enableOnlineOrderReceiver != null)
+        'enable_online_order_receiver': enableOnlineOrderReceiver,
+      if (model != null) 'model': model,
+      if (systemVersion != null) 'system_version': systemVersion,
+      if (appVersion != null) 'app_version': appVersion,
+      if (build != null) 'build': build,
+      if (latitude != null) 'latitude': latitude,
+      if (longitude != null) 'longitude': longitude,
+      if (connectionIPAddress != null)
+        'connection_i_p_address': connectionIPAddress,
+      if (connectionPort != null) 'connection_port': connectionPort,
+      if (connectionType != null) 'connection_type': connectionType,
+      if (imei != null) 'imei': imei,
+      if (ip != null) 'ip': ip,
+      if (refrencePrefix != null) 'refrence_prefix': refrencePrefix,
+      if (orderTypes != null) 'order_types': orderTypes,
+      if (products != null) 'products': products,
+      if (categories != null) 'categories': categories,
+      if (departments != null) 'departments': departments,
+      if (users != null) 'users': users,
+      if (resturnatSections != null) 'resturnat_sections': resturnatSections,
+      if (settings != null) 'settings': settings,
+    });
+  }
+
+  DeviceEntityCompanion copyWith(
+      {Value<int>? idSeq,
+      Value<String>? deviceId,
+      Value<String?>? deviceTypeId,
+      Value<String?>? deviceModelId,
+      Value<int?>? deviceTypeCode,
+      Value<int?>? masterDeviceNo,
+      Value<String?>? deviceNo,
+      Value<String?>? reference,
+      Value<String?>? name,
+      Value<String?>? fName,
+      Value<bool?>? enableOnlineOrderReceiver,
+      Value<String?>? model,
+      Value<String?>? systemVersion,
+      Value<String?>? appVersion,
+      Value<String?>? build,
+      Value<String?>? latitude,
+      Value<String?>? longitude,
+      Value<String?>? connectionIPAddress,
+      Value<int?>? connectionPort,
+      Value<int?>? connectionType,
+      Value<String?>? imei,
+      Value<String?>? ip,
+      Value<String?>? refrencePrefix,
+      Value<String?>? orderTypes,
+      Value<String?>? products,
+      Value<String?>? categories,
+      Value<String?>? departments,
+      Value<String?>? users,
+      Value<String?>? resturnatSections,
+      Value<String?>? settings}) {
+    return DeviceEntityCompanion(
+      idSeq: idSeq ?? this.idSeq,
+      deviceId: deviceId ?? this.deviceId,
+      deviceTypeId: deviceTypeId ?? this.deviceTypeId,
+      deviceModelId: deviceModelId ?? this.deviceModelId,
+      deviceTypeCode: deviceTypeCode ?? this.deviceTypeCode,
+      masterDeviceNo: masterDeviceNo ?? this.masterDeviceNo,
+      deviceNo: deviceNo ?? this.deviceNo,
+      reference: reference ?? this.reference,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
+      enableOnlineOrderReceiver:
+          enableOnlineOrderReceiver ?? this.enableOnlineOrderReceiver,
+      model: model ?? this.model,
+      systemVersion: systemVersion ?? this.systemVersion,
+      appVersion: appVersion ?? this.appVersion,
+      build: build ?? this.build,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      connectionIPAddress: connectionIPAddress ?? this.connectionIPAddress,
+      connectionPort: connectionPort ?? this.connectionPort,
+      connectionType: connectionType ?? this.connectionType,
+      imei: imei ?? this.imei,
+      ip: ip ?? this.ip,
+      refrencePrefix: refrencePrefix ?? this.refrencePrefix,
+      orderTypes: orderTypes ?? this.orderTypes,
+      products: products ?? this.products,
+      categories: categories ?? this.categories,
+      departments: departments ?? this.departments,
+      users: users ?? this.users,
+      resturnatSections: resturnatSections ?? this.resturnatSections,
+      settings: settings ?? this.settings,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (idSeq.present) {
+      map['id_seq'] = Variable<int>(idSeq.value);
+    }
+    if (deviceId.present) {
+      map['device_id'] = Variable<String>(deviceId.value);
+    }
+    if (deviceTypeId.present) {
+      map['device_type_id'] = Variable<String>(deviceTypeId.value);
+    }
+    if (deviceModelId.present) {
+      map['device_model_id'] = Variable<String>(deviceModelId.value);
+    }
+    if (deviceTypeCode.present) {
+      map['device_type_code'] = Variable<int>(deviceTypeCode.value);
+    }
+    if (masterDeviceNo.present) {
+      map['master_device_no'] = Variable<int>(masterDeviceNo.value);
+    }
+    if (deviceNo.present) {
+      map['device_no'] = Variable<String>(deviceNo.value);
+    }
+    if (reference.present) {
+      map['reference'] = Variable<String>(reference.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
+    }
+    if (enableOnlineOrderReceiver.present) {
+      map['enable_online_order_receiver'] =
+          Variable<bool>(enableOnlineOrderReceiver.value);
+    }
+    if (model.present) {
+      map['model'] = Variable<String>(model.value);
+    }
+    if (systemVersion.present) {
+      map['system_version'] = Variable<String>(systemVersion.value);
+    }
+    if (appVersion.present) {
+      map['app_version'] = Variable<String>(appVersion.value);
+    }
+    if (build.present) {
+      map['build'] = Variable<String>(build.value);
+    }
+    if (latitude.present) {
+      map['latitude'] = Variable<String>(latitude.value);
+    }
+    if (longitude.present) {
+      map['longitude'] = Variable<String>(longitude.value);
+    }
+    if (connectionIPAddress.present) {
+      map['connection_i_p_address'] =
+          Variable<String>(connectionIPAddress.value);
+    }
+    if (connectionPort.present) {
+      map['connection_port'] = Variable<int>(connectionPort.value);
+    }
+    if (connectionType.present) {
+      map['connection_type'] = Variable<int>(connectionType.value);
+    }
+    if (imei.present) {
+      map['imei'] = Variable<String>(imei.value);
+    }
+    if (ip.present) {
+      map['ip'] = Variable<String>(ip.value);
+    }
+    if (refrencePrefix.present) {
+      map['refrence_prefix'] = Variable<String>(refrencePrefix.value);
+    }
+    if (orderTypes.present) {
+      map['order_types'] = Variable<String>(orderTypes.value);
+    }
+    if (products.present) {
+      map['products'] = Variable<String>(products.value);
+    }
+    if (categories.present) {
+      map['categories'] = Variable<String>(categories.value);
+    }
+    if (departments.present) {
+      map['departments'] = Variable<String>(departments.value);
+    }
+    if (users.present) {
+      map['users'] = Variable<String>(users.value);
+    }
+    if (resturnatSections.present) {
+      map['resturnat_sections'] = Variable<String>(resturnatSections.value);
+    }
+    if (settings.present) {
+      map['settings'] = Variable<String>(settings.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DeviceEntityCompanion(')
+          ..write('idSeq: $idSeq, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('deviceTypeId: $deviceTypeId, ')
+          ..write('deviceModelId: $deviceModelId, ')
+          ..write('deviceTypeCode: $deviceTypeCode, ')
+          ..write('masterDeviceNo: $masterDeviceNo, ')
+          ..write('deviceNo: $deviceNo, ')
+          ..write('reference: $reference, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
+          ..write('enableOnlineOrderReceiver: $enableOnlineOrderReceiver, ')
+          ..write('model: $model, ')
+          ..write('systemVersion: $systemVersion, ')
+          ..write('appVersion: $appVersion, ')
+          ..write('build: $build, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('connectionIPAddress: $connectionIPAddress, ')
+          ..write('connectionPort: $connectionPort, ')
+          ..write('connectionType: $connectionType, ')
+          ..write('imei: $imei, ')
+          ..write('ip: $ip, ')
+          ..write('refrencePrefix: $refrencePrefix, ')
+          ..write('orderTypes: $orderTypes, ')
+          ..write('products: $products, ')
+          ..write('categories: $categories, ')
+          ..write('departments: $departments, ')
+          ..write('users: $users, ')
+          ..write('resturnatSections: $resturnatSections, ')
+          ..write('settings: $settings')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$MyDatabase extends GeneratedDatabase {
   _$MyDatabase(QueryExecutor e) : super(e);
   $MyDatabaseManager get managers => $MyDatabaseManager(this);
@@ -29105,6 +30491,7 @@ abstract class _$MyDatabase extends GeneratedDatabase {
       $StockTransactionEntityTable(this);
   late final $InvoiceSequenceV2Table invoiceSequenceV2 =
       $InvoiceSequenceV2Table(this);
+  late final $DeviceEntityTable deviceEntity = $DeviceEntityTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -29149,7 +30536,8 @@ abstract class _$MyDatabase extends GeneratedDatabase {
         orderPrintHistoryV2,
         endOfDayEntity,
         stockTransactionEntity,
-        invoiceSequenceV2
+        invoiceSequenceV2,
+        deviceEntity
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -46261,6 +47649,567 @@ typedef $$InvoiceSequenceV2TableProcessedTableManager = ProcessedTableManager<
     ),
     InvoiceSequenceV2Data,
     PrefetchHooks Function()>;
+typedef $$DeviceEntityTableCreateCompanionBuilder = DeviceEntityCompanion
+    Function({
+  Value<int> idSeq,
+  required String deviceId,
+  Value<String?> deviceTypeId,
+  Value<String?> deviceModelId,
+  Value<int?> deviceTypeCode,
+  Value<int?> masterDeviceNo,
+  Value<String?> deviceNo,
+  Value<String?> reference,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<bool?> enableOnlineOrderReceiver,
+  Value<String?> model,
+  Value<String?> systemVersion,
+  Value<String?> appVersion,
+  Value<String?> build,
+  Value<String?> latitude,
+  Value<String?> longitude,
+  Value<String?> connectionIPAddress,
+  Value<int?> connectionPort,
+  Value<int?> connectionType,
+  Value<String?> imei,
+  Value<String?> ip,
+  Value<String?> refrencePrefix,
+  Value<String?> orderTypes,
+  Value<String?> products,
+  Value<String?> categories,
+  Value<String?> departments,
+  Value<String?> users,
+  Value<String?> resturnatSections,
+  Value<String?> settings,
+});
+typedef $$DeviceEntityTableUpdateCompanionBuilder = DeviceEntityCompanion
+    Function({
+  Value<int> idSeq,
+  Value<String> deviceId,
+  Value<String?> deviceTypeId,
+  Value<String?> deviceModelId,
+  Value<int?> deviceTypeCode,
+  Value<int?> masterDeviceNo,
+  Value<String?> deviceNo,
+  Value<String?> reference,
+  Value<String?> name,
+  Value<String?> fName,
+  Value<bool?> enableOnlineOrderReceiver,
+  Value<String?> model,
+  Value<String?> systemVersion,
+  Value<String?> appVersion,
+  Value<String?> build,
+  Value<String?> latitude,
+  Value<String?> longitude,
+  Value<String?> connectionIPAddress,
+  Value<int?> connectionPort,
+  Value<int?> connectionType,
+  Value<String?> imei,
+  Value<String?> ip,
+  Value<String?> refrencePrefix,
+  Value<String?> orderTypes,
+  Value<String?> products,
+  Value<String?> categories,
+  Value<String?> departments,
+  Value<String?> users,
+  Value<String?> resturnatSections,
+  Value<String?> settings,
+});
+
+class $$DeviceEntityTableFilterComposer
+    extends Composer<_$MyDatabase, $DeviceEntityTable> {
+  $$DeviceEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceTypeId => $composableBuilder(
+      column: $table.deviceTypeId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceModelId => $composableBuilder(
+      column: $table.deviceModelId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get deviceTypeCode => $composableBuilder(
+      column: $table.deviceTypeCode,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get masterDeviceNo => $composableBuilder(
+      column: $table.masterDeviceNo,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get deviceNo => $composableBuilder(
+      column: $table.deviceNo, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get enableOnlineOrderReceiver => $composableBuilder(
+      column: $table.enableOnlineOrderReceiver,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get model => $composableBuilder(
+      column: $table.model, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get systemVersion => $composableBuilder(
+      column: $table.systemVersion, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get appVersion => $composableBuilder(
+      column: $table.appVersion, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get build => $composableBuilder(
+      column: $table.build, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get latitude => $composableBuilder(
+      column: $table.latitude, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get longitude => $composableBuilder(
+      column: $table.longitude, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get connectionIPAddress => $composableBuilder(
+      column: $table.connectionIPAddress,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get connectionPort => $composableBuilder(
+      column: $table.connectionPort,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get connectionType => $composableBuilder(
+      column: $table.connectionType,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get imei => $composableBuilder(
+      column: $table.imei, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get ip => $composableBuilder(
+      column: $table.ip, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get refrencePrefix => $composableBuilder(
+      column: $table.refrencePrefix,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get orderTypes => $composableBuilder(
+      column: $table.orderTypes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get products => $composableBuilder(
+      column: $table.products, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get categories => $composableBuilder(
+      column: $table.categories, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get departments => $composableBuilder(
+      column: $table.departments, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get users => $composableBuilder(
+      column: $table.users, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get resturnatSections => $composableBuilder(
+      column: $table.resturnatSections,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get settings => $composableBuilder(
+      column: $table.settings, builder: (column) => ColumnFilters(column));
+}
+
+class $$DeviceEntityTableOrderingComposer
+    extends Composer<_$MyDatabase, $DeviceEntityTable> {
+  $$DeviceEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idSeq => $composableBuilder(
+      column: $table.idSeq, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+      column: $table.deviceId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceTypeId => $composableBuilder(
+      column: $table.deviceTypeId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceModelId => $composableBuilder(
+      column: $table.deviceModelId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get deviceTypeCode => $composableBuilder(
+      column: $table.deviceTypeCode,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get masterDeviceNo => $composableBuilder(
+      column: $table.masterDeviceNo,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get deviceNo => $composableBuilder(
+      column: $table.deviceNo, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get reference => $composableBuilder(
+      column: $table.reference, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get enableOnlineOrderReceiver => $composableBuilder(
+      column: $table.enableOnlineOrderReceiver,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get model => $composableBuilder(
+      column: $table.model, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get systemVersion => $composableBuilder(
+      column: $table.systemVersion,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get appVersion => $composableBuilder(
+      column: $table.appVersion, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get build => $composableBuilder(
+      column: $table.build, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get latitude => $composableBuilder(
+      column: $table.latitude, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get longitude => $composableBuilder(
+      column: $table.longitude, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get connectionIPAddress => $composableBuilder(
+      column: $table.connectionIPAddress,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get connectionPort => $composableBuilder(
+      column: $table.connectionPort,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get connectionType => $composableBuilder(
+      column: $table.connectionType,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get imei => $composableBuilder(
+      column: $table.imei, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get ip => $composableBuilder(
+      column: $table.ip, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get refrencePrefix => $composableBuilder(
+      column: $table.refrencePrefix,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get orderTypes => $composableBuilder(
+      column: $table.orderTypes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get products => $composableBuilder(
+      column: $table.products, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get categories => $composableBuilder(
+      column: $table.categories, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get departments => $composableBuilder(
+      column: $table.departments, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get users => $composableBuilder(
+      column: $table.users, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get resturnatSections => $composableBuilder(
+      column: $table.resturnatSections,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get settings => $composableBuilder(
+      column: $table.settings, builder: (column) => ColumnOrderings(column));
+}
+
+class $$DeviceEntityTableAnnotationComposer
+    extends Composer<_$MyDatabase, $DeviceEntityTable> {
+  $$DeviceEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idSeq =>
+      $composableBuilder(column: $table.idSeq, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceTypeId => $composableBuilder(
+      column: $table.deviceTypeId, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceModelId => $composableBuilder(
+      column: $table.deviceModelId, builder: (column) => column);
+
+  GeneratedColumn<int> get deviceTypeCode => $composableBuilder(
+      column: $table.deviceTypeCode, builder: (column) => column);
+
+  GeneratedColumn<int> get masterDeviceNo => $composableBuilder(
+      column: $table.masterDeviceNo, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceNo =>
+      $composableBuilder(column: $table.deviceNo, builder: (column) => column);
+
+  GeneratedColumn<String> get reference =>
+      $composableBuilder(column: $table.reference, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
+
+  GeneratedColumn<bool> get enableOnlineOrderReceiver => $composableBuilder(
+      column: $table.enableOnlineOrderReceiver, builder: (column) => column);
+
+  GeneratedColumn<String> get model =>
+      $composableBuilder(column: $table.model, builder: (column) => column);
+
+  GeneratedColumn<String> get systemVersion => $composableBuilder(
+      column: $table.systemVersion, builder: (column) => column);
+
+  GeneratedColumn<String> get appVersion => $composableBuilder(
+      column: $table.appVersion, builder: (column) => column);
+
+  GeneratedColumn<String> get build =>
+      $composableBuilder(column: $table.build, builder: (column) => column);
+
+  GeneratedColumn<String> get latitude =>
+      $composableBuilder(column: $table.latitude, builder: (column) => column);
+
+  GeneratedColumn<String> get longitude =>
+      $composableBuilder(column: $table.longitude, builder: (column) => column);
+
+  GeneratedColumn<String> get connectionIPAddress => $composableBuilder(
+      column: $table.connectionIPAddress, builder: (column) => column);
+
+  GeneratedColumn<int> get connectionPort => $composableBuilder(
+      column: $table.connectionPort, builder: (column) => column);
+
+  GeneratedColumn<int> get connectionType => $composableBuilder(
+      column: $table.connectionType, builder: (column) => column);
+
+  GeneratedColumn<String> get imei =>
+      $composableBuilder(column: $table.imei, builder: (column) => column);
+
+  GeneratedColumn<String> get ip =>
+      $composableBuilder(column: $table.ip, builder: (column) => column);
+
+  GeneratedColumn<String> get refrencePrefix => $composableBuilder(
+      column: $table.refrencePrefix, builder: (column) => column);
+
+  GeneratedColumn<String> get orderTypes => $composableBuilder(
+      column: $table.orderTypes, builder: (column) => column);
+
+  GeneratedColumn<String> get products =>
+      $composableBuilder(column: $table.products, builder: (column) => column);
+
+  GeneratedColumn<String> get categories => $composableBuilder(
+      column: $table.categories, builder: (column) => column);
+
+  GeneratedColumn<String> get departments => $composableBuilder(
+      column: $table.departments, builder: (column) => column);
+
+  GeneratedColumn<String> get users =>
+      $composableBuilder(column: $table.users, builder: (column) => column);
+
+  GeneratedColumn<String> get resturnatSections => $composableBuilder(
+      column: $table.resturnatSections, builder: (column) => column);
+
+  GeneratedColumn<String> get settings =>
+      $composableBuilder(column: $table.settings, builder: (column) => column);
+}
+
+class $$DeviceEntityTableTableManager extends RootTableManager<
+    _$MyDatabase,
+    $DeviceEntityTable,
+    DeviceEntityData,
+    $$DeviceEntityTableFilterComposer,
+    $$DeviceEntityTableOrderingComposer,
+    $$DeviceEntityTableAnnotationComposer,
+    $$DeviceEntityTableCreateCompanionBuilder,
+    $$DeviceEntityTableUpdateCompanionBuilder,
+    (
+      DeviceEntityData,
+      BaseReferences<_$MyDatabase, $DeviceEntityTable, DeviceEntityData>
+    ),
+    DeviceEntityData,
+    PrefetchHooks Function()> {
+  $$DeviceEntityTableTableManager(_$MyDatabase db, $DeviceEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DeviceEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DeviceEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DeviceEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> idSeq = const Value.absent(),
+            Value<String> deviceId = const Value.absent(),
+            Value<String?> deviceTypeId = const Value.absent(),
+            Value<String?> deviceModelId = const Value.absent(),
+            Value<int?> deviceTypeCode = const Value.absent(),
+            Value<int?> masterDeviceNo = const Value.absent(),
+            Value<String?> deviceNo = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<bool?> enableOnlineOrderReceiver = const Value.absent(),
+            Value<String?> model = const Value.absent(),
+            Value<String?> systemVersion = const Value.absent(),
+            Value<String?> appVersion = const Value.absent(),
+            Value<String?> build = const Value.absent(),
+            Value<String?> latitude = const Value.absent(),
+            Value<String?> longitude = const Value.absent(),
+            Value<String?> connectionIPAddress = const Value.absent(),
+            Value<int?> connectionPort = const Value.absent(),
+            Value<int?> connectionType = const Value.absent(),
+            Value<String?> imei = const Value.absent(),
+            Value<String?> ip = const Value.absent(),
+            Value<String?> refrencePrefix = const Value.absent(),
+            Value<String?> orderTypes = const Value.absent(),
+            Value<String?> products = const Value.absent(),
+            Value<String?> categories = const Value.absent(),
+            Value<String?> departments = const Value.absent(),
+            Value<String?> users = const Value.absent(),
+            Value<String?> resturnatSections = const Value.absent(),
+            Value<String?> settings = const Value.absent(),
+          }) =>
+              DeviceEntityCompanion(
+            idSeq: idSeq,
+            deviceId: deviceId,
+            deviceTypeId: deviceTypeId,
+            deviceModelId: deviceModelId,
+            deviceTypeCode: deviceTypeCode,
+            masterDeviceNo: masterDeviceNo,
+            deviceNo: deviceNo,
+            reference: reference,
+            name: name,
+            fName: fName,
+            enableOnlineOrderReceiver: enableOnlineOrderReceiver,
+            model: model,
+            systemVersion: systemVersion,
+            appVersion: appVersion,
+            build: build,
+            latitude: latitude,
+            longitude: longitude,
+            connectionIPAddress: connectionIPAddress,
+            connectionPort: connectionPort,
+            connectionType: connectionType,
+            imei: imei,
+            ip: ip,
+            refrencePrefix: refrencePrefix,
+            orderTypes: orderTypes,
+            products: products,
+            categories: categories,
+            departments: departments,
+            users: users,
+            resturnatSections: resturnatSections,
+            settings: settings,
+          ),
+          createCompanionCallback: ({
+            Value<int> idSeq = const Value.absent(),
+            required String deviceId,
+            Value<String?> deviceTypeId = const Value.absent(),
+            Value<String?> deviceModelId = const Value.absent(),
+            Value<int?> deviceTypeCode = const Value.absent(),
+            Value<int?> masterDeviceNo = const Value.absent(),
+            Value<String?> deviceNo = const Value.absent(),
+            Value<String?> reference = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
+            Value<bool?> enableOnlineOrderReceiver = const Value.absent(),
+            Value<String?> model = const Value.absent(),
+            Value<String?> systemVersion = const Value.absent(),
+            Value<String?> appVersion = const Value.absent(),
+            Value<String?> build = const Value.absent(),
+            Value<String?> latitude = const Value.absent(),
+            Value<String?> longitude = const Value.absent(),
+            Value<String?> connectionIPAddress = const Value.absent(),
+            Value<int?> connectionPort = const Value.absent(),
+            Value<int?> connectionType = const Value.absent(),
+            Value<String?> imei = const Value.absent(),
+            Value<String?> ip = const Value.absent(),
+            Value<String?> refrencePrefix = const Value.absent(),
+            Value<String?> orderTypes = const Value.absent(),
+            Value<String?> products = const Value.absent(),
+            Value<String?> categories = const Value.absent(),
+            Value<String?> departments = const Value.absent(),
+            Value<String?> users = const Value.absent(),
+            Value<String?> resturnatSections = const Value.absent(),
+            Value<String?> settings = const Value.absent(),
+          }) =>
+              DeviceEntityCompanion.insert(
+            idSeq: idSeq,
+            deviceId: deviceId,
+            deviceTypeId: deviceTypeId,
+            deviceModelId: deviceModelId,
+            deviceTypeCode: deviceTypeCode,
+            masterDeviceNo: masterDeviceNo,
+            deviceNo: deviceNo,
+            reference: reference,
+            name: name,
+            fName: fName,
+            enableOnlineOrderReceiver: enableOnlineOrderReceiver,
+            model: model,
+            systemVersion: systemVersion,
+            appVersion: appVersion,
+            build: build,
+            latitude: latitude,
+            longitude: longitude,
+            connectionIPAddress: connectionIPAddress,
+            connectionPort: connectionPort,
+            connectionType: connectionType,
+            imei: imei,
+            ip: ip,
+            refrencePrefix: refrencePrefix,
+            orderTypes: orderTypes,
+            products: products,
+            categories: categories,
+            departments: departments,
+            users: users,
+            resturnatSections: resturnatSections,
+            settings: settings,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$DeviceEntityTableProcessedTableManager = ProcessedTableManager<
+    _$MyDatabase,
+    $DeviceEntityTable,
+    DeviceEntityData,
+    $$DeviceEntityTableFilterComposer,
+    $$DeviceEntityTableOrderingComposer,
+    $$DeviceEntityTableAnnotationComposer,
+    $$DeviceEntityTableCreateCompanionBuilder,
+    $$DeviceEntityTableUpdateCompanionBuilder,
+    (
+      DeviceEntityData,
+      BaseReferences<_$MyDatabase, $DeviceEntityTable, DeviceEntityData>
+    ),
+    DeviceEntityData,
+    PrefetchHooks Function()>;
 
 class $MyDatabaseManager {
   final _$MyDatabase _db;
@@ -46359,4 +48308,6 @@ class $MyDatabaseManager {
           _db, _db.stockTransactionEntity);
   $$InvoiceSequenceV2TableTableManager get invoiceSequenceV2 =>
       $$InvoiceSequenceV2TableTableManager(_db, _db.invoiceSequenceV2);
+  $$DeviceEntityTableTableManager get deviceEntity =>
+      $$DeviceEntityTableTableManager(_db, _db.deviceEntity);
 }

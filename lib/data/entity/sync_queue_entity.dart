@@ -14,8 +14,8 @@ class SyncQueueEntity extends Table {
   TextColumn get checksumCloud => text().nullable()();
   TextColumn get data => text().map(const JsonTypeConverter())();
 
-  @override
-  Set<Column> get primaryKey => {id};
+  // @override
+  // Set<Column> get primaryKey => {id};
 
   @override
   List<Set<Column<Object>>>? get uniqueKeys => [
