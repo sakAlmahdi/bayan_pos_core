@@ -8,7 +8,7 @@ import 'package:drift/drift.dart';
 
 class BaseTillDriftProvider extends BaseTillRepo {
   final MyDatabase db;
-  BaseTillDriftProvider(this.db);
+  BaseTillDriftProvider({required this.db});
 
   @override
   Future<Till?> closeTill(
@@ -139,7 +139,7 @@ class BaseTillDriftProvider extends BaseTillRepo {
             .toList()
             .map((e) => e.readTable(db.tillAmountsEntity))
             .toList();
-        t.tillAmounts?.addAll(s.toTillAmountList.toList() ?? []);
+        t.tillAmounts?.addAll(s.toTillAmountList.toList());
         tillsData.add(t);
       }
       // tillsData.addAll(tills.values.toList().toTillList);

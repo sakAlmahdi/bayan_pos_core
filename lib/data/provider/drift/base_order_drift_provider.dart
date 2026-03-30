@@ -247,7 +247,7 @@ class BaseOrderDriftProvider extends OrderRepo {
   Future<List<TillSumary>?> tillSumary({
     required DateTime date,
   }) async {
-    var tills = await BaseTillDriftProvider(db).gitTillsByDate(date);
+    var tills = await BaseTillDriftProvider(db: db).gitTillsByDate(date);
     List<TillSumary> tillsSumary = [];
 
     for (var i = 0; i < (tills?.length ?? 0); i++) {

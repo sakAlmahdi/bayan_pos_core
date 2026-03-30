@@ -73,7 +73,7 @@ class BaseShiftDriftProvider extends BaseShiftRepo {
             data: shift.toShiftEntityData.toJson(),
             db: db,
             entityId: shift.reference!,
-            table: db.settingEntity,
+            table: db.shiftEntity,
           );
       return shift.copyWith(id: id);
     } catch (e) {

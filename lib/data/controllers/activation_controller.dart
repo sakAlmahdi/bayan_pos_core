@@ -10,11 +10,8 @@ import 'package:bayan_pos_core/data/provider/objectbox/activation_objbox.dart';
 import 'package:client_information/client_information.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:objectbox/internal.dart';
-import 'package:objectbox/objectbox.dart';
 
 class ActivationController extends GetxController {
   late Dio dio;
@@ -93,7 +90,12 @@ class ActivationController extends GetxController {
   saveCode(String code) async {
     bool isSaved = await localRepo.saveActivationCode(code);
     if (isSaved) {
-      Get.offAllNamed(Get.arguments['lastRoute']);
+      // Safely handle missing arguments by defaulting to home
+      final String nextRoute = Get.arguments != null && Get.arguments['lastRoute'] != null
+          ? Get.arguments['lastRoute']
+          : '/'; // Adjust this to your app's default home route name if not '/'
+          
+      Get.offAllNamed(nextRoute);
     }
   }
 
