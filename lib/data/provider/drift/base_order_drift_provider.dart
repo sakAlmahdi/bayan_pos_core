@@ -161,17 +161,17 @@ class BaseOrderDriftProvider extends OrderRepo {
   }
 
   @override
-  Future<String?> createOrderInvoiceNumber({required OrderC order}) async {
+  Future<String?> createOrderCallNumber({required String orderRef}) async {
     Device? curentDevice = Get.find<ActivationController>().currentDevice;
     if (curentDevice == null) throw 'لم يتم اكتشاف الجهاز الحالي';
     var query = db.select(db.orderNumbers);
-    query.where((tbl) => tbl.orderRef.equals(order.orderRef));
+    query.where((tbl) => tbl.orderRef.equals(orderRef));
     OrderNumber? orderInfo = await query.getSingleOrNull();
     String? orderNumber = orderInfo?.idSeq.toString();
     if (orderInfo == null) {
       int id = await db.into(db.orderNumbers).insert(
             OrderNumber(
-              orderRef: order.orderRef,
+              orderRef: orderRef,
               invoiceNumberPerfix: curentDevice.invoiceNumberPrefix ?? '0',
               prefix: curentDevice.invoiceNumberPrefixSymbol,
             ),
