@@ -6,11 +6,41 @@ class SyncQueueDriftProvider {
   SyncQueueDriftProvider({required this.db});
   bool isSubCasher = true;
 
-  Future<List<SyncQueueEntityData>> getUnsyncedItems() async {
+  Future<List<SyncQueueEntityData>> getUnsyncedItems({List<String>? includedEntities}) async {
     final rows = db.select(db.syncQueueEntity)
       ..where((t) => t.synced.equals(false));
+    
+    if (includedEntities != null && includedEntities.isNotEmpty) {
+      rows.where((t) => t.entity.isIn(includedEntities));
+    }
+    
     final result = await rows.get();
     return result;
+  }
+
+  Future<Map<String, int>> getUnsyncedCountsByEntity({List<String>? includedEntities}) async {
+    final query = db.select(db.syncQueueEntity)
+      ..where((t) => t.synced.equals(false));
+    
+    if (includedEntities != null && includedEntities.isNotEmpty) {
+      query.where((t) => t.entity.isIn(includedEntities));
+    }
+    
+    final results = await query.get();
+    
+    final counts = <String, int>{};
+    for (var item in results) {
+      counts[item.entity] = (counts[item.entity] ?? 0) + 1;
+    }
+    return counts;
+  }
+
+  Future<List<SyncQueueEntityData>> getUnsyncedItemsByEntities(List<String> entityNames) async {
+    final query = db.select(db.syncQueueEntity)
+      ..where((t) => t.synced.equals(false) & t.entity.isIn(entityNames))
+      ..orderBy([(t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.desc)]);
+    
+    return await query.get();
   }
 
   Future<void> markAsSynced(

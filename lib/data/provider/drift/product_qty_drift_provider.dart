@@ -1,4 +1,5 @@
 import 'package:bayan_pos_core/bayan_pos_core.dart';
+import 'package:bayan_pos_core/core/extensions/drift_database_ex.dart';
 import 'package:drift/drift.dart';
 
 class ProductQtyDriftProvider {
@@ -18,13 +19,22 @@ class ProductQtyDriftProvider {
     if (dataProductQty != null) {
       double value = dataProductQty.qty + product.qty;
       dataProductQty = dataProductQty.copyWith(qty: value);
-      id = await db
-          .into(db.productQtyEntity)
-          .insert(dataProductQty, mode: InsertMode.replace);
+      id = await db.into(db.productQtyEntity).insertWithSyncQueue(
+            dataProductQty,
+            mode: InsertMode.replace,
+            entityId: "${dataProductQty.productId}_${dataProductQty.unitId}",
+            table: db.productQtyEntity,
+            data: dataProductQty.toJson(),
+            db: db,
+          );
     } else {
-      id = await db.into(db.productQtyEntity).insert(
+      id = await db.into(db.productQtyEntity).insertWithSyncQueue(
             product,
             mode: InsertMode.replace,
+            entityId: "${product.productId}_${product.unitId}",
+            table: db.productQtyEntity,
+            data: product.toJson(),
+            db: db,
           );
     }
 

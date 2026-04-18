@@ -33,6 +33,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../entity/drift_db.dart';
 import '../../repository/base_order_repo_v2.dart';
+import '../../utils/zatca_helper.dart';
 
 class BaseOrderDriftV2 implements BaseOrderRepoV2 {
   final MyDatabase db;
@@ -96,8 +97,19 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
 
           final invoiceUuid = const Uuid().v4();
           final String invoiceNumber = nextCounter.toString().padLeft(6, '0');
-          final String currentHash =
-              base64.encode(utf8.encode('hash_$nextCounter'));
+          
+          // جلب المنتجات لحساب الهاش الفعلي بناءً على الـ XML
+          final products = await (db.select(db.orderProductEntityV2)
+                ..where((t) => t.orderRef.equals(orderRef)))
+              .get();
+
+          final String currentHash = ZatcaHelper.generateInvoiceHash(
+            orderRef: orderRef,
+            order: order!,
+            products: products,
+            icv: nextCounter,
+            prevHash: previousHash,
+          );
 
           await db.into(db.invoiceSequenceV2).insertOnConflictUpdate(
                 InvoiceSequenceV2Companion.insert(
@@ -1402,6 +1414,19 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
             await saveOrderPayments(payment: payment);
           }
         }
+
+        // Add to Sync Queue
+        await db.into(db.syncQueueEntity).insert(
+              SyncQueueEntityCompanion.insert(
+                entity: 'order_v2_entity',
+                entityId: orderResponseDto.orderRef!,
+                process: 'CreateOrUpdate',
+                data: orderResponseDto.toJson(),
+                synced: const Value(false),
+                createdAt: DateTime.now(),
+              ),
+              mode: InsertMode.insertOrReplace,
+            );
       });
       return true;
     } catch (e) {
