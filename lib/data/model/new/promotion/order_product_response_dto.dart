@@ -104,10 +104,7 @@ class OrderProductResponseDto {
   double get totalDiscount =>
       discountAmount.getZeroIfNull + orderDiscountAmount.getZeroIfNull;
 
-  double get subTotal =>
-      (netTotalPriceExcludeTaxWithModifiers.getZeroIfNull +
-          taxAmountWithModifiers.getZeroIfNull) -
-      discountAmountWithModifiers.getZeroIfNull;
+  double get subTotal => totalPriceWithModifiers.getZeroIfNull;
 
   ProductPriceLevel get getProductPriceLevel {
     if (timeEvent != null) {
