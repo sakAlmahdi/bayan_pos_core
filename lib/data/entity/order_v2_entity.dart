@@ -294,6 +294,8 @@ class OrderProductDiscountV2 extends Table {
       .nullable()
       .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get productRef => text().nullable()();
+  TextColumn get name => text().nullable()();
+  TextColumn get fName => text().nullable()();
   RealColumn get discountAmount => real().nullable()();
   RealColumn get discountPercentage => real().nullable()();
   TextColumn get discountType => text().nullable()();
@@ -408,7 +410,7 @@ class OrderProductTaxTypeV2 extends Table {
   BoolColumn get isNotApplyForThisPeriod => boolean().nullable()();
 
   @override
-  Set<Column> get primaryKey => {orderRef, taxTypeId};
+  Set<Column> get primaryKey => {orderRef, productRef, taxTypeId};
 }
 
 // جدول خصومات الطلب
@@ -418,6 +420,7 @@ class OrderDiscountV2 extends Table {
       .references(OrderEntityV2, #orderRef, onDelete: KeyAction.cascade)();
   TextColumn get discountId => text().nullable()();
   TextColumn get name => text().nullable()();
+  TextColumn get fName => text().nullable()();
   RealColumn get totalPrice => real().nullable()();
   RealColumn get discountAmount => real().nullable()();
   RealColumn get discountPercentage => real().nullable()();

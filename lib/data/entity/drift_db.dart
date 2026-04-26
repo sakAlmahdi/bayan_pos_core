@@ -68,16 +68,24 @@ class MyDatabase extends _$MyDatabase {
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
-      onCreate: (Migrator m) async {
+          onCreate: (Migrator m) async {
         // تفعيل المفاتيح الأجنبية عند إنشاء قاعدة البيانات
         await customStatement('PRAGMA foreign_keys = ON');
         await m.createAll();
-      },
-      onUpgrade: (Migrator m, int from, int to) async {});
+      }, onUpgrade: (Migrator m, int from, int to) async {
+        if (from < 51) {
+          // إضافة اسم الخصم (عربي وأجنبي) لجدول خصومات المنتجات
+          await m.addColumn(orderProductDiscountV2, orderProductDiscountV2.name);
+          await m.addColumn(
+              orderProductDiscountV2, orderProductDiscountV2.fName);
+
+          // إضافة الاسم الأجنبي لجدول خصومات الطلب
+          await m.addColumn(orderDiscountV2, orderDiscountV2.fName);
+        }
+      });
 
   @override
-  int get schemaVersion =>
-      49; // تحديث إصدار المخطط لإضافة جدول الأجهزة (Devices)
+  int get schemaVersion => 51; // تم إضافة حقول اسم الخصم (name, fName)
 
   @override
   void notifyUpdates(Set<TableUpdate> updates) {

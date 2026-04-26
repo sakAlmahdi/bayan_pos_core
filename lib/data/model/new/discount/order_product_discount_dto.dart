@@ -1,9 +1,11 @@
+import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/enum/discount_type.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductDiscountDto {
   String? id; // Guid is usually stored as a String in Dart
   String? name;
+  String? fName;
   double? totalPrice;
   double? discountAmount;
   double? discountPercentage;
@@ -16,10 +18,13 @@ class OrderProductDiscountDto {
   double? minAmountOnOrder;
   double? maxAmountOnOrder;
 
+  String? get getName => BaseHelpersMethods.isPrimaryLang ? name : fName;
+
   // Constructor
   OrderProductDiscountDto({
     this.id,
     this.name,
+    this.fName,
     this.totalPrice,
     this.discountAmount,
     this.discountPercentage,
@@ -38,6 +43,7 @@ class OrderProductDiscountDto {
     return OrderProductDiscountDto(
       id: json['id'] as String,
       name: json['name'] as String?,
+      fName: json['fName'] as String?,
       totalPrice: (json['totalPrice'] as num?)?.toDouble(),
       discountAmount: (json['discountAmount'] as num?)?.toDouble(),
       discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
@@ -58,6 +64,7 @@ class OrderProductDiscountDto {
     return {
       'id': id,
       'name': name,
+      'fName': fName,
       'totalPrice': totalPrice,
       'discountAmount': discountAmount,
       'discountPercentage': discountPercentage,
@@ -76,6 +83,7 @@ class OrderProductDiscountDto {
   OrderProductDiscountDto copyWith({
     String? id,
     String? name,
+    String? fName,
     double? totalPrice,
     double? discountAmount,
     double? discountPercentage,
@@ -91,6 +99,7 @@ class OrderProductDiscountDto {
     return OrderProductDiscountDto(
       id: id ?? this.id,
       name: name ?? this.name,
+      fName: fName ?? this.fName,
       totalPrice: totalPrice ?? this.totalPrice,
       discountAmount: discountAmount ?? this.discountAmount,
       discountPercentage: discountPercentage ?? this.discountPercentage,

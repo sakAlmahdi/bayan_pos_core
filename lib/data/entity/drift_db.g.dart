@@ -16763,6 +16763,16 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
   late final GeneratedColumn<String> productRef = GeneratedColumn<String>(
       'product_ref', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _discountAmountMeta =
       const VerificationMeta('discountAmount');
   @override
@@ -16791,6 +16801,8 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
   List<GeneratedColumn> get $columns => [
         orderRef,
         productRef,
+        name,
+        fName,
         discountAmount,
         discountPercentage,
         discountType,
@@ -16816,6 +16828,14 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
           _productRefMeta,
           productRef.isAcceptableOrUnknown(
               data['product_ref']!, _productRefMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
     }
     if (data.containsKey('discount_amount')) {
       context.handle(
@@ -16855,6 +16875,10 @@ class $OrderProductDiscountV2Table extends OrderProductDiscountV2
           .read(DriftSqlType.string, data['${effectivePrefix}order_ref']),
       productRef: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}product_ref']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
       discountAmount: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}discount_amount']),
       discountPercentage: attachedDatabase.typeMapping.read(
@@ -16876,6 +16900,8 @@ class OrderProductDiscountV2Data extends DataClass
     implements Insertable<OrderProductDiscountV2Data> {
   final String? orderRef;
   final String? productRef;
+  final String? name;
+  final String? fName;
   final double? discountAmount;
   final double? discountPercentage;
   final String? discountType;
@@ -16883,6 +16909,8 @@ class OrderProductDiscountV2Data extends DataClass
   const OrderProductDiscountV2Data(
       {this.orderRef,
       this.productRef,
+      this.name,
+      this.fName,
       this.discountAmount,
       this.discountPercentage,
       this.discountType,
@@ -16895,6 +16923,12 @@ class OrderProductDiscountV2Data extends DataClass
     }
     if (!nullToAbsent || productRef != null) {
       map['product_ref'] = Variable<String>(productRef);
+    }
+    if (!nullToAbsent || name != null) {
+      map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
     }
     if (!nullToAbsent || discountAmount != null) {
       map['discount_amount'] = Variable<double>(discountAmount);
@@ -16919,6 +16953,9 @@ class OrderProductDiscountV2Data extends DataClass
       productRef: productRef == null && nullToAbsent
           ? const Value.absent()
           : Value(productRef),
+      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
       discountAmount: discountAmount == null && nullToAbsent
           ? const Value.absent()
           : Value(discountAmount),
@@ -16940,6 +16977,8 @@ class OrderProductDiscountV2Data extends DataClass
     return OrderProductDiscountV2Data(
       orderRef: serializer.fromJson<String?>(json['orderRef']),
       productRef: serializer.fromJson<String?>(json['productRef']),
+      name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
       discountAmount: serializer.fromJson<double?>(json['discountAmount']),
       discountPercentage:
           serializer.fromJson<double?>(json['discountPercentage']),
@@ -16953,6 +16992,8 @@ class OrderProductDiscountV2Data extends DataClass
     return <String, dynamic>{
       'orderRef': serializer.toJson<String?>(orderRef),
       'productRef': serializer.toJson<String?>(productRef),
+      'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
       'discountAmount': serializer.toJson<double?>(discountAmount),
       'discountPercentage': serializer.toJson<double?>(discountPercentage),
       'discountType': serializer.toJson<String?>(discountType),
@@ -16963,6 +17004,8 @@ class OrderProductDiscountV2Data extends DataClass
   OrderProductDiscountV2Data copyWith(
           {Value<String?> orderRef = const Value.absent(),
           Value<String?> productRef = const Value.absent(),
+          Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
           Value<double?> discountAmount = const Value.absent(),
           Value<double?> discountPercentage = const Value.absent(),
           Value<String?> discountType = const Value.absent(),
@@ -16970,6 +17013,8 @@ class OrderProductDiscountV2Data extends DataClass
       OrderProductDiscountV2Data(
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
         productRef: productRef.present ? productRef.value : this.productRef,
+        name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
         discountAmount:
             discountAmount.present ? discountAmount.value : this.discountAmount,
         discountPercentage: discountPercentage.present
@@ -16985,6 +17030,8 @@ class OrderProductDiscountV2Data extends DataClass
       orderRef: data.orderRef.present ? data.orderRef.value : this.orderRef,
       productRef:
           data.productRef.present ? data.productRef.value : this.productRef,
+      name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
       discountAmount: data.discountAmount.present
           ? data.discountAmount.value
           : this.discountAmount,
@@ -17004,6 +17051,8 @@ class OrderProductDiscountV2Data extends DataClass
     return (StringBuffer('OrderProductDiscountV2Data(')
           ..write('orderRef: $orderRef, ')
           ..write('productRef: $productRef, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
           ..write('discountAmount: $discountAmount, ')
           ..write('discountPercentage: $discountPercentage, ')
           ..write('discountType: $discountType, ')
@@ -17013,14 +17062,16 @@ class OrderProductDiscountV2Data extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(orderRef, productRef, discountAmount,
-      discountPercentage, discountType, discountId);
+  int get hashCode => Object.hash(orderRef, productRef, name, fName,
+      discountAmount, discountPercentage, discountType, discountId);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is OrderProductDiscountV2Data &&
           other.orderRef == this.orderRef &&
           other.productRef == this.productRef &&
+          other.name == this.name &&
+          other.fName == this.fName &&
           other.discountAmount == this.discountAmount &&
           other.discountPercentage == this.discountPercentage &&
           other.discountType == this.discountType &&
@@ -17031,6 +17082,8 @@ class OrderProductDiscountV2Companion
     extends UpdateCompanion<OrderProductDiscountV2Data> {
   final Value<String?> orderRef;
   final Value<String?> productRef;
+  final Value<String?> name;
+  final Value<String?> fName;
   final Value<double?> discountAmount;
   final Value<double?> discountPercentage;
   final Value<String?> discountType;
@@ -17039,6 +17092,8 @@ class OrderProductDiscountV2Companion
   const OrderProductDiscountV2Companion({
     this.orderRef = const Value.absent(),
     this.productRef = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
     this.discountAmount = const Value.absent(),
     this.discountPercentage = const Value.absent(),
     this.discountType = const Value.absent(),
@@ -17048,6 +17103,8 @@ class OrderProductDiscountV2Companion
   OrderProductDiscountV2Companion.insert({
     this.orderRef = const Value.absent(),
     this.productRef = const Value.absent(),
+    this.name = const Value.absent(),
+    this.fName = const Value.absent(),
     this.discountAmount = const Value.absent(),
     this.discountPercentage = const Value.absent(),
     this.discountType = const Value.absent(),
@@ -17057,6 +17114,8 @@ class OrderProductDiscountV2Companion
   static Insertable<OrderProductDiscountV2Data> custom({
     Expression<String>? orderRef,
     Expression<String>? productRef,
+    Expression<String>? name,
+    Expression<String>? fName,
     Expression<double>? discountAmount,
     Expression<double>? discountPercentage,
     Expression<String>? discountType,
@@ -17066,6 +17125,8 @@ class OrderProductDiscountV2Companion
     return RawValuesInsertable({
       if (orderRef != null) 'order_ref': orderRef,
       if (productRef != null) 'product_ref': productRef,
+      if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
       if (discountAmount != null) 'discount_amount': discountAmount,
       if (discountPercentage != null) 'discount_percentage': discountPercentage,
       if (discountType != null) 'discount_type': discountType,
@@ -17077,6 +17138,8 @@ class OrderProductDiscountV2Companion
   OrderProductDiscountV2Companion copyWith(
       {Value<String?>? orderRef,
       Value<String?>? productRef,
+      Value<String?>? name,
+      Value<String?>? fName,
       Value<double?>? discountAmount,
       Value<double?>? discountPercentage,
       Value<String?>? discountType,
@@ -17085,6 +17148,8 @@ class OrderProductDiscountV2Companion
     return OrderProductDiscountV2Companion(
       orderRef: orderRef ?? this.orderRef,
       productRef: productRef ?? this.productRef,
+      name: name ?? this.name,
+      fName: fName ?? this.fName,
       discountAmount: discountAmount ?? this.discountAmount,
       discountPercentage: discountPercentage ?? this.discountPercentage,
       discountType: discountType ?? this.discountType,
@@ -17101,6 +17166,12 @@ class OrderProductDiscountV2Companion
     }
     if (productRef.present) {
       map['product_ref'] = Variable<String>(productRef.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
     }
     if (discountAmount.present) {
       map['discount_amount'] = Variable<double>(discountAmount.value);
@@ -17125,6 +17196,8 @@ class OrderProductDiscountV2Companion
     return (StringBuffer('OrderProductDiscountV2Companion(')
           ..write('orderRef: $orderRef, ')
           ..write('productRef: $productRef, ')
+          ..write('name: $name, ')
+          ..write('fName: $fName, ')
           ..write('discountAmount: $discountAmount, ')
           ..write('discountPercentage: $discountPercentage, ')
           ..write('discountType: $discountType, ')
@@ -19127,7 +19200,7 @@ class $OrderProductTaxTypeV2Table extends OrderProductTaxTypeV2
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {orderRef, taxTypeId};
+  Set<GeneratedColumn> get $primaryKey => {orderRef, productRef, taxTypeId};
   @override
   OrderProductTaxTypeV2Data map(Map<String, dynamic> data,
       {String? tablePrefix}) {
@@ -19796,6 +19869,11 @@ class $OrderDiscountV2Table extends OrderDiscountV2
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
       'name', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fNameMeta = const VerificationMeta('fName');
+  @override
+  late final GeneratedColumn<String> fName = GeneratedColumn<String>(
+      'f_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _totalPriceMeta =
       const VerificationMeta('totalPrice');
   @override
@@ -19845,6 +19923,7 @@ class $OrderDiscountV2Table extends OrderDiscountV2
         orderRef,
         discountId,
         name,
+        fName,
         totalPrice,
         discountAmount,
         discountPercentage,
@@ -19877,6 +19956,10 @@ class $OrderDiscountV2Table extends OrderDiscountV2
     if (data.containsKey('name')) {
       context.handle(
           _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    }
+    if (data.containsKey('f_name')) {
+      context.handle(
+          _fNameMeta, fName.isAcceptableOrUnknown(data['f_name']!, _fNameMeta));
     }
     if (data.containsKey('total_price')) {
       context.handle(
@@ -19931,6 +20014,8 @@ class $OrderDiscountV2Table extends OrderDiscountV2
           .read(DriftSqlType.string, data['${effectivePrefix}discount_id']),
       name: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}name']),
+      fName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}f_name']),
       totalPrice: attachedDatabase.typeMapping
           .read(DriftSqlType.double, data['${effectivePrefix}total_price']),
       discountAmount: attachedDatabase.typeMapping
@@ -19960,6 +20045,7 @@ class OrderDiscountV2Data extends DataClass
   final String? orderRef;
   final String? discountId;
   final String? name;
+  final String? fName;
   final double? totalPrice;
   final double? discountAmount;
   final double? discountPercentage;
@@ -19971,6 +20057,7 @@ class OrderDiscountV2Data extends DataClass
       {this.orderRef,
       this.discountId,
       this.name,
+      this.fName,
       this.totalPrice,
       this.discountAmount,
       this.discountPercentage,
@@ -19989,6 +20076,9 @@ class OrderDiscountV2Data extends DataClass
     }
     if (!nullToAbsent || name != null) {
       map['name'] = Variable<String>(name);
+    }
+    if (!nullToAbsent || fName != null) {
+      map['f_name'] = Variable<String>(fName);
     }
     if (!nullToAbsent || totalPrice != null) {
       map['total_price'] = Variable<double>(totalPrice);
@@ -20023,6 +20113,8 @@ class OrderDiscountV2Data extends DataClass
           ? const Value.absent()
           : Value(discountId),
       name: name == null && nullToAbsent ? const Value.absent() : Value(name),
+      fName:
+          fName == null && nullToAbsent ? const Value.absent() : Value(fName),
       totalPrice: totalPrice == null && nullToAbsent
           ? const Value.absent()
           : Value(totalPrice),
@@ -20053,6 +20145,7 @@ class OrderDiscountV2Data extends DataClass
       orderRef: serializer.fromJson<String?>(json['orderRef']),
       discountId: serializer.fromJson<String?>(json['discountId']),
       name: serializer.fromJson<String?>(json['name']),
+      fName: serializer.fromJson<String?>(json['fName']),
       totalPrice: serializer.fromJson<double?>(json['totalPrice']),
       discountAmount: serializer.fromJson<double?>(json['discountAmount']),
       discountPercentage:
@@ -20071,6 +20164,7 @@ class OrderDiscountV2Data extends DataClass
       'orderRef': serializer.toJson<String?>(orderRef),
       'discountId': serializer.toJson<String?>(discountId),
       'name': serializer.toJson<String?>(name),
+      'fName': serializer.toJson<String?>(fName),
       'totalPrice': serializer.toJson<double?>(totalPrice),
       'discountAmount': serializer.toJson<double?>(discountAmount),
       'discountPercentage': serializer.toJson<double?>(discountPercentage),
@@ -20086,6 +20180,7 @@ class OrderDiscountV2Data extends DataClass
           {Value<String?> orderRef = const Value.absent(),
           Value<String?> discountId = const Value.absent(),
           Value<String?> name = const Value.absent(),
+          Value<String?> fName = const Value.absent(),
           Value<double?> totalPrice = const Value.absent(),
           Value<double?> discountAmount = const Value.absent(),
           Value<double?> discountPercentage = const Value.absent(),
@@ -20097,6 +20192,7 @@ class OrderDiscountV2Data extends DataClass
         orderRef: orderRef.present ? orderRef.value : this.orderRef,
         discountId: discountId.present ? discountId.value : this.discountId,
         name: name.present ? name.value : this.name,
+        fName: fName.present ? fName.value : this.fName,
         totalPrice: totalPrice.present ? totalPrice.value : this.totalPrice,
         discountAmount:
             discountAmount.present ? discountAmount.value : this.discountAmount,
@@ -20117,6 +20213,7 @@ class OrderDiscountV2Data extends DataClass
       discountId:
           data.discountId.present ? data.discountId.value : this.discountId,
       name: data.name.present ? data.name.value : this.name,
+      fName: data.fName.present ? data.fName.value : this.fName,
       totalPrice:
           data.totalPrice.present ? data.totalPrice.value : this.totalPrice,
       discountAmount: data.discountAmount.present
@@ -20142,6 +20239,7 @@ class OrderDiscountV2Data extends DataClass
           ..write('orderRef: $orderRef, ')
           ..write('discountId: $discountId, ')
           ..write('name: $name, ')
+          ..write('fName: $fName, ')
           ..write('totalPrice: $totalPrice, ')
           ..write('discountAmount: $discountAmount, ')
           ..write('discountPercentage: $discountPercentage, ')
@@ -20158,6 +20256,7 @@ class OrderDiscountV2Data extends DataClass
       orderRef,
       discountId,
       name,
+      fName,
       totalPrice,
       discountAmount,
       discountPercentage,
@@ -20172,6 +20271,7 @@ class OrderDiscountV2Data extends DataClass
           other.orderRef == this.orderRef &&
           other.discountId == this.discountId &&
           other.name == this.name &&
+          other.fName == this.fName &&
           other.totalPrice == this.totalPrice &&
           other.discountAmount == this.discountAmount &&
           other.discountPercentage == this.discountPercentage &&
@@ -20185,6 +20285,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
   final Value<String?> orderRef;
   final Value<String?> discountId;
   final Value<String?> name;
+  final Value<String?> fName;
   final Value<double?> totalPrice;
   final Value<double?> discountAmount;
   final Value<double?> discountPercentage;
@@ -20197,6 +20298,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     this.orderRef = const Value.absent(),
     this.discountId = const Value.absent(),
     this.name = const Value.absent(),
+    this.fName = const Value.absent(),
     this.totalPrice = const Value.absent(),
     this.discountAmount = const Value.absent(),
     this.discountPercentage = const Value.absent(),
@@ -20210,6 +20312,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     this.orderRef = const Value.absent(),
     this.discountId = const Value.absent(),
     this.name = const Value.absent(),
+    this.fName = const Value.absent(),
     this.totalPrice = const Value.absent(),
     this.discountAmount = const Value.absent(),
     this.discountPercentage = const Value.absent(),
@@ -20223,6 +20326,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     Expression<String>? orderRef,
     Expression<String>? discountId,
     Expression<String>? name,
+    Expression<String>? fName,
     Expression<double>? totalPrice,
     Expression<double>? discountAmount,
     Expression<double>? discountPercentage,
@@ -20236,6 +20340,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
       if (orderRef != null) 'order_ref': orderRef,
       if (discountId != null) 'discount_id': discountId,
       if (name != null) 'name': name,
+      if (fName != null) 'f_name': fName,
       if (totalPrice != null) 'total_price': totalPrice,
       if (discountAmount != null) 'discount_amount': discountAmount,
       if (discountPercentage != null) 'discount_percentage': discountPercentage,
@@ -20252,6 +20357,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
       {Value<String?>? orderRef,
       Value<String?>? discountId,
       Value<String?>? name,
+      Value<String?>? fName,
       Value<double?>? totalPrice,
       Value<double?>? discountAmount,
       Value<double?>? discountPercentage,
@@ -20264,6 +20370,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
       orderRef: orderRef ?? this.orderRef,
       discountId: discountId ?? this.discountId,
       name: name ?? this.name,
+      fName: fName ?? this.fName,
       totalPrice: totalPrice ?? this.totalPrice,
       discountAmount: discountAmount ?? this.discountAmount,
       discountPercentage: discountPercentage ?? this.discountPercentage,
@@ -20287,6 +20394,9 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
     }
     if (name.present) {
       map['name'] = Variable<String>(name.value);
+    }
+    if (fName.present) {
+      map['f_name'] = Variable<String>(fName.value);
     }
     if (totalPrice.present) {
       map['total_price'] = Variable<double>(totalPrice.value);
@@ -20322,6 +20432,7 @@ class OrderDiscountV2Companion extends UpdateCompanion<OrderDiscountV2Data> {
           ..write('orderRef: $orderRef, ')
           ..write('discountId: $discountId, ')
           ..write('name: $name, ')
+          ..write('fName: $fName, ')
           ..write('totalPrice: $totalPrice, ')
           ..write('discountAmount: $discountAmount, ')
           ..write('discountPercentage: $discountPercentage, ')
@@ -40183,6 +40294,8 @@ typedef $$OrderProductDiscountV2TableCreateCompanionBuilder
     = OrderProductDiscountV2Companion Function({
   Value<String?> orderRef,
   Value<String?> productRef,
+  Value<String?> name,
+  Value<String?> fName,
   Value<double?> discountAmount,
   Value<double?> discountPercentage,
   Value<String?> discountType,
@@ -40193,6 +40306,8 @@ typedef $$OrderProductDiscountV2TableUpdateCompanionBuilder
     = OrderProductDiscountV2Companion Function({
   Value<String?> orderRef,
   Value<String?> productRef,
+  Value<String?> name,
+  Value<String?> fName,
   Value<double?> discountAmount,
   Value<double?> discountPercentage,
   Value<String?> discountType,
@@ -40232,6 +40347,12 @@ class $$OrderProductDiscountV2TableFilterComposer
   });
   ColumnFilters<String> get productRef => $composableBuilder(
       column: $table.productRef, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<double> get discountAmount => $composableBuilder(
       column: $table.discountAmount,
@@ -40280,6 +40401,12 @@ class $$OrderProductDiscountV2TableOrderingComposer
   ColumnOrderings<String> get productRef => $composableBuilder(
       column: $table.productRef, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<double> get discountAmount => $composableBuilder(
       column: $table.discountAmount,
       builder: (column) => ColumnOrderings(column));
@@ -40327,6 +40454,12 @@ class $$OrderProductDiscountV2TableAnnotationComposer
   });
   GeneratedColumn<String> get productRef => $composableBuilder(
       column: $table.productRef, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
 
   GeneratedColumn<double> get discountAmount => $composableBuilder(
       column: $table.discountAmount, builder: (column) => column);
@@ -40390,6 +40523,8 @@ class $$OrderProductDiscountV2TableTableManager extends RootTableManager<
           updateCompanionCallback: ({
             Value<String?> orderRef = const Value.absent(),
             Value<String?> productRef = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
             Value<double?> discountAmount = const Value.absent(),
             Value<double?> discountPercentage = const Value.absent(),
             Value<String?> discountType = const Value.absent(),
@@ -40399,6 +40534,8 @@ class $$OrderProductDiscountV2TableTableManager extends RootTableManager<
               OrderProductDiscountV2Companion(
             orderRef: orderRef,
             productRef: productRef,
+            name: name,
+            fName: fName,
             discountAmount: discountAmount,
             discountPercentage: discountPercentage,
             discountType: discountType,
@@ -40408,6 +40545,8 @@ class $$OrderProductDiscountV2TableTableManager extends RootTableManager<
           createCompanionCallback: ({
             Value<String?> orderRef = const Value.absent(),
             Value<String?> productRef = const Value.absent(),
+            Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
             Value<double?> discountAmount = const Value.absent(),
             Value<double?> discountPercentage = const Value.absent(),
             Value<String?> discountType = const Value.absent(),
@@ -40417,6 +40556,8 @@ class $$OrderProductDiscountV2TableTableManager extends RootTableManager<
               OrderProductDiscountV2Companion.insert(
             orderRef: orderRef,
             productRef: productRef,
+            name: name,
+            fName: fName,
             discountAmount: discountAmount,
             discountPercentage: discountPercentage,
             discountType: discountType,
@@ -42228,6 +42369,7 @@ typedef $$OrderDiscountV2TableCreateCompanionBuilder = OrderDiscountV2Companion
   Value<String?> orderRef,
   Value<String?> discountId,
   Value<String?> name,
+  Value<String?> fName,
   Value<double?> totalPrice,
   Value<double?> discountAmount,
   Value<double?> discountPercentage,
@@ -42242,6 +42384,7 @@ typedef $$OrderDiscountV2TableUpdateCompanionBuilder = OrderDiscountV2Companion
   Value<String?> orderRef,
   Value<String?> discountId,
   Value<String?> name,
+  Value<String?> fName,
   Value<double?> totalPrice,
   Value<double?> discountAmount,
   Value<double?> discountPercentage,
@@ -42287,6 +42430,9 @@ class $$OrderDiscountV2TableFilterComposer
 
   ColumnFilters<String> get name => $composableBuilder(
       column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<double> get totalPrice => $composableBuilder(
       column: $table.totalPrice, builder: (column) => ColumnFilters(column));
@@ -42348,6 +42494,9 @@ class $$OrderDiscountV2TableOrderingComposer
   ColumnOrderings<String> get name => $composableBuilder(
       column: $table.name, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get fName => $composableBuilder(
+      column: $table.fName, builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<double> get totalPrice => $composableBuilder(
       column: $table.totalPrice, builder: (column) => ColumnOrderings(column));
 
@@ -42408,6 +42557,9 @@ class $$OrderDiscountV2TableAnnotationComposer
 
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get fName =>
+      $composableBuilder(column: $table.fName, builder: (column) => column);
 
   GeneratedColumn<double> get totalPrice => $composableBuilder(
       column: $table.totalPrice, builder: (column) => column);
@@ -42478,6 +42630,7 @@ class $$OrderDiscountV2TableTableManager extends RootTableManager<
             Value<String?> orderRef = const Value.absent(),
             Value<String?> discountId = const Value.absent(),
             Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
             Value<double?> totalPrice = const Value.absent(),
             Value<double?> discountAmount = const Value.absent(),
             Value<double?> discountPercentage = const Value.absent(),
@@ -42491,6 +42644,7 @@ class $$OrderDiscountV2TableTableManager extends RootTableManager<
             orderRef: orderRef,
             discountId: discountId,
             name: name,
+            fName: fName,
             totalPrice: totalPrice,
             discountAmount: discountAmount,
             discountPercentage: discountPercentage,
@@ -42504,6 +42658,7 @@ class $$OrderDiscountV2TableTableManager extends RootTableManager<
             Value<String?> orderRef = const Value.absent(),
             Value<String?> discountId = const Value.absent(),
             Value<String?> name = const Value.absent(),
+            Value<String?> fName = const Value.absent(),
             Value<double?> totalPrice = const Value.absent(),
             Value<double?> discountAmount = const Value.absent(),
             Value<double?> discountPercentage = const Value.absent(),
@@ -42517,6 +42672,7 @@ class $$OrderDiscountV2TableTableManager extends RootTableManager<
             orderRef: orderRef,
             discountId: discountId,
             name: name,
+            fName: fName,
             totalPrice: totalPrice,
             discountAmount: discountAmount,
             discountPercentage: discountPercentage,

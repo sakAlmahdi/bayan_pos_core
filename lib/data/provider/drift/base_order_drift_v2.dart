@@ -7,6 +7,7 @@ import 'package:bayan_pos_core/data/model/new/order/order_response_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/print_history_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/payment/order_payment_dto.dart';
 import 'package:bayan_pos_core/data/model/new/order/payment/order_payment_detail_dto.dart';
+import 'package:bayan_pos_core/data/model/new/promotion/order_product_promotion_applies_dto.dart';
 import 'package:bayan_pos_core/data/model/shift.dart';
 import 'package:bayan_pos_core/data/model/till/till.dart';
 import 'package:bayan_pos_core/data/model/new/promotion/order_product_response_dto.dart';
@@ -97,7 +98,7 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
 
           final invoiceUuid = const Uuid().v4();
           final String invoiceNumber = nextCounter.toString().padLeft(6, '0');
-          
+
           // جلب المنتجات لحساب الهاش الفعلي بناءً على الـ XML
           final products = await (db.select(db.orderProductEntityV2)
                 ..where((t) => t.orderRef.equals(orderRef)))
@@ -552,6 +553,8 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
           discount: discount != null
               ? OrderProductDiscountDto(
                   id: discount.discountId,
+                  name: discount.name,
+                  fName: discount.fName,
                   discountAmount: discount.discountAmount ?? 0,
                   discountPercentage: discount.discountPercentage ?? 0,
                 )
@@ -567,7 +570,11 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
                       promoInfo.promotionDiscountAmount ?? 0,
                   promotionDiscountPercentage:
                       promoInfo.promotionDiscountPercentage ?? 0,
-                  promotions: [],
+                  promotions: (promoInfo.promotionsJson as List?)
+                          ?.map((e) => OrderProductPromotionAppliesDto.fromJson(
+                              e as Map<String, dynamic>))
+                          .toList() ??
+                      [],
                 )
               : null,
           charges: charges
@@ -766,6 +773,8 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
         discount: discount != null
             ? OrderProductDiscountDto(
                 id: discount.discountId,
+                name: discount.name,
+                fName: discount.fName,
                 discountAmount: discount.discountAmount ?? 0,
                 discountPercentage: discount.discountPercentage ?? 0,
               )
@@ -778,7 +787,9 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
                 discountAmount: promotion.discountAmount,
                 discountPercentage: promotion.discountPercentage,
               )
-            : null,
+            : (order.promotionJson != null
+                ? OrderPromotionAppliesDto.fromJson(order.promotionJson!)
+                : null),
         giftCard: giftCard != null
             ? PromotionGiftCardDto(
                 name: giftCard.name,
@@ -1109,6 +1120,9 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
               invoiceCounterValue: Value(orderResponseDto.invoiceCounterValue),
               invoiceHash: Value(orderResponseDto.invoiceHash),
               previousInvoiceHash: Value(orderResponseDto.previousInvoiceHash),
+              promotionDiscountAmount:
+                  Value(orderResponseDto.promotionDiscountAmount),
+              promotionJson: Value(orderResponseDto.promotion),
             ));
 
         if (orderResponseDto.products != null) {
@@ -1194,6 +1208,8 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
                     orderRef: Value(orderResponseDto.orderRef),
                     productRef: Value(product.productRef),
                     discountId: Value(product.discount!.id),
+                    name: Value(product.discount!.name),
+                    fName: Value(product.discount!.fName),
                     discountAmount: Value(product.discount!.discountAmount),
                     discountPercentage:
                         Value(product.discount!.discountPercentage),
@@ -1216,6 +1232,7 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
                         Value(product.promotionInfo!.promotionDiscountAmount),
                     promotionDiscountPercentage: Value(
                         product.promotionInfo!.promotionDiscountPercentage),
+                    promotionsJson: Value(product.promotionInfo!.promotions),
                   ));
             }
 
@@ -1334,6 +1351,8 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
               .insert(OrderDiscountV2Companion.insert(
                 orderRef: Value(orderResponseDto.orderRef),
                 discountId: Value(orderResponseDto.discount!.id),
+                name: Value(orderResponseDto.discount!.name),
+                fName: Value(orderResponseDto.discount!.fName),
                 discountAmount:
                     Value(orderResponseDto.discount!.discountAmount),
                 discountPercentage:
@@ -1528,14 +1547,15 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
 
       final List<OrderResponseDto> notSyncOrders = [];
       for (var row in data) {
-         final orderData = db.orderEntityV2.map(row.data);
-         final orderDto = await getOrderByRef(orderRef: orderData.orderRef);
-         if (orderDto != null) {
-           notSyncOrders.add(orderDto);
-         }
+        final orderData = db.orderEntityV2.map(row.data);
+        final orderDto = await getOrderByRef(orderRef: orderData.orderRef);
+        if (orderDto != null) {
+          notSyncOrders.add(orderDto);
+        }
       }
-      
-      developer.log("orders not sync count : ${notSyncOrders.length}", name: 'BaseOrderDriftV2');
+
+      developer.log("orders not sync count : ${notSyncOrders.length}",
+          name: 'BaseOrderDriftV2');
       return notSyncOrders;
     } catch (e) {
       throw e.toString();
@@ -1579,6 +1599,7 @@ class BaseOrderDriftV2 implements BaseOrderRepoV2 {
       OrderStatusC.active.toKey(),
     ].join(",")})";
     int rowCount = await db.customUpdate(query);
-    developer.log("deleteDoneOrdersAndDoneSync rowCount: $rowCount", name: 'BaseOrderDriftV2');
+    developer.log("deleteDoneOrdersAndDoneSync rowCount: $rowCount",
+        name: 'BaseOrderDriftV2');
   }
 }
