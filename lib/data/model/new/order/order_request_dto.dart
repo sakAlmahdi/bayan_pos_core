@@ -4,6 +4,7 @@ import 'package:bayan_pos_core/data/model/customer/customer.dart';
 import 'package:bayan_pos_core/data/model/new/product/order_product_request_dto.dart';
 import 'package:bayan_pos_core/data/model/new/charge/manual_charge_request_dto.dart';
 
+import 'package:bayan_pos_core/data/model/new/enums/discount_tax_mode.dart';
 import 'package:bayan_pos_core/data/model/order/order.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
@@ -24,6 +25,9 @@ class OrderRequestDto {
   bool? applyTimeEvents;
   bool? applyCharges;
   bool? customerTaxable;
+  DiscountTaxMode? discountTaxMode;
+  bool? isCancel;
+  String? note;
 
   String? orderRef;
   String? deviceId;
@@ -94,6 +98,9 @@ class OrderRequestDto {
     this.tableCaption,
     this.deliveryCompanyInfo,
     this.address,
+    this.discountTaxMode,
+    this.isCancel,
+    this.note,
   });
 
   factory OrderRequestDto.fromJson(Map<String, dynamic> json) {
@@ -142,7 +149,6 @@ class OrderRequestDto {
       splitIndex: json['splitIndex'],
       priceIncludeTax: json['priceIncludeTax'],
       kitchenNote: json['kitchenNote'],
-      // إضافة الرسوم اليدوية
       manualCharges: json['manualCharges'] != null
           ? (json['manualCharges'] as List)
               .map((e) => ManualChargeRequestDto.fromJson(e))
@@ -158,6 +164,11 @@ class OrderRequestDto {
       address: json['address'] != null
           ? Address.fromJson(json['address'] as Map<String, dynamic>)
           : null,
+      discountTaxMode: json['discountTaxMode'] != null
+          ? DiscountTaxMode.values[json['discountTaxMode']]
+          : null,
+      isCancel: json['isCancel'],
+      note: json['note'],
     );
   }
 
@@ -195,12 +206,14 @@ class OrderRequestDto {
       'splitIndex': splitIndex,
       'priceIncludeTax': priceIncludeTax,
       'kitchenNote': kitchenNote,
-      // إضافة الرسوم اليدوية
       'manualCharges': manualCharges?.map((e) => e.toJson()).toList(),
       'customer': customer?.toJson(),
       'tableCaption': tableCaption,
       'deliveryCompanyInfo': deliveryCompanyInfo?.toJson(),
       'address': address?.toJson(),
+      'discountTaxMode': discountTaxMode?.index,
+      'isCancel': isCancel,
+      'note': note,
     };
   }
 
@@ -229,6 +242,9 @@ class OrderRequestDto {
     DeliveryCompanyInfo? deliveryCompanyInfo,
     String? callName,
     Address? address,
+    DiscountTaxMode? discountTaxMode,
+    bool? isCancel,
+    String? note,
   }) {
     return OrderRequestDto(
       branchId: branchId ?? this.branchId,
@@ -256,6 +272,9 @@ class OrderRequestDto {
       deliveryCompanyInfo: deliveryCompanyInfo ?? this.deliveryCompanyInfo,
       callName: callName ?? this.callName,
       address: address ?? this.address,
+      discountTaxMode: discountTaxMode ?? this.discountTaxMode,
+      isCancel: isCancel ?? this.isCancel,
+      note: note ?? this.note,
     );
   }
 }

@@ -8,6 +8,7 @@ import 'package:bayan_pos_core/data/model/new/promotion/order_product_promotion_
 import 'package:bayan_pos_core/data/model/new/tax/order_product_tax_info_dto.dart';
 import 'package:bayan_pos_core/data/model/new/tiered_pricings/order_product_tiered_pricing_applies_dto.dart';
 import 'package:bayan_pos_core/data/model/new/time_event/order_product_time_event_applies_dto.dart';
+import 'package:bayan_pos_core/data/model/new/enums/discount_tax_mode.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductResponseDto {
@@ -44,6 +45,8 @@ class OrderProductResponseDto {
   List<OrderProductAppliedModifierDto>? appliedModifiers;
   String? notes;
   String? trace;
+  DiscountTaxMode? discountTaxMode;
+  bool? priceIncludeTax;
 
   double? modifiersUnitPrice;
   double? modifiersTotalPrice;
@@ -104,7 +107,10 @@ class OrderProductResponseDto {
   double get totalDiscount =>
       discountAmount.getZeroIfNull + orderDiscountAmount.getZeroIfNull;
 
-  double get subTotal => totalPriceWithModifiers.getZeroIfNull;
+  double get subTotal => (priceIncludeTax ?? false)
+      ? totalPriceWithModifiers.getZeroIfNull
+      : totalPriceWithModifiers.getZeroIfNull +
+          taxAmountWithModifiers.getZeroIfNull;
 
   ProductPriceLevel get getProductPriceLevel {
     if (timeEvent != null) {
@@ -177,6 +183,8 @@ class OrderProductResponseDto {
     this.totalPriceExcludeTax,
     this.trace,
     this.fName,
+    this.discountTaxMode,
+    this.priceIncludeTax,
   });
 
   factory OrderProductResponseDto.fromJson(Map<String, dynamic> json) {
@@ -266,6 +274,10 @@ class OrderProductResponseDto {
           double.tryParse(json['totalPriceExcludeTax']?.toString() ?? ''),
       trace: json['trace'],
       fName: json['fName'],
+      discountTaxMode: json['discountTaxMode'] != null
+          ? DiscountTaxMode.values[json['discountTaxMode'] as int]
+          : null,
+      priceIncludeTax: json['priceIncludeTax'],
     );
   }
 
@@ -331,6 +343,8 @@ class OrderProductResponseDto {
       'totalPriceExcludeTax': totalPriceExcludeTax,
       'trace': trace,
       'fName': fName,
+      'discountTaxMode': discountTaxMode?.index,
+      'priceIncludeTax': priceIncludeTax,
     };
   }
 
@@ -381,6 +395,8 @@ class OrderProductResponseDto {
     double? totalPriceExcludeTax,
     String? trace,
     String? fName,
+    DiscountTaxMode? discountTaxMode,
+    bool? priceIncludeTax,
   }) {
     return OrderProductResponseDto(
       productRef: productRef ?? this.productRef,
@@ -440,6 +456,8 @@ class OrderProductResponseDto {
       totalPriceExcludeTax: totalPriceExcludeTax ?? this.totalPriceExcludeTax,
       trace: trace ?? this.trace,
       fName: fName ?? this.fName,
+      discountTaxMode: discountTaxMode ?? this.discountTaxMode,
+      priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
     );
   }
 

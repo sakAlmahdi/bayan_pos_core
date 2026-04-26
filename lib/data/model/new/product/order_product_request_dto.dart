@@ -2,6 +2,7 @@ import 'package:bayan_pos_core/bayan_pos_core.dart';
 import 'package:bayan_pos_core/core/halper/helpers_method.dart';
 import 'package:bayan_pos_core/data/model/new/tax/order_product_tax_info_dto.dart';
 import 'package:bayan_pos_core/data/model/order/unit.dart';
+import 'package:bayan_pos_core/data/model/new/enums/discount_tax_mode.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
 class OrderProductRequestDto {
@@ -22,6 +23,9 @@ class OrderProductRequestDto {
   Unit unit;
   ExtractProduct productModel;
   String? note;
+  bool? priceIncludeTax;
+  String? previousInvoiceHash;
+  DiscountTaxMode? discountTaxMode;
 
   OrderProductRequestDto({
     required this.prodRef,
@@ -41,6 +45,9 @@ class OrderProductRequestDto {
     this.appliedModifiers,
     this.isCancel,
     this.note,
+    this.previousInvoiceHash,
+    this.discountTaxMode,
+    this.priceIncludeTax,
   });
 
   /// Factory constructor to create an instance from JSON
@@ -75,6 +82,11 @@ class OrderProductRequestDto {
           : null,
       isCancel: json['isCancel'],
       note: json['note'],
+      previousInvoiceHash: json['previousInvoiceHash'],
+      discountTaxMode: json['discountTaxMode'] != null
+          ? DiscountTaxMode.values[json['discountTaxMode'] as int]
+          : null,
+      priceIncludeTax: json['priceIncludeTax'],
     );
   }
 
@@ -98,6 +110,9 @@ class OrderProductRequestDto {
       'appliedModifiers': appliedModifiers?.map((e) => e.toJson()).toList(),
       'isCancel': isCancel,
       'note': note,
+      'previousInvoiceHash': previousInvoiceHash,
+      'discountTaxMode': discountTaxMode?.index,
+      'priceIncludeTax': priceIncludeTax,
     };
   }
 
@@ -120,6 +135,9 @@ class OrderProductRequestDto {
     List<OrderProductAppliedModifierDto>? appliedModifiers,
     bool? isCancel,
     String? note,
+    String? previousInvoiceHash,
+    DiscountTaxMode? discountTaxMode,
+    bool? priceIncludeTax,
   }) {
     return OrderProductRequestDto(
       productModel: productModel ?? this.productModel,
@@ -138,6 +156,9 @@ class OrderProductRequestDto {
       taxGroupId: taxGroupId ?? this.taxGroupId,
       appliedModifiers: appliedModifiers ?? this.appliedModifiers,
       isCancel: isCancel,
+      note: note ?? this.note,
+      discountTaxMode: discountTaxMode ?? this.discountTaxMode,
+      priceIncludeTax: priceIncludeTax ?? this.priceIncludeTax,
     );
   }
 }

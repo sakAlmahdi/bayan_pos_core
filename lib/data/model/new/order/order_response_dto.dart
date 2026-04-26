@@ -11,11 +11,13 @@ import 'package:bayan_pos_core/data/model/new/order/payment/order_payment_dto.da
 import 'package:bayan_pos_core/data/model/new/promotion/order_product_response_dto.dart';
 import 'package:bayan_pos_core/data/model/new/promotion/order_promotion_applies_dto.dart';
 import 'package:bayan_pos_core/data/model/new/tax/order_tax_type_view_dto.dart';
+import 'package:bayan_pos_core/data/model/new/enums/discount_tax_mode.dart';
 import 'package:bayan_pos_core/data/model/order/order.dart';
 
 class OrderResponseDto {
   // الحقول المالية الأساسية
   double totalPrice;
+  double? productSubtotal;
   double? discountAmount;
   double netTotalPrice;
   double? chargeAmount;
@@ -140,6 +142,7 @@ class OrderResponseDto {
   List<OrderChargeForTotalDto>? chargesForTotals;
   List<OrderTaxTypeViewDto>? taxInfo;
   List<OrderPaymentDto>? payments;
+  DiscountTaxMode? discountTaxMode;
 
 
   DeliveryCompanyInfo? deliveryCompanyInfo;
@@ -260,6 +263,8 @@ class OrderResponseDto {
     this.invoiceCounterValue,
     this.invoiceHash,
     this.previousInvoiceHash,
+    this.discountTaxMode,
+    this.productSubtotal,
   });
 
   factory OrderResponseDto.fromJson(Map<String, dynamic> json) {
@@ -422,6 +427,10 @@ class OrderResponseDto {
       invoiceCounterValue: int.tryParse(json['invoiceCounterValue']?.toString() ?? ''),
       invoiceHash: json['invoiceHash'],
       previousInvoiceHash: json['previousInvoiceHash'],
+      discountTaxMode: json['discountTaxMode'] != null
+          ? DiscountTaxMode.values[json['discountTaxMode'] as int]
+          : null,
+      productSubtotal: (json['productSubtotal'] as num?)?.toDouble(),
     );
   }
 
@@ -525,6 +534,8 @@ class OrderResponseDto {
       'invoiceCounterValue': invoiceCounterValue,
       'invoiceHash': invoiceHash,
       'previousInvoiceHash': previousInvoiceHash,
+      'discountTaxMode': discountTaxMode?.index,
+      'productSubtotal': productSubtotal,
     };
   }
 
@@ -626,6 +637,8 @@ class OrderResponseDto {
     int? invoiceCounterValue,
     String? invoiceHash,
     String? previousInvoiceHash,
+    DiscountTaxMode? discountTaxMode,
+    double? productSubtotal,
   }) {
     return OrderResponseDto(
       totalPrice: totalPrice ?? this.totalPrice,
@@ -736,6 +749,8 @@ class OrderResponseDto {
       invoiceCounterValue: invoiceCounterValue ?? this.invoiceCounterValue,
       invoiceHash: invoiceHash ?? this.invoiceHash,
       previousInvoiceHash: previousInvoiceHash ?? this.previousInvoiceHash,
+      discountTaxMode: discountTaxMode ?? this.discountTaxMode,
+      productSubtotal: productSubtotal ?? this.productSubtotal,
     );
   }
 
